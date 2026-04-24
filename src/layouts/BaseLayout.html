@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<!--
+╔══════════════════════════════════════════════════════════════════╗
+║  WORDINEER — BaseLayout.html  (MASTER TEMPLATE)                  ║
+║                                                                  ║
+║  HOW TO MAKE A NEW TOOL PAGE — copy this file and change:        ║
+║  ① <title> and <meta name="description">                         ║
+║  ② <link rel="canonical"> URL                                    ║
+║  ③ og:title and og:url                                           ║
+║  ④ FAQ JSON-LD schema questions                                  ║
+║  ⑤ <h1> and hero subtitle                                        ║
+║  ⑥ Add mega-link.active class to the correct nav link            ║
+║  ⑦ Replace <!-- TOOL SLOT --> with your tool's HTML              ║
+║  ⑧ Replace <!-- EXPLANATION SLOT --> with 300+ unique words      ║
+║  ⑨ Replace <!-- FAQ SLOT --> with 5–7 unique questions           ║
+║                                                                  ║
+║  DO NOT CHANGE: nav, footer, ad zones, affiliate blocks,         ║
+║  tool grids, script tags. Those are shared and maintained once.  ║
+╚══════════════════════════════════════════════════════════════════╝
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ① CHANGE -->
+<title>PAGE TITLE — Free, Instant, No Sign-up | Wordineer</title>
+<meta name="description" content="DESCRIBE THIS TOOL IN 150 CHARS. Free, no sign-up required.">
+
+<!-- ② CHANGE -->
+<link rel="canonical" href="https://wordineer.com/TOOL-SLUG">
+
+<!-- ③ CHANGE og:title and og:url -->
+<meta property="og:type"        content="website">
+<meta property="og:site_name"   content="Wordineer">
+<meta property="og:title"       content="PAGE TITLE | Wordineer">
+<meta property="og:description" content="DESCRIBE THIS TOOL.">
+<meta property="og:url"         content="https://wordineer.com/TOOL-SLUG">
+<meta property="og:image"       content="https://wordineer.com/og-image.png">
+
+<!-- ④ CHANGE: update questions + answers -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "QUESTION 1?",
+      "acceptedAnswer": { "@type": "Answer", "text": "ANSWER 1." }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I use new words correctly in my writing?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Write a sentence using the word immediately after finding it. A tool like Grammarly can confirm your usage is grammatically correct." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this tool free?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes — completely free, no sign-up, no limits." }
+    }
+  ]
+}
+</script>
+
+<!-- Shared styles — edit /styles/global.css, never edit here -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles/global.css">
+
+<!-- Tool-specific styles: add only what's unique to this page's interactive widget -->
+<style>
+/* ── Word Generator Tool Styles (copy these for any word-list tool) ── */
+.tool-wrap  { max-width:960px; margin:0 auto; padding:24px 24px 0; }
+.tool-card  { border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg); box-shadow:var(--shadow); }
+.tool-split { display:flex; }
+
+.ctrl       { width:220px; flex-shrink:0; padding:18px; border-right:1px solid var(--border-2); background:var(--bg-2); }
+.ctrl-row   { margin-bottom:14px; }
+.ctrl-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; display:block; margin-bottom:5px; }
+.ctrl-row input, .ctrl-row select { width:100%; padding:7px 10px; font-size:13px; font-family:inherit; border:1px solid var(--border); border-radius:7px; background:var(--bg); color:var(--text); appearance:none; outline:none; transition:border-color .15s; }
+.ctrl-row input:focus, .ctrl-row select:focus { border-color:var(--brand); }
+.letter-row { display:flex; gap:6px; }
+.letter-row input { text-transform:uppercase; text-align:center; }
+.size-opts  { display:flex; gap:10px; margin-bottom:6px; }
+.size-opt   { display:flex; align-items:center; gap:4px; font-size:12px; color:var(--text-2); cursor:pointer; }
+.size-opt input { accent-color:var(--brand); cursor:pointer; }
+.size-ctrls { display:flex; gap:5px; }
+.size-ctrls select { flex:0 0 60%; font-size:12px; padding:6px 8px; min-width:0; }
+.size-ctrls input  { flex:0 0 calc(40% - 5px); font-size:12px; padding:6px 8px; text-align:center; min-width:0; width:auto; }
+.def-row    { display:flex; align-items:center; gap:8px; margin-bottom:14px; }
+.def-row label { font-size:12px; color:var(--text-2); cursor:pointer; }
+.toggle     { position:relative; width:32px; height:18px; flex-shrink:0; }
+.toggle input { opacity:0; width:0; height:0; }
+.toggle-sl  { position:absolute; cursor:pointer; inset:0; background:var(--border); border-radius:9px; transition:.2s; }
+.toggle input:checked + .toggle-sl { background:var(--brand); }
+.toggle-sl::before { content:''; position:absolute; width:14px; height:14px; left:2px; top:2px; background:white; border-radius:50%; transition:.2s; }
+.toggle input:checked + .toggle-sl::before { transform:translateX(14px); }
+.gen-btn    { width:100%; padding:10px 14px; background:var(--brand); color:white; border:none; border-radius:8px; font-size:14px; font-weight:600; font-family:inherit; cursor:pointer; transition:background .15s,transform .1s; letter-spacing:-.01em; }
+.gen-btn:hover { background:var(--brand-dark); }
+.gen-btn:active { transform:scale(.98); }
+.reset-btn  { display:block; width:100%; text-align:center; font-size:11px; color:var(--text-3); margin-top:8px; cursor:pointer; text-decoration:underline; text-underline-offset:2px; border:none; background:none; font-family:inherit; }
+.kbd        { text-align:center; font-size:10px; color:var(--text-3); margin-top:6px; }
+.kbd kbd    { background:var(--bg-3); border:1px solid var(--border); border-radius:3px; padding:1px 5px; font-size:10px; font-family:inherit; }
+
+.words-panel { flex:1; display:flex; flex-direction:column; overflow:hidden; }
+.words-top  { display:flex; align-items:center; justify-content:space-between; padding:12px 16px; border-bottom:1px solid var(--border-2); }
+.words-count { font-size:12px; color:var(--text-3); }
+.words-actions { display:flex; gap:6px; }
+.act-btn    { font-size:12px; padding:5px 11px; border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:background .12s; }
+.act-btn:hover { background:var(--bg-2); }
+.word-list  { flex:1; overflow-y:auto; list-style:none; padding:0 16px; }
+.word-item  { display:flex; align-items:flex-start; justify-content:space-between; padding:10px 0; border-bottom:1px solid var(--border-2); gap:10px; animation:fadeIn .2s ease; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:none} }
+.word-item:last-child { border-bottom:none; }
+.word-left  { flex:1; }
+.word-text  { font-size:20px; font-weight:500; color:var(--text); line-height:1.2; letter-spacing:-.02em; }
+.word-pos   { font-size:11px; color:var(--text-3); margin-top:1px; font-style:italic; }
+.word-def   { font-size:12px; color:var(--text-2); margin-top:3px; line-height:1.4; }
+.word-grammarly { font-size:11px; margin-top:3px; }
+.word-grammarly a { color:var(--brand); text-decoration:underline; text-underline-offset:2px; }
+.word-right { display:flex; align-items:center; gap:4px; padding-top:3px; flex-shrink:0; }
+.icon-btn   { width:28px; height:28px; display:flex; align-items:center; justify-content:center; background:transparent; border:none; cursor:pointer; border-radius:5px; color:var(--text-3); transition:background .12s, color .12s; }
+.icon-btn:hover { background:var(--bg-2); color:var(--text); }
+.icon-btn svg { width:14px; height:14px; }
+.icon-btn.saved { color:#E24B4A; }
+.icon-btn.saved svg path { fill:#E24B4A; }
+
+.saved-section { padding:12px 16px; border-top:1px solid var(--border-2); }
+.saved-top  { display:flex; align-items:center; justify-content:space-between; margin-bottom:7px; }
+.saved-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; }
+.saved-copy { font-size:11px; color:var(--brand); cursor:pointer; text-decoration:underline; text-underline-offset:2px; }
+.saved-tags { display:flex; gap:5px; flex-wrap:wrap; min-height:22px; }
+.saved-tag  { font-size:11px; padding:3px 10px; background:var(--brand-light); color:var(--brand-dark); border-radius:20px; display:flex; align-items:center; gap:4px; }
+.saved-tag-remove { cursor:pointer; opacity:.6; font-size:13px; line-height:1; }
+.saved-tag-remove:hover { opacity:1; }
+.saved-empty { font-size:12px; color:var(--text-3); font-style:italic; }
+
+@media(max-width:700px){
+  .tool-split { flex-direction:column; }
+  .ctrl { width:100%; border-right:none; border-bottom:1px solid var(--border-2); }
+  .size-ctrls select { flex:0 0 50%; }
+  .size-ctrls input  { flex:0 0 calc(50% - 5px); }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════ NAV (shared — do not edit) ══ -->
+<nav class="nav">
+  <a class="nav-logo" href="/">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 15 15" fill="none"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </div>
+    Wordineer
+  </a>
+  <div class="nav-links">
+    <a href="/tools.html">Tools</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/api.html">API</a>
+  </div>
+  <div>
+    <div class="hamburger" onclick="document.getElementById('mega').classList.toggle('open')" title="All tools">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+<div class="mega" id="mega">
+  <div class="mega-inner">
+    <div class="mega-col">
+      <div class="mega-cat">Word tools</div>
+      <!-- ⑥ Add class="active" to the link matching this page -->
+      <a class="mega-link" href="/index.html">Random word generator</a>
+      <a class="mega-link" href="/random-sentence-generator.html">Random sentence</a>
+      <a class="mega-link" href="/random-letter-generator.html">Random letter</a>
+      <a class="mega-link" href="/word-scramble.html">Word scramble</a>
+      <a class="mega-link" href="/word-of-the-day.html">Word of the day</a>
+      <a class="mega-link" href="/passphrase-generator.html">Passphrase gen</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Name generators</div>
+      <a class="mega-link" href="/random-name-generator.html">Random name</a>
+      <a class="mega-link" href="/username-generator.html">Username generator</a>
+      <a class="mega-link" href="/fantasy-name-generator.html">Fantasy name gen</a>
+      <a class="mega-link" href="/baby-name-finder.html">Baby name finder</a>
+      <a class="mega-link" href="/pet-name-generator.html">Pet name gen</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Number &amp; chance</div>
+      <a class="mega-link" href="/random-number-generator.html">Random number</a>
+      <a class="mega-link" href="/dice-roller.html">Dice roller</a>
+      <a class="mega-link" href="/coin-flip.html">Coin flip</a>
+      <a class="mega-link" href="/lucky-number.html">Lucky number</a>
+      <a class="mega-link" href="/list-shuffler.html">List shuffler</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Games &amp; fun</div>
+      <a class="mega-link" href="/pictionary-word-generator.html">Pictionary words</a>
+      <a class="mega-link" href="/charades-generator.html">Charades gen</a>
+      <a class="mega-link" href="/truth-or-dare.html">Truth or dare</a>
+      <a class="mega-link" href="/would-you-rather.html">Would you rather</a>
+      <a class="mega-link" href="/story-prompts.html">Story prompts</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════ HERO ⑤ CHANGE H1 + subtitle ══════ -->
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free · No sign-up · Instant
+  </div>
+  <h1>PAGE H1 TITLE HERE</h1><!-- ⑤ CHANGE -->
+  <p>One sentence describing what this tool does and who it helps.</p><!-- ⑤ CHANGE -->
+</div>
+
+<!-- ════════════════════════ TOOL SLOT ⑦ REPLACE BELOW ══════════════ -->
+<div class="tool-wrap">
+  <div class="tool-card">
+    <div class="tool-split">
+
+      <!-- LEFT: filters -->
+      <div class="ctrl">
+        <div class="ctrl-row">
+          <span class="ctrl-label">Number of words</span>
+          <input type="number" id="ctrl-count" value="10" min="1" max="100">
+        </div>
+        <div class="ctrl-row">
+          <span class="ctrl-label">Word type</span>
+          <select id="ctrl-type">
+            <option value="all">All types</option>
+            <option value="noun">Nouns only</option>
+            <option value="adjective">Adjectives only</option>
+            <option value="verb">Verbs only</option>
+            <option value="adverb">Adverbs only</option>
+            <option value="extended">Extended / rare</option>
+            <option value="nonenglish">Borrowed (non-English)</option>
+          </select>
+        </div>
+        <div class="ctrl-row">
+          <span class="ctrl-label">Difficulty</span>
+          <select id="ctrl-diff">
+            <option value="all">All levels</option>
+            <option value="easy">Easy (common)</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Advanced / rare</option>
+          </select>
+        </div>
+        <div class="ctrl-row">
+          <span class="ctrl-label">First &amp; last letter</span>
+          <div class="letter-row">
+            <input type="text" id="ctrl-first" maxlength="1" placeholder="A">
+            <input type="text" id="ctrl-last"  maxlength="1" placeholder="Z">
+          </div>
+        </div>
+        <div class="ctrl-row">
+          <span class="ctrl-label">Word size by</span>
+          <div class="size-opts">
+            <label class="size-opt"><input type="radio" name="sizeby" value="letters" checked> Letters</label>
+            <label class="size-opt"><input type="radio" name="sizeby" value="syllables"> Syllables</label>
+          </div>
+          <div class="size-ctrls">
+            <select><option>Any length</option><option>Equals</option><option>At least</option><option>At most</option></select>
+            <input type="number" placeholder="—" min="1" max="20">
+          </div>
+        </div>
+        <div class="def-row">
+          <label class="toggle"><input type="checkbox" id="ctrl-defs" checked><span class="toggle-sl"></span></label>
+          <label for="ctrl-defs">Show definitions</label>
+        </div>
+        <button class="gen-btn" onclick="WORDINEER.render()">Generate words</button>
+        <button class="reset-btn" onclick="WORDINEER.reset()">Reset options</button>
+        <div class="kbd">Press <kbd>Space</kbd> to regenerate</div>
+
+        <!-- AD ZONE A — sidebar (replace inner with AdSense tag when live) -->
+        <div class="ad-sidebar">
+          <span class="ad-sidebar-tag">Ad</span>
+          <div class="ad-sidebar-logo">
+            <svg viewBox="0 0 32 32" fill="none" width="32" height="32"><circle cx="16" cy="16" r="14" fill="#15a249"/><path d="M10 16c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="16" r="2.5" fill="white"/></svg>
+            <span class="ad-sidebar-brand">Grammarly</span>
+          </div>
+          <div class="ad-sidebar-headline">Write with confidence</div>
+          <div class="ad-sidebar-body">Fix grammar, improve clarity, and choose the right words — everywhere you write.</div>
+          <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-sidebar-cta">Try free →</a>
+          <div class="ad-sidebar-sub">Free plan · No credit card</div>
+        </div>
+      </div>
+
+      <!-- RIGHT: word list -->
+      <div class="words-panel">
+        <div class="words-top">
+          <span class="words-count" id="word-count">Generating…</span>
+          <div class="words-actions">
+            <button class="act-btn" onclick="WORDINEER.copyAll()">Copy all</button>
+            <button class="act-btn" onclick="WORDINEER.render()">Regenerate</button>
+          </div>
+        </div>
+        <ul class="word-list" id="word-list"></ul>
+      </div>
+
+    </div>
+
+    <!-- Saved words -->
+    <div class="saved-section">
+      <div class="saved-top">
+        <span class="saved-label">Saved words <span id="saved-count" style="font-weight:400;opacity:.7">(0)</span></span>
+        <span class="saved-copy" onclick="WORDINEER.copySaved()">Copy saved</span>
+      </div>
+      <div class="saved-tags" id="saved-tags">
+        <span class="saved-empty">Click the heart on any word to save it here</span>
+      </div>
+    </div>
+
+    <!-- Affiliate P2: post-save nudge -->
+    <div class="aff-nudge" id="aff-nudge">
+      <div>
+        <div class="aff-nudge-title">Put your saved words to work</div>
+        <div class="aff-nudge-body">Grammarly helps you use new vocabulary naturally — checks grammar, tone and word choice. Free to start.</div>
+      </div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-nudge-cta">
+        Try free
+        <svg viewBox="0 0 10 10" fill="none"><path d="M2 5h6M6 3l2 2-2 2" stroke="white" stroke-width="1.2" stroke-linecap="round"/></svg>
+      </a>
+    </div>
+
+  </div>
+</div>
+<!-- ════════════════════════ END TOOL SLOT ══════════════════════════ -->
+
+<!-- AD ZONE B — leaderboard (replace with real ad tag when live) -->
+<div class="ad-leaderboard">
+  <div class="ad-leaderboard-inner">
+    <span class="ad-tag">Advertisement · 728×90</span>
+    <div class="ad-mock-content">
+      <div class="ad-title">Grammarly — write with confidence. Grammar, tone &amp; clarity.</div>
+      <div class="ad-sub">Used by 30 million people. Works in Google Docs, Gmail, Word and more.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-mock-cta">Try Grammarly free</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ SHARED: more tools + other tools + ad C ════════ -->
+<div class="content-wrap">
+  <div class="section">
+    <h2 class="section-title">More word tools</h2>
+    <p class="section-sub">Every word generator you need, all free</p>
+    <div class="tools-grid">
+      <a class="tool-item" href="/random-letter-generator.html"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3h9M2 6h5.5M2 9h3.5" stroke="#534AB7" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="tool-name">Random letter</div><div class="tool-desc">Single or multiple letters</div></a>
+      <a class="tool-item" href="/random-sentence-generator.html"><div class="tool-icon" style="background:#E1F5EE"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 3h10M1.5 6.5h7M1.5 10h5" stroke="#0F6E56" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="tool-name">Random sentence</div><div class="tool-desc">Writing prompts &amp; starters</div></a>
+      <a class="tool-item" href="/word-scramble.html"><div class="tool-icon" style="background:#FAEEDA"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="#854F0B" stroke-width="1.1"/></svg></div><div class="tool-name">Word scramble</div><div class="tool-desc">Scramble or unscramble words</div></a>
+      <a class="tool-item" href="/random-name-generator.html"><div class="tool-icon" style="background:#FAECE7"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4" r="2.2" stroke="#993C1D" stroke-width="1.1"/><path d="M1.5 11.5c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="#993C1D" stroke-width="1.1" stroke-linecap="round"/></svg></div><div class="tool-name">Random name <span class="new-badge">new</span></div><div class="tool-desc">First, last, or fantasy names</div></a>
+      <a class="tool-item" href="/word-of-the-day.html"><div class="tool-icon" style="background:#EAF3DE"><svg viewBox="0 0 13 13" fill="none"><path d="M6.5 1v11M1 6.5h11" stroke="#3B6D11" stroke-width="1.4" stroke-linecap="round"/></svg></div><div class="tool-name">Word of the day</div><div class="tool-desc">Daily vocabulary builder</div></a>
+      <a class="tool-item" href="/passphrase-generator.html"><div class="tool-icon" style="background:#FBEAF0"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="2" width="9" height="9" rx="2" stroke="#993556" stroke-width="1.1"/></svg></div><div class="tool-name">Passphrase gen</div><div class="tool-desc">Secure memorable passwords</div></a>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div>
+    <h2 class="section-title">Other tools</h2>
+    <p class="section-sub">Numbers, names, games and more</p>
+    <div class="other-grid">
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="1" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="1" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/></svg>Number &amp; chance</div><a class="other-link" href="/random-number-generator.html">Random number generator</a><a class="other-link" href="/dice-roller.html">Dice roller — 4,6,8,12,20 sided</a><a class="other-link" href="/coin-flip.html">Coin flip simulator</a><a class="other-link" href="/lucky-number.html">Lucky number picker</a><a class="other-link" href="/list-shuffler.html">Random list shuffler</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4.5" r="2.5" stroke="currentColor" stroke-width="1"/><path d="M1.5 11.5c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Name generators</div><a class="other-link" href="/fantasy-name-generator.html">Fantasy character name gen</a><a class="other-link" href="/username-generator.html">Username generator</a><a class="other-link" href="/baby-name-finder.html">Baby name finder</a><a class="other-link" href="/pet-name-generator.html">Pet name generator</a><a class="other-link" href="/band-name-generator.html">Band / team name gen</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3h9M2 6.5h7M2 10h5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Text &amp; writing</div><a class="other-link" href="/lorem-ipsum.html">Lorem ipsum generator</a><a class="other-link" href="/password-generator.html">Password generator</a><a class="other-link" href="/acronym-maker.html">Acronym maker</a><a class="other-link" href="/random-quote.html">Random quote generator</a><a class="other-link" href="/story-prompts.html">Story prompt generator</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M6.5 1.5l1.3 3h3.2l-2.6 2 1 3-2.9-1.8-2.9 1.8 1-3-2.6-2h3.2z" stroke="currentColor" stroke-width="1" stroke-linejoin="round"/></svg>Games &amp; fun</div><a class="other-link" href="/pictionary-word-generator.html">Pictionary word generator</a><a class="other-link" href="/charades-generator.html">Charades generator</a><a class="other-link" href="/truth-or-dare.html">Truth or dare gen</a><a class="other-link" href="/would-you-rather.html">Would you rather</a><a class="other-link" href="/trivia-questions.html">Trivia question gen</a></div>
+    </div>
+  </div>
+
+  <!-- AD ZONE C — in-content rectangle (replace with real ad tag when live) -->
+  <div class="ad-rect">
+    <span class="ad-tag">Advertisement · 336×280</span>
+    <div class="ad-rect-img"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4C10.3 4 4 10.3 4 18s6.3 14 14 14 14-6.3 14-14S25.7 4 18 4z" fill="white" opacity=".2"/><path d="M12 18c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="18" r="2.5" fill="white"/></svg></div>
+    <div class="ad-rect-content">
+      <div class="ad-rect-title">Grammarly — write with confidence</div>
+      <div class="ad-rect-body">Instantly improve grammar, spelling, clarity, and tone. Works everywhere you write online.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
+    </div>
+  </div>
+  <div class="divider"></div>
+
+  <!-- ⑧ EXPLANATION SLOT — replace with 300+ unique words per tool page -->
+  <div class="explainer">
+    <h2>What is a [TOOL NAME]?</h2>
+    <p>WRITE YOUR EXPLANATION HERE. Minimum 300 words. Unique content on every page — this is what Google ranks.</p>
+
+    <h2>How to use it</h2>
+    <p>Explain a specific use case. Include a contextual link to a related tool like <a href="/random-sentence-generator.html">random sentence generator</a>.</p>
+
+    <!-- Affiliate P3 — writing section -->
+    <div class="aff-writing">
+      <div class="aff-sponsored">✦ Sponsored <span class="ad-pill">Ad</span></div>
+      <div class="aff-writing-body">Once you have your words, Grammarly makes sure your writing is clear, mistake-free, and compelling — right inside Google Docs, Word, or your browser.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Write better with Grammarly — free to start <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
+    </div>
+
+    <h2>Another section heading</h2>
+    <p>Add 3–5 sections. Each h2 is an SEO signal. Include contextual affiliate link where natural: use <a href="https://grammarly.com" target="_blank" rel="noopener">Grammarly's free writing assistant</a> to check sentences. <small style="color:var(--text-3)">(affiliate link)</small></p>
+  </div>
+  <div class="divider"></div>
+
+  <!-- ⑨ FAQ SLOT — replace with unique questions per page -->
+  <div class="faq">
+    <h2 class="faq-title">Frequently asked questions</h2>
+    <div class="faq-item open">
+      <div class="faq-q"><span class="faq-q-text">QUESTION 1?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      <div class="faq-a">ANSWER 1.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span class="faq-q-text">How do I use new words correctly in my writing?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      <div class="faq-a">
+        Write a sentence using the word immediately. A tool like <a href="https://grammarly.com" target="_blank" rel="noopener">Grammarly</a> can confirm your usage is grammatically correct before you publish.
+        <div class="aff-faq">
+          <div class="aff-faq-tag">Recommended tool</div>
+          <div class="aff-faq-body">Grammarly's vocabulary suggestions and tone detector help you choose exactly the right word every time.</div>
+          <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-faq-link">Check your writing free with Grammarly →</a>
+        </div>
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span class="faq-q-text">Is this tool free?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      <div class="faq-a">Completely free, forever. No account required, no limits, no paywalls.</div>
+    </div>
+  </div>
+  <div class="divider"></div>
+
+  <div>
+    <h2 class="section-title" style="margin-bottom:14px">Who uses Wordineer</h2>
+    <div class="uc-grid">
+      <div class="uc"><div class="uc-title">Teachers</div><div class="uc-body">Vocabulary exercises, spelling bees, and classroom games</div></div>
+      <div class="uc"><div class="uc-title">Writers</div><div class="uc-body">Beat writer's block with random word prompts</div></div>
+      <div class="uc"><div class="uc-title">Gamers</div><div class="uc-body">Charades, Pictionary, Scrabble practice</div></div>
+      <div class="uc"><div class="uc-title">ESL learners</div><div class="uc-body">Build English vocabulary with definitions</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ FOOTER (shared — do not edit) ══════════════ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="ad-footer-strip" style="margin-bottom:24px">
+      <span class="ad-tag">Advertisement · 468×60</span>
+      <div class="ad-fs-text"><strong>Grammarly Premium</strong> — Vocabulary suggestions, tone detector, full-sentence rewrites.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-footer-strip-cta">Try free</a>
+    </div>
+    <div class="footer-grid">
+      <div><div class="footer-col-title">Word tools</div><a class="footer-link" href="/index.html">Random word generator</a><a class="footer-link" href="/random-sentence-generator.html">Random sentence</a><a class="footer-link" href="/random-letter-generator.html">Random letter</a><a class="footer-link" href="/word-scramble.html">Word scramble</a><a class="footer-link" href="/word-of-the-day.html">Word of the day</a><a class="footer-link" href="/passphrase-generator.html">Passphrase gen</a></div>
+      <div><div class="footer-col-title">Name generators</div><a class="footer-link" href="/random-name-generator.html">Random name gen</a><a class="footer-link" href="/username-generator.html">Username generator</a><a class="footer-link" href="/fantasy-name-generator.html">Fantasy name gen</a><a class="footer-link" href="/baby-name-finder.html">Baby name finder</a><a class="footer-link" href="/pet-name-generator.html">Pet name gen</a></div>
+      <div><div class="footer-col-title">Number &amp; chance</div><a class="footer-link" href="/random-number-generator.html">Random number</a><a class="footer-link" href="/dice-roller.html">Dice roller</a><a class="footer-link" href="/coin-flip.html">Coin flip</a><a class="footer-link" href="/lucky-number.html">Lucky number</a><a class="footer-link" href="/list-shuffler.html">List shuffler</a></div>
+      <div><div class="footer-col-title">Games &amp; fun</div><a class="footer-link" href="/pictionary-word-generator.html">Pictionary words</a><a class="footer-link" href="/charades-generator.html">Charades gen</a><a class="footer-link" href="/truth-or-dare.html">Truth or dare</a><a class="footer-link" href="/would-you-rather.html">Would you rather</a><a class="footer-link" href="/story-prompts.html">Story prompts</a></div>
+    </div>
+    <div class="footer-bottom">
+      <div style="display:flex;align-items:center;gap:7px">
+        <div class="nav-logo-icon" style="width:22px;height:22px;border-radius:5px"><svg viewBox="0 0 15 15" fill="none" style="width:12px;height:12px"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <span style="font-size:14px;font-weight:600;color:var(--text)">Wordineer</span>
+      </div>
+      <span class="footer-copy">© 2026 Wordineer · Free word tools for everyone</span>
+      <div class="footer-meta"><a href="/about.html">About</a><a href="/blog.html">Blog</a><a href="/api.html">API docs</a><a href="/affiliate-disclosure.html">Affiliate disclosure</a><a href="/privacy.html">Privacy</a></div>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<!-- ══ Shared engine — loads words.json, wires all interactions ══════ -->
+<script src="/scripts/tool-engine.js"></script>
+
+<!-- ══ Page init — one line per page, IDs match the HTML above ═══════ -->
+<script>
+WORDINEER.init({
+  listId:         'word-list',
+  countId:        'ctrl-count',
+  countDisplayId: 'word-count',
+  typeId:         'ctrl-type',
+  diffId:         'ctrl-diff',
+  firstId:        'ctrl-first',
+  lastId:         'ctrl-last',
+  defsId:         'ctrl-defs',
+});
+</script>
+
+</body>
+</html>

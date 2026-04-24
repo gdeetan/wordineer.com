@@ -1,0 +1,9 @@
+# Wordineer — Cloudflare Pages redirect rules
+# These enforce HTTPS + non-www canonical URL for SEO
+
+http://wordineer.com/*         https://wordineer.com/:splat         301
+http://www.wordineer.com/*     https://wordineer.com/:splat         301
+https://www.wordineer.com/*    https://wordineer.com/:splat         301
+
+# Clean URLs — optional: redirect .html extensions to clean paths
+# /random-sentence-generator.html   /random-sentence-generator   301
