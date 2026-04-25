@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -118,14 +117,37 @@
 .saved-tag-remove:hover { opacity:1; }
 .saved-empty { font-size:12px; color:var(--text-3); font-style:italic; }
 
+
+.mobile-more-toggle { display:none; width:100%; margin:-2px 0 14px; padding:9px 12px; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--brand); font-size:13px; font-weight:600; font-family:inherit; cursor:pointer; }
+.advanced-options { display:block; }
+.size-opt { position:relative; gap:7px; }
+.size-opt input { position:absolute; opacity:0; pointer-events:none; }
+.size-tick { width:18px; height:18px; border:1px solid var(--border); border-radius:5px; background:var(--bg); display:inline-flex; align-items:center; justify-content:center; transition:background .15s, border-color .15s; flex-shrink:0; }
+.size-tick::after { content:'✓'; font-size:13px; font-weight:700; color:white; line-height:1; opacity:0; transform:scale(.7); transition:opacity .15s, transform .15s; }
+.size-opt input:checked + .size-tick { background:var(--brand); border-color:var(--brand); }
+.size-opt input:checked + .size-tick::after { opacity:1; transform:scale(1); }
+.size-opt:hover .size-tick { border-color:var(--brand); }
+
 @media(max-width:700px){
+  .tool-wrap { padding:14px 16px 0; }
+  .tool-card { border-radius:12px; }
+  .ctrl { padding:16px; }
+  .mobile-more-toggle { display:block; }
+  .advanced-options { display:none; }
+  .advanced-options.is-open { display:block; }
+  .ctrl-row:first-child { margin-bottom:12px; }
+  .gen-btn { margin-top:0; }
+  .reset-btn, .kbd { display:none; }
+  .words-top { padding:10px 16px; }
+  .word-list { max-height:420px; overflow-y:auto; }
+  .word-text { font-size:19px; }
+
   .tool-split { flex-direction:column; }
   .ctrl { width:100%; border-right:none; border-bottom:1px solid var(--border-2); }
   .size-ctrls select { flex:0 0 50%; }
   .size-ctrls input  { flex:0 0 calc(50% - 5px); }
 }
 </style>
-<meta name="google-site-verification" content="2kl66HpAAVIve2c3TsJKNhl1aDPKrW823Uxm66JE5_8" />
 </head>
 <body>
 
@@ -208,6 +230,8 @@
           <span class="ctrl-label">Number of words</span>
           <input type="number" id="ctrl-count" value="10" min="1" max="100">
         </div>
+        <button type="button" class="mobile-more-toggle" id="mobile-more-toggle" aria-expanded="false" aria-controls="advanced-options">Toggle More Options</button>
+        <div class="advanced-options" id="advanced-options">
         <div class="ctrl-row">
           <span class="ctrl-label">Word type</span>
           <select id="ctrl-type">
@@ -239,8 +263,8 @@
         <div class="ctrl-row">
           <span class="ctrl-label">Word size by</span>
           <div class="size-opts">
-            <label class="size-opt"><input type="radio" name="sizeby" value="letters" checked> Letters</label>
-            <label class="size-opt"><input type="radio" name="sizeby" value="syllables"> Syllables</label>
+            <label class="size-opt"><input type="radio" name="sizeby" value="letters" checked><span class="size-tick" aria-hidden="true"></span><span>Letters</span></label>
+            <label class="size-opt"><input type="radio" name="sizeby" value="syllables"><span class="size-tick" aria-hidden="true"></span><span>Syllables</span></label>
           </div>
           <div class="size-ctrls">
             <select><option>Any length</option><option>Equals</option><option>At least</option><option>At most</option></select>
@@ -250,6 +274,7 @@
         <div class="def-row">
           <label class="toggle"><input type="checkbox" id="ctrl-defs" checked><span class="toggle-sl"></span></label>
           <label for="ctrl-defs">Show definitions</label>
+        </div>
         </div>
         <button class="gen-btn" onclick="WORDINEER.render()">Generate words</button>
         <button class="reset-btn" onclick="WORDINEER.reset()">Reset options</button>
@@ -458,6 +483,31 @@ WORDINEER.init({
   lastId:         'ctrl-last',
   defsId:         'ctrl-defs',
 });
+
+(function(){
+  const count = document.getElementById('ctrl-count');
+  const toggle = document.getElementById('mobile-more-toggle');
+  const advanced = document.getElementById('advanced-options');
+
+  if (count) {
+    window.addEventListener('load', function(){
+      count.focus({ preventScroll: true });
+      count.select();
+    });
+
+    count.addEventListener('focus', function(){
+      count.select();
+    });
+  }
+
+  if (toggle && advanced) {
+    toggle.addEventListener('click', function(){
+      const isOpen = advanced.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      toggle.textContent = isOpen ? 'Hide More Options' : 'Toggle More Options';
+    });
+  }
+})();
 </script>
 
 </body>
