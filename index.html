@@ -288,7 +288,7 @@
           <label for="ctrl-defs">Show definitions</label>
         </div>
         </div>
-        <button class="gen-btn" onclick="WORDINEER.render()">Generate words</button>
+        <button class="gen-btn" onclick="WORDINEER.generate()">Generate words</button>
         <button class="reset-btn" onclick="WORDINEER.reset()">Reset options</button>
         <div class="kbd">Press <kbd>Space</kbd> to regenerate</div>
 
@@ -312,7 +312,7 @@
           <span class="words-count" id="word-count">Generating…</span>
           <div class="words-actions">
             <button class="act-btn" onclick="WORDINEER.copyAll()">Copy all</button>
-            <button class="act-btn" onclick="WORDINEER.render()">Regenerate</button>
+            <button class="act-btn" onclick="WORDINEER.generate()">Regenerate</button>
           </div>
         </div>
         <ul class="word-list" id="word-list"></ul>
