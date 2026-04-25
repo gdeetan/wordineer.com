@@ -1,5 +1,62 @@
+# robots.txt for wordineer.com
+# Last updated: 2026-04-25
+
 User-agent: *
 Allow: /
+
+# Block internal/backend paths
 Disallow: /data/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /cdn-cgi/
+
+# Block internal search and tracking URLs
+Disallow: /?s=
+Disallow: /*?ref=*
+Disallow: /*?utm_*
+Disallow: /*&utm_*
+
+# Google — allow JS/CSS
+User-agent: Googlebot
+Allow: /*.js$
+Allow: /*.css$
+Allow: /
+
+# Google Image Bot
+User-agent: Googlebot-Image
+Allow: /images/
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.webp$
+Allow: /*.svg$
+
+# Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
+# Block AI training scrapers
+User-agent: GPTBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+# Block SEO/bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
 
 Sitemap: https://wordineer.com/sitemap.xml
