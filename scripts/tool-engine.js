@@ -1,63 +1,170 @@
 /**
  * WORDINEER — tool-engine.js
  * ─────────────────────────────────────────────────────────────
- * Shared engine loaded by every tool page via:
- *   <script src="/scripts/tool-engine.js"></script>
+ * 3-layer fast-load strategy (target: words on screen < 100ms):
  *
- * THIS IS THE FIX for "words not generating in templates":
- * The old BaseLayout had no WORDS array and no generate() function.
- * This file provides both, loaded from /data/words.json at runtime.
+ *   Layer 1 — Inline seed (24 words): renders instantly, zero network
+ *   Layer 2 — words.json (2 000+ words): fetched in background,
+ *             cached in sessionStorage so subsequent visits skip the fetch
+ *   Layer 3 — Live APIs (on Generate click, never blocking the UI):
+ *             • Datamuse API — free, no key, returns words by meaning/pos
+ *             • Free Dictionary API — definitions for Datamuse words
+ *             Results are merged into the pool and cached per session.
  *
  * Each tool page just calls:
  *   WORDINEER.init({ listId, countId, typeId, diffId, firstId, lastId, defsId })
- * and everything else works automatically.
  * ─────────────────────────────────────────────────────────────
  */
 
 const WORDINEER = (() => {
 
-  // ── State ──────────────────────────────────────────────────
-  let WORDS      = [];   // populated from words.json
-  let saved      = [];   // saved/hearted words
-  let current    = [];   // currently displayed words
-  let config     = {};   // element IDs passed in by each tool page
-  let defsShown  = true;
+  // ── Layer 1: Inline seed — renders at t=0 with no network ──
+  const SEED = [
+    {w:"Brave",    t:"adjective",d:"ready to face danger without fear",                       diff:"easy",  borrowed:false},
+    {w:"Calm",     t:"adjective",d:"not showing nervousness or strong emotion",               diff:"easy",  borrowed:false},
+    {w:"Dream",    t:"noun",     d:"a series of images occurring during sleep",               diff:"easy",  borrowed:false},
+    {w:"Eager",    t:"adjective",d:"wanting to do something very much",                       diff:"easy",  borrowed:false},
+    {w:"Flame",    t:"noun",     d:"a hot glowing body of ignited gas",                       diff:"easy",  borrowed:false},
+    {w:"Gentle",   t:"adjective",d:"mild in temperament; kind and tender",                    diff:"easy",  borrowed:false},
+    {w:"Happy",    t:"adjective",d:"feeling or showing pleasure or contentment",               diff:"easy",  borrowed:false},
+    {w:"Inspire",  t:"verb",     d:"fill someone with the urge to do something creative",     diff:"medium",borrowed:false},
+    {w:"Journey",  t:"noun",     d:"an act of travelling from one place to another",          diff:"medium",borrowed:false},
+    {w:"Keen",     t:"adjective",d:"having or showing eagerness or enthusiasm",               diff:"medium",borrowed:false},
+    {w:"Labyrinth",t:"noun",     d:"a complicated irregular network of passages",             diff:"hard",  borrowed:false},
+    {w:"Melancholy",t:"noun",    d:"a deep pensive sadness with no obvious cause",            diff:"hard",  borrowed:false},
+    {w:"Noble",    t:"adjective",d:"having fine personal qualities or high morals",           diff:"medium",borrowed:false},
+    {w:"Ocean",    t:"noun",     d:"a very large expanse of sea",                             diff:"easy",  borrowed:false},
+    {w:"Persist",  t:"verb",     d:"continue firmly in an opinion or course of action",      diff:"medium",borrowed:false},
+    {w:"Resilient",t:"adjective",d:"able to recover quickly from difficulties",               diff:"medium",borrowed:false},
+    {w:"Serendipity",t:"noun",   d:"finding something good without looking for it",           diff:"hard",  borrowed:false},
+    {w:"Tenacious",t:"adjective",d:"tending to keep a firm hold; persistent",                diff:"hard",  borrowed:false},
+    {w:"Unique",   t:"adjective",d:"being the only one of its kind",                         diff:"medium",borrowed:false},
+    {w:"Vivid",    t:"adjective",d:"producing powerful feelings or clear images",             diff:"easy",  borrowed:false},
+    {w:"Wander",   t:"verb",     d:"walk or move in a leisurely or aimless way",              diff:"easy",  borrowed:false},
+    {w:"Zealous",  t:"adjective",d:"having or showing great energy in pursuit of a cause",   diff:"hard",  borrowed:false},
+    {w:"Wanderlust",t:"noun",    d:"a strong desire to travel and explore the world",         diff:"medium",borrowed:true},
+    {w:"Schadenfreude",t:"noun", d:"pleasure derived from another person's misfortune",       diff:"hard",  borrowed:true},
+  ];
 
-  // ── Load words.json once ───────────────────────────────────
+  // ── State ──────────────────────────────────────────────────
+  let WORDS      = [...SEED];  // starts with seed, grows as layers load
+  let saved      = [];
+  let current    = [];
+  let config     = {};
+  let defsShown  = true;
+  let fullLoaded = false;      // true once words.json is in pool
+
+  // ── Layer 2 helpers: sessionStorage cache ──────────────────
+  const SC_WORDS_KEY = 'wnr_words_v2';
+
+  function scGet(key) {
+    try { return JSON.parse(sessionStorage.getItem(key)); } catch { return null; }
+  }
+  function scSet(key, val) {
+    try { sessionStorage.setItem(key, JSON.stringify(val)); } catch {} // ignore quota errors
+  }
+
+  // ── Layer 2: Load words.json (background, cached) ──────────
   async function loadWords() {
+    // Serve from sessionStorage if already fetched this session
+    const cached = scGet(SC_WORDS_KEY);
+    if (Array.isArray(cached) && cached.length > 100) {
+      WORDS = cached;
+      fullLoaded = true;
+      return;
+    }
     try {
-      const res  = await fetch('/data/words.json');
-      WORDS = await res.json();
-      console.log(`[Wordineer] Loaded ${WORDS.length} words`);
-    } catch (e) {
-      // Fallback: a tiny inline seed so the page never shows blank
-      console.warn('[Wordineer] Could not load words.json — using inline fallback');
-      WORDS = [
-        {w:"Brave",t:"adjective",d:"ready to face danger without fear",diff:"easy",borrowed:false},
-        {w:"Calm",t:"adjective",d:"not showing nervousness or strong emotion",diff:"easy",borrowed:false},
-        {w:"Dream",t:"noun",d:"a series of images occurring during sleep",diff:"easy",borrowed:false},
-        {w:"Eager",t:"adjective",d:"wanting to do something very much",diff:"easy",borrowed:false},
-        {w:"Flame",t:"noun",d:"a hot glowing body of ignited gas",diff:"easy",borrowed:false},
-        {w:"Gentle",t:"adjective",d:"mild in temperament; kind and tender",diff:"easy",borrowed:false},
-        {w:"Happy",t:"adjective",d:"feeling or showing pleasure or contentment",diff:"easy",borrowed:false},
-        {w:"Inspire",t:"verb",d:"fill someone with the urge to do something creative",diff:"medium",borrowed:false},
-        {w:"Journey",t:"noun",d:"an act of travelling from one place to another",diff:"medium",borrowed:false},
-        {w:"Keen",t:"adjective",d:"having or showing eagerness or enthusiasm",diff:"medium",borrowed:false},
-        {w:"Labyrinth",t:"noun",d:"a complicated irregular network of passages",diff:"hard",borrowed:false},
-        {w:"Melancholy",t:"noun",d:"a deep pensive sadness with no obvious cause",diff:"hard",borrowed:false},
-        {w:"Noble",t:"adjective",d:"having fine personal qualities or high morals",diff:"medium",borrowed:false},
-        {w:"Ocean",t:"noun",d:"a very large expanse of sea",diff:"easy",borrowed:false},
-        {w:"Persist",t:"verb",d:"continue firmly in an opinion or course of action",diff:"medium",borrowed:false},
-        {w:"Resilient",t:"adjective",d:"able to recover quickly from difficulties",diff:"medium",borrowed:false},
-        {w:"Serendipity",t:"noun",d:"finding something good without looking for it",diff:"hard",borrowed:false},
-        {w:"Tenacious",t:"adjective",d:"tending to keep a firm hold; persistent",diff:"hard",borrowed:false},
-        {w:"Unique",t:"adjective",d:"being the only one of its kind",diff:"medium",borrowed:false},
-        {w:"Vivid",t:"adjective",d:"producing powerful feelings or clear images",diff:"easy",borrowed:false},
-        {w:"Wander",t:"verb",d:"walk or move in a leisurely or aimless way",diff:"easy",borrowed:false},
-        {w:"Zealous",t:"adjective",d:"having or showing great energy in pursuit of a cause",diff:"hard",borrowed:false},
-        {w:"Wanderlust",t:"noun",d:"a strong desire to travel and explore the world",diff:"medium",borrowed:true},
-        {w:"Schadenfreude",t:"noun",d:"pleasure derived from another person's misfortune",diff:"hard",borrowed:true},
-      ];
+      const res = await fetch('/data/words.json');
+      if (!res.ok) throw new Error(res.status);
+      const data = await res.json();
+      WORDS = data;
+      fullLoaded = true;
+      scSet(SC_WORDS_KEY, data);
+    } catch {
+      // Keep SEED in WORDS — page still works
+    }
+  }
+
+  // ── Layer 3a: Datamuse API ─────────────────────────────────
+  // https://api.datamuse.com/words?ml={seed}&pos={pos}&max=20
+  // Free, no key, CORS-open. Returns words by meaning (ml) and POS.
+  const DM_SEEDS = [
+    'adventure','beauty','courage','dream','earth','forest','grace','hope',
+    'journey','knowledge','light','mind','nature','ocean','peace','quest',
+    'river','spirit','truth','vision','wisdom','wonder','youth','time','life',
+    'shadow','storm','fire','water','silence','freedom','growth','change',
+    'memory','power','glory','faith','chaos','order','mystery','legend',
+  ];
+  const POS_MAP = { noun:'n', adjective:'adj', verb:'v', adverb:'adv' };
+
+  async function fetchDatamuse(type) {
+    const seed  = DM_SEEDS[Math.floor(Math.random() * DM_SEEDS.length)];
+    const posQ  = (type !== 'all' && POS_MAP[type]) ? `&pos=${POS_MAP[type]}` : '';
+    const cKey  = `wnr_dm_${seed}_${type}`;
+    const hit   = scGet(cKey);
+    if (hit) return hit;
+
+    try {
+      const res  = await fetch(`https://api.datamuse.com/words?ml=${seed}${posQ}&max=25`, { signal: AbortSignal.timeout(4000) });
+      if (!res.ok) return [];
+      const data = await res.json();
+      const words = data.map(d => d.word).filter(w => w && /^[a-z]{3,}$/.test(w));
+      scSet(cKey, words);
+      return words;
+    } catch { return []; }
+  }
+
+  // ── Layer 3b: Free Dictionary API ─────────────────────────
+  // https://api.dictionaryapi.dev/api/v2/entries/en/{word}
+  // Free, unlimited, no key. Returns definition + part of speech.
+  async function fetchDefinition(word) {
+    const cKey = `wnr_def_${word.toLowerCase()}`;
+    const hit  = scGet(cKey);
+    if (hit) return hit;
+
+    try {
+      const res = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(word)}`, { signal: AbortSignal.timeout(4000) });
+      if (!res.ok) { scSet(cKey, null); return null; }
+      const data    = await res.json();
+      const meaning = data[0]?.meanings?.[0];
+      const def     = meaning?.definitions?.[0]?.definition;
+      const pos     = meaning?.partOfSpeech;
+      if (!def) { scSet(cKey, null); return null; }
+      const result  = { def: def.slice(0, 100), pos };
+      scSet(cKey, result);
+      return result;
+    } catch { return null; }
+  }
+
+  // ── Layer 3: Augment pool in background (non-blocking) ─────
+  // Called after each Generate click. Never awaited by the UI.
+  async function augmentLive(type) {
+    const dmWords = await fetchDatamuse(type);
+    if (!dmWords.length) return;
+
+    const existing = new Set(WORDS.map(w => w.w.toLowerCase()));
+    const novel    = dmWords.filter(w => !existing.has(w));
+    if (!novel.length) return;
+
+    // Fetch definitions in batches of 3 (rate-limit friendly)
+    const cap = Math.min(novel.length, 12);
+    for (let i = 0; i < cap; i += 3) {
+      const batch   = novel.slice(i, i + 3);
+      const results = await Promise.all(batch.map(fetchDefinition));
+      batch.forEach((word, j) => {
+        const info = results[j];
+        if (!info) return;
+        const inferredPos = (type !== 'all' && type !== 'extended' && type !== 'nonenglish')
+          ? type : (info.pos || 'noun');
+        WORDS.push({
+          w:        word.charAt(0).toUpperCase() + word.slice(1),
+          t:        info.pos || inferredPos,
+          d:        info.def,
+          diff:     'medium',
+          borrowed: false,
+          _live:    true,  // tag so we can spot live words if needed
+        });
+      });
     }
   }
 
@@ -246,7 +353,7 @@ const WORDINEER = (() => {
     document.addEventListener('keydown', e => {
       if (e.code === 'Space' && !['INPUT','SELECT','TEXTAREA','BUTTON'].includes(e.target.tagName)) {
         e.preventDefault();
-        render();
+        generate();
       }
     });
   }
@@ -257,8 +364,17 @@ const WORDINEER = (() => {
     if (el) el.addEventListener('change', render);
   }
 
+  // ── Wrap render to also fire live augmentation (non-blocking)
+  const _render = render;
+  function generate() {
+    _render();
+    // Fire background augmentation — never blocks the UI
+    const type = document.getElementById(config.typeId)?.value || 'all';
+    augmentLive(type).catch(() => {});
+  }
+
   // ── Public init — called once per page ────────────────────
-  async function init(cfg) {
+  function init(cfg) {
     config = {
       listId:         cfg.listId         || 'word-list',
       countId:        cfg.countId        || 'ctrl-count',
@@ -269,8 +385,23 @@ const WORDINEER = (() => {
       lastId:         cfg.lastId         || 'ctrl-last',
       defsId:         cfg.defsId         || 'ctrl-defs',
     };
-    await loadWords();
+
+    // Layer 1: render from SEED immediately (0ms) ────────────
     render();
+
+    // Layer 2: load full word list in background ─────────────
+    loadWords().then(() => {
+      // Re-render only if the user hasn't clicked Generate yet
+      // (still showing the auto-generated seed set)
+      if (current.every(w => SEED.some(s => s.w === w.w))) {
+        render();
+      }
+    }).catch(() => {});
+
+    // Layer 3: pre-warm augmentation for first Generate click ─
+    // Fires silently; result sits in sessionStorage ready to use
+    augmentLive('all').catch(() => {});
+
     initFaq();
     initMega();
     initSpacebar();
@@ -278,6 +409,7 @@ const WORDINEER = (() => {
   }
 
   // ── Expose public API ──────────────────────────────────────
-  return { init, render, reset, copyWord, copyAll, copySaved, toggleSave, removeSaved, showToast };
+  // render() is kept for backward compat; generate() adds live augmentation
+  return { init, render, generate, reset, copyWord, copyAll, copySaved, toggleSave, removeSaved, showToast };
 
 })();
