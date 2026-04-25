@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preload" href="/fonts/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<title>API Documentation | Wordineer</title>
+<meta name="description" content="Free RESTful access to Wordineer's word tools. No sign-up required for basic use. Endpoints for random words, word count, and rhymes.">
+<link rel="canonical" href="https://wordineer.com/api.html">
+<meta property="og:type"        content="website">
+<meta property="og:site_name"   content="Wordineer">
+<meta property="og:title"       content="Wordineer API Documentation">
+<meta property="og:description" content="Free, RESTful access to Wordineer's word tools. No sign-up required for basic use.">
+<meta property="og:url"         content="https://wordineer.com/api.html">
+<meta property="og:image"       content="https://wordineer.com/og-image.png">
+<link rel="stylesheet" href="/styles/global.css">
+<style>
+/* ── Docs layout ── */
+.docs-wrap {
+  max-width: 1020px;
+  margin: 0 auto;
+  padding: 32px 24px 64px;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 48px;
+  align-items: start;
+}
+.docs-sidebar {
+  position: sticky;
+  top: 72px;
+}
+.docs-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.docs-sidebar li { margin-bottom: 2px; }
+.docs-sidebar ul ul {
+  padding-left: 14px;
+  margin-top: 2px;
+}
+.docs-sidebar a {
+  display: block;
+  font-size: 13px;
+  color: var(--text-2);
+  text-decoration: none;
+  padding: 4px 8px;
+  border-radius: 5px;
+  transition: background .12s, color .12s;
+}
+.docs-sidebar a:hover {
+  background: var(--bg-2);
+  color: var(--text);
+}
+.docs-sidebar ul ul a { font-size: 12px; color: var(--text-3); }
+
+/* ── Prose ── */
+.prose h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 40px 0 12px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border);
+  letter-spacing: -.02em;
+}
+.prose h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+.prose h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 24px 0 8px;
+}
+.prose h4 {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  margin: 18px 0 6px;
+}
+.prose p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-2);
+  margin: 0 0 14px;
+}
+.prose a {
+  color: var(--brand);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.prose a:hover { color: var(--brand-dark); }
+.prose code {
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1px 5px;
+  color: var(--text);
+}
+.prose pre {
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 16px;
+  overflow-x: auto;
+  margin: 8px 0 18px;
+}
+.prose pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+/* ── Tables ── */
+.docs-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin: 10px 0 20px;
+}
+.docs-table th {
+  text-align: left;
+  padding: 8px 12px;
+  background: var(--bg-2);
+  color: var(--text);
+  font-weight: 600;
+  border-bottom: 2px solid var(--border);
+  white-space: nowrap;
+}
+.docs-table td {
+  padding: 8px 12px;
+  color: var(--text-2);
+  border-bottom: 1px solid var(--border-2);
+  vertical-align: top;
+}
+.docs-table tr:last-child td { border-bottom: none; }
+
+/* ── Badges & callouts ── */
+.badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 4px;
+  vertical-align: middle;
+  margin-right: 6px;
+  letter-spacing: .04em;
+}
+.badge--get  { background: #dff0e8; color: #1a6e43; }
+.badge--post { background: #e8eeff; color: #2a4db8; }
+
+.callout {
+  background: var(--bg-2);
+  border-left: 3px solid var(--brand);
+  border-radius: 0 8px 8px 0;
+  padding: 12px 16px;
+  margin: 12px 0 18px;
+  font-size: 14px;
+  color: var(--text-2);
+  line-height: 1.6;
+}
+
+.endpoint-block { margin-bottom: 36px; }
+.endpoint-block h3 { display: flex; align-items: center; }
+
+/* ── Changelog ── */
+.changelog { margin: 0; }
+.changelog dt {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  margin-top: 16px;
+}
+.changelog dd {
+  font-size: 14px;
+  color: var(--text-2);
+  margin: 4px 0 0 0;
+  line-height: 1.6;
+}
+
+@media (max-width: 760px) {
+  .docs-wrap {
+    grid-template-columns: 1fr;
+    padding: 20px 16px 48px;
+    gap: 24px;
+  }
+  .docs-sidebar { position: static; }
+  .docs-sidebar ul { display: flex; flex-wrap: wrap; gap: 4px; }
+  .docs-sidebar ul ul { display: none; }
+}
+</style>
+</head>
+
+<body>
+<nav class="nav">
+  <a class="nav-logo" href="/">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 15 15" fill="none"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </div>
+    Wordineer
+  </a>
+  <div class="nav-links">
+    <a href="/tools.html">Tools</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/api.html">API</a>
+  </div>
+  <div>
+    <div class="hamburger" onclick="document.getElementById('mega').classList.toggle('open')" title="All tools">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+<div class="mega" id="mega">
+  <div class="mega-inner">
+    <div class="mega-col">
+      <div class="mega-cat">Word tools</div>
+      <a class="mega-link" href="/index.html">Random word generator</a>
+      <a class="mega-link" href="/random-sentence-generator.html">Random sentence</a>
+      <a class="mega-link" href="/random-letter-generator.html">Random letter</a>
+      <a class="mega-link" href="/word-scramble.html">Word scramble</a>
+      <a class="mega-link" href="/word-of-the-day.html">Word of the day</a>
+      <a class="mega-link" href="/passphrase-generator.html">Passphrase gen</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Name generators</div>
+      <a class="mega-link" href="/random-name-generator.html">Random name</a>
+      <a class="mega-link" href="/username-generator.html">Username generator</a>
+      <a class="mega-link" href="/fantasy-name-generator.html">Fantasy name gen</a>
+      <a class="mega-link" href="/baby-name-finder.html">Baby name finder</a>
+      <a class="mega-link" href="/pet-name-generator.html">Pet name gen</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Number &amp; chance</div>
+      <a class="mega-link" href="/random-number-generator.html">Random number</a>
+      <a class="mega-link" href="/dice-roller.html">Dice roller</a>
+      <a class="mega-link" href="/coin-flip.html">Coin flip</a>
+      <a class="mega-link" href="/lucky-number.html">Lucky number</a>
+      <a class="mega-link" href="/list-shuffler.html">List shuffler</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Games &amp; fun</div>
+      <a class="mega-link" href="/pictionary-word-generator.html">Pictionary words</a>
+      <a class="mega-link" href="/charades-generator.html">Charades gen</a>
+      <a class="mega-link" href="/truth-or-dare.html">Truth or dare</a>
+      <a class="mega-link" href="/would-you-rather.html">Would you rather</a>
+      <a class="mega-link" href="/story-prompts.html">Story prompts</a>
+    </div>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Developer resources
+  </div>
+  <h1>Wordineer API</h1>
+  <p>Free, RESTful access to Wordineer's word tools. No sign-up required for basic use.</p>
+</div>
+<div class="docs-wrap">
+
+  <!-- Sidebar -->
+  <nav class="docs-sidebar" aria-label="API sections">
+    <ul>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#authentication">Authentication</a></li>
+      <li><a href="#rate-limits">Rate Limits</a></li>
+      <li><a href="#endpoints">Endpoints</a>
+        <ul>
+          <li><a href="#random-word">Random Word</a></li>
+          <li><a href="#word-count">Word Count</a></li>
+          <li><a href="#rhymes">Rhymes</a></li>
+        </ul>
+      </li>
+      <li><a href="#errors">Error Codes</a></li>
+      <li><a href="#changelog">Changelog</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main content -->
+  <article class="prose">
+
+    <section id="overview">
+      <h2>Overview</h2>
+      <p>
+        The Wordineer API is a free, JSON-based REST API that gives developers
+        programmatic access to word generation, text analysis, and language utility
+        tools. It is designed to be simple enough to call from a cURL command and
+        powerful enough to build production applications.
+      </p>
+      <h3>Base URL</h3>
+      <pre><code>https://api.wordineer.com/v1</code></pre>
+      <h3>Response Format</h3>
+      <p>All responses are JSON. Successful responses follow this envelope:</p>
+      <pre><code>{
+  "ok": true,
+  "data": { ... },
+  "meta": {
+    "endpoint": "/random-word",
+    "version": "1.0"
+  }
+}</code></pre>
+    </section>
+
+    <section id="authentication">
+      <h2>Authentication</h2>
+      <p><strong>Basic tier (up to 100 requests/day):</strong> No API key required. Simply call the endpoint directly.</p>
+      <p><strong>Standard tier (up to 5,000 requests/day):</strong> Free registration required. Pass your API key in the request header:</p>
+      <pre><code>X-API-Key: wdn_your_api_key_here</code></pre>
+      <p>
+        To get a free API key, email <a href="mailto:api@wordineer.com">api@wordineer.com</a>
+        with the subject line <em>"API Key Request"</em>. We'll respond within 1–2 business days.
+      </p>
+      <div class="callout">
+        <strong>Note:</strong> API keys are for server-side use only. Do not expose your key in
+        client-side JavaScript or public repositories.
+      </div>
+    </section>
+
+    <section id="rate-limits">
+      <h2>Rate Limits</h2>
+      <table class="docs-table">
+        <thead>
+          <tr><th>Tier</th><th>Daily Limit</th><th>Burst (per min)</th><th>Key Required</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Basic (anonymous)</td><td>100 requests</td><td>10 req/min</td><td>No</td></tr>
+          <tr><td>Standard (free key)</td><td>5,000 requests</td><td>60 req/min</td><td>Yes</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Exceeding the rate limit returns a <code>429 Too Many Requests</code> response.
+        The <code>Retry-After</code> header will indicate when you may resume requests.
+      </p>
+    </section>
+
+    <section id="endpoints">
+      <h2>Endpoints</h2>
+
+      <div class="endpoint-block" id="random-word">
+        <h3><span class="badge badge--get">GET</span> <code>/random-word</code></h3>
+        <p>Returns one or more random English words, with optional filters.</p>
+        <h4>Query Parameters</h4>
+        <table class="docs-table">
+          <thead>
+            <tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>count</code></td><td>integer</td><td><code>1</code></td><td>Number of words to return (max 100).</td></tr>
+            <tr><td><code>type</code></td><td>string</td><td><em>any</em></td><td>Filter by part of speech: <code>noun</code>, <code>verb</code>, <code>adjective</code>, <code>adverb</code>.</td></tr>
+            <tr><td><code>min_length</code></td><td>integer</td><td><code>1</code></td><td>Minimum word character length.</td></tr>
+            <tr><td><code>max_length</code></td><td>integer</td><td><code>20</code></td><td>Maximum word character length.</td></tr>
+            <tr><td><code>starts_with</code></td><td>string</td><td><em>none</em></td><td>Return only words starting with this letter or string.</td></tr>
+          </tbody>
+        </table>
+        <h4>Example Request</h4>
+        <pre><code>curl "https://api.wordineer.com/v1/random-word?count=3&type=noun&min_length=5"</code></pre>
+        <h4>Example Response</h4>
+        <pre><code>{
+  "ok": true,
+  "data": {
+    "words": ["harbor", "lantern", "century"]
+  },
+  "meta": {
+    "count": 3,
+    "filters": { "type": "noun", "min_length": 5 }
+  }
+}</code></pre>
+      </div>
+
+      <div class="endpoint-block" id="word-count">
+        <h3><span class="badge badge--post">POST</span> <code>/word-count</code></h3>
+        <p>Analyzes a block of text and returns word, character, sentence, and paragraph counts.</p>
+        <h4>Request Body</h4>
+        <pre><code>{
+  "text": "Your text goes here. It can be multiple sentences."
+}</code></pre>
+        <h4>Example Request</h4>
+        <pre><code>curl -X POST "https://api.wordineer.com/v1/word-count" \
+  -H "Content-Type: application/json" \
+  -d '{"text": "The quick brown fox jumps over the lazy dog."}'</code></pre>
+        <h4>Example Response</h4>
+        <pre><code>{
+  "ok": true,
+  "data": {
+    "words": 9,
+    "characters": 44,
+    "characters_no_spaces": 35,
+    "sentences": 1,
+    "paragraphs": 1,
+    "reading_time_seconds": 4,
+    "unique_words": 9
+  }
+}</code></pre>
+      </div>
+
+      <div class="endpoint-block" id="rhymes">
+        <h3><span class="badge badge--get">GET</span> <code>/rhymes</code></h3>
+        <p>Returns a list of words that rhyme with the given input word.</p>
+        <h4>Query Parameters</h4>
+        <table class="docs-table">
+          <thead>
+            <tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>word</code></td><td>string</td><td>Yes</td><td>The word to find rhymes for.</td></tr>
+            <tr><td><code>limit</code></td><td>integer</td><td>No</td><td>Max rhymes to return (default: 10, max: 50).</td></tr>
+          </tbody>
+        </table>
+        <h4>Example Request</h4>
+        <pre><code>curl "https://api.wordineer.com/v1/rhymes?word=light&limit=5"</code></pre>
+        <h4>Example Response</h4>
+        <pre><code>{
+  "ok": true,
+  "data": {
+    "word": "light",
+    "rhymes": ["night", "sight", "right", "tight", "flight"]
+  },
+  "meta": { "count": 5 }
+}</code></pre>
+      </div>
+
+    </section>
+
+    <section id="errors">
+      <h2>Error Codes</h2>
+      <p>When a request fails, the API returns a non-2xx HTTP status and an error envelope:</p>
+      <pre><code>{
+  "ok": false,
+  "error": {
+    "code": "INVALID_PARAMETER",
+    "message": "The 'count' parameter must be an integer between 1 and 100.",
+    "param": "count"
+  }
+}</code></pre>
+      <table class="docs-table">
+        <thead>
+          <tr><th>HTTP Status</th><th>Error Code</th><th>Meaning</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>400</td><td><code>INVALID_PARAMETER</code></td><td>A query parameter or body field has an invalid value.</td></tr>
+          <tr><td>400</td><td><code>MISSING_PARAMETER</code></td><td>A required parameter was not provided.</td></tr>
+          <tr><td>401</td><td><code>INVALID_API_KEY</code></td><td>The provided API key is invalid or revoked.</td></tr>
+          <tr><td>404</td><td><code>WORD_NOT_FOUND</code></td><td>No results match the given filters or input word.</td></tr>
+          <tr><td>429</td><td><code>RATE_LIMIT_EXCEEDED</code></td><td>You have exceeded the allowed request rate.</td></tr>
+          <tr><td>500</td><td><code>INTERNAL_ERROR</code></td><td>An unexpected server error occurred. Please try again.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="changelog">
+      <h2>Changelog</h2>
+      <dl class="changelog">
+        <dt>v1.0 — April 2025</dt>
+        <dd>Initial public release. Endpoints: <code>/random-word</code>, <code>/word-count</code>, <code>/rhymes</code>.</dd>
+      </dl>
+    </section>
+
+  </article>
+</div>
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="ad-footer-strip" style="margin-bottom:24px">
+      <span class="ad-tag">Advertisement · 468×60</span>
+      <div class="ad-fs-text"><strong>Grammarly Premium</strong> — Vocabulary suggestions, tone detector, full-sentence rewrites.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-footer-strip-cta">Try free</a>
+    </div>
+    <div class="footer-grid">
+      <div><div class="footer-col-title">Word tools</div><a class="footer-link" href="/index.html">Random word generator</a><a class="footer-link" href="/random-sentence-generator.html">Random sentence</a><a class="footer-link" href="/random-letter-generator.html">Random letter</a><a class="footer-link" href="/word-scramble.html">Word scramble</a><a class="footer-link" href="/word-of-the-day.html">Word of the day</a><a class="footer-link" href="/passphrase-generator.html">Passphrase gen</a></div>
+      <div><div class="footer-col-title">Name generators</div><a class="footer-link" href="/random-name-generator.html">Random name gen</a><a class="footer-link" href="/username-generator.html">Username generator</a><a class="footer-link" href="/fantasy-name-generator.html">Fantasy name gen</a><a class="footer-link" href="/baby-name-finder.html">Baby name finder</a><a class="footer-link" href="/pet-name-generator.html">Pet name gen</a></div>
+      <div><div class="footer-col-title">Number &amp; chance</div><a class="footer-link" href="/random-number-generator.html">Random number</a><a class="footer-link" href="/dice-roller.html">Dice roller</a><a class="footer-link" href="/coin-flip.html">Coin flip</a><a class="footer-link" href="/lucky-number.html">Lucky number</a><a class="footer-link" href="/list-shuffler.html">List shuffler</a></div>
+      <div><div class="footer-col-title">Games &amp; fun</div><a class="footer-link" href="/pictionary-word-generator.html">Pictionary words</a><a class="footer-link" href="/charades-generator.html">Charades gen</a><a class="footer-link" href="/truth-or-dare.html">Truth or dare</a><a class="footer-link" href="/would-you-rather.html">Would you rather</a><a class="footer-link" href="/story-prompts.html">Story prompts</a></div>
+    </div>
+    <div class="footer-bottom">
+      <div style="display:flex;align-items:center;gap:7px">
+        <div class="nav-logo-icon" style="width:22px;height:22px;border-radius:5px"><svg viewBox="0 0 15 15" fill="none" style="width:12px;height:12px"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <span style="font-size:14px;font-weight:600;color:var(--text)">Wordineer</span>
+      </div>
+      <span class="footer-copy">© 2026 Wordineer · Free word tools for everyone</span>
+      <div class="footer-meta"><a href="/about.html">About</a><a href="/blog.html">Blog</a><a href="/api.html">API docs</a><a href="/affiliate-disclosure.html">Affiliate disclosure</a><a href="/privacy.html">Privacy</a></div>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="/scripts/tool-engine.js"></script>
+
+</body>
+</html>
