@@ -122,6 +122,9 @@
 .count-error.show { display:block; }
 .ctrl-row input.input-error { border-color:#E24B4A !important; }
 
+.sg-mobile-toggle { display:none; width:100%; margin:-2px 0 14px; padding:9px 12px; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--brand); font-size:13px; font-weight:600; font-family:inherit; cursor:pointer; }
+.sg-advanced { display:block; }
+
 /* Sentence-specific */
 .sg-sentence-text { font-size:15px; font-weight:400; color:var(--text); line-height:1.55; }
 .sg-word-count { font-size:11px; color:var(--text-3); font-weight:400; white-space:nowrap; }
@@ -136,6 +139,9 @@
   .ctrl { width:100%; border-right:none; border-bottom:1px solid var(--border-2); }
   .reset-btn, .kbd { display:none; }
   .word-list { max-height:440px; overflow-y:auto; }
+  .sg-mobile-toggle { display:block; }
+  .sg-advanced { display:none; }
+  .sg-advanced.is-open { display:block; }
 }
 </style>
 </head>
@@ -216,6 +222,8 @@
           <input type="number" id="sg-count" value="5">
           <span class="count-error" id="sg-count-error">Enter a number from 1 to 50</span>
         </div>
+        <button type="button" class="sg-mobile-toggle" id="sg-mobile-toggle" aria-expanded="false" aria-controls="sg-advanced">Toggle more options</button>
+        <div class="sg-advanced" id="sg-advanced">
         <div class="ctrl-row">
           <span class="ctrl-label">Category</span>
           <select id="sg-category">
@@ -277,6 +285,7 @@
         <div class="def-row">
           <label class="toggle"><input type="checkbox" id="sg-show-cat"><span class="toggle-sl"></span></label>
           <label for="sg-show-cat">Show category tag</label>
+        </div>
         </div>
         <button class="gen-btn" id="sg-gen-btn">Generate sentences</button>
         <button class="reset-btn" id="sg-reset-btn">Reset options</button>
@@ -756,6 +765,25 @@ const WORDINEER_SENTENCES = (() => {
   }
 
   return { init, render, reset, copyAll, copySaved, copyItem, toggleSave, removeSaved, showToast };
+})();
+
+(function(){
+  const countEl = document.getElementById('sg-count');
+  const toggle  = document.getElementById('sg-mobile-toggle');
+  const advanced = document.getElementById('sg-advanced');
+
+  if (countEl) {
+    window.addEventListener('load', function(){ countEl.focus({ preventScroll: true }); countEl.select(); });
+    countEl.addEventListener('focus', function(){ countEl.select(); });
+  }
+
+  if (toggle && advanced) {
+    toggle.addEventListener('click', function() {
+      const isOpen = advanced.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      toggle.textContent = isOpen ? 'Hide more options' : 'Toggle more options';
+    });
+  }
 })();
 
 WORDINEER_SENTENCES.init({
