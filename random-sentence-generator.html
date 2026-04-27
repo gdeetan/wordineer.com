@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7DWH3EGM3Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7DWH3EGM3Z');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7200956978416233"
+     crossorigin="anonymous"></script>
+<meta name='impact-site-verification' value='32715504-1cfb-4324-bfc7-ae4cfa1591ea'>
+<link rel="preload" href="/fonts/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-sans-italic-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<title>Random Sentence Generator — Free, Instant, No Sign-up | Wordineer</title>
+<meta name="description" content="Generate random English sentences instantly. Filter by category, tone, sentence type, and length. Perfect for writers, students, and ESL learners. Free, no sign-up.">
+<link rel="canonical" href="https://wordineer.com/random-sentence-generator/">
+<meta property="og:type"        content="website">
+<meta property="og:site_name"   content="Wordineer">
+<meta property="og:title"       content="Random Sentence Generator | Wordineer">
+<meta property="og:description" content="Generate random English sentences by category, tone, type, and length. Free, instant, no sign-up.">
+<meta property="og:url"         content="https://wordineer.com/random-sentence-generator/">
+<meta property="og:image"       content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a random sentence generator?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A random sentence generator creates complete, grammatically correct English sentences on demand. Unlike a word generator that gives you individual words, a sentence generator combines subjects, verbs, and objects into ready-to-use phrases — perfect for writing prompts, story starters, classroom exercises, or creative warm-ups." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between a simple, compound, and complex sentence?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A simple sentence has one independent clause with a subject and verb (e.g., 'The dog ran fast.'). A compound sentence joins two independent clauses with a conjunction or semicolon (e.g., 'The dog ran fast, but the cat stayed still.'). A complex sentence has one independent clause and at least one dependent clause (e.g., 'Although it was raining, the dog ran fast.'). A compound-complex sentence combines both patterns." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use these sentences in my writing or school work?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. The generated sentences are original and free to use as writing prompts, story starters, grammar examples, or inspiration. They are not sourced from copyrighted works. For school assignments, use them as a starting point or creative spark rather than submitting them directly." }
+    },
+    {
+      "@type": "Question",
+      "name": "How do the category and tone filters work?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The category filter narrows results to a specific topic area — for example, selecting 'Nature' returns only sentences about the natural world. The tone filter controls the emotional register: 'Neutral' returns plain descriptive sentences, while 'Dramatic' or 'Poetic' return more expressive ones. Combine both filters to get very targeted results for your creative project." }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does the generator sometimes show fewer sentences than I requested?",
+      "acceptedAnswer": { "@type": "Answer", "text": "When you combine specific filters — for example, 'Mystery' category + 'Melancholic' tone + 'Long' length — the matching pool may contain fewer sentences than your requested count. The generator returns as many as it can find. Try broadening one filter (for example, change the tone to 'All') to get your full count." }
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="/styles/global.css?v=1">
+<style>
+.tool-wrap  { max-width:960px; margin:0 auto; padding:24px 24px 0; }
+.tool-card  { border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg); box-shadow:var(--shadow); }
+.tool-split { display:flex; }
+
+.ctrl       { width:220px; flex-shrink:0; padding:18px; border-right:1px solid var(--border-2); background:var(--bg-2); }
+.ctrl-row   { margin-bottom:14px; }
+.ctrl-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; display:block; margin-bottom:5px; }
+.ctrl-row input, .ctrl-row select { width:100%; padding:7px 10px; font-size:13px; font-family:inherit; border:1px solid var(--border); border-radius:7px; background:var(--bg); color:var(--text); appearance:none; outline:none; transition:border-color .15s; }
+.ctrl-row input:focus, .ctrl-row select:focus { border-color:var(--brand); }
+.def-row    { display:flex; align-items:center; gap:8px; margin-bottom:10px; }
+.def-row label { font-size:12px; color:var(--text-2); cursor:pointer; }
+.toggle     { position:relative; width:32px; height:18px; flex-shrink:0; }
+.toggle input { opacity:0; width:0; height:0; }
+.toggle-sl  { position:absolute; cursor:pointer; inset:0; background:var(--border); border-radius:9px; transition:.2s; }
+.toggle input:checked + .toggle-sl { background:var(--brand); }
+.toggle-sl::before { content:''; position:absolute; width:14px; height:14px; left:2px; top:2px; background:white; border-radius:50%; transition:.2s; }
+.toggle input:checked + .toggle-sl::before { transform:translateX(14px); }
+.gen-btn    { width:100%; padding:10px 14px; background:var(--brand); color:white; border:none; border-radius:8px; font-size:14px; font-weight:600; font-family:inherit; cursor:pointer; transition:background .15s,transform .1s; letter-spacing:-.01em; }
+.gen-btn:hover { background:var(--brand-dark); }
+.gen-btn:active { transform:scale(.98); }
+.reset-btn  { display:block; width:100%; text-align:center; font-size:11px; color:var(--text-3); margin-top:8px; cursor:pointer; text-decoration:underline; text-underline-offset:2px; border:none; background:none; font-family:inherit; }
+.kbd        { text-align:center; font-size:10px; color:var(--text-3); margin-top:6px; }
+.kbd kbd    { background:var(--bg-3); border:1px solid var(--border); border-radius:3px; padding:1px 5px; font-size:10px; font-family:inherit; }
+
+.words-panel { flex:1; display:flex; flex-direction:column; overflow:hidden; }
+.words-top  { display:flex; align-items:center; justify-content:space-between; padding:12px 16px; border-bottom:1px solid var(--border-2); }
+.words-count { font-size:12px; color:var(--text-3); }
+.words-actions { display:flex; gap:6px; }
+.act-btn    { font-size:12px; padding:5px 11px; border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:background .12s; }
+.act-btn:hover { background:var(--bg-2); }
+.word-list  { flex:1; overflow-y:auto; list-style:none; padding:0 16px; }
+.word-item  { display:flex; align-items:flex-start; justify-content:space-between; padding:12px 0; border-bottom:1px solid var(--border-2); gap:10px; animation:fadeIn .2s ease; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:none} }
+.word-item:last-child { border-bottom:none; }
+.word-left  { flex:1; }
+.word-right { display:flex; align-items:flex-start; gap:4px; padding-top:2px; flex-shrink:0; }
+.icon-btn   { width:28px; height:28px; display:flex; align-items:center; justify-content:center; background:transparent; border:none; cursor:pointer; border-radius:5px; color:var(--text-3); transition:background .12s, color .12s; }
+.icon-btn:hover { background:var(--bg-2); color:var(--text); }
+.icon-btn svg { width:14px; height:14px; }
+.icon-btn.saved { color:#E24B4A; }
+
+.saved-section { padding:12px 16px; border-top:1px solid var(--border-2); }
+.saved-top  { display:flex; align-items:center; justify-content:space-between; margin-bottom:7px; }
+.saved-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; }
+.saved-copy { font-size:11px; color:var(--brand); cursor:pointer; text-decoration:underline; text-underline-offset:2px; }
+.saved-tags { display:flex; gap:5px; flex-wrap:wrap; min-height:22px; }
+.saved-tag  { font-size:11px; padding:3px 10px; background:var(--brand-light); color:var(--brand-dark); border-radius:20px; display:flex; align-items:center; gap:4px; }
+.saved-tag-remove { cursor:pointer; opacity:.6; font-size:13px; line-height:1; }
+.saved-tag-remove:hover { opacity:1; }
+.saved-empty { font-size:12px; color:var(--text-3); font-style:italic; }
+
+/* Sentence-specific */
+.sg-sentence-text { font-size:15px; font-weight:400; color:var(--text); line-height:1.55; }
+.sg-word-count { font-size:11px; color:var(--text-3); font-weight:400; white-space:nowrap; }
+.sg-badges { display:flex; gap:5px; margin-top:6px; flex-wrap:wrap; }
+.sg-badge  { font-size:10px; padding:2px 8px; border-radius:10px; font-weight:600; text-transform:capitalize; letter-spacing:.02em; }
+.sg-badge-type { background:var(--brand-light); color:var(--brand-dark); }
+.sg-badge-cat  { background:#E8F4FD; color:#1A5C9E; }
+
+@media(max-width:700px){
+  .tool-wrap { padding:14px 16px 0; }
+  .tool-split { flex-direction:column; }
+  .ctrl { width:100%; border-right:none; border-bottom:1px solid var(--border-2); }
+  .reset-btn, .kbd { display:none; }
+  .word-list { max-height:440px; overflow-y:auto; }
+}
+</style>
+</head>
+
+<body>
+<nav class="nav">
+  <a class="nav-logo" href="/">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 15 15" fill="none"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </div>
+    Wordineer
+  </a>
+  <div class="nav-links">
+    <a href="/tools.html">Tools</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/api.html">API</a>
+  </div>
+  <div>
+    <div class="hamburger" onclick="document.getElementById('mega').classList.toggle('open')" title="All tools">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+<div class="mega" id="mega">
+  <div class="mega-inner">
+    <div class="mega-col">
+      <div class="mega-cat">Word tools</div>
+      <a class="mega-link" href="/index.html">Random word generator</a>
+      <a class="mega-link active" href="/random-sentence-generator.html">Random sentence</a>
+      <a class="mega-link" href="/random-letter-generator.html">Random letter</a>
+      <a class="mega-link" href="/word-scramble.html">Word scramble</a>
+      <a class="mega-link" href="/word-of-the-day.html">Word of the day</a>
+      <a class="mega-link" href="/passphrase-generator.html">Passphrase gen</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Name generators</div>
+      <a class="mega-link" href="/random-name-generator.html">Random name</a>
+      <a class="mega-link" href="/username-generator.html">Username generator</a>
+      <a class="mega-link" href="/fantasy-name-generator.html">Fantasy name gen</a>
+      <a class="mega-link" href="/baby-name-finder.html">Baby name finder</a>
+      <a class="mega-link" href="/pet-name-generator.html">Pet name gen</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Number &amp; chance</div>
+      <a class="mega-link" href="/random-number-generator.html">Random number</a>
+      <a class="mega-link" href="/dice-roller.html">Dice roller</a>
+      <a class="mega-link" href="/coin-flip.html">Coin flip</a>
+      <a class="mega-link" href="/lucky-number.html">Lucky number</a>
+      <a class="mega-link" href="/list-shuffler.html">List shuffler</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Games &amp; fun</div>
+      <a class="mega-link" href="/pictionary-word-generator.html">Pictionary words</a>
+      <a class="mega-link" href="/charades-generator.html">Charades gen</a>
+      <a class="mega-link" href="/truth-or-dare.html">Truth or dare</a>
+      <a class="mega-link" href="/would-you-rather.html">Would you rather</a>
+      <a class="mega-link" href="/story-prompts.html">Story prompts</a>
+    </div>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free · No sign-up · Instant
+  </div>
+  <h1>Random sentence generator</h1>
+  <p>Generate random English sentences instantly — filter by category, tone, type, and length. One click, no sign-up.</p>
+</div>
+<div class="tool-wrap">
+  <div class="tool-card">
+    <div class="tool-split">
+
+      <!-- LEFT: filters -->
+      <div class="ctrl">
+        <div class="ctrl-row">
+          <span class="ctrl-label">Number of sentences</span>
+          <input type="number" id="sg-count" value="5" min="1" max="10">
+        </div>
+        <div class="ctrl-row">
+          <span class="ctrl-label">Category</span>
+          <select id="sg-category">
+            <option value="all">All categories</option>
+            <option value="everyday">Everyday Life</option>
+            <option value="nature">Nature</option>
+            <option value="motivational">Motivational</option>
+            <option value="adventure">Adventure</option>
+            <option value="friendship">Friendship</option>
+            <option value="humor">Humor</option>
+            <option value="abstract">Abstract</option>
+            <option value="science">Science &amp; Technology</option>
+            <option value="mystery">Mystery</option>
+            <option value="travel">Travel</option>
+            <option value="work">Work &amp; Career</option>
+            <option value="food">Food &amp; Cooking</option>
+          </select>
+        </div>
+        <div class="ctrl-row">
+          <span class="ctrl-label">Tone</span>
+          <select id="sg-tone">
+            <option value="all">All tones</option>
+            <option value="neutral">Neutral</option>
+            <option value="dramatic">Dramatic</option>
+            <option value="humorous">Humorous</option>
+            <option value="poetic">Poetic</option>
+            <option value="inspirational">Inspirational</option>
+            <option value="suspenseful">Suspenseful</option>
+            <option value="melancholic">Melancholic</option>
+          </select>
+        </div>
+        <div class="ctrl-row">
+          <span class="ctrl-label">Sentence type</span>
+          <select id="sg-type">
+            <option value="all">All types</option>
+            <option value="simple">Simple</option>
+            <option value="compound">Compound</option>
+            <option value="complex">Complex</option>
+            <option value="compound-complex">Compound-Complex</option>
+          </select>
+        </div>
+        <div class="ctrl-row">
+          <span class="ctrl-label">Length</span>
+          <select id="sg-length">
+            <option value="all">Any length</option>
+            <option value="short">Short (5–8 words)</option>
+            <option value="medium">Medium (9–14 words)</option>
+            <option value="long">Long (15+ words)</option>
+          </select>
+        </div>
+        <div class="def-row">
+          <label class="toggle"><input type="checkbox" id="sg-show-wc" checked><span class="toggle-sl"></span></label>
+          <label for="sg-show-wc">Show word count</label>
+        </div>
+        <div class="def-row">
+          <label class="toggle"><input type="checkbox" id="sg-show-type"><span class="toggle-sl"></span></label>
+          <label for="sg-show-type">Show sentence type</label>
+        </div>
+        <div class="def-row">
+          <label class="toggle"><input type="checkbox" id="sg-show-cat"><span class="toggle-sl"></span></label>
+          <label for="sg-show-cat">Show category tag</label>
+        </div>
+        <button class="gen-btn" id="sg-gen-btn">Generate sentences</button>
+        <button class="reset-btn" id="sg-reset-btn">Reset options</button>
+        <div class="kbd">Press <kbd>Space</kbd> to regenerate</div>
+
+        <!-- Ad sidebar -->
+        <div class="ad-sidebar">
+          <span class="ad-sidebar-tag">Ad</span>
+          <div class="ad-sidebar-logo">
+            <svg viewBox="0 0 32 32" fill="none" width="32" height="32"><circle cx="16" cy="16" r="14" fill="#15a249"/><path d="M10 16c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="16" r="2.5" fill="white"/></svg>
+            <span class="ad-sidebar-brand">Grammarly</span>
+          </div>
+          <div class="ad-sidebar-headline">Write with confidence</div>
+          <div class="ad-sidebar-body">Fix grammar, improve clarity, and choose the right words — everywhere you write.</div>
+          <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-sidebar-cta">Try free →</a>
+          <div class="ad-sidebar-sub">Free plan · No credit card</div>
+        </div>
+      </div>
+
+      <!-- RIGHT: sentence list -->
+      <div class="words-panel">
+        <div class="words-top">
+          <span class="words-count" id="sg-count-display">Generating…</span>
+          <div class="words-actions">
+            <button class="act-btn" id="sg-copy-all-btn">Copy all</button>
+            <button class="act-btn" id="sg-regen-btn">Regenerate</button>
+          </div>
+        </div>
+        <ul class="word-list" id="sg-list"></ul>
+      </div>
+
+    </div>
+
+    <!-- Saved sentences -->
+    <div class="saved-section">
+      <div class="saved-top">
+        <span class="saved-label">Saved sentences <span id="sg-saved-count" style="font-weight:400;opacity:.7">(0)</span></span>
+        <span class="saved-copy" id="sg-copy-saved-btn">Copy saved</span>
+      </div>
+      <div class="saved-tags" id="sg-saved-tags">
+        <span class="saved-empty">Click the heart on any sentence to save it here</span>
+      </div>
+    </div>
+
+    <!-- Affiliate nudge (shown after first save) -->
+    <div class="aff-nudge" id="sg-aff-nudge">
+      <div>
+        <div class="aff-nudge-title">Put your saved sentences to work</div>
+        <div class="aff-nudge-body">Grammarly checks grammar, tone, and clarity — so your writing lands the way you intend. Free to start.</div>
+      </div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-nudge-cta">
+        Try free
+        <svg viewBox="0 0 10 10" fill="none"><path d="M2 5h6M6 3l2 2-2 2" stroke="white" stroke-width="1.2" stroke-linecap="round"/></svg>
+      </a>
+    </div>
+
+  </div>
+</div>
+<div class="ad-leaderboard">
+  <div class="ad-leaderboard-inner">
+    <span class="ad-tag">Advertisement · 728×90</span>
+    <div class="ad-mock-content">
+      <div class="ad-title">Grammarly — write with confidence. Grammar, tone &amp; clarity.</div>
+      <div class="ad-sub">Used by 30 million people. Works in Google Docs, Gmail, Word and more.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-mock-cta">Try Grammarly free</a>
+    </div>
+  </div>
+</div>
+<div class="content-wrap">
+  <div class="section">
+    <h2 class="section-title">More word tools</h2>
+    <p class="section-sub">Every word generator you need, all free</p>
+    <div class="tools-grid">
+      <a class="tool-item" href="/index.html"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="#534AB7" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="tool-name">Random word</div><div class="tool-desc">Filter by type, difficulty, length</div></a>
+      <a class="tool-item" href="/random-letter-generator.html"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3h9M2 6h5.5M2 9h3.5" stroke="#534AB7" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="tool-name">Random letter</div><div class="tool-desc">Single or multiple letters</div></a>
+      <a class="tool-item" href="/word-scramble.html"><div class="tool-icon" style="background:#FAEEDA"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="#854F0B" stroke-width="1.1"/></svg></div><div class="tool-name">Word scramble</div><div class="tool-desc">Scramble or unscramble words</div></a>
+      <a class="tool-item" href="/random-name-generator.html"><div class="tool-icon" style="background:#FAECE7"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4" r="2.2" stroke="#993C1D" stroke-width="1.1"/><path d="M1.5 11.5c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="#993C1D" stroke-width="1.1" stroke-linecap="round"/></svg></div><div class="tool-name">Random name <span class="new-badge">new</span></div><div class="tool-desc">First, last, or fantasy names</div></a>
+      <a class="tool-item" href="/word-of-the-day.html"><div class="tool-icon" style="background:#EAF3DE"><svg viewBox="0 0 13 13" fill="none"><path d="M6.5 1v11M1 6.5h11" stroke="#3B6D11" stroke-width="1.4" stroke-linecap="round"/></svg></div><div class="tool-name">Word of the day</div><div class="tool-desc">Daily vocabulary builder</div></a>
+      <a class="tool-item" href="/passphrase-generator.html"><div class="tool-icon" style="background:#FBEAF0"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="2" width="9" height="9" rx="2" stroke="#993556" stroke-width="1.1"/></svg></div><div class="tool-name">Passphrase gen</div><div class="tool-desc">Secure memorable passwords</div></a>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div>
+    <h2 class="section-title">Other tools</h2>
+    <p class="section-sub">Numbers, names, games and more</p>
+    <div class="other-grid">
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="1" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="1" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/></svg>Number &amp; chance</div><a class="other-link" href="/random-number-generator.html">Random number generator</a><a class="other-link" href="/dice-roller.html">Dice roller — 4,6,8,12,20 sided</a><a class="other-link" href="/coin-flip.html">Coin flip simulator</a><a class="other-link" href="/lucky-number.html">Lucky number picker</a><a class="other-link" href="/list-shuffler.html">Random list shuffler</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4.5" r="2.5" stroke="currentColor" stroke-width="1"/><path d="M1.5 11.5c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Name generators</div><a class="other-link" href="/fantasy-name-generator.html">Fantasy character name gen</a><a class="other-link" href="/username-generator.html">Username generator</a><a class="other-link" href="/baby-name-finder.html">Baby name finder</a><a class="other-link" href="/pet-name-generator.html">Pet name generator</a><a class="other-link" href="/band-name-generator.html">Band / team name gen</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3h9M2 6.5h7M2 10h5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Text &amp; writing</div><a class="other-link" href="/lorem-ipsum.html">Lorem ipsum generator</a><a class="other-link" href="/password-generator.html">Password generator</a><a class="other-link" href="/acronym-maker.html">Acronym maker</a><a class="other-link" href="/random-quote.html">Random quote generator</a><a class="other-link" href="/story-prompts.html">Story prompt generator</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M6.5 1.5l1.3 3h3.2l-2.6 2 1 3-2.9-1.8-2.9 1.8 1-3-2.6-2h3.2z" stroke="currentColor" stroke-width="1" stroke-linejoin="round"/></svg>Games &amp; fun</div><a class="other-link" href="/pictionary-word-generator.html">Pictionary word generator</a><a class="other-link" href="/charades-generator.html">Charades generator</a><a class="other-link" href="/truth-or-dare.html">Truth or dare gen</a><a class="other-link" href="/would-you-rather.html">Would you rather</a><a class="other-link" href="/trivia-questions.html">Trivia question gen</a></div>
+    </div>
+  </div>
+
+  <div class="ad-rect">
+    <span class="ad-tag">Advertisement · 336×280</span>
+    <div class="ad-rect-img"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4C10.3 4 4 10.3 4 18s6.3 14 14 14 14-6.3 14-14S25.7 4 18 4z" fill="white" opacity=".2"/><path d="M12 18c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="18" r="2.5" fill="white"/></svg></div>
+    <div class="ad-rect-content">
+      <div class="ad-rect-title">Grammarly — write with confidence</div>
+      <div class="ad-rect-body">Instantly improve grammar, spelling, clarity, and tone. Works everywhere you write online.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
+    </div>
+  </div>
+  <div class="divider"></div>
+
+<div class="explainer">
+  <h2>What is a random sentence generator?</h2>
+  <p>A random sentence generator creates complete, grammatically correct English sentences on demand — ready to use as writing prompts, story starters, grammar examples, or creative warm-ups. Instead of staring at a blank page, you get a full sentence the moment you click Generate. Every result is unique, original, and natural-sounding. No filler, no machine-translated noise.</p>
+
+  <h2>For writers: break through the blank page</h2>
+  <p>Writer's block rarely disappears on its own. The fastest fix is a random prompt that nudges your brain in an unexpected direction. Generate five sentences in the category that matches your project — Adventure for action scenes, Mystery for suspense, Abstract for literary fiction — and pick the one that sparks an idea. Many writers use these as first lines, scene-starters, or mood-setters. Pair this tool with the <a href="/random-word-generator/">random word generator</a> to combine a sentence prompt with fresh vocabulary for an extra creative boost.</p>
+
+  <h2>For students: study grammar through real examples</h2>
+  <p>The sentence type filter is one of this tool's most useful features for grammar study. Use it to explore the four core sentence structures with real, readable examples rather than textbook abstractions.</p>
+  <p>A <strong>simple sentence</strong> has one independent clause: subject, verb, and whatever modifiers surround them. A <strong>compound sentence</strong> joins two or more independent clauses with a coordinating conjunction (for, and, nor, but, or, yet, so) or a semicolon — each clause could stand alone. A <strong>complex sentence</strong> pairs one independent clause with at least one dependent clause introduced by a subordinating conjunction like "because", "although", or "when". A <strong>compound-complex sentence</strong> combines both patterns: two independent clauses plus one or more dependent clauses. Filtering by each type and reading the examples side by side makes the distinctions click faster than any diagram.</p>
+
+  <h2>For ESL and EFL learners: build natural English intuition</h2>
+  <p>Reading real sentences — not dictionary examples — trains your ear for how English actually flows. Use the Neutral tone and Medium length filters to generate conversational, everyday sentences that reflect how native speakers write. The Category filter helps you study vocabulary in context: select Food &amp; Cooking to learn culinary expressions, or Work &amp; Career to pick up professional phrasing. Saving your favourite sentences and reviewing them later is a lightweight but effective way to absorb patterns naturally.</p>
+
+  <h2>For teachers: instant grammar exercises</h2>
+  <p>Teachers can use the sentence type filter to pull a batch of simple, compound, complex, and compound-complex sentences and ask students to identify, classify, or transform them. The copy-all button exports your batch in seconds. Adjust the tone and category filters to match the lesson theme — generate Humorous sentences to keep a class engaged, or Motivational ones for a discussion starter. The word-count annotation (toggle it on) gives students an immediate structural clue when analysing sentence length and complexity.</p>
+
+  <h2>Category and tone filters: why they matter for creative writing</h2>
+  <p>Not every writing project needs the same emotional register. A Nature sentence in a Poetic tone reads very differently from a Nature sentence in a Dramatic tone — both are useful, but at different moments in a story. The tone filter gives you control over that register without having to generate and discard dozens of results. Combine it with the category filter to get highly targeted material: Friendship + Inspirational for a heartfelt speech, Mystery + Suspenseful for a thriller opening, Science &amp; Technology + Neutral for a technical explainer warm-up.</p>
+
+  <!-- Affiliate P3 -->
+  <div class="aff-writing">
+    <div class="aff-sponsored">✦ Sponsored <span class="ad-pill">Ad</span></div>
+    <div class="aff-writing-body">Once you have your sentences, Grammarly makes sure your writing is polished and mistake-free — inside Google Docs, Word, or your browser. Free to start.</div>
+    <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Write better with Grammarly — free to start <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
+  </div>
+
+  <h2>Game masters and creative challengers</h2>
+  <p>Random sentences make excellent improv prompts, collaborative storytelling seeds, and party-game challenges. Generate a long, dramatic sentence and challenge players to continue the story in one minute. Use the Humorous tone for a lighter mood, or Suspenseful for a tense round. The spacebar shortcut lets you cycle through results without touching the mouse — useful when you're in the middle of a game and need a new prompt fast.</p>
+</div>
+  <div class="divider"></div>
+
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">What is a random sentence generator?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">A random sentence generator creates complete, grammatically correct sentences at random. Writers use them for prompts and story starters, teachers use them for grammar exercises, and ESL learners use them to study natural English sentence patterns. This tool adds category, tone, type, and length filters so you can target exactly the kind of sentence you need.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What is the difference between a simple, compound, and complex sentence?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">
+      A <strong>simple</strong> sentence has one independent clause (one subject + verb). A <strong>compound</strong> sentence joins two independent clauses with a coordinating conjunction or semicolon — both halves could stand alone. A <strong>complex</strong> sentence pairs an independent clause with a dependent clause starting with "because", "although", "when", etc. A <strong>compound-complex</strong> sentence combines both: two or more independent clauses plus at least one dependent clause. Use the Sentence Type filter to generate examples of each and study them side by side.
+      <div class="aff-faq">
+        <div class="aff-faq-tag">Recommended tool</div>
+        <div class="aff-faq-body">Grammarly's grammar checker flags structural errors in your sentences and explains why — great for learning as you write.</div>
+        <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-faq-link">Check your writing free with Grammarly →</a>
+      </div>
+    </div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I use these sentences in my writing or school work?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes — all generated sentences are original and free to use as prompts, examples, or creative inspiration. They are not taken from copyrighted works. For academic assignments, use them as a starting point or a model to learn from rather than submitting them word-for-word.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">How do the category and tone filters work?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">The <strong>Category</strong> filter restricts results to a topic area — selecting "Nature" returns only sentences about the natural world. The <strong>Tone</strong> filter controls the emotional register: "Neutral" gives plain, descriptive sentences; "Dramatic" or "Poetic" return more expressive ones. Combine both for highly targeted results — for example, "Mystery" + "Suspenseful" pulls sentences that would fit a thriller opening.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Why does the generator sometimes show fewer sentences than I requested?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">When you combine narrow filters — such as a specific category, a rare tone, and a specific sentence type — the matching pool may be smaller than your requested count. The generator returns every sentence that matches; it won't repeat or invent new ones to fill the gap. Broadening one filter (for example, changing Length to "Any" or Tone to "All") will expand the pool and return your full count.</div>
+  </div>
+</div>
+  <div class="divider"></div>
+
+<div>
+  <h2 class="section-title" style="margin-bottom:14px">Who uses Wordineer</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">Writers</div><div class="uc-body">Break writer's block with story starters, scene prompts, and first-line inspiration</div></div>
+    <div class="uc"><div class="uc-title">Students &amp; Teachers</div><div class="uc-body">Study simple, compound, and complex sentences with real examples and classroom exercises</div></div>
+    <div class="uc"><div class="uc-title">ESL Learners</div><div class="uc-body">Build natural English intuition by reading and saving well-formed sentences in context</div></div>
+    <div class="uc"><div class="uc-title">Game Masters &amp; Creatives</div><div class="uc-body">Generate improv prompts, collaborative storytelling seeds, and creative challenge starters</div></div>
+  </div>
+</div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="ad-footer-strip" style="margin-bottom:24px">
+      <span class="ad-tag">Advertisement · 468×60</span>
+      <div class="ad-fs-text"><strong>Grammarly Premium</strong> — Vocabulary suggestions, tone detector, full-sentence rewrites.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-footer-strip-cta">Try free</a>
+    </div>
+    <div class="footer-grid">
+      <div><div class="footer-col-title">Word tools</div><a class="footer-link" href="/index.html">Random word generator</a><a class="footer-link" href="/random-sentence-generator.html">Random sentence</a><a class="footer-link" href="/random-letter-generator.html">Random letter</a><a class="footer-link" href="/word-scramble.html">Word scramble</a><a class="footer-link" href="/word-of-the-day.html">Word of the day</a><a class="footer-link" href="/passphrase-generator.html">Passphrase gen</a></div>
+      <div><div class="footer-col-title">Name generators</div><a class="footer-link" href="/random-name-generator.html">Random name gen</a><a class="footer-link" href="/username-generator.html">Username generator</a><a class="footer-link" href="/fantasy-name-generator.html">Fantasy name gen</a><a class="footer-link" href="/baby-name-finder.html">Baby name finder</a><a class="footer-link" href="/pet-name-generator.html">Pet name gen</a></div>
+      <div><div class="footer-col-title">Number &amp; chance</div><a class="footer-link" href="/random-number-generator.html">Random number</a><a class="footer-link" href="/dice-roller.html">Dice roller</a><a class="footer-link" href="/coin-flip.html">Coin flip</a><a class="footer-link" href="/lucky-number.html">Lucky number</a><a class="footer-link" href="/list-shuffler.html">List shuffler</a></div>
+      <div><div class="footer-col-title">Games &amp; fun</div><a class="footer-link" href="/pictionary-word-generator.html">Pictionary words</a><a class="footer-link" href="/charades-generator.html">Charades gen</a><a class="footer-link" href="/truth-or-dare.html">Truth or dare</a><a class="footer-link" href="/would-you-rather.html">Would you rather</a><a class="footer-link" href="/story-prompts.html">Story prompts</a></div>
+    </div>
+    <div class="footer-bottom">
+      <div style="display:flex;align-items:center;gap:7px">
+        <div class="nav-logo-icon" style="width:22px;height:22px;border-radius:5px"><svg viewBox="0 0 15 15" fill="none" style="width:12px;height:12px"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <span style="font-size:14px;font-weight:600;color:var(--text)">Wordineer</span>
+      </div>
+      <span class="footer-copy">© 2026 Wordineer · Free word tools for everyone</span>
+      <div class="footer-meta"><a href="/about.html">About</a><a href="/blog.html">Blog</a><a href="/api.html">API docs</a><a href="/affiliate-disclosure.html">Affiliate disclosure</a><a href="/privacy.html">Privacy</a></div>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="/scripts/tool-engine.js?v=2"></script>
+
+<script>
+const WORDINEER_SENTENCES = (() => {
+  const SEED = [
+    ["The morning fog covered the valley.", "everyday", "neutral", "simple", "short"],
+    ["Laughter echoed through the empty halls.", "everyday", "humorous", "simple", "short"],
+    ["Stars blinked against the darkened sky.", "nature", "poetic", "simple", "short"],
+    ["Every setback carries a hidden lesson.", "motivational", "inspirational", "simple", "short"],
+    ["The old bridge finally gave way.", "mystery", "dramatic", "simple", "short"],
+    ["The coffee shop buzzed with morning energy and quiet voices.", "everyday", "neutral", "simple", "medium"],
+    ["After the rain, the garden smelled clean and alive.", "nature", "neutral", "complex", "medium"],
+    ["True friendships survive long distances and the passage of time.", "friendship", "neutral", "simple", "medium"],
+    ["When you embrace failure, you unlock the gateway to growth.", "motivational", "inspirational", "complex", "medium"],
+    ["The scientist stared at the data and could not believe her own findings.", "science", "neutral", "compound", "medium"],
+    ["Hikers discovered a hidden waterfall deep inside the mountain range.", "adventure", "neutral", "simple", "medium"],
+    ["The market stall overflowed with spices, herbs, and exotic fruits.", "food", "neutral", "simple", "medium"],
+    ["Crossing the border, she realised the world was far bigger than she had imagined.", "travel", "neutral", "complex", "medium"],
+    ["Nobody noticed the missing file until the deadline had already passed.", "work", "suspenseful", "complex", "medium"],
+    ["Best friends share the kind of secrets that bind people together for life.", "friendship", "humorous", "simple", "medium"],
+    ["The ancient oak had witnessed centuries of storms, laughter, and quiet afternoons that no one remembered.", "nature", "poetic", "compound-complex", "long"],
+    ["Although the project ran behind schedule, the team rallied together and delivered results that exceeded every expectation.", "work", "inspirational", "compound-complex", "long"],
+    ["The recipe had been passed down through four generations, and every family member added their own secret twist.", "food", "neutral", "compound-complex", "long"],
+    ["While the city slept, a shadowy figure moved between the lampposts, leaving no trace of where it had been.", "mystery", "suspenseful", "compound-complex", "long"],
+    ["Somewhere between the mountains and the sea, travellers discover that the journey itself was always the destination.", "travel", "poetic", "complex", "long"]
+  ];
+
+  let SENTENCES = [...SEED];
+  let saved = [];
+  let current = [];
+  let cfg = {};
+  let fullLoaded = false;
+
+  const SC_KEY = 'wnr_sentences_v1';
+  function scGet(k) { try { return JSON.parse(sessionStorage.getItem(k)); } catch { return null; } }
+  function scSet(k, v) { try { sessionStorage.setItem(k, JSON.stringify(v)); } catch {} }
+
+  async function loadSentences() {
+    const cached = scGet(SC_KEY);
+    if (Array.isArray(cached) && cached.length > 100) { SENTENCES = cached; fullLoaded = true; return; }
+    try {
+      const res = await fetch('/data/sentences.json');
+      if (!res.ok) throw 0;
+      const data = await res.json();
+      SENTENCES = data;
+      fullLoaded = true;
+      scSet(SC_KEY, data);
+    } catch {}
+  }
+
+  function pick() {
+    const n        = Math.min(Math.max(parseInt(document.getElementById(cfg.countId)?.value) || 5, 1), 10);
+    const category = document.getElementById(cfg.categoryId)?.value  || 'all';
+    const tone     = document.getElementById(cfg.toneId)?.value      || 'all';
+    const type     = document.getElementById(cfg.typeId)?.value      || 'all';
+    const length   = document.getElementById(cfg.lengthId)?.value    || 'all';
+    let pool = SENTENCES.filter(s =>
+      (category === 'all' || s[1] === category) &&
+      (tone     === 'all' || s[2] === tone)     &&
+      (type     === 'all' || s[3] === type)     &&
+      (length   === 'all' || s[4] === length)
+    );
+    if (!pool.length) pool = SENTENCES;
+    return [...pool].sort(() => Math.random() - 0.5).slice(0, Math.min(n, pool.length));
+  }
+
+  function render() {
+    current = pick();
+    renderList();
+  }
+
+  function renderList() {
+    const showWC   = document.getElementById(cfg.showWordCountId)?.checked !== false;
+    const showType = document.getElementById(cfg.showTypeLabelId)?.checked === true;
+    const showCat  = document.getElementById(cfg.showCategoryTagId)?.checked === true;
+
+    const list = document.getElementById(cfg.listId);
+    if (!list) return;
+    list.innerHTML = '';
+
+    current.forEach((s) => {
+      const [sentence, category, , type] = s;
+      const wc = sentence.trim().split(/\s+/).length;
+      const isSaved = saved.includes(sentence);
+
+      const li = document.createElement('li');
+      li.className = 'word-item';
+
+      const left = document.createElement('div');
+      left.className = 'word-left';
+
+      const textEl = document.createElement('div');
+      textEl.className = 'sg-sentence-text';
+      textEl.textContent = sentence;
+      if (showWC) {
+        const wspan = document.createElement('span');
+        wspan.className = 'sg-word-count';
+        wspan.textContent = ' (' + wc + ' words)';
+        textEl.appendChild(wspan);
+      }
+      left.appendChild(textEl);
+
+      if (showType || showCat) {
+        const badges = document.createElement('div');
+        badges.className = 'sg-badges';
+        if (showType) {
+          const b = document.createElement('span');
+          b.className = 'sg-badge sg-badge-type';
+          b.textContent = type;
+          badges.appendChild(b);
+        }
+        if (showCat) {
+          const b = document.createElement('span');
+          b.className = 'sg-badge sg-badge-cat';
+          b.textContent = category;
+          badges.appendChild(b);
+        }
+        left.appendChild(badges);
+      }
+
+      const right = document.createElement('div');
+      right.className = 'word-right';
+
+      const copyBtn = document.createElement('button');
+      copyBtn.className = 'icon-btn';
+      copyBtn.title = 'Copy';
+      copyBtn.innerHTML = '<svg viewBox="0 0 14 14" fill="none"><rect x="1" y="4" width="9" height="9.5" rx="1.5" stroke="currentColor" stroke-width="1.1"/><path d="M4.5 4V2.5A1.5 1.5 0 016 1h5.5A1.5 1.5 0 0113 2.5v7a1.5 1.5 0 01-1.5 1.5H10" stroke="currentColor" stroke-width="1.1"/></svg>';
+      copyBtn.addEventListener('click', () => copyItem(sentence, copyBtn));
+
+      const saveBtn = document.createElement('button');
+      saveBtn.className = 'icon-btn' + (isSaved ? ' saved' : '');
+      saveBtn.title = 'Save';
+      saveBtn.innerHTML = '<svg viewBox="0 0 16 16" fill="none"><path d="M8 13.5S2 9.5 2 5.5A3 3 0 018 4a3 3 0 016 1.5c0 4-6 8-6 8z" stroke="currentColor" stroke-width="1.3" fill="' + (isSaved ? '#E24B4A' : 'none') + '" stroke-linecap="round"/></svg>';
+      saveBtn.addEventListener('click', () => toggleSave(sentence, saveBtn));
+
+      right.appendChild(copyBtn);
+      right.appendChild(saveBtn);
+      li.appendChild(left);
+      li.appendChild(right);
+      list.appendChild(li);
+    });
+
+    const countEl = document.getElementById(cfg.countDisplayId);
+    if (countEl) countEl.textContent = current.length + ' sentence' + (current.length !== 1 ? 's' : '') + ' generated';
+  }
+
+  function toggleSave(sentence, btn) {
+    const idx = saved.indexOf(sentence);
+    if (idx >= 0) {
+      saved.splice(idx, 1);
+      btn.classList.remove('saved');
+      btn.querySelector('path').setAttribute('fill', 'none');
+    } else {
+      saved.push(sentence);
+      btn.classList.add('saved');
+      btn.querySelector('path').setAttribute('fill', '#E24B4A');
+    }
+    renderSaved();
+  }
+
+  function renderSaved() {
+    const el    = document.getElementById('sg-saved-tags');
+    const cnt   = document.getElementById('sg-saved-count');
+    const nudge = document.getElementById('sg-aff-nudge');
+    if (!el) return;
+    if (cnt) cnt.textContent = '(' + saved.length + ')';
+    if (!saved.length) {
+      el.innerHTML = '<span class="saved-empty">Click the heart on any sentence to save it here</span>';
+      if (nudge) nudge.classList.remove('show');
+      return;
+    }
+    if (nudge) nudge.classList.add('show');
+    el.innerHTML = saved.map(s => {
+      const label = s.length > 45 ? s.slice(0, 45) + '…' : s;
+      const safe  = s.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+      return '<span class="saved-tag">' + label + ' <span class="saved-tag-remove" onclick="WORDINEER_SENTENCES.removeSaved(\'' + safe + '\')">×</span></span>';
+    }).join('');
+  }
+
+  function removeSaved(sentence) {
+    saved = saved.filter(s => s !== sentence);
+    renderSaved();
+    renderList();
+  }
+
+  function copyItem(sentence, btn) {
+    navigator.clipboard?.writeText(sentence);
+    const orig = btn.innerHTML;
+    btn.innerHTML = '<svg viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5 6.5-6.5" stroke="#1D9E75" stroke-width="1.3" stroke-linecap="round"/></svg>';
+    setTimeout(() => { btn.innerHTML = orig; }, 900);
+    showToast('Copied!');
+  }
+
+  function copyAll() {
+    if (!current.length) return;
+    navigator.clipboard?.writeText(current.map(s => s[0]).join('\n'));
+    showToast('All sentences copied!');
+  }
+
+  function copySaved() {
+    if (!saved.length) return;
+    navigator.clipboard?.writeText(saved.join('\n'));
+    showToast('Saved sentences copied!');
+  }
+
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    if (!t) return;
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2000);
+  }
+
+  function reset() {
+    ['sg-count','sg-category','sg-tone','sg-type','sg-length'].forEach((id, i) => {
+      const el = document.getElementById(id);
+      if (el) el.value = ['5','all','all','all','all'][i];
+    });
+    const wc = document.getElementById(cfg.showWordCountId);
+    if (wc) wc.checked = true;
+    const st = document.getElementById(cfg.showTypeLabelId);
+    if (st) st.checked = false;
+    const sc = document.getElementById(cfg.showCategoryTagId);
+    if (sc) sc.checked = false;
+    render();
+  }
+
+  function init(config) {
+    cfg = config;
+    render();
+    loadSentences().then(() => {
+      if (fullLoaded && current.every(s => SEED.some(seed => seed[0] === s[0]))) render();
+    }).catch(() => {});
+
+    document.getElementById(cfg.genBtnId)?.addEventListener('click', render);
+    document.getElementById(cfg.resetBtnId)?.addEventListener('click', reset);
+    document.getElementById(cfg.copyAllBtnId)?.addEventListener('click', copyAll);
+    document.getElementById(cfg.regenBtnId)?.addEventListener('click', render);
+    document.getElementById(cfg.copySavedBtnId)?.addEventListener('click', copySaved);
+
+    [cfg.showWordCountId, cfg.showTypeLabelId, cfg.showCategoryTagId].forEach(id => {
+      document.getElementById(id)?.addEventListener('change', renderList);
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.code === 'Space' && !['INPUT','SELECT','TEXTAREA','BUTTON'].includes(e.target.tagName)) {
+        e.preventDefault(); render();
+      }
+    });
+
+    document.querySelectorAll('.faq-q').forEach(q => {
+      q.addEventListener('click', () => q.closest('.faq-item').classList.toggle('open'));
+    });
+
+    document.addEventListener('click', e => {
+      const mega = document.getElementById('mega');
+      const hbg  = document.querySelector('.hamburger');
+      if (!mega || !hbg) return;
+      if (mega.classList.contains('open') && !mega.contains(e.target) && !hbg.contains(e.target))
+        mega.classList.remove('open');
+    });
+  }
+
+  return { init, render, reset, copyAll, copySaved, copyItem, toggleSave, removeSaved, showToast };
+})();
+
+WORDINEER_SENTENCES.init({
+  listId:           'sg-list',
+  countId:          'sg-count',
+  countDisplayId:   'sg-count-display',
+  categoryId:       'sg-category',
+  toneId:           'sg-tone',
+  typeId:           'sg-type',
+  lengthId:         'sg-length',
+  showWordCountId:  'sg-show-wc',
+  showTypeLabelId:  'sg-show-type',
+  showCategoryTagId:'sg-show-cat',
+  genBtnId:         'sg-gen-btn',
+  resetBtnId:       'sg-reset-btn',
+  copyAllBtnId:     'sg-copy-all-btn',
+  regenBtnId:       'sg-regen-btn',
+  copySavedBtnId:   'sg-copy-saved-btn',
+});
+</script>
+</body>
+</html>
