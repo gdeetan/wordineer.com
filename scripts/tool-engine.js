@@ -199,7 +199,7 @@ const WORDINEER = (() => {
 
     if (!pool.length) pool = WORDS; // fallback: ignore filters if no results
     const shuffled = [...pool].sort(() => Math.random() - 0.5);
-    return shuffled.slice(0, Math.min(count, shuffled.length));
+    return shuffled.slice(0, Math.min(count, shuffled.length, MAX_WORDS));
   }
 
   // ── Render word list ───────────────────────────────────────
