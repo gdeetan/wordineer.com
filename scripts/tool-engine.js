@@ -55,7 +55,7 @@ const WORDINEER = (() => {
   let fullLoaded = false;      // true once words.json is in pool
 
   // ── Layer 2 helpers: sessionStorage cache ──────────────────
-  const SC_WORDS_KEY = 'wnr_words_v2';
+  const SC_WORDS_KEY = 'wnr_words_v3';
 
   function scGet(key) {
     try { return JSON.parse(sessionStorage.getItem(key)); } catch { return null; }
@@ -76,7 +76,8 @@ const WORDINEER = (() => {
     try {
       const res = await fetch('/data/words.json');
       if (!res.ok) throw new Error(res.status);
-      const data = await res.json();
+      const raw = await res.json();
+      const data = raw.map(e => ({ w: e[0], t: e[1], d: e[2], diff: e[3], borrowed: e[4] }));
       WORDS = data;
       fullLoaded = true;
       scSet(SC_WORDS_KEY, data);
