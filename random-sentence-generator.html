@@ -209,7 +209,7 @@
       <div class="ctrl">
         <div class="ctrl-row">
           <span class="ctrl-label">Number of sentences</span>
-          <input type="number" id="sg-count" value="5" min="1" max="10">
+          <input type="number" id="sg-count" value="5" min="1" max="50">
         </div>
         <div class="ctrl-row">
           <span class="ctrl-label">Category</span>
@@ -528,7 +528,7 @@ const WORDINEER_SENTENCES = (() => {
   }
 
   function pick() {
-    const n        = Math.min(Math.max(parseInt(document.getElementById(cfg.countId)?.value) || 5, 1), 10);
+    const n        = Math.min(Math.max(parseInt(document.getElementById(cfg.countId)?.value) || 5, 1), 50);
     const category = document.getElementById(cfg.categoryId)?.value  || 'all';
     const tone     = document.getElementById(cfg.toneId)?.value      || 'all';
     const type     = document.getElementById(cfg.typeId)?.value      || 'all';
