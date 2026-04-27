@@ -171,14 +171,15 @@ const WORDINEER = (() => {
   // ── Pick filtered words ────────────────────────────────────
   const MAX_WORDS = 50;
 
+  function setCountError(show) {
+    const err = document.getElementById('count-error');
+    const inp = document.getElementById(config.countId);
+    if (err) err.classList.toggle('show', show);
+    if (inp) inp.classList.toggle('input-error', show);
+  }
+
   function pick() {
-    let count = parseInt(document.getElementById(config.countId)?.value) || 10;
-    if (count > MAX_WORDS) {
-      showToast('Value must be less than or equal to 50');
-      count = MAX_WORDS;
-      const el = document.getElementById(config.countId);
-      if (el) el.value = MAX_WORDS;
-    }
+    const count = parseInt(document.getElementById(config.countId)?.value) || 10;
     const type   = document.getElementById(config.typeId)?.value   || 'all';
     const diff   = document.getElementById(config.diffId)?.value   || 'all';
     const first  = (document.getElementById(config.firstId)?.value || '').toUpperCase().trim();
@@ -204,6 +205,12 @@ const WORDINEER = (() => {
 
   // ── Render word list ───────────────────────────────────────
   function render() {
+    const rawCount = parseInt(document.getElementById(config.countId)?.value) || 10;
+    if (rawCount > MAX_WORDS) {
+      setCountError(true);
+      return;
+    }
+    setCountError(false);
     current   = pick();
     defsShown = document.getElementById(config.defsId)?.checked !== false;
     const list = document.getElementById(config.listId);
@@ -414,6 +421,13 @@ const WORDINEER = (() => {
     initMega();
     initSpacebar();
     initDefToggle();
+
+    const countEl = document.getElementById(config.countId);
+    if (countEl) {
+      countEl.addEventListener('input', function() {
+        if ((parseInt(this.value) || 0) <= MAX_WORDS) setCountError(false);
+      });
+    }
   }
 
   // ── Expose public API ──────────────────────────────────────
