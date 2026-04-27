@@ -213,7 +213,7 @@
       <div class="ctrl">
         <div class="ctrl-row">
           <span class="ctrl-label">Number of sentences</span>
-          <input type="number" id="sg-count" value="5" min="1">
+          <input type="number" id="sg-count" value="5">
           <span class="count-error" id="sg-count-error">Enter a number from 1 to 50</span>
         </div>
         <div class="ctrl-row">
@@ -556,8 +556,8 @@ const WORDINEER_SENTENCES = (() => {
   }
 
   function render() {
-    const rawCount = parseInt(document.getElementById(cfg.countId)?.value) || 5;
-    if (rawCount > 50) { setCountError(true); return; }
+    const rawCount = parseInt(document.getElementById(cfg.countId)?.value);
+    if (!rawCount || rawCount < 1 || rawCount > 50) { setCountError(true); return; }
     setCountError(false);
     current = pick();
     renderList();
