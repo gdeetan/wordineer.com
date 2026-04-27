@@ -215,8 +215,8 @@ const shuffled = [...pool].sort(() => Math.random() - 0.5);
 return shuffled.slice(0, Math.min(count, shuffled.length, MAX_WORDS));
 }
 function render() {
-const rawCount = parseInt(document.getElementById(config.countId)?.value) || 10;
-if (rawCount > MAX_WORDS) {
+const rawCount = parseInt(document.getElementById(config.countId)?.value, 10);
+if (isNaN(rawCount) || rawCount < 1 || rawCount > MAX_WORDS) {
 setCountError(true);
 return;
 }
@@ -399,7 +399,8 @@ initDefToggle();
 const countEl = document.getElementById(config.countId);
 if (countEl) {
 countEl.addEventListener('input', function() {
-if ((parseInt(this.value) || 0) <= MAX_WORDS) setCountError(false);
+const v = parseInt(this.value);
+if (v >= 1 && v <= MAX_WORDS) setCountError(false);
 });
 }
 }
