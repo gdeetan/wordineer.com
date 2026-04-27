@@ -118,6 +118,10 @@
 .saved-tag-remove:hover { opacity:1; }
 .saved-empty { font-size:12px; color:var(--text-3); font-style:italic; }
 
+.count-error { display:none; font-size:11px; color:#E24B4A; margin-top:4px; }
+.count-error.show { display:block; }
+.ctrl-row input.input-error { border-color:#E24B4A !important; }
+
 /* Sentence-specific */
 .sg-sentence-text { font-size:15px; font-weight:400; color:var(--text); line-height:1.55; }
 .sg-word-count { font-size:11px; color:var(--text-3); font-weight:400; white-space:nowrap; }
@@ -209,7 +213,8 @@
       <div class="ctrl">
         <div class="ctrl-row">
           <span class="ctrl-label">Number of sentences</span>
-          <input type="number" id="sg-count" value="5" min="1" max="50">
+          <input type="number" id="sg-count" value="5" min="1">
+          <span class="count-error" id="sg-count-error">Enter a number from 1 to 50</span>
         </div>
         <div class="ctrl-row">
           <span class="ctrl-label">Category</span>
@@ -543,7 +548,17 @@ const WORDINEER_SENTENCES = (() => {
     return [...pool].sort(() => Math.random() - 0.5).slice(0, Math.min(n, pool.length));
   }
 
+  function setCountError(show) {
+    const err = document.getElementById('sg-count-error');
+    const inp = document.getElementById(cfg.countId);
+    if (err) err.classList.toggle('show', show);
+    if (inp) inp.classList.toggle('input-error', show);
+  }
+
   function render() {
+    const rawCount = parseInt(document.getElementById(cfg.countId)?.value) || 5;
+    if (rawCount > 50) { setCountError(true); return; }
+    setCountError(false);
     current = pick();
     renderList();
   }
