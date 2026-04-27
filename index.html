@@ -81,6 +81,9 @@
 .ctrl-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; display:block; margin-bottom:5px; }
 .ctrl-row input, .ctrl-row select { width:100%; padding:7px 10px; font-size:13px; font-family:inherit; border:1px solid var(--border); border-radius:7px; background:var(--bg); color:var(--text); appearance:none; outline:none; transition:border-color .15s; }
 .ctrl-row input:focus, .ctrl-row select:focus { border-color:var(--brand); }
+.count-error { display:none; font-size:11px; color:#E24B4A; margin-top:4px; }
+.count-error.show { display:block; }
+.ctrl-row input.input-error { border-color:#E24B4A !important; }
 .letter-row { display:flex; gap:6px; }
 .letter-row input { text-transform:uppercase; text-align:center; }
 .size-opts  { display:flex; gap:10px; margin-bottom:6px; }
@@ -244,6 +247,7 @@
         <div class="ctrl-row">
           <span class="ctrl-label">Number of words</span>
           <input type="number" id="ctrl-count" value="10" min="1" max="50">
+          <span class="count-error" id="count-error">Enter a number from 1 to 50</span>
         </div>
         <button type="button" class="mobile-more-toggle" id="mobile-more-toggle" aria-expanded="false" aria-controls="advanced-options">Toggle More Options</button>
         <div class="advanced-options" id="advanced-options">
