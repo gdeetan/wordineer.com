@@ -296,7 +296,7 @@
           <label for="ctrl-defs">Show definitions</label>
         </div>
         </div>
-        <button class="gen-btn" onclick="WORDINEER.generate()">Generate words</button>
+        <button class="gen-btn" id="word-gen-btn">Generate words</button>
         <button class="reset-btn" onclick="WORDINEER.reset()">Reset options</button>
         <div class="kbd">Press <kbd>Space</kbd> to regenerate</div>
 
@@ -318,7 +318,7 @@
           <span class="words-count" id="word-count">Generating…</span>
           <div class="words-actions">
             <button class="act-btn" onclick="WORDINEER.copyAll()">Copy all</button>
-            <button class="act-btn" onclick="WORDINEER.generate()">Regenerate</button>
+            <button class="act-btn" id="word-regen-btn">Regenerate</button>
           </div>
         </div>
         <ul class="word-list" id="word-list"></ul>
@@ -543,6 +543,29 @@ WORDINEER.init({
   const count = document.getElementById('ctrl-count');
   const toggle = document.getElementById('mobile-more-toggle');
   const advanced = document.getElementById('advanced-options');
+
+  function setCountError(show) {
+    const err = document.getElementById('count-error');
+    if (err) err.classList.toggle('show', show);
+    if (count) count.classList.toggle('input-error', show);
+  }
+
+  function validateAndGenerate() {
+    const raw = parseInt(count?.value, 10);
+    if (isNaN(raw) || raw < 1 || raw > 50) { setCountError(true); return; }
+    setCountError(false);
+    WORDINEER.generate();
+  }
+
+  document.getElementById('word-gen-btn')?.addEventListener('click', validateAndGenerate);
+  document.getElementById('word-regen-btn')?.addEventListener('click', validateAndGenerate);
+
+  if (count) {
+    count.addEventListener('input', function() {
+      const v = parseInt(this.value, 10);
+      if (v >= 1 && v <= 50) setCountError(false);
+    });
+  }
 
   if (count) {
     window.addEventListener('load', function(){
