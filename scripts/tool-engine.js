@@ -169,8 +169,16 @@ const WORDINEER = (() => {
   }
 
   // ── Pick filtered words ────────────────────────────────────
+  const MAX_WORDS = 50;
+
   function pick() {
-    const count  = parseInt(document.getElementById(config.countId)?.value) || 10;
+    let count = parseInt(document.getElementById(config.countId)?.value) || 10;
+    if (count > MAX_WORDS) {
+      showToast('Value must be less than or equal to 50');
+      count = MAX_WORDS;
+      const el = document.getElementById(config.countId);
+      if (el) el.value = MAX_WORDS;
+    }
     const type   = document.getElementById(config.typeId)?.value   || 'all';
     const diff   = document.getElementById(config.diffId)?.value   || 'all';
     const first  = (document.getElementById(config.firstId)?.value || '').toUpperCase().trim();
