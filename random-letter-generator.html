@@ -147,7 +147,7 @@
   .lg-advanced.is-open { display:block; }
   .reset-btn, .kbd { display:none; }
   .words-top { padding:10px 16px; }
-  #lg-list { max-height:420px; }
+  #lg-list { max-height:600px; }
   .tool-split { flex-direction:column; }
   .ctrl { width:100%; border-right:none; border-bottom:1px solid var(--border-2); }
   .hero { padding:12px 16px 12px; }
@@ -515,9 +515,10 @@ const WORDINEER_LETTERS = (() => {
         result.push(useFreq ? weightedPick(pool) : pool[Math.floor(Math.random() * pool.length)]);
       }
     } else {
-      const avail = [...pool];
-      const count = Math.min(n, avail.length);
-      for (let i = 0; i < count; i++) {
+      // Shuffle-cycle: no repeats within each cycle; refill when pool exhausted
+      let avail = [];
+      for (let i = 0; i < n; i++) {
+        if (!avail.length) avail = [...pool].sort(() => Math.random() - 0.5);
         if (useFreq) {
           const chosen = weightedPick(avail);
           result.push(chosen);
