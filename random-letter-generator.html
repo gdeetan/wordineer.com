@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7DWH3EGM3Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7DWH3EGM3Z');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7200956978416233"
+     crossorigin="anonymous"></script>
+<meta name='impact-site-verification' value='32715504-1cfb-4324-bfc7-ae4cfa1591ea'>
+<link rel="preload" href="/fonts/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-sans-italic-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<title>Random Letter Generator — Free, Instant, No Sign-up | Wordineer</title>
+<meta name="description" content="Generate random letters instantly. Filter by case, vowels or consonants, see NATO phonetic codes, and explore English letter frequency. Free, no sign-up.">
+<link rel="canonical" href="https://wordineer.com/random-letter-generator/">
+<meta property="og:type"        content="website">
+<meta property="og:site_name"   content="Wordineer">
+<meta property="og:title"       content="Random Letter Generator | Wordineer">
+<meta property="og:description" content="Pick random letters instantly — filter by case, vowels or consonants, and see the NATO phonetic alphabet. Free, no sign-up.">
+<meta property="og:url"         content="https://wordineer.com/random-letter-generator/">
+<meta property="og:image"       content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a random letter generator?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A random letter generator picks letters from the alphabet at random. You can control how many letters you get, whether they are uppercase, lowercase, or mixed, and whether the pool is limited to vowels, consonants, or the full A–Z set. Some generators also weight letters by their real English frequency — meaning E and T appear more often than Q or Z, just as they do in actual text." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the NATO phonetic alphabet and why does it matter?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The NATO phonetic alphabet assigns a unique spoken word to each letter — Alpha for A, Bravo for B, Charlie for C, and so on through Zulu for Z. It was developed to prevent miscommunication when spelling out words over radio, phone, or in noisy environments where letters like B and D, or M and N, sound identical. It is used by pilots, air traffic controllers, military personnel, emergency services, and anyone who needs to spell clearly over a call." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the most common letter in the English alphabet?",
+      "acceptedAnswer": { "@type": "Answer", "text": "E is the most common letter in English, appearing in roughly 12.7% of all text. It is followed by T (9.1%), A (8.2%), O (7.5%), and I (7.0%). At the other end, Z (0.07%), Q (0.10%), and X (0.15%) are the rarest. Turn on the 'Weight by English frequency' toggle to see this in action — you will get far more E, T, and A than Q or Z." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this tool to teach my child the alphabet?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes — it works well for alphabet drills. Use the vowels-only filter to focus on A, E, I, O, U, or the consonants-only filter for the remaining 21 letters. Turn on the Show letter number toggle to practise alphabetical order, or the Show NATO phonetic toggle to introduce the phonetic words alongside each letter. Generate one letter at a time for flash-card style practice." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between vowels and consonants?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Vowels (A, E, I, O, U) are letters where air flows freely through the mouth with no restriction — they form the core sound of every syllable. Consonants are all other letters; they are formed by partly or fully blocking the airflow using lips, teeth, tongue, or throat. Sorting the alphabet into these two groups is one of the earliest phonics milestones for young readers and a key concept in linguistics and word games." }
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="/styles/global.css?v=1">
+<style>
+/* ── Letter Generator Tool Styles ── */
+.tool-wrap  { max-width:960px; margin:0 auto; padding:24px 24px 0; }
+.tool-card  { border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg); box-shadow:var(--shadow); }
+.tool-split { display:flex; }
+
+.ctrl       { width:220px; flex-shrink:0; padding:18px; border-right:1px solid var(--border-2); background:var(--bg-2); }
+.ctrl-row   { margin-bottom:14px; }
+.ctrl-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; display:block; margin-bottom:5px; }
+.ctrl-row input, .ctrl-row select { width:100%; padding:7px 10px; font-size:13px; font-family:inherit; border:1px solid var(--border); border-radius:7px; background:var(--bg); color:var(--text); appearance:none; outline:none; transition:border-color .15s; }
+.ctrl-row input:focus, .ctrl-row select:focus { border-color:var(--brand); }
+.count-error { display:none; font-size:11px; color:#E24B4A; margin-top:4px; }
+.count-error.show { display:block; }
+.ctrl-row input.input-error { border-color:#E24B4A !important; }
+.def-row    { display:flex; align-items:center; gap:8px; margin-bottom:10px; }
+.def-row label { font-size:12px; color:var(--text-2); cursor:pointer; }
+.toggle     { position:relative; width:32px; height:18px; flex-shrink:0; }
+.toggle input { opacity:0; width:0; height:0; }
+.toggle-sl  { position:absolute; cursor:pointer; inset:0; background:var(--border); border-radius:9px; transition:.2s; }
+.toggle input:checked + .toggle-sl { background:var(--brand); }
+.toggle-sl::before { content:''; position:absolute; width:14px; height:14px; left:2px; top:2px; background:white; border-radius:50%; transition:.2s; }
+.toggle input:checked + .toggle-sl::before { transform:translateX(14px); }
+.gen-btn    { width:100%; padding:10px 14px; background:var(--brand); color:white; border:none; border-radius:8px; font-size:14px; font-weight:600; font-family:inherit; cursor:pointer; transition:background .15s,transform .1s; letter-spacing:-.01em; }
+.gen-btn:hover { background:var(--brand-dark); }
+.gen-btn:active { transform:scale(.98); }
+.reset-btn  { display:block; width:100%; text-align:center; font-size:11px; color:var(--text-3); margin-top:8px; cursor:pointer; text-decoration:underline; text-underline-offset:2px; border:none; background:none; font-family:inherit; }
+.kbd        { text-align:center; font-size:10px; color:var(--text-3); margin-top:6px; }
+.kbd kbd    { background:var(--bg-3); border:1px solid var(--border); border-radius:3px; padding:1px 5px; font-size:10px; font-family:inherit; }
+
+.words-panel { flex:1; display:flex; flex-direction:column; overflow:hidden; min-height:320px; }
+.words-top  { display:flex; align-items:center; justify-content:space-between; padding:12px 16px; border-bottom:1px solid var(--border-2); }
+.words-count { font-size:12px; color:var(--text-3); }
+.words-actions { display:flex; gap:6px; }
+.act-btn    { font-size:12px; padding:5px 11px; border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:background .12s; }
+.act-btn:hover { background:var(--bg-2); }
+.icon-btn   { width:28px; height:28px; display:flex; align-items:center; justify-content:center; background:transparent; border:none; cursor:pointer; border-radius:5px; color:var(--text-3); transition:background .12s, color .12s; }
+.icon-btn:hover { background:var(--bg-2); color:var(--text); }
+.icon-btn svg { width:14px; height:14px; }
+.icon-btn.saved { color:#E24B4A; }
+
+.saved-section { padding:12px 16px; border-top:1px solid var(--border-2); }
+.saved-top  { display:flex; align-items:center; justify-content:space-between; margin-bottom:7px; }
+.saved-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; }
+.saved-copy { font-size:11px; color:var(--brand); cursor:pointer; text-decoration:underline; text-underline-offset:2px; }
+.saved-tags { display:flex; gap:5px; flex-wrap:wrap; min-height:22px; }
+.saved-tag  { font-size:11px; padding:3px 10px; background:var(--brand-light); color:var(--brand-dark); border-radius:20px; display:flex; align-items:center; gap:4px; }
+.saved-tag-remove { cursor:pointer; opacity:.6; font-size:13px; line-height:1; }
+.saved-tag-remove:hover { opacity:1; }
+.saved-empty { font-size:12px; color:var(--text-3); font-style:italic; }
+
+/* Case three-way selector — .size-opt / .size-tick pattern */
+.lg-size-opts { display:flex; gap:8px; flex-wrap:wrap; }
+.size-opt   { position:relative; display:flex; align-items:center; gap:7px; font-size:12px; color:var(--text-2); cursor:pointer; }
+.size-opt input { position:absolute; opacity:0; pointer-events:none; }
+.size-tick  { width:18px; height:18px; border:1px solid var(--border); border-radius:5px; background:var(--bg); display:inline-flex; align-items:center; justify-content:center; transition:background .15s, border-color .15s; flex-shrink:0; }
+.size-tick::after { content:'✓'; font-size:13px; font-weight:700; color:white; line-height:1; opacity:0; transform:scale(.7); transition:opacity .15s, transform .15s; }
+.size-opt input:checked + .size-tick { background:var(--brand); border-color:var(--brand); }
+.size-opt input:checked + .size-tick::after { opacity:1; transform:scale(1); }
+.size-opt:hover .size-tick { border-color:var(--brand); }
+
+/* Mobile more options */
+.lg-mobile-toggle { display:none; width:100%; margin:-2px 0 14px; padding:9px 12px; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--brand); font-size:13px; font-weight:600; font-family:inherit; cursor:pointer; }
+.lg-advanced { display:block; }
+
+/* Letter cards grid */
+#lg-list { flex:1; overflow-y:auto; padding:12px 16px; display:flex; flex-wrap:wrap; gap:8px; align-content:flex-start; list-style:none; margin:0; min-height:200px; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:none} }
+.lg-letter-item { display:flex; flex-direction:column; align-items:center; border:1px solid var(--border); border-radius:8px; padding:10px 8px 7px; background:var(--bg); min-width:68px; flex:0 0 auto; animation:fadeIn .2s ease; }
+.lg-letter-main { font-size:48px; font-weight:700; color:var(--text); line-height:1; }
+.lg-letter-anno { font-size:10px; color:var(--text-3); margin-top:3px; text-align:center; min-height:14px; line-height:1.3; }
+.lg-letter-btns { display:flex; gap:2px; margin-top:6px; }
+
+@media(max-width:700px){
+  .tool-wrap { padding:14px 16px 0; }
+  .tool-card { border-radius:12px; }
+  .ctrl { padding:16px; }
+  .lg-mobile-toggle { display:block; }
+  .lg-advanced { display:none; }
+  .lg-advanced.is-open { display:block; }
+  .reset-btn, .kbd { display:none; }
+  .words-top { padding:10px 16px; }
+  #lg-list { max-height:420px; }
+  .tool-split { flex-direction:column; }
+  .ctrl { width:100%; border-right:none; border-bottom:1px solid var(--border-2); }
+  .hero { padding:12px 16px 12px; }
+  .hero-badge { margin-bottom:6px; }
+  .hero h1 { font-size:24px; }
+}
+</style>
+</head>
+
+<body>
+<nav class="nav">
+  <a class="nav-logo" href="/">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 15 15" fill="none"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </div>
+    Wordineer
+  </a>
+  <div class="nav-links">
+    <a href="/tools.html">Tools</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/api.html">API</a>
+  </div>
+  <div>
+    <div class="hamburger" onclick="document.getElementById('mega').classList.toggle('open')" title="All tools">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+<div class="mega" id="mega">
+  <div class="mega-inner">
+    <div class="mega-col">
+      <div class="mega-cat">Word tools</div>
+      <a class="mega-link" href="/index.html">Random word generator</a>
+      <a class="mega-link" href="/random-sentence-generator/">Random sentence</a>
+      <a class="mega-link" href="/random-letter-generator/">Random letter</a>
+      <a class="mega-link" href="/word-scramble/">Word scramble</a>
+      <a class="mega-link" href="/word-of-the-day/">Word of the day</a>
+      <a class="mega-link" href="/passphrase-generator/">Passphrase gen</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Name generators</div>
+      <a class="mega-link" href="/random-name-generator/">Random name</a>
+      <a class="mega-link" href="/username-generator/">Username generator</a>
+      <a class="mega-link" href="/fantasy-name-generator/">Fantasy name gen</a>
+      <a class="mega-link" href="/baby-name-finder/">Baby name finder</a>
+      <a class="mega-link" href="/pet-name-generator/">Pet name gen</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Number &amp; chance</div>
+      <a class="mega-link" href="/random-number-generator/">Random number</a>
+      <a class="mega-link" href="/dice-roller/">Dice roller</a>
+      <a class="mega-link" href="/coin-flip/">Coin flip</a>
+      <a class="mega-link" href="/lucky-number/">Lucky number</a>
+      <a class="mega-link" href="/list-shuffler/">List shuffler</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Games &amp; fun</div>
+      <a class="mega-link" href="/pictionary-word-generator/">Pictionary words</a>
+      <a class="mega-link" href="/charades-generator/">Charades gen</a>
+      <a class="mega-link" href="/truth-or-dare/">Truth or dare</a>
+      <a class="mega-link" href="/would-you-rather/">Would you rather</a>
+      <a class="mega-link" href="/story-prompts/">Story prompts</a>
+    </div>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free · No sign-up · Instant
+  </div>
+  <h1>Random letter generator</h1>
+  <p>Pick random letters instantly — filter by case, vowels or consonants, and see the NATO phonetic alphabet. One click, no sign-up.</p>
+</div>
+<div class="tool-wrap">
+  <div class="tool-card">
+    <div class="tool-split">
+
+      <!-- LEFT: controls -->
+      <div class="ctrl">
+        <div class="ctrl-row">
+          <span class="ctrl-label">Number of letters</span>
+          <input type="number" id="lg-count" value="10" min="1" max="50">
+          <span class="count-error" id="lg-count-error">Enter a number from 1 to 50</span>
+        </div>
+
+        <button type="button" class="lg-mobile-toggle" id="lg-mobile-toggle" aria-expanded="false" aria-controls="lg-advanced">More options</button>
+
+        <div class="lg-advanced" id="lg-advanced">
+          <div class="ctrl-row">
+            <span class="ctrl-label">Case</span>
+            <div class="lg-size-opts">
+              <label class="size-opt"><input type="radio" name="lg-case" id="lg-case-up" value="upper" checked><span class="size-tick" aria-hidden="true"></span><span>Upper</span></label>
+              <label class="size-opt"><input type="radio" name="lg-case" id="lg-case-low" value="lower"><span class="size-tick" aria-hidden="true"></span><span>Lower</span></label>
+              <label class="size-opt"><input type="radio" name="lg-case" id="lg-case-mix" value="mixed"><span class="size-tick" aria-hidden="true"></span><span>Mixed</span></label>
+            </div>
+          </div>
+          <div class="ctrl-row">
+            <span class="ctrl-label">Letter set</span>
+            <select id="lg-letter-set">
+              <option value="all">All letters (A–Z)</option>
+              <option value="vowels">Vowels only (A E I O U)</option>
+              <option value="consonants">Consonants only</option>
+            </select>
+          </div>
+          <div class="def-row">
+            <label class="toggle"><input type="checkbox" id="lg-duplicates" checked><span class="toggle-sl"></span></label>
+            <label for="lg-duplicates">Allow duplicates</label>
+          </div>
+          <div class="def-row">
+            <label class="toggle"><input type="checkbox" id="lg-freq"><span class="toggle-sl"></span></label>
+            <label for="lg-freq">Weight by English frequency (E most common)</label>
+          </div>
+          <div class="def-row">
+            <label class="toggle"><input type="checkbox" id="lg-show-num"><span class="toggle-sl"></span></label>
+            <label for="lg-show-num">Show letter number</label>
+          </div>
+          <div class="def-row">
+            <label class="toggle"><input type="checkbox" id="lg-show-nato"><span class="toggle-sl"></span></label>
+            <label for="lg-show-nato">Show NATO phonetic</label>
+          </div>
+        </div>
+
+        <button class="gen-btn" id="lg-gen-btn">Generate letters</button>
+        <button class="reset-btn" id="lg-reset-btn">Reset options</button>
+        <div class="kbd">Press <kbd>Space</kbd> to regenerate</div>
+
+        <div class="ad-sidebar">
+          <span class="ad-sidebar-tag">Ad</span>
+          <div class="ad-sidebar-logo">
+            <svg viewBox="0 0 32 32" fill="none" width="32" height="32"><circle cx="16" cy="16" r="14" fill="#15a249"/><path d="M10 16c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="16" r="2.5" fill="white"/></svg>
+            <span class="ad-sidebar-brand">Grammarly</span>
+          </div>
+          <div class="ad-sidebar-headline">Write with confidence</div>
+          <div class="ad-sidebar-body">Fix grammar, improve clarity, and choose the right words — everywhere you write.</div>
+          <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-sidebar-cta">Try free →</a>
+          <div class="ad-sidebar-sub">Free plan · No credit card</div>
+        </div>
+      </div>
+
+      <!-- RIGHT: letter results -->
+      <div class="words-panel">
+        <div class="words-top">
+          <span class="words-count" id="lg-count-display">Generating…</span>
+          <div class="words-actions">
+            <button class="act-btn" id="lg-copy-all-btn">Copy all</button>
+            <button class="act-btn" id="lg-regen-btn">Regenerate</button>
+          </div>
+        </div>
+        <ul id="lg-list"></ul>
+      </div>
+
+    </div>
+
+    <!-- Saved letters -->
+    <div class="saved-section">
+      <div class="saved-top">
+        <span class="saved-label">Saved letters <span id="lg-saved-count" style="font-weight:400;opacity:.7">(0)</span></span>
+        <span class="saved-copy" id="lg-copy-saved-btn">Copy saved</span>
+      </div>
+      <div class="saved-tags" id="lg-saved-tags">
+        <span class="saved-empty">Click the heart on any letter to save it here</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="ad-leaderboard">
+  <div class="ad-leaderboard-inner">
+    <span class="ad-tag">Advertisement · 728×90</span>
+    <div class="ad-mock-content">
+      <div class="ad-title">Grammarly — write with confidence. Grammar, tone &amp; clarity.</div>
+      <div class="ad-sub">Used by 30 million people. Works in Google Docs, Gmail, Word and more.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-mock-cta">Try Grammarly free</a>
+    </div>
+  </div>
+</div>
+<div class="content-wrap">
+  <div class="section">
+    <h2 class="section-title">More word tools</h2>
+    <p class="section-sub">Every word generator you need, all free</p>
+    <div class="tools-grid">
+      <a class="tool-item" href="/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="#534AB7" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="tool-name">Random word</div><div class="tool-desc">Filter by type, difficulty, length</div></a>
+      <a class="tool-item" href="/random-letter-generator/"><div class="tool-icon" style="background:#EEF6E8"><svg viewBox="0 0 13 13" fill="none"></svg></div><div class="tool-name">Random Letter Generator</div><div class="tool-desc">Pick random letters — filter by case, vowels or consonants, and see NATO phonetic codes.</div></a>
+      <a class="tool-item" href="/random-sentence-generator/"><div class="tool-icon" style="background:#E1F5EE"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 3h10M1.5 6.5h7M1.5 10h5" stroke="#0F6E56" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="tool-name">Random sentence</div><div class="tool-desc">Writing prompts &amp; starters</div></a>
+      <a class="tool-item" href="/word-scramble/"><div class="tool-icon" style="background:#FAEEDA"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="#854F0B" stroke-width="1.1"/></svg></div><div class="tool-name">Word scramble</div><div class="tool-desc">Scramble or unscramble words</div></a>
+      <a class="tool-item" href="/random-name-generator/"><div class="tool-icon" style="background:#FAECE7"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4" r="2.2" stroke="#993C1D" stroke-width="1.1"/><path d="M1.5 11.5c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="#993C1D" stroke-width="1.1" stroke-linecap="round"/></svg></div><div class="tool-name">Random name <span class="new-badge">new</span></div><div class="tool-desc">First, last, or fantasy names</div></a>
+      <a class="tool-item" href="/word-of-the-day/"><div class="tool-icon" style="background:#EAF3DE"><svg viewBox="0 0 13 13" fill="none"><path d="M6.5 1v11M1 6.5h11" stroke="#3B6D11" stroke-width="1.4" stroke-linecap="round"/></svg></div><div class="tool-name">Word of the day</div><div class="tool-desc">Daily vocabulary builder</div></a>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div>
+    <h2 class="section-title">Other tools</h2>
+    <p class="section-sub">Numbers, names, games and more</p>
+    <div class="other-grid">
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="1" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="1" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/></svg>Number &amp; chance</div><a class="other-link" href="/random-number-generator/">Random number generator</a><a class="other-link" href="/dice-roller/">Dice roller — 4,6,8,12,20 sided</a><a class="other-link" href="/coin-flip/">Coin flip simulator</a><a class="other-link" href="/lucky-number./">Lucky number picker</a><a class="other-link" href="/list-shuffler/">Random list shuffler</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4.5" r="2.5" stroke="currentColor" stroke-width="1"/><path d="M1.5 11.5c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Name generators</div><a class="other-link" href="/fantasy-name-generator/">Fantasy character name gen</a><a class="other-link" href="/username-generator/">Username generator</a><a class="other-link" href="/baby-name-finder/">Baby name finder</a><a class="other-link" href="/pet-name-generator/">Pet name generator</a><a class="other-link" href="/band-name-generator/">Band / team name gen</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3h9M2 6.5h7M2 10h5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Text &amp; writing</div><a class="other-link" href="/lorem-ipsum/">Lorem ipsum generator</a><a class="other-link" href="/password-generator/">Password generator</a><a class="other-link" href="/acronym-maker/">Acronym maker</a><a class="other-link" href="/random-quote/">Random quote generator</a><a class="other-link" href="/story-prompts/">Story prompt generator</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M6.5 1.5l1.3 3h3.2l-2.6 2 1 3-2.9-1.8-2.9 1.8 1-3-2.6-2h3.2z" stroke="currentColor" stroke-width="1" stroke-linejoin="round"/></svg>Games &amp; fun</div><a class="other-link" href="/pictionary-word-generator/">Pictionary word generator</a><a class="other-link" href="/charades-generator/">Charades generator</a><a class="other-link" href="/truth-or-dare/">Truth or dare gen</a><a class="other-link" href="/would-you-rather/">Would you rather</a><a class="other-link" href="/trivia-questions/">Trivia question gen</a></div>
+    </div>
+  </div>
+
+  <div class="ad-rect">
+    <span class="ad-tag">Advertisement · 336×280</span>
+    <div class="ad-rect-img"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4C10.3 4 4 10.3 4 18s6.3 14 14 14 14-6.3 14-14S25.7 4 18 4z" fill="white" opacity=".2"/><path d="M12 18c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="18" r="2.5" fill="white"/></svg></div>
+    <div class="ad-rect-content">
+      <div class="ad-rect-title">Grammarly — write with confidence</div>
+      <div class="ad-rect-body">Instantly improve grammar, spelling, clarity, and tone. Works everywhere you write online.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
+    </div>
+  </div>
+  <div class="divider"></div>
+
+<div class="explainer">
+  <h2>What is a random letter generator?</h2>
+  <p>A random letter generator picks letters from the alphabet at random. That sounds simple, but the details matter: you can control how many letters you get, whether they come out uppercase, lowercase, or mixed, and whether the pool is limited to vowels, consonants, or the full A–Z set. Toggle on frequency weighting and the results reflect real English distribution — E and T appear far more often than Q or Z, just as they do in actual writing. Every letter appears instantly; there's no loading, no account, nothing to install.</p>
+
+  <h2>For word gamers: Scrabble, Boggle, and Wordle practice</h2>
+  <p>The single biggest use case for a letter generator is word games. In Scrabble, dealing yourself a random rack of seven letters is the fastest way to practice anagram-solving without needing a physical board. Set count to 7, turn off duplicates, and hit generate — you have a practice rack in one click. For Boggle, generate 16 letters to simulate a 4×4 grid. Wordle players use five random letters as a constraint for practice rounds: can you build a valid five-letter word from what you got?</p>
+  <p>The consonants-only and vowels-only filters are especially useful here. If your rack is vowel-heavy, practice exclusively with vowels to sharpen your ability to spot words like AUDIO or OUIJA. If you want to drill consonant clusters, flip to consonants only.</p>
+
+  <h2>Teaching the alphabet — parents, preschool, and ESL learners</h2>
+  <p>The vowels-only and consonants-only filter is something no other letter generator offers, and it matters for teaching. Sorting the alphabet into vowel and consonant groups is one of the earliest phonics milestones — children need to understand that every syllable needs a vowel before they can reliably decode words they have never seen before. Use vowels-only mode to focus a drill entirely on A, E, I, O, U. Use consonants-only to practise the remaining 21 letters separately.</p>
+  <p>Turn on Show letter number to drill alphabetical order — seeing "(5)" under E and "(26)" under Z builds the mental number-line children need for dictionary use and alphabetisation. Generate one letter at a time for flash-card style practice, or generate ten for a sorting exercise.</p>
+  <p>ESL and EFL teachers can generate random letters for warm-up activities: students name an animal, country, or food beginning with each letter they see. It takes thirty seconds to set up and keeps a class moving.</p>
+
+  <h2>The NATO phonetic alphabet — pilots, military, and customer service</h2>
+  <p>Toggle on Show NATO phonetic and every letter card shows its NATO word: Alpha for A, Bravo for B, Charlie for C, all the way to Zulu for Z. The NATO phonetic alphabet was developed specifically to prevent miscommunication when spelling words over radio, telephone, or in noisy environments. Letters like B and D, M and N, or P and T sound nearly identical over a poor connection — but "Bravo" and "Delta" are impossible to confuse.</p>
+  <p>It is used daily by commercial and military pilots communicating with air traffic control, emergency services dispatchers, call centre agents confirming booking references, and anyone spelling a name or address over a call. Practising with this tool — generating random letters and reciting the NATO word for each — builds the automatic recall you need to use it fluently under pressure.</p>
+
+  <h2>Letter frequency in English</h2>
+  <p>Not all letters are created equal. E accounts for roughly 12.7% of letters in typical English text; T follows at 9.1%, then A at 8.2%, O at 7.5%, and I at 7.0%. At the other end of the scale, Z appears in just 0.07% of text, Q in 0.10%, and X in 0.15%. This huge gap — E is nearly 180 times more common than Z — shapes everything from Scrabble tile scoring to cryptography and keyboard layout design.</p>
+  <p>Turn on the "Weight by English frequency" toggle to see this in action. Instead of every letter having an equal chance, the generator weights picks by these real-world frequencies. Writers use it to generate letter constraints that feel natural rather than artificially exotic. Wordle players use it to practise guessing high-frequency letters first.</p>
+
+  <h2>Creative writing prompts</h2>
+  <p>Generate three random letters and write a sentence where each word starts with one of them — in order. It sounds like a simple constraint, but the limitation forces unexpected word choices and lateral thinking. Try it: if your three letters are R, T, and W, you might write "Rabbits travel well." or "Rain transforms winters." The randomness prevents you from defaulting to your usual vocabulary. For more developed prompts — full words to build sentences around — the <a href="/random-word-generator/">random word generator</a> pairs naturally with this tool.</p>
+</div>
+  <div class="divider"></div>
+
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">What is a random letter generator?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">A random letter generator picks letters from the alphabet at random. You control how many you get, whether they are uppercase, lowercase, or mixed, and whether the pool is limited to vowels (A E I O U), consonants, or the full A–Z set. Turn on the frequency weighting toggle and the results reflect real English distribution — E and T appear far more often than Q or Z, just as they do in actual text.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What is the NATO phonetic alphabet and why does it matter?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">The NATO phonetic alphabet assigns a unique spoken word to each letter — Alpha for A, Bravo for B, Charlie for C, through to Zulu for Z. It was developed to prevent miscommunication when spelling words over radio, telephone, or in noisy environments where letters like B and D, or M and N, sound identical. It is used by pilots, military personnel, emergency services, call-centre agents, and anyone who needs to spell clearly over a call. Toggle on "Show NATO phonetic" to see the word displayed under each letter you generate.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What is the most common letter in the English alphabet?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">E is the most common letter in English, appearing in roughly 12.7% of all text. It is followed by T (9.1%), A (8.2%), O (7.5%), and I (7.0%). At the other end, Z (0.07%), Q (0.10%), and X (0.15%) are the rarest — Z is nearly 180 times less common than E. Turn on the "Weight by English frequency" toggle to see this distribution in action.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I use this tool to teach my child the alphabet?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes — it works well for alphabet drills at home or in the classroom. Use the vowels-only filter to focus on A, E, I, O, U, or the consonants-only filter to practise the remaining 21 letters separately. Turn on Show letter number to help with alphabetical order, or Show NATO phonetic to introduce the phonetic words alongside each letter. Set the count to 1 and click generate repeatedly for flash-card style practice.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What is the difference between vowels and consonants?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Vowels — A, E, I, O, U — are letters where air flows freely through the mouth with no restriction. They form the core sound of every syllable; without at least one vowel, a syllable cannot be pronounced. Consonants are all other letters; they are produced by partly or fully blocking the airflow using lips, teeth, tongue, or throat. Sorting the alphabet into these two groups is one of the earliest phonics milestones for young readers and a foundational concept in linguistics and word games.</div>
+  </div>
+</div>
+  <div class="divider"></div>
+
+<div>
+  <h2 class="section-title" style="margin-bottom:14px">Who uses this tool</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">Teachers &amp; parents</div><div class="uc-body">Alphabet drills, vowel and consonant sorting exercises, flash-card practice, and ESL warm-ups — the filters make it the only letter tool designed for teaching.</div></div>
+    <div class="uc"><div class="uc-title">Word gamers</div><div class="uc-body">Practice Scrabble racks, simulate Boggle boards, and run Wordle constraint drills. Turn off duplicates for a fair random draw.</div></div>
+    <div class="uc"><div class="uc-title">Writers</div><div class="uc-body">Generate three letters and write a sentence where every word starts with one. The constraint breaks predictable vocabulary habits and sparks unexpected ideas.</div></div>
+    <div class="uc"><div class="uc-title">Pilots &amp; professionals</div><div class="uc-body">Practice NATO phonetic alphabet recall for aviation, military, customer service, and clear spelling over calls. Toggle NATO on and drill until it becomes automatic.</div></div>
+  </div>
+</div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="ad-footer-strip" style="margin-bottom:24px">
+      <span class="ad-tag">Advertisement · 468×60</span>
+      <div class="ad-fs-text"><strong>Grammarly Premium</strong> — Vocabulary suggestions, tone detector, full-sentence rewrites.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-footer-strip-cta">Try free</a>
+    </div>
+    <div class="footer-grid">
+      <div><div class="footer-col-title">Word tools</div><a class="footer-link" href="/">Random word generator</a><a class="footer-link" href="/random-sentence-generator/">Random sentence</a><a class="footer-link" href="/random-letter-generator/">Random letter</a><a class="footer-link" href="/word-scramble/">Word scramble</a><a class="footer-link" href="/word-of-the-day/">Word of the day</a><a class="footer-link" href="/passphrase-generator/">Passphrase gen</a></div>
+      <div><div class="footer-col-title">Name generators</div><a class="footer-link" href="/random-name-generator/">Random name gen</a><a class="footer-link" href="/username-generator/">Username generator</a><a class="footer-link" href="/fantasy-name-generator/">Fantasy name gen</a><a class="footer-link" href="/baby-name-finder/">Baby name finder</a><a class="footer-link" href="/pet-name-generator/">Pet name gen</a></div>
+      <div><div class="footer-col-title">Number &amp; chance</div><a class="footer-link" href="/random-number-generator/">Random number</a><a class="footer-link" href="/dice-roller/">Dice roller</a><a class="footer-link" href="/coin-flip/">Coin flip</a><a class="footer-link" href="/lucky-number/">Lucky number</a><a class="footer-link" href="/list-shuffler/">List shuffler</a></div>
+      <div><div class="footer-col-title">Games &amp; fun</div><a class="footer-link" href="/pictionary-word-generator/">Pictionary words</a><a class="footer-link" href="/charades-generator/">Charades gen</a><a class="footer-link" href="/truth-or-dare/">Truth or dare</a><a class="footer-link" href="/would-you-rather/">Would you rather</a><a class="footer-link" href="/story-prompts/">Story prompts</a></div>
+    </div>
+    <div class="footer-bottom">
+      <div style="display:flex;align-items:center;gap:7px">
+        <div class="nav-logo-icon" style="width:22px;height:22px;border-radius:5px"><svg viewBox="0 0 15 15" fill="none" style="width:12px;height:12px"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <span style="font-size:14px;font-weight:600;color:var(--text)">Wordineer</span>
+      </div>
+      <span class="footer-copy">© 2026 Wordineer · Free word tools for everyone</span>
+      <div class="footer-meta"><a href="/about.html">About</a><a href="/blog.html">Blog</a><a href="/api.html">API docs</a><a href="/affiliate-disclosure.html">Affiliate disclosure</a><a href="/privacy.html">Privacy</a></div>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="/scripts/tool-engine.js?v=3"></script>
+
+<script>
+const WORDINEER_LETTERS = (() => {
+  const ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+  const VOWELS = new Set(['A','E','I','O','U']);
+  const FREQ_WEIGHTS = {A:8.2,B:1.5,C:2.8,D:4.3,E:12.7,F:2.2,G:2.0,H:6.1,I:7.0,J:0.15,K:0.8,L:4.0,M:2.4,N:6.7,O:7.5,P:1.9,Q:0.10,R:6.0,S:6.3,T:9.1,U:2.8,V:1.0,W:2.4,X:0.15,Y:2.0,Z:0.07};
+  const NATO = {A:'Alpha',B:'Bravo',C:'Charlie',D:'Delta',E:'Echo',F:'Foxtrot',G:'Golf',H:'Hotel',I:'India',J:'Juliet',K:'Kilo',L:'Lima',M:'Mike',N:'November',O:'Oscar',P:'Papa',Q:'Quebec',R:'Romeo',S:'Sierra',T:'Tango',U:'Uniform',V:'Victor',W:'Whiskey',X:'X-ray',Y:'Yankee',Z:'Zulu'};
+  const LETTER_NUM = {A:1,B:2,C:3,D:4,E:5,F:6,G:7,H:8,I:9,J:10,K:11,L:12,M:13,N:14,O:15,P:16,Q:17,R:18,S:19,T:20,U:21,V:22,W:23,X:24,Y:25,Z:26};
+
+  let current = [];
+  let currentDisplay = [];
+  let saved = [];
+  let cfg = {};
+
+  function getCase() {
+    return document.querySelector('input[name="lg-case"]:checked')?.value || 'upper';
+  }
+
+  function applyCase(letters) {
+    const c = getCase();
+    return letters.map(l => {
+      if (c === 'lower') return l.toLowerCase();
+      if (c === 'mixed') return Math.random() < 0.5 ? l.toLowerCase() : l;
+      return l;
+    });
+  }
+
+  function weightedPick(pool) {
+    const total = pool.reduce((s, l) => s + FREQ_WEIGHTS[l], 0);
+    let r = Math.random() * total;
+    for (const l of pool) {
+      r -= FREQ_WEIGHTS[l];
+      if (r <= 0) return l;
+    }
+    return pool[pool.length - 1];
+  }
+
+  function setCountError(show) {
+    const err = document.getElementById('lg-count-error');
+    const inp = document.getElementById(cfg.countId);
+    if (err) err.classList.toggle('show', show);
+    if (inp) inp.classList.toggle('input-error', show);
+  }
+
+  function generate() {
+    const rawCount = parseInt(document.getElementById(cfg.countId)?.value, 10);
+    if (isNaN(rawCount) || rawCount < 1 || rawCount > 50) { setCountError(true); return; }
+    setCountError(false);
+
+    const n = rawCount;
+    const letterSet = document.getElementById(cfg.letterSetId)?.value || 'all';
+    const allowDups = document.getElementById(cfg.duplicatesId)?.checked !== false;
+    const useFreq   = document.getElementById(cfg.freqId)?.checked === true;
+
+    let pool;
+    if (letterSet === 'vowels')     pool = [...VOWELS];
+    else if (letterSet === 'consonants') pool = ALPHABET.filter(l => !VOWELS.has(l));
+    else pool = [...ALPHABET];
+
+    const result = [];
+    if (allowDups) {
+      for (let i = 0; i < n; i++) {
+        result.push(useFreq ? weightedPick(pool) : pool[Math.floor(Math.random() * pool.length)]);
+      }
+    } else {
+      const avail = [...pool];
+      const count = Math.min(n, avail.length);
+      for (let i = 0; i < count; i++) {
+        if (useFreq) {
+          const chosen = weightedPick(avail);
+          result.push(chosen);
+          avail.splice(avail.indexOf(chosen), 1);
+        } else {
+          result.push(avail.splice(Math.floor(Math.random() * avail.length), 1)[0]);
+        }
+      }
+    }
+
+    current = result;
+    currentDisplay = applyCase(current);
+    renderList();
+  }
+
+  function renderList() {
+    const showNum  = document.getElementById(cfg.showNumId)?.checked  === true;
+    const showNato = document.getElementById(cfg.showNatoId)?.checked === true;
+
+    const list = document.getElementById(cfg.listId);
+    if (!list) return;
+    list.innerHTML = '';
+
+    currentDisplay.forEach((displayLetter, i) => {
+      const base      = current[i];
+      const isSaved   = saved.includes(base);
+
+      const li = document.createElement('li');
+      li.className = 'lg-letter-item';
+
+      const mainEl = document.createElement('div');
+      mainEl.className = 'lg-letter-main';
+      mainEl.textContent = displayLetter;
+
+      const annoEl = document.createElement('div');
+      annoEl.className = 'lg-letter-anno';
+      const parts = [];
+      if (showNum)  parts.push('(' + LETTER_NUM[base] + ')');
+      if (showNato) parts.push(NATO[base]);
+      annoEl.textContent = parts.join(' · ');
+
+      const btns = document.createElement('div');
+      btns.className = 'lg-letter-btns';
+
+      const copyBtn = document.createElement('button');
+      copyBtn.className = 'icon-btn';
+      copyBtn.title = 'Copy';
+      copyBtn.setAttribute('aria-label', 'Copy ' + displayLetter);
+      copyBtn.innerHTML = '<svg viewBox="0 0 14 14" fill="none"><rect x="1" y="4" width="9" height="9.5" rx="1.5" stroke="currentColor" stroke-width="1.1"/><path d="M4.5 4V2.5A1.5 1.5 0 016 1h5.5A1.5 1.5 0 0113 2.5v7a1.5 1.5 0 01-1.5 1.5H10" stroke="currentColor" stroke-width="1.1"/></svg>';
+      copyBtn.addEventListener('click', () => copyItem(displayLetter, copyBtn));
+
+      const saveBtn = document.createElement('button');
+      saveBtn.className = 'icon-btn' + (isSaved ? ' saved' : '');
+      saveBtn.title = isSaved ? 'Remove from saved' : 'Save';
+      saveBtn.setAttribute('aria-label', (isSaved ? 'Unsave ' : 'Save ') + displayLetter);
+      saveBtn.innerHTML = '<svg viewBox="0 0 16 16" fill="none"><path d="M8 13.5S2 9.5 2 5.5A3 3 0 018 4a3 3 0 016 1.5c0 4-6 8-6 8z" stroke="currentColor" stroke-width="1.3" fill="' + (isSaved ? '#E24B4A' : 'none') + '" stroke-linecap="round"/></svg>';
+      saveBtn.addEventListener('click', () => toggleSave(base, saveBtn));
+
+      btns.appendChild(copyBtn);
+      btns.appendChild(saveBtn);
+      li.appendChild(mainEl);
+      li.appendChild(annoEl);
+      li.appendChild(btns);
+      list.appendChild(li);
+    });
+
+    const countEl = document.getElementById(cfg.countDisplayId);
+    if (countEl) {
+      const n = currentDisplay.length;
+      countEl.textContent = n + ' letter' + (n !== 1 ? 's' : '');
+    }
+  }
+
+  function toggleSave(baseLetter, btn) {
+    const idx = saved.indexOf(baseLetter);
+    if (idx >= 0) {
+      saved.splice(idx, 1);
+      btn.classList.remove('saved');
+      btn.querySelector('path').setAttribute('fill', 'none');
+    } else {
+      saved.push(baseLetter);
+      btn.classList.add('saved');
+      btn.querySelector('path').setAttribute('fill', '#E24B4A');
+    }
+    renderSaved();
+  }
+
+  function renderSaved() {
+    const el  = document.getElementById('lg-saved-tags');
+    const cnt = document.getElementById('lg-saved-count');
+    if (!el) return;
+    if (cnt) cnt.textContent = '(' + saved.length + ')';
+    if (!saved.length) {
+      el.innerHTML = '<span class="saved-empty">Click the heart on any letter to save it here</span>';
+      return;
+    }
+    el.innerHTML = saved.map(l => {
+      return '<span class="saved-tag">' + l + ' <span class="saved-tag-remove" onclick="WORDINEER_LETTERS.removeSaved(\'' + l + '\')">×</span></span>';
+    }).join('');
+  }
+
+  function removeSaved(letter) {
+    saved = saved.filter(l => l !== letter);
+    renderSaved();
+    renderList();
+  }
+
+  function copyItem(letter, btn) {
+    navigator.clipboard?.writeText(letter);
+    const orig = btn.innerHTML;
+    btn.innerHTML = '<svg viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5 6.5-6.5" stroke="#1D9E75" stroke-width="1.3" stroke-linecap="round"/></svg>';
+    setTimeout(() => { btn.innerHTML = orig; }, 900);
+    showToast('Copied!');
+  }
+
+  function copyAll() {
+    if (!currentDisplay.length) return;
+    navigator.clipboard?.writeText(currentDisplay.join(', '));
+    showToast('All letters copied!');
+  }
+
+  function copySaved() {
+    if (!saved.length) return;
+    navigator.clipboard?.writeText(saved.join(', '));
+    showToast('Saved letters copied!');
+  }
+
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    if (!t) return;
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2000);
+  }
+
+  function reset() {
+    const countEl = document.getElementById(cfg.countId);
+    if (countEl) countEl.value = '10';
+    const upEl = document.getElementById('lg-case-up');
+    if (upEl) upEl.checked = true;
+    const setEl = document.getElementById(cfg.letterSetId);
+    if (setEl) setEl.value = 'all';
+    const dupEl = document.getElementById(cfg.duplicatesId);
+    if (dupEl) dupEl.checked = true;
+    const freqEl = document.getElementById(cfg.freqId);
+    if (freqEl) freqEl.checked = false;
+    const numEl = document.getElementById(cfg.showNumId);
+    if (numEl) numEl.checked = false;
+    const natoEl = document.getElementById(cfg.showNatoId);
+    if (natoEl) natoEl.checked = false;
+    setCountError(false);
+    generate();
+  }
+
+  function init(config) {
+    cfg = config;
+    generate();
+
+    document.getElementById(cfg.genBtnId)?.addEventListener('click', generate);
+    document.getElementById(cfg.resetBtnId)?.addEventListener('click', reset);
+    document.getElementById(cfg.copyAllBtnId)?.addEventListener('click', copyAll);
+    document.getElementById(cfg.regenBtnId)?.addEventListener('click', generate);
+    document.getElementById(cfg.copySavedBtnId)?.addEventListener('click', copySaved);
+
+    [cfg.showNumId, cfg.showNatoId].forEach(id => {
+      document.getElementById(id)?.addEventListener('change', renderList);
+    });
+
+    document.getElementById(cfg.countId)?.addEventListener('input', function() {
+      const v = parseInt(this.value, 10);
+      if (v >= 1 && v <= 50) setCountError(false);
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.code === 'Space' && !['INPUT','SELECT','TEXTAREA','BUTTON'].includes(e.target.tagName)) {
+        e.preventDefault(); generate();
+      }
+    });
+
+    document.querySelectorAll('.faq-q').forEach(q => {
+      q.addEventListener('click', () => q.closest('.faq-item').classList.toggle('open'));
+    });
+
+    document.addEventListener('click', e => {
+      const mega = document.getElementById('mega');
+      const hbg  = document.querySelector('.hamburger');
+      if (!mega || !hbg) return;
+      if (mega.classList.contains('open') && !mega.contains(e.target) && !hbg.contains(e.target))
+        mega.classList.remove('open');
+    });
+  }
+
+  return { init, generate, renderList, copyAll, copySaved, copyItem, toggleSave, removeSaved, showToast };
+})();
+
+(function(){
+  const countEl  = document.getElementById('lg-count');
+  const toggle   = document.getElementById('lg-mobile-toggle');
+  const advanced = document.getElementById('lg-advanced');
+
+  if (countEl) {
+    window.addEventListener('load', function(){ countEl.focus({ preventScroll: true }); countEl.select(); });
+    countEl.addEventListener('focus', function(){ countEl.select(); });
+  }
+
+  if (toggle && advanced) {
+    toggle.addEventListener('click', function() {
+      const isOpen = advanced.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      toggle.textContent = isOpen ? 'Hide more options' : 'More options';
+    });
+  }
+})();
+
+WORDINEER_LETTERS.init({
+  countId:        'lg-count',
+  listId:         'lg-list',
+  countDisplayId: 'lg-count-display',
+  letterSetId:    'lg-letter-set',
+  duplicatesId:   'lg-duplicates',
+  freqId:         'lg-freq',
+  showNumId:      'lg-show-num',
+  showNatoId:     'lg-show-nato',
+  genBtnId:       'lg-gen-btn',
+  resetBtnId:     'lg-reset-btn',
+  copyAllBtnId:   'lg-copy-all-btn',
+  regenBtnId:     'lg-regen-btn',
+  copySavedBtnId: 'lg-copy-saved-btn'
+});
+</script>
+</body>
+</html>
