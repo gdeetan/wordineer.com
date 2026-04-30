@@ -720,7 +720,7 @@ const WORDINEER_LETTERS = (() => {
   const advanced = document.getElementById('lg-advanced');
 
   if (countEl) {
-    window.addEventListener('load', function(){ countEl.focus({ preventScroll: true }); countEl.select(); });
+    window.addEventListener('load', function(){ if (window.innerWidth > 700) { countEl.focus({ preventScroll: true }); countEl.select(); } });
     countEl.addEventListener('focus', function(){ countEl.select(); });
   }
 
