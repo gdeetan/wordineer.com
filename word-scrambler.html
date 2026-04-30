@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7DWH3EGM3Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7DWH3EGM3Z');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7200956978416233"
+     crossorigin="anonymous"></script>
+<meta name='impact-site-verification' value='32715504-1cfb-4324-bfc7-ae4cfa1591ea'>
+<link rel="preload" href="/fonts/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-sans-italic-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<title>Word Scrambler — Scramble Words, Unscramble Letters &amp; Make Worksheets | Wordineer</title>
+<meta name="description" content="Scramble any word, unscramble letters into real words, or generate printable word scramble worksheets for your class. Free, instant, no sign-up.">
+<link rel="canonical" href="https://wordineer.com/word-scrambler/">
+<meta property="og:type"        content="website">
+<meta property="og:site_name"   content="Wordineer">
+<meta property="og:title"       content="Word Scrambler — Scramble, Unscramble &amp; Worksheets | Wordineer">
+<meta property="og:description" content="Scramble any word, unscramble letters into real words, or generate printable word scramble worksheets. Free, instant, no sign-up.">
+<meta property="og:url"         content="https://wordineer.com/word-scrambler/">
+<meta property="og:image"       content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a word scrambler?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A word scrambler is a tool that randomly rearranges the letters in a word to create a jumbled version. It works in both directions: scramble a real word to create a puzzle, or enter scrambled letters to find all the real words hiding inside them. Word scramblers are used in classroom games, spelling practice, Scrabble preparation, and puzzle creation." }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I make a word scramble worksheet for my class?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Click the Worksheet tab, then paste your word list into the textarea — one word per line. Choose your options: add a title, decide whether to include a word bank and answer key, and pick a scramble style (all letters shuffled, or keep the first letter for younger students). Click Generate Worksheet, then use the Print button to open your browser print dialog and print or save as PDF. No sign-up needed, completely free." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this to solve Scrabble or Words With Friends?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Click the Unscramble tab and enter up to 15 letters from your rack. Use ? for a blank tile. Results are sorted by word length, longest first, and you can toggle on Scrabble point values for each word. Use the Starts with and Ends with filters to find words that fit a specific crossword slot. The tool supports US English (NWL), UK English (SOWPODS), and the common ENABLE word list." }
+    },
+    {
+      "@type": "Question",
+      "name": "What does 'keep first letter' mean in the worksheet?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The 'Keep first letter' scramble style leaves the first letter of each word in place and only shuffles the remaining letters. For example, 'science' might become 'sncecie' instead of 'ncieecs'. This makes the puzzle easier because students can still see the starting letter, which is especially helpful for early readers and younger grades who are learning to recognise word shapes." }
+    },
+    {
+      "@type": "Question",
+      "name": "How many letters can I unscramble at once?",
+      "acceptedAnswer": { "@type": "Answer", "text": "You can enter up to 15 letters at once in the Unscramble tab. You can also use ? as a wildcard (blank tile), which matches any letter. The tool searches through tens of thousands of English words to find every valid word that can be formed from your letters, then groups the results by word length from longest to shortest." }
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="/styles/global.css?v=1">
+<style>
+/* ── Shared tool layout (matches existing tools) ── */
+.tool-wrap  { max-width:960px; margin:0 auto; padding:24px 24px 0; }
+.tool-card  { border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg); box-shadow:var(--shadow); }
+.tool-split { display:flex; }
+
+.ctrl       { width:220px; flex-shrink:0; padding:18px; border-right:1px solid var(--border-2); background:var(--bg-2); }
+.ctrl-row   { margin-bottom:14px; }
+.ctrl-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; display:block; margin-bottom:5px; }
+.ctrl-row input, .ctrl-row select { width:100%; padding:7px 10px; font-size:13px; font-family:inherit; border:1px solid var(--border); border-radius:7px; background:var(--bg); color:var(--text); appearance:none; outline:none; transition:border-color .15s; }
+.ctrl-row input:focus, .ctrl-row select:focus { border-color:var(--brand); }
+.def-row    { display:flex; align-items:center; gap:8px; margin-bottom:10px; }
+.def-row label { font-size:12px; color:var(--text-2); cursor:pointer; }
+.toggle     { position:relative; width:32px; height:18px; flex-shrink:0; }
+.toggle input { opacity:0; width:0; height:0; }
+.toggle-sl  { position:absolute; cursor:pointer; inset:0; background:var(--border); border-radius:9px; transition:.2s; }
+.toggle input:checked + .toggle-sl { background:var(--brand); }
+.toggle-sl::before { content:''; position:absolute; width:14px; height:14px; left:2px; top:2px; background:white; border-radius:50%; transition:.2s; }
+.toggle input:checked + .toggle-sl::before { transform:translateX(14px); }
+.gen-btn    { width:100%; padding:10px 14px; background:var(--brand); color:white; border:none; border-radius:8px; font-size:14px; font-weight:600; font-family:inherit; cursor:pointer; transition:background .15s,transform .1s; letter-spacing:-.01em; }
+.gen-btn:hover { background:var(--brand-dark); }
+.gen-btn:active { transform:scale(.98); }
+.gen-btn:disabled { opacity:.45; cursor:not-allowed; }
+.reset-btn  { display:block; width:100%; text-align:center; font-size:11px; color:var(--text-3); margin-top:8px; cursor:pointer; text-decoration:underline; text-underline-offset:2px; border:none; background:none; font-family:inherit; }
+.kbd        { text-align:center; font-size:10px; color:var(--text-3); margin-top:6px; }
+.kbd kbd    { background:var(--bg-3); border:1px solid var(--border); border-radius:3px; padding:1px 5px; font-size:10px; font-family:inherit; }
+
+.words-panel { flex:1; display:flex; flex-direction:column; overflow:hidden; }
+.words-top  { display:flex; align-items:center; justify-content:space-between; padding:12px 16px; border-bottom:1px solid var(--border-2); }
+.words-count { font-size:12px; color:var(--text-3); }
+.words-actions { display:flex; gap:6px; }
+.act-btn    { font-size:12px; padding:5px 11px; border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:background .12s; }
+.act-btn:hover { background:var(--bg-2); }
+.act-btn:disabled { opacity:.4; cursor:not-allowed; }
+.icon-btn   { width:28px; height:28px; display:flex; align-items:center; justify-content:center; background:transparent; border:none; cursor:pointer; border-radius:5px; color:var(--text-3); transition:background .12s,color .12s; }
+.icon-btn:hover { background:var(--bg-2); color:var(--text); }
+.icon-btn svg { width:14px; height:14px; }
+
+/* ── Tab bar ── */
+.ws-tabs    { display:flex; border-bottom:1px solid var(--border-2); overflow-x:auto; scrollbar-width:none; }
+.ws-tabs::-webkit-scrollbar { display:none; }
+.ws-tab     { flex:1; padding:12px 16px; font-size:13px; font-weight:600; font-family:inherit; background:none; border:none; border-bottom:2px solid transparent; color:var(--text-3); cursor:pointer; transition:color .15s,border-color .15s; white-space:nowrap; min-width:80px; }
+.ws-tab:hover { color:var(--text-2); }
+.ws-tab.ws-tab-active { color:var(--brand-dark); border-bottom-color:var(--brand); }
+
+/* ── Tab panels ── */
+.ws-panel   { display:none; }
+.ws-panel.ws-panel-active { display:block; }
+
+/* ── Scramble tab: output ── */
+.ws-scramble-output { flex:1; display:flex; align-items:center; justify-content:center; padding:32px 24px; min-height:220px; }
+.ws-output-inner    { text-align:center; }
+.ws-output-placeholder { font-size:14px; color:var(--text-3); font-style:italic; }
+.ws-scrambled-word  { font-size:30px; font-weight:600; letter-spacing:0.18em; color:var(--text); line-height:1.3; margin-bottom:12px; word-break:break-all; text-transform:uppercase; }
+.ws-copy-row        { display:flex; justify-content:center; margin-bottom:8px; }
+.ws-original        { font-size:12px; color:var(--text-3); }
+.ws-inline-error    { font-size:12px; color:#E24B4A; margin-top:4px; }
+
+/* ── Mobile toggle ── */
+.ws-mobile-toggle   { display:none; width:100%; margin:-2px 0 14px; padding:9px 12px; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--brand); font-size:13px; font-weight:600; font-family:inherit; cursor:pointer; }
+.ws-advanced        { display:block; }
+
+/* ── Unscramble: input border state ── */
+.un-adv-top { margin-top:10px; }
+
+/* ── Unscramble: results ── */
+.ws-results-area    { flex:1; overflow-y:auto; padding:12px 16px; }
+.ws-results-status  { font-size:13px; color:var(--text-3); font-style:italic; padding:20px 0; text-align:center; }
+.ws-length-group    { margin-bottom:16px; animation:fadeIn .2s ease; }
+.ws-group-hdr       { font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:.06em; color:var(--text-3); margin-bottom:7px; }
+.ws-chips           { display:flex; flex-wrap:wrap; gap:5px; }
+.ws-chip            { font-size:13px; padding:4px 10px; background:var(--bg-2); border:1px solid var(--border); border-radius:20px; color:var(--text); display:flex; align-items:center; gap:5px; transition:background .12s; }
+.ws-chip:hover      { background:var(--bg-3); }
+.ws-pts             { font-size:10px; font-weight:700; background:var(--brand-light); color:var(--brand-dark); border-radius:9px; padding:1px 5px; }
+
+@keyframes fadeIn { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:none} }
+
+/* ── Worksheet tab ── */
+.ws-worksheet-inner { padding:20px; }
+.ws-teacher-badge   { display:inline-flex; align-items:center; gap:5px; font-size:11px; font-weight:600; color:var(--brand-dark); background:var(--brand-light); border-radius:20px; padding:3px 10px; margin-bottom:16px; }
+.ws-ws-form         { max-width:600px; }
+.ws-ws-form textarea { width:100%; padding:10px 12px; font-size:13px; font-family:inherit; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--text); resize:vertical; min-height:150px; outline:none; transition:border-color .15s; line-height:1.6; }
+.ws-ws-form textarea:focus { border-color:var(--brand); }
+.ws-word-counter    { font-size:11px; color:var(--text-3); margin-top:4px; margin-bottom:14px; }
+.ws-word-counter.ws-over { color:#E24B4A; font-weight:600; }
+.ws-ws-options      { margin-bottom:16px; display:flex; flex-direction:column; gap:10px; }
+.ws-opt-row         { display:flex; align-items:center; gap:8px; }
+.ws-opt-row label   { font-size:12px; color:var(--text-2); cursor:pointer; }
+.ws-style-group     { display:flex; gap:16px; flex-wrap:wrap; margin-top:4px; }
+.ws-style-opt       { display:flex; align-items:center; gap:6px; font-size:12px; color:var(--text-2); cursor:pointer; }
+.ws-style-opt input { accent-color:var(--brand); }
+.ws-ws-title-input  { width:100%; padding:7px 10px; font-size:13px; font-family:inherit; border:1px solid var(--border); border-radius:7px; background:var(--bg); color:var(--text); outline:none; transition:border-color .15s; }
+.ws-ws-title-input:focus { border-color:var(--brand); }
+.ws-ws-error        { font-size:12px; color:#E24B4A; margin-top:6px; display:none; }
+.ws-ws-error.show   { display:block; }
+
+/* ── Worksheet preview ── */
+.ws-preview-wrap    { margin-top:24px; border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; }
+.ws-preview-top     { display:flex; align-items:center; justify-content:space-between; padding:10px 14px; border-bottom:1px solid var(--border-2); background:var(--bg-2); }
+.ws-preview-label   { font-size:11px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; }
+.ws-print-btn       { display:inline-flex; align-items:center; gap:4px; font-size:12px; padding:5px 11px; border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--brand); cursor:pointer; font-family:inherit; font-weight:600; transition:background .12s; }
+.ws-print-btn:hover { background:var(--brand-light); }
+.ws-preview         { padding:24px 28px; font-family:inherit; }
+.ws-preview-title   { font-size:17px; font-weight:700; margin-bottom:6px; color:var(--text); }
+.ws-preview-meta    { display:flex; gap:24px; font-size:12px; color:var(--text-2); margin-bottom:16px; padding-bottom:12px; border-bottom:1px solid var(--border-2); }
+.ws-preview-instruct { font-size:13px; color:var(--text-2); margin-bottom:14px; }
+.ws-preview-grid    { width:100%; border-collapse:collapse; margin-bottom:20px; }
+.ws-preview-grid td { padding:8px 10px; border-bottom:1px solid var(--border-2); font-size:14px; vertical-align:middle; }
+.ws-preview-grid td:first-child { width:42%; font-weight:600; letter-spacing:.06em; color:var(--text); }
+.ws-answer-line     { display:inline-block; min-width:160px; border-bottom:1.5px solid var(--text-3); }
+.ws-section-block   { margin-top:16px; padding-top:14px; border-top:1px solid var(--border-2); }
+.ws-section-hdr     { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.07em; color:var(--text-3); margin-bottom:8px; }
+.ws-wordbank-list   { display:flex; flex-wrap:wrap; gap:6px; }
+.ws-wb-word         { font-size:12px; padding:3px 9px; background:var(--bg-2); border:1px solid var(--border); border-radius:4px; }
+.ws-ak-list         { columns:3; gap:16px; }
+.ws-ak-item         { font-size:12px; margin-bottom:5px; break-inside:avoid; color:var(--text-2); }
+
+/* ── explainer h3 ── */
+.explainer h3 { font-family:'DM Serif Display',serif; font-size:17px; font-weight:400; margin-bottom:6px; margin-top:18px; color:var(--text); }
+
+/* ── Print ── */
+@media print {
+  body * { visibility:hidden; }
+  .ws-preview, .ws-preview * { visibility:visible; }
+  .ws-preview { position:absolute; left:0; top:0; width:100%; padding:24px 32px; }
+  .ws-preview-title { font-size:18pt; }
+  .ws-preview-meta  { font-size:11pt; }
+  .ws-preview-instruct { font-size:11pt; }
+  .ws-preview-grid td { font-size:12pt; padding:10px 8px; }
+  .ws-section-hdr   { font-size:10pt; }
+  .ws-wb-word       { font-size:11pt; }
+  .ws-ak-item       { font-size:11pt; }
+  .ws-answer-line   { min-width:220px; }
+  .ws-preview-wrap  { border:none; }
+}
+
+/* ── Mobile ── */
+@media(max-width:640px){
+  .tool-wrap { padding:14px 16px 0; }
+  .tool-split { flex-direction:column; }
+  .ctrl { width:100%; border-right:none; border-bottom:1px solid var(--border-2); }
+  .reset-btn, .kbd { display:none; }
+  .ws-tab { padding:10px 10px; font-size:12px; min-width:70px; }
+  .ws-scramble-output { padding:20px 16px; min-height:160px; }
+  .ws-scrambled-word { font-size:22px; }
+  .ws-mobile-toggle { display:block; }
+  .ws-advanced { display:none; }
+  .ws-advanced.is-open { display:block; }
+  .ws-worksheet-inner { padding:14px 16px; }
+  .ws-ws-form { max-width:100%; }
+  .ws-ak-list { columns:2; }
+  .ws-preview { padding:16px; }
+  .ws-preview-meta { flex-direction:column; gap:8px; }
+}
+</style>
+</head>
+
+<body>
+<nav class="nav">
+  <a class="nav-logo" href="/">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 15 15" fill="none"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </div>
+    Wordineer
+  </a>
+  <div class="nav-links">
+    <a href="/tools.html">Tools</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/api.html">API</a>
+  </div>
+  <div>
+    <div class="hamburger" onclick="document.getElementById('mega').classList.toggle('open')" title="All tools">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+<div class="mega" id="mega">
+  <div class="mega-inner">
+    <div class="mega-col">
+      <div class="mega-cat">Word tools</div>
+      <a class="mega-link" href="/index.html">Random word generator</a>
+      <a class="mega-link" href="/random-sentence-generator/">Random sentence</a>
+      <a class="mega-link" href="/random-letter-generator/">Random letter</a>
+      <a class="mega-link" href="/word-scramble/">Word scramble</a>
+      <a class="mega-link" href="/word-of-the-day/">Word of the day</a>
+      <a class="mega-link" href="/passphrase-generator/">Passphrase gen</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Name generators</div>
+      <a class="mega-link" href="/random-name-generator/">Random name</a>
+      <a class="mega-link" href="/username-generator/">Username generator</a>
+      <a class="mega-link" href="/fantasy-name-generator/">Fantasy name gen</a>
+      <a class="mega-link" href="/baby-name-finder/">Baby name finder</a>
+      <a class="mega-link" href="/pet-name-generator/">Pet name gen</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Number &amp; chance</div>
+      <a class="mega-link" href="/random-number-generator/">Random number</a>
+      <a class="mega-link" href="/dice-roller/">Dice roller</a>
+      <a class="mega-link" href="/coin-flip/">Coin flip</a>
+      <a class="mega-link" href="/lucky-number/">Lucky number</a>
+      <a class="mega-link" href="/list-shuffler/">List shuffler</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Games &amp; fun</div>
+      <a class="mega-link" href="/pictionary-word-generator/">Pictionary words</a>
+      <a class="mega-link" href="/charades-generator/">Charades gen</a>
+      <a class="mega-link" href="/truth-or-dare/">Truth or dare</a>
+      <a class="mega-link" href="/would-you-rather/">Would you rather</a>
+      <a class="mega-link" href="/story-prompts/">Story prompts</a>
+    </div>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free Word Tool
+  </div>
+  <h1>Word Scrambler</h1>
+  <p>Scramble any word, unscramble letters into real words, or generate printable worksheets for your class — free, instant, no sign-up.</p>
+</div>
+<div class="tool-wrap">
+  <div class="tool-card">
+
+    <!-- Tab bar -->
+    <div class="ws-tabs" role="tablist">
+      <button class="ws-tab ws-tab-active" id="ws-tab-scramble" role="tab" aria-selected="true" aria-controls="ws-panel-scramble" data-tab="scramble">Scramble</button>
+      <button class="ws-tab" id="ws-tab-unscramble" role="tab" aria-selected="false" aria-controls="ws-panel-unscramble" data-tab="unscramble">Unscramble</button>
+      <button class="ws-tab" id="ws-tab-worksheet" role="tab" aria-selected="false" aria-controls="ws-panel-worksheet" data-tab="worksheet">Worksheet</button>
+    </div>
+
+    <!-- ── Panel: Scramble ── -->
+    <div id="ws-panel-scramble" class="ws-panel ws-panel-active" role="tabpanel" aria-labelledby="ws-tab-scramble">
+      <div class="tool-split">
+
+        <!-- Left: controls -->
+        <div class="ctrl">
+          <div class="ctrl-row">
+            <span class="ctrl-label">Enter a word</span>
+            <input type="text" id="sc-input" placeholder="Enter a word..." maxlength="30" autocomplete="off" autocorrect="off" spellcheck="false">
+            <span class="ws-inline-error" id="sc-error" style="display:none"></span>
+          </div>
+          <button class="gen-btn" id="sc-scramble-btn">Scramble</button>
+          <button class="act-btn" id="sc-rescramble-btn" style="width:100%;margin-top:6px;text-align:center" disabled>Re-scramble</button>
+          <button class="reset-btn" id="sc-clear-btn">Clear</button>
+          <div class="kbd">Press <kbd>Enter</kbd> to scramble</div>
+
+          <div class="ad-sidebar">
+            <span class="ad-sidebar-tag">Ad</span>
+            <div class="ad-sidebar-logo">
+              <svg viewBox="0 0 32 32" fill="none" width="32" height="32"><circle cx="16" cy="16" r="14" fill="#15a249"/><path d="M10 16c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="16" r="2.5" fill="white"/></svg>
+              <span class="ad-sidebar-brand">Grammarly</span>
+            </div>
+            <div class="ad-sidebar-headline">Write with confidence</div>
+            <div class="ad-sidebar-body">Fix grammar, improve clarity, and choose the right words — everywhere you write.</div>
+            <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-sidebar-cta">Try free →</a>
+            <div class="ad-sidebar-sub">Free plan · No credit card</div>
+          </div>
+        </div>
+
+        <!-- Right: scramble output -->
+        <div class="words-panel">
+          <div class="ws-scramble-output">
+            <div class="ws-output-inner" id="sc-output">
+              <div class="ws-output-placeholder">Enter a word and press Enter to scramble</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── Panel: Unscramble ── -->
+    <div id="ws-panel-unscramble" class="ws-panel" role="tabpanel" aria-labelledby="ws-tab-unscramble">
+      <div class="tool-split">
+
+        <!-- Left: controls -->
+        <div class="ctrl">
+          <div class="ctrl-row">
+            <span class="ctrl-label">Enter letters</span>
+            <input type="text" id="un-input" placeholder="Enter letters (? for blank)..." maxlength="15" autocomplete="off" autocorrect="off" spellcheck="false" style="text-transform:uppercase">
+          </div>
+          <button class="gen-btn" id="un-find-btn">Find words</button>
+
+          <button type="button" class="ws-mobile-toggle" id="un-mobile-toggle" aria-expanded="false" aria-controls="un-advanced">More options</button>
+          <div class="ws-advanced un-adv-top" id="un-advanced">
+            <div class="ctrl-row">
+              <span class="ctrl-label">Dictionary</span>
+              <select id="un-dict">
+                <option value="nwl">US English (NWL)</option>
+                <option value="sowpods">UK English (SOWPODS)</option>
+                <option value="enable">Common Words (ENABLE)</option>
+              </select>
+            </div>
+            <div class="ctrl-row">
+              <span class="ctrl-label">Starts with</span>
+              <input type="text" id="un-starts" maxlength="3" placeholder="e.g. re" autocomplete="off" autocorrect="off">
+            </div>
+            <div class="ctrl-row">
+              <span class="ctrl-label">Ends with</span>
+              <input type="text" id="un-ends" maxlength="3" placeholder="e.g. ing" autocomplete="off" autocorrect="off">
+            </div>
+            <div class="ctrl-row">
+              <span class="ctrl-label">Must include</span>
+              <input type="text" id="un-must" maxlength="3" placeholder="e.g. a" autocomplete="off" autocorrect="off">
+            </div>
+            <div class="ctrl-row">
+              <span class="ctrl-label">Word length</span>
+              <select id="un-length">
+                <option value="0">Any length</option>
+                <option value="2">2 letters</option>
+                <option value="3">3 letters</option>
+                <option value="4">4 letters</option>
+                <option value="5">5 letters</option>
+                <option value="6">6 letters</option>
+                <option value="7">7+ letters</option>
+              </select>
+            </div>
+            <div class="def-row">
+              <label class="toggle"><input type="checkbox" id="un-scrabble-pts"><span class="toggle-sl"></span></label>
+              <label for="un-scrabble-pts">Show Scrabble points</label>
+            </div>
+          </div>
+
+          <div class="ad-sidebar">
+            <span class="ad-sidebar-tag">Ad</span>
+            <div class="ad-sidebar-logo">
+              <svg viewBox="0 0 32 32" fill="none" width="32" height="32"><circle cx="16" cy="16" r="14" fill="#15a249"/><path d="M10 16c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="16" r="2.5" fill="white"/></svg>
+              <span class="ad-sidebar-brand">Grammarly</span>
+            </div>
+            <div class="ad-sidebar-headline">Write with confidence</div>
+            <div class="ad-sidebar-body">Fix grammar, improve clarity, and choose the right words — everywhere you write.</div>
+            <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-sidebar-cta">Try free →</a>
+            <div class="ad-sidebar-sub">Free plan · No credit card</div>
+          </div>
+        </div>
+
+        <!-- Right: results -->
+        <div class="words-panel">
+          <div class="words-top">
+            <span class="words-count" id="un-count-display">Enter letters and click Find words</span>
+            <div class="words-actions">
+              <button class="act-btn" id="un-copy-all-btn">Copy all</button>
+            </div>
+          </div>
+          <div class="ws-results-area" id="un-results">
+            <div class="ws-results-status">Enter up to 15 letters — use ? for blank tiles</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── Panel: Worksheet ── -->
+    <div id="ws-panel-worksheet" class="ws-panel" role="tabpanel" aria-labelledby="ws-tab-worksheet">
+      <div class="ws-worksheet-inner">
+
+        <div class="ws-teacher-badge">
+          <svg viewBox="0 0 12 12" fill="none" width="12" height="12"><rect x="1" y="1" width="10" height="8" rx="1.5" stroke="currentColor" stroke-width="1.1"/><path d="M4 11h4M6 9v2" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg>
+          For teachers &amp; educators
+        </div>
+
+        <div class="ws-ws-form">
+          <div class="ctrl-row">
+            <span class="ctrl-label">Word list — one word per line</span>
+            <textarea id="ws-wordlist" placeholder="Enter your word list — one word per line:&#10;example&#10;science&#10;volcano" rows="8"></textarea>
+            <div class="ws-word-counter" id="ws-word-counter">0 / 30 words</div>
+          </div>
+
+          <div class="ws-ws-options">
+            <div class="ctrl-row" style="margin-bottom:10px">
+              <span class="ctrl-label">Worksheet title (optional)</span>
+              <input type="text" id="ws-title" class="ws-ws-title-input" placeholder="e.g. Spelling Test — Week 7">
+            </div>
+            <div class="ws-opt-row">
+              <label class="toggle"><input type="checkbox" id="ws-wordbank" checked><span class="toggle-sl"></span></label>
+              <label for="ws-wordbank">Include word bank</label>
+            </div>
+            <div class="ws-opt-row">
+              <label class="toggle"><input type="checkbox" id="ws-answerkey" checked><span class="toggle-sl"></span></label>
+              <label for="ws-answerkey">Include answer key</label>
+            </div>
+            <div>
+              <span class="ctrl-label">Scramble style</span>
+              <div class="ws-style-group">
+                <label class="ws-style-opt"><input type="radio" name="ws-style" value="all" checked> All letters shuffled</label>
+                <label class="ws-style-opt"><input type="radio" name="ws-style" value="first"> Keep first letter</label>
+              </div>
+            </div>
+          </div>
+
+          <button class="gen-btn" id="ws-generate-btn">Generate Worksheet</button>
+          <div class="ws-ws-error" id="ws-ws-error">Add at least one word to generate a worksheet</div>
+        </div>
+
+        <!-- Worksheet preview -->
+        <div class="ws-preview-wrap" id="ws-preview-wrap" style="display:none">
+          <div class="ws-preview-top">
+            <span class="ws-preview-label">Preview</span>
+            <button class="ws-print-btn" id="ws-print-btn">
+              <svg viewBox="0 0 14 14" fill="none" width="14" height="14"><rect x="2.5" y="6" width="9" height="6" rx="1" stroke="currentColor" stroke-width="1.1"/><path d="M5 6V2.5h4V6M4 9.5h6" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg>
+              Print
+            </button>
+          </div>
+          <div class="ws-preview" id="ws-preview"></div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="ad-leaderboard">
+  <div class="ad-leaderboard-inner">
+    <span class="ad-tag">Advertisement · 728×90</span>
+    <div class="ad-mock-content">
+      <div class="ad-title">Grammarly — write with confidence. Grammar, tone &amp; clarity.</div>
+      <div class="ad-sub">Used by 30 million people. Works in Google Docs, Gmail, Word and more.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-mock-cta">Try Grammarly free</a>
+    </div>
+  </div>
+</div>
+<div class="content-wrap">
+  <div class="section">
+    <h2 class="section-title">More word tools</h2>
+    <p class="section-sub">Every word generator you need, all free</p>
+    <div class="tools-grid">
+      <a class="tool-item" href="/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="#534AB7" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="tool-name">Random word</div><div class="tool-desc">Filter by type, difficulty, length</div></a>
+      <a class="tool-item" href="/random-letter-generator/"><div class="tool-icon" style="background:#EEF6E8"><svg viewBox="0 0 13 13" fill="none"></svg></div><div class="tool-name">Random Letter Generator</div><div class="tool-desc">Pick random letters — filter by case, vowels or consonants, and see NATO phonetic codes.</div></a>
+      <a class="tool-item" href="/random-sentence-generator/"><div class="tool-icon" style="background:#E1F5EE"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 3h10M1.5 6.5h7M1.5 10h5" stroke="#0F6E56" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="tool-name">Random sentence</div><div class="tool-desc">Writing prompts &amp; starters</div></a>
+      <a class="tool-item" href="/word-scramble/"><div class="tool-icon" style="background:#FAEEDA"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="#854F0B" stroke-width="1.1"/></svg></div><div class="tool-name">Word scramble</div><div class="tool-desc">Scramble or unscramble words</div></a>
+      <a class="tool-item" href="/random-name-generator/"><div class="tool-icon" style="background:#FAECE7"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4" r="2.2" stroke="#993C1D" stroke-width="1.1"/><path d="M1.5 11.5c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="#993C1D" stroke-width="1.1" stroke-linecap="round"/></svg></div><div class="tool-name">Random name <span class="new-badge">new</span></div><div class="tool-desc">First, last, or fantasy names</div></a>
+      <a class="tool-item" href="/word-of-the-day/"><div class="tool-icon" style="background:#EAF3DE"><svg viewBox="0 0 13 13" fill="none"><path d="M6.5 1v11M1 6.5h11" stroke="#3B6D11" stroke-width="1.4" stroke-linecap="round"/></svg></div><div class="tool-name">Word of the day</div><div class="tool-desc">Daily vocabulary builder</div></a>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div>
+    <h2 class="section-title">Other tools</h2>
+    <p class="section-sub">Numbers, names, games and more</p>
+    <div class="other-grid">
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="1" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="1" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/></svg>Number &amp; chance</div><a class="other-link" href="/random-number-generator/">Random number generator</a><a class="other-link" href="/dice-roller/">Dice roller — 4,6,8,12,20 sided</a><a class="other-link" href="/coin-flip/">Coin flip simulator</a><a class="other-link" href="/lucky-number./">Lucky number picker</a><a class="other-link" href="/list-shuffler/">Random list shuffler</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4.5" r="2.5" stroke="currentColor" stroke-width="1"/><path d="M1.5 11.5c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Name generators</div><a class="other-link" href="/fantasy-name-generator/">Fantasy character name gen</a><a class="other-link" href="/username-generator/">Username generator</a><a class="other-link" href="/baby-name-finder/">Baby name finder</a><a class="other-link" href="/pet-name-generator/">Pet name generator</a><a class="other-link" href="/band-name-generator/">Band / team name gen</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3h9M2 6.5h7M2 10h5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Text &amp; writing</div><a class="other-link" href="/lorem-ipsum/">Lorem ipsum generator</a><a class="other-link" href="/password-generator/">Password generator</a><a class="other-link" href="/acronym-maker/">Acronym maker</a><a class="other-link" href="/random-quote/">Random quote generator</a><a class="other-link" href="/story-prompts/">Story prompt generator</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M6.5 1.5l1.3 3h3.2l-2.6 2 1 3-2.9-1.8-2.9 1.8 1-3-2.6-2h3.2z" stroke="currentColor" stroke-width="1" stroke-linejoin="round"/></svg>Games &amp; fun</div><a class="other-link" href="/pictionary-word-generator/">Pictionary word generator</a><a class="other-link" href="/charades-generator/">Charades generator</a><a class="other-link" href="/truth-or-dare/">Truth or dare gen</a><a class="other-link" href="/would-you-rather/">Would you rather</a><a class="other-link" href="/trivia-questions/">Trivia question gen</a></div>
+    </div>
+  </div>
+
+  <div class="ad-rect">
+    <span class="ad-tag">Advertisement · 336×280</span>
+    <div class="ad-rect-img"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4C10.3 4 4 10.3 4 18s6.3 14 14 14 14-6.3 14-14S25.7 4 18 4z" fill="white" opacity=".2"/><path d="M12 18c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="18" r="2.5" fill="white"/></svg></div>
+    <div class="ad-rect-content">
+      <div class="ad-rect-title">Grammarly — write with confidence</div>
+      <div class="ad-rect-body">Instantly improve grammar, spelling, clarity, and tone. Works everywhere you write online.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
+    </div>
+  </div>
+  <div class="divider"></div>
+
+<div class="explainer">
+  <h2>How to scramble a word</h2>
+  <p>Type any word into the Scramble tab and press Enter — or click the Scramble button — and the tool instantly rearranges the letters in a random order. The result appears large and spaced out so the jumbled letters are easy to read. Click <strong>Re-scramble</strong> to shuffle the same word again and get a different arrangement; the tool guarantees a different order each time (or tells you if no alternative exists, as with words like "aaa").</p>
+  <p>Scrambling is useful in more situations than you'd expect. Creating puzzles for friends, making warm-up activities for spelling tests, generating prompts for word games like Wordle or Boggle, or building escape-room clues — all of these start with a cleanly scrambled word. Use the Re-scramble button until you find an arrangement that looks satisfyingly cryptic.</p>
+
+  <h2>How to unscramble letters</h2>
+  <p>The Unscramble tab is a full letter-solver. Enter up to 15 letters from whatever mix you have — your Scrabble rack, a crossword clue, a classroom word jumble — and the tool finds every valid English word that can be formed from those letters. Results are grouped by word length, longest first, so the highest-scoring words appear at the top.</p>
+  <p>Use <strong>?</strong> for a blank tile or wildcard. A single ? can stand in for any letter, so entering <em>aeirnt?</em> will surface words that need one extra letter beyond what you have. The Starts with, Ends with, and Must include filters are especially useful for crossword solving: if you know a word ends in <em>-ing</em> and starts with <em>r</em>, filter for both and cut your results to just the relevant words.</p>
+  <p>The tool works for Scrabble, Words With Friends, Wordle, Quordle, and any classroom word-puzzle format. Toggle on <strong>Show Scrabble points</strong> to see the tile value of every result — useful when you want the highest-scoring play, not just the longest word.</p>
+
+  <div class="aff-writing">
+    <div class="aff-sponsored">✦ Sponsored <span class="ad-pill">Ad</span></div>
+    <div class="aff-writing-body">Once you have your words, Grammarly makes sure your writing is clear, mistake-free, and compelling — right inside Google Docs, Word, or your browser.</div>
+    <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Write better with Grammarly — free to start <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
+  </div>
+
+  <h2>Word scramble worksheet generator</h2>
+  <p>The Worksheet tab is built for teachers and educators who need a print-ready word scramble in under a minute. Paste your word list — one word per line, up to 30 words — and click Generate Worksheet. The tool scrambles each word and lays them out in a clean two-column format: scrambled word on the left, blank answer line on the right.</p>
+  <p>This is the fastest way to build a <strong>word scramble worksheet</strong> for any subject or grade level. No account, no subscription, no watermarks. Click the Print button to open your browser's print dialog and send it straight to your printer or save it as a PDF. Works for spelling tests, vocabulary practice, science units, history lessons — any topic where you have a list of words students need to learn.</p>
+  <p>The <strong>word scramble worksheet generator</strong> includes two optional sections: a word bank (all original words listed in random order at the bottom of the sheet, for students who need a hint) and an answer key (scrambled word = original word, useful for self-marking or teacher reference). Both are on by default; uncheck either one if you don't need it. As a <strong>word scramble maker for teachers</strong>, this tool is designed to eliminate prep time — paste your list, generate, and print.</p>
+
+  <h3>Keeping the first letter (for younger students)</h3>
+  <p>The "Keep first letter" scramble style is designed for early readers and younger grades. Instead of rearranging every letter, it leaves the first letter in place and only shuffles the remaining ones. So "volcano" might become "vaclono" instead of "cnooval." Students can use the starting letter as a cue, which makes the activity challenging enough to require thought while remaining achievable for beginners. This is ideal for K–3 spelling practice, reading groups, and any class where the full scramble would be too discouraging.</p>
+
+  <h3>Using word scrambles for Scrabble practice</h3>
+  <p>The Unscramble tab doubles as a Scrabble trainer. Enter the letters on your rack and see every valid word you can play — sorted longest to shortest so high-value plays are easy to spot. Toggle on Scrabble points to see the tile value of each word at a glance. The dictionary selector lets you switch between US English (NWL, used in North American tournament Scrabble), UK English (SOWPODS, used internationally), and the ENABLE common-word list, which is a good middle ground for casual games and Words With Friends. Blank-tile support with ? makes it practical for real rack situations.</p>
+</div>
+  <div class="divider"></div>
+
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">What is a word scrambler?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">A word scrambler is a tool that randomly rearranges letters to create jumbled versions of words — or works in reverse, taking scrambled letters and finding all the real words hidden inside them. Both directions are useful: scrambling creates puzzles and classroom activities, while unscrambling helps with word games like Scrabble, Words With Friends, and classroom jumble exercises. This tool combines both in one place, and adds a worksheet generator for teachers.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">How do I make a word scramble worksheet for my class?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Click the <strong>Worksheet</strong> tab, then paste your word list into the text area — one word per line, up to 30 words. Give the worksheet a title if you like, then choose whether to include a word bank (helpful for struggling students) and an answer key (useful for self-marking). Pick a scramble style: "All letters shuffled" for a harder challenge, or "Keep first letter" for younger students. Click <strong>Generate Worksheet</strong>, check the preview, and press <strong>Print</strong> to open your browser's print dialog. No sign-up, no cost, no watermarks.
+      <div class="aff-faq">
+        <div class="aff-faq-tag">Recommended tool</div>
+        <div class="aff-faq-body">Once your students have completed the worksheet, Grammarly can help them write sentences using the vocabulary words they just practised.</div>
+        <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-faq-link">Try Grammarly free →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I use this to solve Scrabble or Words With Friends?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes. Open the <strong>Unscramble</strong> tab and enter the letters on your rack — up to 15 at once. Add <strong>?</strong> for each blank tile you have. The tool finds every valid word that can be formed from your letters and sorts results from longest to shortest. Toggle on <strong>Show Scrabble points</strong> to see tile values. Use Starts with and Ends with if you need to fit the word into a specific board position. You can switch between US English (NWL), UK English (SOWPODS), and the ENABLE word list to match the rules of your game.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What does "keep first letter" mean in the worksheet?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">The "Keep first letter" option scrambles only the letters after the first one, leaving the opening letter in place. For example, "science" might become "sieecnc" rather than "ieccnes." The visible first letter gives younger or less-confident students a meaningful starting clue, making the activity appropriately challenging rather than overwhelming. This mode works well for early readers (grades K–3) and for vocabulary practice where the goal is letter-order recognition rather than cold recall.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">How many letters can I unscramble at once?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Up to 15 letters at once. You can also mix in <strong>?</strong> wildcard characters — each ? counts as one letter slot but can stand in for any letter of the alphabet. So entering 10 regular letters plus 2 wildcards (12 characters total) will find words up to 12 letters long that your available letters and wildcards can form. Results are grouped by length, longest first, so the most useful words for games like Scrabble surface at the top.</div>
+  </div>
+</div>
+  <div class="divider"></div>
+
+<div>
+  <h2 class="section-title" style="margin-bottom:14px">Who uses Wordineer</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">Teachers</div><div class="uc-body">Paste a word list, pick your options, and print a worksheet in under a minute. Works for any subject, any grade.</div></div>
+    <div class="uc"><div class="uc-title">Scrabble &amp; word game players</div><div class="uc-body">Find every word hiding in your letters. Filter by length, starting letter, or switch on Scrabble points.</div></div>
+    <div class="uc"><div class="uc-title">Puzzle makers</div><div class="uc-body">Scramble words for crossword clues, party games, or escape room puzzles. Re-scramble until you get an arrangement you like.</div></div>
+    <div class="uc"><div class="uc-title">Students</div><div class="uc-body">Stuck on a jumbled word puzzle? Enter your letters and see every possible word, sorted from longest to shortest.</div></div>
+  </div>
+</div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="ad-footer-strip" style="margin-bottom:24px">
+      <span class="ad-tag">Advertisement · 468×60</span>
+      <div class="ad-fs-text"><strong>Grammarly Premium</strong> — Vocabulary suggestions, tone detector, full-sentence rewrites.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-footer-strip-cta">Try free</a>
+    </div>
+    <div class="footer-grid">
+      <div><div class="footer-col-title">Word tools</div><a class="footer-link" href="/">Random word generator</a><a class="footer-link" href="/random-sentence-generator/">Random sentence</a><a class="footer-link" href="/random-letter-generator/">Random letter</a><a class="footer-link" href="/word-scramble/">Word scramble</a><a class="footer-link" href="/word-of-the-day/">Word of the day</a><a class="footer-link" href="/passphrase-generator/">Passphrase gen</a></div>
+      <div><div class="footer-col-title">Name generators</div><a class="footer-link" href="/random-name-generator/">Random name gen</a><a class="footer-link" href="/username-generator/">Username generator</a><a class="footer-link" href="/fantasy-name-generator/">Fantasy name gen</a><a class="footer-link" href="/baby-name-finder/">Baby name finder</a><a class="footer-link" href="/pet-name-generator/">Pet name gen</a></div>
+      <div><div class="footer-col-title">Number &amp; chance</div><a class="footer-link" href="/random-number-generator/">Random number</a><a class="footer-link" href="/dice-roller/">Dice roller</a><a class="footer-link" href="/coin-flip/">Coin flip</a><a class="footer-link" href="/lucky-number/">Lucky number</a><a class="footer-link" href="/list-shuffler/">List shuffler</a></div>
+      <div><div class="footer-col-title">Games &amp; fun</div><a class="footer-link" href="/pictionary-word-generator/">Pictionary words</a><a class="footer-link" href="/charades-generator/">Charades gen</a><a class="footer-link" href="/truth-or-dare/">Truth or dare</a><a class="footer-link" href="/would-you-rather/">Would you rather</a><a class="footer-link" href="/story-prompts/">Story prompts</a></div>
+    </div>
+    <div class="footer-bottom">
+      <div style="display:flex;align-items:center;gap:7px">
+        <div class="nav-logo-icon" style="width:22px;height:22px;border-radius:5px"><svg viewBox="0 0 15 15" fill="none" style="width:12px;height:12px"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <span style="font-size:14px;font-weight:600;color:var(--text)">Wordineer</span>
+      </div>
+      <span class="footer-copy">© 2026 Wordineer · Free word tools for everyone</span>
+      <div class="footer-meta"><a href="/about.html">About</a><a href="/blog.html">Blog</a><a href="/api.html">API docs</a><a href="/affiliate-disclosure.html">Affiliate disclosure</a><a href="/privacy.html">Privacy</a></div>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="/scripts/tool-engine.js?v=3"></script>
+
+<script>
+const WORD_SCRAMBLER = (() => {
+
+  /* ── Dictionary state ── */
+  let DICT = [];
+  let dictLoaded = false;
+
+  /* ── Scrabble tile values ── */
+  const TILE = {a:1,b:3,c:3,d:2,e:1,f:4,g:2,h:4,i:1,j:8,k:5,l:1,m:3,n:1,o:1,p:3,q:10,r:1,s:1,t:1,u:1,v:4,w:4,x:8,y:4,z:10};
+
+  function scrabbleScore(word) {
+    return word.split('').reduce((s, c) => s + (TILE[c] || 0), 0);
+  }
+
+  function esc(s) {
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    if (!t) return;
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2000);
+  }
+
+  function copyText(text) {
+    navigator.clipboard?.writeText(text);
+    showToast('Copied!');
+  }
+
+  /* ── Tab switching ── */
+  function switchTab(tab) {
+    document.querySelectorAll('.ws-tab').forEach(b => {
+      b.classList.toggle('ws-tab-active', b.dataset.tab === tab);
+      b.setAttribute('aria-selected', b.dataset.tab === tab ? 'true' : 'false');
+    });
+    document.querySelectorAll('.ws-panel').forEach(p => {
+      p.classList.toggle('ws-panel-active', p.id === 'ws-panel-' + tab);
+    });
+    if (tab === 'scramble') setTimeout(() => document.getElementById('sc-input')?.focus({ preventScroll: true }), 50);
+    if (tab === 'unscramble') {
+      setTimeout(() => document.getElementById('un-input')?.focus({ preventScroll: true }), 50);
+      if (!dictLoaded) loadDictionary();
+    }
+  }
+
+  /* ── Scramble tab ── */
+  let currentScrambled = '';
+  let currentWord = '';
+
+  function shuffleWord(word) {
+    const arr = word.split('');
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr.join('');
+  }
+
+  function canRescramble(word) {
+    return new Set(word.split('')).size > 1;
+  }
+
+  function showScrambleError(msg) {
+    const errEl = document.getElementById('sc-error');
+    if (errEl) { errEl.textContent = msg; errEl.style.display = 'block'; }
+    const out = document.getElementById('sc-output');
+    if (out) out.innerHTML = '';
+  }
+
+  function clearScrambleError() {
+    const errEl = document.getElementById('sc-error');
+    if (errEl) errEl.style.display = 'none';
+  }
+
+  function renderScrambleResult(scrambled, original) {
+    const out = document.getElementById('sc-output');
+    if (!out) return;
+    out.innerHTML =
+      '<div class="ws-scrambled-word">' + esc(scrambled) + '</div>' +
+      '<div class="ws-copy-row"><button class="icon-btn" id="sc-copy-btn" title="Copy scrambled word">' +
+        '<svg viewBox="0 0 14 14" fill="none"><rect x="1" y="4" width="9" height="9.5" rx="1.5" stroke="currentColor" stroke-width="1.1"/>' +
+        '<path d="M4.5 4V2.5A1.5 1.5 0 016 1h5.5A1.5 1.5 0 0113 2.5v7a1.5 1.5 0 01-1.5 1.5H10" stroke="currentColor" stroke-width="1.1"/></svg>' +
+      '</button></div>' +
+      '<div class="ws-original">Original: ' + esc(original) + '</div>';
+    document.getElementById('sc-copy-btn')?.addEventListener('click', function() {
+      const orig = this.innerHTML;
+      copyText(scrambled);
+      this.innerHTML = '<svg viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5 6.5-6.5" stroke="#1D9E75" stroke-width="1.3" stroke-linecap="round"/></svg>';
+      setTimeout(() => { this.innerHTML = orig; }, 900);
+    });
+  }
+
+  function doScramble() {
+    clearScrambleError();
+    const inp = document.getElementById('sc-input');
+    const raw = (inp?.value || '').replace(/[^a-zA-Z]/g, '');
+    if (!raw) { showScrambleError('Enter a word to scramble'); return; }
+    if (raw.length < 2) { showScrambleError('Enter at least 2 letters'); return; }
+
+    currentWord = raw.toLowerCase();
+    currentScrambled = shuffleWord(currentWord);
+    renderScrambleResult(currentScrambled, currentWord);
+
+    const reBtn = document.getElementById('sc-rescramble-btn');
+    if (reBtn) reBtn.disabled = false;
+  }
+
+  function doRescramble() {
+    if (!currentWord) return;
+    clearScrambleError();
+    if (!canRescramble(currentWord)) {
+      showScrambleError("Can't make a different arrangement");
+      return;
+    }
+    let result = currentScrambled;
+    let attempts = 0;
+    while (result === currentScrambled && attempts < 100) {
+      result = shuffleWord(currentWord);
+      attempts++;
+    }
+    if (result === currentScrambled) {
+      showScrambleError("Can't make a different arrangement");
+      return;
+    }
+    currentScrambled = result;
+    renderScrambleResult(currentScrambled, currentWord);
+  }
+
+  function clearScramble() {
+    clearScrambleError();
+    const inp = document.getElementById('sc-input');
+    if (inp) { inp.value = ''; inp.focus(); }
+    currentWord = '';
+    currentScrambled = '';
+    const out = document.getElementById('sc-output');
+    if (out) out.innerHTML = '<div class="ws-output-placeholder">Enter a word and press Enter to scramble</div>';
+    const reBtn = document.getElementById('sc-rescramble-btn');
+    if (reBtn) reBtn.disabled = true;
+  }
+
+  /* ── Unscramble tab ── */
+  async function loadDictionary() {
+    if (dictLoaded) return;
+    /* Try dictionary.json (plain array of lowercase strings) first;
+       fall back to existing words.json (array of {w, t, d, ...} objects). */
+    try {
+      const res = await fetch('/data/dictionary.json');
+      if (!res.ok) throw 0;
+      DICT = await res.json();
+      dictLoaded = true;
+    } catch {
+      try {
+        const res = await fetch('/data/words.json');
+        if (!res.ok) throw 0;
+        const raw = await res.json();
+        DICT = Array.isArray(raw)
+          ? raw.map(e => (typeof e === 'string' ? e : (e.w || '')).toLowerCase()).filter(w => w.length >= 2)
+          : [];
+        dictLoaded = true;
+      } catch {}
+    }
+  }
+
+  function canFormWord(word, inputCounts, wildcards) {
+    const needed = {};
+    for (const ch of word) needed[ch] = (needed[ch] || 0) + 1;
+    let extra = 0;
+    for (const ch in needed) {
+      const have = inputCounts[ch] || 0;
+      if (have < needed[ch]) extra += needed[ch] - have;
+    }
+    return extra <= wildcards;
+  }
+
+  let unscrambleResults = [];
+
+  async function doFindWords() {
+    const rawInput = (document.getElementById('un-input')?.value || '').toLowerCase().replace(/[^a-z?]/g, '');
+    if (!rawInput) {
+      document.getElementById('un-count-display').textContent = 'Enter letters and click Find words';
+      document.getElementById('un-results').innerHTML = '<div class="ws-results-status">Enter up to 15 letters — use ? for blank tiles</div>';
+      unscrambleResults = [];
+      return;
+    }
+
+    const countEl = document.getElementById('un-count-display');
+    if (countEl) countEl.textContent = 'Searching…';
+
+    if (!dictLoaded) {
+      await loadDictionary();
+    }
+
+    if (!DICT.length) {
+      document.getElementById('un-results').innerHTML = '<div class="ws-results-status">Dictionary unavailable — please try again shortly</div>';
+      if (countEl) countEl.textContent = 'Dictionary not loaded';
+      return;
+    }
+
+    const wildcards = (rawInput.match(/\?/g) || []).length;
+    const letters = rawInput.replace(/\?/g, '');
+    const maxLen = rawInput.length;
+
+    const inputCounts = {};
+    for (const ch of letters) inputCounts[ch] = (inputCounts[ch] || 0) + 1;
+
+    const lenFilter = parseInt(document.getElementById('un-length')?.value || '0', 10);
+    const startsWith = (document.getElementById('un-starts')?.value || '').toLowerCase().replace(/[^a-z]/g, '');
+    const endsWith   = (document.getElementById('un-ends')?.value || '').toLowerCase().replace(/[^a-z]/g, '');
+    const mustIncl   = (document.getElementById('un-must')?.value || '').toLowerCase().replace(/[^a-z]/g, '');
+    const showPts    = document.getElementById('un-scrabble-pts')?.checked;
+
+    const found = [];
+    for (const word of DICT) {
+      const wl = word.length;
+      if (wl < 2 || wl > maxLen) continue;
+      if (lenFilter === 7 && wl < 7) continue;
+      if (lenFilter > 0 && lenFilter < 7 && wl !== lenFilter) continue;
+      if (startsWith && !word.startsWith(startsWith)) continue;
+      if (endsWith   && !word.endsWith(endsWith)) continue;
+      if (mustIncl   && !word.includes(mustIncl)) continue;
+      if (!canFormWord(word, inputCounts, wildcards)) continue;
+      found.push(word);
+    }
+
+    unscrambleResults = found;
+    renderUnscrambleResults(found, showPts);
+  }
+
+  function renderUnscrambleResults(words, showPts) {
+    const resultsEl = document.getElementById('un-results');
+    const countEl   = document.getElementById('un-count-display');
+
+    if (!words.length) {
+      resultsEl.innerHTML = '<div class="ws-results-status">No words found — try removing a filter or adding a ? for a blank tile</div>';
+      if (countEl) countEl.textContent = '0 words found';
+      return;
+    }
+
+    if (countEl) countEl.textContent = words.length + ' word' + (words.length !== 1 ? 's' : '') + ' found';
+
+    const groups = {};
+    for (const w of words) {
+      const l = w.length;
+      if (!groups[l]) groups[l] = [];
+      groups[l].push(w);
+    }
+
+    const lengths = Object.keys(groups).map(Number).sort((a, b) => b - a);
+    let html = '';
+    for (const len of lengths) {
+      const gw = groups[len].slice().sort();
+      html += '<div class="ws-length-group">';
+      html += '<div class="ws-group-hdr">' + len + ' letter' + (len !== 1 ? 's' : '') + ' <span style="font-weight:400;opacity:.7">(' + gw.length + ')</span></div>';
+      html += '<div class="ws-chips">';
+      for (const w of gw) {
+        html += '<span class="ws-chip">' + esc(w);
+        if (showPts) html += '<span class="ws-pts">' + scrabbleScore(w) + '</span>';
+        html += '</span>';
+      }
+      html += '</div></div>';
+    }
+    resultsEl.innerHTML = html;
+  }
+
+  function copyAllUnscramble() {
+    if (!unscrambleResults.length) return;
+    copyText(unscrambleResults.join(', '));
+  }
+
+  /* ── Worksheet tab ── */
+  function parseWordList(text) {
+    const seen = new Set();
+    return text.split('\n')
+      .map(line => line.trim().replace(/[^a-zA-Z]/g, '').slice(0, 20))
+      .filter(w => {
+        if (!w) return false;
+        const lc = w.toLowerCase();
+        if (seen.has(lc)) return false;
+        seen.add(lc);
+        return true;
+      })
+      .slice(0, 30);
+  }
+
+  function updateWordCounter() {
+    const textarea = document.getElementById('ws-wordlist');
+    const counter  = document.getElementById('ws-word-counter');
+    if (!textarea || !counter) return;
+    const words = parseWordList(textarea.value);
+    counter.textContent = words.length + ' / 30 words';
+    counter.classList.toggle('ws-over', words.length >= 30);
+  }
+
+  function scrambleAll(word) {
+    const arr = word.split('');
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr.join('');
+  }
+
+  function scrambleKeepFirst(word) {
+    if (word.length <= 1) return word;
+    const rest = word.slice(1).split('');
+    for (let i = rest.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [rest[i], rest[j]] = [rest[j], rest[i]];
+    }
+    return word[0] + rest.join('');
+  }
+
+  function generateWorksheet() {
+    const textarea = document.getElementById('ws-wordlist');
+    const errorEl  = document.getElementById('ws-ws-error');
+    const words    = parseWordList(textarea?.value || '');
+
+    if (!words.length) {
+      if (errorEl) { errorEl.textContent = 'Add at least one word to generate a worksheet'; errorEl.classList.add('show'); }
+      return;
+    }
+    if (errorEl) errorEl.classList.remove('show');
+
+    const title       = (document.getElementById('ws-title')?.value.trim()) || 'Word Scramble Worksheet';
+    const wordBank    = document.getElementById('ws-wordbank')?.checked !== false;
+    const answerKey   = document.getElementById('ws-answerkey')?.checked !== false;
+    const style       = document.querySelector('input[name="ws-style"]:checked')?.value || 'all';
+
+    const pairs = words.map(w => {
+      const lc = w.toLowerCase();
+      const scrambled = style === 'first' ? scrambleKeepFirst(lc) : scrambleAll(lc);
+      return { original: lc, scrambled };
+    });
+
+    renderWorksheetPreview(pairs, title, wordBank, answerKey);
+  }
+
+  function renderWorksheetPreview(pairs, title, includeWordBank, includeAnswerKey) {
+    const previewEl = document.getElementById('ws-preview');
+    const wrapEl    = document.getElementById('ws-preview-wrap');
+    if (!previewEl || !wrapEl) return;
+
+    let html = '';
+    html += '<div class="ws-preview-title">' + esc(title) + '</div>';
+    html += '<div class="ws-preview-meta">';
+    html += '<span>Name:&nbsp;<span class="ws-answer-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>';
+    html += '<span>Date:&nbsp;<span class="ws-answer-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>';
+    html += '</div>';
+    html += '<p class="ws-preview-instruct">Unscramble each word and write it on the line.</p>';
+
+    html += '<table class="ws-preview-grid"><tbody>';
+    for (const { scrambled } of pairs) {
+      html += '<tr><td>' + esc(scrambled.toUpperCase()) + '</td>';
+      html += '<td><span class="ws-answer-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td></tr>';
+    }
+    html += '</tbody></table>';
+
+    if (includeWordBank) {
+      const shuffled = pairs.slice().sort(() => Math.random() - 0.5);
+      html += '<div class="ws-section-block"><div class="ws-section-hdr">Word Bank</div>';
+      html += '<div class="ws-wordbank-list">';
+      for (const { original } of shuffled) {
+        html += '<span class="ws-wb-word">' + esc(original) + '</span>';
+      }
+      html += '</div></div>';
+    }
+
+    if (includeAnswerKey) {
+      html += '<div class="ws-section-block"><div class="ws-section-hdr">Answer Key</div>';
+      html += '<div class="ws-ak-list">';
+      for (const { scrambled, original } of pairs) {
+        html += '<div class="ws-ak-item">' + esc(scrambled.toUpperCase()) + ' = ' + esc(original) + '</div>';
+      }
+      html += '</div></div>';
+    }
+
+    previewEl.innerHTML = html;
+    wrapEl.style.display = 'block';
+    wrapEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  /* ── Init ── */
+  function init() {
+
+    /* Tab switching */
+    document.querySelectorAll('.ws-tab').forEach(btn => {
+      btn.addEventListener('click', () => switchTab(btn.dataset.tab));
+    });
+
+    /* Scramble tab */
+    const scInput = document.getElementById('sc-input');
+    scInput?.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); doScramble(); } });
+    scInput?.addEventListener('input', function() {
+      const pos = this.selectionStart;
+      const cleaned = this.value.replace(/[^a-zA-Z]/g, '');
+      if (this.value !== cleaned) {
+        this.value = cleaned;
+        this.setSelectionRange(Math.min(pos, cleaned.length), Math.min(pos, cleaned.length));
+      }
+    });
+    document.getElementById('sc-scramble-btn')?.addEventListener('click', doScramble);
+    document.getElementById('sc-rescramble-btn')?.addEventListener('click', doRescramble);
+    document.getElementById('sc-clear-btn')?.addEventListener('click', clearScramble);
+
+    window.addEventListener('load', function() {
+      if (window.innerWidth > 640) scInput?.focus({ preventScroll: true });
+    });
+
+    /* Unscramble tab */
+    const unInput = document.getElementById('un-input');
+    unInput?.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); doFindWords(); } });
+    unInput?.addEventListener('input', function() {
+      const pos = this.selectionStart;
+      const cleaned = this.value.replace(/[^a-zA-Z?]/g, '').slice(0, 15);
+      if (this.value !== cleaned) {
+        this.value = cleaned;
+        this.setSelectionRange(Math.min(pos, cleaned.length), Math.min(pos, cleaned.length));
+      }
+    });
+    document.getElementById('un-find-btn')?.addEventListener('click', doFindWords);
+    document.getElementById('un-copy-all-btn')?.addEventListener('click', copyAllUnscramble);
+    document.getElementById('un-scrabble-pts')?.addEventListener('change', function() {
+      if (unscrambleResults.length) renderUnscrambleResults(unscrambleResults, this.checked);
+    });
+
+    const unToggle = document.getElementById('un-mobile-toggle');
+    const unAdv    = document.getElementById('un-advanced');
+    if (unToggle && unAdv) {
+      unToggle.addEventListener('click', () => {
+        const open = unAdv.classList.toggle('is-open');
+        unToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        unToggle.textContent = open ? 'Hide options' : 'More options';
+      });
+    }
+
+    /* Pre-load dictionary in background */
+    loadDictionary();
+
+    /* Worksheet tab */
+    document.getElementById('ws-wordlist')?.addEventListener('input', updateWordCounter);
+    document.getElementById('ws-generate-btn')?.addEventListener('click', generateWorksheet);
+    document.getElementById('ws-print-btn')?.addEventListener('click', () => window.print());
+
+    /* FAQ accordion */
+    document.querySelectorAll('.faq-q').forEach(q => {
+      q.addEventListener('click', () => q.closest('.faq-item').classList.toggle('open'));
+    });
+
+    /* Mega menu close on outside click */
+    document.addEventListener('click', e => {
+      const mega = document.getElementById('mega');
+      const hbg  = document.querySelector('.hamburger');
+      if (!mega || !hbg) return;
+      if (mega.classList.contains('open') && !mega.contains(e.target) && !hbg.contains(e.target))
+        mega.classList.remove('open');
+    });
+  }
+
+  return { init };
+})();
+
+WORD_SCRAMBLER.init();
+</script>
+</body>
+</html>
