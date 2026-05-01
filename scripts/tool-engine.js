@@ -370,7 +370,130 @@ _render();
 const type = document.getElementById(config.typeId)?.value || 'all';
 augmentLive(type).catch(() => {});
 }
+let _customCfg = null;
+let _customSaved = [];
+function _customRender(items) {
+const list = document.getElementById(_customCfg.listId);
+if (!list) return;
+list.innerHTML = '';
+items.forEach(item => {
+const html = _customCfg.renderItem(item);
+const wrapper = document.createElement('div');
+wrapper.innerHTML = html;
+list.appendChild(wrapper.firstElementChild || wrapper);
+});
+const cd = document.getElementById(_customCfg.countDisplayId);
+if (cd) cd.textContent = items.length + ' result' + (items.length !== 1 ? 's' : '') + ' generated';
+current = items;
+}
+function _customGenerate() {
+const items = _customCfg.generateFn(_customCfg.data, _customCfg);
+_customRender(items);
+}
+function _customCopyAll() {
+const list = document.getElementById(_customCfg.listId);
+if (!list) return;
+const lines = Array.from(list.querySelectorAll('[data-name]'))
+.map(el => el.getAttribute('data-name'))
+.filter(Boolean);
+if (!lines.length) {
+const textNodes = Array.from(list.children).map(c => c.textContent.trim()).filter(Boolean);
+navigator.clipboard?.writeText(textNodes.join('\n'));
+} else {
+navigator.clipboard?.writeText(lines.join('\n'));
+}
+const btn = document.getElementById(_customCfg.copyAllBtnId);
+if (btn) {
+const orig = btn.textContent;
+btn.textContent = 'Copied!';
+setTimeout(() => { btn.textContent = orig; }, 1500);
+}
+showToast('All items copied!');
+}
+function _customLoadSaved() {
+if (!_customCfg.savedKey) return;
+try { _customSaved = JSON.parse(localStorage.getItem(_customCfg.savedKey)) || []; } catch { _customSaved = []; }
+}
+function _customPersistSaved() {
+if (!_customCfg.savedKey) return;
+localStorage.setItem(_customCfg.savedKey, JSON.stringify(_customSaved));
+}
+function _customRenderSaved() {
+if (!_customCfg.savedKey || !_customCfg.savedListId) return;
+const el = document.getElementById(_customCfg.savedListId);
+if (!el) return;
+if (!_customSaved.length) {
+el.innerHTML = '<span class="saved-empty">No saved items yet</span>';
+return;
+}
+el.innerHTML = _customSaved.map(name =>
+`<span class="saved-tag">${name} <span class="saved-tag-remove" data-action="clear-saved" data-name="${name}">×</span></span>`
+).join('');
+}
+function _customToggleSave(name, btn) {
+const idx = _customSaved.indexOf(name);
+if (idx >= 0) {
+_customSaved.splice(idx, 1);
+if (btn) btn.classList.remove('saved');
+} else {
+_customSaved.push(name);
+if (btn) btn.classList.add('saved');
+}
+_customPersistSaved();
+_customRenderSaved();
+}
+function _initCustom(cfg) {
+_customCfg = cfg;
+_customLoadSaved();
+const genBtn = document.getElementById(cfg.generateBtnId);
+if (genBtn) genBtn.addEventListener('click', _customGenerate);
+const copyBtn = document.getElementById(cfg.copyAllBtnId);
+if (copyBtn) copyBtn.addEventListener('click', _customCopyAll);
+const list = document.getElementById(cfg.listId);
+if (list) {
+list.addEventListener('click', e => {
+const saveBtn = e.target.closest('[data-action="save"]');
+if (saveBtn) {
+const name = saveBtn.getAttribute('data-name');
+if (name) _customToggleSave(name, saveBtn);
+}
+});
+}
+if (cfg.savedListId) {
+const savedList = document.getElementById(cfg.savedListId);
+if (savedList) {
+savedList.addEventListener('click', e => {
+const clearBtn = e.target.closest('[data-action="clear-saved"]');
+if (clearBtn) {
+const name = clearBtn.getAttribute('data-name');
+if (name) {
+_customToggleSave(name, null);
+const mainList = document.getElementById(cfg.listId);
+if (mainList) {
+mainList.querySelectorAll('[data-action="save"][data-name="' + name + '"]')
+.forEach(b => b.classList.remove('saved'));
+}
+}
+}
+});
+}
+}
+document.addEventListener('keydown', e => {
+if ((e.code === 'Space' || e.code === 'Enter') && !['INPUT','SELECT','TEXTAREA','BUTTON'].includes(e.target.tagName)) {
+e.preventDefault();
+_customGenerate();
+}
+});
+initFaq();
+initMega();
+_customRenderSaved();
+_customGenerate();
+}
 function init(cfg) {
+if (cfg.mode === 'custom') {
+_initCustom(cfg);
+return;
+}
 config = {
 listId:         cfg.listId         || 'word-list',
 countId:        cfg.countId        || 'ctrl-count',
