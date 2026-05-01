@@ -206,6 +206,7 @@
         <div class="ctrl-row">
           <span class="ctrl-label">Number of names</span>
           <input type="number" id="ng-count" value="5" min="1" max="50">
+          <span class="ng-count-error" id="ng-count-error" style="display:none;font-size:11px;color:#E24B4A;margin-top:4px;display:none;">Enter a number from 1 to 50</span>
         </div>
 
         <button type="button" class="ng-mobile-toggle" id="ng-mobile-toggle" aria-expanded="false" aria-controls="ng-advanced">More options</button>
@@ -887,11 +888,7 @@ function ngShuffle(arr) {
 
 function ngGenerateFn(data, cfg) {
   const raw = parseInt(document.getElementById('ng-count')?.value);
-  if (isNaN(raw) || raw < 1 || raw > 50) {
-    document.getElementById('ng-list').innerHTML = '<li class="word-item"><div class="word-left"><div class="word-text" style="color:var(--text-3)">Enter a number from 1 to 50</div></div></li>';
-    document.getElementById('ng-count-display').textContent = '0 names';
-    return [];
-  }
+  if (isNaN(raw) || raw < 1 || raw > 50) return [];
   const count = raw;
   const gender = document.getElementById('ng-gender')?.value  || 'any';
   const type   = document.getElementById('ng-type')?.value    || 'first';
@@ -981,9 +978,22 @@ WORDINEER.init({
 });
 
 (function() {
+  // Count validation
+  const ngCountInput = document.getElementById('ng-count');
+  const ngCountError = document.getElementById('ng-count-error');
+  function ngValidateCount() {
+    const v = parseInt(ngCountInput.value);
+    const invalid = isNaN(v) || v < 1 || v > 50;
+    ngCountError.style.display = invalid ? 'block' : 'none';
+    ngCountInput.style.borderColor = invalid ? '#E24B4A' : '';
+  }
+  ngCountInput?.addEventListener('input', ngValidateCount);
+  ngCountInput?.addEventListener('change', ngValidateCount);
+
   // Reset button
   document.getElementById('ng-reset-btn')?.addEventListener('click', function() {
     document.getElementById('ng-count').value  = '5';
+    ngValidateCount();
     document.getElementById('ng-gender').value = 'any';
     document.getElementById('ng-type').value   = 'first';
     document.getElementById('ng-origin').value = 'any';
