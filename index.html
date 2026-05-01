@@ -522,7 +522,7 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="/scripts/tool-engine.js?v=3"></script>
+<script src="/scripts/tool-engine.js?v=4"></script>
 
 <script>
 WORDINEER.init({
@@ -564,7 +564,7 @@ WORDINEER.init({
   if (count) {
     count.addEventListener('input', function() {
       const v = parseInt(this.value, 10);
-      if (v >= 1 && v <= 50) setCountError(false);
+      setCountError(isNaN(v) || v < 1 || v > 50);
     });
   }
 

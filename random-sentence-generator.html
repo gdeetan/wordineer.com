@@ -492,7 +492,7 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="/scripts/tool-engine.js?v=3"></script>
+<script src="/scripts/tool-engine.js?v=4"></script>
 
 <script>
 const WORDINEER_SENTENCES = (() => {
@@ -776,6 +776,13 @@ const WORDINEER_SENTENCES = (() => {
   if (countEl) {
     window.addEventListener('load', function(){ countEl.focus({ preventScroll: true }); countEl.select(); });
     countEl.addEventListener('focus', function(){ countEl.select(); });
+    countEl.addEventListener('input', function() {
+      const v = parseInt(this.value, 10);
+      const err = document.getElementById('sg-count-error');
+      const invalid = isNaN(v) || v < 1 || v > 50;
+      if (err) err.classList.toggle('show', invalid);
+      countEl.classList.toggle('input-error', invalid);
+    });
   }
 
   if (toggle && advanced) {

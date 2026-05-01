@@ -450,7 +450,7 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="/scripts/tool-engine.js?v=3"></script>
+<script src="/scripts/tool-engine.js?v=4"></script>
 
 <script>
 const WORDINEER_LETTERS = (() => {
@@ -690,7 +690,7 @@ const WORDINEER_LETTERS = (() => {
 
     document.getElementById(cfg.countId)?.addEventListener('input', function() {
       const v = parseInt(this.value, 10);
-      if (v >= 1 && v <= 50) setCountError(false);
+      setCountError(isNaN(v) || v < 1 || v > 50);
     });
 
     document.addEventListener('keydown', e => {
