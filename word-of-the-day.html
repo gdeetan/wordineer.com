@@ -114,7 +114,13 @@
 .wotd-main { padding:22px 24px 20px; }
 .wotd-date { font-size:11px; color:var(--text-3); text-transform:uppercase; letter-spacing:.07em; font-weight:700; margin-bottom:8px; }
 .wotd-word-row { display:flex; justify-content:space-between; align-items:flex-start; gap:14px; margin-bottom:6px; }
+.wotd-word-wrap { display:flex; align-items:center; gap:10px; min-width:0; }
 .wotd-word { font-family:'DM Serif Display',serif; font-size:48px; line-height:1; color:var(--text); letter-spacing:0; }
+.wotd-listen { width:34px; height:34px; flex:0 0 34px; display:inline-flex; align-items:center; justify-content:center; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--text-2); cursor:pointer; transition:background .12s,color .12s,border-color .12s,transform .1s; }
+.wotd-listen:hover { background:var(--bg-2); color:var(--brand); border-color:var(--brand-light); }
+.wotd-listen:active { transform:scale(.96); }
+.wotd-listen[hidden] { display:none; }
+.wotd-listen svg { width:17px; height:17px; }
 .wotd-meta { display:flex; flex-wrap:wrap; gap:6px; margin:8px 0 14px; }
 .wotd-pill { font-size:11px; padding:3px 9px; border-radius:20px; background:var(--brand-light); color:var(--brand-dark); font-weight:600; text-transform:capitalize; }
 .wotd-pill.soft { background:var(--bg-2); color:var(--text-2); border:1px solid var(--border-2); }
@@ -154,6 +160,7 @@
   .words-top { align-items:flex-start; }
   .wotd-main { padding:18px 16px; }
   .wotd-word { font-size:38px; }
+  .wotd-listen { width:32px; height:32px; flex-basis:32px; }
   .wotd-def { font-size:16px; }
   .wotd-previous { grid-template-columns:repeat(2,1fr); }
 }
@@ -243,7 +250,15 @@
           <div class="wotd-date" id="wotd-date"></div>
           <div class="wotd-word-row">
             <div>
-              <div class="wotd-word" id="wotd-word">...</div>
+              <div class="wotd-word-wrap">
+                <div class="wotd-word" id="wotd-word">...</div>
+                <button class="wotd-listen" id="wotd-listen" type="button" aria-label="Listen to pronunciation" title="Listen to pronunciation">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" fill="none">
+                    <path d="M11 5 6 9H3v6h3l5 4V5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                    <path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </button>
+              </div>
               <div class="wotd-meta" id="wotd-meta"></div>
             </div>
             <button class="gen-btn" id="wotd-surprise" style="width:auto;white-space:nowrap">Surprise me</button>
@@ -465,9 +480,51 @@ const WORDINEER_WOTD = (() => {
   let fallbackWords = [];
   let current = null;
   let saved = [];
+  let speechVoice = null;
 
   function esc(s) {
     return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function speechSupported() {
+    return 'speechSynthesis' in window && 'SpeechSynthesisUtterance' in window;
+  }
+
+  function chooseSpeechVoice() {
+    if (!speechSupported()) return null;
+    const voices = window.speechSynthesis.getVoices();
+    speechVoice =
+      voices.find(voice => /^en(-|_)/i.test(voice.lang) && voice.localService) ||
+      voices.find(voice => /^en(-|_)/i.test(voice.lang)) ||
+      null;
+    return speechVoice;
+  }
+
+  function setupSpeech() {
+    const btn = document.getElementById('wotd-listen');
+    if (!btn) return;
+    if (!speechSupported()) {
+      btn.hidden = true;
+      return;
+    }
+    chooseSpeechVoice();
+    if ('onvoiceschanged' in window.speechSynthesis) {
+      window.speechSynthesis.onvoiceschanged = chooseSpeechVoice;
+    }
+  }
+
+  function speakCurrentWord() {
+    if (!current) return;
+    if (!speechSupported()) {
+      showToast('Audio not supported');
+      return;
+    }
+    window.speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(current.word);
+    utterance.lang = 'en-US';
+    utterance.rate = 0.86;
+    utterance.voice = speechVoice || chooseSpeechVoice();
+    window.speechSynthesis.speak(utterance);
   }
 
   function dayNumber(date) {
@@ -619,6 +676,7 @@ const WORDINEER_WOTD = (() => {
     document.getElementById('wotd-copy-word')?.addEventListener('click', () => current && copyText(current.word));
     document.getElementById('wotd-copy-example')?.addEventListener('click', () => current && copyText(current.example));
     document.getElementById('wotd-save-word')?.addEventListener('click', saveCurrent);
+    document.getElementById('wotd-listen')?.addEventListener('click', speakCurrentWord);
     document.getElementById('wotd-surprise')?.addEventListener('click', surprise);
     document.getElementById('wotd-practice-copy')?.addEventListener('click', () => current && copyText('Write one original sentence using "' + current.word + '" to mean: ' + current.definition));
     document.getElementById('wotd-quiz-reveal')?.addEventListener('click', () => document.getElementById('wotd-quiz-a')?.classList.add('show'));
@@ -630,6 +688,7 @@ const WORDINEER_WOTD = (() => {
 
   async function init() {
     bind();
+    setupSpeech();
     loadSaved();
     render(wordForDate(new Date()), "Today's word");
     renderPrevious();
