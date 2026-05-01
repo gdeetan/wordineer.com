@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7DWH3EGM3Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7DWH3EGM3Z');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7200956978416233"
+     crossorigin="anonymous"></script>
+<meta name='impact-site-verification' value='32715504-1cfb-4324-bfc7-ae4cfa1591ea'>
+<link rel="preload" href="/fonts/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-sans-italic-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<title>Random Name Generator — Free Names with Meanings | Wordineer</title>
+<meta name="description" content="Generate random names instantly. Filter by gender, origin (10 cultures), era, and first letter. Meanings shown under every result. Perfect for writers, game masters, baby names, and pen names. Free, no sign-up.">
+<link rel="canonical" href="https://wordineer.com/random-name-generator.html">
+<meta property="og:type"        content="website">
+<meta property="og:site_name"   content="Wordineer">
+<meta property="og:title"       content="Random Name Generator | Wordineer">
+<meta property="og:description" content="Generate first names, last names, or full names from 10 world origins. Meanings shown inline. Free, no sign-up.">
+<meta property="og:url"         content="https://wordineer.com/random-name-generator.html">
+<meta property="og:image"       content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I use these names in my book?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. All names generated here are real names drawn from ten cultural traditions. You can use them freely for fiction, screenplays, game characters, or any creative project. Names themselves are not copyrightable. The meaning shown under each name is a concise cultural gloss — useful for backstory, theme, and character depth." }
+    },
+    {
+      "@type": "Question",
+      "name": "What do the name meanings mean?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Each name card shows a short meaning phrase drawn from the name's cultural and linguistic origin — for example, 'brave in war' for Wyatt or 'freedom' for Saoirse. These come from etymological roots: Latin, Old English, Arabic, Japanese kanji compounds, and so on. They are the literal or traditional meanings of the name's component words, which can be useful for choosing thematically resonant character names." }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I pick a good character name?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Match the name's origin and era to your story's setting. A fantasy novel set in a Celtic land feels right with Irish or Scottish names; a contemporary thriller set in Tokyo calls for Japanese names. The meaning can add a subtle layer — naming a villain 'Victor' (victory) or a healer 'Lucia' (light) plants a quiet thematic seed. Generate a batch of ten, say each aloud, and notice which ones feel natural in the mouth — that physical test eliminates many candidates quickly." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between Classic, Modern, and Timeless?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Classic names were most popular in earlier eras — Victorian England, early 20th-century Europe, pre-war America — and carry a sense of history and formality. Modern names have risen to popularity in the last 30–50 years, often with a contemporary sound. Timeless names have been in steady use across multiple generations and feel at home in almost any era. For fiction set in a specific historical period, Classic gives the most authentic feel; for contemporary stories, Modern or Timeless are usually the better choice." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this tool free?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes — completely free. No account, no sign-up, no rate limits. Generate as many names as you need. The full dataset of 250 first names and 150 last names is embedded in the page, so it works instantly with no server calls." }
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="/styles/global.css?v=1">
+<style>
+.tool-wrap  { max-width:960px; margin:0 auto; padding:24px 24px 0; }
+.tool-card  { border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg); box-shadow:var(--shadow); }
+.tool-split { display:flex; }
+
+.ctrl       { width:220px; flex-shrink:0; padding:18px; border-right:1px solid var(--border-2); background:var(--bg-2); }
+.ctrl-row   { margin-bottom:14px; }
+.ctrl-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; display:block; margin-bottom:5px; }
+.ctrl-row input, .ctrl-row select { width:100%; padding:7px 10px; font-size:13px; font-family:inherit; border:1px solid var(--border); border-radius:7px; background:var(--bg); color:var(--text); appearance:none; outline:none; transition:border-color .15s; }
+.ctrl-row input:focus, .ctrl-row select:focus { border-color:var(--brand); }
+.gen-btn    { width:100%; padding:10px 14px; background:var(--brand); color:white; border:none; border-radius:8px; font-size:14px; font-weight:600; font-family:inherit; cursor:pointer; transition:background .15s,transform .1s; letter-spacing:-.01em; }
+.gen-btn:hover { background:var(--brand-dark); }
+.gen-btn:active { transform:scale(.98); }
+.reset-btn  { display:block; width:100%; text-align:center; font-size:11px; color:var(--text-3); margin-top:8px; cursor:pointer; text-decoration:underline; text-underline-offset:2px; border:none; background:none; font-family:inherit; }
+.kbd        { text-align:center; font-size:10px; color:var(--text-3); margin-top:6px; }
+.kbd kbd    { background:var(--bg-3); border:1px solid var(--border); border-radius:3px; padding:1px 5px; font-size:10px; font-family:inherit; }
+
+.words-panel { flex:1; display:flex; flex-direction:column; overflow:hidden; }
+.words-top  { display:flex; align-items:center; justify-content:space-between; padding:12px 16px; border-bottom:1px solid var(--border-2); }
+.words-count { font-size:12px; color:var(--text-3); }
+.words-actions { display:flex; gap:6px; }
+.act-btn    { font-size:12px; padding:5px 11px; border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:background .12s; }
+.act-btn:hover { background:var(--bg-2); }
+.word-list  { flex:1; overflow-y:auto; list-style:none; padding:0 16px; margin:0; }
+.word-item  { display:flex; align-items:flex-start; justify-content:space-between; padding:12px 0; border-bottom:1px solid var(--border-2); gap:10px; animation:fadeIn .2s ease; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:none} }
+.word-item:last-child { border-bottom:none; }
+.word-left  { flex:1; }
+.word-right { display:flex; align-items:flex-start; gap:4px; padding-top:2px; flex-shrink:0; }
+.icon-btn   { width:28px; height:28px; display:flex; align-items:center; justify-content:center; background:transparent; border:none; cursor:pointer; border-radius:5px; color:var(--text-3); transition:background .12s,color .12s; }
+.icon-btn:hover { background:var(--bg-2); color:var(--text); }
+.icon-btn svg { width:14px; height:14px; }
+.icon-btn.saved { color:#E24B4A; }
+
+.saved-section { padding:12px 16px; border-top:1px solid var(--border-2); }
+.saved-top  { display:flex; align-items:center; justify-content:space-between; margin-bottom:7px; }
+.saved-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; }
+.saved-copy { font-size:11px; color:var(--brand); cursor:pointer; text-decoration:underline; text-underline-offset:2px; border:none; background:none; font-family:inherit; }
+.saved-tags { display:flex; gap:5px; flex-wrap:wrap; min-height:22px; }
+.saved-tag  { font-size:11px; padding:3px 10px; background:var(--brand-light); color:var(--brand-dark); border-radius:20px; display:flex; align-items:center; gap:4px; }
+.saved-tag-remove { cursor:pointer; opacity:.6; font-size:13px; line-height:1; }
+.saved-tag-remove:hover { opacity:1; }
+.saved-empty { font-size:12px; color:var(--text-3); font-style:italic; }
+
+/* Name-specific */
+.word-text  { font-size:17px; font-weight:600; color:var(--text); line-height:1.25; }
+.ng-origin  { display:inline-block; font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; padding:2px 8px; border-radius:10px; background:var(--brand-light); color:var(--brand-dark); margin-top:4px; }
+.ng-meaning { font-size:12px; color:var(--text-3); margin-top:3px; font-style:italic; }
+
+.ng-mobile-toggle { display:none; width:100%; margin:-2px 0 14px; padding:9px 12px; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--brand); font-size:13px; font-weight:600; font-family:inherit; cursor:pointer; }
+.ng-advanced { display:block; }
+
+@media(max-width:700px){
+  .tool-wrap { padding:14px 16px 0; }
+  .tool-split { flex-direction:column; }
+  .ctrl { width:100%; border-right:none; border-bottom:1px solid var(--border-2); }
+  .reset-btn, .kbd { display:none; }
+  .word-list { max-height:440px; overflow-y:auto; }
+  .ng-mobile-toggle { display:block; }
+  .ng-advanced { display:none; }
+  .ng-advanced.is-open { display:block; }
+}
+</style>
+</head>
+
+<body>
+<nav class="nav">
+  <a class="nav-logo" href="/">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 15 15" fill="none"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </div>
+    Wordineer
+  </a>
+  <div class="nav-links">
+    <a href="/tools.html">Tools</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/api.html">API</a>
+  </div>
+  <div>
+    <div class="hamburger" onclick="document.getElementById('mega').classList.toggle('open')" title="All tools">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+<div class="mega" id="mega">
+  <div class="mega-inner">
+    <div class="mega-col">
+      <div class="mega-cat">Word tools</div>
+      <a class="mega-link" href="/random-sentence-generator/">Random sentence</a>
+      <a class="mega-link" href="/random-letter-generator/">Random letter</a>
+      <a class="mega-link" href="/word-scramble/">Word Scramble</a>
+      <a class="mega-link" href="/word-unscramble/">Word Unscramble</a>
+      <a class="mega-link" href="/word-of-the-day/">Word of the day</a>
+      <a class="mega-link" href="/passphrase-generator/">Passphrase gen</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Name generators</div>
+      <a class="mega-link" href="/index.html">Random word generator</a>
+      <a class="mega-link" href="/random-name-generator/">Random name</a>
+      <a class="mega-link" href="/username-generator/">Username generator</a>
+      <a class="mega-link" href="/fantasy-name-generator/">Fantasy name gen</a>
+      <a class="mega-link" href="/baby-name-finder/">Baby name finder</a>
+      <a class="mega-link" href="/pet-name-generator/">Pet name gen</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Number &amp; chance</div>
+      <a class="mega-link" href="/random-number-generator/">Random number</a>
+      <a class="mega-link" href="/dice-roller/">Dice roller</a>
+      <a class="mega-link" href="/coin-flip/">Coin flip</a>
+      <a class="mega-link" href="/lucky-number/">Lucky number</a>
+      <a class="mega-link" href="/list-shuffler/">List shuffler</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Games &amp; fun</div>
+      <a class="mega-link" href="/pictionary-word-generator/">Pictionary words</a>
+      <a class="mega-link" href="/charades-generator/">Charades gen</a>
+      <a class="mega-link" href="/truth-or-dare/">Truth or dare</a>
+      <a class="mega-link" href="/would-you-rather/">Would you rather</a>
+      <a class="mega-link" href="/story-prompts/">Story prompts</a>
+    </div>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free · No sign-up · Instant
+  </div>
+  <h1>Random name generator</h1>
+  <p>Generate names from 10 world origins — with meanings shown under every result. Filter by gender, era, and first letter. One click, no sign-up.</p>
+</div>
+<div class="tool-wrap">
+  <div class="tool-card">
+    <div class="tool-split">
+
+      <!-- LEFT: controls -->
+      <div class="ctrl">
+        <div class="ctrl-row">
+          <span class="ctrl-label">Number of names</span>
+          <input type="number" id="ng-count" value="5" min="1" max="50">
+        </div>
+
+        <button type="button" class="ng-mobile-toggle" id="ng-mobile-toggle" aria-expanded="false" aria-controls="ng-advanced">More options</button>
+
+        <div class="ng-advanced" id="ng-advanced">
+          <div class="ctrl-row">
+            <span class="ctrl-label">Gender</span>
+            <select id="ng-gender">
+              <option value="any">Any</option>
+              <option value="m">Male</option>
+              <option value="f">Female</option>
+            </select>
+          </div>
+          <div class="ctrl-row">
+            <span class="ctrl-label">Name type</span>
+            <select id="ng-type">
+              <option value="first">First name only</option>
+              <option value="full">Full name</option>
+              <option value="last">Last name only</option>
+            </select>
+          </div>
+          <div class="ctrl-row">
+            <span class="ctrl-label">Origin</span>
+            <select id="ng-origin">
+              <option value="any">Any</option>
+              <option value="English">English</option>
+              <option value="American">American</option>
+              <option value="Irish">Irish</option>
+              <option value="Scottish">Scottish</option>
+              <option value="French">French</option>
+              <option value="Italian">Italian</option>
+              <option value="Spanish">Spanish</option>
+              <option value="German">German</option>
+              <option value="Japanese">Japanese</option>
+              <option value="Arabic">Arabic</option>
+            </select>
+          </div>
+          <div class="ctrl-row">
+            <span class="ctrl-label">Era / Vibe</span>
+            <select id="ng-era">
+              <option value="any">Any</option>
+              <option value="classic">Classic &amp; Vintage</option>
+              <option value="modern">Modern</option>
+              <option value="timeless">Timeless</option>
+            </select>
+          </div>
+          <div class="ctrl-row">
+            <span class="ctrl-label">First letter</span>
+            <select id="ng-letter">
+              <option value="">Any letter</option>
+              <option>A</option><option>B</option><option>C</option><option>D</option>
+              <option>E</option><option>F</option><option>G</option><option>H</option>
+              <option>I</option><option>J</option><option>K</option><option>L</option>
+              <option>M</option><option>N</option><option>O</option><option>P</option>
+              <option>Q</option><option>R</option><option>S</option><option>T</option>
+              <option>U</option><option>V</option><option>W</option><option>X</option>
+              <option>Y</option><option>Z</option>
+            </select>
+          </div>
+        </div>
+
+        <button class="gen-btn" id="ng-gen-btn">Generate names</button>
+        <button class="reset-btn" id="ng-reset-btn">Reset options</button>
+        <div class="kbd">Press <kbd>Space</kbd> to regenerate</div>
+
+        <div class="ad-sidebar">
+          <span class="ad-sidebar-tag">Ad</span>
+          <div class="ad-sidebar-logo">
+            <svg viewBox="0 0 32 32" fill="none" width="32" height="32"><circle cx="16" cy="16" r="14" fill="#15a249"/><path d="M10 16c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="16" r="2.5" fill="white"/></svg>
+            <span class="ad-sidebar-brand">Grammarly</span>
+          </div>
+          <div class="ad-sidebar-headline">Write with confidence</div>
+          <div class="ad-sidebar-body">Fix grammar, improve clarity, and choose the right words — everywhere you write.</div>
+          <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-sidebar-cta">Try free →</a>
+          <div class="ad-sidebar-sub">Free plan · No credit card</div>
+        </div>
+      </div>
+
+      <!-- RIGHT: name results -->
+      <div class="words-panel">
+        <div class="words-top">
+          <span class="words-count" id="ng-count-display">Generating…</span>
+          <div class="words-actions">
+            <button class="act-btn" id="ng-copy-all-btn">Copy all</button>
+          </div>
+        </div>
+        <ul class="word-list" id="ng-list"></ul>
+      </div>
+
+    </div>
+
+    <!-- Saved names -->
+    <div class="saved-section">
+      <div class="saved-top">
+        <span class="saved-label">Saved names</span>
+        <button class="saved-copy" id="ng-copy-saved-btn">Copy saved</button>
+      </div>
+      <div class="saved-tags" id="ng-saved-tags">
+        <span class="saved-empty">Click the heart on any name to save it here</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="ad-leaderboard">
+  <div class="ad-leaderboard-inner">
+    <span class="ad-tag">Advertisement · 728×90</span>
+    <div class="ad-mock-content">
+      <div class="ad-title">Grammarly — write with confidence. Grammar, tone &amp; clarity.</div>
+      <div class="ad-sub">Used by 30 million people. Works in Google Docs, Gmail, Word and more.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-mock-cta">Try Grammarly free</a>
+    </div>
+  </div>
+</div>
+<div class="content-wrap">
+  <div class="section">
+    <h2 class="section-title">More word tools</h2>
+    <p class="section-sub">Every word generator you need, all free</p>
+    <div class="tools-grid">
+      <a class="tool-item" href="/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="#534AB7" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="tool-name">Random word</div><div class="tool-desc">Filter by type, difficulty, length</div></a>
+      <a class="tool-item" href="/random-letter-generator/"><div class="tool-icon" style="background:#EEF6E8"><svg viewBox="0 0 13 13" fill="none"></svg></div><div class="tool-name">Random Letter Generator</div><div class="tool-desc">Pick random letters — filter by case, vowels or consonants, and see NATO phonetic codes.</div></a>
+      <a class="tool-item" href="/random-sentence-generator/"><div class="tool-icon" style="background:#E1F5EE"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 3h10M1.5 6.5h7M1.5 10h5" stroke="#0F6E56" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="tool-name">Random sentence</div><div class="tool-desc">Writing prompts &amp; starters</div></a>
+      <a class="tool-item" href="/word-scramble/"><div class="tool-icon" style="background:#FAEEDA"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4.5h4.5M2 7.5h8M2 10.5h5.5" stroke="#854F0B" stroke-width="1.3" stroke-linecap="round"/><path d="M8.5 2l2 2-2 2" stroke="#854F0B" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="tool-name">Word Scramble</div><div class="tool-desc">Create word scramble puzzles & printable worksheets.</div></a>
+      <a class="tool-item" href="/random-name-generator/"><div class="tool-icon" style="background:#FAECE7"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4" r="2.2" stroke="#993C1D" stroke-width="1.1"/><path d="M1.5 11.5c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="#993C1D" stroke-width="1.1" stroke-linecap="round"/></svg></div><div class="tool-name">Random name <span class="new-badge">new</span></div><div class="tool-desc">Generate random first names for any project.</div></a>
+      <a class="tool-item" href="/word-of-the-day/"><div class="tool-icon" style="background:#EAF3DE"><svg viewBox="0 0 13 13" fill="none"><path d="M6.5 1v11M1 6.5h11" stroke="#3B6D11" stroke-width="1.4" stroke-linecap="round"/></svg></div><div class="tool-name">Word of the day</div><div class="tool-desc">Daily vocabulary builder</div></a>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div>
+    <h2 class="section-title">Other tools</h2>
+    <p class="section-sub">Numbers, names, games and more</p>
+    <div class="other-grid">
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="1" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="1" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/></svg>Number &amp; chance</div><a class="other-link" href="/random-number-generator/">Random number generator</a><a class="other-link" href="/dice-roller/">Dice roller — 4,6,8,12,20 sided</a><a class="other-link" href="/coin-flip/">Coin flip simulator</a><a class="other-link" href="/lucky-number/">Lucky number picker</a><a class="other-link" href="/list-shuffler/">Random list shuffler</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4.5" r="2.5" stroke="currentColor" stroke-width="1"/><path d="M1.5 11.5c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Name generators</div><a class="other-link" href="/fantasy-name-generator/">Fantasy character name gen</a><a class="other-link" href="/username-generator/">Username generator</a><a class="other-link" href="/baby-name-finder/">Baby name finder</a><a class="other-link" href="/pet-name-generator/">Pet name generator</a><a class="other-link" href="/band-name-generator/">Band / team name gen</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3h9M2 6.5h7M2 10h5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Text &amp; writing</div><a class="other-link" href="/lorem-ipsum/">Lorem ipsum generator</a><a class="other-link" href="/password-generator/">Password generator</a><a class="other-link" href="/acronym-maker/">Acronym maker</a><a class="other-link" href="/random-quote/">Random quote generator</a><a class="other-link" href="/story-prompts/">Story prompt generator</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M6.5 1.5l1.3 3h3.2l-2.6 2 1 3-2.9-1.8-2.9 1.8 1-3-2.6-2h3.2z" stroke="currentColor" stroke-width="1" stroke-linejoin="round"/></svg>Games &amp; fun</div><a class="other-link" href="/pictionary-word-generator/">Pictionary word generator</a><a class="other-link" href="/charades-generator/">Charades generator</a><a class="other-link" href="/truth-or-dare/">Truth or dare gen</a><a class="other-link" href="/would-you-rather/">Would you rather</a><a class="other-link" href="/trivia-questions/">Trivia question gen</a></div>
+    </div>
+  </div>
+
+  <div class="ad-rect">
+    <span class="ad-tag">Advertisement · 336×280</span>
+    <div class="ad-rect-img"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4C10.3 4 4 10.3 4 18s6.3 14 14 14 14-6.3 14-14S25.7 4 18 4z" fill="white" opacity=".2"/><path d="M12 18c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="18" r="2.5" fill="white"/></svg></div>
+    <div class="ad-rect-content">
+      <div class="ad-rect-title">Grammarly — write with confidence</div>
+      <div class="ad-rect-body">Instantly improve grammar, spelling, clarity, and tone. Works everywhere you write online.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
+    </div>
+  </div>
+  <div class="divider"></div>
+
+<div class="explainer">
+  <h2>What is a random name generator?</h2>
+  <p>A random name generator picks real names from a curated dataset and delivers them instantly — with meanings shown under every result. Unlike a generic list, this tool lets you filter by gender, cultural origin, era, and first letter, so you can zero in on exactly the kind of name your project needs. Every result card shows the name, its origin as a badge, and a short meaning phrase drawn from the name's linguistic roots. No loading, no account required.</p>
+
+  <h2>For fiction writers: naming characters that feel authentic</h2>
+  <p>Character names do quiet work in a story. A name signals class, culture, and era before a character says a word. The Origin filter is the most useful tool for writers: select Irish to get names that feel genuinely Celtic, not just vaguely fantasy-adjacent. Select German for names that carry old-world weight. Select Japanese for names with kanji-based meanings — "radiant sunlight" for Haruki, "cherry blossom" for Sakura — that can quietly reinforce a character's symbolic role.</p>
+  <p>The Era filter sharpens that further. Classic names carry the texture of history; Timeless names drop naturally into any period without drawing attention; Modern names anchor a character in the contemporary world. The meaning shown inline under every name is a practical backstory shortcut: a character named Khalid ("eternal; immortal") or Saoirse ("freedom") carries a thematic seed from the first page. Pair this tool with the <a href="/random-word-generator/">random word generator</a> to build both a name and a vocabulary bank for your fictional world.</p>
+
+  <h2>For baby name brainstorming</h2>
+  <p>Parents often know the feel they want — a name that sounds strong, or soft, or rooted in a particular heritage — before they know the name itself. Set the Origin filter to your family's background, the Gender filter to Male or Female, and browse batches of five. The meaning shown under every name is the detail parents most want: not just that a name sounds appealing, but what it actually means in its original language. Save the ones that resonate using the heart icon, then copy your shortlist in one click.</p>
+
+  <h2>For tabletop RPG and D&D characters</h2>
+  <p>Game masters and players building characters for D&D, Pathfinder, or other tabletop RPGs need names that sound plausible within a fictional culture without being generic. Map game cultures to real-world origins: a Norse-flavoured land maps well to Scottish or German names; a Mediterranean empire to Italian or Spanish; a desert kingdom to Arabic. The First Letter filter lets you match a naming convention already established in your campaign — if every NPC in a guild starts with "C", the filter delivers exactly that. Meanings help GMs embed lore: a thief named Tariq ("morning star; one who knocks") already has a nickname and a story hook built in.</p>
+
+  <h2>For pen names and online aliases</h2>
+  <p>A pen name needs to be memorable, plausible, and distinct enough to build a brand around. The Full Name type combines a first and last name from the same cultural pool — or mix origins for a more distinctive combination by generating separately. The Classic era produces names with gravitas and shelf presence; Modern produces names that feel fresh in contemporary markets. Generate ten full names, say them aloud, and test how they look on a book cover in your mind's eye.</p>
+
+  <h2>For teachers: classroom activities and creative writing exercises</h2>
+  <p>Teachers can use this tool to seed creative writing prompts without reusing the same handful of placeholder names. Generate a batch of five full names before a lesson and write them on the board — students build characters, stories, or descriptive paragraphs around whoever they pick. The origin and meaning shown under each name naturally spark curiosity about culture and language, turning a creative writing warm-up into a light geography and etymology exercise at the same time.</p>
+</div>
+  <div class="divider"></div>
+
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">Can I use these names in my book?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">
+      Yes — all names here are real names drawn from ten cultural traditions. You can use them freely for fiction, screenplays, game characters, or any creative project. Names are not copyrightable. The meaning shown under each result is a concise etymological gloss useful for backstory and theme.
+      <div class="aff-faq">
+        <div class="aff-faq-tag">[AFFILIATE PLACEHOLDER]</div>
+        <div class="aff-faq-body">[Describe writing tool here]</div>
+        <a href="#affiliate" class="aff-faq-link">[CTA text here →]</a>
+      </div>
+    </div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What do the name meanings mean?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Each card shows a short phrase drawn from the name's linguistic root — for example, "freedom" for Saoirse (Irish) or "bright raven" for Bertrand (French). These are etymological meanings: the literal or traditional sense of the name's component words in their original language. They are not personality predictions. Writers often use them to choose names that carry a thematic resonance — naming a character something that quietly means "light" or "warrior" adds a layer that attentive readers feel even if they never look it up.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">How do I pick a good character name?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Match origin and era to your story's setting first — an Irish name in a Celtic fantasy, a German name in a 1930s thriller, a Japanese name in contemporary literary fiction. Then say each candidate aloud: the physical feel of a name in the mouth is often a faster filter than thinking about it. Finally, check the meaning — a name that quietly reinforces a character's role or arc ("eternal" for a vampire, "freedom" for a revolutionary) plants a thematic seed without announcing itself. Generate batches of ten and save the finalists; don't agonise over a single result.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What is the difference between Classic, Modern, and Timeless?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><strong>Classic</strong> names were most prominent in earlier eras — Victorian Britain, early 20th-century Europe, pre-war America — and carry a sense of history and formality. Think Reginald, Edith, or Hildegard. <strong>Modern</strong> names have risen to popularity in the last 30–50 years and often have a lighter, more contemporary sound — Mason, Saoirse, Haruki. <strong>Timeless</strong> names have been in steady use across multiple generations and feel at home in almost any period — Oliver, Lucia, Callum. For historical fiction, Classic gives the most authentic texture. For contemporary stories, Modern or Timeless usually works better.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Is this tool free?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes — completely free. No account, no sign-up, no rate limits. Generate as many names as you need. The full dataset of 250 first names and 150 last names is embedded directly in the page, so it works instantly with no server calls and no internet dependency after the page loads.</div>
+  </div>
+</div>
+  <div class="divider"></div>
+
+<div>
+  <h2 class="section-title" style="margin-bottom:14px">Who uses Wordineer</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">Writers</div><div class="uc-body">Find character names that feel authentic to your story's setting — filter by origin, era, and meaning to land the right fit</div></div>
+    <div class="uc"><div class="uc-title">Game Masters</div><div class="uc-body">Name NPCs, factions, and player characters quickly. Match real-world origins to your campaign's cultures for instant credibility</div></div>
+    <div class="uc"><div class="uc-title">Expecting Parents</div><div class="uc-body">Browse names by cultural heritage and meaning. Save favourites and copy your shortlist in one click — no endless scrolling through baby name sites</div></div>
+    <div class="uc"><div class="uc-title">Teachers</div><div class="uc-body">Seed creative writing exercises with diverse, culturally rich names. Spark discussions about origin and meaning at the same time</div></div>
+  </div>
+</div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="ad-footer-strip" style="margin-bottom:24px">
+      <span class="ad-tag">Advertisement · 468×60</span>
+      <div class="ad-fs-text"><strong>Grammarly Premium</strong> — Vocabulary suggestions, tone detector, full-sentence rewrites.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-footer-strip-cta">Try free</a>
+    </div>
+    <div class="footer-grid">
+      <div><div class="footer-col-title">Word tools</div><a class="footer-link" href="/">Random word generator</a><a class="footer-link" href="/random-sentence-generator/">Random sentence</a><a class="footer-link" href="/random-letter-generator/">Random letter</a><a class="footer-link" href="/word-scramble/">Word Scramble</a><a class="footer-link" href="/word-of-the-day/">Word of the day</a><a class="footer-link" href="/passphrase-generator/">Passphrase gen</a></div>
+      <div><div class="footer-col-title">Name generators</div><a class="footer-link" href="/random-name-generator/">Random name gen</a><a class="footer-link" href="/username-generator/">Username generator</a><a class="footer-link" href="/fantasy-name-generator/">Fantasy name gen</a><a class="footer-link" href="/baby-name-finder/">Baby name finder</a><a class="footer-link" href="/pet-name-generator/">Pet name gen</a></div>
+      <div><div class="footer-col-title">Number &amp; chance</div><a class="footer-link" href="/random-number-generator/">Random number</a><a class="footer-link" href="/dice-roller/">Dice roller</a><a class="footer-link" href="/coin-flip/">Coin flip</a><a class="footer-link" href="/lucky-number/">Lucky number</a><a class="footer-link" href="/list-shuffler/">List shuffler</a></div>
+      <div><div class="footer-col-title">Games &amp; fun</div><a class="footer-link" href="/pictionary-word-generator/">Pictionary words</a><a class="footer-link" href="/charades-generator/">Charades gen</a><a class="footer-link" href="/truth-or-dare/">Truth or dare</a><a class="footer-link" href="/would-you-rather/">Would you rather</a><a class="footer-link" href="/story-prompts/">Story prompts</a></div>
+    </div>
+    <div class="footer-bottom">
+      <div style="display:flex;align-items:center;gap:7px">
+        <div class="nav-logo-icon" style="width:22px;height:22px;border-radius:5px"><svg viewBox="0 0 15 15" fill="none" style="width:12px;height:12px"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <span style="font-size:14px;font-weight:600;color:var(--text)">Wordineer</span>
+      </div>
+      <span class="footer-copy">© 2026 Wordineer · Free word tools for everyone</span>
+      <div class="footer-meta"><a href="/about.html">About</a><a href="/blog.html">Blog</a><a href="/api.html">API docs</a><a href="/affiliate-disclosure.html">Affiliate disclosure</a><a href="/privacy.html">Privacy</a></div>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="/scripts/tool-engine.js?v=3"></script>
+
+<script>
+const FIRST_NAMES = [
+  // English
+  {n:"Arthur",   g:"m",o:"English",e:"classic", m:"stone bear; noble warrior"},
+  {n:"Edmund",   g:"m",o:"English",e:"classic", m:"wealthy protector"},
+  {n:"Reginald", g:"m",o:"English",e:"classic", m:"counsel power"},
+  {n:"Rupert",   g:"m",o:"English",e:"classic", m:"bright fame"},
+  {n:"Clifford", g:"m",o:"English",e:"classic", m:"ford by a cliff"},
+  {n:"Oliver",   g:"m",o:"English",e:"timeless",m:"olive tree; symbol of peace"},
+  {n:"Henry",    g:"m",o:"English",e:"timeless",m:"ruler of the home"},
+  {n:"William",  g:"m",o:"English",e:"timeless",m:"resolute protector"},
+  {n:"George",   g:"m",o:"English",e:"timeless",m:"farmer; earth worker"},
+  {n:"Miles",    g:"m",o:"English",e:"timeless",m:"soldier; merciful"},
+  {n:"Eleanor",  g:"f",o:"English",e:"classic", m:"bright, shining one"},
+  {n:"Violet",   g:"f",o:"English",e:"classic", m:"purple flower of loyalty"},
+  {n:"Edith",    g:"f",o:"English",e:"classic", m:"prosperous in war"},
+  {n:"Mabel",    g:"f",o:"English",e:"classic", m:"lovable; dear"},
+  {n:"Cecily",   g:"f",o:"English",e:"classic", m:"blind to her own beauty"},
+  {n:"Beatrice",  g:"f",o:"English",e:"timeless",m:"bringer of joy"},
+  {n:"Florence",  g:"f",o:"English",e:"timeless",m:"flourishing; blooming"},
+  {n:"Rosalind",  g:"f",o:"English",e:"timeless",m:"gentle horse; pretty rose"},
+  {n:"Iris",      g:"f",o:"English",e:"timeless",m:"rainbow; messenger goddess"},
+  {n:"Clara",     g:"f",o:"English",e:"timeless",m:"bright and clear"},
+  {n:"Evelyn",    g:"u",o:"English",e:"modern",  m:"wished-for child"},
+  {n:"Robin",     g:"u",o:"English",e:"timeless",m:"bright fame; small bird"},
+  {n:"Aubrey",    g:"u",o:"English",e:"modern",  m:"elf ruler"},
+  {n:"Cressida",  g:"f",o:"English",e:"classic", m:"gold; from a legendary tale"},
+  {n:"Leighton",  g:"u",o:"English",e:"modern",  m:"meadow settlement"},
+  // American
+  {n:"Caleb",    g:"m",o:"American",e:"timeless",m:"faithful; whole-hearted"},
+  {n:"Cooper",   g:"m",o:"American",e:"modern",  m:"barrel maker"},
+  {n:"Mason",    g:"m",o:"American",e:"modern",  m:"stone worker"},
+  {n:"Wyatt",    g:"m",o:"American",e:"timeless",m:"brave in war"},
+  {n:"Hunter",   g:"m",o:"American",e:"modern",  m:"one who hunts"},
+  {n:"Cody",     g:"m",o:"American",e:"timeless",m:"helpful; cushion"},
+  {n:"Brayden",  g:"m",o:"American",e:"modern",  m:"broad hill"},
+  {n:"Chase",    g:"m",o:"American",e:"modern",  m:"hunter; pursuer"},
+  {n:"Garrett",  g:"m",o:"American",e:"timeless",m:"spear strength"},
+  {n:"Logan",    g:"u",o:"American",e:"modern",  m:"little hollow"},
+  {n:"Dakota",   g:"u",o:"American",e:"modern",  m:"friendly ally"},
+  {n:"Taylor",   g:"u",o:"American",e:"modern",  m:"cutter of cloth"},
+  {n:"Peyton",   g:"u",o:"American",e:"modern",  m:"fighting man's estate"},
+  {n:"Avery",    g:"u",o:"American",e:"modern",  m:"elf counsel"},
+  {n:"Shelby",   g:"u",o:"American",e:"classic", m:"willow farm estate"},
+  {n:"Riley",    g:"u",o:"American",e:"modern",  m:"rye clearing; valiant"},
+  {n:"Blake",    g:"u",o:"American",e:"timeless",m:"pale; dark and fair"},
+  {n:"Savannah", g:"f",o:"American",e:"timeless",m:"open grassy plain"},
+  {n:"Mackenzie",g:"f",o:"American",e:"modern",  m:"daughter of the wise ruler"},
+  {n:"Brittany", g:"f",o:"American",e:"classic", m:"from Britain"},
+  {n:"Tiffany",  g:"f",o:"American",e:"classic", m:"manifestation of God"},
+  {n:"Destiny",  g:"f",o:"American",e:"modern",  m:"fate; one's fortune"},
+  {n:"Jenna",    g:"f",o:"American",e:"timeless",m:"fair and smooth"},
+  {n:"Kylie",    g:"f",o:"American",e:"modern",  m:"boomerang; graceful"},
+  {n:"Amber",    g:"f",o:"American",e:"classic", m:"fossilised resin; warm gem"},
+  // Irish
+  {n:"Aoife",    g:"f",o:"Irish",e:"classic", m:"beauty; radiant joy"},
+  {n:"Ciara",    g:"f",o:"Irish",e:"timeless",m:"dark one; black-haired"},
+  {n:"Siobhan",  g:"f",o:"Irish",e:"classic", m:"God is gracious"},
+  {n:"Niamh",    g:"f",o:"Irish",e:"timeless",m:"bright; radiant"},
+  {n:"Saoirse",  g:"f",o:"Irish",e:"modern",  m:"freedom"},
+  {n:"Brigid",   g:"f",o:"Irish",e:"classic", m:"exalted one; strength"},
+  {n:"Caoimhe",  g:"f",o:"Irish",e:"classic", m:"gentle; beautiful"},
+  {n:"Aisling",  g:"f",o:"Irish",e:"classic", m:"dream; vision"},
+  {n:"Roisin",   g:"f",o:"Irish",e:"timeless",m:"little rose"},
+  {n:"Orla",     g:"f",o:"Irish",e:"timeless",m:"golden princess"},
+  {n:"Sorcha",   g:"f",o:"Irish",e:"classic", m:"brightness; radiance"},
+  {n:"Keeva",    g:"f",o:"Irish",e:"modern",  m:"gentle; beautiful"},
+  {n:"Cormac",   g:"m",o:"Irish",e:"classic", m:"charioteer; raven's son"},
+  {n:"Fergus",   g:"m",o:"Irish",e:"classic", m:"man of vigour"},
+  {n:"Declan",   g:"m",o:"Irish",e:"timeless",m:"man of prayer"},
+  {n:"Eoin",     g:"m",o:"Irish",e:"timeless",m:"God is gracious"},
+  {n:"Seamus",   g:"m",o:"Irish",e:"classic", m:"supplanter"},
+  {n:"Fionn",    g:"m",o:"Irish",e:"classic", m:"fair; white"},
+  {n:"Tiernan",  g:"m",o:"Irish",e:"classic", m:"little lord"},
+  {n:"Oisin",    g:"m",o:"Irish",e:"classic", m:"little deer; fawn"},
+  {n:"Cathal",   g:"m",o:"Irish",e:"classic", m:"battle rule"},
+  {n:"Donal",    g:"m",o:"Irish",e:"classic", m:"ruler of the world"},
+  {n:"Conall",   g:"m",o:"Irish",e:"classic", m:"strong wolf; powerful"},
+  {n:"Liam",     g:"m",o:"Irish",e:"timeless",m:"strong-willed warrior"},
+  {n:"Eithne",   g:"f",o:"Irish",e:"classic", m:"grain kernel; little fire"},
+  // Scottish
+  {n:"Alasdair", g:"m",o:"Scottish",e:"classic", m:"defender of men"},
+  {n:"Hamish",   g:"m",o:"Scottish",e:"classic", m:"supplanter"},
+  {n:"Angus",    g:"m",o:"Scottish",e:"classic", m:"one choice; unique strength"},
+  {n:"Callum",   g:"m",o:"Scottish",e:"timeless",m:"dove; symbol of peace"},
+  {n:"Euan",     g:"m",o:"Scottish",e:"classic", m:"born of the yew tree"},
+  {n:"Finlay",   g:"m",o:"Scottish",e:"timeless",m:"fair hero"},
+  {n:"Graeme",   g:"m",o:"Scottish",e:"classic", m:"gravelly homestead"},
+  {n:"Iain",     g:"m",o:"Scottish",e:"classic", m:"God is gracious"},
+  {n:"Murdo",    g:"m",o:"Scottish",e:"classic", m:"sea warrior"},
+  {n:"Rory",     g:"m",o:"Scottish",e:"timeless",m:"red king"},
+  {n:"Lachlan",  g:"m",o:"Scottish",e:"timeless",m:"from the fjord land"},
+  {n:"Glen",     g:"m",o:"Scottish",e:"classic", m:"valley dweller"},
+  {n:"Blair",    g:"u",o:"Scottish",e:"timeless",m:"plain; field of battle"},
+  {n:"Morag",    g:"f",o:"Scottish",e:"classic", m:"great one; sun"},
+  {n:"Catriona", g:"f",o:"Scottish",e:"classic", m:"pure; untainted"},
+  {n:"Fiona",    g:"f",o:"Scottish",e:"timeless",m:"white; fair"},
+  {n:"Ishbel",   g:"f",o:"Scottish",e:"classic", m:"God is my oath"},
+  {n:"Mairead",  g:"f",o:"Scottish",e:"classic", m:"pearl"},
+  {n:"Senga",    g:"f",o:"Scottish",e:"classic", m:"slender; graceful"},
+  {n:"Shona",    g:"f",o:"Scottish",e:"classic", m:"God is gracious"},
+  {n:"Elspeth",  g:"f",o:"Scottish",e:"classic", m:"pledged to God"},
+  {n:"Ailsa",    g:"f",o:"Scottish",e:"timeless",m:"elf victory"},
+  {n:"Moira",    g:"f",o:"Scottish",e:"classic", m:"fate; destiny"},
+  {n:"Dughall",  g:"m",o:"Scottish",e:"classic", m:"dark stranger"},
+  {n:"Sile",     g:"f",o:"Scottish",e:"classic", m:"blind to one's own beauty"},
+  // French
+  {n:"Adelaide", g:"f",o:"French",e:"classic", m:"noble kind; of noble nature"},
+  {n:"Celeste",  g:"f",o:"French",e:"timeless",m:"heavenly; divine"},
+  {n:"Eloise",   g:"f",o:"French",e:"timeless",m:"healthy; wide"},
+  {n:"Fleur",    g:"f",o:"French",e:"timeless",m:"flower"},
+  {n:"Genevieve",g:"f",o:"French",e:"classic", m:"woman of the people"},
+  {n:"Isabeau",  g:"f",o:"French",e:"classic", m:"pledged to God"},
+  {n:"Lucette",  g:"f",o:"French",e:"classic", m:"light; illumination"},
+  {n:"Marguerite",g:"f",o:"French",e:"classic",m:"pearl; daisy flower"},
+  {n:"Anais",    g:"f",o:"French",e:"modern",  m:"grace; favour"},
+  {n:"Mathilde", g:"f",o:"French",e:"classic", m:"battle strength"},
+  {n:"Capucine", g:"f",o:"French",e:"classic", m:"nasturtium flower"},
+  {n:"Solene",   g:"f",o:"French",e:"modern",  m:"solemn; dignified"},
+  {n:"Camille",  g:"u",o:"French",e:"timeless",m:"young ceremonial attendant"},
+  {n:"Noel",     g:"u",o:"French",e:"timeless",m:"born at Christmas"},
+  {n:"Armand",   g:"m",o:"French",e:"classic", m:"soldier man"},
+  {n:"Bastien",  g:"m",o:"French",e:"modern",  m:"from Sebastia; venerable"},
+  {n:"Clement",  g:"m",o:"French",e:"timeless",m:"merciful; gentle"},
+  {n:"Etienne",  g:"m",o:"French",e:"classic", m:"crown; wreath of victory"},
+  {n:"Gaston",   g:"m",o:"French",e:"classic", m:"guest; stranger"},
+  {n:"Leon",     g:"m",o:"French",e:"timeless",m:"lion"},
+  {n:"Renaud",   g:"m",o:"French",e:"classic", m:"counsel power"},
+  {n:"Theodore", g:"m",o:"French",e:"timeless",m:"gift of God"},
+  {n:"Valentin", g:"m",o:"French",e:"classic", m:"strong and healthy"},
+  {n:"Bertrand", g:"m",o:"French",e:"classic", m:"bright raven"},
+  {n:"Damien",   g:"m",o:"French",e:"timeless",m:"to tame; one who conquers"},
+  // Italian
+  {n:"Alessandro",g:"m",o:"Italian",e:"classic", m:"defender of men"},
+  {n:"Bruno",    g:"m",o:"Italian",e:"classic", m:"brown; armoured one"},
+  {n:"Cosimo",   g:"m",o:"Italian",e:"classic", m:"order; beauty of the universe"},
+  {n:"Emilio",   g:"m",o:"Italian",e:"classic", m:"industrious; eager"},
+  {n:"Fabrizio", g:"m",o:"Italian",e:"timeless",m:"blacksmith; craftsman"},
+  {n:"Giacomo",  g:"m",o:"Italian",e:"classic", m:"supplanter"},
+  {n:"Lorenzo",  g:"m",o:"Italian",e:"timeless",m:"laurel crowned"},
+  {n:"Matteo",   g:"m",o:"Italian",e:"timeless",m:"gift of God"},
+  {n:"Niccolo",  g:"m",o:"Italian",e:"classic", m:"victory of the people"},
+  {n:"Salvatore",g:"m",o:"Italian",e:"classic", m:"saviour"},
+  {n:"Enzo",     g:"m",o:"Italian",e:"modern",  m:"ruler of the estate"},
+  {n:"Luca",     g:"m",o:"Italian",e:"modern",  m:"bringer of light"},
+  {n:"Adriana",  g:"f",o:"Italian",e:"timeless",m:"from Hadria; dark one"},
+  {n:"Chiara",   g:"f",o:"Italian",e:"timeless",m:"clear; bright; famous"},
+  {n:"Donatella",g:"f",o:"Italian",e:"classic", m:"gift"},
+  {n:"Fiamma",   g:"f",o:"Italian",e:"classic", m:"flame; passionate soul"},
+  {n:"Giulia",   g:"f",o:"Italian",e:"timeless",m:"youthful; downy"},
+  {n:"Isadora",  g:"f",o:"Italian",e:"classic", m:"gift of Isis"},
+  {n:"Lucia",    g:"f",o:"Italian",e:"timeless",m:"light; born at dawn"},
+  {n:"Ornella",  g:"f",o:"Italian",e:"classic", m:"flowering ash tree"},
+  {n:"Serafina", g:"f",o:"Italian",e:"classic", m:"fiery; ardent"},
+  {n:"Valentina",g:"f",o:"Italian",e:"timeless",m:"strong and healthy"},
+  {n:"Vittoria", g:"f",o:"Italian",e:"classic", m:"victory"},
+  {n:"Aria",     g:"f",o:"Italian",e:"modern",  m:"air; song; melody"},
+  {n:"Beatrice", g:"f",o:"Italian",e:"classic", m:"she who brings happiness"},
+  // Spanish
+  {n:"Alejandro",g:"m",o:"Spanish",e:"timeless",m:"defender of humanity"},
+  {n:"Diego",    g:"m",o:"Spanish",e:"timeless",m:"supplanter; Saint James"},
+  {n:"Esteban",  g:"m",o:"Spanish",e:"classic", m:"crown; wreath"},
+  {n:"Felipe",   g:"m",o:"Spanish",e:"classic", m:"lover of horses"},
+  {n:"Gonzalo",  g:"m",o:"Spanish",e:"classic", m:"battle genius"},
+  {n:"Hector",   g:"m",o:"Spanish",e:"classic", m:"holding fast; steadfast"},
+  {n:"Ignacio",  g:"m",o:"Spanish",e:"classic", m:"fire; fiery one"},
+  {n:"Javier",   g:"m",o:"Spanish",e:"timeless",m:"new house; bright"},
+  {n:"Mateo",    g:"m",o:"Spanish",e:"timeless",m:"gift of God"},
+  {n:"Rodrigo",  g:"m",o:"Spanish",e:"classic", m:"famous ruler"},
+  {n:"Valentin", g:"m",o:"Spanish",e:"classic", m:"strength and health"},
+  {n:"Alvaro",   g:"m",o:"Spanish",e:"classic", m:"elf warrior; guardian all"},
+  {n:"Blanca",   g:"f",o:"Spanish",e:"classic", m:"white; pure"},
+  {n:"Carmen",   g:"f",o:"Spanish",e:"classic", m:"garden; song of the vineyard"},
+  {n:"Consuelo", g:"f",o:"Spanish",e:"classic", m:"consolation; comfort"},
+  {n:"Esperanza",g:"f",o:"Spanish",e:"classic", m:"hope"},
+  {n:"Guadalupe",g:"f",o:"Spanish",e:"classic", m:"valley of the wolf"},
+  {n:"Lucia",    g:"f",o:"Spanish",e:"timeless",m:"light; born at daybreak"},
+  {n:"Marisol",  g:"f",o:"Spanish",e:"modern",  m:"sea and sun"},
+  {n:"Paloma",   g:"f",o:"Spanish",e:"timeless",m:"dove; symbol of peace"},
+  {n:"Rocio",    g:"f",o:"Spanish",e:"classic", m:"dew; morning freshness"},
+  {n:"Sofia",    g:"f",o:"Spanish",e:"timeless",m:"wisdom"},
+  {n:"Ximena",   g:"f",o:"Spanish",e:"classic", m:"hearkening; listener"},
+  {n:"Valentina",g:"f",o:"Spanish",e:"timeless",m:"strong and vigorous"},
+  {n:"Inmaculada",g:"f",o:"Spanish",e:"classic",m:"immaculate; pure"},
+  // German
+  {n:"Adelheid", g:"f",o:"German",e:"classic", m:"noble and serene"},
+  {n:"Brunhild", g:"f",o:"German",e:"classic", m:"armed for battle"},
+  {n:"Dagmar",   g:"f",o:"German",e:"classic", m:"day maiden; great"},
+  {n:"Gertrude", g:"f",o:"German",e:"classic", m:"spear of strength"},
+  {n:"Hildegard",g:"f",o:"German",e:"classic", m:"battle guard"},
+  {n:"Ingrid",   g:"f",o:"German",e:"classic", m:"beautiful; beloved by Ing"},
+  {n:"Lieselotte",g:"f",o:"German",e:"classic",m:"pledged to God; free"},
+  {n:"Roswittha",g:"f",o:"German",e:"classic", m:"famous strength"},
+  {n:"Traudl",   g:"f",o:"German",e:"classic", m:"beloved strength"},
+  {n:"Ulrike",   g:"f",o:"German",e:"classic", m:"wolf power; fortune"},
+  {n:"Luise",    g:"f",o:"German",e:"timeless",m:"famous warrior woman"},
+  {n:"Elsa",     g:"f",o:"German",e:"timeless",m:"pledged to God"},
+  {n:"Friedhelm",g:"m",o:"German",e:"classic", m:"peaceful helmet"},
+  {n:"Helmut",   g:"m",o:"German",e:"classic", m:"brave protector"},
+  {n:"Klaus",    g:"m",o:"German",e:"classic", m:"victory of the people"},
+  {n:"Maximilian",g:"m",o:"German",e:"classic",m:"greatest"},
+  {n:"Norbert",  g:"m",o:"German",e:"classic", m:"north brightness"},
+  {n:"Otto",     g:"m",o:"German",e:"classic", m:"wealth; fortune"},
+  {n:"Siegfried",g:"m",o:"German",e:"classic", m:"victory peace"},
+  {n:"Walther",  g:"m",o:"German",e:"classic", m:"ruler of the army"},
+  {n:"Xaver",    g:"m",o:"German",e:"classic", m:"new house"},
+  {n:"Konrad",   g:"m",o:"German",e:"timeless",m:"bold counsel"},
+  {n:"Moritz",   g:"m",o:"German",e:"timeless",m:"dark-skinned; Moorish"},
+  {n:"Nikolaus", g:"m",o:"German",e:"classic", m:"victory of the people"},
+  {n:"Edeltraud",g:"f",o:"German",e:"classic", m:"noble strength"},
+  // Japanese
+  {n:"Akira",    g:"u",o:"Japanese",e:"timeless",m:"bright; clear; intelligent"},
+  {n:"Daichi",   g:"m",o:"Japanese",e:"classic", m:"great land; large earth"},
+  {n:"Emiko",    g:"f",o:"Japanese",e:"classic", m:"smiling child; blessed"},
+  {n:"Fumiko",   g:"f",o:"Japanese",e:"classic", m:"child of abundant beauty"},
+  {n:"Haruki",   g:"m",o:"Japanese",e:"modern",  m:"spring; radiant sunlight"},
+  {n:"Ichiro",   g:"m",o:"Japanese",e:"classic", m:"first son; number one"},
+  {n:"Jiro",     g:"m",o:"Japanese",e:"classic", m:"second son; next in line"},
+  {n:"Kazuki",   g:"m",o:"Japanese",e:"timeless",m:"harmonious hope; radiant peace"},
+  {n:"Keiko",    g:"f",o:"Japanese",e:"classic", m:"blessed and respectful child"},
+  {n:"Makoto",   g:"u",o:"Japanese",e:"classic", m:"sincere; honest"},
+  {n:"Naomi",    g:"f",o:"Japanese",e:"timeless",m:"honest and beautiful"},
+  {n:"Osamu",    g:"m",o:"Japanese",e:"classic", m:"discipline; study; rule"},
+  {n:"Ren",      g:"u",o:"Japanese",e:"timeless",m:"lotus; love"},
+  {n:"Sakura",   g:"f",o:"Japanese",e:"timeless",m:"cherry blossom"},
+  {n:"Takeshi",  g:"m",o:"Japanese",e:"classic", m:"bamboo; military might"},
+  {n:"Umeko",    g:"f",o:"Japanese",e:"classic", m:"plum blossom child"},
+  {n:"Yuki",     g:"u",o:"Japanese",e:"timeless",m:"happiness; snow"},
+  {n:"Hanako",   g:"f",o:"Japanese",e:"classic", m:"flower child"},
+  {n:"Ryu",      g:"m",o:"Japanese",e:"classic", m:"dragon; prosperous"},
+  {n:"Sora",     g:"u",o:"Japanese",e:"modern",  m:"sky"},
+  {n:"Tsubasa",  g:"u",o:"Japanese",e:"modern",  m:"wings"},
+  {n:"Mizuki",   g:"f",o:"Japanese",e:"modern",  m:"beautiful moon; water tree"},
+  {n:"Kaito",    g:"m",o:"Japanese",e:"modern",  m:"ocean and soar; fly over sea"},
+  {n:"Aiko",     g:"f",o:"Japanese",e:"classic", m:"beloved child"},
+  {n:"Hiroshi",  g:"m",o:"Japanese",e:"classic", m:"generous; prosperous"},
+  // Arabic
+  {n:"Aaliya",   g:"f",o:"Arabic",e:"timeless",m:"high; sublime; exalted"},
+  {n:"Bilal",    g:"m",o:"Arabic",e:"classic", m:"moisture; freshness"},
+  {n:"Fatima",   g:"f",o:"Arabic",e:"classic", m:"to abstain; captivating one"},
+  {n:"Hassan",   g:"m",o:"Arabic",e:"classic", m:"handsome; good"},
+  {n:"Ibrahim",  g:"m",o:"Arabic",e:"classic", m:"father of nations"},
+  {n:"Jamila",   g:"f",o:"Arabic",e:"timeless",m:"beautiful; graceful"},
+  {n:"Khalid",   g:"m",o:"Arabic",e:"classic", m:"eternal; immortal"},
+  {n:"Layla",    g:"f",o:"Arabic",e:"timeless",m:"night; dark beauty"},
+  {n:"Mustafa",  g:"m",o:"Arabic",e:"classic", m:"chosen one; the elect"},
+  {n:"Nour",     g:"u",o:"Arabic",e:"timeless",m:"light; radiance"},
+  {n:"Omar",     g:"m",o:"Arabic",e:"classic", m:"flourishing; long-lived"},
+  {n:"Qamar",    g:"f",o:"Arabic",e:"classic", m:"moon"},
+  {n:"Rania",    g:"f",o:"Arabic",e:"modern",  m:"queen; one who gazes"},
+  {n:"Salma",    g:"f",o:"Arabic",e:"classic", m:"peaceful; safe"},
+  {n:"Tariq",    g:"m",o:"Arabic",e:"classic", m:"morning star; one who knocks"},
+  {n:"Yasmin",   g:"f",o:"Arabic",e:"timeless",m:"jasmine flower"},
+  {n:"Zara",     g:"f",o:"Arabic",e:"modern",  m:"blooming flower; princess"},
+  {n:"Amira",    g:"f",o:"Arabic",e:"timeless",m:"princess; leader"},
+  {n:"Kareem",   g:"m",o:"Arabic",e:"classic", m:"generous; noble"},
+  {n:"Dalia",    g:"f",o:"Arabic",e:"timeless",m:"gentle; slender branch"},
+  {n:"Faris",    g:"m",o:"Arabic",e:"classic", m:"knight; horseman"},
+  {n:"Ghada",    g:"f",o:"Arabic",e:"classic", m:"graceful young woman"},
+  {n:"Hamza",    g:"m",o:"Arabic",e:"classic", m:"strong; steadfast"},
+  {n:"Idris",    g:"m",o:"Arabic",e:"classic", m:"studious; lord"},
+  {n:"Joud",     g:"u",o:"Arabic",e:"classic", m:"generosity; abundance"}
+];
+
+const LAST_NAMES = [
+  // English
+  {n:"Ashford",   o:"English", m:"ford by ash trees"},
+  {n:"Blackwood", o:"English", m:"dark forest dwelling"},
+  {n:"Clifton",   o:"English", m:"settlement by a cliff"},
+  {n:"Drake",     o:"English", m:"dragon; male duck"},
+  {n:"Fairfax",   o:"English", m:"fair-haired; beautiful locks"},
+  {n:"Greaves",   o:"English", m:"dweller in a thicket"},
+  {n:"Hartley",   o:"English", m:"deer meadow"},
+  {n:"Irwin",     o:"English", m:"boar friend"},
+  {n:"Lancaster", o:"English", m:"Roman fort on the River Lune"},
+  {n:"Mercer",    o:"English", m:"cloth merchant"},
+  {n:"Norwood",   o:"English", m:"north forest"},
+  {n:"Pemberton", o:"English", m:"settlement near Pembro"},
+  {n:"Redford",   o:"English", m:"red ford crossing"},
+  {n:"Sterling",  o:"English", m:"little star; genuine quality"},
+  {n:"Whitmore",  o:"English", m:"white moor"},
+  // American
+  {n:"Calhoun",   o:"American",m:"warrior's companion"},
+  {n:"Davenport", o:"American",m:"market of the cloth"},
+  {n:"Ellsworth", o:"American",m:"nobleman's estate"},
+  {n:"Fitzgerald",o:"American",m:"son of Gerald; spear ruler"},
+  {n:"Goodwin",   o:"American",m:"good friend"},
+  {n:"Harrington",o:"American",m:"settlement of Hafer's people"},
+  {n:"Jefferson", o:"American",m:"son of Jeffrey; peace"},
+  {n:"Kincaid",   o:"American",m:"battle leader"},
+  {n:"Montgomery",o:"American",m:"mountain of Gomeric"},
+  {n:"Prescott",  o:"American",m:"priest's cottage"},
+  {n:"Standish",  o:"American",m:"stony pasture"},
+  {n:"Winthrop",  o:"American",m:"Wynna's village"},
+  {n:"Langford",  o:"American",m:"long ford crossing"},
+  {n:"Newcomb",   o:"American",m:"newly arrived settler"},
+  {n:"Ingram",    o:"American",m:"angel raven"},
+  // Irish
+  {n:"Brennan",   o:"Irish",m:"descendant of Braonan; sorrow"},
+  {n:"Callahan",  o:"Irish",m:"lover of churches"},
+  {n:"Doherty",   o:"Irish",m:"hurtful to enemies"},
+  {n:"Flanagan",  o:"Irish",m:"descendant of Flannagan; blood red"},
+  {n:"Gallagher", o:"Irish",m:"eager helper"},
+  {n:"Hennessy",  o:"Irish",m:"descendant of Aonghus; one strength"},
+  {n:"Joyce",     o:"Irish",m:"lord"},
+  {n:"Kavanagh",  o:"Irish",m:"follower of Caomhan; gentle"},
+  {n:"Malone",    o:"Irish",m:"servant of Saint John"},
+  {n:"Nolan",     o:"Irish",m:"descendant of Nuallan; noble"},
+  {n:"Quinn",     o:"Irish",m:"descendant of Conn; wisdom"},
+  {n:"Rafferty",  o:"Irish",m:"flood tide; prosperity"},
+  {n:"Lyons",     o:"Irish",m:"descendant of Laighnigh"},
+  {n:"O'Brien",   o:"Irish",m:"descendant of Brian; noble"},
+  {n:"Shaughnessy",o:"Irish",m:"descendant of Seachnasach; elusive"},
+  // Scottish
+  {n:"Abernathy", o:"Scottish",m:"mouth of the Nethy river"},
+  {n:"Buchanan",  o:"Scottish",m:"house of the canon"},
+  {n:"Campbell",  o:"Scottish",m:"crooked mouth; wry hill"},
+  {n:"Douglas",   o:"Scottish",m:"dark stream"},
+  {n:"Erskine",   o:"Scottish",m:"height of the cliff"},
+  {n:"Forsyth",   o:"Scottish",m:"man of peace"},
+  {n:"Gillespie", o:"Scottish",m:"servant of the bishop"},
+  {n:"Hamilton",  o:"Scottish",m:"flat-topped hill settlement"},
+  {n:"Innes",     o:"Scottish",m:"island dweller"},
+  {n:"Kerr",      o:"Scottish",m:"left-handed; from marshy land"},
+  {n:"Lamont",    o:"Scottish",m:"law man"},
+  {n:"Macaulay",  o:"Scottish",m:"son of Amhlaoibh; relic"},
+  {n:"Napier",    o:"Scottish",m:"linen keeper"},
+  {n:"Ogilvy",    o:"Scottish",m:"high plain"},
+  {n:"Ramsay",    o:"Scottish",m:"island of wild garlic"},
+  // French
+  {n:"Beaumont",  o:"French",m:"beautiful mountain"},
+  {n:"Charpentier",o:"French",m:"carpenter; wood craftsman"},
+  {n:"Delacroix", o:"French",m:"of the cross"},
+  {n:"Fontaine",  o:"French",m:"fountain; spring of water"},
+  {n:"Gauthier",  o:"French",m:"army ruler"},
+  {n:"Hebert",    o:"French",m:"bright army"},
+  {n:"Lacombe",   o:"French",m:"from the valley"},
+  {n:"Marchand",  o:"French",m:"merchant; trader"},
+  {n:"Pelletier", o:"French",m:"fur trader; pelt worker"},
+  {n:"Renard",    o:"French",m:"fox; cunning one"},
+  {n:"Thibault",  o:"French",m:"bold people"},
+  {n:"Vaillant",  o:"French",m:"valiant; brave and strong"},
+  {n:"Noel",      o:"French",m:"Christmas; born at Yule"},
+  {n:"Jacquard",  o:"French",m:"supplanter"},
+  {n:"Sauvageon", o:"French",m:"wild one; untamed"},
+  // Italian
+  {n:"Barbieri",  o:"Italian",m:"barber; haircutter"},
+  {n:"Carbone",   o:"Italian",m:"charcoal; coal worker"},
+  {n:"De Luca",   o:"Italian",m:"of the light; from Luke's family"},
+  {n:"Esposito",  o:"Italian",m:"exposed; abandoned foundling"},
+  {n:"Ferrari",   o:"Italian",m:"blacksmith; iron worker"},
+  {n:"Gallo",     o:"Italian",m:"rooster; from Gaul"},
+  {n:"Leone",     o:"Italian",m:"lion; brave heart"},
+  {n:"Mancini",   o:"Italian",m:"left-handed; ambidextrous"},
+  {n:"Neri",      o:"Italian",m:"black; dark-complexioned"},
+  {n:"Orlando",   o:"Italian",m:"famous land; illustrious"},
+  {n:"Russo",     o:"Italian",m:"red-haired"},
+  {n:"Serra",     o:"Italian",m:"mountain range; ridge"},
+  {n:"Vitale",    o:"Italian",m:"vital; full of life"},
+  {n:"Puccini",   o:"Italian",m:"little child; boy"},
+  {n:"Innocenti", o:"Italian",m:"innocent; pure soul"},
+  // Spanish
+  {n:"Aguilar",   o:"Spanish",m:"eagle; dweller near eagles"},
+  {n:"Castillo",  o:"Spanish",m:"castle; fortified place"},
+  {n:"Delgado",   o:"Spanish",m:"slender; thin"},
+  {n:"Fuentes",   o:"Spanish",m:"springs; water source"},
+  {n:"Garcia",    o:"Spanish",m:"bear; spear"},
+  {n:"Herrera",   o:"Spanish",m:"iron worker; blacksmith"},
+  {n:"Iglesias",  o:"Spanish",m:"churches; church dweller"},
+  {n:"Jimenez",   o:"Spanish",m:"son of Jimeno; supplanter"},
+  {n:"Medina",    o:"Spanish",m:"city; medina"},
+  {n:"Navarro",   o:"Spanish",m:"plain among hills; Navarre"},
+  {n:"Ortiz",     o:"Spanish",m:"son of Ortuno; fortunate"},
+  {n:"Prado",     o:"Spanish",m:"meadow; open field"},
+  {n:"Reyes",     o:"Spanish",m:"kings; royalty"},
+  {n:"Serrano",   o:"Spanish",m:"of the highlands; mountaineer"},
+  {n:"Villanueva",o:"Spanish",m:"new town; new village"},
+  // German
+  {n:"Bauer",     o:"German",m:"farmer; peasant"},
+  {n:"Brauer",    o:"German",m:"brewer; beer maker"},
+  {n:"Eisenberg", o:"German",m:"iron mountain"},
+  {n:"Fischer",   o:"German",m:"fisherman"},
+  {n:"Gruber",    o:"German",m:"one from the hollow"},
+  {n:"Hartmann",  o:"German",m:"strong man"},
+  {n:"Kaiser",    o:"German",m:"emperor; caesar"},
+  {n:"Lindemann", o:"German",m:"lime tree man"},
+  {n:"Mueller",   o:"German",m:"miller; grain grinder"},
+  {n:"Neumann",   o:"German",m:"newcomer; new man"},
+  {n:"Richter",   o:"German",m:"judge; arbiter"},
+  {n:"Schreiber", o:"German",m:"scribe; writer"},
+  {n:"Steiner",   o:"German",m:"stone dweller"},
+  {n:"Wagner",    o:"German",m:"wagon maker"},
+  {n:"Zimmermann",o:"German",m:"carpenter; timber builder"},
+  // Japanese
+  {n:"Aoki",      o:"Japanese",m:"blue tree; green wood"},
+  {n:"Fujimoto",  o:"Japanese",m:"base of the wisteria"},
+  {n:"Hayashi",   o:"Japanese",m:"forest; woodland"},
+  {n:"Ikeda",     o:"Japanese",m:"pond rice field"},
+  {n:"Kimura",    o:"Japanese",m:"tree village"},
+  {n:"Matsuda",   o:"Japanese",m:"pine tree rice field"},
+  {n:"Nakamura",  o:"Japanese",m:"middle village"},
+  {n:"Ogawa",     o:"Japanese",m:"small river"},
+  {n:"Saito",     o:"Japanese",m:"well of purification"},
+  {n:"Shimizu",   o:"Japanese",m:"clear; pure water"},
+  {n:"Suzuki",    o:"Japanese",m:"bell tree; wisteria bell"},
+  {n:"Tanaka",    o:"Japanese",m:"rice paddy middle"},
+  {n:"Ueda",      o:"Japanese",m:"upper rice field"},
+  {n:"Watanabe",  o:"Japanese",m:"one who crosses the water"},
+  {n:"Yamamoto",  o:"Japanese",m:"base of the mountain"},
+  // Arabic
+  {n:"Al-Amin",   o:"Arabic",m:"the trustworthy"},
+  {n:"Al-Rashid", o:"Arabic",m:"the rightly guided"},
+  {n:"Barakat",   o:"Arabic",m:"blessing; good fortune"},
+  {n:"El-Sayed",  o:"Arabic",m:"the master; the lord"},
+  {n:"Farouk",    o:"Arabic",m:"one who distinguishes truth"},
+  {n:"Hakim",     o:"Arabic",m:"wise ruler; judge"},
+  {n:"Ismail",    o:"Arabic",m:"God will hear"},
+  {n:"Mansour",   o:"Arabic",m:"victorious; divinely helped"},
+  {n:"Nassar",    o:"Arabic",m:"helper; supporter"},
+  {n:"Qasim",     o:"Arabic",m:"distributor; one who divides"},
+  {n:"Rahimi",    o:"Arabic",m:"merciful; compassionate"},
+  {n:"Saleh",     o:"Arabic",m:"righteous; virtuous"},
+  {n:"Tawfiq",    o:"Arabic",m:"success; divine guidance"},
+  {n:"Yousef",    o:"Arabic",m:"God increases; Joseph"},
+  {n:"Zubair",    o:"Arabic",m:"strong; steadfast"}
+];
+
+function ngShuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function ngGenerateFn(data, cfg) {
+  const count  = Math.min(Math.max(parseInt(document.getElementById('ng-count')?.value) || 5, 1), 50);
+  const gender = document.getElementById('ng-gender')?.value  || 'any';
+  const type   = document.getElementById('ng-type')?.value    || 'first';
+  const origin = document.getElementById('ng-origin')?.value  || 'any';
+  const era    = document.getElementById('ng-era')?.value     || 'any';
+  const letter = document.getElementById('ng-letter')?.value  || '';
+
+  let firstPool = data.first.filter(n =>
+    (gender === 'any' || n.g === gender || n.g === 'u') &&
+    (origin === 'any' || n.o === origin) &&
+    (era    === 'any' || n.e === era) &&
+    (!letter || n.n.toUpperCase().startsWith(letter))
+  );
+  let lastPool = data.last.filter(n =>
+    (origin === 'any' || n.o === origin)
+  );
+
+  if (!firstPool.length) firstPool = data.first.filter(n =>
+    (gender === 'any' || n.g === gender || n.g === 'u')
+  );
+  if (!firstPool.length) firstPool = [...data.first];
+  if (!lastPool.length)  lastPool  = [...data.last];
+
+  const sf = ngShuffle(firstPool);
+  const sl = ngShuffle(lastPool);
+  const results = [];
+
+  for (let i = 0; i < count; i++) {
+    const fn = sf[i % sf.length];
+    const ln = sl[i % sl.length];
+    let display, meaning, nameOrigin;
+
+    if (type === 'first') {
+      display = fn.n; meaning = fn.m; nameOrigin = fn.o;
+    } else if (type === 'last') {
+      display = ln.n; meaning = ln.m; nameOrigin = ln.o;
+    } else {
+      display = fn.n + ' ' + ln.n; meaning = fn.m; nameOrigin = fn.o;
+    }
+    results.push({ display, meaning, origin: nameOrigin });
+  }
+  return results;
+}
+
+function ngRenderItem(item) {
+  let savedArr = [];
+  try { savedArr = JSON.parse(localStorage.getItem('wnr_saved_names') || '[]'); } catch {}
+  const isSaved = savedArr.includes(item.display);
+  const safeAttr    = item.display.replace(/"/g, '&quot;');
+  const safeOnclick = item.display.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+  return '<li class="word-item">'
+    + '<div class="word-left">'
+    +   '<div class="word-text">' + item.display + '</div>'
+    +   '<span class="ng-origin">' + item.origin + '</span>'
+    +   '<div class="ng-meaning">' + item.meaning + '</div>'
+    + '</div>'
+    + '<div class="word-right">'
+    +   '<button class="icon-btn" title="Copy" onclick="ngCopyName(\'' + safeOnclick + '\',this)">'
+    +     '<svg viewBox="0 0 14 14" fill="none"><rect x="1" y="4" width="9" height="9.5" rx="1.5" stroke="currentColor" stroke-width="1.1"/><path d="M4.5 4V2.5A1.5 1.5 0 016 1h5.5A1.5 1.5 0 0113 2.5v7a1.5 1.5 0 01-1.5 1.5H10" stroke="currentColor" stroke-width="1.1"/></svg>'
+    +   '</button>'
+    +   '<button class="icon-btn' + (isSaved ? ' saved' : '') + '" title="' + (isSaved ? 'Unsave' : 'Save') + '" data-action="save" data-name="' + safeAttr + '">'
+    +     '<svg viewBox="0 0 16 16" fill="none"><path d="M8 13.5S2 9.5 2 5.5A3 3 0 018 4a3 3 0 016 1.5c0 4-6 8-6 8z" stroke="currentColor" stroke-width="1.3" fill="' + (isSaved ? '#E24B4A' : 'none') + '" stroke-linecap="round"/></svg>'
+    +   '</button>'
+    + '</div>'
+    + '</li>';
+}
+
+window.ngCopyName = function(name, btn) {
+  navigator.clipboard?.writeText(name);
+  const orig = btn.innerHTML;
+  btn.innerHTML = '<svg viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5 6.5-6.5" stroke="#1D9E75" stroke-width="1.3" stroke-linecap="round"/></svg>';
+  setTimeout(function() { btn.innerHTML = orig; }, 900);
+  WORDINEER.showToast('Copied: ' + name);
+};
+
+WORDINEER.init({
+  mode:           'custom',
+  data:           { first: FIRST_NAMES, last: LAST_NAMES },
+  renderItem:     ngRenderItem,
+  generateFn:     ngGenerateFn,
+  listId:         'ng-list',
+  countDisplayId: 'ng-count-display',
+  generateBtnId:  'ng-gen-btn',
+  copyAllBtnId:   'ng-copy-all-btn',
+  savedKey:       'wnr_saved_names',
+  savedListId:    'ng-saved-tags'
+});
+
+(function() {
+  // Reset button
+  document.getElementById('ng-reset-btn')?.addEventListener('click', function() {
+    document.getElementById('ng-count').value  = '5';
+    document.getElementById('ng-gender').value = 'any';
+    document.getElementById('ng-type').value   = 'first';
+    document.getElementById('ng-origin').value = 'any';
+    document.getElementById('ng-era').value    = 'any';
+    document.getElementById('ng-letter').value = '';
+    document.getElementById('ng-gen-btn').click();
+  });
+
+  // Copy saved
+  document.getElementById('ng-copy-saved-btn')?.addEventListener('click', function() {
+    const tags = document.querySelectorAll('#ng-saved-tags .saved-tag');
+    if (!tags.length) return;
+    const names = Array.from(tags).map(t => t.textContent.replace('×','').trim()).filter(Boolean);
+    navigator.clipboard?.writeText(names.join('\n'));
+    WORDINEER.showToast('Saved names copied!');
+  });
+
+  // Mobile toggle
+  const toggle   = document.getElementById('ng-mobile-toggle');
+  const advanced = document.getElementById('ng-advanced');
+  if (toggle && advanced) {
+    toggle.addEventListener('click', function() {
+      const isOpen = advanced.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      toggle.textContent = isOpen ? 'Hide options' : 'More options';
+    });
+  }
+})();
+</script>
+</body>
+</html>
