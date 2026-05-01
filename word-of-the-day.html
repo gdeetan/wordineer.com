@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7DWH3EGM3Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7DWH3EGM3Z');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7200956978416233"
+     crossorigin="anonymous"></script>
+<meta name='impact-site-verification' value='32715504-1cfb-4324-bfc7-ae4cfa1591ea'>
+<link rel="preload" href="/fonts/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-sans-italic-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<title>Word of the Day - Free Daily Vocabulary Builder | Wordineer</title>
+<meta name="description" content="Learn a new word every day with a clear definition, example sentence, memory hook, quiz, and saved word list. Free, fast, no sign-up.">
+<link rel="canonical" href="https://wordineer.com/word-of-the-day/">
+<meta property="og:type"        content="website">
+<meta property="og:site_name"   content="Wordineer">
+<meta property="og:title"       content="Word of the Day | Wordineer">
+<meta property="og:description" content="Learn one useful word each day with examples, practice, and saved words.">
+<meta property="og:url"         content="https://wordineer.com/word-of-the-day/">
+<meta property="og:image"       content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a Word of the Day tool?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A Word of the Day tool shows one vocabulary word each day with a definition, example sentence, and practice prompt so you can learn and use the word." }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I use today's word?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Read the definition, study the example sentence, then write your own sentence using the word. You can copy or save the word for later practice." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I save words?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Click Save word to keep words in your browser during your visit, then copy your saved list when you are ready." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the word change every day?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. The main word updates daily using a date-based selection, so the same day shows the same word and the next day shows a new one." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this tool free?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Wordineer's Word of the Day tool is free, works instantly, and does not require a sign-up." }
+    },
+    {
+      "@type": "Question",
+      "name": "Where do the words come from?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The daily words are curated for learning value. When extra practice words are needed, the tool can also use Wordineer's existing vocabulary dataset." }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Wordineer Word of the Day",
+  "url": "https://wordineer.com/word-of-the-day/",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Any",
+  "description": "A free daily vocabulary builder with a word of the day, definition, example sentence, memory hook, practice quiz, and saved words.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+<link rel="stylesheet" href="/styles/global.css?v=1">
+<style>
+.tool-wrap  { max-width:960px; margin:0 auto; padding:24px 24px 0; }
+.tool-card  { border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg); box-shadow:var(--shadow); }
+.tool-split { display:flex; }
+.ctrl       { width:220px; flex-shrink:0; padding:18px; border-right:1px solid var(--border-2); background:var(--bg-2); }
+.wotd-help-panel { border-right:none; border-left:1px solid var(--border-2); }
+.ctrl-row   { margin-bottom:14px; }
+.ctrl-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; display:block; margin-bottom:5px; }
+.gen-btn    { width:100%; padding:10px 14px; background:var(--brand); color:white; border:none; border-radius:8px; font-size:14px; font-weight:600; font-family:inherit; cursor:pointer; transition:background .15s,transform .1s; letter-spacing:-.01em; }
+.gen-btn:hover { background:var(--brand-dark); }
+.gen-btn:active { transform:scale(.98); }
+.act-btn    { font-size:12px; padding:5px 11px; border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:background .12s; }
+.act-btn:hover { background:var(--bg-2); }
+.words-panel { flex:1; display:flex; flex-direction:column; overflow:hidden; }
+.words-top  { display:flex; align-items:center; justify-content:space-between; gap:10px; padding:12px 16px; border-bottom:1px solid var(--border-2); }
+.words-count { font-size:12px; color:var(--text-3); }
+.words-actions { display:flex; gap:6px; flex-wrap:wrap; justify-content:flex-end; }
+
+.wotd-help { font-size:12px; line-height:1.55; color:var(--text-2); }
+.wotd-help strong { color:var(--text); font-size:13px; display:block; margin-bottom:6px; }
+.wotd-help ol { margin:0; padding-left:17px; }
+.wotd-help li { margin-bottom:5px; }
+.wotd-tip { margin-top:12px; padding:10px; border:1px solid var(--border); border-radius:8px; background:var(--bg); font-size:12px; color:var(--text-2); line-height:1.45; }
+
+.wotd-main { padding:22px 24px 20px; }
+.wotd-date { font-size:11px; color:var(--text-3); text-transform:uppercase; letter-spacing:.07em; font-weight:700; margin-bottom:8px; }
+.wotd-word-row { display:flex; justify-content:space-between; align-items:flex-start; gap:14px; margin-bottom:6px; }
+.wotd-word { font-family:'DM Serif Display',serif; font-size:48px; line-height:1; color:var(--text); letter-spacing:0; }
+.wotd-meta { display:flex; flex-wrap:wrap; gap:6px; margin:8px 0 14px; }
+.wotd-pill { font-size:11px; padding:3px 9px; border-radius:20px; background:var(--brand-light); color:var(--brand-dark); font-weight:600; text-transform:capitalize; }
+.wotd-pill.soft { background:var(--bg-2); color:var(--text-2); border:1px solid var(--border-2); }
+.wotd-def { font-size:18px; line-height:1.45; color:var(--text); margin-bottom:12px; }
+.wotd-section { padding-top:12px; margin-top:12px; border-top:1px solid var(--border-2); }
+.wotd-section-title { font-size:10px; font-weight:700; color:var(--text-3); text-transform:uppercase; letter-spacing:.07em; margin-bottom:5px; }
+.wotd-body { font-size:13px; line-height:1.55; color:var(--text-2); }
+.wotd-example { font-size:14px; line-height:1.55; color:var(--text); padding-left:12px; border-left:3px solid var(--brand-light); }
+.wotd-practice { display:flex; gap:8px; flex-wrap:wrap; margin-top:16px; }
+.wotd-quiz { margin-top:14px; padding:12px; border:1px solid var(--border); border-radius:8px; background:var(--bg-2); }
+.wotd-quiz-q { font-size:13px; color:var(--text); line-height:1.45; margin-bottom:8px; }
+.wotd-quiz-a { display:none; font-size:12px; color:var(--text-2); line-height:1.45; margin-top:8px; }
+.wotd-quiz-a.show { display:block; }
+
+.wotd-side { padding:14px 16px; border-top:1px solid var(--border-2); }
+.saved-top  { display:flex; align-items:center; justify-content:space-between; margin-bottom:7px; }
+.saved-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; }
+.saved-copy { font-size:11px; color:var(--brand); cursor:pointer; text-decoration:underline; text-underline-offset:2px; }
+.saved-tags { display:flex; gap:5px; flex-wrap:wrap; min-height:22px; }
+.saved-tag  { font-size:11px; padding:3px 10px; background:var(--brand-light); color:var(--brand-dark); border-radius:20px; display:flex; align-items:center; gap:4px; }
+.saved-tag-remove { cursor:pointer; opacity:.6; font-size:13px; line-height:1; }
+.saved-empty { font-size:12px; color:var(--text-3); font-style:italic; }
+.wotd-previous { display:grid; grid-template-columns:repeat(7,1fr); gap:6px; margin-top:8px; }
+.wotd-prev-btn { min-width:0; padding:8px 6px; border:1px solid var(--border); border-radius:7px; background:var(--bg); cursor:pointer; font-family:inherit; text-align:left; }
+.wotd-prev-btn:hover { background:var(--bg-2); }
+.wotd-prev-date { display:block; font-size:9px; color:var(--text-3); text-transform:uppercase; margin-bottom:2px; }
+.wotd-prev-word { display:block; font-size:12px; color:var(--text); font-weight:600; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+
+@media(max-width:700px){
+  .tool-wrap { padding:14px 16px 0; }
+  .tool-split { flex-direction:column; }
+  .ctrl { width:100%; border-right:none; border-left:none; border-bottom:1px solid var(--border-2); }
+  .wotd-help-panel { border-top:1px solid var(--border-2); border-bottom:none; }
+  .words-top { align-items:flex-start; }
+  .wotd-main { padding:18px 16px; }
+  .wotd-word { font-size:38px; }
+  .wotd-def { font-size:16px; }
+  .wotd-previous { grid-template-columns:repeat(2,1fr); }
+}
+</style>
+</head>
+
+<body>
+<nav class="nav">
+  <a class="nav-logo" href="/">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 15 15" fill="none"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </div>
+    Wordineer
+  </a>
+  <div class="nav-links">
+    <a href="/tools.html">Tools</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/api.html">API</a>
+  </div>
+  <div>
+    <div class="hamburger" onclick="document.getElementById('mega').classList.toggle('open')" title="All tools">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+<div class="mega" id="mega">
+  <div class="mega-inner">
+    <div class="mega-col">
+      <div class="mega-cat">Word tools</div>
+      <a class="mega-link" href="/random-sentence-generator/">Random sentence</a>
+      <a class="mega-link" href="/random-letter-generator/">Random letter</a>
+      <a class="mega-link" href="/word-scramble/">Word Scramble</a>
+      <a class="mega-link" href="/word-unscramble/">Word Unscramble</a>
+      <a class="mega-link active" href="/word-of-the-day/">Word of the day</a>
+      <a class="mega-link" href="/passphrase-generator/">Passphrase gen</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Name generators</div>
+      <a class="mega-link" href="/index.html">Random word generator</a>
+      <a class="mega-link" href="/random-name-generator/">Random name</a>
+      <a class="mega-link" href="/username-generator/">Username generator</a>
+      <a class="mega-link" href="/fantasy-name-generator/">Fantasy name gen</a>
+      <a class="mega-link" href="/baby-name-finder/">Baby name finder</a>
+      <a class="mega-link" href="/pet-name-generator/">Pet name gen</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Number &amp; chance</div>
+      <a class="mega-link" href="/random-number-generator/">Random number</a>
+      <a class="mega-link" href="/dice-roller/">Dice roller</a>
+      <a class="mega-link" href="/coin-flip/">Coin flip</a>
+      <a class="mega-link" href="/lucky-number/">Lucky number</a>
+      <a class="mega-link" href="/list-shuffler/">List shuffler</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Games &amp; fun</div>
+      <a class="mega-link" href="/pictionary-word-generator/">Pictionary words</a>
+      <a class="mega-link" href="/charades-generator/">Charades gen</a>
+      <a class="mega-link" href="/truth-or-dare/">Truth or dare</a>
+      <a class="mega-link" href="/would-you-rather/">Would you rather</a>
+      <a class="mega-link" href="/story-prompts/">Story prompts</a>
+    </div>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Daily Vocabulary Builder
+  </div>
+  <h1>Word of the day</h1>
+  <p>Learn one useful word every day with a clear meaning, example sentence, memory hook, and quick practice quiz.</p>
+</div>
+<div class="tool-wrap">
+  <div class="tool-card">
+    <div class="tool-split">
+      <div class="words-panel">
+        <div class="words-top">
+          <span class="words-count" id="wotd-status">Loading today's word...</span>
+          <div class="words-actions">
+            <button class="act-btn" id="wotd-copy-word">Copy word</button>
+            <button class="act-btn" id="wotd-copy-example">Copy example</button>
+            <button class="act-btn" id="wotd-save-word">Save word</button>
+          </div>
+        </div>
+
+        <div class="wotd-main" id="wotd-main">
+          <div class="wotd-date" id="wotd-date"></div>
+          <div class="wotd-word-row">
+            <div>
+              <div class="wotd-word" id="wotd-word">...</div>
+              <div class="wotd-meta" id="wotd-meta"></div>
+            </div>
+            <button class="gen-btn" id="wotd-surprise" style="width:auto;white-space:nowrap">Surprise me</button>
+          </div>
+          <div class="wotd-def" id="wotd-definition"></div>
+          <div class="wotd-section">
+            <div class="wotd-section-title">Plain English</div>
+            <div class="wotd-body" id="wotd-explanation"></div>
+          </div>
+          <div class="wotd-section">
+            <div class="wotd-section-title">Example</div>
+            <div class="wotd-example" id="wotd-example"></div>
+          </div>
+          <div class="wotd-section">
+            <div class="wotd-section-title">Memory hook</div>
+            <div class="wotd-body" id="wotd-memory"></div>
+          </div>
+          <div class="wotd-practice">
+            <button class="act-btn" id="wotd-practice-copy">Copy practice prompt</button>
+            <button class="act-btn" id="wotd-quiz-reveal">Reveal quiz answer</button>
+          </div>
+          <div class="wotd-quiz">
+            <div class="wotd-quiz-q" id="wotd-quiz-q"></div>
+            <div class="wotd-quiz-a" id="wotd-quiz-a"></div>
+          </div>
+        </div>
+
+        <div class="wotd-side">
+          <div class="saved-top">
+            <span class="saved-label">Saved words <span id="wotd-saved-count" style="font-weight:400;opacity:.7">(0)</span></span>
+            <span class="saved-copy" id="wotd-copy-saved">Copy saved</span>
+          </div>
+          <div class="saved-tags" id="wotd-saved-tags">
+            <span class="saved-empty">Save words you want to practice later</span>
+          </div>
+        </div>
+
+        <div class="wotd-side">
+          <div class="saved-label">Previous words</div>
+          <div class="wotd-previous" id="wotd-previous"></div>
+        </div>
+      </div>
+
+      <div class="ctrl wotd-help-panel">
+        <div class="wotd-help">
+          <strong>How to use this tool</strong>
+          <ol>
+            <li>Read today's word and definition.</li>
+            <li>Check the example sentence.</li>
+            <li>Write your own sentence.</li>
+            <li>Save or copy the word for later.</li>
+            <li>Use Surprise me for another word.</li>
+          </ol>
+        </div>
+        <div class="wotd-tip">Best routine: say the word once, read the example, then use it in a sentence about your own day.</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="ad-leaderboard">
+  <div class="ad-leaderboard-inner">
+    <span class="ad-tag">Advertisement - 728x90</span>
+    <div class="ad-mock-content">
+      <div class="ad-title">Grammarly - write with confidence. Grammar, tone and clarity.</div>
+      <div class="ad-sub">Use new vocabulary naturally in emails, essays, stories, and school work.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-mock-cta">Try Grammarly free</a>
+    </div>
+  </div>
+</div>
+<div class="content-wrap">
+  <div class="section">
+    <h2 class="section-title">More word tools</h2>
+    <p class="section-sub">Every word generator you need, all free</p>
+    <div class="tools-grid">
+      <a class="tool-item" href="/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="#534AB7" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="tool-name">Random word</div><div class="tool-desc">Filter by type, difficulty, length</div></a>
+      <a class="tool-item" href="/random-letter-generator/"><div class="tool-icon" style="background:#EEF6E8"><svg viewBox="0 0 13 13" fill="none"></svg></div><div class="tool-name">Random Letter Generator</div><div class="tool-desc">Pick random letters — filter by case, vowels or consonants, and see NATO phonetic codes.</div></a>
+      <a class="tool-item" href="/random-sentence-generator/"><div class="tool-icon" style="background:#E1F5EE"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 3h10M1.5 6.5h7M1.5 10h5" stroke="#0F6E56" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="tool-name">Random sentence</div><div class="tool-desc">Writing prompts &amp; starters</div></a>
+      <a class="tool-item" href="/word-scramble/"><div class="tool-icon" style="background:#FAEEDA"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4.5h4.5M2 7.5h8M2 10.5h5.5" stroke="#854F0B" stroke-width="1.3" stroke-linecap="round"/><path d="M8.5 2l2 2-2 2" stroke="#854F0B" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="tool-name">Word Scramble</div><div class="tool-desc">Create word scramble puzzles & printable worksheets.</div></a>
+      <a class="tool-item" href="/random-name-generator/"><div class="tool-icon" style="background:#FAECE7"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4" r="2.2" stroke="#993C1D" stroke-width="1.1"/><path d="M1.5 11.5c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="#993C1D" stroke-width="1.1" stroke-linecap="round"/></svg></div><div class="tool-name">Random name <span class="new-badge">new</span></div><div class="tool-desc">Generate random first names for any project.</div></a>
+      <a class="tool-item" href="/passphrase-generator/"><div class="tool-icon" style="background:#FBEAF0"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="2" width="9" height="9" rx="2" stroke="#993556" stroke-width="1.1"/></svg></div><div class="tool-name">Passphrase gen</div><div class="tool-desc">Secure memorable passwords</div></a>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div>
+    <h2 class="section-title">Other tools</h2>
+    <p class="section-sub">Numbers, names, games and more</p>
+    <div class="other-grid">
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="1" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="1" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/></svg>Number &amp; chance</div><a class="other-link" href="/random-number-generator/">Random number generator</a><a class="other-link" href="/dice-roller/">Dice roller — 4,6,8,12,20 sided</a><a class="other-link" href="/coin-flip/">Coin flip simulator</a><a class="other-link" href="/lucky-number/">Lucky number picker</a><a class="other-link" href="/list-shuffler/">Random list shuffler</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4.5" r="2.5" stroke="currentColor" stroke-width="1"/><path d="M1.5 11.5c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Name generators</div><a class="other-link" href="/fantasy-name-generator/">Fantasy character name gen</a><a class="other-link" href="/username-generator/">Username generator</a><a class="other-link" href="/baby-name-finder/">Baby name finder</a><a class="other-link" href="/pet-name-generator/">Pet name generator</a><a class="other-link" href="/band-name-generator/">Band / team name gen</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3h9M2 6.5h7M2 10h5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Text &amp; writing</div><a class="other-link" href="/lorem-ipsum/">Lorem ipsum generator</a><a class="other-link" href="/password-generator/">Password generator</a><a class="other-link" href="/acronym-maker/">Acronym maker</a><a class="other-link" href="/random-quote/">Random quote generator</a><a class="other-link" href="/story-prompts/">Story prompt generator</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M6.5 1.5l1.3 3h3.2l-2.6 2 1 3-2.9-1.8-2.9 1.8 1-3-2.6-2h3.2z" stroke="currentColor" stroke-width="1" stroke-linejoin="round"/></svg>Games &amp; fun</div><a class="other-link" href="/pictionary-word-generator/">Pictionary word generator</a><a class="other-link" href="/charades-generator/">Charades generator</a><a class="other-link" href="/truth-or-dare/">Truth or dare gen</a><a class="other-link" href="/would-you-rather/">Would you rather</a><a class="other-link" href="/trivia-questions/">Trivia question gen</a></div>
+    </div>
+  </div>
+
+  <div class="ad-rect">
+    <span class="ad-tag">Advertisement · 336×280</span>
+    <div class="ad-rect-img"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4C10.3 4 4 10.3 4 18s6.3 14 14 14 14-6.3 14-14S25.7 4 18 4z" fill="white" opacity=".2"/><path d="M12 18c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="18" r="2.5" fill="white"/></svg></div>
+    <div class="ad-rect-content">
+      <div class="ad-rect-title">Grammarly — write with confidence</div>
+      <div class="ad-rect-body">Instantly improve grammar, spelling, clarity, and tone. Works everywhere you write online.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
+    </div>
+  </div>
+  <div class="divider"></div>
+
+<div class="explainer">
+  <h2>What is Word of the Day?</h2>
+  <p>Word of the Day is a simple vocabulary habit: learn one useful word, understand what it means, then use it in your own writing or conversation. This tool keeps the routine short so you can build vocabulary without feeling like you are studying a full lesson.</p>
+
+  <h2>How to use the tool</h2>
+  <p>Start with today's word at the top of the page. Read the short definition, then read the plain-English explanation and example sentence. After that, write one sentence of your own using the word. If the word feels useful, save it and copy your saved list for later review.</p>
+  <p>Use the Surprise me button when you want extra practice. It gives you another vocabulary word without changing the official daily word.</p>
+
+  <h2>Why this helps vocabulary stick</h2>
+  <p>A word is easier to remember when you see it in context and use it right away. That is why this tool includes an example, a memory hook, and a quick quiz. The goal is not just to recognize the word once, but to make it usable.</p>
+
+  <h3>For students</h3>
+  <p>Use the daily word as a warm-up before homework or test prep. Try writing one original sentence, then check whether your sentence matches the meaning.</p>
+
+  <h3>For writers</h3>
+  <p>Save words that fit your style, topic, or tone. When you need a stronger word later, copy your saved list and try one in a draft.</p>
+
+  <h3>For teachers</h3>
+  <p>Use the page as a quick bell-ringer activity: read the word, ask students to guess the meaning from the example, then have everyone write a sentence.</p>
+</div>
+  <div class="divider"></div>
+
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">What is a Word of the Day tool?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">It is a daily vocabulary tool that shows one word with its definition, example sentence, memory hook, and quick practice prompt.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">How do I use today's word?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Read the meaning, study the example, then write one sentence of your own using the word. That small act of use helps the word stick.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I save words?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes. Click Save word to keep a word in your saved list during your visit. You can copy the full saved list when you are done.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Does the word change every day?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes. The main word is selected by date, so it stays stable throughout the day and changes the next day.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Is this tool free?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes. It is free, instant, and does not require an account.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Where do the words come from?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">The daily entries are curated for vocabulary learning. For extra practice, the tool can also draw from Wordineer's existing word dataset.</div>
+  </div>
+</div>
+  <div class="divider"></div>
+
+<div>
+  <h2 class="section-title" style="margin-bottom:14px">Who uses Wordineer</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">Learners</div><div class="uc-body">Build vocabulary one word at a time with simple definitions, examples, and quick practice.</div></div>
+    <div class="uc"><div class="uc-title">Students</div><div class="uc-body">Use the daily word as a warm-up for spelling, reading, writing, or test prep.</div></div>
+    <div class="uc"><div class="uc-title">Writers</div><div class="uc-body">Save useful words and try them in drafts, journals, captions, essays, or stories.</div></div>
+    <div class="uc"><div class="uc-title">Teachers</div><div class="uc-body">Turn each word into a quick classroom prompt, sentence challenge, or discussion starter.</div></div>
+  </div>
+</div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="ad-footer-strip" style="margin-bottom:24px">
+      <span class="ad-tag">Advertisement · 468×60</span>
+      <div class="ad-fs-text"><strong>Grammarly Premium</strong> — Vocabulary suggestions, tone detector, full-sentence rewrites.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-footer-strip-cta">Try free</a>
+    </div>
+    <div class="footer-grid">
+      <div><div class="footer-col-title">Word tools</div><a class="footer-link" href="/">Random word generator</a><a class="footer-link" href="/random-sentence-generator/">Random sentence</a><a class="footer-link" href="/random-letter-generator/">Random letter</a><a class="footer-link" href="/word-scramble/">Word Scramble</a><a class="footer-link" href="/word-of-the-day/">Word of the day</a><a class="footer-link" href="/passphrase-generator/">Passphrase gen</a></div>
+      <div><div class="footer-col-title">Name generators</div><a class="footer-link" href="/random-name-generator/">Random name gen</a><a class="footer-link" href="/username-generator/">Username generator</a><a class="footer-link" href="/fantasy-name-generator/">Fantasy name gen</a><a class="footer-link" href="/baby-name-finder/">Baby name finder</a><a class="footer-link" href="/pet-name-generator/">Pet name gen</a></div>
+      <div><div class="footer-col-title">Number &amp; chance</div><a class="footer-link" href="/random-number-generator/">Random number</a><a class="footer-link" href="/dice-roller/">Dice roller</a><a class="footer-link" href="/coin-flip/">Coin flip</a><a class="footer-link" href="/lucky-number/">Lucky number</a><a class="footer-link" href="/list-shuffler/">List shuffler</a></div>
+      <div><div class="footer-col-title">Games &amp; fun</div><a class="footer-link" href="/pictionary-word-generator/">Pictionary words</a><a class="footer-link" href="/charades-generator/">Charades gen</a><a class="footer-link" href="/truth-or-dare/">Truth or dare</a><a class="footer-link" href="/would-you-rather/">Would you rather</a><a class="footer-link" href="/story-prompts/">Story prompts</a></div>
+    </div>
+    <div class="footer-bottom">
+      <div style="display:flex;align-items:center;gap:7px">
+        <div class="nav-logo-icon" style="width:22px;height:22px;border-radius:5px"><svg viewBox="0 0 15 15" fill="none" style="width:12px;height:12px"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <span style="font-size:14px;font-weight:600;color:var(--text)">Wordineer</span>
+      </div>
+      <span class="footer-copy">© 2026 Wordineer · Free word tools for everyone</span>
+      <div class="footer-meta"><a href="/about.html">About</a><a href="/blog.html">Blog</a><a href="/api.html">API docs</a><a href="/affiliate-disclosure.html">Affiliate disclosure</a><a href="/privacy.html">Privacy</a></div>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="/scripts/tool-engine.js?v=4"></script>
+
+<script>
+const WORDINEER_WOTD = (() => {
+  const curated = [
+    { word:'lucid', pos:'adjective', pronunciation:'LOO-sid', difficulty:'medium', definition:'clear and easy to understand', explanation:'A lucid idea, sentence, or explanation is clear enough that people can follow it without confusion.', example:'Her lucid summary helped the whole class understand the difficult chapter.', memory:'Think of a clear light switching on: lucid writing lights up the meaning.', quiz:'Which sentence uses lucid correctly?', answer:'Correct use: The teacher gave a lucid explanation of the problem.' },
+    { word:'resilient', pos:'adjective', pronunciation:'ri-ZIL-yuhnt', difficulty:'medium', definition:'able to recover after difficulty or change', explanation:'A resilient person, plan, or material can handle pressure and keep going.', example:'The resilient team adjusted quickly after the first idea failed.', memory:'Resilient sounds like returning to shape after being bent.', quiz:'If someone stays calm and recovers after a setback, what are they?', answer:'They are resilient.' },
+    { word:'nuance', pos:'noun', pronunciation:'NOO-ahns', difficulty:'hard', definition:'a small but important difference in meaning, feeling, or expression', explanation:'Nuance helps you notice the fine details that make two similar ideas not exactly the same.', example:'The actor captured every nuance of the character\'s nervous smile.', memory:'Nuance is the tiny shade of meaning between almost-matching ideas.', quiz:'What does nuance add to an idea?', answer:'It adds a small, subtle difference in meaning or feeling.' },
+    { word:'pragmatic', pos:'adjective', pronunciation:'prag-MAT-ik', difficulty:'hard', definition:'focused on practical results rather than theory', explanation:'A pragmatic choice may not be perfect, but it works in real life.', example:'They made a pragmatic decision to fix the old laptop instead of buying a new one.', memory:'Pragmatic people ask, "What will actually work?"', quiz:'Is a pragmatic solution more practical or more imaginary?', answer:'More practical.' },
+    { word:'vivid', pos:'adjective', pronunciation:'VIV-id', difficulty:'easy', definition:'bright, clear, or full of life', explanation:'Vivid words, colors, or memories feel strong and easy to picture.', example:'The poem used vivid details that made the street feel alive.', memory:'Vivid writing makes a picture feel visible.', quiz:'What kind of details help readers picture a scene?', answer:'Vivid details.' },
+    { word:'meticulous', pos:'adjective', pronunciation:'muh-TIK-yuh-luhs', difficulty:'hard', definition:'very careful and attentive to detail', explanation:'Meticulous work is done with patience, precision, and close attention.', example:'The editor made meticulous notes on every paragraph.', memory:'Meticulous means tiny details matter.', quiz:'Would a meticulous person rush through a task?', answer:'No. A meticulous person works carefully.' },
+    { word:'cordial', pos:'adjective', pronunciation:'KOR-juhl', difficulty:'medium', definition:'warm, friendly, and polite', explanation:'A cordial greeting is friendly without being overly familiar.', example:'The two neighbors exchanged a cordial hello each morning.', memory:'Cordial sounds connected to the heart: friendly and warm.', quiz:'What is a cordial greeting like?', answer:'It is warm, friendly, and polite.' },
+    { word:'tenacious', pos:'adjective', pronunciation:'tuh-NAY-shuhs', difficulty:'hard', definition:'not giving up easily', explanation:'A tenacious person keeps holding on to a goal, even when it is difficult.', example:'Her tenacious research finally uncovered the missing records.', memory:'Tenacious means you hold tight to the task.', quiz:'What word describes someone who keeps trying?', answer:'Tenacious.' },
+    { word:'concise', pos:'adjective', pronunciation:'kuhn-SYSE', difficulty:'medium', definition:'using few words while still being clear', explanation:'Concise writing removes extra words but keeps the meaning.', example:'The instructions were concise, so everyone knew what to do.', memory:'Concise means clear and compact.', quiz:'Is concise writing long-winded or brief?', answer:'Brief.' },
+    { word:'curious', pos:'adjective', pronunciation:'KYUR-ee-uhs', difficulty:'easy', definition:'wanting to know or learn more', explanation:'A curious mind asks questions and looks for patterns.', example:'The curious student stayed after class to ask how the machine worked.', memory:'Curious starts with a question.', quiz:'What does a curious person like to do?', answer:'Ask questions and learn more.' },
+    { word:'eloquent', pos:'adjective', pronunciation:'EL-uh-kwuhnt', difficulty:'hard', definition:'expressing ideas clearly and beautifully', explanation:'An eloquent speaker or writer uses language in a graceful, effective way.', example:'Her eloquent speech made the audience feel hopeful.', memory:'Eloquent expression sounds elegant and clear.', quiz:'What does an eloquent speaker do well?', answer:'Express ideas clearly and beautifully.' },
+    { word:'adapt', pos:'verb', pronunciation:'uh-DAPT', difficulty:'easy', definition:'to change so something works in a new situation', explanation:'When you adapt, you adjust your behavior, plan, or tool to fit new conditions.', example:'We had to adapt the lesson for a younger class.', memory:'Adapt means adjust.', quiz:'If plans change and you adjust, what do you do?', answer:'You adapt.' }
+  ];
+
+  let fallbackWords = [];
+  let current = null;
+  let saved = [];
+
+  function esc(s) {
+    return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function dayNumber(date) {
+    const start = new Date(Date.UTC(2026, 0, 1));
+    const utc = Date.UTC(date.getFullYear(), date.getMonth(), date.getDate());
+    return Math.floor((utc - start.getTime()) / 86400000);
+  }
+
+  function wordForDate(date) {
+    const n = dayNumber(date);
+    return curated[((n % curated.length) + curated.length) % curated.length];
+  }
+
+  function dateLabel(date) {
+    return date.toLocaleDateString(undefined, { weekday:'long', month:'long', day:'numeric', year:'numeric' });
+  }
+
+  function smallDate(date) {
+    return date.toLocaleDateString(undefined, { month:'short', day:'numeric' });
+  }
+
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    if (!t) return;
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 1800);
+  }
+
+  function copyText(text) {
+    if (navigator.clipboard) navigator.clipboard.writeText(text);
+    showToast('Copied!');
+  }
+
+  function render(entry, label) {
+    current = entry;
+    document.getElementById('wotd-status').textContent = label || "Today's word";
+    document.getElementById('wotd-date').textContent = label === 'Practice word' ? 'Extra practice' : dateLabel(new Date());
+    document.getElementById('wotd-word').textContent = entry.word;
+    document.getElementById('wotd-meta').innerHTML =
+      '<span class="wotd-pill">' + esc(entry.pos) + '</span>' +
+      '<span class="wotd-pill soft">' + esc(entry.pronunciation || 'pronunciation varies') + '</span>' +
+      '<span class="wotd-pill soft">' + esc(entry.difficulty) + '</span>';
+    document.getElementById('wotd-definition').textContent = entry.definition;
+    document.getElementById('wotd-explanation').textContent = entry.explanation || ('Use ' + entry.word + ' when you mean: ' + entry.definition + '.');
+    document.getElementById('wotd-example').textContent = entry.example || ('Try using "' + entry.word + '" in one clear sentence today.');
+    document.getElementById('wotd-memory').textContent = entry.memory || ('Memory hook: connect "' + entry.word + '" with the idea "' + entry.definition + '".');
+    document.getElementById('wotd-quiz-q').textContent = entry.quiz || ('Write one sentence using "' + entry.word + '" correctly.');
+    const ans = document.getElementById('wotd-quiz-a');
+    ans.textContent = entry.answer || ('A good answer should show the meaning: ' + entry.definition + '.');
+    ans.classList.remove('show');
+  }
+
+  function loadSaved() {
+    try { saved = JSON.parse(localStorage.getItem('wordineer_wotd_saved') || '[]'); }
+    catch (e) { saved = []; }
+    renderSaved();
+  }
+
+  function saveSaved() {
+    localStorage.setItem('wordineer_wotd_saved', JSON.stringify(saved));
+    renderSaved();
+  }
+
+  function renderSaved() {
+    const wrap = document.getElementById('wotd-saved-tags');
+    const count = document.getElementById('wotd-saved-count');
+    if (count) count.textContent = '(' + saved.length + ')';
+    if (!wrap) return;
+    if (!saved.length) {
+      wrap.innerHTML = '<span class="saved-empty">Save words you want to practice later</span>';
+      return;
+    }
+    wrap.innerHTML = saved.map(item =>
+      '<span class="saved-tag">' + esc(item.word) + '<span class="saved-tag-remove" data-word="' + esc(item.word) + '">x</span></span>'
+    ).join('');
+    wrap.querySelectorAll('.saved-tag-remove').forEach(btn => {
+      btn.addEventListener('click', () => {
+        saved = saved.filter(item => item.word !== btn.dataset.word);
+        saveSaved();
+      });
+    });
+  }
+
+  function saveCurrent() {
+    if (!current) return;
+    if (!saved.some(item => item.word === current.word)) {
+      saved.push({ word: current.word, definition: current.definition });
+      saveSaved();
+    }
+    showToast('Saved!');
+  }
+
+  function practiceEntryFromFallback(row) {
+    return {
+      word: row[0],
+      pos: row[1] || 'word',
+      pronunciation: '',
+      difficulty: row[3] || 'medium',
+      definition: row[2] || 'definition unavailable',
+      explanation: 'This practice word comes from Wordineer\'s vocabulary dataset. Read the definition, then try using it in your own sentence.',
+      example: 'Try writing one sentence that uses "' + row[0] + '" clearly.',
+      memory: 'Connect the word to its meaning: ' + (row[2] || 'definition unavailable') + '.',
+      quiz: 'What does "' + row[0] + '" mean?',
+      answer: row[2] || 'Review the definition, then try again.'
+    };
+  }
+
+  function surprise() {
+    const poolSize = curated.length + fallbackWords.length;
+    if (!poolSize) return render(curated[Math.floor(Math.random() * curated.length)], 'Practice word');
+    const index = Math.floor(Math.random() * poolSize);
+    const entry = index < curated.length ? curated[index] : practiceEntryFromFallback(fallbackWords[index - curated.length]);
+    render(entry, 'Practice word');
+  }
+
+  function renderPrevious() {
+    const wrap = document.getElementById('wotd-previous');
+    if (!wrap) return;
+    const today = new Date();
+    const rows = [];
+    for (let i = 1; i <= 7; i++) {
+      const d = new Date(today);
+      d.setDate(today.getDate() - i);
+      const entry = wordForDate(d);
+      rows.push('<button class="wotd-prev-btn" data-offset="' + i + '"><span class="wotd-prev-date">' + esc(smallDate(d)) + '</span><span class="wotd-prev-word">' + esc(entry.word) + '</span></button>');
+    }
+    wrap.innerHTML = rows.join('');
+    wrap.querySelectorAll('.wotd-prev-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const d = new Date();
+        d.setDate(d.getDate() - parseInt(btn.dataset.offset, 10));
+        render(wordForDate(d), smallDate(d) + ' word');
+      });
+    });
+  }
+
+  async function loadFallbackWords() {
+    try {
+      const res = await fetch('/data/words.json');
+      const rows = await res.json();
+      fallbackWords = rows.filter(row => row && row[0] && row[2] && row[0].length > 3 && row[0].length < 14).slice(0, 800);
+    } catch (e) {
+      fallbackWords = [];
+    }
+  }
+
+  function bind() {
+    document.getElementById('wotd-copy-word')?.addEventListener('click', () => current && copyText(current.word));
+    document.getElementById('wotd-copy-example')?.addEventListener('click', () => current && copyText(current.example));
+    document.getElementById('wotd-save-word')?.addEventListener('click', saveCurrent);
+    document.getElementById('wotd-surprise')?.addEventListener('click', surprise);
+    document.getElementById('wotd-practice-copy')?.addEventListener('click', () => current && copyText('Write one original sentence using "' + current.word + '" to mean: ' + current.definition));
+    document.getElementById('wotd-quiz-reveal')?.addEventListener('click', () => document.getElementById('wotd-quiz-a')?.classList.add('show'));
+    document.getElementById('wotd-copy-saved')?.addEventListener('click', () => {
+      if (!saved.length) return;
+      copyText(saved.map(item => item.word + ' - ' + item.definition).join('\n'));
+    });
+  }
+
+  async function init() {
+    bind();
+    loadSaved();
+    render(wordForDate(new Date()), "Today's word");
+    renderPrevious();
+    await loadFallbackWords();
+  }
+
+  return { init };
+})();
+
+WORDINEER_WOTD.init();
+</script>
+</body>
+</html>
