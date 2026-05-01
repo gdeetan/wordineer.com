@@ -447,7 +447,7 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="/scripts/tool-engine.js?v=3"></script>
+<script src="/scripts/tool-engine.js?v=4"></script>
 
 <script>
 const FIRST_NAMES = [
@@ -886,7 +886,13 @@ function ngShuffle(arr) {
 }
 
 function ngGenerateFn(data, cfg) {
-  const count  = Math.min(Math.max(parseInt(document.getElementById('ng-count')?.value) || 5, 1), 50);
+  const raw = parseInt(document.getElementById('ng-count')?.value);
+  if (isNaN(raw) || raw < 1 || raw > 50) {
+    document.getElementById('ng-list').innerHTML = '<li class="word-item"><div class="word-left"><div class="word-text" style="color:var(--text-3)">Enter a number from 1 to 50</div></div></li>';
+    document.getElementById('ng-count-display').textContent = '0 names';
+    return [];
+  }
+  const count = raw;
   const gender = document.getElementById('ng-gender')?.value  || 'any';
   const type   = document.getElementById('ng-type')?.value    || 'first';
   const origin = document.getElementById('ng-origin')?.value  || 'any';
