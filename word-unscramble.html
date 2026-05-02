@@ -474,6 +474,9 @@ const WORD_UNSCRAMBLER = (() => {
   /* ── Dictionary state ── */
   let DICT = [];
   let dictLoaded = false;
+  let dictLoadPromise = null;
+  let dictLoadScheduled = false;
+  let dictLoadTimer = null;
 
   /* ── Scrabble tile values ── */
   const TILE = {a:1,b:3,c:3,d:2,e:1,f:4,g:2,h:4,i:1,j:8,k:5,l:1,m:3,n:1,o:1,p:3,q:10,r:1,s:1,t:1,u:1,v:4,w:4,x:8,y:4,z:10};
@@ -500,22 +503,57 @@ const WORD_UNSCRAMBLER = (() => {
   }
 
   async function loadDictionary() {
-    if (dictLoaded) return;
-    try {
-      const res = await fetch('/data/dictionary.json');
-      if (!res.ok) throw 0;
-      DICT = await res.json();
-      dictLoaded = true;
-    } catch {
+    if (dictLoaded) return dictLoadPromise || Promise.resolve();
+    if (dictLoadPromise) return dictLoadPromise;
+    dictLoadPromise = (async function() {
       try {
-        const res = await fetch('/data/words.json');
+        const res = await fetch('/data/dictionary.json');
         if (!res.ok) throw 0;
-        const raw = await res.json();
-        DICT = Array.isArray(raw)
-          ? raw.map(e => (typeof e === 'string' ? e : (e.w || '')).toLowerCase()).filter(w => w.length >= 2)
-          : [];
+        DICT = await res.json();
         dictLoaded = true;
-      } catch {}
+      } catch {
+        try {
+          const res = await fetch('/data/words.json');
+          if (!res.ok) throw 0;
+          const raw = await res.json();
+          DICT = Array.isArray(raw)
+            ? raw.map(e => (typeof e === 'string' ? e : (Array.isArray(e) ? e[0] : (e.w || ''))).toLowerCase()).filter(w => w.length >= 2)
+            : [];
+          dictLoaded = true;
+        } catch {
+          dictLoadPromise = null;
+          dictLoadScheduled = false;
+        }
+      }
+    })();
+    return dictLoadPromise;
+  }
+
+  function scheduleDictionaryLoad(delay) {
+    const wait = delay || 0;
+    if (dictLoaded) return;
+    if (dictLoadScheduled) {
+      if (wait > 0 || !dictLoadTimer) return;
+      clearTimeout(dictLoadTimer);
+    }
+    dictLoadScheduled = true;
+    dictLoadTimer = setTimeout(function() {
+      dictLoadTimer = null;
+      const run = function() { loadDictionary().catch(function() {}); };
+      if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(run, { timeout: 5000 });
+      } else {
+        run();
+      }
+    }, wait);
+  }
+
+  function scheduleDictionaryLoadAfterFirstLoad() {
+    const schedule = function() { scheduleDictionaryLoad(3500); };
+    if (document.readyState === 'complete') {
+      schedule();
+    } else {
+      window.addEventListener('load', schedule, { once: true });
     }
   }
 
@@ -542,7 +580,7 @@ const WORD_UNSCRAMBLER = (() => {
     }
 
     const countEl = document.getElementById('un-count-display');
-    if (countEl) countEl.textContent = 'Searching…';
+    if (countEl) countEl.textContent = dictLoaded ? 'Searching…' : 'Loading dictionary...';
 
     if (!dictLoaded) await loadDictionary();
 
@@ -627,10 +665,10 @@ const WORD_UNSCRAMBLER = (() => {
   }
 
   function init() {
-    loadDictionary();
+    scheduleDictionaryLoadAfterFirstLoad();
 
     const unInput = document.getElementById('un-input');
-    unInput?.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); doFindWords(); } });
+    unInput?.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); scheduleDictionaryLoad(0); doFindWords(); } });
     unInput?.addEventListener('input', function() {
       const pos = this.selectionStart;
       const cleaned = this.value.replace(/[^a-zA-Z?]/g, '').slice(0, 15);
@@ -640,7 +678,7 @@ const WORD_UNSCRAMBLER = (() => {
       }
     });
 
-    document.getElementById('un-find-btn')?.addEventListener('click', doFindWords);
+    document.getElementById('un-find-btn')?.addEventListener('click', () => { scheduleDictionaryLoad(0); doFindWords(); });
     document.getElementById('un-clear-btn')?.addEventListener('click', clearAll);
     document.getElementById('un-copy-all-btn')?.addEventListener('click', () => {
       if (unscrambleResults.length) copyText(unscrambleResults.join(', '));
@@ -658,10 +696,6 @@ const WORD_UNSCRAMBLER = (() => {
         unToggle.textContent = open ? 'Hide options' : 'More options';
       });
     }
-
-    window.addEventListener('load', function() {
-      if (window.innerWidth > 640) unInput?.focus({ preventScroll: true });
-    });
 
     /* FAQ accordion */
     document.querySelectorAll('.faq-q').forEach(q => {
