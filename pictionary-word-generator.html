@@ -237,7 +237,8 @@
       <aside class="pic-controls">
         <div class="control-group">
           <label class="control-label" for="count-input">Number of words</label>
-          <input class="count-input" id="count-input" type="number" min="1" max="20" step="1" value="1" inputmode="numeric">
+          <input class="count-input" id="count-input" type="number" min="1" max="50" step="1" value="5" inputmode="numeric">
+          <span id="pic-count-error" style="display:none;font-size:11px;color:#E24B4A;margin-top:4px;">Enter a number from 1 to 50</span>
           <button class="small-btn mobile-more-btn" type="button" id="more-options-btn" aria-expanded="false" aria-controls="more-options-panel">More options</button>
         </div>
         <div class="options-panel" id="more-options-panel">
@@ -462,9 +463,11 @@
   ];
   const state={count:1,difficulty:'easy',category:'classic',timer:60,current:[],saved:[],seen:new Set(),hidden:false,remaining:60,running:false,interval:null};
   const $=id=>document.getElementById(id),grid=$('word-grid'),status=$('status'),savedList=$('saved-list'),savedCount=$('saved-count'),toast=$('toast');
+  const picCountInput=$('count-input'),picCountError=$('pic-count-error');
   function showToast(text){toast.textContent=text;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),1600)}
-  function setSeg(control,value){document.querySelectorAll(`[data-control="${control}"] button`).forEach(btn=>btn.classList.toggle('active',btn.dataset.value===String(value)));if(control==='count')$('count-input').value=value}
-  function setCount(value){const next=Math.max(1,Math.min(20,Number(value)||1));state.count=next;setSeg('count',next)}
+  function setSeg(control,value){document.querySelectorAll(`[data-control="${control}"] button`).forEach(btn=>btn.classList.toggle('active',btn.dataset.value===String(value)));if(control==='count')picCountInput.value=value}
+  function picValidateCount(){const v=parseInt(picCountInput.value);const invalid=isNaN(v)||v<1||v>50;picCountError.style.display=invalid?'block':'none';picCountInput.style.borderColor=invalid?'#E24B4A':'';return !invalid}
+  function setCount(value){const next=Math.max(1,Math.min(50,Number(value)||1));state.count=next;picCountInput.style.borderColor='';picCountError.style.display='none';setSeg('count',next)}
   function filtered(){let list=words.filter(item=>item.d===state.difficulty&&item.c.includes(state.category));if(!list.length&&state.category!=='classic')list=words.filter(item=>item.d===state.difficulty&&item.c.includes('classic'));if(!list.length)list=words.filter(item=>item.d===state.difficulty);return list}
   function generate(){let pool=filtered().filter(item=>!state.seen.has(item.w));if(pool.length<state.count){state.seen.clear();pool=filtered()}const chosen=[];while(chosen.length<state.count&&pool.length){const idx=Math.floor(Math.random()*pool.length);const item=pool.splice(idx,1)[0];chosen.push(item);state.seen.add(item.w)}state.current=chosen;renderWords()}
   function renderWords(){grid.innerHTML=state.current.map(item=>{const saved=state.saved.includes(item.w);return `<li class="word-card${state.hidden?' hidden':''}"><div><div class="word-text">${item.w}</div><div class="word-meta">${item.d} · ${item.c[0]}</div></div><button class="save-btn${saved?' saved':''}" type="button" data-save="${item.w}" aria-label="Save ${item.w}">♥</button></li>`}).join('');status.textContent=`${state.current.length} ${state.difficulty} ${state.category} word${state.current.length!==1?'s':''} generated`}
@@ -483,7 +486,8 @@
     const remove=e.target.closest('[data-remove]');if(remove){state.saved=state.saved.filter(item=>item!==remove.dataset.remove);renderSaved();renderWords();return}
     const faq=e.target.closest('.faq-q');if(faq)faq.closest('.faq-item').classList.toggle('open');
   });
-  $('count-input').addEventListener('input',e=>{setCount(e.target.value);generate()});
+  picCountInput.addEventListener('input',e=>{const v=parseInt(e.target.value);const invalid=isNaN(v)||v<1||v>50;picCountError.style.display=invalid?'block':'none';picCountInput.style.borderColor=invalid?'#E24B4A':'';if(!invalid){state.count=v;generate()}});
+  picCountInput.addEventListener('change',()=>picValidateCount());
   $('more-options-btn').addEventListener('click',e=>{const panel=$('more-options-panel');const open=panel.classList.toggle('open');e.target.setAttribute('aria-expanded',open?'true':'false');e.target.textContent=open?'Fewer options':'More options'});
   $('pic-category').addEventListener('change',e=>{state.category=e.target.value;generate()});
   $('generate-btn').addEventListener('click',generate);
@@ -496,6 +500,23 @@
   $('timer-toggle').addEventListener('click',startTimer);
   $('timer-reset').addEventListener('click',()=>{stopTimer();state.remaining=state.timer;updateTimer()});
   generate();renderSaved();updateTimer();
+})();
+
+(function bindWordineerMenu(){
+  const mega=document.getElementById("mega");
+  const hbg=document.querySelector(".hamburger");
+  if(!mega||!hbg)return;
+  hbg.onclick=null;
+  hbg.removeAttribute("onclick");
+  hbg.setAttribute("role","button");
+  hbg.setAttribute("tabindex","0");
+  hbg.setAttribute("aria-controls","mega");
+  hbg.setAttribute("aria-expanded",mega.classList.contains("open")?"true":"false");
+  function setMenu(open){mega.classList.toggle("open",open);hbg.setAttribute("aria-expanded",open?"true":"false")}
+  function toggleMenu(e){e.preventDefault();e.stopPropagation();setMenu(!mega.classList.contains("open"))}
+  hbg.addEventListener("click",toggleMenu);
+  hbg.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" ")toggleMenu(e)});
+  document.addEventListener("click",e=>{if(mega.classList.contains("open")&&!mega.contains(e.target)&&!hbg.contains(e.target))setMenu(false)});
 })();
 </script>
 </body>
