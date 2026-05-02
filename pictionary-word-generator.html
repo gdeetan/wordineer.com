@@ -99,6 +99,7 @@
 </script>
 <link rel="stylesheet" href="/styles/global.css?v=3">
 <style>
+.tool-wrap{max-width:960px;margin:0 auto;padding:24px 24px 0}
 .pic-card{border:1px solid var(--border);border-radius:8px;background:var(--bg);box-shadow:var(--shadow);overflow:hidden}
 .pic-layout{display:grid;grid-template-columns:300px 1fr;min-height:520px}
 .pic-controls{background:var(--bg-2);border-right:1px solid var(--border-2);padding:16px}
@@ -111,7 +112,6 @@
 .seg button,.preset-btn{cursor:pointer}
 .seg button.active,.preset-btn.active{background:var(--brand);border-color:var(--brand);color:white}
 .count-input{width:100%;font-size:18px;padding:10px 12px;color:var(--text)}
-.count-hints{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:8px}
 .mobile-more-btn{display:none;width:100%;margin-top:8px}
 .options-panel{display:block}
 .preset-row{display:flex;flex-wrap:wrap;gap:6px}
@@ -143,6 +143,8 @@
 .empty-text{font-size:12px;color:var(--text-3);font-style:italic}
 .toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:var(--text);color:white;padding:8px 12px;border-radius:6px;font-size:12px;opacity:0;pointer-events:none;transition:opacity .18s;z-index:9999}
 .toast.show{opacity:1}
+.explainer ol{margin:0 0 10px;padding-left:20px;font-size:14px;color:var(--text-2);line-height:1.7}
+.explainer li{padding-left:2px;margin-bottom:4px}
 .idea-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
 .idea-tags span{font-size:12px;background:var(--bg-2);border:1px solid var(--border);border-radius:999px;padding:5px 10px;color:var(--text-2)}
 @media(max-width:700px){
@@ -150,7 +152,7 @@
   .pic-layout{grid-template-columns:1fr}
   .pic-controls{border-right:0;border-bottom:1px solid var(--border-2)}
   .word-grid{grid-template-columns:1fr}
-  .count-hints{display:none}
+  .timer-box{display:none}
   .mobile-more-btn{display:block}
   .options-panel{display:none;margin-top:12px}
   .options-panel.open{display:block}
@@ -236,12 +238,6 @@
         <div class="control-group">
           <label class="control-label" for="count-input">Number of words</label>
           <input class="count-input" id="count-input" type="number" min="1" max="20" step="1" value="1" inputmode="numeric">
-          <div class="count-hints seg" data-control="count">
-            <button type="button" class="active" data-value="1">1</button>
-            <button type="button" data-value="5">5</button>
-            <button type="button" data-value="10">10</button>
-            <button type="button" data-value="20">20</button>
-          </div>
           <button class="small-btn mobile-more-btn" type="button" id="more-options-btn" aria-expanded="false" aria-controls="more-options-panel">More options</button>
         </div>
         <div class="options-panel" id="more-options-panel">
