@@ -55,7 +55,7 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="/styles/global.css?v=1">
+<link rel="stylesheet" href="/styles/global.css?v=2">
 <style>
 /* ── Shared tool layout (matches existing tools) ── */
 .tool-wrap  { max-width:960px; margin:0 auto; padding:24px 24px 0; }
@@ -187,6 +187,9 @@
   .ws-ak-list { columns:2; }
   .ws-preview { padding:16px; }
   .ws-preview-meta { flex-direction:column; gap:8px; }
+  .hero { padding:12px 16px 12px; }
+  .hero-badge { margin-bottom:6px; }
+  .hero h1 { font-size:24px; }
 }
 </style>
 </head>
@@ -791,6 +794,39 @@ const WORD_SCRAMBLER = (() => {
 })();
 
 WORD_SCRAMBLER.init();
+
+(function bindWordineerMenu(){
+  const mega = document.getElementById("mega");
+  const hbg = document.querySelector(".hamburger");
+  if (!mega || !hbg) return;
+
+  hbg.onclick = null;
+  hbg.removeAttribute("onclick");
+  hbg.setAttribute("role", "button");
+  hbg.setAttribute("tabindex", "0");
+  hbg.setAttribute("aria-controls", "mega");
+  hbg.setAttribute("aria-expanded", mega.classList.contains("open") ? "true" : "false");
+
+  function setMenu(open) {
+    mega.classList.toggle("open", open);
+    hbg.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+
+  function toggleMenu(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    setMenu(!mega.classList.contains("open"));
+  }
+
+  hbg.addEventListener("click", toggleMenu);
+  hbg.addEventListener("keydown", e => {
+    if (e.key === "Enter" || e.key === " ") toggleMenu(e);
+  });
+
+  document.addEventListener("click", e => {
+    if (mega.classList.contains("open") && !mega.contains(e.target) && !hbg.contains(e.target)) setMenu(false);
+  });
+})();
 </script>
 </body>
 </html>
