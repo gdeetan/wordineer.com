@@ -3,17 +3,59 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-7DWH3EGM3Z"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
+  window.adsbygoogle = window.adsbygoogle || [];
   function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-7DWH3EGM3Z');
+  (function(w, d) {
+    var loaded = false;
+    var cfg = {
+      analyticsId: 'G-7DWH3EGM3Z',
+      adsClient: 'ca-pub-7200956978416233',
+      delay: 10000
+    };
+
+    function loadScript(src, attrs) {
+      var s = d.createElement('script');
+      s.async = true;
+      s.src = src;
+      if (attrs) {
+        Object.keys(attrs).forEach(function(key) {
+          s.setAttribute(key, attrs[key]);
+        });
+      }
+      d.head.appendChild(s);
+    }
+
+    function loadMarketing() {
+      if (loaded) return;
+      loaded = true;
+      gtag('js', new Date());
+      gtag('config', cfg.analyticsId);
+      loadScript('https://www.googletagmanager.com/gtag/js?id=' + cfg.analyticsId);
+      loadScript(
+        'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + cfg.adsClient,
+        { crossorigin: 'anonymous' }
+      );
+    }
+
+    function idleLoad() {
+      if ('requestIdleCallback' in w) {
+        w.requestIdleCallback(loadMarketing, { timeout: 5000 });
+      } else {
+        w.setTimeout(loadMarketing, cfg.delay);
+      }
+    }
+
+    ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function(eventName) {
+      w.addEventListener(eventName, loadMarketing, { once: true, passive: true });
+    });
+    w.addEventListener('load', function() {
+      w.setTimeout(idleLoad, cfg.delay);
+    }, { once: true });
+  })(window, document);
 </script>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7200956978416233"
-     crossorigin="anonymous"></script>
 <meta name='impact-site-verification' value='32715504-1cfb-4324-bfc7-ae4cfa1591ea'>
 <link rel="preload" href="/fonts/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -65,7 +107,7 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="/styles/global.css?v=2">
+<link rel="stylesheet" href="/styles/global.css?v=3">
 <style>
 /* ── Shared tool layout ── */
 .tool-wrap  { max-width:960px; margin:0 auto; padding:24px 24px 0; }
@@ -151,9 +193,9 @@
     <a href="/api.html">API</a>
   </div>
   <div>
-    <div class="hamburger" onclick="document.getElementById('mega').classList.toggle('open')" title="All tools">
+    <button class="hamburger" type="button" aria-label="All tools" aria-controls="mega" aria-expanded="false">
       <span></span><span></span><span></span>
-    </div>
+    </button>
   </div>
 </nav>
 <div class="mega" id="mega">
@@ -210,7 +252,7 @@
       <!-- Left: controls -->
       <div class="ctrl">
         <div class="ctrl-row">
-          <span class="ctrl-label">Enter letters</span>
+          <label class="ctrl-label" for="un-input">Enter letters</label>
           <input type="text" id="un-input" placeholder="Enter letters (? for blank)..." maxlength="15" autocomplete="off" autocorrect="off" spellcheck="false" style="text-transform:uppercase">
         </div>
         <button class="gen-btn" id="un-find-btn">Find words</button>
@@ -220,7 +262,7 @@
         <button type="button" class="ws-mobile-toggle" id="un-mobile-toggle" aria-expanded="false" aria-controls="un-advanced">More options</button>
         <div class="ws-advanced un-adv-top" id="un-advanced">
           <div class="ctrl-row">
-            <span class="ctrl-label">Dictionary</span>
+            <label class="ctrl-label" for="un-dict">Dictionary</label>
             <select id="un-dict">
               <option value="nwl">US English (NWL)</option>
               <option value="sowpods">UK English (SOWPODS)</option>
@@ -228,19 +270,19 @@
             </select>
           </div>
           <div class="ctrl-row">
-            <span class="ctrl-label">Starts with</span>
+            <label class="ctrl-label" for="un-starts">Starts with</label>
             <input type="text" id="un-starts" maxlength="3" placeholder="e.g. re" autocomplete="off" autocorrect="off">
           </div>
           <div class="ctrl-row">
-            <span class="ctrl-label">Ends with</span>
+            <label class="ctrl-label" for="un-ends">Ends with</label>
             <input type="text" id="un-ends" maxlength="3" placeholder="e.g. ing" autocomplete="off" autocorrect="off">
           </div>
           <div class="ctrl-row">
-            <span class="ctrl-label">Must include</span>
+            <label class="ctrl-label" for="un-must">Must include</label>
             <input type="text" id="un-must" maxlength="3" placeholder="e.g. a" autocomplete="off" autocorrect="off">
           </div>
           <div class="ctrl-row">
-            <span class="ctrl-label">Word length</span>
+            <label class="ctrl-label" for="un-length">Word length</label>
             <select id="un-length">
               <option value="0">Any length</option>
               <option value="2">2 letters</option>
@@ -424,7 +466,7 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="/scripts/tool-engine.js?v=4"></script>
+<script src="/scripts/tool-engine.js?v=5"></script>
 
 <script>
 const WORD_UNSCRAMBLER = (() => {
