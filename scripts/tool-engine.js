@@ -31,6 +31,8 @@ let current    = [];
 let config     = {};
 let defsShown  = true;
 let fullLoaded = false;
+let fullLoadPromise = null;
+let fullLoadScheduled = false;
 let API_KEYS   = { wordnik: '', merriam: '' };
 const SC_WORDS_KEY = 'wnr_words_v3';
 function scGet(key) {
@@ -40,6 +42,8 @@ function scSet(key, val) {
 try { sessionStorage.setItem(key, JSON.stringify(val)); } catch {}
 }
 async function loadWords() {
+if (fullLoadPromise) return fullLoadPromise;
+fullLoadPromise = (async () => {
 const cached = scGet(SC_WORDS_KEY);
 if (Array.isArray(cached) && cached.length > 100) {
 WORDS = cached;
@@ -56,6 +60,8 @@ fullLoaded = true;
 scSet(SC_WORDS_KEY, data);
 } catch {
 }
+})();
+return fullLoadPromise;
 }
 const DM_SEEDS = [
 'adventure','beauty','courage','dream','earth','forest','grace','hope',
@@ -198,6 +204,33 @@ window.requestIdleCallback(run, { timeout: 15000 });
 run();
 }
 }, delay);
+}
+function currentIsSeedOnly() {
+return current.length > 0 && current.every(w => SEED.some(s => s.w === w.w));
+}
+function scheduleFullDictionary(delay = 0) {
+if (fullLoaded || fullLoadScheduled) return;
+fullLoadScheduled = true;
+const run = () => {
+loadWords().then(() => {
+if (currentIsSeedOnly()) render();
+}).catch(() => {});
+};
+setTimeout(() => {
+if ('requestIdleCallback' in window) {
+window.requestIdleCallback(run, { timeout: 8000 });
+} else {
+run();
+}
+}, delay);
+}
+function scheduleFullDictionaryAfterFirstLoad() {
+const schedule = () => scheduleFullDictionary(12000);
+if (document.readyState === 'complete') {
+schedule();
+} else {
+window.addEventListener('load', schedule, { once: true });
+}
 }
 const MAX_WORDS = 50;
 function setCountError(show) {
@@ -382,6 +415,7 @@ const _render = render;
 function generate() {
 _render();
 const type = document.getElementById(config.typeId)?.value || 'all';
+scheduleFullDictionary(0);
 scheduleLiveAugment(type);
 }
 let _customCfg = null;
@@ -523,11 +557,7 @@ if (cfg.apiKeys) {
   API_KEYS.merriam  = cfg.apiKeys.merriam  || '';
 }
 render();
-loadWords().then(() => {
-if (current.every(w => SEED.some(s => s.w === w.w))) {
-render();
-}
-}).catch(() => {});
+scheduleFullDictionaryAfterFirstLoad();
 scheduleLiveAugment('all', 12000);
 initFaq();
 initMega();
@@ -540,6 +570,10 @@ const v = parseInt(this.value);
 if (v >= 1 && v <= MAX_WORDS) setCountError(false);
 });
 }
+[config.typeId, config.diffId, config.firstId, config.lastId].forEach(id => {
+const el = document.getElementById(id);
+if (el) el.addEventListener('change', () => scheduleFullDictionary(0));
+});
 }
 return { init, render, generate, reset, copyWord, copyAll, copySaved, toggleSave, removeSaved, showToast };
 })();
