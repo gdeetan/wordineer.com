@@ -68,7 +68,7 @@
 :root{--brand:#4A3FD4;--brand-light:#EEEDFE;--brand-dark:#3C3489;--green:#1D9E75;--green-light:#E1F5EE;--green-dark:#0F6E56;--amber:#BA7517;--amber-light:#FAEEDA;--blue:#185FA5;--blue-light:#E6F1FB;--text:#1a1a18;--text-2:#5a5a56;--text-3:#9a9a94;--bg:#ffffff;--bg-2:#f7f7f4;--bg-3:#f0f0ec;--border:rgba(0,0,0,0.10);--border-2:rgba(0,0,0,0.06);--radius:10px;--radius-lg:14px;--shadow:0 1px 3px rgba(0,0,0,0.06),0 1px 2px rgba(0,0,0,0.04)}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
-.nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border-2);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:56px}
+.nav{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border-2);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:56px}
 .nav-logo{display:flex;align-items:center;gap:8px;font-size:17px;font-weight:600;color:var(--text);text-decoration:none}
 .nav-logo-icon{width:28px;height:28px;background:var(--brand);border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .nav-logo-icon svg{width:15px;height:15px}
@@ -78,7 +78,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);fon
 .hamburger{width:34px;height:34px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:4.5px;cursor:pointer;border:1px solid var(--border);border-radius:7px;background:transparent;transition:background .15s}
 .hamburger:hover{background:var(--bg-2)}
 .hamburger span{display:block;width:14px;height:1.5px;background:var(--text-2);border-radius:2px}
-.mega{display:none;position:fixed;top:56px;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--border-2);box-shadow:0 8px 24px rgba(0,0,0,0.08);z-index:101;padding:20px 24px}
+.mega{display:none;position:fixed;top:56px;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--border-2);box-shadow:0 8px 24px rgba(0,0,0,0.08);z-index:999;padding:20px 24px}
 .mega.open{display:block}
 .mega-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:0;max-width:900px;margin:0 auto}
 .mega-col{padding:0 20px 0 0}
