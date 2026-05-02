@@ -566,7 +566,7 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="/scripts/tool-engine.js?v=5"></script>
+<script src="/scripts/tool-engine.js?v=6"></script>
 
 <script>
 WORDINEER.init({
@@ -610,16 +610,6 @@ WORDINEER.init({
       const v = parseInt(this.value, 10);
       setCountError(isNaN(v) || v < 1 || v > 50);
     });
-  }
-
-  if (count) {
-    window.addEventListener('load', function(){
-      if (window.innerWidth > 700) {
-        count.focus({ preventScroll: true });
-        count.select();
-      }
-    });
-    count.addEventListener('focus', function(){ count.select(); });
   }
 
   if (toggle && advanced) {
