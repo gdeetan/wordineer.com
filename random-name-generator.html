@@ -539,16 +539,60 @@ function ngMapNameData(raw) {
   };
 }
 
-async function ngLoadNameData() {
+const ngActiveNameData = ngMapNameData(FALLBACK_NAME_DATA);
+let ngNameDataIsFull = false;
+let ngFullNameDataPromise = null;
+let ngFullNameDataScheduled = false;
+let ngFullNameDataTimer = null;
+let ngRenderedFallbackResults = false;
+
+async function ngLoadFullNameData() {
+  if (ngFullNameDataPromise) return ngFullNameDataPromise;
+  ngFullNameDataPromise = (async function() {
   try {
     const res = await fetch('/data/names.json', { cache: 'force-cache' });
     if (!res.ok) throw new Error(res.status);
     const raw = await res.json();
     if (!Array.isArray(raw.first) || !Array.isArray(raw.last)) throw new Error('Invalid names data');
-    return ngMapNameData(raw);
+    const data = ngMapNameData(raw);
+    ngActiveNameData.first = data.first;
+    ngActiveNameData.last = data.last;
+    ngNameDataIsFull = true;
+    if (ngRenderedFallbackResults) document.getElementById('ng-gen-btn')?.click();
   } catch (err) {
-    WORDINEER.showToast('Using fallback names while the full list loads.');
-    return ngMapNameData(FALLBACK_NAME_DATA);
+    if (!ngNameDataIsFull) WORDINEER.showToast('Using starter names while the full list loads.');
+    ngFullNameDataPromise = null;
+    ngFullNameDataScheduled = false;
+  }
+  })();
+  return ngFullNameDataPromise;
+}
+
+function ngScheduleFullNameData(delay) {
+  const wait = delay || 0;
+  if (ngNameDataIsFull) return;
+  if (ngFullNameDataScheduled) {
+    if (wait > 0 || !ngFullNameDataTimer) return;
+    clearTimeout(ngFullNameDataTimer);
+  }
+  ngFullNameDataScheduled = true;
+  ngFullNameDataTimer = setTimeout(function() {
+    ngFullNameDataTimer = null;
+    const run = function() { ngLoadFullNameData().catch(function() {}); };
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(run, { timeout: 5000 });
+    } else {
+      run();
+    }
+  }, wait);
+}
+
+function ngScheduleFullNameDataAfterFirstLoad() {
+  const schedule = function() { ngScheduleFullNameData(2500); };
+  if (document.readyState === 'complete') {
+    schedule();
+  } else {
+    window.addEventListener('load', schedule, { once: true });
   }
 }
 
@@ -562,6 +606,7 @@ function ngShuffle(arr) {
 }
 
 function ngGenerateFn(data, cfg) {
+  ngRenderedFallbackResults = !ngNameDataIsFull;
   const raw = parseInt(document.getElementById('ng-count')?.value);
   if (isNaN(raw) || raw < 1 || raw > 50) return [];
   const count = raw;
@@ -655,11 +700,9 @@ function ngInitNameGenerator(nameData) {
   });
 }
 
-(async function() {
-  const countDisplay = document.getElementById('ng-count-display');
-  if (countDisplay) countDisplay.textContent = 'Loading names...';
-  const nameData = await ngLoadNameData();
-  ngInitNameGenerator(nameData);
+(function() {
+  ngInitNameGenerator(ngActiveNameData);
+  ngScheduleFullNameDataAfterFirstLoad();
 
   // Count validation
   const ngCountInput = document.getElementById('ng-count');
@@ -673,8 +716,26 @@ function ngInitNameGenerator(nameData) {
   ngCountInput?.addEventListener('input', ngValidateCount);
   ngCountInput?.addEventListener('change', ngValidateCount);
 
+  ['ng-gender', 'ng-type', 'ng-origin', 'ng-era', 'ng-letter'].forEach(function(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.addEventListener('change', function() { ngScheduleFullNameData(0); });
+    el.addEventListener('input', function() { ngScheduleFullNameData(0); });
+  });
+
+  document.getElementById('ng-gen-btn')?.addEventListener('click', function() {
+    ngScheduleFullNameData(0);
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if ((e.code === 'Space' || e.code === 'Enter') && !['INPUT','SELECT','TEXTAREA','BUTTON'].includes(e.target.tagName)) {
+      ngScheduleFullNameData(0);
+    }
+  }, true);
+
   // Reset button
   document.getElementById('ng-reset-btn')?.addEventListener('click', function() {
+    ngScheduleFullNameData(0);
     document.getElementById('ng-count').value  = '5';
     ngValidateCount();
     document.getElementById('ng-gender').value = 'any';
