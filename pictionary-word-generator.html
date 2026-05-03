@@ -452,15 +452,18 @@
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script>
 (function(){
-  const words=[
-    {w:'Cat',c:['classic','animals'],d:'easy'},{w:'Dog',c:['classic','animals'],d:'easy'},{w:'Fish',c:['classic','animals'],d:'easy'},{w:'Bird',c:['classic','animals'],d:'easy'},{w:'Horse',c:['classic','animals'],d:'easy'},{w:'Rabbit',c:['animals'],d:'easy'},{w:'Elephant',c:['animals'],d:'medium'},{w:'Giraffe',c:['animals'],d:'medium'},{w:'Kangaroo',c:['animals','funny'],d:'medium'},{w:'Octopus',c:['animals','funny'],d:'hard'},{w:'Chameleon',c:['animals'],d:'hard'},{w:'Porcupine',c:['animals','funny'],d:'hard'},
-    {w:'Chair',c:['classic','objects'],d:'easy'},{w:'Book',c:['classic','objects'],d:'easy'},{w:'Clock',c:['classic','objects'],d:'easy'},{w:'Umbrella',c:['objects'],d:'easy'},{w:'Backpack',c:['classic','objects'],d:'medium'},{w:'Telescope',c:['objects'],d:'medium'},{w:'Mailbox',c:['classic','objects'],d:'medium'},{w:'Microscope',c:['classic','objects'],d:'hard'},{w:'Accordion',c:['objects','funny'],d:'hard'},{w:'Typewriter',c:['classic','objects'],d:'hard'},
-    {w:'Pizza',c:['classic','food'],d:'easy'},{w:'Apple',c:['classic','food'],d:'easy'},{w:'Cake',c:['classic','food'],d:'easy'},{w:'Taco',c:['food'],d:'easy'},{w:'Popcorn',c:['classic','food'],d:'medium'},{w:'Spaghetti',c:['food','funny'],d:'medium'},{w:'Pancake',c:['food','funny'],d:'medium'},{w:'Sushi roll',c:['classic','food'],d:'hard'},{w:'Pineapple upside-down cake',c:['food','funny'],d:'hard'},{w:'Chocolate fountain',c:['food','funny'],d:'hard'},
-    {w:'School',c:['classic','places'],d:'easy'},{w:'Beach',c:['classic','places'],d:'easy'},{w:'Farm',c:['places'],d:'easy'},{w:'Library',c:['classic','places'],d:'medium'},{w:'Airport',c:['places'],d:'medium'},{w:'Museum',c:['places'],d:'medium'},{w:'Amusement park',c:['classic','places','funny'],d:'hard'},{w:'Subway station',c:['places'],d:'hard'},{w:'Movie theater',c:['places'],d:'hard'},
-    {w:'Jumping',c:['actions','classic'],d:'easy'},{w:'Running',c:['actions','classic'],d:'easy'},{w:'Sleeping',c:['actions'],d:'easy'},{w:'Dancing',c:['actions','funny'],d:'easy'},{w:'Brushing teeth',c:['classic','actions'],d:'medium'},{w:'Flying a kite',c:['actions'],d:'medium'},{w:'Building a snowman',c:['actions','christmas'],d:'medium'},{w:'Walking on tiptoe',c:['classic','actions','funny'],d:'hard'},{w:'Juggling oranges',c:['actions','funny'],d:'hard'},{w:'Solving a maze',c:['actions'],d:'hard'},
-    {w:'Snowman',c:['christmas','classic'],d:'easy'},{w:'Gift',c:['christmas','objects'],d:'easy'},{w:'Star',c:['christmas','objects'],d:'easy'},{w:'Candy cane',c:['christmas','food'],d:'easy'},{w:'Stocking',c:['christmas','objects'],d:'medium'},{w:'Reindeer',c:['christmas','animals'],d:'medium'},{w:'Gingerbread house',c:['christmas','food'],d:'medium'},{w:'Sleigh ride',c:['christmas','actions'],d:'hard'},{w:'Nutcracker',c:['christmas','objects'],d:'hard'},{w:'Santa stuck in a chimney',c:['christmas','funny'],d:'hard'},
-    {w:'Bubble bath',c:['funny','classic'],d:'easy'},{w:'Clown shoes',c:['funny','objects'],d:'medium'},{w:'Banana peel',c:['funny','food'],d:'medium'},{w:'Pizza delivery',c:['funny','actions','food'],d:'medium'},{w:'Moonwalk',c:['funny','actions'],d:'hard'},{w:'Robot dance',c:['funny','actions'],d:'hard'},{w:'Invisible chair',c:['funny','objects'],d:'hard'}
+  const SEED=[
+    {w:'Cat',c:['classic','animals'],d:'easy'},{w:'Dog',c:['classic','animals'],d:'easy'},{w:'Pizza',c:['classic','food'],d:'easy'},{w:'Chair',c:['classic','objects'],d:'easy'},{w:'School',c:['classic','places'],d:'easy'},{w:'Jumping',c:['actions','classic'],d:'easy'},{w:'Snowman',c:['christmas','classic'],d:'easy'},{w:'Bubble bath',c:['funny','classic'],d:'easy'},
+    {w:'Elephant',c:['animals'],d:'medium'},{w:'Backpack',c:['classic','objects'],d:'medium'},{w:'Popcorn',c:['classic','food'],d:'medium'},{w:'Library',c:['classic','places'],d:'medium'},{w:'Brushing teeth',c:['classic','actions'],d:'medium'},{w:'Reindeer',c:['christmas','animals'],d:'medium'},{w:'Banana peel',c:['funny','food'],d:'medium'},
+    {w:'Octopus',c:['animals','funny'],d:'hard'},{w:'Typewriter',c:['classic','objects'],d:'hard'},{w:'Sushi roll',c:['classic','food'],d:'hard'},{w:'Amusement park',c:['classic','places','funny'],d:'hard'},{w:'Juggling oranges',c:['actions','funny'],d:'hard'},{w:'Nutcracker',c:['christmas','objects'],d:'hard'},{w:'Moonwalk',c:['funny','actions'],d:'hard'}
   ];
+  let words=[...SEED],picFullLoaded=false,picLoadPromise=null;
+  function picLoadFullWords(){
+    if(picFullLoaded||picLoadPromise)return;
+    picLoadPromise=fetch('/data/pictionary-words.json').then(r=>{if(!r.ok)throw new Error(r.status);return r.json()}).then(raw=>{words=raw.map(([w,c,d])=>({w,c,d}));picFullLoaded=true}).catch(()=>{picLoadPromise=null});
+  }
+  function picScheduleLoad(){if(picFullLoaded)return;if('requestIdleCallback' in window)requestIdleCallback(picLoadFullWords,{timeout:4000});else setTimeout(picLoadFullWords,200)}
+  window.addEventListener('load',picScheduleLoad,{once:true});
   const state={count:5,difficulty:'easy',category:'classic',timer:60,current:[],saved:[],seen:new Set(),hidden:false,remaining:60,running:false,interval:null};
   const $=id=>document.getElementById(id),grid=$('word-grid'),status=$('status'),savedList=$('saved-list'),savedCount=$('saved-count'),toast=$('toast');
   const picCountInput=$('count-input'),picCountError=$('pic-count-error');
@@ -481,7 +484,7 @@
     const segBtn=e.target.closest('[data-control] button');
     if(segBtn){const control=segBtn.closest('[data-control]').dataset.control,value=segBtn.dataset.value;if(control==='count')setCount(value);if(control==='difficulty')state.difficulty=value;if(control==='timer')setTimer(Number(value));if(control!=='count')setSeg(control,value);if(control!=='timer')generate();return}
     const preset=e.target.closest('[data-preset]');
-    if(preset){document.querySelectorAll('[data-preset]').forEach(btn=>btn.classList.remove('active'));preset.classList.add('active');const p=preset.dataset.preset;if(p==='kids'){state.difficulty='easy';state.category='animals';setCount(5)}if(p==='party'){state.difficulty='medium';state.category='funny';setCount(10)}if(p==='christmas'){state.difficulty='medium';state.category='christmas';setCount(10)}if(p==='hard'){state.difficulty='hard';state.category='classic';setCount(5)}if(p==='fun'){state.difficulty='medium';state.category='funny';setCount(5)}$('pic-category').value=state.category;setSeg('difficulty',state.difficulty);generate();return}
+    if(preset){document.querySelectorAll('[data-preset]').forEach(btn=>btn.classList.remove('active'));preset.classList.add('active');const p=preset.dataset.preset;if(p==='kids'){state.difficulty='easy';state.category='animals'}if(p==='party'){state.difficulty='medium';state.category='funny'}if(p==='christmas'){state.difficulty='medium';state.category='christmas'}if(p==='hard'){state.difficulty='hard';state.category='classic'}if(p==='fun'){state.difficulty='medium';state.category='funny'}$('pic-category').value=state.category;setSeg('difficulty',state.difficulty);generate();return}
     const save=e.target.closest('[data-save]');if(save){const word=save.dataset.save;if(state.saved.includes(word))state.saved=state.saved.filter(item=>item!==word);else state.saved.push(word);renderSaved();renderWords();return}
     const remove=e.target.closest('[data-remove]');if(remove){state.saved=state.saved.filter(item=>item!==remove.dataset.remove);renderSaved();renderWords();return}
     const faq=e.target.closest('.faq-q');if(faq)faq.closest('.faq-item').classList.toggle('open');
@@ -490,7 +493,7 @@
   picCountInput.addEventListener('change',()=>picValidateCount());
   $('more-options-btn').addEventListener('click',e=>{const panel=$('more-options-panel');const open=panel.classList.toggle('open');e.target.setAttribute('aria-expanded',open?'true':'false');e.target.textContent=open?'Fewer options':'More options'});
   $('pic-category').addEventListener('change',e=>{state.category=e.target.value;generate()});
-  $('generate-btn').addEventListener('click',generate);
+  $('generate-btn').addEventListener('click',()=>{picLoadFullWords();generate()});
   $('copy-btn').addEventListener('click',()=>copyText(state.current.map(item=>item.w).join(', '),'No words to copy'));
   $('copy-saved-btn').addEventListener('click',()=>copyText(state.saved.join(', '),'No saved words'));
   $('print-btn').addEventListener('click',()=>window.print());
