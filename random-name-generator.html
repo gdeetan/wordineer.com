@@ -626,12 +626,6 @@ function ngGenerateFn(data, cfg) {
     (origin === 'any' || n.o === origin)
   );
 
-  if (!firstPool.length) firstPool = data.first.filter(n =>
-    (gender === 'any' || n.g === gender || n.g === 'u')
-  );
-  if (!firstPool.length) firstPool = [...data.first];
-  if (!lastPool.length)  lastPool  = [...data.last];
-
   const sf = ngShuffle(firstPool);
   const sl = ngShuffle(lastPool);
   const results = [];
