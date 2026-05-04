@@ -734,8 +734,14 @@ function ngInitNameGenerator(nameData) {
     ngCountInput.style.borderColor = invalid ? '#E24B4A' : '';
     return !invalid;
   }
-  function ngRegenerateFromFilters() {
+function ngRegenerateFromFilters() {
     if (!ngValidateCount()) return;
+    if (!ngNameDataIsFull) {
+      ngLoadFullNameData()
+        .then(function() { document.getElementById('ng-gen-btn')?.click(); })
+        .catch(function() { document.getElementById('ng-gen-btn')?.click(); });
+      return;
+    }
     document.getElementById('ng-gen-btn')?.click();
   }
   ngCountInput?.addEventListener('input', ngValidateCount);
