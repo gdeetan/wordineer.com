@@ -108,23 +108,21 @@
 .control-label{display:block;font-size:10px;font-weight:700;color:var(--text-3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:7px}
 .seg{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
 .seg.three{grid-template-columns:repeat(3,1fr)}
-.seg button,.preset-btn,.pic-select,.count-input{border:1px solid var(--border);background:var(--bg);color:var(--text-2);border-radius:6px;font:inherit;font-size:12px;font-weight:600;padding:8px 6px;transition:border-color .15s,background .15s,color .15s}
-.seg button,.preset-btn{cursor:pointer}
-.seg button.active,.preset-btn.active{background:var(--brand);border-color:var(--brand);color:white}
-.count-input{width:100%;font-size:18px;padding:10px 12px;color:var(--text)}
+.seg button,.pic-select,.count-input{border:1px solid var(--border);background:var(--bg);color:var(--text-2);border-radius:6px;font:inherit;font-size:12px;font-weight:600;padding:8px 6px;transition:border-color .15s,background .15s,color .15s}
+.seg button{cursor:pointer}
+.seg button.active{background:var(--brand);border-color:var(--brand);color:white}
+.count-input{width:100%;font-size:13px;padding:7px 10px;color:var(--text)}
 .mobile-more-btn{display:none;width:100%;margin-top:8px}
 .options-panel{display:block}
-.preset-row{display:flex;flex-wrap:wrap;gap:6px}
-.preset-btn{padding:7px 10px}
 .pic-select{width:100%;appearance:none}
 .primary-btn{width:100%;border:0;border-radius:6px;background:var(--brand);color:white;font-size:14px;font-weight:700;padding:12px 14px;cursor:pointer}
 .secondary-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
 .small-btn{border:1px solid var(--border);background:var(--bg);color:var(--text-2);border-radius:6px;font-size:12px;font-weight:600;padding:9px 8px;cursor:pointer}
-.small-btn:hover,.seg button:hover,.preset-btn:hover{border-color:var(--brand)}
+.small-btn:hover,.seg button:hover{border-color:var(--brand)}
 .timer-box{border:1px solid var(--border);background:var(--bg);border-radius:8px;padding:12px;margin-top:10px}
 .timer-time{font-size:34px;line-height:1;font-weight:700;color:var(--text);margin-bottom:10px;font-variant-numeric:tabular-nums}
 .timer-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.rules-mini{font-size:12px;line-height:1.55;color:var(--text-2);background:#fffaf0;border:1px solid #f1ddaf;border-radius:8px;padding:12px}
+.rules-mini{font-size:12px;line-height:1.55;color:var(--text-2);background:#fffaf0;border:1px solid #f1ddaf;border-radius:8px;padding:12px;margin-top:24px}
 .pic-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px;border-bottom:1px solid var(--border-2)}
 .pic-status{font-size:12px;color:var(--text-3)}
 .word-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:16px;list-style:none;margin:0;flex:1}
@@ -154,7 +152,9 @@
   .word-grid{grid-template-columns:1fr}
   .mobile-more-btn{display:block}
   .options-panel{display:none;margin-top:12px}
-  .options-panel.open{display:block}
+  .options-panel.open{display:block;margin-bottom:12px}
+  .timer-time{font-size:22px;margin-bottom:6px}
+  .timer-box{padding:8px}
 }
 @media print{
   .nav,.mega,.hero,.pic-controls,.pic-top,.saved-panel,.ad-leaderboard,.content-wrap,.footer{display:none!important}
@@ -262,16 +262,6 @@
               <option value="christmas">Christmas</option>
               <option value="funny">Funny</option>
             </select>
-          </div>
-          <div class="control-group">
-            <span class="control-label">Quick presets</span>
-            <div class="preset-row">
-              <button class="preset-btn" type="button" data-preset="kids">Kids</button>
-              <button class="preset-btn" type="button" data-preset="party">Party</button>
-              <button class="preset-btn" type="button" data-preset="christmas">Christmas</button>
-              <button class="preset-btn" type="button" data-preset="fun">Fun</button>
-              <button class="preset-btn" type="button" data-preset="all">All</button>
-            </div>
           </div>
           <div class="timer-box">
             <span class="control-label">Round timer</span>
@@ -393,11 +383,11 @@
   <h2 class="faq-title">Pictionary FAQs</h2>
   <div class="faq-item open">
     <div class="faq-q"><span class="faq-q-text">Can I use this for kids?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Yes. Use the Kids preset or Easy difficulty for simple words that are quick to draw and guess.</div>
+    <div class="faq-a">Yes. Set difficulty to Easy and choose the Animals or classic category for simple words that are quick to draw and guess.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">Can I use this for Christmas Pictionary?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Yes. Choose the Christmas preset or Christmas category to generate holiday words for a seasonal game.</div>
+    <div class="faq-a">Yes. Choose the Christmas category to generate holiday words for a seasonal game.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">Does the generator repeat words?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
@@ -512,7 +502,7 @@
   function setCount(value){const next=Math.max(1,Math.min(50,Number(value)||1));state.count=next;picCountInput.style.borderColor='';picCountError.style.display='none';setSeg('count',next)}
   function filtered(){if(state.category==='all')return words.filter(item=>item.d===state.difficulty);return words.filter(item=>item.d===state.difficulty&&item.c.includes(state.category))}
   function generate(){let pool=filtered().filter(item=>!state.seen.has(item.w));if(!pool.length&&state.seen.size){state.seen.clear();pool=filtered()}if(!pool.length){state.current=[];renderWords();return}const chosen=[];while(chosen.length<state.count&&pool.length){const idx=Math.floor(Math.random()*pool.length);const item=pool.splice(idx,1)[0];chosen.push(item);state.seen.add(item.w)}state.current=chosen;renderWords()}
-  function renderWords(){if(!state.current.length){grid.innerHTML='';status.textContent='No words found for this combination';return}grid.innerHTML=state.current.map(item=>{const saved=state.saved.includes(item.w);return `<li class="word-card${state.hidden?' hidden':''}"><div><div class="word-text">${item.w}</div><div class="word-meta">${item.d} · ${item.c[0]}</div></div><button class="save-btn${saved?' saved':''}" type="button" data-save="${item.w}" aria-label="Save ${item.w}">♥</button></li>`}).join('');const catLabel=state.category==='all'?'all categories':state.category;status.textContent=`${state.current.length} ${state.difficulty} ${catLabel} word${state.current.length!==1?'s':''} generated`}
+  function renderWords(){if(!state.current.length){grid.innerHTML='';status.textContent='No words found — try a different filter';return}grid.innerHTML=state.current.map(item=>{const saved=state.saved.includes(item.w);return `<li class="word-card${state.hidden?' hidden':''}"><div><div class="word-text">${item.w}</div><div class="word-meta">${item.d} · ${item.c[0]}</div></div><button class="save-btn${saved?' saved':''}" type="button" data-save="${item.w}" aria-label="Save ${item.w}">♥</button></li>`}).join('');const catLabel=state.category==='all'?'all categories':state.category;status.textContent=`${state.current.length} ${state.difficulty} ${catLabel} word${state.current.length!==1?'s':''} generated`}
   function renderSaved(){savedCount.textContent=`(${state.saved.length})`;savedList.innerHTML=state.saved.length?state.saved.map(word=>`<span class="saved-pill">${word}<button type="button" data-remove="${word}" aria-label="Remove ${word}">×</button></span>`).join(''):'<span class="empty-text">Save words here before you generate the next round.</span>'}
   function copyText(text,emptyMessage){if(!text){showToast(emptyMessage);return}if(navigator.clipboard)navigator.clipboard.writeText(text).then(()=>showToast('Copied'));else showToast('Copy not available')}
   function setTimer(seconds){state.timer=seconds;state.remaining=seconds;updateTimer()}
@@ -522,8 +512,6 @@
   document.addEventListener('click',e=>{
     const segBtn=e.target.closest('[data-control] button');
     if(segBtn){const control=segBtn.closest('[data-control]').dataset.control,value=segBtn.dataset.value;if(control==='count')setCount(value);if(control==='difficulty')state.difficulty=value;if(control==='timer')setTimer(Number(value));if(control!=='count')setSeg(control,value);if(control!=='timer')generate();return}
-    const preset=e.target.closest('[data-preset]');
-    if(preset){document.querySelectorAll('[data-preset]').forEach(btn=>btn.classList.remove('active'));preset.classList.add('active');const p=preset.dataset.preset;if(p==='kids')state.category='animals';else if(p==='party')state.category='funny';else if(p==='christmas')state.category='christmas';else if(p==='fun')state.category='funny';else if(p==='all')state.category='all';$('pic-category').value=state.category;generate();return}
     const save=e.target.closest('[data-save]');if(save){const word=save.dataset.save;if(state.saved.includes(word))state.saved=state.saved.filter(item=>item!==word);else state.saved.push(word);renderSaved();renderWords();return}
     const remove=e.target.closest('[data-remove]');if(remove){state.saved=state.saved.filter(item=>item!==remove.dataset.remove);renderSaved();renderWords();return}
     const faq=e.target.closest('.faq-q');if(faq)faq.closest('.faq-item').classList.toggle('open');
