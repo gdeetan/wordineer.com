@@ -1,0 +1,312 @@
+<!-- ==========================================
+     Wordineer — API Documentation Page
+     Template fragment: inject into your base layout.
+     Assumes syntax highlighting CSS is loaded globally
+     (e.g. highlight.js or Prism via your base template).
+     ========================================== -->
+
+<main class="page-content page--api-docs">
+
+  <section class="hero-section">
+    <div class="container">
+      <span class="page-eyebrow">Developer Resources</span>
+      <h1 class="page-title">Wordineer API</h1>
+      <p class="page-subtitle">
+        Free, RESTful access to Wordineer's word tools.
+        No sign-up required for basic use.
+      </p>
+    </div>
+  </section>
+
+  <div class="docs-layout container">
+
+    <!-- Sidebar nav -->
+    <nav class="docs-sidebar" aria-label="API Sections">
+      <ul>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#authentication">Authentication</a></li>
+        <li><a href="#rate-limits">Rate Limits</a></li>
+        <li><a href="#endpoints">Endpoints</a>
+          <ul>
+            <li><a href="#random-word">Random Word</a></li>
+            <li><a href="#word-count">Word Count</a></li>
+            <li><a href="#rhymes">Rhymes</a></li>
+          </ul>
+        </li>
+        <li><a href="#errors">Error Codes</a></li>
+        <li><a href="#changelog">Changelog</a></li>
+      </ul>
+    </nav>
+
+    <!-- Main docs content -->
+    <article class="docs-content prose">
+
+      <!-- OVERVIEW -->
+      <section id="overview">
+        <h2>Overview</h2>
+        <p>
+          The Wordineer API is a free, JSON-based REST API that gives developers
+          programmatic access to word generation, text analysis, and language utility
+          tools. It is designed to be simple enough to call from a cURL command and
+          powerful enough to build production applications.
+        </p>
+
+        <h3>Base URL</h3>
+        <pre><code class="language-text">https://api.wordineer.com/v1</code></pre>
+
+        <h3>Response Format</h3>
+        <p>All responses are JSON. Successful responses follow this envelope:</p>
+        <pre><code class="language-json">{
+  "ok": true,
+  "data": { ... },
+  "meta": {
+    "endpoint": "/random-word",
+    "version": "1.0"
+  }
+}</code></pre>
+      </section>
+
+      <!-- AUTHENTICATION -->
+      <section id="authentication">
+        <h2>Authentication</h2>
+        <p>
+          <strong>Basic tier (up to 100 requests/day):</strong> No API key required.
+          Simply call the endpoint directly.
+        </p>
+        <p>
+          <strong>Standard tier (up to 5,000 requests/day):</strong> Free registration
+          required. Pass your API key in the request header:
+        </p>
+        <pre><code class="language-http">X-API-Key: wdn_your_api_key_here</code></pre>
+        <p>
+          To get a free API key, email
+          <a href="mailto:api@wordineer.com">api@wordineer.com</a> with the subject
+          line <em>"API Key Request"</em>. We'll respond within 1–2 business days.
+        </p>
+
+        <div class="callout callout--info">
+          <strong>Note:</strong> API keys are for server-side use only.
+          Do not expose your key in client-side JavaScript or public repositories.
+        </div>
+      </section>
+
+      <!-- RATE LIMITS -->
+      <section id="rate-limits">
+        <h2>Rate Limits</h2>
+        <table class="docs-table">
+          <thead>
+            <tr>
+              <th>Tier</th>
+              <th>Daily Limit</th>
+              <th>Burst (per minute)</th>
+              <th>Key Required</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Basic (anonymous)</td>
+              <td>100 requests</td>
+              <td>10 req/min</td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td>Standard (free key)</td>
+              <td>5,000 requests</td>
+              <td>60 req/min</td>
+              <td>Yes</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          Exceeding the rate limit returns a <code>429 Too Many Requests</code>
+          response. The <code>Retry-After</code> header will indicate when you
+          may resume requests.
+        </p>
+      </section>
+
+      <!-- ENDPOINTS -->
+      <section id="endpoints">
+        <h2>Endpoints</h2>
+
+        <!-- Random Word -->
+        <section id="random-word" class="endpoint-block">
+          <h3>
+            <span class="badge badge--get">GET</span>
+            <code>/random-word</code>
+          </h3>
+          <p>Returns one or more random English words, with optional filters.</p>
+
+          <h4>Query Parameters</h4>
+          <table class="docs-table">
+            <thead>
+              <tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>count</code></td>
+                <td>integer</td>
+                <td><code>1</code></td>
+                <td>Number of words to return (max 100).</td>
+              </tr>
+              <tr>
+                <td><code>type</code></td>
+                <td>string</td>
+                <td><em>any</em></td>
+                <td>Filter by part of speech: <code>noun</code>, <code>verb</code>, <code>adjective</code>, <code>adverb</code>.</td>
+              </tr>
+              <tr>
+                <td><code>min_length</code></td>
+                <td>integer</td>
+                <td><code>1</code></td>
+                <td>Minimum word character length.</td>
+              </tr>
+              <tr>
+                <td><code>max_length</code></td>
+                <td>integer</td>
+                <td><code>20</code></td>
+                <td>Maximum word character length.</td>
+              </tr>
+              <tr>
+                <td><code>starts_with</code></td>
+                <td>string</td>
+                <td><em>none</em></td>
+                <td>Return only words starting with this letter or string.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h4>Example Request</h4>
+          <pre><code class="language-bash">curl "https://api.wordineer.com/v1/random-word?count=3&type=noun&min_length=5"</code></pre>
+
+          <h4>Example Response</h4>
+          <pre><code class="language-json">{
+  "ok": true,
+  "data": {
+    "words": ["harbor", "lantern", "century"]
+  },
+  "meta": {
+    "count": 3,
+    "filters": { "type": "noun", "min_length": 5 }
+  }
+}</code></pre>
+        </section>
+
+        <!-- Word Count -->
+        <section id="word-count" class="endpoint-block">
+          <h3>
+            <span class="badge badge--post">POST</span>
+            <code>/word-count</code>
+          </h3>
+          <p>Analyzes a block of text and returns word, character, sentence, and paragraph counts.</p>
+
+          <h4>Request Body</h4>
+          <pre><code class="language-json">{
+  "text": "Your text goes here. It can be multiple sentences."
+}</code></pre>
+
+          <h4>Example Request</h4>
+          <pre><code class="language-bash">curl -X POST "https://api.wordineer.com/v1/word-count" \
+  -H "Content-Type: application/json" \
+  -d '{"text": "The quick brown fox jumps over the lazy dog."}'</code></pre>
+
+          <h4>Example Response</h4>
+          <pre><code class="language-json">{
+  "ok": true,
+  "data": {
+    "words": 9,
+    "characters": 44,
+    "characters_no_spaces": 35,
+    "sentences": 1,
+    "paragraphs": 1,
+    "reading_time_seconds": 4,
+    "unique_words": 9
+  }
+}</code></pre>
+        </section>
+
+        <!-- Rhymes -->
+        <section id="rhymes" class="endpoint-block">
+          <h3>
+            <span class="badge badge--get">GET</span>
+            <code>/rhymes</code>
+          </h3>
+          <p>Returns a list of words that rhyme with the given input word.</p>
+
+          <h4>Query Parameters</h4>
+          <table class="docs-table">
+            <thead>
+              <tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>word</code></td>
+                <td>string</td>
+                <td>Yes</td>
+                <td>The word to find rhymes for.</td>
+              </tr>
+              <tr>
+                <td><code>limit</code></td>
+                <td>integer</td>
+                <td>No</td>
+                <td>Max number of rhymes to return (default: 10, max: 50).</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h4>Example Request</h4>
+          <pre><code class="language-bash">curl "https://api.wordineer.com/v1/rhymes?word=light&limit=5"</code></pre>
+
+          <h4>Example Response</h4>
+          <pre><code class="language-json">{
+  "ok": true,
+  "data": {
+    "word": "light",
+    "rhymes": ["night", "sight", "right", "tight", "flight"]
+  },
+  "meta": { "count": 5 }
+}</code></pre>
+        </section>
+
+      </section><!-- /endpoints -->
+
+      <!-- ERROR CODES -->
+      <section id="errors">
+        <h2>Error Codes</h2>
+        <p>When a request fails, the API returns a non-2xx HTTP status code and an error envelope:</p>
+        <pre><code class="language-json">{
+  "ok": false,
+  "error": {
+    "code": "INVALID_PARAMETER",
+    "message": "The 'count' parameter must be an integer between 1 and 100.",
+    "param": "count"
+  }
+}</code></pre>
+
+        <table class="docs-table">
+          <thead>
+            <tr><th>HTTP Status</th><th>Error Code</th><th>Meaning</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>400</td><td><code>INVALID_PARAMETER</code></td><td>A query parameter or body field has an invalid value.</td></tr>
+            <tr><td>400</td><td><code>MISSING_PARAMETER</code></td><td>A required parameter was not provided.</td></tr>
+            <tr><td>401</td><td><code>INVALID_API_KEY</code></td><td>The provided API key is invalid or revoked.</td></tr>
+            <tr><td>404</td><td><code>WORD_NOT_FOUND</code></td><td>No results match the given filters or input word.</td></tr>
+            <tr><td>429</td><td><code>RATE_LIMIT_EXCEEDED</code></td><td>You have exceeded the allowed request rate.</td></tr>
+            <tr><td>500</td><td><code>INTERNAL_ERROR</code></td><td>An unexpected server error occurred. Please try again.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- CHANGELOG -->
+      <section id="changelog">
+        <h2>Changelog</h2>
+        <dl class="changelog">
+          <dt>v1.0 — April 2025</dt>
+          <dd>Initial public release. Endpoints: <code>/random-word</code>, <code>/word-count</code>, <code>/rhymes</code>.</dd>
+        </dl>
+      </section>
+
+    </article><!-- /docs-content -->
+  </div><!-- /docs-layout -->
+
+</main>

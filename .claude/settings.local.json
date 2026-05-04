@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 gen_words.py)",
+      "Bash(python3 gen_words2.py)",
+      "Bash(python3 merge_words.py)",
+      "Bash(python3 -c ' *)",
+      "Bash(node --input-type=module)",
+      "Bash(python3 build.py)",
+      "Bash(python3 -c \"import reportlab\")",
+      "Bash(python3 -c \"import fpdf\")",
+      "Bash(pip3 install *)",
+      "Bash(python3 _make_pdf.py)",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "WebFetch(domain:wordineer.com)",
+      "Bash(node -e ' *)",
+      "Bash(git status *)",
+      "Bash(git -C \"/Users/garrickdeetan/Documents/Random Word Generator Tool Site/wordineer-deploy\" status)",
+      "Bash(python3 expand_words.py)",
+      "Bash(node -e \"console.log\\('node ok'\\)\")",
+      "Read(//usr/local/**)",
+      "Read(//Users/garrickdeetan/.nvm/versions/**)",
+      "Bash(npm --version)",
+      "Bash(ollama list *)"
+    ]
+  }
+}
