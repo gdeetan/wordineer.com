@@ -511,7 +511,7 @@
   function startTimer(){if(state.running){stopTimer();return}state.running=true;$('timer-toggle').textContent='Pause';state.interval=setInterval(()=>{state.remaining-=1;updateTimer();if(state.remaining<=0){stopTimer();showToast('Time is up')}},1000)}
   document.addEventListener('click',e=>{
     const segBtn=e.target.closest('[data-control] button');
-    if(segBtn){const control=segBtn.closest('[data-control]').dataset.control,value=segBtn.dataset.value;if(control==='count')setCount(value);if(control==='difficulty')state.difficulty=value;if(control==='timer')setTimer(Number(value));if(control!=='count')setSeg(control,value);if(control!=='timer')generate();return}
+    if(segBtn){const control=segBtn.closest('[data-control]').dataset.control,value=segBtn.dataset.value;if(control==='count')setCount(value);if(control==='difficulty'){state.difficulty=value;state.seen.clear();}if(control==='timer')setTimer(Number(value));if(control!=='count')setSeg(control,value);if(control!=='timer')generate();return}
     const save=e.target.closest('[data-save]');if(save){const word=save.dataset.save;if(state.saved.includes(word))state.saved=state.saved.filter(item=>item!==word);else state.saved.push(word);renderSaved();renderWords();return}
     const remove=e.target.closest('[data-remove]');if(remove){state.saved=state.saved.filter(item=>item!==remove.dataset.remove);renderSaved();renderWords();return}
     const faq=e.target.closest('.faq-q');if(faq)faq.closest('.faq-item').classList.toggle('open');
@@ -519,7 +519,7 @@
   picCountInput.addEventListener('input',e=>{const v=parseInt(e.target.value);const invalid=isNaN(v)||v<1||v>50;picCountError.style.display=invalid?'block':'none';picCountInput.style.borderColor=invalid?'#E24B4A':'';if(!invalid){state.count=v;generate()}});
   picCountInput.addEventListener('change',()=>picValidateCount());
   $('more-options-btn').addEventListener('click',e=>{const panel=$('more-options-panel');const open=panel.classList.toggle('open');e.target.setAttribute('aria-expanded',open?'true':'false');e.target.textContent=open?'Fewer options':'More options'});
-  $('pic-category').addEventListener('change',e=>{state.category=e.target.value;generate()});
+  $('pic-category').addEventListener('change',e=>{state.category=e.target.value;state.seen.clear();generate()});
   $('generate-btn').addEventListener('click',()=>{picLoadFullWords();generate()});
   $('copy-btn').addEventListener('click',()=>copyText(state.current.map(item=>item.w).join(', '),'No words to copy'));
   $('copy-saved-btn').addEventListener('click',()=>copyText(state.saved.join(', '),'No saved words'));
