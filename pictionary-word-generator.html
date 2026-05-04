@@ -152,7 +152,6 @@
   .pic-layout{grid-template-columns:1fr}
   .pic-controls{border-right:0;border-bottom:1px solid var(--border-2)}
   .word-grid{grid-template-columns:1fr}
-  .timer-box{display:none}
   .mobile-more-btn{display:block}
   .options-panel{display:none;margin-top:12px}
   .options-panel.open{display:block}
@@ -253,7 +252,8 @@
           <div class="control-group">
             <label class="control-label" for="pic-category">Category</label>
             <select id="pic-category" class="pic-select">
-              <option value="classic">Classic</option>
+              <option value="all">All categories</option>
+              <option value="classic" selected>Classic</option>
               <option value="actions">Actions</option>
               <option value="objects">Objects</option>
               <option value="food">Food</option>
@@ -269,8 +269,21 @@
               <button class="preset-btn" type="button" data-preset="kids">Kids</button>
               <button class="preset-btn" type="button" data-preset="party">Party</button>
               <button class="preset-btn" type="button" data-preset="christmas">Christmas</button>
-              <button class="preset-btn" type="button" data-preset="hard">Hard</button>
               <button class="preset-btn" type="button" data-preset="fun">Fun</button>
+              <button class="preset-btn" type="button" data-preset="all">All</button>
+            </div>
+          </div>
+          <div class="timer-box">
+            <span class="control-label">Round timer</span>
+            <div class="seg three" data-control="timer">
+              <button type="button" data-value="30">30s</button>
+              <button type="button" class="active" data-value="60">60s</button>
+              <button type="button" data-value="90">90s</button>
+            </div>
+            <div class="timer-time" id="timer-display">1:00</div>
+            <div class="timer-actions">
+              <button class="small-btn" type="button" id="timer-toggle">Start</button>
+              <button class="small-btn" type="button" id="timer-reset">Reset</button>
             </div>
           </div>
         </div>
@@ -280,19 +293,6 @@
           <button class="small-btn" type="button" id="print-btn">Print cards</button>
           <button class="small-btn" type="button" id="hide-btn">Hide words</button>
           <button class="small-btn" type="button" id="clear-btn">Clear saved</button>
-        </div>
-        <div class="timer-box">
-          <span class="control-label">Round timer</span>
-          <div class="seg three" data-control="timer">
-            <button type="button" data-value="30">30s</button>
-            <button type="button" class="active" data-value="60">60s</button>
-            <button type="button" data-value="90">90s</button>
-          </div>
-          <div class="timer-time" id="timer-display">1:00</div>
-          <div class="timer-actions">
-            <button class="small-btn" type="button" id="timer-toggle">Start</button>
-            <button class="small-btn" type="button" id="timer-reset">Reset</button>
-          </div>
         </div>
         <div class="rules-mini">Draw the word without letters, numbers, talking, or gestures. Your team gets one point if they guess before the timer runs out.</div>
       </aside>
@@ -453,9 +453,48 @@
 <script>
 (function(){
   const SEED=[
-    {w:'Cat',c:['classic','animals'],d:'easy'},{w:'Dog',c:['classic','animals'],d:'easy'},{w:'Pizza',c:['classic','food'],d:'easy'},{w:'Chair',c:['classic','objects'],d:'easy'},{w:'School',c:['classic','places'],d:'easy'},{w:'Jumping',c:['actions','classic'],d:'easy'},{w:'Snowman',c:['christmas','classic'],d:'easy'},{w:'Bubble bath',c:['funny','classic'],d:'easy'},
-    {w:'Elephant',c:['animals'],d:'medium'},{w:'Backpack',c:['classic','objects'],d:'medium'},{w:'Popcorn',c:['classic','food'],d:'medium'},{w:'Library',c:['classic','places'],d:'medium'},{w:'Brushing teeth',c:['classic','actions'],d:'medium'},{w:'Reindeer',c:['christmas','animals'],d:'medium'},{w:'Banana peel',c:['funny','food'],d:'medium'},
-    {w:'Octopus',c:['animals','funny'],d:'hard'},{w:'Typewriter',c:['classic','objects'],d:'hard'},{w:'Sushi roll',c:['classic','food'],d:'hard'},{w:'Amusement park',c:['classic','places','funny'],d:'hard'},{w:'Juggling oranges',c:['actions','funny'],d:'hard'},{w:'Nutcracker',c:['christmas','objects'],d:'hard'},{w:'Moonwalk',c:['funny','actions'],d:'hard'}
+    // easy - classic/objects
+    {w:'Cat',c:['classic','animals'],d:'easy'},{w:'Dog',c:['classic','animals'],d:'easy'},{w:'House',c:['classic','places'],d:'easy'},{w:'Tree',c:['classic'],d:'easy'},{w:'Sun',c:['classic'],d:'easy'},{w:'Fish',c:['classic','animals'],d:'easy'},{w:'Bird',c:['classic','animals'],d:'easy'},{w:'Car',c:['classic','objects'],d:'easy'},{w:'Book',c:['classic','objects'],d:'easy'},{w:'Ball',c:['classic','objects'],d:'easy'},{w:'Hat',c:['classic','objects'],d:'easy'},{w:'Door',c:['classic','objects'],d:'easy'},{w:'Moon',c:['classic'],d:'easy'},{w:'Star',c:['classic'],d:'easy'},{w:'Baby',c:['classic'],d:'easy'},{w:'Rain',c:['classic'],d:'easy'},{w:'Boat',c:['classic'],d:'easy'},{w:'Kite',c:['classic','objects'],d:'easy'},{w:'Tent',c:['classic','objects'],d:'easy'},{w:'Flower',c:['classic'],d:'easy'},{w:'Chair',c:['classic','objects'],d:'easy'},{w:'Table',c:['classic','objects'],d:'easy'},{w:'Umbrella',c:['objects'],d:'easy'},{w:'Pencil',c:['objects'],d:'easy'},{w:'Glasses',c:['objects'],d:'easy'},{w:'Lamp',c:['objects'],d:'easy'},{w:'Spoon',c:['objects'],d:'easy'},{w:'Cup',c:['objects'],d:'easy'},{w:'Sock',c:['objects'],d:'easy'},{w:'Key',c:['objects'],d:'easy'},{w:'Shoe',c:['objects'],d:'easy'},{w:'Clock',c:['classic','objects'],d:'easy'},
+    // easy - food
+    {w:'Pizza',c:['classic','food'],d:'easy'},{w:'Apple',c:['food'],d:'easy'},{w:'Banana',c:['food'],d:'easy'},{w:'Ice cream',c:['food'],d:'easy'},{w:'Bread',c:['food'],d:'easy'},{w:'Cake',c:['food'],d:'easy'},{w:'Egg',c:['food'],d:'easy'},{w:'Cookie',c:['food'],d:'easy'},{w:'Cheese',c:['food'],d:'easy'},{w:'Sandwich',c:['food','classic'],d:'easy'},{w:'Milk',c:['food'],d:'easy'},{w:'Orange',c:['food'],d:'easy'},{w:'Grape',c:['food'],d:'easy'},{w:'Corn',c:['food'],d:'easy'},
+    // easy - actions
+    {w:'Jumping',c:['actions','classic'],d:'easy'},{w:'Running',c:['actions'],d:'easy'},{w:'Swimming',c:['actions'],d:'easy'},{w:'Sleeping',c:['actions'],d:'easy'},{w:'Eating',c:['actions'],d:'easy'},{w:'Crying',c:['actions'],d:'easy'},{w:'Laughing',c:['actions'],d:'easy'},{w:'Dancing',c:['actions'],d:'easy'},{w:'Singing',c:['actions'],d:'easy'},{w:'Waving',c:['actions'],d:'easy'},{w:'Hugging',c:['actions'],d:'easy'},{w:'Clapping',c:['actions'],d:'easy'},{w:'Digging',c:['actions'],d:'easy'},
+    // easy - animals
+    {w:'Elephant',c:['animals'],d:'easy'},{w:'Horse',c:['animals'],d:'easy'},{w:'Cow',c:['animals'],d:'easy'},{w:'Pig',c:['animals'],d:'easy'},{w:'Duck',c:['animals'],d:'easy'},{w:'Frog',c:['animals'],d:'easy'},{w:'Rabbit',c:['animals'],d:'easy'},{w:'Lion',c:['animals'],d:'easy'},{w:'Bear',c:['animals'],d:'easy'},{w:'Monkey',c:['animals'],d:'easy'},{w:'Snake',c:['animals'],d:'easy'},{w:'Turtle',c:['animals'],d:'easy'},{w:'Shark',c:['animals'],d:'easy'},{w:'Bee',c:['animals'],d:'easy'},{w:'Butterfly',c:['animals'],d:'easy'},
+    // easy - places
+    {w:'School',c:['classic','places'],d:'easy'},{w:'Park',c:['places'],d:'easy'},{w:'Beach',c:['places'],d:'easy'},{w:'Zoo',c:['places'],d:'easy'},{w:'Farm',c:['places','animals'],d:'easy'},{w:'Forest',c:['places'],d:'easy'},{w:'River',c:['places'],d:'easy'},{w:'Mountain',c:['places'],d:'easy'},{w:'Castle',c:['places'],d:'easy'},{w:'Library',c:['places'],d:'easy'},
+    // easy - christmas
+    {w:'Snowman',c:['christmas','classic'],d:'easy'},{w:'Christmas tree',c:['christmas'],d:'easy'},{w:'Santa',c:['christmas'],d:'easy'},{w:'Candy cane',c:['christmas','food'],d:'easy'},{w:'Stocking',c:['christmas'],d:'easy'},{w:'Bell',c:['christmas'],d:'easy'},{w:'Present',c:['christmas'],d:'easy'},{w:'Angel',c:['christmas'],d:'easy'},{w:'Mittens',c:['christmas'],d:'easy'},{w:'Snowflake',c:['christmas'],d:'easy'},{w:'Reindeer',c:['christmas','animals'],d:'easy'},
+    // easy - funny
+    {w:'Bubble bath',c:['funny','classic'],d:'easy'},{w:'Clown',c:['funny'],d:'easy'},{w:'Silly face',c:['funny','actions'],d:'easy'},{w:'Sneezing',c:['funny','actions'],d:'easy'},{w:'Hiccup',c:['funny','actions'],d:'easy'},{w:'Burping',c:['funny','actions'],d:'easy'},
+    // medium - classic/objects
+    {w:'Backpack',c:['classic','objects'],d:'medium'},{w:'Popcorn',c:['classic','food'],d:'medium'},{w:'Rainbow',c:['classic'],d:'medium'},{w:'Tornado',c:['classic'],d:'medium'},{w:'Submarine',c:['classic'],d:'medium'},{w:'Volcano',c:['classic','places'],d:'medium'},{w:'Treasure',c:['classic'],d:'medium'},{w:'Bicycle',c:['classic','objects'],d:'medium'},{w:'Parachute',c:['classic'],d:'medium'},{w:'Skateboard',c:['classic','actions'],d:'medium'},{w:'Compass',c:['objects'],d:'medium'},{w:'Magnifying glass',c:['objects'],d:'medium'},{w:'Thermos',c:['objects'],d:'medium'},{w:'Hourglass',c:['objects'],d:'medium'},{w:'Telescope',c:['objects'],d:'medium'},{w:'Binoculars',c:['objects'],d:'medium'},{w:'Stapler',c:['objects'],d:'medium'},{w:'Calculator',c:['objects'],d:'medium'},{w:'Trampoline',c:['objects'],d:'medium'},
+    // medium - food
+    {w:'Sushi',c:['food'],d:'medium'},{w:'Taco',c:['food'],d:'medium'},{w:'Waffle',c:['food'],d:'medium'},{w:'Burrito',c:['food'],d:'medium'},{w:'Pancake',c:['food'],d:'medium'},{w:'Pretzel',c:['food'],d:'medium'},{w:'Smoothie',c:['food'],d:'medium'},{w:'Lasagna',c:['food'],d:'medium'},{w:'Nachos',c:['food'],d:'medium'},{w:'Donut',c:['food'],d:'medium'},{w:'Cheesecake',c:['food'],d:'medium'},{w:'Spaghetti',c:['food'],d:'medium'},{w:'Lollipop',c:['food'],d:'medium'},{w:'Cotton candy',c:['food'],d:'medium'},
+    // medium - actions
+    {w:'Juggling',c:['actions'],d:'medium'},{w:'Surfing',c:['actions'],d:'medium'},{w:'Rock climbing',c:['actions'],d:'medium'},{w:'Gardening',c:['actions'],d:'medium'},{w:'Cooking',c:['actions'],d:'medium'},{w:'Painting',c:['actions'],d:'medium'},{w:'Fishing',c:['actions'],d:'medium'},{w:'Skiing',c:['actions'],d:'medium'},{w:'Yoga',c:['actions'],d:'medium'},{w:'Karate',c:['actions'],d:'medium'},{w:'Photography',c:['actions'],d:'medium'},{w:'Knitting',c:['actions'],d:'medium'},{w:'Texting',c:['actions'],d:'medium'},
+    // medium - animals
+    {w:'Kangaroo',c:['animals'],d:'medium'},{w:'Penguin',c:['animals'],d:'medium'},{w:'Giraffe',c:['animals'],d:'medium'},{w:'Flamingo',c:['animals'],d:'medium'},{w:'Peacock',c:['animals'],d:'medium'},{w:'Porcupine',c:['animals'],d:'medium'},{w:'Armadillo',c:['animals'],d:'medium'},{w:'Cheetah',c:['animals'],d:'medium'},{w:'Gorilla',c:['animals'],d:'medium'},{w:'Jellyfish',c:['animals'],d:'medium'},{w:'Dolphin',c:['animals'],d:'medium'},{w:'Crocodile',c:['animals'],d:'medium'},{w:'Parrot',c:['animals'],d:'medium'},{w:'Hamster',c:['animals'],d:'medium'},
+    // medium - places
+    {w:'Amusement park',c:['classic','places'],d:'medium'},{w:'Lighthouse',c:['classic','places'],d:'medium'},{w:'Waterfall',c:['classic','places'],d:'medium'},{w:'Jungle',c:['places'],d:'medium'},{w:'Cave',c:['places'],d:'medium'},{w:'Stadium',c:['places'],d:'medium'},{w:'Museum',c:['places'],d:'medium'},{w:'Glacier',c:['places'],d:'medium'},{w:'Pyramid',c:['places'],d:'medium'},{w:'Treehouse',c:['places'],d:'medium'},{w:'Haunted house',c:['places','funny'],d:'medium'},
+    // medium - christmas
+    {w:'Gingerbread house',c:['christmas','food'],d:'medium'},{w:'Mistletoe',c:['christmas'],d:'medium'},{w:'Elf',c:['christmas'],d:'medium'},{w:'Hot cocoa',c:['christmas','food'],d:'medium'},{w:'Sleigh',c:['christmas'],d:'medium'},{w:'Wreath',c:['christmas'],d:'medium'},{w:'Snowball fight',c:['christmas','actions'],d:'medium'},{w:'Christmas carol',c:['christmas','actions'],d:'medium'},{w:'Advent calendar',c:['christmas'],d:'medium'},
+    // medium - funny
+    {w:'Banana peel',c:['funny','food'],d:'medium'},{w:'Air guitar',c:['funny','actions'],d:'medium'},{w:'Photobomb',c:['funny'],d:'medium'},{w:'Dad joke',c:['funny'],d:'medium'},{w:'Selfie stick',c:['funny','objects'],d:'medium'},{w:'Flash mob',c:['funny','actions'],d:'medium'},{w:'Chicken dance',c:['funny','actions'],d:'medium'},{w:'Belly flop',c:['funny','actions'],d:'medium'},{w:'Piggyback ride',c:['funny','actions'],d:'medium'},{w:'Ugly sweater',c:['funny','christmas'],d:'medium'},
+    // hard - classic/objects
+    {w:'Typewriter',c:['classic','objects'],d:'hard'},{w:'Photosynthesis',c:['classic'],d:'hard'},{w:'Democracy',c:['classic'],d:'hard'},{w:'Nostalgia',c:['classic'],d:'hard'},{w:'Optical illusion',c:['classic'],d:'hard'},{w:'Traffic jam',c:['classic'],d:'hard'},{w:'Solar system',c:['classic','places'],d:'hard'},{w:'Black hole',c:['classic','places'],d:'hard'},{w:'Gravity',c:['classic'],d:'hard'},{w:'Abacus',c:['objects'],d:'hard'},{w:'Periscope',c:['objects'],d:'hard'},{w:'Metronome',c:['objects'],d:'hard'},{w:'Kaleidoscope',c:['objects'],d:'hard'},{w:'Boomerang',c:['objects'],d:'hard'},{w:'Sundial',c:['objects'],d:'hard'},
+    // hard - food
+    {w:'Sushi roll',c:['classic','food'],d:'hard'},{w:'Fondue',c:['food'],d:'hard'},{w:'Poutine',c:['food'],d:'hard'},{w:'Gazpacho',c:['food'],d:'hard'},{w:'Crème brûlée',c:['food'],d:'hard'},{w:'Bratwurst',c:['food'],d:'hard'},{w:'Tiramisu',c:['food'],d:'hard'},{w:'Borscht',c:['food'],d:'hard'},{w:'Dim sum',c:['food'],d:'hard'},
+    // hard - actions
+    {w:'Moonwalk',c:['funny','actions'],d:'hard'},{w:'Tightrope walking',c:['actions'],d:'hard'},{w:'Ventriloquism',c:['actions'],d:'hard'},{w:'Mime',c:['actions','funny'],d:'hard'},{w:'Synchronized swimming',c:['actions'],d:'hard'},{w:'Yodeling',c:['actions','funny'],d:'hard'},{w:'Parkour',c:['actions'],d:'hard'},{w:'Spelunking',c:['actions'],d:'hard'},{w:'Breakdancing',c:['actions','funny'],d:'hard'},{w:'Juggling oranges',c:['actions','funny'],d:'hard'},
+    // hard - animals
+    {w:'Octopus',c:['animals','funny'],d:'hard'},{w:'Narwhal',c:['animals'],d:'hard'},{w:'Axolotl',c:['animals'],d:'hard'},{w:'Capybara',c:['animals'],d:'hard'},{w:'Quokka',c:['animals'],d:'hard'},{w:'Pangolin',c:['animals'],d:'hard'},{w:'Platypus',c:['animals'],d:'hard'},{w:'Shoebill stork',c:['animals'],d:'hard'},{w:'Blobfish',c:['animals','funny'],d:'hard'},{w:'Mantis shrimp',c:['animals'],d:'hard'},
+    // hard - places
+    {w:'Bermuda Triangle',c:['places'],d:'hard'},{w:'Amazon rainforest',c:['places'],d:'hard'},{w:'Great Barrier Reef',c:['places'],d:'hard'},{w:'Mariana Trench',c:['places'],d:'hard'},{w:'International Space Station',c:['places'],d:'hard'},{w:'Stonehenge',c:['places'],d:'hard'},{w:'Amusement park',c:['classic','places','funny'],d:'hard'},
+    // hard - christmas
+    {w:'Nutcracker',c:['christmas','objects'],d:'hard'},{w:'Figgy pudding',c:['christmas','food'],d:'hard'},{w:'Carolers',c:['christmas','actions'],d:'hard'},{w:'Nativity scene',c:['christmas'],d:'hard'},{w:'Frankincense',c:['christmas'],d:'hard'},
+    // hard - funny
+    {w:'Planking',c:['funny','actions'],d:'hard'},{w:'Dabbing',c:['funny','actions'],d:'hard'},{w:'Rickroll',c:['funny'],d:'hard'},{w:'Photobomb',c:['funny'],d:'hard'},{w:'Dumpster fire',c:['funny'],d:'hard'}
   ];
   let words=[...SEED],picFullLoaded=false,picLoadPromise=null;
   function picLoadFullWords(){
@@ -471,9 +510,9 @@
   function setSeg(control,value){document.querySelectorAll(`[data-control="${control}"] button`).forEach(btn=>btn.classList.toggle('active',btn.dataset.value===String(value)));if(control==='count')picCountInput.value=value}
   function picValidateCount(){const v=parseInt(picCountInput.value);const invalid=isNaN(v)||v<1||v>50;picCountError.style.display=invalid?'block':'none';picCountInput.style.borderColor=invalid?'#E24B4A':'';return !invalid}
   function setCount(value){const next=Math.max(1,Math.min(50,Number(value)||1));state.count=next;picCountInput.style.borderColor='';picCountError.style.display='none';setSeg('count',next)}
-  function filtered(){let list=words.filter(item=>item.d===state.difficulty&&item.c.includes(state.category));if(!list.length&&state.category!=='classic')list=words.filter(item=>item.d===state.difficulty&&item.c.includes('classic'));if(!list.length)list=words.filter(item=>item.d===state.difficulty);return list}
-  function generate(){let pool=filtered().filter(item=>!state.seen.has(item.w));if(pool.length<state.count){state.seen.clear();pool=filtered()}const chosen=[];while(chosen.length<state.count&&pool.length){const idx=Math.floor(Math.random()*pool.length);const item=pool.splice(idx,1)[0];chosen.push(item);state.seen.add(item.w)}state.current=chosen;renderWords()}
-  function renderWords(){grid.innerHTML=state.current.map(item=>{const saved=state.saved.includes(item.w);return `<li class="word-card${state.hidden?' hidden':''}"><div><div class="word-text">${item.w}</div><div class="word-meta">${item.d} · ${item.c[0]}</div></div><button class="save-btn${saved?' saved':''}" type="button" data-save="${item.w}" aria-label="Save ${item.w}">♥</button></li>`}).join('');status.textContent=`${state.current.length} ${state.difficulty} ${state.category} word${state.current.length!==1?'s':''} generated`}
+  function filtered(){if(state.category==='all')return words.filter(item=>item.d===state.difficulty);return words.filter(item=>item.d===state.difficulty&&item.c.includes(state.category))}
+  function generate(){let pool=filtered().filter(item=>!state.seen.has(item.w));if(!pool.length&&state.seen.size){state.seen.clear();pool=filtered()}if(!pool.length){state.current=[];renderWords();return}const chosen=[];while(chosen.length<state.count&&pool.length){const idx=Math.floor(Math.random()*pool.length);const item=pool.splice(idx,1)[0];chosen.push(item);state.seen.add(item.w)}state.current=chosen;renderWords()}
+  function renderWords(){if(!state.current.length){grid.innerHTML='';status.textContent='No words found for this combination';return}grid.innerHTML=state.current.map(item=>{const saved=state.saved.includes(item.w);return `<li class="word-card${state.hidden?' hidden':''}"><div><div class="word-text">${item.w}</div><div class="word-meta">${item.d} · ${item.c[0]}</div></div><button class="save-btn${saved?' saved':''}" type="button" data-save="${item.w}" aria-label="Save ${item.w}">♥</button></li>`}).join('');const catLabel=state.category==='all'?'all categories':state.category;status.textContent=`${state.current.length} ${state.difficulty} ${catLabel} word${state.current.length!==1?'s':''} generated`}
   function renderSaved(){savedCount.textContent=`(${state.saved.length})`;savedList.innerHTML=state.saved.length?state.saved.map(word=>`<span class="saved-pill">${word}<button type="button" data-remove="${word}" aria-label="Remove ${word}">×</button></span>`).join(''):'<span class="empty-text">Save words here before you generate the next round.</span>'}
   function copyText(text,emptyMessage){if(!text){showToast(emptyMessage);return}if(navigator.clipboard)navigator.clipboard.writeText(text).then(()=>showToast('Copied'));else showToast('Copy not available')}
   function setTimer(seconds){state.timer=seconds;state.remaining=seconds;updateTimer()}
@@ -484,7 +523,7 @@
     const segBtn=e.target.closest('[data-control] button');
     if(segBtn){const control=segBtn.closest('[data-control]').dataset.control,value=segBtn.dataset.value;if(control==='count')setCount(value);if(control==='difficulty')state.difficulty=value;if(control==='timer')setTimer(Number(value));if(control!=='count')setSeg(control,value);if(control!=='timer')generate();return}
     const preset=e.target.closest('[data-preset]');
-    if(preset){document.querySelectorAll('[data-preset]').forEach(btn=>btn.classList.remove('active'));preset.classList.add('active');const p=preset.dataset.preset;if(p==='kids'){state.difficulty='easy';state.category='animals'}if(p==='party'){state.difficulty='medium';state.category='funny'}if(p==='christmas'){state.difficulty='medium';state.category='christmas'}if(p==='hard'){state.difficulty='hard';state.category='classic'}if(p==='fun'){state.difficulty='medium';state.category='funny'}$('pic-category').value=state.category;setSeg('difficulty',state.difficulty);generate();return}
+    if(preset){document.querySelectorAll('[data-preset]').forEach(btn=>btn.classList.remove('active'));preset.classList.add('active');const p=preset.dataset.preset;if(p==='kids')state.category='animals';else if(p==='party')state.category='funny';else if(p==='christmas')state.category='christmas';else if(p==='fun')state.category='funny';else if(p==='all')state.category='all';$('pic-category').value=state.category;generate();return}
     const save=e.target.closest('[data-save]');if(save){const word=save.dataset.save;if(state.saved.includes(word))state.saved=state.saved.filter(item=>item!==word);else state.saved.push(word);renderSaved();renderWords();return}
     const remove=e.target.closest('[data-remove]');if(remove){state.saved=state.saved.filter(item=>item!==remove.dataset.remove);renderSaved();renderWords();return}
     const faq=e.target.closest('.faq-q');if(faq)faq.closest('.faq-item').classList.toggle('open');
