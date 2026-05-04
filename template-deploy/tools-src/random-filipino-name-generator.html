@@ -468,6 +468,10 @@ function pfGenerateFn(data) {
   return results;
 }
 
+function pfEsc(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
 function pfRenderItem(item) {
   let savedArr = [];
   try { savedArr = JSON.parse(localStorage.getItem('wnr_saved_filipino_names') || '[]'); } catch {}
@@ -477,9 +481,9 @@ function pfRenderItem(item) {
   const safeClick  = item.display.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
   return '<li class="word-item">'
     + '<div class="word-left">'
-    +   '<div class="word-text">' + item.display + '</div>'
-    +   '<span class="pf-badge pf-badge--' + item.style + '">' + styleLabel + '</span>'
-    +   '<div class="ng-meaning">' + item.meaning + '</div>'
+    +   '<div class="word-text">' + pfEsc(item.display) + '</div>'
+    +   '<span class="pf-badge pf-badge--' + pfEsc(item.style) + '">' + pfEsc(styleLabel) + '</span>'
+    +   '<div class="ng-meaning">' + pfEsc(item.meaning) + '</div>'
     + '</div>'
     + '<div class="word-right">'
     +   '<button class="icon-btn" title="Copy" onclick="pfCopyName(\'' + safeClick + '\',this)">'
@@ -520,6 +524,7 @@ window.pfCopyName = function(name, btn) {
   const pfCountInput = document.getElementById('pf-count');
   const pfCountError = document.getElementById('pf-count-error');
   function pfValidateCount() {
+    if (!pfCountInput || !pfCountError) return true;
     const v = parseInt(pfCountInput.value);
     const invalid = isNaN(v) || v < 1 || v > 50;
     pfCountError.style.display = invalid ? 'block' : 'none';
