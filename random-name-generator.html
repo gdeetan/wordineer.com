@@ -636,7 +636,7 @@ function ngGenerateFn(data, cfg) {
   );
   let lastPool = data.last.filter(n =>
     (origin === 'any' || n.o === origin) &&
-    (!letter || n.n.toUpperCase().startsWith(letter))
+    (type !== 'last' || !letter || n.n.toUpperCase().startsWith(letter))
   );
 
   const sf = ngShuffle(firstPool);
