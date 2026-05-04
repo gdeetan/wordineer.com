@@ -719,15 +719,20 @@ function ngInitNameGenerator(nameData) {
     const invalid = isNaN(v) || v < 1 || v > 50;
     ngCountError.style.display = invalid ? 'block' : 'none';
     ngCountInput.style.borderColor = invalid ? '#E24B4A' : '';
+    return !invalid;
+  }
+  function ngRegenerateFromFilters() {
+    if (!ngValidateCount()) return;
+    document.getElementById('ng-gen-btn')?.click();
   }
   ngCountInput?.addEventListener('input', ngValidateCount);
-  ngCountInput?.addEventListener('change', ngValidateCount);
+  ngCountInput?.addEventListener('change', ngRegenerateFromFilters);
 
   ['ng-gender', 'ng-type', 'ng-origin', 'ng-era', 'ng-letter'].forEach(function(id) {
     const el = document.getElementById(id);
     if (!el) return;
-    el.addEventListener('change', function() { ngScheduleFullNameData(0); });
-    el.addEventListener('input', function() { ngScheduleFullNameData(0); });
+    el.addEventListener('change', ngRegenerateFromFilters);
+    el.addEventListener('input', ngRegenerateFromFilters);
   });
 
   document.getElementById('ng-gen-btn')?.addEventListener('click', function() {
