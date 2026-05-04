@@ -623,7 +623,8 @@ function ngGenerateFn(data, cfg) {
     (!letter || n.n.toUpperCase().startsWith(letter))
   );
   let lastPool = data.last.filter(n =>
-    (origin === 'any' || n.o === origin)
+    (origin === 'any' || n.o === origin) &&
+    (!letter || n.n.toUpperCase().startsWith(letter))
   );
 
   const sf = ngShuffle(firstPool);
