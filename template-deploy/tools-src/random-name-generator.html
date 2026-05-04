@@ -2,12 +2,12 @@
 
 <!-- SLOT:meta -->
 <title>Random Name Generator — Free Names with Meanings | Wordineer</title>
-<meta name="description" content="Generate random names instantly. Filter by gender, origin (20 cultures), era, and first letter. Meanings shown under every result. Perfect for writers, game masters, baby names, and pen names. Free, no sign-up.">
+<meta name="description" content="Generate random names instantly. Filter by gender, origin (32 cultures), era, and first letter. Meanings shown under every result. Perfect for writers, game masters, baby names, and pen names. Free, no sign-up.">
 <link rel="canonical" href="https://wordineer.com/random-name-generator.html">
 <meta property="og:type"        content="website">
 <meta property="og:site_name"   content="Wordineer">
 <meta property="og:title"       content="Random Name Generator | Wordineer">
-<meta property="og:description" content="Generate first names, last names, or full names from 20 world origins. Meanings shown inline. Free, no sign-up.">
+<meta property="og:description" content="Generate first names, last names, or full names from 32 world origins. Meanings shown inline. Free, no sign-up.">
 <meta property="og:url"         content="https://wordineer.com/random-name-generator.html">
 <meta property="og:image"       content="https://wordineer.com/og-image.png">
 <script type="application/ld+json">
@@ -18,7 +18,7 @@
     {
       "@type": "Question",
       "name": "Can I use these names in my book?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. All names generated here are real names drawn from twenty cultural traditions. You can use them freely for fiction, screenplays, game characters, or any creative project. Names themselves are not copyrightable. The meaning shown under each name is a concise cultural gloss — useful for backstory, theme, and character depth." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. All names generated here are real names drawn from 32 cultural traditions. You can use them freely for fiction, screenplays, game characters, or any creative project. Names themselves are not copyrightable. The meaning shown under each name is a concise cultural gloss — useful for backstory, theme, and character depth." }
     },
     {
       "@type": "Question",
@@ -121,7 +121,7 @@
     Free · No sign-up · Instant
   </div>
   <h1>Random name generator</h1>
-  <p>Generate names from 20 world origins — with meanings shown under every result. Filter by gender, era, and first letter. One click, no sign-up.</p>
+  <p>Generate names from 32 world origins — with meanings shown under every result. Filter by gender, era, and first letter. One click, no sign-up.</p>
 </div>
 <!-- /SLOT:hero -->
 
@@ -181,6 +181,18 @@
               <option value="Indian">Indian / Hindi</option>
               <option value="Russian">Russian</option>
               <option value="Hawaiian">Hawaiian</option>
+              <option value="Filipino">Filipino</option>
+              <option value="Vietnamese">Vietnamese</option>
+              <option value="Thai">Thai</option>
+              <option value="Turkish">Turkish</option>
+              <option value="Persian">Persian</option>
+              <option value="Hebrew">Hebrew</option>
+              <option value="Polish">Polish</option>
+              <option value="Czech">Czech</option>
+              <option value="Yoruba">Yoruba</option>
+              <option value="Igbo">Igbo</option>
+              <option value="Swahili">Swahili</option>
+              <option value="Amharic">Amharic</option>
             </select>
           </div>
           <div class="ctrl-row">
@@ -285,6 +297,14 @@
 
   <h2>For teachers: classroom activities and creative writing exercises</h2>
   <p>Teachers can use this tool to seed creative writing prompts without reusing the same handful of placeholder names. Generate a batch of five full names before a lesson and write them on the board — students build characters, stories, or descriptive paragraphs around whoever they pick. The origin and meaning shown under each name naturally spark curiosity about culture and language, turning a creative writing warm-up into a light geography and etymology exercise at the same time.</p>
+
+  <h2>More name generators</h2>
+  <p>Looking for names from a specific country or culture? Explore the name generator cluster:</p>
+  <ul>
+    <li><a href="/random-filipino-name-generator/">Random Filipino name generator</a> — traditional, Spanish-colonial, modern, and nickname styles with meanings</li>
+    <li><a href="/random-american-name-generator/">Random American name generator</a> — first and last names across American naming traditions</li>
+    <li><a href="/random-word-generator/">Random word generator</a> — for vocabulary building, games, and creative prompts</li>
+  </ul>
 </div>
 <!-- /SLOT:explainer -->
 
@@ -294,7 +314,7 @@
   <div class="faq-item open">
     <div class="faq-q"><span class="faq-q-text">Can I use these names in my book?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
     <div class="faq-a">
-      Yes — all names here are real names drawn from twenty cultural traditions. You can use them freely for fiction, screenplays, game characters, or any creative project. Names are not copyrightable. The meaning shown under each result is a concise etymological gloss useful for backstory and theme.
+      Yes — all names here are real names drawn from 32 cultural traditions. You can use them freely for fiction, screenplays, game characters, or any creative project. Names are not copyrightable. The meaning shown under each result is a concise etymological gloss useful for backstory and theme.
       <div class="aff-faq">
         <div class="aff-faq-tag">[AFFILIATE PLACEHOLDER]</div>
         <div class="aff-faq-body">[Describe writing tool here]</div>
@@ -452,32 +472,40 @@ function ngGenerateFn(data, cfg) {
     (!letter || n.n.toUpperCase().startsWith(letter))
   );
   let lastPool = data.last.filter(n =>
-    (origin === 'any' || n.o === origin)
+    (origin === 'any' || n.o === origin) &&
+    (type !== 'last' || !letter || n.n.toUpperCase().startsWith(letter))
   );
-
-  if (!firstPool.length) firstPool = data.first.filter(n =>
-    (gender === 'any' || n.g === gender || n.g === 'u')
-  );
-  if (!firstPool.length) firstPool = [...data.first];
-  if (!lastPool.length)  lastPool  = [...data.last];
 
   const sf = ngShuffle(firstPool);
   const sl = ngShuffle(lastPool);
   const results = [];
+  const seen = new Set();
+  let fi = 0, li = 0;
 
-  for (let i = 0; i < count; i++) {
-    const fn = sf[i % sf.length];
-    const ln = sl[i % sl.length];
+  while (results.length < count) {
+    if (type === 'first' && fi >= sf.length) break;
+    if (type === 'last'  && li >= sl.length) break;
+    if (type === 'full'  && (fi >= sf.length || li >= sl.length)) break;
+
+    const fn = sf[fi];
+    const ln = sl[li];
     let display, meaning, nameOrigin;
 
     if (type === 'first') {
       display = fn.n; meaning = fn.m; nameOrigin = fn.o;
+      fi++;
     } else if (type === 'last') {
       display = ln.n; meaning = ln.m; nameOrigin = ln.o;
+      li++;
     } else {
       display = fn.n + ' ' + ln.n; meaning = fn.m; nameOrigin = fn.o;
+      fi++; li++;
     }
-    results.push({ display, meaning, origin: nameOrigin });
+
+    if (!seen.has(display)) {
+      seen.add(display);
+      results.push({ display, meaning, origin: nameOrigin });
+    }
   }
   return results;
 }
@@ -541,15 +569,26 @@ function ngInitNameGenerator(nameData) {
     const invalid = isNaN(v) || v < 1 || v > 50;
     ngCountError.style.display = invalid ? 'block' : 'none';
     ngCountInput.style.borderColor = invalid ? '#E24B4A' : '';
+    return !invalid;
+  }
+function ngRegenerateFromFilters() {
+    if (!ngValidateCount()) return;
+    if (!ngNameDataIsFull) {
+      ngLoadFullNameData()
+        .then(function() { document.getElementById('ng-gen-btn')?.click(); })
+        .catch(function() { document.getElementById('ng-gen-btn')?.click(); });
+      return;
+    }
+    document.getElementById('ng-gen-btn')?.click();
   }
   ngCountInput?.addEventListener('input', ngValidateCount);
-  ngCountInput?.addEventListener('change', ngValidateCount);
+  ngCountInput?.addEventListener('change', ngRegenerateFromFilters);
 
   ['ng-gender', 'ng-type', 'ng-origin', 'ng-era', 'ng-letter'].forEach(function(id) {
     const el = document.getElementById(id);
     if (!el) return;
-    el.addEventListener('change', function() { ngScheduleFullNameData(0); });
-    el.addEventListener('input', function() { ngScheduleFullNameData(0); });
+    el.addEventListener('change', ngRegenerateFromFilters);
+    el.addEventListener('input', ngRegenerateFromFilters);
   });
 
   document.getElementById('ng-gen-btn')?.addEventListener('click', function() {
