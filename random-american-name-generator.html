@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.adsbygoogle = window.adsbygoogle || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  (function(w, d) {
+    var loaded = false;
+    var cfg = {
+      analyticsId: 'G-7DWH3EGM3Z',
+      adsClient: 'ca-pub-7200956978416233',
+      delay: 10000
+    };
+
+    function loadScript(src, attrs) {
+      var s = d.createElement('script');
+      s.async = true;
+      s.src = src;
+      if (attrs) {
+        Object.keys(attrs).forEach(function(key) {
+          s.setAttribute(key, attrs[key]);
+        });
+      }
+      d.head.appendChild(s);
+    }
+
+    function loadMarketing() {
+      if (loaded) return;
+      loaded = true;
+      gtag('js', new Date());
+      gtag('config', cfg.analyticsId);
+      loadScript('https://www.googletagmanager.com/gtag/js?id=' + cfg.analyticsId);
+      loadScript(
+        'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + cfg.adsClient,
+        { crossorigin: 'anonymous' }
+      );
+    }
+
+    function idleLoad() {
+      if ('requestIdleCallback' in w) {
+        w.requestIdleCallback(loadMarketing, { timeout: 5000 });
+      } else {
+        w.setTimeout(loadMarketing, cfg.delay);
+      }
+    }
+
+    ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function(eventName) {
+      w.addEventListener(eventName, loadMarketing, { once: true, passive: true });
+    });
+    w.addEventListener('load', function() {
+      w.setTimeout(idleLoad, cfg.delay);
+    }, { once: true });
+  })(window, document);
+</script>
+<meta name='impact-site-verification' value='32715504-1cfb-4324-bfc7-ae4cfa1591ea'>
+<link rel="preload" href="/fonts/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-sans-italic-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<title>Random American Name Generator - Realistic US Names | Wordineer</title>
+<meta name="description" content="Generate random American names instantly. Create realistic first names, last names, full names, and middle-name combinations by gender, era, style, and starting letter. Free, no sign-up.">
+<link rel="canonical" href="https://wordineer.com/random-american-name-generator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wordineer">
+<meta property="og:title" content="Random American Name Generator | Wordineer">
+<meta property="og:description" content="Create realistic American names for characters, stories, games, baby name ideas, pen names, and writing prompts. Filter by gender, era, style, and name type.">
+<meta property="og:url" content="https://wordineer.com/random-american-name-generator/">
+<meta property="og:image" content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Are these real people?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. The tool creates fictional combinations from name lists. A generated name may coincidentally match a real person, but the results are not identity records." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use these names in a story or game?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. These names are useful for fictional characters, RPG NPCs, screenplays, short stories, writing exercises, and other creative projects." }
+    },
+    {
+      "@type": "Question",
+      "name": "What makes a name American?",
+      "acceptedAnswer": { "@type": "Answer", "text": "American names often combine first names used in the United States with common surnames from many cultural backgrounds. The result can include English, Spanish, Irish, German, Italian, French, Biblical, modern, and pop culture influences." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I generate old-fashioned American names?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Use the era and style filters to generate classic, vintage, or early twentieth-century name combinations." }
+    },
+    {
+      "@type": "Question",
+      "name": "How is this different from the random name generator?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The random name generator covers many origins and name styles. This page focuses on names that feel natural in an American context." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this tool generate fake identities?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. It only generates names. It does not create addresses, SSNs, phone numbers, passwords, credit card numbers, or other identity details." }
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="/styles/global.css?v=3">
+<style>
+.saved-section { border-top:1px solid var(--border); padding:12px 14px; background:var(--bg-2); }
+.saved-top { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:8px; }
+.saved-label { font-size:12px; font-weight:700; color:var(--text); }
+.saved-copy { border:1px solid var(--border); background:var(--bg); color:var(--brand); border-radius:7px; padding:5px 9px; font-size:11px; font-weight:600; cursor:pointer; }
+.saved-tags { display:flex; gap:5px; flex-wrap:wrap; min-height:22px; }
+.saved-tag { display:inline-flex; align-items:center; gap:4px; background:#F0F2FF; color:var(--brand); border-radius:999px; padding:4px 8px; font-size:11px; font-weight:600; }
+.saved-tag-remove { cursor:pointer; opacity:.65; }
+.saved-empty { color:var(--text-3); font-size:12px; }
+.word-text { font-size:17px; font-weight:600; color:var(--text); line-height:1.25; }
+.ang-note { font-size:12px; color:var(--text-3); margin-top:4px; }
+.ang-chips { display:flex; flex-wrap:wrap; gap:5px; margin-top:6px; }
+.ang-chip { display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; padding:2px 7px; border-radius:999px; background:#EFF6FF; color:#1A56DB; }
+.ang-chip--gender { background:#F0FDF4; color:#15803D; }
+.ang-chip--style { background:#FFF7ED; color:#C2410C; }
+.ang-chip--last { background:#F5F3FF; color:#6D28D9; }
+.ng-mobile-toggle { display:none; width:100%; margin:-2px 0 14px; padding:9px 12px; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--brand); font-size:13px; font-weight:600; font-family:inherit; cursor:pointer; }
+.ng-advanced { display:block; }
+@media(max-width:700px){
+  .tool-wrap { padding:14px 16px 0; }
+  .tool-split { flex-direction:column; }
+  .ctrl { width:100%; border-right:none; border-bottom:1px solid var(--border-2); }
+  .reset-btn, .kbd { display:none; }
+  .word-list { max-height:440px; overflow-y:auto; }
+  .ng-mobile-toggle { display:block; }
+  .ng-advanced { display:none; }
+  .ng-advanced.is-open { display:block; }
+  .hero { padding:12px 16px 12px; }
+  .hero-badge { margin-bottom:6px; }
+  .hero h1 { font-size:24px; }
+}
+</style>
+</head>
+
+<body>
+<nav class="nav">
+  <a class="nav-logo" href="/">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 15 15" fill="none"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </div>
+    Wordineer
+  </a>
+  <div class="nav-links">
+    <a href="/tools.html">Tools</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/api.html">API</a>
+  </div>
+  <div>
+    <button class="hamburger" type="button" aria-label="All tools" aria-controls="mega" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mega" id="mega">
+  <div class="mega-inner">
+    <div class="mega-col">
+      <div class="mega-cat">Word tools</div>
+      <a class="mega-link" href="/random-sentence-generator/">Random sentence</a>
+      <a class="mega-link" href="/random-letter-generator/">Random letter</a>
+      <a class="mega-link" href="/word-scramble/">Word Scramble</a>
+      <a class="mega-link" href="/word-unscramble/">Word Unscramble</a>
+      <a class="mega-link" href="/word-of-the-day/">Word of the day</a>
+      <a class="mega-link" href="/passphrase-generator/">Passphrase gen</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Name generators</div>
+      <a class="mega-link" href="/index.html">Random word generator</a>
+      <a class="mega-link" href="/random-name-generator/">Random name</a>
+      <a class="mega-link active" href="/random-american-name-generator/">American names</a>
+      <a class="mega-link" href="/random-filipino-name-generator/">Filipino names</a>
+      <a class="mega-link" href="/username-generator/">Username generator</a>
+      <a class="mega-link" href="/fantasy-name-generator/">Fantasy name gen</a>
+      <a class="mega-link" href="/baby-name-finder/">Baby name finder</a>
+      <a class="mega-link" href="/pet-name-generator/">Pet name gen</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Number &amp; chance</div>
+      <a class="mega-link" href="/random-number-generator/">Random number</a>
+      <a class="mega-link" href="/dice-roller/">Dice roller</a>
+      <a class="mega-link" href="/coin-flip/">Coin flip</a>
+      <a class="mega-link" href="/lucky-number/">Lucky number</a>
+      <a class="mega-link" href="/list-shuffler/">List shuffler</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Games &amp; fun</div>
+      <a class="mega-link" href="/pictionary-word-generator/">Pictionary words</a>
+      <a class="mega-link" href="/charades-generator/">Charades gen</a>
+      <a class="mega-link" href="/truth-or-dare/">Truth or dare</a>
+      <a class="mega-link" href="/would-you-rather/">Would you rather</a>
+      <a class="mega-link" href="/story-prompts/">Story prompts</a>
+    </div>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free &middot; No sign-up &middot; Instant
+  </div>
+  <h1>Random American name generator</h1>
+  <p>Generate realistic American first names, last names, full names, and middle-name combinations. Filter by gender, era, style, surname background, and starting letter.</p>
+</div>
+<div class="tool-wrap">
+  <div class="tool-card">
+    <div class="tool-split">
+      <div class="ctrl">
+        <div class="ctrl-row">
+          <label class="ctrl-label" for="ang-count">Number of names</label>
+          <input type="number" id="ang-count" value="10" min="1" max="50" inputmode="numeric">
+          <span class="ang-count-error" id="ang-count-error" style="display:none;font-size:11px;color:#E24B4A;margin-top:4px;">Enter a number from 1 to 50</span>
+        </div>
+
+        <button type="button" class="ng-mobile-toggle" id="ang-mobile-toggle" aria-expanded="false" aria-controls="ang-advanced">More options</button>
+
+        <div class="ng-advanced" id="ang-advanced">
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="ang-gender">Gender</label>
+            <select id="ang-gender">
+              <option value="any">Any</option>
+              <option value="f">Female</option>
+              <option value="m">Male</option>
+              <option value="u">Neutral</option>
+            </select>
+          </div>
+
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="ang-type">Name type</label>
+            <select id="ang-type">
+              <option value="full">Full name</option>
+              <option value="first">First name</option>
+              <option value="last">Last name</option>
+              <option value="middle-full">First + middle + last</option>
+            </select>
+          </div>
+
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="ang-era">Era</label>
+            <select id="ang-era">
+              <option value="any">Any era</option>
+              <option value="modern">Modern</option>
+              <option value="2000s">2000s</option>
+              <option value="1990s">1990s</option>
+              <option value="1980s">1980s</option>
+              <option value="1970s">1970s</option>
+              <option value="1950s">1950s</option>
+              <option value="early-1900s">Early 1900s</option>
+            </select>
+          </div>
+
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="ang-style">Style</label>
+            <select id="ang-style">
+              <option value="any">Any style</option>
+              <option value="common">Common</option>
+              <option value="classic">Classic</option>
+              <option value="modern">Modern</option>
+              <option value="old-fashioned">Old-fashioned</option>
+              <option value="southern">Southern</option>
+              <option value="unisex">Unisex</option>
+            </select>
+          </div>
+
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="ang-last-style">Last name background</label>
+            <select id="ang-last-style">
+              <option value="any">Any background</option>
+              <option value="common-us">Common US</option>
+              <option value="english">English / European</option>
+              <option value="hispanic">Hispanic American</option>
+              <option value="irish-scottish">Irish / Scottish</option>
+              <option value="german">German</option>
+              <option value="italian">Italian</option>
+              <option value="french">French</option>
+              <option value="multicultural">Multicultural</option>
+            </select>
+          </div>
+
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="ang-letter">Starts with</label>
+            <select id="ang-letter">
+              <option value="any">Any letter</option>
+              <option value="a">A</option><option value="b">B</option><option value="c">C</option><option value="d">D</option>
+              <option value="e">E</option><option value="f">F</option><option value="g">G</option><option value="h">H</option>
+              <option value="i">I</option><option value="j">J</option><option value="k">K</option><option value="l">L</option>
+              <option value="m">M</option><option value="n">N</option><option value="o">O</option><option value="p">P</option>
+              <option value="q">Q</option><option value="r">R</option><option value="s">S</option><option value="t">T</option>
+              <option value="u">U</option><option value="v">V</option><option value="w">W</option><option value="x">X</option>
+              <option value="y">Y</option><option value="z">Z</option>
+            </select>
+          </div>
+        </div>
+
+        <button class="gen-btn" id="ang-gen-btn">Generate names</button>
+        <button class="reset-btn" id="ang-reset-btn">Reset options</button>
+        <div class="kbd">Press <kbd>Space</kbd> to regenerate</div>
+      </div>
+
+      <div class="words-panel">
+        <div class="words-top">
+          <span class="words-count" id="ang-count-display">Generating...</span>
+          <div class="words-actions">
+            <button class="act-btn" id="ang-copy-all-btn">Copy all</button>
+          </div>
+        </div>
+        <ul class="word-list" id="ang-list"></ul>
+      </div>
+    </div>
+
+    <div class="saved-section">
+      <div class="saved-top">
+        <span class="saved-label">Saved names</span>
+        <button class="saved-copy" id="ang-copy-saved-btn">Copy saved</button>
+      </div>
+      <div class="saved-tags" id="ang-saved-tags">
+        <span class="saved-empty">Click the heart on any name to save it here</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="content-wrap">
+  <div class="section">
+    <h2 class="section-title">More word tools</h2>
+    <p class="section-sub">Every word generator you need, all free</p>
+    <div class="tools-grid">
+      <a class="tool-item" href="/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="#534AB7" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="tool-name">Random word</div><div class="tool-desc">Filter by type, difficulty, length</div></a>
+      <a class="tool-item" href="/pictionary-topic-generator/"><div class="tool-icon" style="background:#EEF6E8"><svg viewBox="0 0 13 13" fill="none"><path d="M2 2.5h9v6H6.5L3.5 11V8.5H2z" stroke="#2F6B1F" stroke-width="1.1" stroke-linejoin="round"/><path d="M8.5 4l.4.8.9.1-.7.6.2.9-.8-.4-.8.4.2-.9-.7-.6.9-.1z" fill="#2F6B1F"/></svg></div><div class="tool-name">Pictionary topic generator</div><div class="tool-desc">Get drawing themes and game categories</div></a>
+      <a class="tool-item" href="/random-sentence-generator/"><div class="tool-icon" style="background:#E1F5EE"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 3h10M1.5 6.5h7M1.5 10h5" stroke="#0F6E56" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="tool-name">Random sentence</div><div class="tool-desc">Writing prompts &amp; starters</div></a>
+      <a class="tool-item" href="/pictionary-phrase-generator/"><div class="tool-icon" style="background:#FAEEDA"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3h9M2 6.5h7M2 10h5" stroke="#854F0B" stroke-width="1.2" stroke-linecap="round"/><path d="M9.5 8.2l1.2 1.2 1.8-2.3" stroke="#854F0B" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="tool-name">Pictionary phrase generator</div><div class="tool-desc">Generate short phrases for harder rounds</div></a>
+      <a class="tool-item" href="/random-filipino-name-generator/"><div class="tool-icon" style="background:#F5E6E6"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4" r="2.2" stroke="#C0392B" stroke-width="1.1"/><path d="M1.5 11.5c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="#C0392B" stroke-width="1.1" stroke-linecap="round"/></svg></div><div class="tool-name">Random Filipino name <span class="new-badge">new</span></div><div class="tool-desc">Filipino names with meanings — traditional, Spanish-colonial, modern, and nickname styles.</div></a>
+      <a class="tool-item" href="/word-of-the-day/"><div class="tool-icon" style="background:#EAF3DE"><svg viewBox="0 0 13 13" fill="none"><path d="M6.5 1v11M1 6.5h11" stroke="#3B6D11" stroke-width="1.4" stroke-linecap="round"/></svg></div><div class="tool-name">Word of the day</div><div class="tool-desc">Daily vocabulary builder</div></a>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div>
+    <h2 class="section-title">Other tools</h2>
+    <p class="section-sub">Numbers, names, games and more</p>
+    <div class="other-grid">
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="1" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="1" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/></svg>Number &amp; chance</div><a class="other-link" href="/random-number-generator/">Random number generator</a><a class="other-link" href="/dice-roller/">Dice roller — 4,6,8,12,20 sided</a><a class="other-link" href="/coin-flip/">Coin flip simulator</a><a class="other-link" href="/lucky-number/">Lucky number picker</a><a class="other-link" href="/list-shuffler/">Random list shuffler</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4.5" r="2.5" stroke="currentColor" stroke-width="1"/><path d="M1.5 11.5c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Name generators</div><a class="other-link" href="/fantasy-name-generator/">Fantasy character name gen</a><a class="other-link" href="/username-generator/">Username generator</a><a class="other-link" href="/baby-name-finder/">Baby name finder</a><a class="other-link" href="/pet-name-generator/">Pet name generator</a><a class="other-link" href="/band-name-generator/">Band / team name gen</a><a class="other-link" href="/random-american-name-generator/">Random American name generator</a><a class="other-link" href="/random-filipino-name-generator/">Random Filipino name generator</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3h9M2 6.5h7M2 10h5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Text &amp; writing</div><a class="other-link" href="/lorem-ipsum/">Lorem ipsum generator</a><a class="other-link" href="/password-generator/">Password generator</a><a class="other-link" href="/acronym-maker/">Acronym maker</a><a class="other-link" href="/random-quote/">Random quote generator</a><a class="other-link" href="/story-prompts/">Story prompt generator</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M6.5 1.5l1.3 3h3.2l-2.6 2 1 3-2.9-1.8-2.9 1.8 1-3-2.6-2h3.2z" stroke="currentColor" stroke-width="1" stroke-linejoin="round"/></svg>Games &amp; fun</div><a class="other-link" href="/pictionary-word-generator/">Pictionary word generator</a><a class="other-link" href="/charades-generator/">Charades generator</a><a class="other-link" href="/truth-or-dare/">Truth or dare gen</a><a class="other-link" href="/would-you-rather/">Would you rather</a><a class="other-link" href="/trivia-questions/">Trivia question gen</a></div>
+    </div>
+  </div>
+
+  <div class="ad-rect">
+    <span class="ad-tag">Advertisement · 336×280</span>
+    <div class="ad-rect-img"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4C10.3 4 4 10.3 4 18s6.3 14 14 14 14-6.3 14-14S25.7 4 18 4z" fill="white" opacity=".2"/><path d="M12 18c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="18" r="2.5" fill="white"/></svg></div>
+    <div class="ad-rect-content">
+      <div class="ad-rect-title">Grammarly — write with confidence</div>
+      <div class="ad-rect-body">Instantly improve grammar, spelling, clarity, and tone. Works everywhere you write online.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
+    </div>
+  </div>
+  <div class="divider"></div>
+
+<div class="explainer">
+  <h2>What is a random American name generator?</h2>
+  <p>A random American name generator creates name combinations that sound natural in the United States. Instead of building names from random letters, it uses familiar American first names, middle names, and surnames to produce believable results for characters, writing prompts, role-playing games, and brainstorming.</p>
+  <p>This page is more focused than a broad <a href="/random-name-generator.html">random name generator</a>. It is designed for names that feel American in spelling, rhythm, and surname pairing, while still reflecting the mix of naming influences used across the United States.</p>
+
+  <h2>How it works</h2>
+  <p>Choose how many names you want, select a gender or neutral mix, pick a name type, and optionally filter by era, style, surname background, or first letter. The tool combines first names, middle names, and surnames from American name lists to create realistic results.</p>
+  <p>You can copy a single name, copy the full list, or save favorites while you compare options.</p>
+
+  <h2>American name styles</h2>
+  <p>American names come from many sources, including English, Spanish, Irish, German, Italian, French, Biblical, modern, and pop culture naming patterns. That mix is why names like James Miller, Sophia Garcia, Madison Brooks, and Elijah Johnson can all feel American in different ways.</p>
+
+  <h2>Ways to use the tool</h2>
+  <p>Use the generator for fictional characters, tabletop game NPCs, baby name brainstorming, pen names, online aliases, classroom writing prompts, design mockups, and sample content.</p>
+
+  <h2>Related name generators</h2>
+  <p>Need a different style of name? Try the <a href="/random-name-generator.html">random name generator</a> for mixed origins, the <a href="/random-filipino-name-generator/">random Filipino name generator</a> for Filipino names, or the random British name generator when that page is available.</p>
+</div>
+  <div class="divider"></div>
+
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">Are these real people?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">No. The tool creates fictional combinations from name lists. A generated name may coincidentally match a real person, but the results are not identity records.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I use these names in a story or game?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes. These names are useful for fictional characters, RPG NPCs, screenplays, short stories, writing exercises, and other creative projects.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What makes a name American?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">American names often combine first names used in the United States with common surnames from many cultural backgrounds. The result can include English, Spanish, Irish, German, Italian, French, Biblical, modern, and pop culture influences.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I generate old-fashioned American names?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes. Use the era and style filters to generate classic, vintage, or early twentieth-century name combinations.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">How is this different from the random name generator?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">The random name generator covers many origins and name styles. This page focuses on names that feel natural in an American context.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Does this tool generate fake identities?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">No. It only generates names. It does not create addresses, SSNs, phone numbers, passwords, credit card numbers, or other identity details.</div>
+  </div>
+</div>
+  <div class="divider"></div>
+
+<div>
+  <h2 class="section-title" style="margin-bottom:14px">Who uses this tool</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">Writers</div><div class="uc-body">Create believable American character names for novels, scripts, short stories, and serial fiction.</div></div>
+    <div class="uc"><div class="uc-title">Game masters</div><div class="uc-body">Generate NPC names quickly for tabletop campaigns, role-playing games, and worldbuilding notes.</div></div>
+    <div class="uc"><div class="uc-title">Teachers</div><div class="uc-body">Make sample names for classroom prompts, worksheets, creative writing activities, and examples.</div></div>
+    <div class="uc"><div class="uc-title">Name brainstormers</div><div class="uc-body">Explore first names, middle names, surnames, and full-name combinations in one place.</div></div>
+  </div>
+</div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="ad-footer-strip" style="margin-bottom:24px">
+      <span class="ad-tag">Advertisement · 468×60</span>
+      <div class="ad-fs-text"><strong>Grammarly Premium</strong> — Vocabulary suggestions, tone detector, full-sentence rewrites.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-footer-strip-cta">Try free</a>
+    </div>
+    <div class="footer-grid">
+      <div><div class="footer-col-title">Word tools</div><a class="footer-link" href="/">Random word generator</a><a class="footer-link" href="/random-sentence-generator/">Random sentence</a><a class="footer-link" href="/random-letter-generator/">Random letter</a><a class="footer-link" href="/word-scramble/">Word Scramble</a><a class="footer-link" href="/word-of-the-day/">Word of the day</a><a class="footer-link" href="/passphrase-generator/">Passphrase gen</a></div>
+      <div><div class="footer-col-title">Name generators</div><a class="footer-link" href="/random-name-generator/">Random name gen</a><a class="footer-link" href="/username-generator/">Username generator</a><a class="footer-link" href="/fantasy-name-generator/">Fantasy name gen</a><a class="footer-link" href="/baby-name-finder/">Baby name finder</a><a class="footer-link" href="/pet-name-generator/">Pet name gen</a><a class="footer-link" href="/random-american-name-generator/">American name gen</a><a class="footer-link" href="/random-filipino-name-generator/">Filipino name gen</a></div>
+      <div><div class="footer-col-title">Number &amp; chance</div><a class="footer-link" href="/random-number-generator/">Random number</a><a class="footer-link" href="/dice-roller/">Dice roller</a><a class="footer-link" href="/coin-flip/">Coin flip</a><a class="footer-link" href="/lucky-number/">Lucky number</a><a class="footer-link" href="/list-shuffler/">List shuffler</a></div>
+      <div><div class="footer-col-title">Games &amp; fun</div><a class="footer-link" href="/pictionary-word-generator/">Pictionary words</a><a class="footer-link" href="/charades-generator/">Charades gen</a><a class="footer-link" href="/truth-or-dare/">Truth or dare</a><a class="footer-link" href="/would-you-rather/">Would you rather</a><a class="footer-link" href="/story-prompts/">Story prompts</a></div>
+    </div>
+    <div class="footer-bottom">
+      <div style="display:flex;align-items:center;gap:7px">
+        <div class="nav-logo-icon" style="width:22px;height:22px;border-radius:5px"><svg viewBox="0 0 15 15" fill="none" style="width:12px;height:12px"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <span style="font-size:14px;font-weight:600;color:var(--text)">Wordineer</span>
+      </div>
+      <span class="footer-copy">© 2026 Wordineer · Free word tools for everyone</span>
+      <div class="footer-meta"><a href="/about.html">About</a><a href="/blog.html">Blog</a><a href="/api.html">API docs</a><a href="/affiliate-disclosure.html">Affiliate disclosure</a><a href="/privacy.html">Privacy</a></div>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="/scripts/tool-engine.js?v=7"></script>
+
+<script>
+const ANG_LABELS = {
+  gender: { m: 'male', f: 'female', u: 'neutral' },
+  style: {
+    common: 'common',
+    classic: 'classic',
+    modern: 'modern',
+    'old-fashioned': 'old-fashioned',
+    southern: 'southern',
+    unisex: 'unisex'
+  },
+  last: {
+    'common-us': 'common US surname',
+    english: 'English / European surname',
+    hispanic: 'Hispanic American surname',
+    'irish-scottish': 'Irish / Scottish surname',
+    german: 'German surname',
+    italian: 'Italian surname',
+    french: 'French surname',
+    multicultural: 'multicultural surname'
+  }
+};
+
+const FALLBACK_AMERICAN_NAMES = {
+  first: [
+    ["James","m",["classic","common"],["all","1950s","1970s","1980s","1990s","2000s","modern"],"classic American male first name"],
+    ["Olivia","f",["modern","common"],["2000s","modern"],"popular modern American female name"],
+    ["Taylor","u",["modern","unisex"],["1980s","1990s","2000s","modern"],"common unisex first name"],
+    ["John","m",["classic","common"],["all","1950s","1970s"],"familiar American male first name"],
+    ["Mary","f",["classic","common"],["all","early-1900s","1950s"],"classic American female first name"],
+    ["Avery","u",["modern","unisex"],["2000s","modern"],"modern unisex first name"]
+  ],
+  middle: [
+    ["Lee","u",["classic","southern"],["all"],"common American middle name"],
+    ["Anne","f",["classic"],["all"],"traditional female middle name"],
+    ["James","m",["classic"],["all"],"traditional male middle name"],
+    ["Grace","f",["classic","modern"],["all","modern"],"common female middle name"]
+  ],
+  last: [
+    ["Smith",["common-us","english"],"common American surname"],
+    ["Johnson",["common-us","english"],"common American surname"],
+    ["Garcia",["common-us","hispanic"],"common Hispanic American surname"],
+    ["Murphy",["irish-scottish"],"Irish-origin surname common in the US"],
+    ["Miller",["common-us","german","english"],"common American surname"],
+    ["Nguyen",["multicultural"],"common Vietnamese American surname"]
+  ]
+};
+
+function angMapData(raw) {
+  return {
+    first: (raw.first || []).map(function(n) { return { n: n[0], g: n[1], styles: n[2] || [], eras: n[3] || [], note: n[4] || '' }; }),
+    middle: (raw.middle || []).map(function(n) { return { n: n[0], g: n[1], styles: n[2] || [], eras: n[3] || [], note: n[4] || '' }; }),
+    last: (raw.last || []).map(function(n) { return { n: n[0], styles: n[1] || [], note: n[2] || '' }; })
+  };
+}
+
+const angActiveData = angMapData(FALLBACK_AMERICAN_NAMES);
+let angDataIsFull = false;
+let angDataPromise = null;
+let angRenderedFallback = false;
+
+async function angLoadFullData() {
+  if (angDataPromise) return angDataPromise;
+  angDataPromise = (async function() {
+    try {
+      const res = await fetch('/data/american-names.json', { cache: 'force-cache' });
+      if (!res.ok) throw new Error(res.status);
+      const raw = await res.json();
+      if (!Array.isArray(raw.first) || !Array.isArray(raw.middle) || !Array.isArray(raw.last)) throw new Error('Invalid data');
+      const data = angMapData(raw);
+      angActiveData.first = data.first;
+      angActiveData.middle = data.middle;
+      angActiveData.last = data.last;
+      angDataIsFull = true;
+      if (angRenderedFallback) document.getElementById('ang-gen-btn')?.click();
+    } catch (err) {
+      if (!angDataIsFull) WORDINEER.showToast('Using starter names while the full list loads.');
+      angDataPromise = null;
+    }
+  })();
+  return angDataPromise;
+}
+
+function angScheduleData() {
+  if (!angDataIsFull) angLoadFullData();
+}
+
+function angShuffle(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const tmp = a[i];
+    a[i] = a[j];
+    a[j] = tmp;
+  }
+  return a;
+}
+
+function angFilterFirstLike(rows, gender, era, style, letter) {
+  let out = rows.slice();
+  if (gender !== 'any') out = out.filter(function(row) { return row.g === gender; });
+  if (era !== 'any') out = out.filter(function(row) { return row.eras.includes(era) || row.eras.includes('all'); });
+  if (style !== 'any') out = out.filter(function(row) { return row.styles.includes(style); });
+  if (letter !== 'any') out = out.filter(function(row) { return row.n.toLowerCase().startsWith(letter); });
+  return out;
+}
+
+function angBroadenFirstLike(rows, gender, era, style, letter) {
+  let out = angFilterFirstLike(rows, gender, era, style, letter);
+  if (out.length) return out;
+  out = angFilterFirstLike(rows, gender, era, 'any', letter);
+  if (out.length) return out;
+  out = angFilterFirstLike(rows, gender, 'any', 'any', letter);
+  if (out.length) return out;
+  out = rows.filter(function(row) { return gender === 'any' || row.g === gender; });
+  if (out.length) return out;
+  return rows.slice();
+}
+
+function angFilterLast(rows, lastStyle) {
+  if (lastStyle === 'any') return rows.slice();
+  const out = rows.filter(function(row) { return row.styles.includes(lastStyle); });
+  return out.length ? out : rows.slice();
+}
+
+function angPick(arr, index) {
+  return arr[index % arr.length];
+}
+
+function angTitleForType(type) {
+  if (type === 'first') return 'American first name';
+  if (type === 'last') return 'American surname';
+  if (type === 'middle-full') return 'American first, middle, and last name';
+  return 'American full name';
+}
+
+function angGenerateFn(data) {
+  angRenderedFallback = !angDataIsFull;
+  const raw = parseInt(document.getElementById('ang-count')?.value, 10);
+  if (isNaN(raw) || raw < 1 || raw > 50) return [];
+
+  const count = raw;
+  const gender = document.getElementById('ang-gender')?.value || 'any';
+  const type = document.getElementById('ang-type')?.value || 'full';
+  const era = document.getElementById('ang-era')?.value || 'any';
+  const style = document.getElementById('ang-style')?.value || 'any';
+  const lastStyle = document.getElementById('ang-last-style')?.value || 'any';
+  const letter = document.getElementById('ang-letter')?.value || 'any';
+
+  const firstPool = angShuffle(angBroadenFirstLike(data.first, gender, era, style, letter));
+  const middlePool = angShuffle(angBroadenFirstLike(data.middle, gender, era, style, 'any'));
+  const lastPool = angShuffle(angFilterLast(data.last, lastStyle));
+  const results = [];
+  const seen = new Set();
+  let i = 0;
+
+  while (results.length < count && i < count * 12) {
+    const first = angPick(firstPool, i);
+    const middle = angPick(middlePool, i + 3);
+    const last = angPick(lastPool, i + 7);
+    let display = first.n + ' ' + last.n;
+    let note = angTitleForType(type);
+    let chips = [];
+
+    if (type === 'first') {
+      display = first.n;
+      note = first.note || note;
+      chips = [ANG_LABELS.gender[first.g] || first.g].concat(first.styles.slice(0, 2));
+    } else if (type === 'last') {
+      display = last.n;
+      note = last.note || note;
+      chips = last.styles.slice(0, 2).map(function(s) { return ANG_LABELS.last[s] || s; });
+    } else if (type === 'middle-full') {
+      display = first.n + ' ' + middle.n + ' ' + last.n;
+      chips = [ANG_LABELS.gender[first.g] || first.g, first.styles[0] || 'American', ANG_LABELS.last[last.styles[0]] || 'surname'];
+    } else {
+      chips = [ANG_LABELS.gender[first.g] || first.g, first.styles[0] || 'American', ANG_LABELS.last[last.styles[0]] || 'surname'];
+    }
+
+    if (!seen.has(display)) {
+      seen.add(display);
+      results.push({ display: display, note: note, chips: chips });
+    }
+    i++;
+  }
+
+  return results;
+}
+
+function angEsc(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function angRenderItem(item) {
+  let savedArr = [];
+  try { savedArr = JSON.parse(localStorage.getItem('wnr_saved_american_names') || '[]'); } catch {}
+  const isSaved = savedArr.includes(item.display);
+  const safeAttr = item.display.replace(/"/g, '&quot;');
+  const safeClick = item.display.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+  const chipHtml = (item.chips || []).filter(Boolean).slice(0, 3).map(function(chip, idx) {
+    const kind = idx === 0 ? 'gender' : (idx === 1 ? 'style' : 'last');
+    return '<span class="ang-chip ang-chip--' + kind + '">' + angEsc(chip) + '</span>';
+  }).join('');
+  return ''
+    + '<li class="word-card" data-name="' + safeAttr + '">'
+    +   '<div class="word-main">'
+    +     '<div class="word-text">' + angEsc(item.display) + '</div>'
+    +     '<div class="ang-note">' + angEsc(item.note) + '</div>'
+    +     '<div class="ang-chips">' + chipHtml + '</div>'
+    +   '</div>'
+    +   '<div class="word-right">'
+    +     '<button class="icon-btn" title="Copy" onclick="angCopyName(\'' + safeClick + '\',this)">'
+    +       '<svg viewBox="0 0 14 14" fill="none"><rect x="1" y="4" width="9" height="9.5" rx="1.5" stroke="currentColor" stroke-width="1.1"/><path d="M4.5 4V2.5A1.5 1.5 0 016 1h5.5A1.5 1.5 0 0113 2.5v7a1.5 1.5 0 01-1.5 1.5H10" stroke="currentColor" stroke-width="1.1"/></svg>'
+    +     '</button>'
+    +     '<button class="icon-btn' + (isSaved ? ' saved' : '') + '" title="' + (isSaved ? 'Unsave' : 'Save') + '" data-action="save" data-name="' + safeAttr + '">'
+    +       '<svg viewBox="0 0 16 16" fill="none"><path d="M8 13.5S2 9.5 2 5.5A3 3 0 018 4a3 3 0 016 1.5c0 4-6 8-6 8z" stroke="currentColor" stroke-width="1.3" fill="' + (isSaved ? '#E24B4A' : 'none') + '" stroke-linecap="round"/></svg>'
+    +     '</button>'
+    +   '</div>'
+    + '</li>';
+}
+
+window.angCopyName = function(name, btn) {
+  navigator.clipboard?.writeText(name);
+  const orig = btn.innerHTML;
+  btn.innerHTML = '<svg viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5 6.5-6.5" stroke="#1D9E75" stroke-width="1.3" stroke-linecap="round"/></svg>';
+  setTimeout(function() { btn.innerHTML = orig; }, 900);
+  WORDINEER.showToast('Copied: ' + name);
+};
+
+(function() {
+  WORDINEER.init({
+    mode:           'custom',
+    data:           angActiveData,
+    renderItem:     angRenderItem,
+    generateFn:     angGenerateFn,
+    listId:         'ang-list',
+    countDisplayId: 'ang-count-display',
+    generateBtnId:  'ang-gen-btn',
+    copyAllBtnId:   'ang-copy-all-btn',
+    savedKey:       'wnr_saved_american_names',
+    savedListId:    'ang-saved-tags'
+  });
+
+  angScheduleData();
+
+  const countInput = document.getElementById('ang-count');
+  const countError = document.getElementById('ang-count-error');
+  function angValidateCount() {
+    if (!countInput || !countError) return true;
+    const v = parseInt(countInput.value, 10);
+    const ok = !isNaN(v) && v >= 1 && v <= 50;
+    countError.style.display = ok ? 'none' : 'block';
+    countInput.classList.toggle('input-error', !ok);
+    return ok;
+  }
+
+  countInput?.addEventListener('input', angValidateCount);
+  ['ang-gender','ang-type','ang-era','ang-style','ang-last-style','ang-letter'].forEach(function(id) {
+    document.getElementById(id)?.addEventListener('change', function() {
+      angScheduleData();
+      if (angValidateCount()) document.getElementById('ang-gen-btn')?.click();
+    });
+  });
+
+  document.getElementById('ang-gen-btn')?.addEventListener('click', function(e) {
+    angScheduleData();
+    if (!angValidateCount()) {
+      e.stopImmediatePropagation();
+      return false;
+    }
+  }, true);
+
+  document.addEventListener('keydown', function(e) {
+    if ((e.code === 'Space' || e.code === 'Enter') && !['INPUT','SELECT','TEXTAREA','BUTTON'].includes(e.target.tagName)) {
+      angScheduleData();
+    }
+  }, true);
+
+  document.getElementById('ang-reset-btn')?.addEventListener('click', function() {
+    angScheduleData();
+    document.getElementById('ang-count').value = '10';
+    angValidateCount();
+    document.getElementById('ang-gender').value = 'any';
+    document.getElementById('ang-type').value = 'full';
+    document.getElementById('ang-era').value = 'any';
+    document.getElementById('ang-style').value = 'any';
+    document.getElementById('ang-last-style').value = 'any';
+    document.getElementById('ang-letter').value = 'any';
+    document.getElementById('ang-gen-btn').click();
+  });
+
+  document.getElementById('ang-copy-saved-btn')?.addEventListener('click', function() {
+    const tags = document.querySelectorAll('#ang-saved-tags .saved-tag');
+    if (!tags.length) return;
+    const names = Array.from(tags).map(function(t) { return t.textContent.replace(/\u00d7/g,'').trim(); }).filter(Boolean);
+    navigator.clipboard?.writeText(names.join('\n'));
+    WORDINEER.showToast('Saved names copied!');
+  });
+
+  const toggle = document.getElementById('ang-mobile-toggle');
+  const advanced = document.getElementById('ang-advanced');
+  if (toggle && advanced) {
+    toggle.addEventListener('click', function() {
+      const isOpen = advanced.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      toggle.textContent = isOpen ? 'Hide options' : 'More options';
+    });
+  }
+})();
+
+(function bindWordineerMenu(){
+  const mega = document.getElementById("mega");
+  const hbg = document.querySelector(".hamburger");
+  if (!mega || !hbg) return;
+  hbg.onclick = null;
+  hbg.removeAttribute("onclick");
+  hbg.setAttribute("role","button");
+  hbg.setAttribute("tabindex","0");
+  hbg.setAttribute("aria-controls","mega");
+  hbg.setAttribute("aria-expanded",mega.classList.contains("open")?"true":"false");
+  function setMenu(open){ mega.classList.toggle("open",open); hbg.setAttribute("aria-expanded",open?"true":"false"); }
+  function toggleMenu(e){ e.preventDefault(); e.stopPropagation(); setMenu(!mega.classList.contains("open")); }
+  hbg.addEventListener("click",toggleMenu);
+  hbg.addEventListener("keydown",function(e){ if(e.key==="Enter"||e.key===" ") toggleMenu(e); });
+  document.addEventListener("click",function(e){ if(mega.classList.contains("open")&&!mega.contains(e.target)&&!hbg.contains(e.target)) setMenu(false); });
+})();
+</script>
+</body>
+</html>
