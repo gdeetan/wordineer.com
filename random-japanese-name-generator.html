@@ -160,12 +160,14 @@
 .content-box h3 { margin:0 0 8px; font-size:17px; }
 
 @media (max-width: 760px) {
+  .hero--tool .hero-copy p { display:none; }
   .tool-wrap { padding:16px 14px 0; }
   .tool-split { display:block; }
   .ctrl { width:auto; border-right:0; border-bottom:1px solid var(--border); }
-  .ng-mobile-toggle { display:block; }
+  .ng-mobile-toggle { display:block; margin:10px 0 14px; }
   .ng-advanced { display:none; }
   .ng-advanced.is-open { display:block; }
+  #jp-advanced .ctrl-row { margin-bottom:14px; }
   .result-top { align-items:flex-start; flex-direction:column; }
   .word-item { align-items:flex-start; }
   .word-text { font-size:20px; }
@@ -211,6 +213,7 @@
       <a class="mega-link" href="/random-american-name-generator/">American names</a>
       <a class="mega-link" href="/random-filipino-name-generator/">Filipino names</a>
       <a class="mega-link active" href="/random-japanese-name-generator/">Japanese names</a>
+      <a class="mega-link" href="/random-british-name-generator/">British names</a>
       <a class="mega-link" href="/username-generator/">Username generator</a>
       <a class="mega-link" href="/fantasy-name-generator/">Fantasy name gen</a>
       <a class="mega-link" href="/baby-name-finder/">Baby name finder</a>
@@ -253,27 +256,27 @@
           <input type="number" id="jp-count" value="10" min="1" max="50" inputmode="numeric">
           <span id="jp-count-error" style="display:none;font-size:11px;color:#E24B4A;margin-top:4px;">Enter a number from 1 to 50</span>
         </div>
-        <div class="ctrl-row">
-          <label class="ctrl-label" for="jp-type">Name type</label>
-          <select id="jp-type">
-            <option value="full">Full name</option>
-            <option value="given">Given name only</option>
-            <option value="surname">Surname only</option>
-          </select>
-        </div>
-        <div class="ctrl-row">
-          <label class="ctrl-label" for="jp-gender">Gender</label>
-          <select id="jp-gender">
-            <option value="any">Any</option>
-            <option value="m">Male</option>
-            <option value="f">Female</option>
-            <option value="u">Unisex</option>
-          </select>
-        </div>
 
         <button type="button" class="ng-mobile-toggle" id="jp-mobile-toggle" aria-expanded="false" aria-controls="jp-advanced">More options</button>
 
         <div class="ng-advanced" id="jp-advanced">
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="jp-type">Name type</label>
+            <select id="jp-type">
+              <option value="full">Full name</option>
+              <option value="given">Given name only</option>
+              <option value="surname">Surname only</option>
+            </select>
+          </div>
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="jp-gender">Gender</label>
+            <select id="jp-gender">
+              <option value="any">Any</option>
+              <option value="m">Male</option>
+              <option value="f">Female</option>
+              <option value="u">Unisex</option>
+            </select>
+          </div>
           <div class="ctrl-row">
             <label class="ctrl-label" for="jp-style">Style</label>
             <select id="jp-style">
@@ -350,47 +353,17 @@
   </section>
 </main>
 
-<section class="content-section">
-  <h2>What Is a Random Japanese Name Generator?</h2>
-  <p>A random Japanese name generator creates Japanese-style names by combining given names and family names from a curated name list. Japanese names are usually written with the family name first, so a name like Sato Haruka places Sato before Haruka. This tool helps writers, roleplayers, game creators, and name researchers find names with readable spellings, useful meanings, and simple filters.</p>
-</section>
-
-<section class="content-section">
-  <h2>How It Works</h2>
-  <p>Choose the type of name you want, select a gender or style, and the results update automatically. The tool pulls matching names from a dedicated Japanese name dataset and displays each result with its romaji spelling, Japanese order, optional Japanese script, and meaning notes. Use More options on mobile to reveal extra filters without crowding the page.</p>
-</section>
-
-<section class="content-section">
-  <h2>Japanese Name Order</h2>
-  <p>In Japanese, the family name usually comes before the given name. For example, Sato Haruka uses Sato as the family name and Haruka as the given name. This generator can show Japanese order, Western order, or both so the result is easier to use in stories, games, and character profiles.</p>
-</section>
-
-<section class="content-section">
-  <h2>More Random Name Generators</h2>
-  <p>Need names from another background? Try the main <a href="/random-name-generator/">random name generator</a> for broad name ideas, or explore focused tools like the <a href="/random-filipino-name-generator/">random Filipino name generator</a> and random British name generator as the Wordineer name generator cluster grows.</p>
-  <div class="content-grid">
-    <div class="content-box">
-      <h3>For character names</h3>
-      <p>Use gender, style, theme, and order controls to find names that fit fiction, games, roleplay, and worldbuilding.</p>
-    </div>
-    <div class="content-box">
-      <h3>For quick lists</h3>
-      <p>Set the count to 20 or 50, then copy all results into a notes app, draft, spreadsheet, or character sheet.</p>
-    </div>
-  </div>
-</section>
-
 <div class="content-wrap">
   <div class="section">
     <h2 class="section-title">More word tools</h2>
     <p class="section-sub">Every word generator you need, all free</p>
     <div class="tools-grid">
       <a class="tool-item" href="/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="#534AB7" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="tool-name">Random word</div><div class="tool-desc">Filter by type, difficulty, length</div></a>
-      <a class="tool-item" href="/pictionary-topic-generator/"><div class="tool-icon" style="background:#EEF6E8"><svg viewBox="0 0 13 13" fill="none"><path d="M2 2.5h9v6H6.5L3.5 11V8.5H2z" stroke="#2F6B1F" stroke-width="1.1" stroke-linejoin="round"/><path d="M8.5 4l.4.8.9.1-.7.6.2.9-.8-.4-.8.4.2-.9-.7-.6.9-.1z" fill="#2F6B1F"/></svg></div><div class="tool-name">Pictionary topic generator</div><div class="tool-desc">Get drawing themes and game categories</div></a>
-      <a class="tool-item" href="/random-sentence-generator/"><div class="tool-icon" style="background:#E1F5EE"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 3h10M1.5 6.5h7M1.5 10h5" stroke="#0F6E56" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="tool-name">Random sentence</div><div class="tool-desc">Writing prompts &amp; starters</div></a>
-      <a class="tool-item" href="/pictionary-phrase-generator/"><div class="tool-icon" style="background:#FAEEDA"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3h9M2 6.5h7M2 10h5" stroke="#854F0B" stroke-width="1.2" stroke-linecap="round"/><path d="M9.5 8.2l1.2 1.2 1.8-2.3" stroke="#854F0B" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="tool-name">Pictionary phrase generator</div><div class="tool-desc">Generate short phrases for harder rounds</div></a>
+      <a class="tool-item" href="/random-name-generator/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4" r="2.2" stroke="#534AB7" stroke-width="1.1"/><path d="M1.5 11.5c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="#534AB7" stroke-width="1.1" stroke-linecap="round"/></svg></div><div class="tool-name">Random name</div><div class="tool-desc">Generate first names, last names, and full names across cultures.</div></a>
       <a class="tool-item" href="/random-american-name-generator/"><div class="tool-icon" style="background:#E6F0F9"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4" r="2.2" stroke="#1A4FA0" stroke-width="1.1"/><path d="M1.5 11.5c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="#1A4FA0" stroke-width="1.1" stroke-linecap="round"/></svg></div><div class="tool-name">Random American name <span class="new-badge">new</span></div><div class="tool-desc">Generate American first and last names for any project.</div></a>
       <a class="tool-item" href="/random-filipino-name-generator/"><div class="tool-icon" style="background:#F5E6E6"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4" r="2.2" stroke="#C0392B" stroke-width="1.1"/><path d="M1.5 11.5c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="#C0392B" stroke-width="1.1" stroke-linecap="round"/></svg></div><div class="tool-name">Random Filipino name <span class="new-badge">new</span></div><div class="tool-desc">Filipino names with meanings — traditional, Spanish-colonial, modern, and nickname styles.</div></a>
+      <a class="tool-item" href="/random-british-name-generator/"><div class="tool-icon" style="background:#E8EEF7"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4" r="2.2" stroke="#234E8A" stroke-width="1.1"/><path d="M1.5 11.5c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="#234E8A" stroke-width="1.1" stroke-linecap="round"/></svg></div><div class="tool-name">Random British name <span class="new-badge">new</span></div><div class="tool-desc">Planned British names tool for English, Scottish, Welsh, and classic UK name styles.</div></a>
+      <a class="tool-item" href="/pictionary-topic-generator/"><div class="tool-icon" style="background:#EEF6E8"><svg viewBox="0 0 13 13" fill="none"><path d="M2 2.5h9v6H6.5L3.5 11V8.5H2z" stroke="#2F6B1F" stroke-width="1.1" stroke-linejoin="round"/><path d="M8.5 4l.4.8.9.1-.7.6.2.9-.8-.4-.8.4.2-.9-.7-.6.9-.1z" fill="#2F6B1F"/></svg></div><div class="tool-name">Pictionary topic generator</div><div class="tool-desc">Get drawing themes and game categories</div></a>
     </div>
   </div>
   <div class="divider"></div>
@@ -399,7 +372,7 @@
     <p class="section-sub">Numbers, names, games and more</p>
     <div class="other-grid">
       <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="1" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="1" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/></svg>Number &amp; chance</div><a class="other-link" href="/random-number-generator/">Random number generator</a><a class="other-link" href="/dice-roller/">Dice roller — 4,6,8,12,20 sided</a><a class="other-link" href="/coin-flip/">Coin flip simulator</a><a class="other-link" href="/lucky-number/">Lucky number picker</a><a class="other-link" href="/list-shuffler/">Random list shuffler</a></div>
-      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4.5" r="2.5" stroke="currentColor" stroke-width="1"/><path d="M1.5 11.5c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Name generators</div><a class="other-link" href="/fantasy-name-generator/">Fantasy character name gen</a><a class="other-link" href="/username-generator/">Username generator</a><a class="other-link" href="/baby-name-finder/">Baby name finder</a><a class="other-link" href="/pet-name-generator/">Pet name generator</a><a class="other-link" href="/band-name-generator/">Band / team name gen</a><a class="other-link" href="/random-american-name-generator/">Random American name generator</a><a class="other-link" href="/random-filipino-name-generator/">Random Filipino name generator</a><a class="other-link" href="/random-japanese-name-generator/">Random Japanese name generator</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4.5" r="2.5" stroke="currentColor" stroke-width="1"/><path d="M1.5 11.5c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Name generators</div><a class="other-link" href="/random-name-generator/">Random name generator</a><a class="other-link" href="/fantasy-name-generator/">Fantasy character name gen</a><a class="other-link" href="/username-generator/">Username generator</a><a class="other-link" href="/baby-name-finder/">Baby name finder</a><a class="other-link" href="/pet-name-generator/">Pet name generator</a><a class="other-link" href="/band-name-generator/">Band / team name gen</a><a class="other-link" href="/random-american-name-generator/">Random American name generator</a><a class="other-link" href="/random-filipino-name-generator/">Random Filipino name generator</a><a class="other-link" href="/random-japanese-name-generator/">Random Japanese name generator</a><a class="other-link" href="/random-british-name-generator/">Random British name generator</a></div>
       <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3h9M2 6.5h7M2 10h5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Text &amp; writing</div><a class="other-link" href="/lorem-ipsum/">Lorem ipsum generator</a><a class="other-link" href="/password-generator/">Password generator</a><a class="other-link" href="/acronym-maker/">Acronym maker</a><a class="other-link" href="/random-quote/">Random quote generator</a><a class="other-link" href="/story-prompts/">Story prompt generator</a></div>
       <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M6.5 1.5l1.3 3h3.2l-2.6 2 1 3-2.9-1.8-2.9 1.8 1-3-2.6-2h3.2z" stroke="currentColor" stroke-width="1" stroke-linejoin="round"/></svg>Games &amp; fun</div><a class="other-link" href="/pictionary-word-generator/">Pictionary word generator</a><a class="other-link" href="/charades-generator/">Charades generator</a><a class="other-link" href="/truth-or-dare/">Truth or dare gen</a><a class="other-link" href="/would-you-rather/">Would you rather</a><a class="other-link" href="/trivia-questions/">Trivia question gen</a></div>
     </div>
@@ -416,13 +389,55 @@
   </div>
   <div class="divider"></div>
 
+<div class="explainer">
+  <h2>What Is a Random Japanese Name Generator?</h2>
+  <p>A random Japanese name generator creates Japanese-style names by combining given names and family names from a curated name list. Japanese names are usually written with the family name first, so a name like Sato Haruka places Sato before Haruka. This tool helps writers, roleplayers, game creators, and name researchers find names with readable spellings, useful meanings, and simple filters.</p>
 
+  <h2>How It Works</h2>
+  <p>Choose the type of name you want, select a gender or style, and the results update automatically. The tool pulls matching names from a dedicated Japanese name dataset and displays each result with its romaji spelling, Japanese order, optional Japanese script, and meaning notes. Use More options on mobile to reveal extra filters without crowding the page.</p>
+
+  <h2>Japanese Name Order</h2>
+  <p>In Japanese, the family name usually comes before the given name. For example, Sato Haruka uses Sato as the family name and Haruka as the given name. This generator can show Japanese order, Western order, or both so the result is easier to use in stories, games, and character profiles.</p>
+
+  <h2>More Random Name Generators</h2>
+  <p>Need names from another background? Try the main <a href="/random-name-generator/">random name generator</a> for broad name ideas, or explore focused tools like the <a href="/random-filipino-name-generator/">random Filipino name generator</a>, <a href="/random-american-name-generator/">random American name generator</a>, and planned <a href="/random-british-name-generator/">random British name generator</a> as the Wordineer name generator cluster grows.</p>
+</div>
   <div class="divider"></div>
 
-
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">Can I use these Japanese names in a story or game?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes. You can use the generated names for fiction, games, screenplays, roleplaying campaigns, and creative projects. Names themselves are not copyrightable. Use the meaning notes as creative guidance, not as a formal naming authority.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Are these real Japanese names?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">The tool uses Japanese given-name readings and surnames from a licensed dataset, then combines them randomly. Some combinations will feel more natural than others, so writers should choose results that fit the character, period, and setting.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Why does the generator show Japanese order and Western order?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Japanese names usually place the family name first. Sato Haruka uses Sato as the family name and Haruka as the given name. Western order reverses that to Haruka Sato, which may be easier to use in English-language character notes.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Do Japanese names have one exact meaning?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Not always. Japanese name meanings depend on the kanji spelling and reading. The meaning notes here are short helper notes for writers and name research, and many names can have several possible meanings.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Is this random Japanese name generator free?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes. It is free to use, with no account, no sign-up, and no server-side generation limit. The Japanese name data loads from a static JSON file so the page stays fast.</div>
+  </div>
+</div>
   <div class="divider"></div>
 
-
+<div>
+  <h2 class="section-title" style="margin-bottom:14px">Who uses Wordineer</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">Writers</div><div class="uc-body">Find Japanese character names with romaji, script forms, name order, and meaning notes that fit a story's setting.</div></div>
+    <div class="uc"><div class="uc-title">Game Masters</div><div class="uc-body">Create NPCs, player characters, factions, and town names quickly during campaign prep or live sessions.</div></div>
+    <div class="uc"><div class="uc-title">Game Developers</div><div class="uc-body">Generate shortlists for character rosters, visual novels, RPGs, and worldbuilding documents.</div></div>
+    <div class="uc"><div class="uc-title">Name Researchers</div><div class="uc-body">Browse Japanese given names and surnames with simple filters before doing deeper cultural or kanji research.</div></div>
+  </div>
+</div>
 </div>
 
 <footer class="footer">
@@ -434,7 +449,7 @@
     </div>
     <div class="footer-grid">
       <div><div class="footer-col-title">Word tools</div><a class="footer-link" href="/">Random word generator</a><a class="footer-link" href="/random-sentence-generator/">Random sentence</a><a class="footer-link" href="/random-letter-generator/">Random letter</a><a class="footer-link" href="/word-scramble/">Word Scramble</a><a class="footer-link" href="/word-of-the-day/">Word of the day</a><a class="footer-link" href="/passphrase-generator/">Passphrase gen</a></div>
-      <div><div class="footer-col-title">Name generators</div><a class="footer-link" href="/random-name-generator/">Random name gen</a><a class="footer-link" href="/username-generator/">Username generator</a><a class="footer-link" href="/fantasy-name-generator/">Fantasy name gen</a><a class="footer-link" href="/baby-name-finder/">Baby name finder</a><a class="footer-link" href="/pet-name-generator/">Pet name gen</a><a class="footer-link" href="/random-american-name-generator/">American name gen</a><a class="footer-link" href="/random-filipino-name-generator/">Filipino name gen</a><a class="footer-link" href="/random-japanese-name-generator/">Japanese name gen</a></div>
+      <div><div class="footer-col-title">Name generators</div><a class="footer-link" href="/random-name-generator/">Random name gen</a><a class="footer-link" href="/username-generator/">Username generator</a><a class="footer-link" href="/fantasy-name-generator/">Fantasy name gen</a><a class="footer-link" href="/baby-name-finder/">Baby name finder</a><a class="footer-link" href="/pet-name-generator/">Pet name gen</a><a class="footer-link" href="/random-american-name-generator/">American name gen</a><a class="footer-link" href="/random-filipino-name-generator/">Filipino name gen</a><a class="footer-link" href="/random-japanese-name-generator/">Japanese name gen</a><a class="footer-link" href="/random-british-name-generator/">British name gen</a></div>
       <div><div class="footer-col-title">Number &amp; chance</div><a class="footer-link" href="/random-number-generator/">Random number</a><a class="footer-link" href="/dice-roller/">Dice roller</a><a class="footer-link" href="/coin-flip/">Coin flip</a><a class="footer-link" href="/lucky-number/">Lucky number</a><a class="footer-link" href="/list-shuffler/">List shuffler</a></div>
       <div><div class="footer-col-title">Games &amp; fun</div><a class="footer-link" href="/pictionary-word-generator/">Pictionary words</a><a class="footer-link" href="/charades-generator/">Charades gen</a><a class="footer-link" href="/truth-or-dare/">Truth or dare</a><a class="footer-link" href="/would-you-rather/">Would you rather</a><a class="footer-link" href="/story-prompts/">Story prompts</a></div>
     </div>
@@ -679,6 +694,23 @@ document.getElementById('jp-mobile-toggle')?.addEventListener('click', function(
   this.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
   this.textContent = isOpen ? 'Hide options' : 'More options';
 });
+
+(function bindWordineerMenu(){
+  const mega = document.getElementById("mega");
+  const hbg = document.querySelector(".hamburger");
+  if (!mega || !hbg) return;
+  hbg.onclick = null;
+  hbg.removeAttribute("onclick");
+  hbg.setAttribute("role","button");
+  hbg.setAttribute("tabindex","0");
+  hbg.setAttribute("aria-controls","mega");
+  hbg.setAttribute("aria-expanded",mega.classList.contains("open")?"true":"false");
+  function setMenu(open){ mega.classList.toggle("open",open); hbg.setAttribute("aria-expanded",open?"true":"false"); }
+  function toggleMenu(e){ e.preventDefault(); e.stopPropagation(); setMenu(!mega.classList.contains("open")); }
+  hbg.addEventListener("click",toggleMenu);
+  hbg.addEventListener("keydown",function(e){ if(e.key==="Enter"||e.key===" ") toggleMenu(e); });
+  document.addEventListener("click",function(e){ if(mega.classList.contains("open")&&!mega.contains(e.target)&&!hbg.contains(e.target)) setMenu(false); });
+})();
 </script>
 </body>
 </html>
