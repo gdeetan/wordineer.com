@@ -623,21 +623,42 @@ function angFilterFirstLike(rows, gender, era, style, letter) {
 }
 
 function angBroadenFirstLike(rows, gender, era, style, letter) {
-  let out = angFilterFirstLike(rows, gender, era, style, letter);
-  if (out.length) return out;
-  out = angFilterFirstLike(rows, gender, era, 'any', letter);
-  if (out.length) return out;
-  out = angFilterFirstLike(rows, gender, 'any', 'any', letter);
-  if (out.length) return out;
-  out = rows.filter(function(row) { return gender === 'any' || row.g === gender; });
-  if (out.length) return out;
-  return rows.slice();
+  return angFilterFirstLike(rows, gender, era, style, letter);
 }
 
 function angFilterLast(rows, lastStyle) {
   if (lastStyle === 'any') return rows.slice();
-  const out = rows.filter(function(row) { return row.styles.includes(lastStyle); });
-  return out.length ? out : rows.slice();
+  return rows.filter(function(row) { return row.styles.includes(lastStyle); });
+}
+
+function angPreferredStyleChip(row, selectedStyle) {
+  if (selectedStyle !== 'any' && row.styles.includes(selectedStyle)) return ANG_LABELS.style[selectedStyle] || selectedStyle;
+  return ANG_LABELS.style[row.styles[0]] || row.styles[0] || 'American';
+}
+
+function angPreferredLastChip(row, selectedLastStyle) {
+  if (selectedLastStyle !== 'any' && row.styles.includes(selectedLastStyle)) return ANG_LABELS.last[selectedLastStyle] || selectedLastStyle;
+  return ANG_LABELS.last[row.styles[0]] || row.styles[0] || 'surname';
+}
+
+function angStyleChips(row, selectedStyle) {
+  const out = [];
+  if (selectedStyle !== 'any' && row.styles.includes(selectedStyle)) out.push(ANG_LABELS.style[selectedStyle] || selectedStyle);
+  row.styles.forEach(function(style) {
+    const label = ANG_LABELS.style[style] || style;
+    if (!out.includes(label)) out.push(label);
+  });
+  return out;
+}
+
+function angLastChips(row, selectedLastStyle) {
+  const out = [];
+  if (selectedLastStyle !== 'any' && row.styles.includes(selectedLastStyle)) out.push(ANG_LABELS.last[selectedLastStyle] || selectedLastStyle);
+  row.styles.forEach(function(style) {
+    const label = ANG_LABELS.last[style] || style;
+    if (!out.includes(label)) out.push(label);
+  });
+  return out;
 }
 
 function angPick(arr, index) {
@@ -667,6 +688,10 @@ function angGenerateFn(data) {
   const firstPool = angShuffle(angBroadenFirstLike(data.first, gender, era, style, letter));
   const middlePool = angShuffle(angBroadenFirstLike(data.middle, gender, era, style, 'any'));
   const lastPool = angShuffle(angFilterLast(data.last, lastStyle));
+  if (type === 'first' && !firstPool.length) return [];
+  if (type === 'last' && !lastPool.length) return [];
+  if (type === 'middle-full' && (!firstPool.length || !middlePool.length || !lastPool.length)) return [];
+  if (type === 'full' && (!firstPool.length || !lastPool.length)) return [];
   const results = [];
   const seen = new Set();
   let i = 0;
@@ -682,16 +707,16 @@ function angGenerateFn(data) {
     if (type === 'first') {
       display = first.n;
       note = first.note || note;
-      chips = [ANG_LABELS.gender[first.g] || first.g].concat(first.styles.slice(0, 2));
+      chips = [ANG_LABELS.gender[first.g] || first.g].concat(angStyleChips(first, style).slice(0, 2));
     } else if (type === 'last') {
       display = last.n;
       note = last.note || note;
-      chips = last.styles.slice(0, 2).map(function(s) { return ANG_LABELS.last[s] || s; });
+      chips = angLastChips(last, lastStyle).slice(0, 2);
     } else if (type === 'middle-full') {
       display = first.n + ' ' + middle.n + ' ' + last.n;
-      chips = [ANG_LABELS.gender[first.g] || first.g, first.styles[0] || 'American', ANG_LABELS.last[last.styles[0]] || 'surname'];
+      chips = [ANG_LABELS.gender[first.g] || first.g, angPreferredStyleChip(first, style), angPreferredLastChip(last, lastStyle)];
     } else {
-      chips = [ANG_LABELS.gender[first.g] || first.g, first.styles[0] || 'American', ANG_LABELS.last[last.styles[0]] || 'surname'];
+      chips = [ANG_LABELS.gender[first.g] || first.g, angPreferredStyleChip(first, style), angPreferredLastChip(last, lastStyle)];
     }
 
     if (!seen.has(display)) {
