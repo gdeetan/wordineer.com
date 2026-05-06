@@ -120,11 +120,11 @@
 .tool-wrap  { max-width:960px; margin:0 auto; padding:24px 24px 0; }
 .tool-card  { border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg); box-shadow:var(--shadow); }
 .tool-split { display:flex; }
-.ctrl       { width:300px; padding:18px; border-right:1px solid var(--border); background:var(--bg-2); flex-shrink:0; }
+.ctrl       { width:300px; padding:18px; border-right:1px solid var(--border-2); background:var(--bg-2); flex-shrink:0; }
 .ctrl-row   { margin-bottom:14px; }
-.ctrl-label { display:block; margin-bottom:6px; font-size:12px; font-weight:700; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; }
-.ctrl input,
-.ctrl select { width:100%; padding:10px 11px; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--text); font:inherit; }
+.ctrl-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; display:block; margin-bottom:5px; }
+.ctrl-row input, .ctrl-row select { width:100%; padding:7px 10px; font-size:13px; font-family:inherit; border:1px solid var(--border); border-radius:7px; background:var(--bg); color:var(--text); appearance:none; outline:none; transition:border-color .15s; }
+.ctrl-row input:focus, .ctrl-row select:focus { border-color:var(--brand); }
 .ng-mobile-toggle { display:none; width:100%; margin:-2px 0 14px; padding:9px 12px; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--brand); font-size:13px; font-weight:600; font-family:inherit; cursor:pointer; }
 .ng-advanced { display:block; }
 .result-area { flex:1; min-width:0; padding:18px; }
@@ -163,7 +163,7 @@
   .hero--tool .hero-copy p { display:none; }
   .tool-wrap { padding:16px 14px 0; }
   .tool-split { display:block; }
-  .ctrl { width:auto; border-right:0; border-bottom:1px solid var(--border); }
+  .ctrl { width:100%; border-right:none; border-bottom:1px solid var(--border-2); }
   .ng-mobile-toggle { display:block; margin:10px 0 14px; }
   .ng-advanced { display:none; }
   .ng-advanced.is-open { display:block; }
@@ -241,7 +241,7 @@
 <section class="hero hero--tool">
   <div class="hero-inner">
     <div class="hero-copy">
-      <span class="hero-badge">Name generator</span>
+      <span class="hero-badge">Free &middot; No sign-up &middot; Instant</span>
       <h1>Random Japanese Name Generator</h1>
       <p>Generate Japanese first names, surnames, and full names with romaji, hiragana, kanji, name order, and meaning notes.</p>
     </div>
