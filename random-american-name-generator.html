@@ -553,33 +553,55 @@ function angMapData(raw) {
 
 const angActiveData = angMapData(FALLBACK_AMERICAN_NAMES);
 let angDataIsFull = false;
-let angDataPromise = null;
+let angCorePromise = null;
+let angFullPromise = null;
 let angRenderedFallback = false;
 
-async function angLoadFullData() {
-  if (angDataPromise) return angDataPromise;
-  angDataPromise = (async function() {
-    try {
-      const res = await fetch('/data/american-names.json', { cache: 'force-cache' });
-      if (!res.ok) throw new Error(res.status);
-      const raw = await res.json();
-      if (!Array.isArray(raw.first) || !Array.isArray(raw.middle) || !Array.isArray(raw.last)) throw new Error('Invalid data');
-      const data = angMapData(raw);
-      angActiveData.first = data.first;
-      angActiveData.middle = data.middle;
-      angActiveData.last = data.last;
-      angDataIsFull = true;
-      if (angRenderedFallback) document.getElementById('ang-gen-btn')?.click();
-    } catch (err) {
-      if (!angDataIsFull) WORDINEER.showToast('Using starter names while the full list loads.');
-      angDataPromise = null;
-    }
-  })();
-  return angDataPromise;
+function angApplyData(raw, isFull) {
+  if (!Array.isArray(raw.first) || !Array.isArray(raw.middle) || !Array.isArray(raw.last)) throw new Error('Invalid data');
+  const data = angMapData(raw);
+  angActiveData.first = data.first;
+  angActiveData.middle = data.middle;
+  angActiveData.last = data.last;
+  if (isFull) angDataIsFull = true;
+  if (angRenderedFallback) document.getElementById('ang-gen-btn')?.click();
 }
 
-function angScheduleData() {
-  if (!angDataIsFull) angLoadFullData();
+async function angLoadCoreData() {
+  if (angCorePromise || angDataIsFull) return angCorePromise;
+  angCorePromise = (async function() {
+    try {
+      const res = await fetch('/data/american-names-core.json', { cache: 'force-cache' });
+      if (!res.ok) throw new Error(res.status);
+      angApplyData(await res.json(), false);
+    } catch (err) {
+      angCorePromise = null;
+    }
+  })();
+  return angCorePromise;
+}
+
+async function angLoadFullData() {
+  if (angFullPromise || angDataIsFull) return angFullPromise;
+  angFullPromise = (async function() {
+    try {
+      const res = await fetch('/data/american-names-full.json', { cache: 'force-cache' });
+      if (!res.ok) throw new Error(res.status);
+      angApplyData(await res.json(), true);
+    } catch (err) {
+      if (!angDataIsFull) WORDINEER.showToast('Using starter names while the full list loads.');
+      angFullPromise = null;
+    }
+  })();
+  return angFullPromise;
+}
+
+function angScheduleData(preferFull) {
+  if (preferFull) {
+    angLoadFullData();
+    return;
+  }
+  angLoadCoreData();
 }
 
 function angShuffle(arr) {
@@ -738,7 +760,7 @@ window.angCopyName = function(name, btn) {
     savedListId:    'ang-saved-tags'
   });
 
-  angScheduleData();
+  angScheduleData(false);
 
   const countInput = document.getElementById('ang-count');
   const countError = document.getElementById('ang-count-error');
@@ -752,17 +774,18 @@ window.angCopyName = function(name, btn) {
   }
 
   countInput?.addEventListener('input', function() {
+    angScheduleData(true);
     if (angValidateCount()) document.getElementById('ang-gen-btn')?.click();
   });
   ['ang-gender','ang-type','ang-era','ang-style','ang-last-style','ang-letter'].forEach(function(id) {
     document.getElementById(id)?.addEventListener('change', function() {
-      angScheduleData();
+      angScheduleData(true);
       if (angValidateCount()) document.getElementById('ang-gen-btn')?.click();
     });
   });
 
   document.getElementById('ang-gen-btn')?.addEventListener('click', function(e) {
-    angScheduleData();
+    angScheduleData(true);
     if (!angValidateCount()) {
       e.stopImmediatePropagation();
       return false;
@@ -771,12 +794,12 @@ window.angCopyName = function(name, btn) {
 
   document.addEventListener('keydown', function(e) {
     if ((e.code === 'Space' || e.code === 'Enter') && !['INPUT','SELECT','TEXTAREA','BUTTON'].includes(e.target.tagName)) {
-      angScheduleData();
+      angScheduleData(true);
     }
   }, true);
 
   document.getElementById('ang-reset-btn')?.addEventListener('click', function() {
-    angScheduleData();
+    angScheduleData(true);
     document.getElementById('ang-count').value = '10';
     angValidateCount();
     document.getElementById('ang-gender').value = 'any';
