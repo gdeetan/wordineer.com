@@ -719,8 +719,8 @@ function angRenderItem(item) {
     return '<span class="ang-chip ang-chip--' + kind + '">' + angEsc(chip) + '</span>';
   }).join('');
   return ''
-    + '<li class="word-card" data-name="' + safeAttr + '">'
-    +   '<div class="word-main">'
+    + '<li class="word-item" data-name="' + safeAttr + '">'
+    +   '<div class="word-left">'
     +     '<div class="word-text">' + angEsc(item.display) + '</div>'
     +     '<div class="ang-note">' + angEsc(item.note) + '</div>'
     +     '<div class="ang-chips">' + chipHtml + '</div>'
