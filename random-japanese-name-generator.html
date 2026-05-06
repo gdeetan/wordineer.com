@@ -281,6 +281,7 @@
             <label class="ctrl-label" for="jp-style">Style</label>
             <select id="jp-style">
               <option value="any">Any</option>
+              <option value="common">Common</option>
               <option value="modern">Modern</option>
               <option value="traditional">Traditional</option>
               <option value="classic">Classic</option>
@@ -494,6 +495,8 @@ const JP_THEME_LABELS = {
   sky: 'Sky',
   classic: 'Classic'
 };
+const JP_GIVEN_STYLES = ['modern','traditional','classic','gentle','strong','elegant','anime'];
+const JP_SURNAME_STYLES = ['common','traditional','classic'];
 let jpData = { given: [], surnames: [] };
 let jpReady = false;
 
@@ -526,6 +529,29 @@ function jpValidateCount() {
 function jpHas(values, selected) {
   return selected === 'any' || (Array.isArray(values) && values.includes(selected));
 }
+function jpNoResultsItem() {
+  return {
+    display: 'No matching Japanese names found',
+    script: '',
+    meaning: 'Try a broader style, meaning theme, gender, or starting letter.',
+    styles: [],
+    themes: [],
+    noResult: true
+  };
+}
+function jpSyncStyleOptions() {
+  const type = document.getElementById('jp-type')?.value || 'full';
+  const select = document.getElementById('jp-style');
+  if (!select) return;
+  const allowed = type === 'surname' ? JP_SURNAME_STYLES : JP_GIVEN_STYLES;
+  Array.from(select.options).forEach(function(option) {
+    const isAny = option.value === 'any';
+    const enabled = isAny || allowed.includes(option.value);
+    option.disabled = !enabled;
+    option.hidden = !enabled;
+  });
+  if (select.value !== 'any' && !allowed.includes(select.value)) select.value = 'any';
+}
 function jpMainLetter(name, surname, type, order) {
   if (type === 'surname') return surname[0];
   if (type === 'given') return name[0];
@@ -557,24 +583,26 @@ function jpGenerateFn(data) {
   const scriptMode = document.getElementById('jp-script')?.value || 'all';
   const primaryOrder = order === 'western' ? 'western' : 'japanese';
   const limit = jpCount();
+  const givenLetter = type === 'given' || (type === 'full' && primaryOrder === 'western');
+  const surnameLetter = type === 'surname' || (type === 'full' && primaryOrder !== 'western');
 
   let givenPool = data.given.filter(function(n) {
     if (gender !== 'any' && n[3] !== gender && !(gender !== 'u' && n[3] === 'u')) return false;
     if (!jpHas(n[4], style)) return false;
     if (!jpHas(n[5], theme)) return false;
-    if (type !== 'surname' && letter && !n[0].toUpperCase().startsWith(letter)) return false;
+    if (givenLetter && letter && !n[0].toUpperCase().startsWith(letter)) return false;
     return true;
   });
   let surnamePool = data.surnames.filter(function(n) {
     if (type === 'surname') {
       if (!jpHas(n[3], style) && style !== 'any') return false;
       if (!jpHas(n[4], theme) && theme !== 'any') return false;
-      if (letter && !n[0].toUpperCase().startsWith(letter)) return false;
     }
+    if (surnameLetter && letter && !n[0].toUpperCase().startsWith(letter)) return false;
     return true;
   });
-  if (!givenPool.length && type !== 'surname') givenPool = data.given.filter(function(n) { return gender === 'any' || n[3] === gender || n[3] === 'u'; });
-  if (!surnamePool.length) surnamePool = data.surnames;
+  if (type !== 'surname' && !givenPool.length) return [jpNoResultsItem()];
+  if (type !== 'given' && !surnamePool.length) return [jpNoResultsItem()];
 
   const sg = jpShuffle(givenPool);
   const ss = jpShuffle(surnamePool);
@@ -595,6 +623,14 @@ function jpGenerateFn(data) {
   return results;
 }
 function jpRenderItem(item) {
+  if (item.noResult) {
+    return '<li class="word-item jp-no-results">'
+      + '<div class="word-left">'
+      +   '<div class="word-text">' + jpEsc(item.display) + '</div>'
+      +   '<div class="ng-meaning">' + jpEsc(item.meaning) + '</div>'
+      + '</div>'
+      + '</li>';
+  }
   let savedArr = [];
   try { savedArr = JSON.parse(localStorage.getItem('wnr_saved_japanese_names') || '[]'); } catch {}
   const isSaved = savedArr.includes(item.display);
@@ -635,7 +671,16 @@ function jpCopyName(name, btn) {
 }
 function jpRegenerateFromFilters() {
   if (!jpValidateCount()) return;
+  jpSyncStyleOptions();
   document.getElementById('jp-gen-btn')?.click();
+  jpSyncNoResultCount();
+}
+function jpSyncNoResultCount() {
+  setTimeout(function() {
+    const list = document.getElementById('jp-list');
+    const display = document.getElementById('jp-count-display');
+    if (list?.querySelector('.jp-no-results') && display) display.textContent = '0 results found';
+  }, 0);
 }
 window.jpCopyName = jpCopyName;
 
@@ -671,6 +716,7 @@ jpCountInput?.addEventListener('input', function() {
   if (jpValidateCount()) jpRegenerateFromFilters();
 });
 jpCountInput?.addEventListener('change', jpRegenerateFromFilters);
+document.getElementById('jp-gen-btn')?.addEventListener('click', jpSyncNoResultCount);
 ['jp-type','jp-gender','jp-style','jp-theme','jp-letter','jp-order','jp-script'].forEach(function(id) {
   const el = document.getElementById(id);
   if (!el) return;
