@@ -751,7 +751,9 @@ window.angCopyName = function(name, btn) {
     return ok;
   }
 
-  countInput?.addEventListener('input', angValidateCount);
+  countInput?.addEventListener('input', function() {
+    if (angValidateCount()) document.getElementById('ang-gen-btn')?.click();
+  });
   ['ang-gender','ang-type','ang-era','ang-style','ang-last-style','ang-letter'].forEach(function(id) {
     document.getElementById(id)?.addEventListener('change', function() {
       angScheduleData();
