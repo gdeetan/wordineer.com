@@ -73,13 +73,13 @@
   "url": "https://wordineer.com"
 }
 </script>
-<title>Random Korean Name Generator - Hangul, Meanings &amp; Name Order | Wordineer</title>
-<meta name="description" content="Generate random Korean names instantly. Filter by gender, style, meaning theme, and starting letter. Show Hangul and Korean or Western order. Free, no sign-up.">
+<title>1400+ Random Korean Names - Hangul, Meanings &amp; Name Order | Wordineer</title>
+<meta name="description" content="Generate 1400+ random Korean names instantly. Filter by gender, style, meaning theme, and starting letter. Show Hangul and Korean or Western order. Free, no sign-up.">
 <link rel="canonical" href="https://wordineer.com/random-korean-name-generator/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Wordineer">
-<meta property="og:title" content="Random Korean Name Generator | Wordineer">
-<meta property="og:description" content="Generate Korean names with Hangul, meanings, and family-name-first order. Filter by gender, style, theme, and starting letter.">
+<meta property="og:title" content="1400+ Random Korean Names | Wordineer">
+<meta property="og:description" content="Generate 1400+ Korean names with Hangul, meanings, and family-name-first order. Filter by gender, style, theme, and starting letter.">
 <meta property="og:url" content="https://wordineer.com/random-korean-name-generator/">
 <meta property="og:image" content="https://wordineer.com/og-image.png">
 <script type="application/ld+json">
@@ -90,12 +90,12 @@
     {
       "@type": "Question",
       "name": "What is a random Korean name generator?",
-      "acceptedAnswer": { "@type": "Answer", "text": "A random Korean name generator creates Korean-style given names, surnames, and full names from a curated dataset. It is useful for writers, game designers, roleplayers, and anyone who needs a realistic Korean name quickly." }
+      "acceptedAnswer": { "@type": "Answer", "text": "A random Korean name generator combines Korean surnames with a large dataset of Korean-style given names to create full names quickly. It is useful for writers, game designers, roleplayers, and anyone who needs a realistic-looking Korean name fast." }
     },
     {
       "@type": "Question",
       "name": "Are these real Korean names?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. The tool uses Korean surnames and given names that are actually used or feel natural in Korean naming. Some meaning notes are short helper summaries, because exact meanings can change with the Hangul or Hanja spelling." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. The tool uses real Korean surnames and a large pool of Korean-style given-name combinations that read naturally in fiction and character work. Some results are common names and others are story-friendly combinations, so the meaning notes are short helper summaries rather than full etymologies." }
     },
     {
       "@type": "Question",
@@ -252,7 +252,7 @@
     Free &middot; No sign-up &middot; Instant
   </div>
   <h1>Random Korean name generator</h1>
-  <p>Generate Korean given names, surnames, and full names with Hangul, short meaning notes, and Korean or Western order. Filter by gender, style, theme, and starting letter.</p>
+  <p>Generate 1400+ Korean given names, surnames, and full names with Hangul, short meaning notes, and Korean or Western order. Filter by gender, style, theme, and starting letter.</p>
 </div>
 <div class="tool-wrap">
   <div class="tool-card">
@@ -637,8 +637,10 @@ function krGenerateFn(data) {
   });
 
   const surnamePool = data.surnames.filter(function(n) {
-    if (!krHas(n[2], style)) return false;
-    if (!krHas(n[3], theme)) return false;
+    if (type === 'surname') {
+      if (!krHas(n[2], style)) return false;
+      if (!krHas(n[3], theme)) return false;
+    }
     if (surnameLetter && letter && !n[0].toUpperCase().startsWith(letter)) return false;
     return true;
   });
