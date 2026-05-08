@@ -165,13 +165,6 @@
 .kr-badge--gender { background:#EEF9F1; color:#1F7A4E; }
 .kr-badge--theme { background:#F3F6E8; color:#4B6B1F; }
 .kr-no-results .word-text { color:var(--text-2); }
-.content-section { max-width:900px; margin:34px auto 0; padding:0 24px; }
-.content-section h2 { margin:0 0 10px; font-size:26px; line-height:1.2; }
-.content-section p { color:var(--text-2); line-height:1.7; }
-.content-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; margin-top:18px; }
-.content-box { border:1px solid var(--border); border-radius:8px; padding:16px; background:var(--bg); }
-.content-box h3 { margin:0 0 8px; font-size:17px; }
-
 @media (max-width: 760px) {
   .hero--tool .hero-copy p { display:none; }
   .tool-wrap { padding:16px 14px 0; }
@@ -183,7 +176,6 @@
   .words-top { align-items:flex-start; flex-direction:column; }
   .word-item { align-items:flex-start; }
   .word-text { font-size:17px; }
-  .content-grid { grid-template-columns:1fr; }
 }
 </style>
 </head>
@@ -393,68 +385,47 @@
   </div>
   <div class="divider"></div>
 
-<div class="content-section">
+<div class="explainer">
   <h2>What is a random Korean name generator?</h2>
-  <p>A random Korean name generator creates Korean-style names from a curated list of surnames and given names. It is useful for writers, roleplayers, game developers, and anyone who needs a quick Korean name that still feels natural in context.</p>
+  <p>A random Korean name generator creates Korean-style names from a curated list of surnames and given names, then shows each result with Hangul, romanization, and a short meaning note. Unlike a generic name list, this tool lets you filter by gender, style, theme, name type, order, and starting letter, so you can quickly find names that fit a character, setting, or project. Every result keeps Korean family-name-first order available, while also offering Western order for English-language drafts and notes. No loading, no account required.</p>
 
-  <h2>How it Works</h2>
-  <p>Choose the number of names you want, then narrow the results with gender, style, meaning theme, name type, and starting letter. The results update automatically whenever a filter changes. Use More options on mobile to keep the control panel compact while still showing the full filter set.</p>
+  <h2>For fiction writers: Korean character names that fit the page</h2>
+  <p>Korean names carry useful story signals through surname, syllable rhythm, order, and meaning. Use the Style filter when you want names that feel modern, classic, gentle, strong, or lyrical. Use the Theme filter when a name should quietly point toward light, virtue, wisdom, beauty, or another emotional note. Hangul appears under every result, so you can see more than the romanized spelling while drafting character sheets, scripts, web fiction, or dialogue notes.</p>
+  <p>The Order filter helps match the context of the story. Korean order keeps the family name first, as in Kim Minji. Western order can be useful for English-language documents, school records, or narration that intentionally follows a Western convention. Showing both is helpful when you want to compare how the same name reads in different contexts.</p>
 
-  <div class="content-grid">
-    <div class="content-box">
-      <h3>How Korean names work</h3>
-      <p>Korean names usually place the family name first and the given name second. Hangul is shown on every result so you can compare the romanized version with the Korean spelling. Meaning notes are short helper summaries because exact meanings can vary by Hanja spelling.</p>
-    </div>
-    <div class="content-box">
-      <h3>Korean name order</h3>
-      <p>A full name like Kim Minji can be shown in Korean order or Western order. Korean order keeps the family name first, while Western order swaps it to Minji Kim for English-language character notes, forms, and story drafts.</p>
-    </div>
+  <h2>For games, roleplay, and worldbuilding</h2>
+  <p>Game developers, roleplayers, and tabletop GMs often need a batch of names that feel consistent across factions, families, schools, guilds, or towns. Generate full names for NPC rosters, given names for party members, or surnames for family trees. The starting-letter filter is useful when your setting already has a naming pattern, while the saved list lets you collect favourites before copying them into a design doc or campaign notes.</p>
+</div>
+  <div class="divider"></div>
+
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">Can I use these names for fiction?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes. The names are useful for stories, screenplays, games, tabletop NPCs, and worldbuilding. Names themselves are not copyrightable.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Why show Hangul on every result?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Hangul makes the result easier to read and more useful for Korean-name research. It also helps users check whether the romanized version matches the intended spelling.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Why do some meanings seem broad?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Korean names can be written with different Hanja characters, so one romanized name may have more than one valid meaning. The notes here are short guides, not full etymology entries.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Is this tool free?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes. It is free, instant, and does not require an account or sign-up.</div>
   </div>
 </div>
   <div class="divider"></div>
 
-<div class="content-section">
-  <h2>Frequently asked questions</h2>
-  <div class="content-grid">
-    <div class="content-box">
-      <h3>Can I use these names for fiction?</h3>
-      <p>Yes. The names are useful for stories, screenplays, games, tabletop NPCs, and worldbuilding. Names themselves are not copyrightable.</p>
-    </div>
-    <div class="content-box">
-      <h3>Why show Hangul on every result?</h3>
-      <p>Hangul makes the result easier to read and more useful for Korean-name research. It also helps users check whether the romanized version matches the intended spelling.</p>
-    </div>
-    <div class="content-box">
-      <h3>Why do some meanings seem broad?</h3>
-      <p>Korean names can be written with different Hanja characters, so one romanized name may have more than one valid meaning. The notes here are short guides, not full etymology entries.</p>
-    </div>
-    <div class="content-box">
-      <h3>Is this tool free?</h3>
-      <p>Yes. It is free, instant, and does not require an account or sign-up.</p>
-    </div>
-  </div>
-</div>
-  <div class="divider"></div>
-
-<div class="content-section">
-  <h2>Who uses Wordineer</h2>
-  <div class="content-grid">
-    <div class="content-box">
-      <h3>Writers</h3>
-      <p>Use the filters to build believable Korean character names for novels, screenplays, and web fiction.</p>
-    </div>
-    <div class="content-box">
-      <h3>Game developers</h3>
-      <p>Generate NPC names for RPGs, mobile games, visual novels, and story-driven prototypes.</p>
-    </div>
-    <div class="content-box">
-      <h3>Roleplayers</h3>
-      <p>Find quick names that fit a setting, a faction, or a party roster without losing the Korean naming feel.</p>
-    </div>
-    <div class="content-box">
-      <h3>Name researchers</h3>
-      <p>Browse a compact dataset of Korean surnames and given names before doing deeper cultural or linguistic research.</p>
-    </div>
+<div>
+  <h2 class="section-title" style="margin-bottom:14px">Who uses Wordineer</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">Writers</div><div class="uc-body">Find Korean character names with Hangul, meaning notes, and name order options for novels, scripts, and web fiction</div></div>
+    <div class="uc"><div class="uc-title">Game Masters</div><div class="uc-body">Name NPCs, clans, factions, and party members quickly while keeping surnames, given names, and order consistent</div></div>
+    <div class="uc"><div class="uc-title">Game Developers</div><div class="uc-body">Generate Korean names for RPGs, visual novels, mobile games, prototypes, and character rosters without hand-building lists</div></div>
+    <div class="uc"><div class="uc-title">Roleplayers</div><div class="uc-body">Build names for original characters, forum profiles, campaign notes, and setting documents with filters for style and theme</div></div>
   </div>
 </div>
 </div>
