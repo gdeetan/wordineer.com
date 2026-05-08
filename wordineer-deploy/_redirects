@@ -5,11 +5,18 @@ http://wordineer.com/*         https://wordineer.com/:splat         301
 http://www.wordineer.com/*     https://wordineer.com/:splat         301
 https://www.wordineer.com/*    https://wordineer.com/:splat         301
 
+# Retired pages
+/api.html    /    301
+
 # Clean URLs — .html to trailing-slash canonical
 /word-scramble.html    /word-scramble/    301
 /pictionary-word-generator.html    /pictionary-word-generator/    301
+/random-american-name-generator.html    /random-american-name-generator/    301
 /random-filipino-name-generator.html    /random-filipino-name-generator/    301
+/random-japanese-name-generator.html    /random-japanese-name-generator/    301
 
 # Pretty URL fallbacks
 /pictionary-word-generator/    /pictionary-word-generator.html    200
+/random-american-name-generator/    /random-american-name-generator.html    200
 /random-filipino-name-generator/    /random-filipino-name-generator.html    200
+/random-japanese-name-generator/    /random-japanese-name-generator.html    200

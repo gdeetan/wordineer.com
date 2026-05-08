@@ -505,38 +505,63 @@ id="bng-copy-saved-btn"
   - Bind the `More options` mobile toggle.
   - Reset controls to defaults.
 
-Use this JavaScript skeleton and fill only the page-specific render details to match existing result-card markup:
+**Architecture note:** Follow the `random-american-name-generator.html` pattern exactly. Use `WORDINEER.init({ mode: 'custom', ... })` — do NOT invent a custom `bngBind`/`bngGenerate` pattern. The WORDINEER engine calls your `generateFn` and `renderItem` callbacks. Load data with a deferred fetch that calls `bngApplyData(raw)` and then fires the generate button.
+
+Required inline JS structure (adapt from the American generator, replacing `ang` → `bng`):
 
 ```javascript
-fetch('/data/british-names.json', { cache: 'force-cache' })
-  .then(function(res) {
-    if (!res.ok) throw new Error(res.status);
-    return res.json();
-  })
-  .then(function(raw) {
-    const data = bngMapData(raw);
-    bngBind(data);
-    document.getElementById('bng-gen-btn')?.click();
-  })
-  .catch(function() {
-    document.getElementById('bng-results').innerHTML = '<div class="empty-state">British names could not load. Please refresh the page.</div>';
-  });
+// 1. Label maps
+const BNG_LABELS = { gender: {...}, style: {...}, region: {...}, surnameType: {...} };
+
+// 2. Fallback data (12 first, 4 middle, 6 last, 4 doubleLastParts embedded inline)
+const FALLBACK_BRITISH_NAMES = { first: [...], middle: [...], last: [...], doubleLastParts: [...] };
+
+// 3. Map compact arrays → objects
+function bngMapData(raw) { /* index 4 = regions, index 5 = note for first/middle */ }
+
+// 4. Active data object starts from fallback
+const bngActiveData = bngMapData(FALLBACK_BRITISH_NAMES);
+let bngDataLoaded = false;
+let bngDataPromise = null;
+let bngRenderedFallback = false;
+
+// 5. Apply full data when loaded
+function bngApplyData(raw) { /* update bngActiveData in-place, set bngDataLoaded = true */ }
+
+// 6. Deferred fetch
+function bngLoadData() { /* fetch('/data/british-names.json', ...) then bngApplyData */ }
+
+// 7. Filter helpers
+function bngFilterFirstLike(rows, gender, era, style, region, letter) {}
+function bngFilterLast(rows, region, surnameType) {}
+function bngFilterDoubleParts(rows, region) {}
+
+// 8. generateFn — returns array of { display, note, chips }
+// Handles types: 'full', 'first', 'last', 'middle-full', 'double-full'
+function bngGenerateFn(data) {}
+
+// 9. renderItem — returns HTML string for one result card
+function bngRenderItem(item) {}
+
+// 10. Wire up via WORDINEER.init
+WORDINEER.init({
+  mode: 'custom',
+  data: bngActiveData,
+  renderItem: bngRenderItem,
+  generateFn: bngGenerateFn,
+  listId: 'bng-list',
+  countDisplayId: 'bng-count-display',
+  generateBtnId: 'bng-gen-btn',
+  copyAllBtnId: 'bng-copy-all-btn',
+  savedKey: 'wnr_saved_british_names',
+  savedListId: 'bng-saved-tags'
+});
+
+// 11. Event listeners: count input, all 7 filter selects, reset button, copy-saved, mobile toggle
+// 12. bindWordineerMenu() — copy verbatim from American generator
 ```
 
-Use these function names so future tests can search for them:
-
-```javascript
-function bngMapData(raw) {}
-function bngFilterFirst(data, opts) {}
-function bngFilterLast(data, opts) {}
-function bngPick(arr) {}
-function bngBuildDoubleLast(data, opts) {}
-function bngBuildNote(parts) {}
-function bngGenerate(data) {}
-function bngRender(results) {}
-function bngValidateCount() {}
-function bngBind(data) {}
-```
+See `template-deploy/tools-src/random-american-name-generator.html` lines 312–691 for the complete working reference. All `ang` → `bng`, and add `regions`/`surnameType` filter fields that the American page doesn't have.
 
 - [ ] **Step 2: Run page static test**
 
@@ -568,38 +593,15 @@ git commit -m "Add British name generator page source"
 - Modify: `template-deploy/template/more-tools.html`
 - Test: `tests/british-generator-page.test.js`
 
-- [ ] **Step 1: Update name-generator metadata**
+- [ ] **Step 1: Verify tools.json already has British entries**
 
-In `template-deploy/tools.json`, ensure the Name generators list includes:
+`tools.json` already has two British entries added in a previous commit (lines ~193 and ~411). Confirm they exist:
 
-```json
-{
-  "href": "/random-name-generator/",
-  "text": "Random name gen"
-},
-{
-  "href": "/random-american-name-generator/",
-  "text": "American name gen"
-},
-{
-  "href": "/random-japanese-name-generator/",
-  "text": "Japanese name gen"
-},
-{
-  "href": "/random-british-name-generator/",
-  "text": "British name gen"
-},
-{
-  "href": "/random-russian-name-generator/",
-  "text": "Russian name gen"
-},
-{
-  "href": "/random-indian-name-generator/",
-  "text": "Indian name gen"
-}
+```bash
+grep -c "random-british-name-generator" template-deploy/tools.json
 ```
 
-If `random-british-name-generator` already exists, keep one entry only.
+Expected: `2`. If the count is `0`, add entries matching the Japanese/American pattern. If `2`, no changes needed — skip to Step 2.
 
 - [ ] **Step 2: Update More Tools subtitle**
 
@@ -646,6 +648,42 @@ British generator page static checks ok
 ```bash
 git add template-deploy/tools.json template-deploy/template/more-tools.html tests/british-generator-page.test.js
 git commit -m "Update name generator tool links"
+```
+
+---
+
+### Task 5b: Add Clean-URL Redirect Rules
+
+**Files:**
+- Modify: `wordineer-deploy/_redirects`
+
+- [ ] **Step 1: Add two lines to `_redirects`**
+
+Open `wordineer-deploy/_redirects`. Add one line to the 301-redirect block and one to the 200-rewrite block, matching the Japanese pattern directly above:
+
+301 block — add after the Japanese line:
+```
+/random-british-name-generator.html    /random-british-name-generator/    301
+```
+
+200 rewrite block — add after the Japanese line:
+```
+/random-british-name-generator/    /random-british-name-generator.html    200
+```
+
+- [ ] **Step 2: Verify syntax**
+
+```bash
+grep british /Users/garrickdeetan/Documents/Random\ Word\ Generator\ Tool\ Site/wordineer-deploy/_redirects
+```
+
+Expected: two matching lines — one with `301`, one with `200`.
+
+- [ ] **Step 3: Commit**
+
+```bash
+git add wordineer-deploy/_redirects
+git commit -m "Add clean-URL redirect for British name generator"
 ```
 
 ---

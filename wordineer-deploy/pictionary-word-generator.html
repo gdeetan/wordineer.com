@@ -165,6 +165,14 @@
   .word-card{min-height:110px;break-inside:avoid;border:1px solid #111}
 }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Wordineer",
+  "url": "https://wordineer.com"
+}
+</script>
 </head>
 
 <body>
@@ -178,7 +186,6 @@
   <div class="nav-links">
     <a href="/tools.html">Tools</a>
     <a href="/blog.html">Blog</a>
-    <a href="/api.html">API</a>
   </div>
   <div>
     <button class="hamburger" type="button" aria-label="All tools" aria-controls="mega" aria-expanded="false">
@@ -431,7 +438,7 @@
         <span style="font-size:14px;font-weight:600;color:var(--text)">Wordineer</span>
       </div>
       <span class="footer-copy">© 2026 Wordineer · Free word tools for everyone</span>
-      <div class="footer-meta"><a href="/about.html">About</a><a href="/blog.html">Blog</a><a href="/api.html">API docs</a><a href="/affiliate-disclosure.html">Affiliate disclosure</a><a href="/privacy.html">Privacy</a></div>
+      <div class="footer-meta"><a href="/about.html">About</a><a href="/blog.html">Blog</a><a href="/affiliate-disclosure.html">Affiliate disclosure</a><a href="/privacy.html">Privacy</a></div>
     </div>
   </div>
 </footer>
@@ -488,9 +495,22 @@
     {w:'Planking',c:['funny','actions'],d:'hard'},{w:'Dabbing',c:['funny','actions'],d:'hard'},{w:'Rickroll',c:['funny'],d:'hard'},{w:'Photobomb',c:['funny'],d:'hard'},{w:'Dumpster fire',c:['funny'],d:'hard'}
   ];
   let words=[...SEED],picFullLoaded=false,picLoadPromise=null;
+  function picNormalizeWords(raw){
+    if(Array.isArray(raw))return raw.map(([w,c,d])=>({w,c,d}));
+    const normalized=[];
+    Object.entries(raw||{}).forEach(([category,levels])=>{
+      Object.entries(levels||{}).forEach(([difficulty,items])=>{
+        (items||[]).forEach(item=>{
+          if(typeof item==='string')normalized.push({w:item,c:[category],d:difficulty});
+          else if(item&&item.w)normalized.push({w:item.w,c:item.c||[category],d:item.d||difficulty});
+        });
+      });
+    });
+    return normalized;
+  }
   function picLoadFullWords(){
     if(picFullLoaded||picLoadPromise)return;
-    picLoadPromise=fetch('/data/pictionary-words.json').then(r=>{if(!r.ok)throw new Error(r.status);return r.json()}).then(raw=>{words=raw.map(([w,c,d])=>({w,c,d}));picFullLoaded=true}).catch(()=>{picLoadPromise=null});
+    picLoadPromise=fetch('/data/pictionary-words.json').then(r=>{if(!r.ok)throw new Error(r.status);return r.json()}).then(raw=>{words=picNormalizeWords(raw);picFullLoaded=true}).catch(()=>{picLoadPromise=null});
   }
   function picScheduleLoad(){if(picFullLoaded)return;if('requestIdleCallback' in window)requestIdleCallback(picLoadFullWords,{timeout:4000});else setTimeout(picLoadFullWords,200)}
   window.addEventListener('load',picScheduleLoad,{once:true});

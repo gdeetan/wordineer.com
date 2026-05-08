@@ -1,6 +1,6 @@
 <!-- CONFIG
 {
-  "url": "/index.html",
+  "url": "/",
   "output": "index.html"
 }
 -->
@@ -221,8 +221,8 @@
             <label class="size-opt"><input type="radio" name="sizeby" value="syllables"><span class="size-tick" aria-hidden="true"></span><span>Syllables</span></label>
           </div>
           <div class="size-ctrls">
-            <select aria-label="Word length rule"><option>Any length</option><option>Equals</option><option>At least</option><option>At most</option></select>
-            <input type="number" placeholder="-" min="1" max="20" aria-label="Word length value">
+            <select id="ctrl-size-cond" aria-label="Word length rule"><option>Any length</option><option>Equals</option><option>At least</option><option>At most</option></select>
+            <input id="ctrl-size-val" type="number" placeholder="-" min="1" max="20" aria-label="Word length value">
           </div>
         </div>
         <div class="def-row">
@@ -306,7 +306,7 @@
 
   <h2>Who uses it — and how</h2>
   <h3>For writing</h3>
-  <p>Set the count to 5–10, hit generate, and write a paragraph using every word in order. The constraint forces creative connections you wouldn't make on your own. Novelists, screenwriters, and content creators use this exact exercise to break out of predictable patterns. If you want a full sentence to start from, the <a href="/random-sentence-generator.html">random sentence generator</a> pairs well with this.</p>
+  <p>Set the count to 5–10, hit generate, and write a paragraph using every word in order. The constraint forces creative connections you wouldn't make on your own. Novelists, screenwriters, and content creators use this exact exercise to break out of predictable patterns. If you want a full sentence to start from, the <a href="/random-sentence-generator/">random sentence generator</a> pairs well with this.</p>
 
   <div class="aff-writing">
     <div class="aff-sponsored">✦ Sponsored <span class="ad-pill">Ad</span></div>
@@ -318,7 +318,7 @@
   <p>Use the difficulty filter to target easy, medium, or advanced words depending on what you're studying. Every word includes its definition and part of speech, so you can study meaning and usage at the same time. Save words you want to revisit by clicking the heart — they'll stay in the saved section until you're done.</p>
 
   <h3>For games and Pictionary</h3>
-  <p>Pictionary, charades, and Scrabble practice all work better with words no one picked themselves. Set the word type to "nouns" for Pictionary so every word is something drawable. For a more focused experience, the dedicated <a href="/pictionary-word-generator.html">Pictionary word generator</a> has category filters built in.</p>
+  <p>Pictionary, charades, and Scrabble practice all work better with words no one picked themselves. Set the word type to "nouns" for Pictionary so every word is something drawable. For a more focused experience, the dedicated <a href="/pictionary-word-generator/">Pictionary word generator</a> has category filters built in.</p>
 
   <h3>Filtering by length</h3>
   <p>Use the "word size" control to target words by letter count or syllable count. Short words work well for younger players and word games with strict letter limits; longer words are better for advanced vocabulary practice or spelling bee prep. The "at least / at most / equals" options let you dial it in precisely.</p>
@@ -384,7 +384,7 @@
         <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
       </svg>
     </div>
-    <div class="faq-a">Yes — set the word type to "Nouns only" so every generated word is something drawable. For a dedicated experience with category filters (easy, medium, hard), try the <a href="/pictionary-word-generator.html">Pictionary word generator</a> instead.</div>
+    <div class="faq-a">Yes — set the word type to "Nouns only" so every generated word is something drawable. For a dedicated experience with category filters (easy, medium, hard), try the <a href="/pictionary-word-generator/">Pictionary word generator</a> instead.</div>
   </div>
 </div>
 <!-- /SLOT:faq -->
@@ -412,6 +412,8 @@ WORDINEER.init({
   firstId:        'ctrl-first',
   lastId:         'ctrl-last',
   defsId:         'ctrl-defs',
+  sizeCondId:     'ctrl-size-cond',
+  sizeValId:      'ctrl-size-val',
   apiKeys: {
     wordnik: 'vzxbo7m8vl91xgsicsuk79k0pd2w1z3k4z7xl2sv9sje9akxh',
     merriam: 'Y1c8533d7-23e6-4c3b-9c48-854066e8caff',
@@ -440,11 +442,20 @@ WORDINEER.init({
   document.getElementById('word-regen-btn')?.addEventListener('click', validateAndGenerate);
 
   if (count) {
-    count.addEventListener('input', function() {
-      const v = parseInt(this.value, 10);
-      setCountError(isNaN(v) || v < 1 || v > 50);
-    });
+    count.addEventListener('input', validateAndGenerate);
+    count.addEventListener('change', validateAndGenerate);
   }
+
+  ['ctrl-type', 'ctrl-diff', 'ctrl-first', 'ctrl-last', 'ctrl-size-cond', 'ctrl-size-val', 'ctrl-defs'].forEach(function(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.addEventListener('change', validateAndGenerate);
+    el.addEventListener('input', validateAndGenerate);
+  });
+
+  document.querySelectorAll('input[name="sizeby"]').forEach(function(el) {
+    el.addEventListener('change', validateAndGenerate);
+  });
 
   if (toggle && advanced) {
     toggle.addEventListener('click', function(){

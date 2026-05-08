@@ -189,6 +189,14 @@
   .hero h1 { font-size:24px; }
 }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Wordineer",
+  "url": "https://wordineer.com"
+}
+</script>
 </head>
 
 <body>
@@ -202,7 +210,6 @@
   <div class="nav-links">
     <a href="/tools.html">Tools</a>
     <a href="/blog.html">Blog</a>
-    <a href="/api.html">API</a>
   </div>
   <div>
     <button class="hamburger" type="button" aria-label="All tools" aria-controls="mega" aria-expanded="false">
@@ -531,7 +538,7 @@
         <span style="font-size:14px;font-weight:600;color:var(--text)">Wordineer</span>
       </div>
       <span class="footer-copy">© 2026 Wordineer · Free word tools for everyone</span>
-      <div class="footer-meta"><a href="/about.html">About</a><a href="/blog.html">Blog</a><a href="/api.html">API docs</a><a href="/affiliate-disclosure.html">Affiliate disclosure</a><a href="/privacy.html">Privacy</a></div>
+      <div class="footer-meta"><a href="/about.html">About</a><a href="/blog.html">Blog</a><a href="/affiliate-disclosure.html">Affiliate disclosure</a><a href="/privacy.html">Privacy</a></div>
     </div>
   </div>
 </footer>
@@ -572,8 +579,26 @@ const WORDINEER_SENTENCES = (() => {
   let fullLoaded = false;
 
   const SC_KEY = 'wnr_sentences_v1';
+  const LENGTH_RANGES = {
+    short: [5, 8],
+    medium: [9, 14],
+    long: [15, Infinity]
+  };
+
   function scGet(k) { try { return JSON.parse(sessionStorage.getItem(k)); } catch { return null; } }
   function scSet(k, v) { try { sessionStorage.setItem(k, JSON.stringify(v)); } catch {} }
+
+  function getWordCount(sentence) {
+    return String(sentence || '').trim().split(/\s+/).filter(Boolean).length;
+  }
+
+  function matchesLength(sentence, length) {
+    if (length === 'all') return true;
+    const range = LENGTH_RANGES[length];
+    if (!range) return true;
+    const count = getWordCount(sentence);
+    return count >= range[0] && count <= range[1];
+  }
 
   async function loadSentences() {
     const cached = scGet(SC_KEY);
@@ -598,9 +623,8 @@ const WORDINEER_SENTENCES = (() => {
       (category === 'all' || s[1] === category) &&
       (tone     === 'all' || s[2] === tone)     &&
       (type     === 'all' || s[3] === type)     &&
-      (length   === 'all' || s[4] === length)
+      matchesLength(s[0], length)
     );
-    if (!pool.length) pool = SENTENCES;
     return [...pool].sort(() => Math.random() - 0.5).slice(0, Math.min(n, pool.length));
   }
 
@@ -628,9 +652,16 @@ const WORDINEER_SENTENCES = (() => {
     if (!list) return;
     list.innerHTML = '';
 
+    if (!current.length) {
+      const li = document.createElement('li');
+      li.className = 'word-item';
+      li.innerHTML = '<span style="color:var(--text-3);font-size:13px;font-style:italic">No sentences match your filters — try adjusting the options.</span>';
+      list.appendChild(li);
+    }
+
     current.forEach((s) => {
       const [sentence, category, , type] = s;
-      const wc = sentence.trim().split(/\s+/).length;
+      const wc = getWordCount(sentence);
       const isSaved = saved.includes(sentence);
 
       const li = document.createElement('li');
@@ -787,6 +818,12 @@ const WORDINEER_SENTENCES = (() => {
     document.getElementById(cfg.copyAllBtnId)?.addEventListener('click', copyAll);
     document.getElementById(cfg.regenBtnId)?.addEventListener('click', render);
     document.getElementById(cfg.copySavedBtnId)?.addEventListener('click', copySaved);
+
+    [cfg.countId, cfg.categoryId, cfg.toneId, cfg.typeId, cfg.lengthId].forEach(id => {
+      const control = document.getElementById(id);
+      if (!control) return;
+      control.addEventListener(control.tagName === 'INPUT' ? 'input' : 'change', render);
+    });
 
     [cfg.showWordCountId, cfg.showTypeLabelId, cfg.showCategoryTagId].forEach(id => {
       document.getElementById(id)?.addEventListener('change', renderList);

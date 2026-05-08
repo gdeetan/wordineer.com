@@ -1,29 +1,29 @@
 const WORDINEER = (() => {
 const SEED = [
-{w:"Brave",    t:"adjective",d:"ready to face danger without fear",                       diff:"easy",  borrowed:false},
-{w:"Calm",     t:"adjective",d:"not showing nervousness or strong emotion",               diff:"easy",  borrowed:false},
-{w:"Dream",    t:"noun",     d:"a series of images occurring during sleep",               diff:"easy",  borrowed:false},
-{w:"Eager",    t:"adjective",d:"wanting to do something very much",                       diff:"easy",  borrowed:false},
-{w:"Flame",    t:"noun",     d:"a hot glowing body of ignited gas",                       diff:"easy",  borrowed:false},
-{w:"Gentle",   t:"adjective",d:"mild in temperament; kind and tender",                    diff:"easy",  borrowed:false},
-{w:"Happy",    t:"adjective",d:"feeling or showing pleasure or contentment",               diff:"easy",  borrowed:false},
-{w:"Inspire",  t:"verb",     d:"fill someone with the urge to do something creative",     diff:"medium",borrowed:false},
-{w:"Journey",  t:"noun",     d:"an act of travelling from one place to another",          diff:"medium",borrowed:false},
-{w:"Keen",     t:"adjective",d:"having or showing eagerness or enthusiasm",               diff:"medium",borrowed:false},
-{w:"Labyrinth",t:"noun",     d:"a complicated irregular network of passages",             diff:"hard",  borrowed:false},
-{w:"Melancholy",t:"noun",    d:"a deep pensive sadness with no obvious cause",            diff:"hard",  borrowed:false},
-{w:"Noble",    t:"adjective",d:"having fine personal qualities or high morals",           diff:"medium",borrowed:false},
-{w:"Ocean",    t:"noun",     d:"a very large expanse of sea",                             diff:"easy",  borrowed:false},
-{w:"Persist",  t:"verb",     d:"continue firmly in an opinion or course of action",      diff:"medium",borrowed:false},
-{w:"Resilient",t:"adjective",d:"able to recover quickly from difficulties",               diff:"medium",borrowed:false},
-{w:"Serendipity",t:"noun",   d:"finding something good without looking for it",           diff:"hard",  borrowed:false},
-{w:"Tenacious",t:"adjective",d:"tending to keep a firm hold; persistent",                diff:"hard",  borrowed:false},
-{w:"Unique",   t:"adjective",d:"being the only one of its kind",                         diff:"medium",borrowed:false},
-{w:"Vivid",    t:"adjective",d:"producing powerful feelings or clear images",             diff:"easy",  borrowed:false},
-{w:"Wander",   t:"verb",     d:"walk or move in a leisurely or aimless way",              diff:"easy",  borrowed:false},
-{w:"Zealous",  t:"adjective",d:"having or showing great energy in pursuit of a cause",   diff:"hard",  borrowed:false},
-{w:"Wanderlust",t:"noun",    d:"a strong desire to travel and explore the world",         diff:"medium",borrowed:true},
-{w:"Schadenfreude",t:"noun", d:"pleasure derived from another person's misfortune",       diff:"hard",  borrowed:true},
+{w:"Brave",    t:"adjective",d:"ready to face danger without fear",                       diff:"easy",  borrowed:false,syl:1},
+{w:"Calm",     t:"adjective",d:"not showing nervousness or strong emotion",               diff:"easy",  borrowed:false,syl:1},
+{w:"Dream",    t:"noun",     d:"a series of images occurring during sleep",               diff:"easy",  borrowed:false,syl:1},
+{w:"Eager",    t:"adjective",d:"wanting to do something very much",                       diff:"easy",  borrowed:false,syl:2},
+{w:"Flame",    t:"noun",     d:"a hot glowing body of ignited gas",                       diff:"easy",  borrowed:false,syl:1},
+{w:"Gentle",   t:"adjective",d:"mild in temperament; kind and tender",                    diff:"easy",  borrowed:false,syl:2},
+{w:"Happy",    t:"adjective",d:"feeling or showing pleasure or contentment",               diff:"easy",  borrowed:false,syl:2},
+{w:"Inspire",  t:"verb",     d:"fill someone with the urge to do something creative",     diff:"medium",borrowed:false,syl:2},
+{w:"Journey",  t:"noun",     d:"an act of travelling from one place to another",          diff:"medium",borrowed:false,syl:2},
+{w:"Keen",     t:"adjective",d:"having or showing eagerness or enthusiasm",               diff:"medium",borrowed:false,syl:1},
+{w:"Labyrinth",t:"noun",     d:"a complicated irregular network of passages",             diff:"hard",  borrowed:false,syl:3},
+{w:"Melancholy",t:"noun",    d:"a deep pensive sadness with no obvious cause",            diff:"hard",  borrowed:false,syl:4},
+{w:"Noble",    t:"adjective",d:"having fine personal qualities or high morals",           diff:"medium",borrowed:false,syl:2},
+{w:"Ocean",    t:"noun",     d:"a very large expanse of sea",                             diff:"easy",  borrowed:false,syl:2},
+{w:"Persist",  t:"verb",     d:"continue firmly in an opinion or course of action",      diff:"medium",borrowed:false,syl:2},
+{w:"Resilient",t:"adjective",d:"able to recover quickly from difficulties",               diff:"medium",borrowed:false,syl:4},
+{w:"Serendipity",t:"noun",   d:"finding something good without looking for it",           diff:"hard",  borrowed:false,syl:5},
+{w:"Tenacious",t:"adjective",d:"tending to keep a firm hold; persistent",                diff:"hard",  borrowed:false,syl:3},
+{w:"Unique",   t:"adjective",d:"being the only one of its kind",                         diff:"medium",borrowed:false,syl:2},
+{w:"Vivid",    t:"adjective",d:"producing powerful feelings or clear images",             diff:"easy",  borrowed:false,syl:2},
+{w:"Wander",   t:"verb",     d:"walk or move in a leisurely or aimless way",              diff:"easy",  borrowed:false,syl:2},
+{w:"Zealous",  t:"adjective",d:"having or showing great energy in pursuit of a cause",   diff:"hard",  borrowed:false,syl:2},
+{w:"Wanderlust",t:"noun",    d:"a strong desire to travel and explore the world",         diff:"medium",borrowed:true, syl:3},
+{w:"Schadenfreude",t:"noun", d:"pleasure derived from another person's misfortune",       diff:"hard",  borrowed:true, syl:4},
 ];
 let WORDS      = [...SEED];
 let saved      = [];
@@ -35,6 +35,20 @@ let fullLoadPromise = null;
 let fullLoadScheduled = false;
 let API_KEYS   = { wordnik: '', merriam: '' };
 const SC_WORDS_KEY = 'wnr_words_v3';
+function countSyllables(word) {
+word = word.toLowerCase().replace(/[^a-z]/g,'');
+if (!word) return 1;
+let count = 0, prev = false;
+for (let i = 0; i < word.length; i++) {
+const v = 'aeiou'.includes(word[i]) || (word[i]==='y' && i>0);
+if (v && !prev) count++;
+prev = v;
+}
+if (word.endsWith('e') && word.length>2 && count>1 && !/[^aeiouy]le$/.test(word) && !'aeiouy'.includes(word[word.length-2])) count--;
+else if (word.endsWith('es') && word.length>3 && count>1 && !/[^aeiouy]les$/.test(word) && !'aeiouy'.includes(word[word.length-3])) count--;
+else if (word.endsWith('ed') && word.length>3 && count>1 && !'aeiouy'.includes(word[word.length-3]) && !'td'.includes(word[word.length-3])) count--;
+return Math.max(1,count);
+}
 function scGet(key) {
 try { return JSON.parse(sessionStorage.getItem(key)); } catch { return null; }
 }
@@ -54,7 +68,7 @@ try {
 const res = await fetch('/data/words.json');
 if (!res.ok) throw new Error(res.status);
 const raw = await res.json();
-const data = raw.map(e => ({ w: e[0], t: e[1], d: e[2], diff: e[3], borrowed: e[4] }));
+const data = raw.map(e => ({ w: e[0], t: e[1], d: e[2], diff: e[3], borrowed: e[4], syl: e[5] ?? countSyllables(e[0]) }));
 WORDS = data;
 fullLoaded = true;
 scSet(SC_WORDS_KEY, data);
@@ -186,6 +200,7 @@ t:        info.pos || inferredPos,
 d:        info.def,
 diff:     'medium',
 borrowed: false,
+syl:      countSyllables(word),
 _live:    true,
 });
 });
@@ -240,11 +255,15 @@ if (err) err.classList.toggle('show', show);
 if (inp) inp.classList.toggle('input-error', show);
 }
 function pick() {
-const count = parseInt(document.getElementById(config.countId)?.value) || 10;
-const type   = document.getElementById(config.typeId)?.value   || 'all';
-const diff   = document.getElementById(config.diffId)?.value   || 'all';
-const first  = (document.getElementById(config.firstId)?.value || '').toUpperCase().trim();
-const last   = (document.getElementById(config.lastId)?.value  || '').toUpperCase().trim();
+const count    = parseInt(document.getElementById(config.countId)?.value) || 10;
+const type     = document.getElementById(config.typeId)?.value    || 'all';
+const diff     = document.getElementById(config.diffId)?.value    || 'all';
+const first    = (document.getElementById(config.firstId)?.value  || '').toUpperCase().trim();
+const last     = (document.getElementById(config.lastId)?.value   || '').toUpperCase().trim();
+const sizeby   = document.querySelector('input[name="sizeby"]:checked')?.value || 'letters';
+const sizeCond = document.getElementById(config.sizeCondId)?.value || 'Any length';
+const sizeVal  = parseInt(document.getElementById(config.sizeValId)?.value) || 0;
+const useSize  = sizeCond !== 'Any length' && sizeVal > 0;
 let pool = WORDS.filter(w => {
 if (type === 'noun'      && w.t !== 'noun')      return false;
 if (type === 'adjective' && w.t !== 'adjective') return false;
@@ -255,9 +274,16 @@ if (type === 'nonenglish'&& !w.borrowed)         return false;
 if (diff !== 'all'       && w.diff !== diff)     return false;
 if (first && !w.w.toUpperCase().startsWith(first)) return false;
 if (last  && !w.w.toUpperCase().endsWith(last))    return false;
+if (useSize) {
+const measure = sizeby === 'syllables'
+? (w.syl ?? countSyllables(w.w))
+: w.w.replace(/[^a-zA-Z]/g,'').length;
+if (sizeCond === 'Equals'   && measure !== sizeVal) return false;
+if (sizeCond === 'At least' && measure <  sizeVal)  return false;
+if (sizeCond === 'At most'  && measure >  sizeVal)  return false;
+}
 return true;
 });
-if (!pool.length) pool = WORDS;
 const shuffled = [...pool].sort(() => Math.random() - 0.5);
 return shuffled.slice(0, Math.min(count, shuffled.length, MAX_WORDS));
 }
@@ -273,6 +299,16 @@ defsShown = document.getElementById(config.defsId)?.checked !== false;
 const list = document.getElementById(config.listId);
 if (!list) return;
 list.innerHTML = '';
+if (!current.length) {
+const li = document.createElement('li');
+li.className = 'word-item';
+li.style.cssText = 'justify-content:center;padding:24px 0';
+li.innerHTML = '<span style="color:var(--text-3);font-size:13px;font-style:italic">No words match your filters — try adjusting the options.</span>';
+list.appendChild(li);
+const wc = document.getElementById(config.countDisplayId);
+if (wc) wc.textContent = '0 words generated';
+return;
+}
 current.forEach((wd, i) => {
 const li = document.createElement('li');
 li.className = 'word-item';
@@ -382,6 +418,12 @@ if (el) el.value = defaults[i];
 });
 const defs = document.getElementById(config.defsId);
 if (defs) defs.checked = true;
+const sizeCond = document.getElementById(config.sizeCondId);
+if (sizeCond) sizeCond.value = 'Any length';
+const sizeVal = document.getElementById(config.sizeValId);
+if (sizeVal) sizeVal.value = '';
+const sizeByLetters = document.querySelector('input[name="sizeby"][value="letters"]');
+if (sizeByLetters) sizeByLetters.checked = true;
 render();
 }
 function initFaq() {
@@ -551,6 +593,8 @@ diffId:         cfg.diffId         || 'ctrl-diff',
 firstId:        cfg.firstId        || 'ctrl-first',
 lastId:         cfg.lastId         || 'ctrl-last',
 defsId:         cfg.defsId         || 'ctrl-defs',
+sizeCondId:     cfg.sizeCondId     || 'ctrl-size-cond',
+sizeValId:      cfg.sizeValId      || 'ctrl-size-val',
 };
 if (cfg.apiKeys) {
   API_KEYS.wordnik  = cfg.apiKeys.wordnik  || '';
@@ -570,9 +614,12 @@ const v = parseInt(this.value);
 if (v >= 1 && v <= MAX_WORDS) setCountError(false);
 });
 }
-[config.typeId, config.diffId, config.firstId, config.lastId].forEach(id => {
+[config.typeId, config.diffId, config.firstId, config.lastId, config.sizeCondId, config.sizeValId].forEach(id => {
 const el = document.getElementById(id);
 if (el) el.addEventListener('change', () => scheduleFullDictionary(0));
+});
+document.querySelectorAll('input[name="sizeby"]').forEach(el => {
+el.addEventListener('change', () => scheduleFullDictionary(0));
 });
 }
 return { init, render, generate, reset, copyWord, copyAll, copySaved, toggleSave, removeSaved, showToast };

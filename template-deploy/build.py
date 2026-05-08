@@ -151,9 +151,12 @@ def build_page(src_path, data):
     else:
         # Full tool layout: head → nav → hero → tool → ads → grids → footer → init
         more_tools = read(os.path.join(TMPL_DIR, 'more-tools.html'))
-        tools_grid_html = build_tools_grid(data['more_word_tools'], active_url)
+        tools_key = cfg.get('more_tools_key', 'more_word_tools')
+        tools_grid_html = build_tools_grid(data[tools_key], active_url)
         other_grid_html = build_other_grid(data['other_tools'])
         more_tools = (more_tools
+            .replace('{{MORE_TOOLS_TITLE}}', cfg.get('more_tools_title', 'More word tools'))
+            .replace('{{MORE_TOOLS_SUBTITLE}}', cfg.get('more_tools_subtitle', 'Every word generator you need, all free'))
             .replace('{{TOOLS_GRID}}', tools_grid_html)
             .replace('{{OTHER_GRID}}', other_grid_html)
             .replace('{{EXPLAINER}}',  slots['explainer'])
