@@ -125,6 +125,14 @@
 .ctrl-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; display:block; margin-bottom:5px; }
 .ctrl-row input, .ctrl-row select { width:100%; padding:7px 10px; font-size:13px; font-family:inherit; border:1px solid var(--border); border-radius:7px; background:var(--bg); color:var(--text); appearance:none; outline:none; transition:border-color .15s; }
 .ctrl-row input:focus, .ctrl-row select:focus { border-color:var(--brand); }
+.def-row    { display:flex; align-items:center; gap:8px; margin-bottom:14px; }
+.def-row label { font-size:12px; color:var(--text-2); cursor:pointer; }
+.toggle     { position:relative; width:32px; height:18px; flex-shrink:0; }
+.toggle input { opacity:0; width:0; height:0; }
+.toggle-sl  { position:absolute; cursor:pointer; inset:0; background:var(--border); border-radius:9px; transition:.2s; }
+.toggle input:checked + .toggle-sl { background:var(--brand); }
+.toggle-sl::before { content:''; position:absolute; width:14px; height:14px; left:2px; top:2px; background:white; border-radius:50%; transition:.2s; }
+.toggle input:checked + .toggle-sl::before { transform:translateX(14px); }
 .gen-btn    { width:100%; padding:10px 14px; background:var(--brand); color:white; border:none; border-radius:8px; font-size:14px; font-weight:600; font-family:inherit; cursor:pointer; transition:background .15s,transform .1s; letter-spacing:-.01em; }
 .gen-btn:hover { background:var(--brand-dark); }
 .gen-btn:active { transform:scale(.98); }
@@ -318,6 +326,10 @@
               <option value="both">Show both</option>
             </select>
           </div>
+          <div class="def-row">
+            <label class="toggle" aria-label="Show definitions"><input type="checkbox" id="vn-defs" checked><span class="toggle-sl"></span></label>
+            <label for="vn-defs">Show definitions</label>
+          </div>
         </div>
 
         <button type="button" class="gen-btn" id="vn-gen-btn">Generate names</button>
@@ -383,7 +395,7 @@
 
 <div class="explainer">
   <h2>What is a random Vietnamese name generator?</h2>
-  <p>A random Vietnamese name generator creates Vietnamese-style names from curated family names, middle names, and given names. This tool shows Vietnamese accents, ASCII fallback, short meaning notes, and family-name-first order, so it is useful for character sheets, scripts, games, tabletop campaigns, and worldbuilding notes. Unlike a one-click list, it lets you filter by gender, style, meaning theme, name type, format, first letter, and diacritic display.</p>
+  <p>A random Vietnamese name generator creates Vietnamese-style names from curated family names, middle names, and given names. This tool shows Vietnamese accents, ASCII fallback, short meaning notes, and family-name-first order, so it is useful for character sheets, scripts, games, tabletop campaigns, and worldbuilding notes. Unlike a one-click list, it lets you filter by gender, style, meaning theme, name type, format, first letter, and diacritic display. Use the Show definitions toggle to hide or show the meaning notes under each result.</p>
 
   <h2>How it Works</h2>
   <p>Choose how many names you want, then narrow the results with the filters. When you change gender, style, meaning theme, name format, first letter, or diacritics, the list updates automatically. On mobile, tap More options to reveal the filters below the number field while keeping the tool compact.</p>
@@ -481,6 +493,7 @@ const VN_THEME_LABELS = {
 let vnData = null;
 let vnReady = false;
 let vnEngineReady = false;
+let vnCurrentItems = [];
 
 function vnEsc(str) {
   return String(str ?? '').replace(/[&<>"']/g, function(ch) {
@@ -661,14 +674,31 @@ function vnGenerateFn(data) {
     seen.add(item.display);
     results.push(item);
   }
+  vnCurrentItems = results.slice();
   return results.length ? results : [vnNoResultsItem()];
 }
+
+function vnDefsVisible() {
+  return document.getElementById('vn-defs')?.checked !== false;
+}
+
+function vnRenderCurrentItems() {
+  const list = document.getElementById('vn-list');
+  if (!list || !vnCurrentItems.length) return;
+  list.innerHTML = '';
+  vnCurrentItems.forEach(function(item) {
+    const wrapper = document.createElement('div');
+    wrapper.innerHTML = vnRenderItem(item);
+    list.appendChild(wrapper.firstElementChild || wrapper);
+  });
+}
+
 function vnRenderItem(item) {
   if (item.noResult) {
     return '<li class="word-item vn-no-results">'
       + '<div class="word-left">'
       + '<div class="word-text">' + vnEsc(item.display) + '</div>'
-      + '<div class="vn-meaning">' + vnEsc(item.meaning) + '</div>'
+      + (vnDefsVisible() ? '<div class="vn-meaning">' + vnEsc(item.meaning) + '</div>' : '')
       + '</div></li>';
   }
   let savedArr = [];
@@ -684,13 +714,14 @@ function vnRenderItem(item) {
   }).join('');
   const altLine = item.alt ? '<div class="vn-alt">ASCII: ' + vnEsc(item.alt) + '</div>' : '';
   const orderLine = item.orderLine ? '<div class="vn-order">' + vnEsc(item.orderLine) + '</div>' : '';
+  const showDefs = vnDefsVisible();
   return '<li class="word-item" data-name="' + safeAttr + '">'
     + '<div class="word-left">'
     + '<div class="word-text">' + vnEsc(item.display) + '</div>'
     + altLine
     + orderLine
     + '<div class="vn-badges">' + styles + themes + '</div>'
-    + '<div class="vn-meaning">' + vnEsc(item.meaning) + '</div>'
+    + (showDefs ? '<div class="vn-meaning">' + vnEsc(item.meaning) + '</div>' : '')
     + '</div>'
     + '<div class="word-right">'
     + '<button class="icon-btn" title="Copy" onclick="vnCopyName(\'' + safeClick + '\',this)">'
@@ -759,6 +790,7 @@ vnCountInput?.addEventListener('input', function() {
 });
 vnCountInput?.addEventListener('change', vnRegenerateFromFilters);
 document.getElementById('vn-gen-btn')?.addEventListener('click', vnSyncNoResultCount);
+document.getElementById('vn-defs')?.addEventListener('change', vnRenderCurrentItems);
 ['vn-type','vn-gender','vn-format','vn-style','vn-theme','vn-letter','vn-diacritics'].forEach(function(id) {
   const el = document.getElementById(id);
   if (!el) return;
