@@ -542,6 +542,21 @@ function jpValidateCount() {
 function jpHas(values, selected) {
   return selected === 'any' || (Array.isArray(values) && values.includes(selected));
 }
+function jpNormalizeRecord(entry, kind) {
+  if (!entry) return null;
+  if (Array.isArray(entry)) return entry;
+  if (typeof entry !== 'object') return null;
+  const romaji = String(entry.romaji || entry.name || '').trim();
+  const kana = String(entry.kana || '').trim();
+  const kanji = Array.isArray(entry.kanji) ? entry.kanji : (entry.kanji ? [entry.kanji] : []);
+  const styles = Array.isArray(entry.styles) ? entry.styles : [];
+  const themes = Array.isArray(entry.themes) ? entry.themes : [];
+  const meaning = String(entry.definition || entry.meaning || '').trim();
+  if (kind === 'given') {
+    return [romaji, kana, kanji, entry.gender || 'u', styles, themes, meaning];
+  }
+  return [romaji, kana, kanji, styles, themes, meaning];
+}
 function jpNoResultsItem() {
   return {
     display: 'No matching Japanese names found',
@@ -721,7 +736,10 @@ fetch('/data/japanese-names.json', { cache: 'force-cache' })
     return res.json();
   })
   .then(function(data) {
-    jpData = data;
+    jpData = {
+      given: Array.isArray(data?.given) ? data.given.map(function(n) { return jpNormalizeRecord(n, 'given'); }).filter(Boolean) : [],
+      surnames: Array.isArray(data?.surnames) ? data.surnames.map(function(n) { return jpNormalizeRecord(n, 'surname'); }).filter(Boolean) : []
+    };
     jpReady = true;
     WORDINEER.init({
       mode:           'custom',
