@@ -161,6 +161,7 @@
 .saved-tag-remove { cursor:pointer; opacity:.65; }
 .saved-empty { color:var(--text-3); font-size:12px; }
 .word-text { font-size:17px; font-weight:600; color:var(--text); line-height:1.25; }
+.bng-meaning { font-size:12px; color:var(--text-2); margin-top:4px; line-height:1.45; }
 .bng-note { font-size:12px; color:var(--text-3); margin-top:4px; }
 .bng-chips { display:flex; flex-wrap:wrap; gap:5px; margin-top:6px; }
 .bng-chip { display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; padding:2px 7px; border-radius:999px; background:#EFF6FF; color:#1A56DB; }
@@ -593,19 +594,112 @@ const FALLBACK_BRITISH_NAMES = {
 function bngMapData(raw) {
   return {
     first: (raw.first || []).map(function(n) {
-      return { n: n[0], g: n[1], styles: n[2] || [], eras: n[3] || [], regions: n[4] || [], note: n[5] || '' };
+      return { n: n[0], g: n[1], styles: n[2] || [], eras: n[3] || [], regions: n[4] || [], note: n[5] || '', meaning: n[6] || bngMeaningLookup.first[n[0]] || '' };
     }),
     middle: (raw.middle || []).map(function(n) {
-      return { n: n[0], g: n[1], styles: n[2] || [], eras: n[3] || [], regions: n[4] || [], note: n[5] || '' };
+      return { n: n[0], g: n[1], styles: n[2] || [], eras: n[3] || [], regions: n[4] || [], note: n[5] || '', meaning: n[6] || bngMeaningLookup.middle[n[0]] || '' };
     }),
     last: (raw.last || []).map(function(n) {
-      return { n: n[0], styles: n[1] || [], regions: n[2] || [], types: n[3] || [], note: n[4] || '' };
+      return { n: n[0], styles: n[1] || [], regions: n[2] || [], types: n[3] || [], note: n[4] || '', meaning: n[5] || bngMeaningLookup.last[n[0]] || '' };
     }),
     doubleLastParts: (raw.doubleLastParts || []).map(function(n) {
-      return { n: n[0], styles: n[1] || [], regions: n[2] || [], note: n[3] || '' };
+      return { n: n[0], styles: n[1] || [], regions: n[2] || [], note: n[3] || '', meaning: n[4] || bngMeaningLookup.doubleLastParts[n[0]] || '' };
     })
   };
 }
+
+function bngMapMeaningData(raw) {
+  const out = { first: {}, middle: {}, last: {}, doubleLastParts: {} };
+  if (!raw || typeof raw !== 'object') return out;
+  ['first', 'middle', 'last', 'doubleLastParts'].forEach(function(section) {
+    (raw[section] || []).forEach(function(row) {
+      if (!Array.isArray(row) || !row[0] || !row[1]) return;
+      out[section][row[0]] = String(row[1]).trim();
+    });
+  });
+  return out;
+}
+
+function bngMergeMeaningLookup(base, extra) {
+  const merged = {
+    first: Object.assign({}, base.first, extra.first),
+    middle: Object.assign({}, base.middle, extra.middle),
+    last: Object.assign({}, base.last, extra.last),
+    doubleLastParts: Object.assign({}, base.doubleLastParts, extra.doubleLastParts)
+  };
+  return merged;
+}
+
+const BNG_FALLBACK_MEANINGS = bngMapMeaningData({
+  first: [
+    ['George', 'farmer; earth-worker'],
+    ['Henry', 'home ruler'],
+    ['Edward', 'wealthy guardian'],
+    ['William', 'resolute protector'],
+    ['Charles', 'free man'],
+    ['Arthur', 'bear; noble warrior'],
+    ['Olivia', 'olive tree'],
+    ['Charlotte', 'free man; feminine form of Charles'],
+    ['Emily', 'rival'],
+    ['Grace', 'grace'],
+    ['Sophie', 'wisdom'],
+    ['Alice', 'noble kind'],
+    ['Isla', 'island'],
+    ['Fiona', 'fair, white'],
+    ['Megan', 'pearl'],
+    ['Cerys', 'love'],
+    ['Niamh', 'bright; radiant'],
+    ['Siobhan', 'God is gracious'],
+    ['James', 'supplanter'],
+    ['Jack', 'God is gracious'],
+    ['Rhys', 'ardour; enthusiasm'],
+    ['Callum', 'dove'],
+    ['Hamish', 'supplanter'],
+    ['Liam', 'resolute protector'],
+    ['Declan', 'man of prayer'],
+    ['Morgan', 'sea-born'],
+    ['Alex', 'defender of humankind'],
+    ['Jamie', 'supplanter'],
+    ['Rose', 'rose'],
+    ['Louise', 'famous warrior'],
+    ['Anne', 'grace'],
+    ['John', 'God is gracious'],
+    ['Lee', 'clearing; meadow']
+  ],
+  middle: [
+    ['Rose', 'rose'],
+    ['Grace', 'grace'],
+    ['Louise', 'famous warrior'],
+    ['Anne', 'grace'],
+    ['James', 'supplanter'],
+    ['John', 'God is gracious'],
+    ['William', 'resolute protector'],
+    ['Lee', 'clearing; meadow']
+  ],
+  last: [
+    ['Smith', 'smith; metalworker'],
+    ['Jones', 'son of John'],
+    ['Williams', 'son of William'],
+    ['Brown', 'brown'],
+    ['Taylor', 'tailor; cutter of cloth'],
+    ['MacDonald', 'son of Donald'],
+    ['Campbell', 'crooked mouth'],
+    ['Whitmore', 'white moor'],
+    ['Thornton', 'thorn town'],
+    ['Cavendish', 'from the Cavendish place name'],
+    ['Harrington', 'Hæring’s town'],
+    ['Pritchard', 'son of Richard'],
+    ["O'Neill", 'descendant of Niall']
+  ],
+  doubleLastParts: [
+    ['Montgomery', 'Gumaric’s mountain'],
+    ['Jones', 'son of John'],
+    ['Fraser', 'strawberry plant'],
+    ['Webb', 'weaver']
+  ]
+});
+
+let bngMeaningLookup = BNG_FALLBACK_MEANINGS;
 
 const bngActiveData = bngMapData(FALLBACK_BRITISH_NAMES);
 let bngDataLoaded = false;
@@ -627,9 +721,16 @@ function bngLoadData() {
   if (bngDataPromise || bngDataLoaded) return bngDataPromise;
   bngDataPromise = (async function() {
     try {
-      const res = await fetch('/data/british-names.json', { cache: 'force-cache' });
-      if (!res.ok) throw new Error(res.status);
-      bngApplyData(await res.json());
+      const [namesRes, meaningsRes] = await Promise.all([
+        fetch('/data/british-names.json', { cache: 'force-cache' }),
+        fetch('/data/british-name-meanings.json', { cache: 'force-cache' }).catch(function() { return null; })
+      ]);
+      if (!namesRes || !namesRes.ok) throw new Error(namesRes ? namesRes.status : 'names');
+      const namesRaw = await namesRes.json();
+      let meaningsRaw = null;
+      if (meaningsRes && meaningsRes.ok) meaningsRaw = await meaningsRes.json();
+      bngMeaningLookup = bngMergeMeaningLookup(BNG_FALLBACK_MEANINGS, bngMapMeaningData(meaningsRaw));
+      bngApplyData(namesRaw);
     } catch (err) {
       if (!bngDataLoaded) WORDINEER.showToast('Using starter names while the full list loads.');
       bngDataPromise = null;
@@ -683,6 +784,13 @@ function bngPreferredSurnameTypeLabel(row, selectedType) {
   return BNG_LABELS.surnameType[t] || t || 'surname';
 }
 
+function bngMeaningFor(row, section, fallback) {
+  const direct = row.meaning || '';
+  if (direct) return direct;
+  const lookup = bngMeaningLookup[section] || {};
+  return lookup[row.n] || row.note || fallback;
+}
+
 function bngPick(arr, index) { return arr[index % arr.length]; }
 
 function bngGenerateFn(data) {
@@ -720,34 +828,39 @@ function bngGenerateFn(data) {
     const middle = middlePool.length ? bngPick(middlePool, i + 3) : null;
     const last = bngPick(lastPool, i + 7);
     const dbl = bngPick(doublePool, i + 11);
-    let display, note, chips;
+    let display, meaning, note, chips;
 
     if (type === 'first') {
       display = first.n;
+      meaning = bngMeaningFor(first, 'first', 'British first name');
       note = first.note || 'British first name';
       chips = [BNG_LABELS.gender[first.g] || first.g, bngPreferredRegionLabel(first)];
     } else if (type === 'last') {
       display = last.n;
+      meaning = bngMeaningFor(last, 'last', 'British surname');
       note = last.note || 'British surname';
       chips = [bngPreferredRegionLabel(last), bngPreferredSurnameTypeLabel(last, surnameType)];
     } else if (type === 'middle-full') {
       display = first.n + ' ' + (middle ? middle.n + ' ' : '') + last.n;
-      note = (first.note || 'British first name') + ' · ' + (last.note || 'British surname');
+      meaning = bngMeaningFor(first, 'first', 'British first name') + ' · ' + (middle ? bngMeaningFor(middle, 'middle', 'British middle name') + ' · ' : '') + bngMeaningFor(last, 'last', 'British surname');
+      note = (first.note || 'British first name') + ' · ' + (middle ? (middle.note || 'British middle name') + ' · ' : '') + (last.note || 'British surname');
       chips = [BNG_LABELS.gender[first.g] || first.g, bngPreferredRegionLabel(first), bngPreferredSurnameTypeLabel(last, surnameType)];
     } else if (type === 'double-full') {
       const doubleLast = last.n + '-' + dbl.n;
       display = first.n + ' ' + doubleLast;
+      meaning = bngMeaningFor(first, 'first', 'British first name') + ' · ' + bngMeaningFor(last, 'last', 'British surname') + ' · ' + bngMeaningFor(dbl, 'doubleLastParts', 'double-barrelled surname part');
       note = (first.note || 'British first name') + ' · double-barrelled surname';
       chips = [BNG_LABELS.gender[first.g] || first.g, bngPreferredRegionLabel(first), 'double-barrelled'];
     } else {
       display = first.n + ' ' + last.n;
+      meaning = bngMeaningFor(first, 'first', 'British first name') + ' · ' + bngMeaningFor(last, 'last', 'British surname');
       note = (first.note || 'British first name') + ' · ' + (last.note || 'British surname');
       chips = [BNG_LABELS.gender[first.g] || first.g, bngPreferredRegionLabel(first), bngPreferredSurnameTypeLabel(last, surnameType)];
     }
 
     if (!seen.has(display)) {
       seen.add(display);
-      results.push({ display: display, note: note, chips: chips });
+      results.push({ display: display, meaning: meaning, note: note, chips: chips });
     }
     i++;
   }
@@ -765,6 +878,8 @@ function bngRenderItem(item) {
   const isSaved = savedArr.includes(item.display);
   const safeAttr = item.display.replace(/"/g, '&quot;');
   const safeClick = item.display.replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/"/g, '&quot;');
+  const meaningText = item.meaning || item.note || '';
+  const noteText = item.note && item.note !== meaningText ? item.note : '';
   const chipHtml = (item.chips || []).filter(Boolean).slice(0, 3).map(function(chip, idx) {
     const kind = idx === 0 ? 'gender' : (idx === 1 ? 'region' : 'last');
     return '<span class="bng-chip bng-chip--' + kind + '">' + bngEsc(chip) + '</span>';
@@ -773,7 +888,8 @@ function bngRenderItem(item) {
     + '<li class="word-item" data-name="' + safeAttr + '">'
     +   '<div class="word-left">'
     +     '<div class="word-text">' + bngEsc(item.display) + '</div>'
-    +     '<div class="bng-note">' + bngEsc(item.note) + '</div>'
+    +     '<div class="bng-meaning">' + bngEsc(meaningText) + '</div>'
+    +     (noteText ? '<div class="bng-note">' + bngEsc(noteText) + '</div>' : '')
     +     '<div class="bng-chips">' + chipHtml + '</div>'
     +   '</div>'
     +   '<div class="word-right">'
