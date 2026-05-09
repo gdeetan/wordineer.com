@@ -442,7 +442,14 @@ hbg.setAttribute('aria-expanded', open ? 'true' : 'false');
 setMenu(mega.classList.contains('open'));
 hbg.addEventListener('click', e => {
 e.preventDefault();
+e.stopPropagation();
 setMenu(!mega.classList.contains('open'));
+});
+hbg.addEventListener('keydown', e => {
+if (e.key === 'Enter' || e.key === ' ') {
+e.preventDefault();
+setMenu(!mega.classList.contains('open'));
+}
 });
 document.addEventListener('click', e => {
 if (mega.classList.contains('open') && !mega.contains(e.target) && !hbg.contains(e.target)) {
