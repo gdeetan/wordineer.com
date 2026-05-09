@@ -130,6 +130,14 @@
 .ctrl-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; display:block; margin-bottom:5px; }
 .ctrl-row input, .ctrl-row select { width:100%; padding:7px 10px; font-size:13px; font-family:inherit; border:1px solid var(--border); border-radius:7px; background:var(--bg); color:var(--text); appearance:none; outline:none; transition:border-color .15s; }
 .ctrl-row input:focus, .ctrl-row select:focus { border-color:var(--brand); }
+.def-row    { display:flex; align-items:center; gap:8px; margin-bottom:14px; }
+.def-row label { font-size:12px; color:var(--text-2); cursor:pointer; }
+.toggle     { position:relative; width:32px; height:18px; flex-shrink:0; }
+.toggle input { opacity:0; width:0; height:0; }
+.toggle-sl  { position:absolute; cursor:pointer; inset:0; background:var(--border); border-radius:9px; transition:.2s; }
+.toggle input:checked + .toggle-sl { background:var(--brand); }
+.toggle-sl::before { content:''; position:absolute; width:14px; height:14px; left:2px; top:2px; background:white; border-radius:50%; transition:.2s; }
+.toggle input:checked + .toggle-sl::before { transform:translateX(14px); }
 .gen-btn    { width:100%; padding:10px 14px; background:var(--brand); color:white; border:none; border-radius:8px; font-size:14px; font-weight:600; font-family:inherit; cursor:pointer; transition:background .15s,transform .1s; letter-spacing:-.01em; }
 .gen-btn:hover { background:var(--brand-dark); }
 .gen-btn:active { transform:scale(.98); }
@@ -349,6 +357,10 @@
               <option value="y">Y</option><option value="z">Z</option>
             </select>
           </div>
+          <div class="def-row">
+            <label class="toggle" aria-label="Show definitions"><input type="checkbox" id="bng-defs" checked><span class="toggle-sl"></span></label>
+            <label for="bng-defs">Show definitions</label>
+          </div>
         </div>
 
         <button class="gen-btn" id="bng-gen-btn">Generate names</button>
@@ -417,7 +429,7 @@
 
 <div class="explainer">
   <h2>What is a random British name generator?</h2>
-  <p>A random British name generator creates first names, last names, and full names inspired by naming patterns from the United Kingdom. Instead of using one generic <a href="/random-name-generator/">random name generator</a> for every culture, this tool focuses on British-style names, including common UK surnames, classic given names, modern names, regional influences, and double-barrelled surnames.</p>
+  <p>A random British name generator creates first names, last names, and full names inspired by naming patterns from the United Kingdom. Instead of using one generic <a href="/random-name-generator/">random name generator</a> for every culture, this tool focuses on British-style names, including common UK surnames, classic given names, modern names, regional influences, and double-barrelled surnames. Use the Show definitions toggle to hide or show the meaning lines under each result.</p>
 
   <h2>How it works</h2>
   <p>Choose how many names you want, then adjust the filters. You can generate male, female, or neutral names, switch between first names and full names, choose a style or era, and narrow the region influence or surname type. When you change a filter, the list updates automatically so you can compare name ideas quickly.</p>
@@ -705,6 +717,7 @@ const bngActiveData = bngMapData(FALLBACK_BRITISH_NAMES);
 let bngDataLoaded = false;
 let bngDataPromise = null;
 let bngRenderedFallback = false;
+let bngCurrentItems = [];
 
 function bngApplyData(raw) {
   if (!Array.isArray(raw.first) || !Array.isArray(raw.last)) throw new Error('Invalid data');
@@ -865,7 +878,23 @@ function bngGenerateFn(data) {
     i++;
   }
 
+  bngCurrentItems = results.slice();
   return results;
+}
+
+function bngDefsVisible() {
+  return document.getElementById('bng-defs')?.checked !== false;
+}
+
+function bngRenderCurrentItems() {
+  const list = document.getElementById('bng-list');
+  if (!list || !bngCurrentItems.length) return;
+  list.innerHTML = '';
+  bngCurrentItems.forEach(function(item) {
+    const wrapper = document.createElement('div');
+    wrapper.innerHTML = bngRenderItem(item);
+    list.appendChild(wrapper.firstElementChild || wrapper);
+  });
 }
 
 function bngEsc(s) {
@@ -880,6 +909,7 @@ function bngRenderItem(item) {
   const safeClick = item.display.replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/"/g, '&quot;');
   const meaningText = item.meaning || item.note || '';
   const noteText = item.note && item.note !== meaningText ? item.note : '';
+  const showDefs = bngDefsVisible();
   const chipHtml = (item.chips || []).filter(Boolean).slice(0, 3).map(function(chip, idx) {
     const kind = idx === 0 ? 'gender' : (idx === 1 ? 'region' : 'last');
     return '<span class="bng-chip bng-chip--' + kind + '">' + bngEsc(chip) + '</span>';
@@ -888,7 +918,7 @@ function bngRenderItem(item) {
     + '<li class="word-item" data-name="' + safeAttr + '">'
     +   '<div class="word-left">'
     +     '<div class="word-text">' + bngEsc(item.display) + '</div>'
-    +     '<div class="bng-meaning">' + bngEsc(meaningText) + '</div>'
+    +     (showDefs ? '<div class="bng-meaning">' + bngEsc(meaningText) + '</div>' : '')
     +     (noteText ? '<div class="bng-note">' + bngEsc(noteText) + '</div>' : '')
     +     '<div class="bng-chips">' + chipHtml + '</div>'
     +   '</div>'
@@ -956,6 +986,7 @@ window.bngCopyName = function(name, btn) {
       return false;
     }
   }, true);
+  document.getElementById('bng-defs')?.addEventListener('change', bngRenderCurrentItems);
 
   document.addEventListener('keydown', function(e) {
     if ((e.code === 'Space' || e.code === 'Enter') && !['INPUT','SELECT','TEXTAREA','BUTTON'].includes(e.target.tagName)) {
