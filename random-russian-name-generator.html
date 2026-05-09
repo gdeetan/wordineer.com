@@ -613,14 +613,23 @@
     }[type] || 'name';
   }
 
+  function buildNote(item) {
+    const notes = [];
+    const showDefinitions = checked('rn-defs', true);
+    const nickname = val('rn-nickname', 'hide');
+    if (showDefinitions && item.meaning) notes.push(item.meaning);
+    if (showDefinitions && nickname === 'show' && item.nicknames && item.nicknames.length) notes.push('Short form: ' + item.nicknames.join(', '));
+    if (showDefinitions && item.patronymicNote) notes.push(item.patronymicNote);
+    if (showDefinitions && item.surnameNote) notes.push(item.surnameNote);
+    return notes.join(' · ');
+  }
+
   function buildResults() {
     const raw = parseInt(val('rn-count', '5'), 10);
     if (isNaN(raw) || raw < 1 || raw > 50) return [];
     const count = raw;
     const type = val('rn-type', 'full');
     const script = val('rn-script', 'latin');
-    const nickname = val('rn-nickname', 'hide');
-    const showDefinitions = checked('rn-defs', true);
     const patronymicSource = val('rn-patronymic-source', 'match-style');
     let gender = val('rn-gender', 'any');
     const firsts = shuffle(firstPool());
@@ -640,14 +649,12 @@
       const display = displayName(first, father, last, resolvedGender, type, script);
       if (!seen.has(display)) {
         seen.add(display);
-        const notes = [];
-        if (showDefinitions && first && first.meaning) notes.push(first.latin + ': ' + first.meaning);
-        if (showDefinitions && nickname === 'show' && first && first.nicknames && first.nicknames.length) notes.push('Short form: ' + first.nicknames.join(', '));
-        if (showDefinitions && father) notes.push('Patronymic from ' + father.latin + (patronymicSource === 'match-style' ? ' (style-matched father name)' : ' (random father name)'));
-        if (showDefinitions && last && last.note) notes.push(last.note);
         results.push({
           display: display,
-          note: notes.join(' · '),
+          meaning: first && first.meaning ? first.latin + ': ' + first.meaning : '',
+          nicknames: first && first.nicknames ? first.nicknames.slice() : [],
+          patronymicNote: father ? 'Patronymic from ' + father.latin + (patronymicSource === 'match-style' ? ' (style-matched father name)' : ' (random father name)') : '',
+          surnameNote: last && last.note ? last.note : '',
           chips: [genderLabel(resolvedGender), typeLabel(type), patronymicSource === 'match-style' ? 'style-matched patronymic' : 'random patronymic', script === 'both' ? 'Latin + Cyrillic' : script]
         });
       }
@@ -679,7 +686,6 @@
   function render() {
     const list = document.getElementById('rn-list');
     const countDisplay = document.getElementById('rn-count-display');
-    currentResults = buildResults();
     if (!list || !countDisplay) return;
     countDisplay.textContent = currentResults.length ? currentResults.length + ' names generated' : 'No names match these filters';
     if (!currentResults.length) {
@@ -688,7 +694,8 @@
     }
     list.innerHTML = currentResults.map(function(item, index) {
       const savedClass = saved.has(item.display) ? ' saved' : '';
-      const noteHtml = item.note ? '<div class="rn-note">' + esc(item.note) + '</div>' : '';
+      const note = buildNote(item);
+      const noteHtml = note ? '<div class="rn-note">' + esc(note) + '</div>' : '';
       return '<li class="word-item">' +
         '<div class="word-left"><div class="word-text">' + esc(item.display) + '</div>' +
         noteHtml +
@@ -700,6 +707,12 @@
         '<button class="icon-btn' + savedClass + '" data-save="' + index + '" aria-label="Save name">' + heartSvg() + '</button></div>' +
         '</li>';
     }).join('');
+  }
+
+  function generateResults() {
+    if (!validateCount()) return;
+    currentResults = buildResults();
+    render();
   }
 
   function copyText(text, message) {
@@ -718,16 +731,18 @@
     document.getElementById('rn-nickname').value = 'hide';
     document.getElementById('rn-defs').checked = true;
     document.getElementById('rn-letter').value = 'any';
-    validateCount();
-    render();
+    generateResults();
   }
 
   function bind() {
-    document.getElementById('rn-count')?.addEventListener('input', function() { if (validateCount()) render(); });
-    ['rn-gender','rn-type','rn-patronymic-source','rn-script','rn-style','rn-nickname','rn-letter','rn-defs'].forEach(function(id) {
-      document.getElementById(id)?.addEventListener('change', function() { if (validateCount()) render(); });
+    document.getElementById('rn-count')?.addEventListener('input', function() { if (validateCount()) generateResults(); });
+    ['rn-gender','rn-type','rn-patronymic-source','rn-script','rn-style','rn-letter'].forEach(function(id) {
+      document.getElementById(id)?.addEventListener('change', function() { if (validateCount()) generateResults(); });
     });
-    document.getElementById('rn-gen-btn')?.addEventListener('click', function() { if (validateCount()) render(); });
+    ['rn-nickname','rn-defs'].forEach(function(id) {
+      document.getElementById(id)?.addEventListener('change', function() { render(); });
+    });
+    document.getElementById('rn-gen-btn')?.addEventListener('click', function() { generateResults(); });
     document.getElementById('rn-reset-btn')?.addEventListener('click', reset);
     document.getElementById('rn-copy-all-btn')?.addEventListener('click', function() {
       copyText(currentResults.map(function(item) { return item.display; }).join('\n'), 'Names copied!');
@@ -761,7 +776,7 @@
     document.addEventListener('keydown', function(e) {
       if ((e.code === 'Space' || e.code === 'Enter') && !['INPUT','SELECT','TEXTAREA','BUTTON'].includes(e.target.tagName)) {
         e.preventDefault();
-        if (validateCount()) render();
+        generateResults();
       }
     });
     const toggle = document.getElementById('rn-mobile-toggle');
@@ -786,7 +801,7 @@
     .then(function(json) {
       data = json;
       bind();
-      render();
+      generateResults();
     })
     .catch(function() {
       const display = document.getElementById('rn-count-display');
