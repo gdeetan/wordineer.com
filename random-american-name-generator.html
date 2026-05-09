@@ -605,6 +605,9 @@ let angCorePromise = null;
 let angFullPromise = null;
 let angRenderedFallback = false;
 let angLastResults = [];
+function angRefreshRenderedResults() {
+  if (angLastResults.length) angRenderCurrentResults(angLastResults);
+}
 function angApplyData(raw, isFull) {
   if (!Array.isArray(raw.first) || !Array.isArray(raw.middle) || !Array.isArray(raw.last)) throw new Error('Invalid data');
   const data = angMapData(raw);
@@ -647,11 +650,13 @@ async function angLoadFullData() {
 function angApplyAmericanMeaningData(raw) {
   if (!raw || !Array.isArray(raw.first) || !Array.isArray(raw.middle) || !Array.isArray(raw.last)) throw new Error('Invalid meaning data');
   angMeaningIndex = angMapMeaningData(raw, { first: 1, middle: 1, last: 1 });
+  angRefreshRenderedResults();
 }
 
 function angApplyGeneralMeaningData(raw) {
   if (!raw || !Array.isArray(raw.first) || !Array.isArray(raw.last)) throw new Error('Invalid meaning data');
   angGeneralMeaningIndex = angMapMeaningData(raw, { first: 4, middle: 4, last: 2 });
+  angRefreshRenderedResults();
 }
 
 async function angLoadAmericanMeaningData() {
