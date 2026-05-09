@@ -161,8 +161,9 @@
 .saved-tag-remove { cursor:pointer; opacity:.65; }
 .saved-empty { color:var(--text-3); font-size:12px; }
 .word-text { font-size:17px; font-weight:600; color:var(--text); line-height:1.25; }
-.ang-popularity { font-size:12px; color:var(--text-3); margin-top:4px; }
 .ang-meaning { font-size:12px; color:var(--text-2); line-height:1.45; margin-top:4px; }
+.ang-meaning-line { display:flex; gap:6px; align-items:flex-start; margin-top:4px; }
+.ang-meaning-icon { flex:0 0 auto; width:13px; height:13px; color:var(--brand); margin-top:1px; }
 .ang-chips { display:flex; flex-wrap:wrap; gap:5px; margin-top:6px; }
 .ang-chip { display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; padding:2px 7px; border-radius:999px; background:#EFF6FF; color:#1A56DB; }
 .ang-chip--era { background:#EEF2FF; color:#4338CA; }
@@ -534,8 +535,10 @@ const ANG_LABELS = {
   }
 };
 
-let angMeaningIndex = { first: new Map(), last: new Map() };
-let angMeaningPromise = null;
+let angMeaningIndex = { first: new Map(), middle: new Map(), last: new Map() };
+let angGeneralMeaningIndex = { first: new Map(), middle: new Map(), last: new Map() };
+let angAmericanMeaningPromise = null;
+let angGeneralMeaningPromise = null;
 
 const FALLBACK_AMERICAN_NAMES = {
   first: [
@@ -570,14 +573,23 @@ function angMapData(raw) {
   };
 }
 
-function angMapMeaningData(raw) {
+function angMapMeaningData(raw, meaningIndexes) {
   return {
     first: new Map((raw.first || []).map(function(n) {
-      return [String(n[0] || '').toLowerCase(), String(n[4] || '').trim()];
-    }).filter(function(pair) { return pair[0]; })),
+      const key = String(n[0] || '').toLowerCase();
+      const value = String(n[meaningIndexes.first] || '').trim();
+      return [key, value];
+    }).filter(function(pair) { return pair[0] && pair[1]; })),
+    middle: new Map((raw.middle || []).map(function(n) {
+      const key = String(n[0] || '').toLowerCase();
+      const value = String(n[meaningIndexes.middle] || '').trim();
+      return [key, value];
+    }).filter(function(pair) { return pair[0] && pair[1]; })),
     last: new Map((raw.last || []).map(function(n) {
-      return [String(n[0] || '').toLowerCase(), String(n[2] || '').trim()];
-    }).filter(function(pair) { return pair[0]; }))
+      const key = String(n[0] || '').toLowerCase();
+      const value = String(n[meaningIndexes.last] || '').trim();
+      return [key, value];
+    }).filter(function(pair) { return pair[0] && pair[1]; }))
   };
 }
 
@@ -586,8 +598,6 @@ let angDataIsFull = false;
 let angCorePromise = null;
 let angFullPromise = null;
 let angRenderedFallback = false;
-let angMeaningReady = false;
-
 function angApplyData(raw, isFull) {
   if (!Array.isArray(raw.first) || !Array.isArray(raw.middle) || !Array.isArray(raw.last)) throw new Error('Invalid data');
   const data = angMapData(raw);
@@ -627,24 +637,42 @@ async function angLoadFullData() {
   return angFullPromise;
 }
 
-function angApplyMeaningData(raw) {
-  if (!raw || !Array.isArray(raw.first) || !Array.isArray(raw.last)) throw new Error('Invalid meaning data');
-  angMeaningIndex = angMapMeaningData(raw);
-  angMeaningReady = true;
+function angApplyAmericanMeaningData(raw) {
+  if (!raw || !Array.isArray(raw.first) || !Array.isArray(raw.middle) || !Array.isArray(raw.last)) throw new Error('Invalid meaning data');
+  angMeaningIndex = angMapMeaningData(raw, { first: 1, middle: 1, last: 1 });
 }
 
-async function angLoadMeaningData() {
-  if (angMeaningPromise) return angMeaningPromise;
-  angMeaningPromise = (async function() {
+function angApplyGeneralMeaningData(raw) {
+  if (!raw || !Array.isArray(raw.first) || !Array.isArray(raw.last)) throw new Error('Invalid meaning data');
+  angGeneralMeaningIndex = angMapMeaningData(raw, { first: 4, middle: 4, last: 2 });
+}
+
+async function angLoadAmericanMeaningData() {
+  if (angAmericanMeaningPromise) return angAmericanMeaningPromise;
+  angAmericanMeaningPromise = (async function() {
+    try {
+      const res = await fetch('/data/american-name-meanings.json', { cache: 'force-cache' });
+      if (!res.ok) throw new Error(res.status);
+      angApplyAmericanMeaningData(await res.json());
+    } catch (err) {
+      angAmericanMeaningPromise = null;
+    }
+  })();
+  return angAmericanMeaningPromise;
+}
+
+async function angLoadGeneralMeaningData() {
+  if (angGeneralMeaningPromise) return angGeneralMeaningPromise;
+  angGeneralMeaningPromise = (async function() {
     try {
       const res = await fetch('/data/names.json', { cache: 'force-cache' });
       if (!res.ok) throw new Error(res.status);
-      angApplyMeaningData(await res.json());
+      angApplyGeneralMeaningData(await res.json());
     } catch (err) {
-      angMeaningPromise = null;
+      angGeneralMeaningPromise = null;
     }
   })();
-  return angMeaningPromise;
+  return angGeneralMeaningPromise;
 }
 
 function angScheduleData(preferFull) {
@@ -735,17 +763,9 @@ function angEraLabels(row, selectedEra) {
 
 function angMeaningFor(name, kind) {
   const key = String(name || '').trim().toLowerCase();
-  const map = kind === 'last' ? angMeaningIndex.last : angMeaningIndex.first;
-  return key ? (map.get(key) || '') : '';
-}
-
-function angPopularityFor(type, first, middle, last, selectedEra) {
-  if (type === 'last') {
-    return last.note || 'Census surname data';
-  }
-  const labels = angEraLabels(first, selectedEra);
-  if (labels.length) return 'SSA popularity data: ' + labels.join(' · ');
-  return first.note || 'SSA popularity data';
+  const primary = kind === 'last' ? angMeaningIndex.last : (kind === 'middle' ? angMeaningIndex.middle : angMeaningIndex.first);
+  const fallback = kind === 'last' ? angGeneralMeaningIndex.last : angGeneralMeaningIndex.first;
+  return key ? (primary.get(key) || fallback.get(key) || '') : '';
 }
 
 function angMeaningForResult(type, first, middle, last) {
@@ -754,7 +774,7 @@ function angMeaningForResult(type, first, middle, last) {
   }
   if (type === 'middle-full') {
     const firstMeaning = angMeaningFor(first.n, 'first');
-    const middleMeaning = angMeaningFor(middle.n, 'first');
+    const middleMeaning = angMeaningFor(middle.n, 'middle');
     const parts = [];
     if (firstMeaning) parts.push('First: ' + firstMeaning);
     if (middleMeaning) parts.push('Middle: ' + middleMeaning);
@@ -836,7 +856,6 @@ function angGenerateFn(data) {
       seen.add(display);
       results.push({
         display: display,
-        popularity: angPopularityFor(type, first, middle, last, era),
         meaning: angMeaningForResult(type, first, middle, last),
         chips: chips.filter(Boolean)
       });
@@ -867,8 +886,7 @@ function angRenderItem(item) {
     + '<li class="word-item" data-name="' + safeAttr + '">'
     +   '<div class="word-left">'
     +     '<div class="word-text">' + angEsc(item.display) + '</div>'
-    +     '<div class="ang-popularity">' + angEsc(item.popularity || '') + '</div>'
-    +     (showMeaning ? '<div class="ang-meaning">' + angEsc(item.meaning || '') + '</div>' : '')
+    +     (showMeaning ? '<div class="ang-meaning-line"><svg class="ang-meaning-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.2"/><path d="M8 4.8v.2M8 7.1v4.1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><div class="ang-meaning">' + angEsc(item.meaning || '') + '</div></div>' : '')
     +     '<div class="ang-chips">' + chipHtml + '</div>'
     +   '</div>'
     +   '<div class="word-right">'
@@ -905,7 +923,8 @@ window.angCopyName = function(name, btn) {
   });
 
   angScheduleData(false);
-  angLoadMeaningData();
+  angLoadAmericanMeaningData();
+  angLoadGeneralMeaningData();
 
   const countInput = document.getElementById('ang-count');
   const countError = document.getElementById('ang-count-error');
