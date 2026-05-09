@@ -598,6 +598,7 @@ let angDataIsFull = false;
 let angCorePromise = null;
 let angFullPromise = null;
 let angRenderedFallback = false;
+let angLastResults = [];
 function angApplyData(raw, isFull) {
   if (!Array.isArray(raw.first) || !Array.isArray(raw.middle) || !Array.isArray(raw.last)) throw new Error('Invalid data');
   const data = angMapData(raw);
@@ -770,7 +771,7 @@ function angMeaningFor(name, kind) {
 
 function angMeaningForResult(type, first, middle, last) {
   if (type === 'last') {
-    return angMeaningFor(last.n, 'last') || last.note || 'Meaning unavailable';
+    return angMeaningFor(last.n, 'last') || 'Surname meaning uncertain';
   }
   if (type === 'middle-full') {
     const firstMeaning = angMeaningFor(first.n, 'first');
@@ -778,9 +779,9 @@ function angMeaningForResult(type, first, middle, last) {
     const parts = [];
     if (firstMeaning) parts.push('First: ' + firstMeaning);
     if (middleMeaning) parts.push('Middle: ' + middleMeaning);
-    return parts.length ? parts.join(' · ') : (first.note || 'Meaning unavailable');
+    return parts.length ? parts.join(' · ') : 'Meaning uncertain';
   }
-  return angMeaningFor(first.n, 'first') || first.note || 'Meaning unavailable';
+  return angMeaningFor(first.n, 'first') || 'Meaning uncertain';
 }
 
 function angTitleForType(type) {
@@ -863,11 +864,25 @@ function angGenerateFn(data) {
     i++;
   }
 
+  angLastResults = results.slice();
   return results;
 }
 
 function angEsc(s) {
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function angRenderCurrentResults(items) {
+  const list = document.getElementById('ang-list');
+  if (!list) return;
+  const results = Array.isArray(items) ? items : [];
+  list.innerHTML = results.map(function(item) {
+    return angRenderItem(item);
+  }).join('');
+  const countDisplay = document.getElementById('ang-count-display');
+  if (countDisplay) {
+    countDisplay.textContent = results.length + ' result' + (results.length !== 1 ? 's' : '') + ' generated';
+  }
 }
 
 function angRenderItem(item) {
@@ -949,7 +964,7 @@ window.angCopyName = function(name, btn) {
   });
 
   document.getElementById('ang-show-meaning')?.addEventListener('change', function() {
-    if (angValidateCount()) document.getElementById('ang-gen-btn')?.click();
+    angRenderCurrentResults(angLastResults);
   });
 
   document.getElementById('ang-gen-btn')?.addEventListener('click', function(e) {
