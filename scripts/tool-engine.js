@@ -432,12 +432,21 @@ q.addEventListener('click', () => q.closest('.faq-item').classList.toggle('open'
 });
 }
 function initMega() {
-document.addEventListener('click', e => {
 const mega = document.getElementById('mega');
 const hbg  = document.querySelector('.hamburger');
 if (!mega || !hbg) return;
+function setMenu(open) {
+mega.classList.toggle('open', open);
+hbg.setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+setMenu(mega.classList.contains('open'));
+hbg.addEventListener('click', e => {
+e.preventDefault();
+setMenu(!mega.classList.contains('open'));
+});
+document.addEventListener('click', e => {
 if (mega.classList.contains('open') && !mega.contains(e.target) && !hbg.contains(e.target)) {
-mega.classList.remove('open');
+setMenu(false);
 }
 });
 }
