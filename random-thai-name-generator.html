@@ -267,7 +267,7 @@
             <label class="ctrl-label" for="th-type">Name type</label>
             <select id="th-type">
               <option value="full">Full name</option>
-              <option value="given">Given name only</option>
+              <option value="given" selected>Given name only</option>
               <option value="surname">Surname only</option>
               <option value="nickname">Nickname only</option>
             </select>
@@ -789,7 +789,7 @@ document.getElementById('th-defs')?.addEventListener('change', thRenderCurrentIt
 });
 document.getElementById('th-reset-btn')?.addEventListener('click', function() {
   document.getElementById('th-count').value = '10';
-  document.getElementById('th-type').value = 'full';
+  document.getElementById('th-type').value = 'given';
   document.getElementById('th-gender').value = 'any';
   document.getElementById('th-display').value = 'romanized';
   document.getElementById('th-format').value = 'formal-with-nickname';
