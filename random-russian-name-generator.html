@@ -120,6 +120,14 @@
 .ctrl-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; display:block; margin-bottom:5px; }
 .ctrl-row input, .ctrl-row select { width:100%; padding:7px 10px; font-size:13px; font-family:inherit; border:1px solid var(--border); border-radius:7px; background:var(--bg); color:var(--text); appearance:none; outline:none; transition:border-color .15s; }
 .ctrl-row input:focus, .ctrl-row select:focus { border-color:var(--brand); }
+.def-row { display:flex; align-items:center; gap:8px; margin-bottom:14px; }
+.def-row label { font-size:12px; color:var(--text-2); cursor:pointer; }
+.toggle { position:relative; width:32px; height:18px; flex-shrink:0; }
+.toggle input { opacity:0; width:0; height:0; }
+.toggle-sl { position:absolute; cursor:pointer; inset:0; background:var(--border); border-radius:9px; transition:.2s; }
+.toggle input:checked + .toggle-sl { background:var(--brand); }
+.toggle-sl::before { content:''; position:absolute; width:14px; height:14px; left:2px; top:2px; background:white; border-radius:50%; transition:.2s; }
+.toggle input:checked + .toggle-sl::before { transform:translateX(14px); }
 .gen-btn { width:100%; padding:10px 14px; background:var(--brand); color:white; border:none; border-radius:8px; font-size:14px; font-weight:600; font-family:inherit; cursor:pointer; transition:background .15s,transform .1s; letter-spacing:-.01em; }
 .gen-btn:hover { background:var(--brand-dark); }
 .gen-btn:active { transform:scale(.98); }
@@ -304,6 +312,10 @@
               <option value="hide">Hide nickname</option>
               <option value="show">Show common short form</option>
             </select>
+          </div>
+          <div class="def-row">
+            <label class="toggle" aria-label="Show definitions"><input type="checkbox" id="rn-defs" checked><span class="toggle-sl"></span></label>
+            <label for="rn-defs">Show definitions</label>
           </div>
           <div class="ctrl-row">
             <label class="ctrl-label" for="rn-letter">Starts with</label>
@@ -493,6 +505,11 @@
     return document.getElementById(id)?.value || fallback;
   }
 
+  function checked(id, fallback) {
+    const el = document.getElementById(id);
+    return el ? el.checked : fallback;
+  }
+
   function validateCount() {
     const input = document.getElementById('rn-count');
     const error = document.getElementById('rn-count-error');
@@ -603,6 +620,7 @@
     const type = val('rn-type', 'full');
     const script = val('rn-script', 'latin');
     const nickname = val('rn-nickname', 'hide');
+    const showDefinitions = checked('rn-defs', true);
     const patronymicSource = val('rn-patronymic-source', 'match-style');
     let gender = val('rn-gender', 'any');
     const firsts = shuffle(firstPool());
@@ -623,10 +641,10 @@
       if (!seen.has(display)) {
         seen.add(display);
         const notes = [];
-        if (first && first.meaning) notes.push(first.latin + ': ' + first.meaning);
-        if (nickname === 'show' && first && first.nicknames && first.nicknames.length) notes.push('Short form: ' + first.nicknames.join(', '));
-        if (father) notes.push('Patronymic from ' + father.latin + (patronymicSource === 'match-style' ? ' (style-matched father name)' : ' (random father name)'));
-        if (last && last.note) notes.push(last.note);
+        if (showDefinitions && first && first.meaning) notes.push(first.latin + ': ' + first.meaning);
+        if (showDefinitions && nickname === 'show' && first && first.nicknames && first.nicknames.length) notes.push('Short form: ' + first.nicknames.join(', '));
+        if (showDefinitions && father) notes.push('Patronymic from ' + father.latin + (patronymicSource === 'match-style' ? ' (style-matched father name)' : ' (random father name)'));
+        if (showDefinitions && last && last.note) notes.push(last.note);
         results.push({
           display: display,
           note: notes.join(' · '),
@@ -670,9 +688,10 @@
     }
     list.innerHTML = currentResults.map(function(item, index) {
       const savedClass = saved.has(item.display) ? ' saved' : '';
+      const noteHtml = item.note ? '<div class="rn-note">' + esc(item.note) + '</div>' : '';
       return '<li class="word-item">' +
         '<div class="word-left"><div class="word-text">' + esc(item.display) + '</div>' +
-        '<div class="rn-note">' + esc(item.note) + '</div>' +
+        noteHtml +
         '<div class="rn-chips">' + item.chips.map(function(chip, chipIndex) {
           const cls = chipIndex === 0 ? ' rn-chip--gender' : chipIndex === 1 ? ' rn-chip--type' : ' rn-chip--script';
           return '<span class="rn-chip' + cls + '">' + esc(chip) + '</span>';
@@ -697,6 +716,7 @@
     document.getElementById('rn-script').value = 'latin';
     document.getElementById('rn-style').value = 'any';
     document.getElementById('rn-nickname').value = 'hide';
+    document.getElementById('rn-defs').checked = true;
     document.getElementById('rn-letter').value = 'any';
     validateCount();
     render();
@@ -704,7 +724,7 @@
 
   function bind() {
     document.getElementById('rn-count')?.addEventListener('input', function() { if (validateCount()) render(); });
-    ['rn-gender','rn-type','rn-patronymic-source','rn-script','rn-style','rn-nickname','rn-letter'].forEach(function(id) {
+    ['rn-gender','rn-type','rn-patronymic-source','rn-script','rn-style','rn-nickname','rn-letter','rn-defs'].forEach(function(id) {
       document.getElementById(id)?.addEventListener('change', function() { if (validateCount()) render(); });
     });
     document.getElementById('rn-gen-btn')?.addEventListener('click', function() { if (validateCount()) render(); });
