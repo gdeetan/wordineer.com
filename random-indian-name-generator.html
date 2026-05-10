@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.adsbygoogle = window.adsbygoogle || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  (function(w, d) {
+    var loaded = false;
+    var cfg = {
+      analyticsId: 'G-7DWH3EGM3Z',
+      adsClient: 'ca-pub-7200956978416233',
+      delay: 10000
+    };
+
+    function loadScript(src, attrs) {
+      var s = d.createElement('script');
+      s.async = true;
+      s.src = src;
+      if (attrs) {
+        Object.keys(attrs).forEach(function(key) {
+          s.setAttribute(key, attrs[key]);
+        });
+      }
+      d.head.appendChild(s);
+    }
+
+    function loadMarketing() {
+      if (loaded) return;
+      loaded = true;
+      gtag('js', new Date());
+      gtag('config', cfg.analyticsId);
+      loadScript('https://www.googletagmanager.com/gtag/js?id=' + cfg.analyticsId);
+      loadScript(
+        'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + cfg.adsClient,
+        { crossorigin: 'anonymous' }
+      );
+    }
+
+    function idleLoad() {
+      if ('requestIdleCallback' in w) {
+        w.requestIdleCallback(loadMarketing, { timeout: 5000 });
+      } else {
+        w.setTimeout(loadMarketing, cfg.delay);
+      }
+    }
+
+    ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function(eventName) {
+      w.addEventListener(eventName, loadMarketing, { once: true, passive: true });
+    });
+    w.addEventListener('load', function() {
+      w.setTimeout(idleLoad, cfg.delay);
+    }, { once: true });
+  })(window, document);
+</script>
+<meta name='impact-site-verification' value='32715504-1cfb-4324-bfc7-ae4cfa1591ea'>
+<link rel="preload" href="/fonts/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-sans-italic-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Wordineer",
+  "url": "https://wordineer.com"
+}
+</script>
+<title>Random Indian Name Generator - 800 Given Names &amp; 300 Surnames</title>
+<meta name="description" content="Generate random Indian given names, surnames, and full names by gender, region, style, and starting letter. Pan-Indian filters, definitions, and instant updates.">
+<link rel="canonical" href="https://wordineer.com/random-indian-name-generator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wordineer">
+<meta property="og:title" content="Random Indian Name Generator | Wordineer">
+<meta property="og:description" content="Generate Indian given names, surnames, and full names across Hindi, Punjabi, Gujarati, Marathi, Bengali, Tamil, Telugu, Kannada, Malayalam, and pan-Indian Sanskrit traditions.">
+<meta property="og:url" content="https://wordineer.com/random-indian-name-generator/">
+<meta property="og:image" content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Are these names only Hindi names?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. This page is built as a pan-Indian generator. It includes Hindi or Hindustani names, but it also covers Punjabi, Gujarati, Marathi, Bengali, Tamil, Telugu, Kannada, Malayalam, and Sanskrit-derived pan-Indian naming styles." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I generate just given names instead of full names?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Given name is the default option. You can also switch to surname-only or full-name generation from the Name type filter." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Show definitions change the names?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. Show definitions only hides or reveals the meaning line under the current results. It does not regenerate, reorder, or replace the names already shown." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use these names for stories, games, or character profiles?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. The generator is useful for fiction, games, roleplay, brainstorming, and baby-name browsing. Use the region and style filters to get names that feel closer to the setting or character background you want." }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does this tool use its own Indian names JSON file?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Indian naming traditions are too varied for a small generic list. A dedicated JSON file allows this page to support wider regional coverage, better filters, and a stronger given-name pool without borrowing from unrelated origin lists." }
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="/styles/global.css?v=3">
+<style>
+.tool-wrap  { max-width:960px; margin:0 auto; padding:24px 24px 0; }
+.tool-card  { border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg); box-shadow:var(--shadow); }
+.tool-split { display:flex; }
+.ctrl       { width:240px; flex-shrink:0; padding:18px; border-right:1px solid var(--border-2); background:var(--bg-2); }
+.ctrl-row   { margin-bottom:14px; }
+.ctrl-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; display:block; margin-bottom:5px; }
+.ctrl-row input, .ctrl-row select { width:100%; padding:7px 10px; font-size:13px; font-family:inherit; border:1px solid var(--border); border-radius:7px; background:var(--bg); color:var(--text); appearance:none; outline:none; transition:border-color .15s; }
+.ctrl-row input:focus, .ctrl-row select:focus { border-color:var(--brand); }
+.gen-btn    { width:100%; padding:10px 14px; background:var(--brand); color:white; border:none; border-radius:8px; font-size:14px; font-weight:600; font-family:inherit; cursor:pointer; transition:background .15s,transform .1s; letter-spacing:-.01em; }
+.gen-btn:hover { background:var(--brand-dark); }
+.gen-btn:active { transform:scale(.98); }
+.reset-btn  { display:block; width:100%; text-align:center; font-size:11px; color:var(--text-3); margin-top:8px; cursor:pointer; text-decoration:underline; text-underline-offset:2px; border:none; background:none; font-family:inherit; }
+.def-row    { display:flex; align-items:center; gap:8px; margin-bottom:14px; }
+.def-row label { font-size:12px; color:var(--text-2); cursor:pointer; }
+.toggle     { position:relative; width:32px; height:18px; flex-shrink:0; }
+.toggle input { opacity:0; width:0; height:0; }
+.toggle-sl  { position:absolute; cursor:pointer; inset:0; background:var(--border); border-radius:9px; transition:.2s; }
+.toggle input:checked + .toggle-sl { background:var(--brand); }
+.toggle-sl::before { content:''; position:absolute; width:14px; height:14px; left:2px; top:2px; background:white; border-radius:50%; transition:.2s; }
+.toggle input:checked + .toggle-sl::before { transform:translateX(14px); }
+.ng-mobile-toggle { display:none; width:100%; margin:-2px 0 14px; padding:9px 12px; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--brand); font-size:13px; font-weight:600; font-family:inherit; cursor:pointer; }
+.ng-advanced { display:block; }
+
+.words-panel { flex:1; display:flex; flex-direction:column; overflow:hidden; }
+.words-top  { display:flex; align-items:center; justify-content:space-between; padding:12px 16px; border-bottom:1px solid var(--border-2); }
+.words-count { font-size:12px; color:var(--text-3); }
+.words-actions { display:flex; gap:6px; }
+.act-btn    { font-size:12px; padding:5px 11px; border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:background .12s; }
+.act-btn:hover { background:var(--bg-2); }
+.word-list  { flex:1; overflow-y:auto; list-style:none; padding:0 16px; margin:0; }
+.word-item  { display:flex; align-items:flex-start; justify-content:space-between; padding:12px 0; border-bottom:1px solid var(--border-2); gap:10px; animation:fadeIn .2s ease; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:none} }
+.word-item:last-child { border-bottom:none; }
+.word-left  { flex:1; }
+.word-right { display:flex; align-items:flex-start; gap:4px; padding-top:2px; flex-shrink:0; }
+.icon-btn   { width:28px; height:28px; display:flex; align-items:center; justify-content:center; background:transparent; border:none; cursor:pointer; border-radius:5px; color:var(--text-3); transition:background .12s,color .12s; }
+.icon-btn:hover { background:var(--bg-2); color:var(--text); }
+.icon-btn svg { width:14px; height:14px; }
+.icon-btn.saved { color:#E24B4A; }
+.saved-section { padding:12px 16px; border-top:1px solid var(--border-2); }
+.saved-top  { display:flex; align-items:center; justify-content:space-between; margin-bottom:7px; }
+.saved-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; }
+.saved-copy { font-size:11px; color:var(--brand); cursor:pointer; text-decoration:underline; text-underline-offset:2px; border:none; background:none; font-family:inherit; }
+.saved-tags { display:flex; gap:5px; flex-wrap:wrap; min-height:22px; }
+.saved-tag  { font-size:11px; padding:3px 10px; background:var(--brand-light); color:var(--brand-dark); border-radius:20px; display:flex; align-items:center; gap:4px; }
+.saved-tag-remove { cursor:pointer; opacity:.6; font-size:13px; line-height:1; }
+.saved-empty { font-size:12px; color:var(--text-3); font-style:italic; }
+
+.word-text { font-size:18px; font-weight:650; color:var(--text); line-height:1.25; }
+.in-sub { font-size:12px; color:var(--text-2); margin-top:3px; }
+.in-badges { display:flex; gap:5px; flex-wrap:wrap; margin-top:6px; }
+.in-badge { display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; padding:2px 7px; border-radius:999px; background:#EFF6FF; color:#1A56DB; }
+.in-badge--region { background:#FFF7ED; color:#C2410C; }
+.in-badge--gender { background:#F0FDF4; color:#15803D; }
+.in-meaning { font-size:12px; color:var(--text-2); line-height:1.45; margin-top:6px; }
+.in-no-results .word-text { font-size:16px; }
+
+@media(max-width:700px){
+  .tool-wrap { padding:14px 16px 0; }
+  .tool-split { flex-direction:column; }
+  .ctrl { width:100%; border-right:none; border-bottom:1px solid var(--border-2); }
+  .word-list { max-height:440px; overflow-y:auto; }
+  .ng-mobile-toggle { display:block; }
+  .ng-advanced { display:none; }
+  .ng-advanced.is-open { display:block; }
+  .hero { padding:12px 16px 12px; }
+  .hero h1 { font-size:24px; }
+}
+</style>
+</head>
+
+<body>
+<nav class="nav">
+  <a class="nav-logo" href="/">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 15 15" fill="none"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </div>
+    Wordineer
+  </a>
+  <div class="nav-links">
+    <a href="/tools/">Tools</a>
+    <a href="/blog/">Blog</a>
+  </div>
+  <div>
+    <button class="hamburger" type="button" aria-label="All tools" aria-controls="mega" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mega" id="mega">
+  <div class="mega-inner">
+    <div class="mega-col">
+      <div class="mega-cat">Word tools</div>
+      <a class="mega-link" href="/random-sentence-generator/">Random sentence</a>
+      <a class="mega-link" href="/random-letter-generator/">Random letter</a>
+      <a class="mega-link" href="/word-scramble/">Word Scramble</a>
+      <a class="mega-link" href="/word-unscramble/">Word Unscramble</a>
+      <a class="mega-link" href="/word-of-the-day/">Word of the day</a>
+      <a class="mega-link" href="/passphrase-generator/">Passphrase gen</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Name generators</div>
+      <a class="mega-link" href="/random-name-generator/">Random Name Generator</a>
+      <a class="mega-link" href="/username-generator/">Username Generator</a>
+      <a class="mega-link" href="/baby-name-finder/">Baby Name Generator</a>
+      <a class="mega-link" href="/pet-name-generator/">Pet Name Generator</a>
+      <a class="mega-link" href="/band-name-generator/">Band Name Generator</a>
+      <a class="mega-link" href="/random-korean-name-generator/">Korean Name Generator</a>
+      <a class="mega-link" href="/name-generators/">More Name Gen Tools</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Number &amp; chance</div>
+      <a class="mega-link" href="/random-number-generator/">Random number</a>
+      <a class="mega-link" href="/dice-roller/">Dice roller</a>
+      <a class="mega-link" href="/coin-flip/">Coin flip</a>
+      <a class="mega-link" href="/lucky-number/">Lucky number</a>
+      <a class="mega-link" href="/list-shuffler/">List shuffler</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Games &amp; fun</div>
+      <a class="mega-link" href="/pictionary-word-generator/">Pictionary words</a>
+      <a class="mega-link" href="/charades-generator/">Charades gen</a>
+      <a class="mega-link" href="/truth-or-dare/">Truth or dare</a>
+      <a class="mega-link" href="/would-you-rather/">Would you rather</a>
+      <a class="mega-link" href="/story-prompts/">Story prompts</a>
+    </div>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free &middot; No sign-up &middot; Instant
+  </div>
+  <h1>Random Indian name generator</h1>
+  <p>Generate Indian given names, surnames, and full names across Hindi, Punjabi, Gujarati, Marathi, Bengali, Tamil, Telugu, Kannada, Malayalam, and pan-Indian Sanskrit traditions.</p>
+</div>
+<div class="tool-wrap">
+  <div class="tool-card">
+    <div class="tool-split">
+      <div class="ctrl">
+        <div class="ctrl-row">
+          <label class="ctrl-label" for="in-count">Number of names</label>
+          <input type="number" id="in-count" value="10" min="1" max="50" inputmode="numeric">
+          <span id="in-count-error" style="display:none;font-size:11px;color:#E24B4A;margin-top:4px;">Enter a number from 1 to 50</span>
+        </div>
+
+        <button type="button" class="ng-mobile-toggle" id="in-mobile-toggle" aria-expanded="false" aria-controls="in-advanced">More options</button>
+
+        <div class="ng-advanced" id="in-advanced">
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="in-type">Name type</label>
+            <select id="in-type">
+              <option value="given" selected>Given name</option>
+              <option value="full">Full name</option>
+              <option value="surname">Surname</option>
+            </select>
+          </div>
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="in-gender">Gender</label>
+            <select id="in-gender">
+              <option value="any">Any</option>
+              <option value="m">Male</option>
+              <option value="f">Female</option>
+              <option value="u">Unisex</option>
+            </select>
+          </div>
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="in-region">Region / language tradition</label>
+            <select id="in-region">
+              <option value="any">Any</option>
+              <option value="hindi-hindustani">Hindi / Hindustani</option>
+              <option value="punjabi">Punjabi</option>
+              <option value="gujarati">Gujarati</option>
+              <option value="marathi">Marathi</option>
+              <option value="bengali">Bengali</option>
+              <option value="tamil">Tamil</option>
+              <option value="telugu">Telugu</option>
+              <option value="kannada">Kannada</option>
+              <option value="malayalam">Malayalam</option>
+              <option value="sanskrit-pan-indian">Sanskrit-derived / pan-Indian</option>
+            </select>
+          </div>
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="in-style">Style</label>
+            <select id="in-style">
+              <option value="any">Any</option>
+              <option value="traditional">Traditional</option>
+              <option value="modern">Modern</option>
+              <option value="mythological">Mythological / Sanskritic</option>
+              <option value="religious">Religious / devotional</option>
+              <option value="urban">Urban contemporary</option>
+            </select>
+          </div>
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="in-letter">Starts with</label>
+            <select id="in-letter">
+              <option value="">Any letter</option>
+              <option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option><option>G</option><option>H</option><option>I</option><option>J</option><option>K</option><option>L</option><option>M</option><option>N</option><option>O</option><option>P</option><option>Q</option><option>R</option><option>S</option><option>T</option><option>U</option><option>V</option><option>W</option><option>X</option><option>Y</option><option>Z</option>
+            </select>
+          </div>
+          <div class="def-row">
+            <label class="toggle" aria-label="Show definitions"><input type="checkbox" id="in-defs" checked><span class="toggle-sl"></span></label>
+            <label for="in-defs">Show definitions</label>
+          </div>
+        </div>
+
+        <button class="gen-btn" id="in-gen-btn">Generate names</button>
+        <button class="reset-btn" id="in-reset-btn">Reset options</button>
+      </div>
+
+      <div class="words-panel">
+        <div class="words-top">
+          <span class="words-count" id="in-count-display">Loading Indian names…</span>
+          <div class="words-actions">
+            <button class="act-btn" id="in-copy-all-btn">Copy all</button>
+          </div>
+        </div>
+        <ul class="word-list" id="in-list"></ul>
+        <div class="saved-section">
+          <div class="saved-top">
+            <span class="saved-label">Saved names</span>
+            <button class="saved-copy" id="in-copy-saved-btn">Copy saved</button>
+          </div>
+          <div class="saved-tags" id="in-saved-tags">
+            <span class="saved-empty">Click the heart on any name to save it here</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="content-wrap">
+  <div class="section">
+    <h2 class="section-title">More word tools</h2>
+    <p class="section-sub">Every name generator you need, all free</p>
+    <div class="tools-grid">
+      <a class="tool-item" href="/random-korean-name-generator/"><div class="tool-icon" style="background:#EAF1FF"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="3" width="9" height="7" rx="1.2" fill="#F8FBFF" stroke="#1C4D8C" stroke-width=".9"/><path d="M3.2 4h6.6M3.2 6.5h4.6M3.2 9h5.5" stroke="#1C4D8C" stroke-width=".8" stroke-linecap="round"/></svg></div><div class="tool-name">Random Korean Name <span class="new-badge">new</span></div><div class="tool-desc">Korean names with Hangul and meaning notes.</div></a>
+      <a class="tool-item" href="/random-chinese-name-generator/"><div class="tool-icon" style="background:#FBEAF0"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="3" width="9" height="7" rx="1.2" fill="#FFF9FB" stroke="#993556" stroke-width=".9"/><rect x="2.5" y="3.5" width="8" height="6" rx=".7" fill="#C74343"/><path d="M4.2 4.8l.32.66.72.1-.52.5.12.71-.64-.34-.64.34.12-.71-.52-.5.72-.1z" fill="#F2C94C"/><circle cx="6.6" cy="5" r=".28" fill="#F2C94C"/><circle cx="7.4" cy="5.8" r=".28" fill="#F2C94C"/><circle cx="7.3" cy="7" r=".28" fill="#F2C94C"/><circle cx="6.4" cy="7.7" r=".28" fill="#F2C94C"/></svg></div><div class="tool-name">Random Chinese Name</div><div class="tool-desc">Chinese names with cultural detail.</div></a>
+      <a class="tool-item" href="/random-thai-name-generator/"><div class="tool-icon" style="background:#EAF1FF"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="3" width="9" height="7" rx="1.2" fill="#F8FBFF" stroke="#1C4D8C" stroke-width=".9"/><path d="M2.6 4h7.8M2.6 9h7.8" stroke="#B53A3A" stroke-width="1.1" stroke-linecap="round"/><path d="M2.6 5.5h7.8M2.6 7.5h7.8" stroke="#1C4D8C" stroke-width="1.55" stroke-linecap="round"/></svg></div><div class="tool-name">Random Thai Name</div><div class="tool-desc">Thai names with meaning notes.</div></a>
+      <a class="tool-item" href="/random-vietnamese-name-generator/"><div class="tool-icon" style="background:#FBEAF0"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="3" width="9" height="7" rx="1.2" fill="#FFF9FB" stroke="#993556" stroke-width=".9"/><rect x="2.5" y="3.5" width="8" height="6" rx=".7" fill="#C74343"/><path d="M6.5 4.7l.45 1.1 1.18.09-.9.77.28 1.15-1.01-.61-1.01.61.28-1.15-.9-.77 1.18-.09z" fill="#F2C94C"/></svg></div><div class="tool-name">Random Vietnamese Name</div><div class="tool-desc">Vietnamese names with cultural detail.</div></a>
+      <a class="tool-item" href="/name-generators/"><div class="tool-icon" style="background:#EAF0F6"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4" r="2.2" stroke="#2F4F6F" stroke-width="1.1"/><path d="M1.5 11.5c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="#2F4F6F" stroke-width="1.1" stroke-linecap="round"/></svg></div><div class="tool-name">More Name Tools</div><div class="tool-desc">Browse every name generator.</div></a>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div>
+    <h2 class="section-title">Other tools</h2>
+    <p class="section-sub">Numbers, names, games and more</p>
+    <div class="other-grid">
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="1" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="1" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/></svg>Number &amp; chance</div><a class="other-link" href="/random-number-generator/">Random number generator</a><a class="other-link" href="/dice-roller/">Dice roller — 4,6,8,12,20 sided</a><a class="other-link" href="/coin-flip/">Coin flip simulator</a><a class="other-link" href="/lucky-number/">Lucky number picker</a><a class="other-link" href="/list-shuffler/">Random list shuffler</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4.5" r="2.5" stroke="currentColor" stroke-width="1"/><path d="M1.5 11.5c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Name generators</div><a class="other-link" href="/random-name-generator/">Random Name Generator</a><a class="other-link" href="/username-generator/">Username Generator</a><a class="other-link" href="/baby-name-finder/">Baby Name Generator</a><a class="other-link" href="/pet-name-generator/">Pet Name Generator</a><a class="other-link" href="/band-name-generator/">Band Name Generator</a><a class="other-link" href="/name-generators/">More Name Gen Tools</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3h9M2 6.5h7M2 10h5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Text &amp; writing</div><a class="other-link" href="/lorem-ipsum/">Lorem ipsum generator</a><a class="other-link" href="/password-generator/">Password generator</a><a class="other-link" href="/acronym-maker/">Acronym maker</a><a class="other-link" href="/random-quote/">Random quote generator</a><a class="other-link" href="/story-prompts/">Story prompt generator</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M6.5 1.5l1.3 3h3.2l-2.6 2 1 3-2.9-1.8-2.9 1.8 1-3-2.6-2h3.2z" stroke="currentColor" stroke-width="1" stroke-linejoin="round"/></svg>Games &amp; fun</div><a class="other-link" href="/pictionary-word-generator/">Pictionary word generator</a><a class="other-link" href="/charades-generator/">Charades generator</a><a class="other-link" href="/truth-or-dare/">Truth or dare gen</a><a class="other-link" href="/would-you-rather/">Would you rather</a><a class="other-link" href="/trivia-questions/">Trivia question gen</a></div>
+    </div>
+  </div>
+
+  <div class="ad-rect">
+    <span class="ad-tag">Advertisement · 336×280</span>
+    <div class="ad-rect-img"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4C10.3 4 4 10.3 4 18s6.3 14 14 14 14-6.3 14-14S25.7 4 18 4z" fill="white" opacity=".2"/><path d="M12 18c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="18" r="2.5" fill="white"/></svg></div>
+    <div class="ad-rect-content">
+      <div class="ad-rect-title">Grammarly — write with confidence</div>
+      <div class="ad-rect-body">Instantly improve grammar, spelling, clarity, and tone. Works everywhere you write online.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
+    </div>
+  </div>
+  <div class="divider"></div>
+
+<div class="explainer">
+  <h2>What is random Indian name generator?</h2>
+  <p>A random Indian name generator creates Indian given names, surnames, and full names from a dedicated dataset built for multiple naming traditions across India. Instead of treating Indian names as one small Hindi-only list, this page lets you browse names across Hindi or Hindustani, Punjabi, Gujarati, Marathi, Bengali, Tamil, Telugu, Kannada, Malayalam, and Sanskrit-derived pan-Indian usage. It is useful for writers, roleplayers, game developers, character designers, and anyone collecting baby-name ideas or naming inspiration.</p>
+
+  <h2>How it Works</h2>
+  <p>Choose how many names you want, keep the default Given name setting or switch to Full name or Surname, and then refine the list with gender, region, style, or first-letter filters. The results update automatically when you change a filter, so switching from male to female or from Hindi to Tamil instantly refreshes the list. The Show definitions toggle starts on and only hides or reveals the meaning line under the current output. It never changes the names already on screen.</p>
+
+  <h2>Why Indian names vary by region and language</h2>
+  <p>India contains many naming traditions rather than one universal system. Punjabi names often use elements like -deep, -preet, or -jeet. Bengali names may lean toward softer endings and familiar surname families like Banerjee or Mukherjee. Tamil and Telugu names often sound structurally different from Hindi or Gujarati names, and Sanskrit-derived names can appear across multiple regions with different local usage patterns. That is why the region filter matters on this page: it helps the output feel closer to the tradition you actually want.</p>
+
+  <h2>Why this tool uses a dedicated Indian dataset</h2>
+  <p>A generic random name list is too small for this category. This tool uses its own Indian JSON file so it can support a wider given-name pool, separate surname filtering, and more realistic regional grouping without mixing unrelated name origins together. It also lets the page keep Given name as the default without repeating the same small set of results too quickly.</p>
+
+  <h2>More random name generators</h2>
+  <p>If you want a broader cross-origin tool, try the <a href="/random-name-generator/">random name generator</a>. For other country-specific tools in the same family, explore the <a href="/random-filipino-name-generator/">random Filipino name generator</a>, <a href="/random-japanese-name-generator/">random Japanese name generator</a>, and <a href="/random-korean-name-generator/">random Korean name generator</a>.</p>
+</div>
+  <div class="divider"></div>
+
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">Are these names only Hindi names?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">No. This page is built as a pan-Indian generator. It includes Hindi or Hindustani names, but it also covers Punjabi, Gujarati, Marathi, Bengali, Tamil, Telugu, Kannada, Malayalam, and Sanskrit-derived pan-Indian naming styles. Use the Region / language tradition filter if you want the results to lean toward one tradition instead of a mixed pool.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I generate just given names instead of full names?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes. Given name is the default Name type on purpose. It is the fastest starting point for most users and usually gives the cleanest first impression on mobile. You can switch to Surname or Full name at any time and the list will update automatically.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Does Show definitions change the names?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">No. Show definitions is a display-only toggle. It hides or reveals the meaning line under the current results, but it does not regenerate, reorder, or replace the names already shown. This matches the behavior of the main random name generator.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I use these names for stories, games, or character profiles?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes. The generator is useful for fiction, roleplay, visual novels, screenplay planning, mock profiles, and NPC lists. Names themselves are not copyrightable. The region and style filters are especially useful when you want a character list to feel more coherent instead of purely random.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Why does this tool use its own Indian names JSON file?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Indian naming traditions are too varied for a tiny generic list. A dedicated JSON file gives this page room for a larger given-name pool, a surname pool, and region-aware filtering. It also helps the page stay fast because the generator loads exactly the data it needs for this category.</div>
+  </div>
+</div>
+  <div class="divider"></div>
+
+<div>
+  <h2 class="section-title" style="margin-bottom:14px">Who uses Wordineer</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">Writers</div><div class="uc-body">Find Indian character names for fiction, scripts, worldbuilding documents, and story bibles with region and style filters built in.</div></div>
+    <div class="uc"><div class="uc-title">Game Developers</div><div class="uc-body">Generate believable rosters for NPCs, mobile games, visual novels, RPGs, and mock user profiles without hand-assembling lists.</div></div>
+    <div class="uc"><div class="uc-title">Roleplayers</div><div class="uc-body">Build original characters quickly, save your best options, and copy a shortlist once the tone and region feel right.</div></div>
+    <div class="uc"><div class="uc-title">Name Browsers</div><div class="uc-body">Explore Indian given names and surnames by gender, region, and style for brainstorming, naming research, or baby-name idea gathering.</div></div>
+  </div>
+</div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="ad-footer-strip" style="margin-bottom:24px">
+      <span class="ad-tag">Advertisement · 468×60</span>
+      <div class="ad-fs-text"><strong>Grammarly Premium</strong> — Vocabulary suggestions, tone detector, full-sentence rewrites.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-footer-strip-cta">Try free</a>
+    </div>
+    <div class="footer-grid">
+      <div><div class="footer-col-title">Word tools</div><a class="footer-link" href="/">Random word generator</a><a class="footer-link" href="/random-sentence-generator/">Random sentence</a><a class="footer-link" href="/random-letter-generator/">Random letter</a><a class="footer-link" href="/word-scramble/">Word Scramble</a><a class="footer-link" href="/word-of-the-day/">Word of the day</a><a class="footer-link" href="/passphrase-generator/">Passphrase gen</a></div>
+      <div><div class="footer-col-title">Name generators</div><a class="footer-link" href="/random-name-generator/">Random name gen</a><a class="footer-link" href="/username-generator/">Username generator</a><a class="footer-link" href="/fantasy-name-generator/">Fantasy name gen</a><a class="footer-link" href="/baby-name-finder/">Baby name finder</a><a class="footer-link" href="/pet-name-generator/">Pet name gen</a><a class="footer-link" href="/random-american-name-generator/">American name gen</a><a class="footer-link" href="/random-filipino-name-generator/">Filipino name gen</a><a class="footer-link" href="/random-japanese-name-generator/">Japanese name gen</a><a class="footer-link" href="/random-korean-name-generator/">Korean name gen</a><a class="footer-link" href="/random-british-name-generator/">British name gen</a></div>
+      <div><div class="footer-col-title">Number &amp; chance</div><a class="footer-link" href="/random-number-generator/">Random number</a><a class="footer-link" href="/dice-roller/">Dice roller</a><a class="footer-link" href="/coin-flip/">Coin flip</a><a class="footer-link" href="/lucky-number/">Lucky number</a><a class="footer-link" href="/list-shuffler/">List shuffler</a></div>
+      <div><div class="footer-col-title">Games &amp; fun</div><a class="footer-link" href="/pictionary-word-generator/">Pictionary words</a><a class="footer-link" href="/charades-generator/">Charades gen</a><a class="footer-link" href="/truth-or-dare/">Truth or dare</a><a class="footer-link" href="/would-you-rather/">Would you rather</a><a class="footer-link" href="/story-prompts/">Story prompts</a></div>
+    </div>
+    <div class="footer-bottom">
+      <div style="display:flex;align-items:center;gap:7px">
+        <div class="nav-logo-icon" style="width:22px;height:22px;border-radius:5px"><svg viewBox="0 0 15 15" fill="none" style="width:12px;height:12px"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <span style="font-size:14px;font-weight:600;color:var(--text)">Wordineer</span>
+      </div>
+      <span class="footer-copy">© 2026 Wordineer · Free word tools for everyone</span>
+      <div class="footer-meta"><a href="/about/">About</a><a href="/blog/">Blog</a><a href="/affiliate-disclosure/">Affiliate disclosure</a><a href="/privacy/">Privacy</a></div>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="/scripts/tool-engine.js?v=10"></script>
+
+<script src="/scripts/tool-engine.js"></script>
+<script>
+const IN_REGION_LABELS = {
+  'hindi-hindustani': 'Hindi / Hindustani',
+  'punjabi': 'Punjabi',
+  'gujarati': 'Gujarati',
+  'marathi': 'Marathi',
+  'bengali': 'Bengali',
+  'tamil': 'Tamil',
+  'telugu': 'Telugu',
+  'kannada': 'Kannada',
+  'malayalam': 'Malayalam',
+  'sanskrit-pan-indian': 'Sanskrit / pan-Indian'
+};
+const IN_STYLE_LABELS = {
+  traditional: 'Traditional',
+  modern: 'Modern',
+  mythological: 'Mythological',
+  religious: 'Religious',
+  urban: 'Urban'
+};
+const IN_GENDER_LABELS = {
+  m: 'Male',
+  f: 'Female',
+  u: 'Unisex'
+};
+
+let inData = null;
+let inCurrentItems = [];
+
+function inEsc(str) {
+  return String(str ?? '').replace(/[&<>"']/g, function(ch) {
+    return ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' })[ch];
+  });
+}
+function inShuffle(arr) {
+  return arr.slice().sort(function() { return Math.random() - 0.5; });
+}
+function inDefsVisible() {
+  return document.getElementById('in-defs')?.checked !== false;
+}
+function inValidateCount() {
+  const input = document.getElementById('in-count');
+  const error = document.getElementById('in-count-error');
+  const value = parseInt(input?.value, 10);
+  const ok = Number.isFinite(value) && value >= 1 && value <= 50;
+  if (error) error.style.display = ok ? 'none' : 'block';
+  return ok;
+}
+function inLimit() {
+  const value = parseInt(document.getElementById('in-count')?.value, 10);
+  return Number.isFinite(value) ? Math.min(50, Math.max(1, value)) : 10;
+}
+function inMatchesLetter(name, letter) {
+  return !letter || String(name || '').toUpperCase().startsWith(letter);
+}
+function inMatchesStyle(row, style) {
+  return style === 'any' || (Array.isArray(row.styles) && row.styles.includes(style));
+}
+function inMatchesRegion(row, region) {
+  return region === 'any' || (Array.isArray(row.regions) && row.regions.includes(region));
+}
+function inMatchesGender(row, gender) {
+  return gender === 'any' || row.gender === gender;
+}
+function inNoResultsItem() {
+  return {
+    noResult: true,
+    display: 'No Indian names match those filters',
+    meaning: 'Try a broader region, style, gender, or starting letter.'
+  };
+}
+function inGivenPool(filters) {
+  return (inData?.givenNames || []).filter(function(row) {
+    return inMatchesGender(row, filters.gender)
+      && inMatchesRegion(row, filters.region)
+      && inMatchesStyle(row, filters.style)
+      && inMatchesLetter(row.name, filters.letter);
+  });
+}
+function inSurnamePool(filters) {
+  return (inData?.surnames || []).filter(function(row) {
+    return inMatchesRegion(row, filters.region)
+      && inMatchesStyle(row, filters.style)
+      && inMatchesLetter(row.name, filters.letter);
+  });
+}
+function inPickSurname(given, surnames, seen) {
+  const preferred = surnames.filter(function(row) {
+    return given.regions.some(function(region) { return row.regions.includes(region); });
+  });
+  const pool = preferred.length ? preferred : surnames;
+  for (const row of pool) {
+    const key = `${given.name}|${row.name}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    return row;
+  }
+  return null;
+}
+function inGenerateFn() {
+  const filters = {
+    type: document.getElementById('in-type')?.value || 'given',
+    gender: document.getElementById('in-gender')?.value || 'any',
+    region: document.getElementById('in-region')?.value || 'any',
+    style: document.getElementById('in-style')?.value || 'any',
+    letter: document.getElementById('in-letter')?.value || ''
+  };
+  const limit = inLimit();
+  const results = [];
+  const seen = new Set();
+
+  const givenPool = inShuffle(inGivenPool(filters));
+  const surnamePool = inShuffle(inSurnamePool(filters));
+
+  if (filters.type === 'given') {
+    if (!givenPool.length) return [inNoResultsItem()];
+    for (const row of givenPool) {
+      if (results.length >= limit) break;
+      results.push({
+        display: row.name,
+        sub: '',
+        meaning: row.meaning,
+        region: row.regions[0],
+        style: row.styles[0],
+        gender: row.gender,
+        copyValue: row.name
+      });
+    }
+  } else if (filters.type === 'surname') {
+    if (!surnamePool.length) return [inNoResultsItem()];
+    for (const row of surnamePool) {
+      if (results.length >= limit) break;
+      results.push({
+        display: row.name,
+        sub: '',
+        meaning: row.meaning,
+        region: row.regions[0],
+        style: row.styles[0],
+        gender: '',
+        copyValue: row.name
+      });
+    }
+  } else {
+    if (!givenPool.length || !surnamePool.length) return [inNoResultsItem()];
+    for (const given of givenPool) {
+      if (results.length >= limit) break;
+      const surname = inPickSurname(given, surnamePool, seen);
+      if (!surname) continue;
+      results.push({
+        display: `${given.name} ${surname.name}`,
+        sub: `Given name: ${given.name} · Surname: ${surname.name}`,
+        meaning: given.meaning,
+        region: given.regions[0],
+        style: given.styles[0],
+        gender: given.gender,
+        copyValue: `${given.name} ${surname.name}`
+      });
+    }
+  }
+
+  inCurrentItems = results.slice();
+  return results.length ? results : [inNoResultsItem()];
+}
+function inRenderCurrentItems() {
+  const list = document.getElementById('in-list');
+  if (!list || !inCurrentItems.length) return;
+  list.innerHTML = '';
+  inCurrentItems.forEach(function(item) {
+    const wrapper = document.createElement('div');
+    wrapper.innerHTML = inRenderItem(item);
+    list.appendChild(wrapper.firstElementChild || wrapper);
+  });
+}
+function inRenderItem(item) {
+  if (item.noResult) {
+    return '<li class="word-item in-no-results"><div class="word-left"><div class="word-text">' + inEsc(item.display) + '</div>' + (inDefsVisible() ? '<div class="in-meaning">' + inEsc(item.meaning) + '</div>' : '') + '</div></li>';
+  }
+  let savedArr = [];
+  try { savedArr = JSON.parse(localStorage.getItem('wnr_saved_indian_names') || '[]'); } catch {}
+  const saveValue = item.copyValue || item.display;
+  const isSaved = savedArr.includes(saveValue);
+  const safeAttr = saveValue.replace(/"/g, '&quot;');
+  const safeClick = saveValue.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+  const badges = [
+    item.region ? '<span class="in-badge in-badge--region">' + inEsc(IN_REGION_LABELS[item.region] || item.region) + '</span>' : '',
+    item.style ? '<span class="in-badge">' + inEsc(IN_STYLE_LABELS[item.style] || item.style) + '</span>' : '',
+    item.gender ? '<span class="in-badge in-badge--gender">' + inEsc(IN_GENDER_LABELS[item.gender] || item.gender) + '</span>' : ''
+  ].filter(Boolean).join('');
+
+  return '<li class="word-item">'
+    + '<div class="word-left">'
+    + '<div class="word-text">' + inEsc(item.display) + '</div>'
+    + (item.sub ? '<div class="in-sub">' + inEsc(item.sub) + '</div>' : '')
+    + '<div class="in-badges">' + badges + '</div>'
+    + (inDefsVisible() ? '<div class="in-meaning">' + inEsc(item.meaning) + '</div>' : '')
+    + '</div>'
+    + '<div class="word-right">'
+    + '<button class="icon-btn" title="Copy" onclick="inCopyName(\'' + safeClick + '\',this)">'
+    + '<svg viewBox="0 0 14 14" fill="none"><rect x="1" y="4" width="9" height="9.5" rx="1.5" stroke="currentColor" stroke-width="1.1"/><path d="M4.5 4V2.5A1.5 1.5 0 016 1h5.5A1.5 1.5 0 0113 2.5v7a1.5 1.5 0 01-1.5 1.5H10" stroke="currentColor" stroke-width="1.1"/></svg>'
+    + '</button>'
+    + '<button class="icon-btn' + (isSaved ? ' saved' : '') + '" title="' + (isSaved ? 'Unsave' : 'Save') + '" data-action="save" data-name="' + safeAttr + '">'
+    + '<svg viewBox="0 0 16 16" fill="none"><path d="M8 13.5S2 9.5 2 5.5A3 3 0 018 4a3 3 0 016 1.5c0 4-6 8-6 8z" stroke="currentColor" stroke-width="1.3" fill="' + (isSaved ? '#E24B4A' : 'none') + '"/></svg>'
+    + '</button>'
+    + '</div>'
+    + '</li>';
+}
+function inCopyName(name, btn) {
+  navigator.clipboard?.writeText(name);
+  const old = btn.innerHTML;
+  btn.textContent = '✓';
+  setTimeout(function() { btn.innerHTML = old; }, 900);
+}
+function inRegenerateFromFilters() {
+  if (!inValidateCount()) return;
+  document.getElementById('in-gen-btn')?.click();
+}
+window.inCopyName = inCopyName;
+
+fetch('/data/indian-names.json', { cache: 'force-cache' })
+  .then(function(res) {
+    if (!res.ok) throw new Error('Indian name data failed to load');
+    return res.json();
+  })
+  .then(function(data) {
+    inData = data;
+    WORDINEER.init({
+      mode:           'custom',
+      data:           inData,
+      renderItem:     inRenderItem,
+      generateFn:     inGenerateFn,
+      listId:         'in-list',
+      countDisplayId: 'in-count-display',
+      generateBtnId:  'in-gen-btn',
+      copyAllBtnId:   'in-copy-all-btn',
+      savedKey:       'wnr_saved_indian_names',
+      savedListId:    'in-saved-tags'
+    });
+    inRegenerateFromFilters();
+  })
+  .catch(function() {
+    const display = document.getElementById('in-count-display');
+    if (display) display.textContent = 'Indian name data could not load. Please refresh and try again.';
+  });
+
+document.getElementById('in-count')?.addEventListener('input', function() {
+  if (inValidateCount()) inRegenerateFromFilters();
+});
+document.getElementById('in-count')?.addEventListener('change', inRegenerateFromFilters);
+document.getElementById('in-defs')?.addEventListener('change', inRenderCurrentItems);
+['in-type','in-gender','in-region','in-style','in-letter'].forEach(function(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.addEventListener('change', inRegenerateFromFilters);
+  el.addEventListener('input', inRegenerateFromFilters);
+});
+document.getElementById('in-reset-btn')?.addEventListener('click', function() {
+  document.getElementById('in-count').value = '10';
+  document.getElementById('in-type').value = 'given';
+  document.getElementById('in-gender').value = 'any';
+  document.getElementById('in-region').value = 'any';
+  document.getElementById('in-style').value = 'any';
+  document.getElementById('in-letter').value = '';
+  document.getElementById('in-defs').checked = true;
+  inRegenerateFromFilters();
+});
+document.getElementById('in-copy-saved-btn')?.addEventListener('click', function() {
+  const tags = document.querySelectorAll('#in-saved-tags .saved-tag');
+  if (!tags.length) return;
+  const names = Array.from(tags).map(function(t) { return t.textContent.replace('×', '').trim(); }).filter(Boolean);
+  navigator.clipboard?.writeText(names.join('\n'));
+});
+document.getElementById('in-mobile-toggle')?.addEventListener('click', function() {
+  const advanced = document.getElementById('in-advanced');
+  if (!advanced) return;
+  const isOpen = advanced.classList.toggle('is-open');
+  this.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  this.textContent = isOpen ? 'Hide options' : 'More options';
+});
+
+</script>
+</body>
+</html>
