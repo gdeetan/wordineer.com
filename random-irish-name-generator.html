@@ -866,7 +866,7 @@ ingCountInput?.addEventListener('change', ingRegenerateFromFilters);
 document.getElementById('ing-gen-btn')?.addEventListener('click', ingSyncNoResultCount);
 document.getElementById('ing-defs')?.addEventListener('change', ingRenderCurrentItems);
 document.getElementById('ing-pron')?.addEventListener('change', ingRenderCurrentItems);
-['ing-type','ing-gender','ing-style','ing-theme','ing-letter','ing-era','ing-pron'].forEach(function(id) {
+['ing-type','ing-gender','ing-style','ing-theme','ing-letter','ing-era'].forEach(function(id) {
   const el = document.getElementById(id);
   if (!el) return;
   el.addEventListener('change', ingRegenerateFromFilters);
