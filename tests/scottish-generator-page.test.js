@@ -44,13 +44,19 @@ mustInclude(source, 'Scottish Names: Modern, Gaelic, and Anglicized Forms', 'sty
 mustInclude(source, '"@type": "FAQPage"', 'FAQ schema');
 mustInclude(source, "savedKey: 'wnr_saved_scottish_names'", 'saved key');
 mustInclude(source, 'WORDINEER.init(', 'WORDINEER init call');
-mustInclude(source, 'sngRegenerateFromFilters', 'live filter regeneration helper');
+
+const filterIds = ['sng-type', 'sng-gender', 'sng-style', 'sng-theme', 'sng-letter', 'sng-popularity'];
+for (const id of filterIds) {
+  mustInclude(source, `'${id}'`, `${id} referenced in source`);
+}
 
 if (fs.existsSync(deployPath)) {
   const deploy = fs.readFileSync(deployPath, 'utf8');
+  mustInclude(deploy, 'Random Scottish Name Generator', 'deploy title');
   mustInclude(deploy, '/data/scottish-names.json', 'deploy data fetch path');
   mustInclude(deploy, 'id="sng-count"', 'deploy count control');
   mustInclude(deploy, 'What Is a Random Scottish Name Generator?', 'deploy explainer');
+  mustInclude(deploy, 'WORDINEER.init(', 'deploy WORDINEER init');
 }
 
 console.log('Scottish generator page static checks ok');
