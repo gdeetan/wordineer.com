@@ -462,6 +462,46 @@
 <div class="toast" id="toast"></div>
 
 <script src="/scripts/tool-engine.js?v=10"></script>
+<script>
+(function bindSharedWordineerMenu() {
+  const mega = document.getElementById('mega');
+  const hbg = document.querySelector('.hamburger');
+  if (!mega || !hbg) return;
+  if (hbg.dataset.menuBound === '1') return;
+  hbg.dataset.menuBound = '1';
+  hbg.onclick = null;
+  if (hbg.getAttribute('onclick')) hbg.removeAttribute('onclick');
+
+  function setMenu(open) {
+    mega.classList.toggle('open', open);
+    hbg.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+
+  setMenu(mega.classList.contains('open'));
+
+  hbg.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+    setMenu(!mega.classList.contains('open'));
+  }, true);
+
+  hbg.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+      setMenu(!mega.classList.contains('open'));
+    }
+  }, true);
+
+  document.addEventListener('click', function(e) {
+    if (mega.classList.contains('open') && !mega.contains(e.target) && !hbg.contains(e.target)) {
+      setMenu(false);
+    }
+  }, true);
+})();
+</script>
 
 <script src="/scripts/tool-engine.js?v=7"></script>
 <script>
