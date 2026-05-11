@@ -16,6 +16,7 @@ const givenGenders = new Set();
 const styleValues = new Set();
 const themeValues = new Set();
 const popularityValues = new Set();
+const originLabelValues = new Set();
 
 for (const item of data.given) {
   assert.strictEqual(typeof item.name, 'string', 'given name must be a string');
@@ -31,6 +32,7 @@ for (const item of data.given) {
   item.styles.forEach((value) => styleValues.add(value));
   item.themes.forEach((value) => themeValues.add(value));
   popularityValues.add(item.popularity);
+  originLabelValues.add(item.originLabel);
 }
 
 for (const item of data.surnames) {
@@ -45,11 +47,13 @@ for (const item of data.surnames) {
   item.styles.forEach((value) => styleValues.add(value));
   item.themes.forEach((value) => themeValues.add(value));
   popularityValues.add(item.popularity);
+  originLabelValues.add(item.originLabel);
 }
 
 for (const value of ['m', 'f', 'u']) assert.ok(givenGenders.has(value), `missing gender ${value}`);
 for (const value of ['modern', 'traditional-gaelic', 'anglicized', 'classic']) assert.ok(styleValues.has(value), `missing style ${value}`);
 for (const value of ['nature', 'strength', 'sea', 'light', 'warrior', 'saintly', 'noble', 'joy']) assert.ok(themeValues.has(value), `missing theme ${value}`);
 for (const value of ['common', 'familiar', 'rare']) assert.ok(popularityValues.has(value), `missing popularity ${value}`);
+for (const value of ['Gaelic', 'Scots', 'Anglicized', 'Scottish']) assert.ok(originLabelValues.has(value), `missing originLabel ${value}`);
 
 console.log(`scottish-names.json ok: ${data.given.length} given, ${data.surnames.length} surnames`);
