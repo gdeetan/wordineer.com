@@ -321,12 +321,9 @@
               <option value="western">Western order</option>
             </select>
           </div>
-          <div class="ctrl-row">
-            <label class="ctrl-label" for="cn-script">Script display</label>
-            <select id="cn-script">
-              <option value="both">Pinyin + Hanzi</option>
-              <option value="pinyin">Pinyin only</option>
-            </select>
+          <div class="def-row">
+            <label class="toggle" aria-label="Show Hanzi"><input type="checkbox" id="cn-script" checked><span class="toggle-sl"></span></label>
+            <label for="cn-script">Show Hanzi</label>
           </div>
           <div class="def-row">
             <label class="toggle" aria-label="Show definitions"><input type="checkbox" id="cn-defs" checked><span class="toggle-sl"></span></label>
@@ -548,11 +545,11 @@ function cnNoResultsItem() {
     noResult: true
   };
 }
-function cnBuildItem(given, surname, type, orderMode, scriptMode) {
+function cnBuildItem(given, surname, type, orderMode, showHanzi) {
   const chineseFull = surname[0] + ' ' + given[0];
   const westernFull = given[0] + ' ' + surname[0];
   const display = type === 'surname' ? surname[0] : type === 'given' ? given[0] : (orderMode === 'western' ? westernFull : chineseFull);
-  const script = type === 'surname'
+  const hanzi = type === 'surname'
     ? surname[1]
     : type === 'given'
       ? given[1]
@@ -566,7 +563,7 @@ function cnBuildItem(given, surname, type, orderMode, scriptMode) {
   const themes = type === 'surname' ? surname[3] : given[4];
   return {
     display,
-    script: scriptMode === 'pinyin' ? '' : script,
+    script: showHanzi ? hanzi : '',
     chineseOrder: chineseFull,
     westernOrder: westernFull,
     meaning,
@@ -585,7 +582,7 @@ function cnGenerateFn(data) {
   const theme = document.getElementById('cn-theme')?.value || 'any';
   const letter = (document.getElementById('cn-letter')?.value || '').toUpperCase();
   const order = document.getElementById('cn-order')?.value || 'both';
-  const scriptMode = document.getElementById('cn-script')?.value || 'both';
+  const showHanzi = document.getElementById('cn-script')?.checked !== false;
   const primaryOrder = order === 'western' ? 'western' : 'chinese';
   const limit = cnCount();
 
@@ -620,7 +617,7 @@ function cnGenerateFn(data) {
     const given = sg[gi++ % sg.length] || data.given[0];
     const surname = ss[si++ % ss.length] || data.surnames[0];
     guard++;
-    const item = cnBuildItem(given, surname, type, primaryOrder, scriptMode);
+    const item = cnBuildItem(given, surname, type, primaryOrder, showHanzi);
     if (seen.has(item.display)) continue;
     seen.add(item.display);
     if (order === 'both' && type === 'full') item.showBoth = true;
@@ -739,7 +736,9 @@ cnCountInput?.addEventListener('input', function() {
 cnCountInput?.addEventListener('change', cnRegenerateFromFilters);
 document.getElementById('cn-gen-btn')?.addEventListener('click', cnSyncNoResultCount);
 document.getElementById('cn-defs')?.addEventListener('change', cnRenderCurrentItems);
-['cn-type','cn-gender','cn-style','cn-theme','cn-letter','cn-order','cn-script'].forEach(function(id) {
+document.getElementById('cn-script')?.addEventListener('change', cnRegenerateFromFilters);
+document.getElementById('cn-script')?.addEventListener('input', cnRegenerateFromFilters);
+['cn-type','cn-gender','cn-style','cn-theme','cn-letter','cn-order'].forEach(function(id) {
   const el = document.getElementById(id);
   if (!el) return;
   el.addEventListener('change', cnRegenerateFromFilters);
@@ -753,7 +752,7 @@ document.getElementById('cn-reset-btn')?.addEventListener('click', function() {
   document.getElementById('cn-theme').value = 'any';
   document.getElementById('cn-letter').value = '';
   document.getElementById('cn-order').value = 'both';
-  document.getElementById('cn-script').value = 'both';
+  document.getElementById('cn-script').checked = true;
   document.getElementById('cn-defs').checked = true;
   cnRegenerateFromFilters();
 });
