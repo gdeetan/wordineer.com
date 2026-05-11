@@ -566,7 +566,7 @@ function cnBuildItem(given, surname, type, orderMode, scriptMode) {
   const themes = type === 'surname' ? surname[3] : given[4];
   return {
     display,
-    script: scriptMode === 'pinyin' ? '' : hanzi,
+    hanzi,
     chineseOrder: chineseFull,
     westernOrder: westernFull,
     meaning,
@@ -649,10 +649,11 @@ function cnRenderItem(item) {
   const themes = (item.themes || []).slice(0, 2).map(function(t) {
     return '<span class="cn-badge cn-badge--theme">' + cnEsc(CN_THEME_LABELS[t] || t) + '</span>';
   }).join('');
+  const scriptMode = document.getElementById('cn-script')?.value || 'pinyin-hanzi';
   const orderLine = item.showBoth
     ? '<div class="cn-order">Chinese order: ' + cnEsc(item.chineseOrder) + ' | Western order: ' + cnEsc(item.westernOrder) + '</div>'
     : '';
-  const scriptLine = item.script ? '<div class="cn-script">' + cnEsc(item.script) + '</div>' : '';
+  const scriptLine = scriptMode === 'pinyin' ? '' : (item.hanzi ? '<div class="cn-script">' + cnEsc(item.hanzi) + '</div>' : '');
   return '<li class="word-item">'
     + '<div class="word-left">'
     +   '<div class="word-text">' + cnEsc(item.display) + '</div>'
