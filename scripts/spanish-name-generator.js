@@ -188,13 +188,13 @@
     const count = Number.parseInt(options.count, 10);
     if (!Number.isInteger(count) || count < 1 || count > 50) return [];
 
-    const opts = {
-      gender: options.gender || 'any',
-      type: options.type || 'full',
-      style: options.style || 'any',
-      surnameStructure: options.surnameStructure || 'any',
-      letter: options.letter || 'any'
-    };
+      const opts = {
+        gender: options.gender || 'any',
+        type: options.type || 'first',
+        style: options.style || 'any',
+        surnameStructure: options.surnameStructure || 'any',
+        letter: options.letter || 'any'
+      };
 
     const oneSurnameMode = opts.type === 'full' && opts.surnameStructure === 'one';
     const twoSurnameMode = opts.type === 'two-surname-full' || (opts.type === 'full' && opts.surnameStructure === 'two');
@@ -396,7 +396,7 @@
       return {
         count: countInput ? countInput.value : '10',
         gender: genderSelect ? genderSelect.value : 'any',
-        type: typeSelect ? typeSelect.value : 'full',
+        type: typeSelect ? typeSelect.value : 'first',
         style: styleSelect ? styleSelect.value : 'any',
         surnameStructure: surnameStructureSelect ? surnameStructureSelect.value : 'any',
         letter: letterSelect ? letterSelect.value : 'any'
@@ -506,7 +506,7 @@
       resetBtn.addEventListener('click', function() {
         if (countInput) countInput.value = '10';
         if (genderSelect) genderSelect.value = 'any';
-        if (typeSelect) typeSelect.value = 'full';
+        if (typeSelect) typeSelect.value = 'first';
         if (styleSelect) styleSelect.value = 'any';
         if (surnameStructureSelect) surnameStructureSelect.value = 'any';
         if (letterSelect) letterSelect.value = 'any';
