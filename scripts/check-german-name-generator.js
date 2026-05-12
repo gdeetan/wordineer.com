@@ -28,8 +28,10 @@ assert(/document\.getElementById\('de-mobile-toggle'\)/.test(html), 'Expected mo
 
 assert(Array.isArray(data.given), 'Expected given array');
 assert(Array.isArray(data.surnames), 'Expected surnames array');
-assert(data.given.length >= 60, 'Expected at least 60 given names');
-assert(data.surnames.length >= 35, 'Expected at least 35 surnames');
+assert(data.given.length >= 700, 'Expected at least 700 given names');
+assert(data.surnames.length >= 250, 'Expected at least 250 surnames');
+assert(data.given.length + data.surnames.length >= 1000, 'Expected at least 1000 total names');
+assert(data.given.length + data.surnames.length <= 1300, 'Expected no more than 1300 total names');
 
 const sampleGiven = data.given[0];
 const sampleSurname = data.surnames[0];
