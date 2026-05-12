@@ -145,7 +145,6 @@
       <a class="mega-link" href="/baby-name-finder/">Baby Name Generator</a>
       <a class="mega-link" href="/pet-name-generator/">Pet Name Generator</a>
       <a class="mega-link" href="/band-name-generator/">Band Name Generator</a>
-      <a class="mega-link" href="/random-korean-name-generator/">Korean Name Generator</a>
       <a class="mega-link active" href="/name-generators/">More Name Gen Tools</a>
     </div>
     <div class="mega-col">
@@ -277,7 +276,7 @@
     </div>
     <div class="footer-grid">
       <div><div class="footer-col-title">Word tools</div><a class="footer-link" href="/">Random word generator</a><a class="footer-link" href="/random-sentence-generator/">Random sentence</a><a class="footer-link" href="/random-letter-generator/">Random letter</a><a class="footer-link" href="/word-scramble/">Word Scramble</a><a class="footer-link" href="/word-of-the-day/">Word of the day</a><a class="footer-link" href="/passphrase-generator/">Passphrase gen</a></div>
-      <div><div class="footer-col-title">Name generators</div><a class="footer-link" href="/random-name-generator/">Random name gen</a><a class="footer-link" href="/username-generator/">Username generator</a><a class="footer-link" href="/fantasy-name-generator/">Fantasy name gen</a><a class="footer-link" href="/baby-name-finder/">Baby name finder</a><a class="footer-link" href="/pet-name-generator/">Pet name gen</a><a class="footer-link" href="/random-american-name-generator/">American name gen</a><a class="footer-link" href="/random-filipino-name-generator/">Filipino name gen</a><a class="footer-link" href="/random-japanese-name-generator/">Japanese name gen</a><a class="footer-link" href="/random-korean-name-generator/">Korean name gen</a><a class="footer-link" href="/random-british-name-generator/">British name gen</a></div>
+      <div><div class="footer-col-title">Name generators</div><a class="footer-link" href="/random-name-generator/">Random name gen</a><a class="footer-link" href="/username-generator/">Username generator</a><a class="footer-link" href="/fantasy-name-generator/">Fantasy name gen</a><a class="footer-link" href="/baby-name-finder/">Baby name finder</a><a class="footer-link" href="/pet-name-generator/">Pet name gen</a><a class="footer-link" href="/random-american-name-generator/">American name gen</a><a class="footer-link" href="/random-filipino-name-generator/">Filipino name gen</a><a class="footer-link" href="/random-japanese-name-generator/">Japanese name gen</a><a class="footer-link" href="/random-korean-name-generator/">Korean name gen</a><a class="footer-link" href="/random-british-name-generator/">British name gen</a><a class="footer-link" href="/random-irish-name-generator/">Irish name gen</a><a class="footer-link" href="/random-spanish-name-generator/">Spanish name gen</a></div>
       <div><div class="footer-col-title">Number &amp; chance</div><a class="footer-link" href="/random-number-generator/">Random number</a><a class="footer-link" href="/dice-roller/">Dice roller</a><a class="footer-link" href="/coin-flip/">Coin flip</a><a class="footer-link" href="/lucky-number/">Lucky number</a><a class="footer-link" href="/list-shuffler/">List shuffler</a></div>
       <div><div class="footer-col-title">Games &amp; fun</div><a class="footer-link" href="/pictionary-word-generator/">Pictionary words</a><a class="footer-link" href="/charades-generator/">Charades gen</a><a class="footer-link" href="/truth-or-dare/">Truth or dare</a><a class="footer-link" href="/would-you-rather/">Would you rather</a><a class="footer-link" href="/story-prompts/">Story prompts</a></div>
     </div>
@@ -295,6 +294,46 @@
 <div class="toast" id="toast"></div>
 
 <script src="/scripts/tool-engine.js?v=10"></script>
+<script>
+(function bindSharedWordineerMenu() {
+  const mega = document.getElementById('mega');
+  const hbg = document.querySelector('.hamburger');
+  if (!mega || !hbg) return;
+  if (hbg.dataset.menuBound === '1') return;
+  hbg.dataset.menuBound = '1';
+  hbg.onclick = null;
+  if (hbg.getAttribute('onclick')) hbg.removeAttribute('onclick');
+
+  function setMenu(open) {
+    mega.classList.toggle('open', open);
+    hbg.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+
+  setMenu(mega.classList.contains('open'));
+
+  hbg.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+    setMenu(!mega.classList.contains('open'));
+  }, true);
+
+  hbg.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+      setMenu(!mega.classList.contains('open'));
+    }
+  }, true);
+
+  document.addEventListener('click', function(e) {
+    if (mega.classList.contains('open') && !mega.contains(e.target) && !hbg.contains(e.target)) {
+      setMenu(false);
+    }
+  }, true);
+})();
+</script>
 
 </body>
 </html>
