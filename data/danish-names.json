@@ -1,385 +1,7935 @@
 {
   "given": [
-    { "name": "Bjørn", "gender": "m", "eras": ["viking", "medieval"], "meaning": "bear; strength and courage" },
-    { "name": "Erik", "gender": "m", "eras": ["viking", "medieval", "classic", "modern"], "meaning": "ever-powerful ruler" },
-    { "name": "Leif", "gender": "m", "eras": ["viking", "medieval"], "meaning": "heir; descendant" },
-    { "name": "Ragnar", "gender": "m", "eras": ["viking"], "meaning": "wise warrior; counsel army" },
-    { "name": "Sigurd", "gender": "m", "eras": ["viking", "medieval"], "meaning": "guardian of victory" },
-    { "name": "Olaf", "gender": "m", "eras": ["viking", "medieval"], "meaning": "ancestor's relic; heritage" },
-    { "name": "Harald", "gender": "m", "eras": ["viking", "medieval"], "meaning": "ruler of an army" },
-    { "name": "Knud", "gender": "m", "eras": ["viking", "medieval", "classic"], "meaning": "knot; kinsman" },
-    { "name": "Svend", "gender": "m", "eras": ["viking", "medieval"], "meaning": "young man; servant" },
-    { "name": "Ivar", "gender": "m", "eras": ["viking", "medieval"], "meaning": "bow warrior; yew army" },
-    { "name": "Gorm", "gender": "m", "eras": ["viking"], "meaning": "he who venerates God" },
-    { "name": "Rolf", "gender": "m", "eras": ["viking", "medieval"], "meaning": "famous wolf" },
-    { "name": "Gunnar", "gender": "m", "eras": ["viking", "medieval"], "meaning": "bold warrior; battle" },
-    { "name": "Halfdan", "gender": "m", "eras": ["viking"], "meaning": "half-Dane" },
-    { "name": "Helge", "gender": "m", "eras": ["viking", "medieval"], "meaning": "holy; prosperous" },
-    { "name": "Frode", "gender": "m", "eras": ["viking", "medieval"], "meaning": "wise; learned" },
-    { "name": "Asger", "gender": "m", "eras": ["viking", "medieval"], "meaning": "spear of the gods" },
-    { "name": "Einar", "gender": "m", "eras": ["viking", "medieval"], "meaning": "lone warrior; one who fights alone" },
-    { "name": "Toke", "gender": "m", "eras": ["viking", "medieval"], "meaning": "Thor's kettle" },
-    { "name": "Ulf", "gender": "m", "eras": ["viking"], "meaning": "wolf" },
-    { "name": "Tyge", "gender": "m", "eras": ["viking", "medieval", "classic"], "meaning": "ruler of the bow" },
-    { "name": "Roar", "gender": "m", "eras": ["viking", "medieval"], "meaning": "famous spear" },
-    { "name": "Uffe", "gender": "m", "eras": ["viking", "medieval"], "meaning": "wolf; strength" },
-    { "name": "Åge", "gender": "m", "eras": ["viking", "medieval", "classic"], "meaning": "ancestor; forefather" },
-    { "name": "Orm", "gender": "m", "eras": ["viking"], "meaning": "serpent; dragon" },
-    { "name": "Stig", "gender": "m", "eras": ["viking", "medieval", "classic"], "meaning": "wanderer; path-maker" },
-    { "name": "Agnar", "gender": "m", "eras": ["viking"], "meaning": "edge of a sword; terror" },
-    { "name": "Grimulf", "gender": "m", "eras": ["viking"], "meaning": "masked wolf; fierce wolf" },
-    { "name": "Bjarni", "gender": "m", "eras": ["viking"], "meaning": "bear; young bear" },
-    { "name": "Thorkel", "gender": "m", "eras": ["viking", "medieval"], "meaning": "Thor's kettle; sacrifice to Thor" },
-    { "name": "Ragnvald", "gender": "m", "eras": ["viking", "medieval"], "meaning": "powerful ruler; ruler's counsel" },
-    { "name": "Styrkar", "gender": "m", "eras": ["viking"], "meaning": "strong man; steering power" },
-    { "name": "Hemming", "gender": "m", "eras": ["viking", "medieval"], "meaning": "shape-changer; nimble one" },
-    { "name": "Gudmund", "gender": "m", "eras": ["viking", "medieval"], "meaning": "divine protection; god's hand" },
-    { "name": "Niels", "gender": "m", "eras": ["medieval", "classic", "modern"], "meaning": "victory of the people" },
-    { "name": "Anders", "gender": "m", "eras": ["medieval", "classic", "modern"], "meaning": "strong and manly" },
-    { "name": "Jens", "gender": "m", "eras": ["medieval", "classic", "modern"], "meaning": "God is gracious" },
-    { "name": "Hans", "gender": "m", "eras": ["medieval", "classic", "modern"], "meaning": "God is gracious" },
-    { "name": "Peder", "gender": "m", "eras": ["medieval", "classic"], "meaning": "rock; stone" },
-    { "name": "Christen", "gender": "m", "eras": ["medieval", "classic"], "meaning": "Christian; follower of Christ" },
-    { "name": "Mads", "gender": "m", "eras": ["medieval", "classic", "modern"], "meaning": "gift of God" },
-    { "name": "Lars", "gender": "m", "eras": ["medieval", "classic", "modern"], "meaning": "crowned with laurel" },
-    { "name": "Søren", "gender": "m", "eras": ["medieval", "classic", "modern"], "meaning": "stern; severe" },
-    { "name": "Rasmus", "gender": "m", "eras": ["medieval", "classic", "modern"], "meaning": "beloved; cherished" },
-    { "name": "Thomas", "gender": "m", "eras": ["medieval", "classic", "modern"], "meaning": "twin" },
-    { "name": "Martin", "gender": "m", "eras": ["medieval", "classic", "modern"], "meaning": "of Mars; warrior" },
-    { "name": "Jacob", "gender": "m", "eras": ["medieval", "classic", "modern"], "meaning": "supplanter; held by the heel" },
-    { "name": "Christian", "gender": "m", "eras": ["medieval", "classic", "modern"], "meaning": "follower of Christ" },
-    { "name": "Frederik", "gender": "m", "eras": ["medieval", "classic", "modern"], "meaning": "peaceful ruler" },
-    { "name": "Mogens", "gender": "m", "eras": ["medieval", "classic"], "meaning": "great; powerful" },
-    { "name": "Bent", "gender": "m", "eras": ["medieval", "classic", "modern"], "meaning": "blessed" },
-    { "name": "Axel", "gender": "m", "eras": ["medieval", "classic", "modern"], "meaning": "father of peace" },
-    { "name": "Birger", "gender": "m", "eras": ["medieval", "classic"], "meaning": "helper; rescuer" },
-    { "name": "Valdemar", "gender": "m", "eras": ["medieval", "classic", "modern"], "meaning": "famous ruler" },
-    { "name": "Absalon", "gender": "m", "eras": ["medieval"], "meaning": "father of peace; my father is peace" },
-    { "name": "Jeppe", "gender": "m", "eras": ["medieval", "classic"], "meaning": "supplanter" },
-    { "name": "Villads", "gender": "m", "eras": ["medieval", "classic"], "meaning": "resolute protector" },
-    { "name": "Troels", "gender": "m", "eras": ["medieval", "classic", "modern"], "meaning": "Thor's arrow" },
-    { "name": "Oluf", "gender": "m", "eras": ["medieval", "classic"], "meaning": "ancestor's relic" },
-    { "name": "Bo", "gender": "m", "eras": ["medieval", "classic", "modern"], "meaning": "dweller; farmer" },
-    { "name": "Tue", "gender": "m", "eras": ["medieval", "classic"], "meaning": "Thor" },
-    { "name": "Esbern", "gender": "m", "eras": ["medieval"], "meaning": "divine bear" },
-    { "name": "Mikkel", "gender": "m", "eras": ["medieval", "classic", "modern"], "meaning": "who is like God" },
-    { "name": "Mathias", "gender": "m", "eras": ["medieval", "classic", "modern"], "meaning": "gift of God" },
-    { "name": "Simon", "gender": "m", "eras": ["medieval", "classic", "modern"], "meaning": "he who hears; listener" },
-    { "name": "Tobias", "gender": "m", "eras": ["medieval", "classic", "modern"], "meaning": "God is good" },
-    { "name": "Nikolaj", "gender": "m", "eras": ["medieval", "classic", "modern"], "meaning": "victory of the people" },
-    { "name": "Adam", "gender": "m", "eras": ["medieval", "classic", "modern"], "meaning": "man; earth" },
-    { "name": "Andreas", "gender": "m", "eras": ["medieval", "classic", "modern"], "meaning": "strong and manly" },
-    { "name": "Morten", "gender": "m", "eras": ["medieval", "classic", "modern"], "meaning": "of Mars; warrior" },
-    { "name": "Jakob", "gender": "m", "eras": ["medieval", "classic", "modern"], "meaning": "supplanter" },
-    { "name": "Henrik", "gender": "m", "eras": ["medieval", "classic", "modern"], "meaning": "ruler of the home" },
-    { "name": "David", "gender": "m", "eras": ["medieval", "classic", "modern"], "meaning": "beloved" },
-    { "name": "Elias", "gender": "m", "eras": ["medieval", "classic", "modern"], "meaning": "my God is Yahweh" },
-    { "name": "Carl", "gender": "m", "eras": ["classic", "modern"], "meaning": "free man; man of strength" },
-    { "name": "Georg", "gender": "m", "eras": ["classic", "modern"], "meaning": "farmer; earth worker" },
-    { "name": "Victor", "gender": "m", "eras": ["classic", "modern"], "meaning": "victor; conqueror" },
-    { "name": "Anton", "gender": "m", "eras": ["classic", "modern"], "meaning": "priceless; of inestimable worth" },
-    { "name": "Vilhelm", "gender": "m", "eras": ["classic"], "meaning": "resolute protector" },
-    { "name": "Viggo", "gender": "m", "eras": ["classic", "modern"], "meaning": "war; battle" },
-    { "name": "Julius", "gender": "m", "eras": ["classic", "modern"], "meaning": "youthful; downy-bearded" },
-    { "name": "Gustav", "gender": "m", "eras": ["classic", "modern"], "meaning": "staff of the Geats; royal staff" },
-    { "name": "Emil", "gender": "m", "eras": ["classic", "modern"], "meaning": "rival; eager" },
-    { "name": "Holger", "gender": "m", "eras": ["classic", "modern"], "meaning": "island spear" },
-    { "name": "Theodor", "gender": "m", "eras": ["classic"], "meaning": "gift of God" },
-    { "name": "Laurits", "gender": "m", "eras": ["classic"], "meaning": "crowned with laurel" },
-    { "name": "Sophus", "gender": "m", "eras": ["classic"], "meaning": "wisdom" },
-    { "name": "Ludvig", "gender": "m", "eras": ["classic"], "meaning": "famous warrior" },
-    { "name": "Edvard", "gender": "m", "eras": ["classic"], "meaning": "wealthy guardian" },
-    { "name": "Alfred", "gender": "m", "eras": ["classic", "modern"], "meaning": "elf counsel; wise advisor" },
-    { "name": "Jørgen", "gender": "m", "eras": ["classic", "modern"], "meaning": "earth worker; farmer" },
-    { "name": "Aage", "gender": "m", "eras": ["classic", "modern"], "meaning": "ancestor; forefather" },
-    { "name": "Otto", "gender": "m", "eras": ["classic", "modern"], "meaning": "wealth; fortune" },
-    { "name": "Kai", "gender": "m", "eras": ["classic", "modern"], "meaning": "earth; keeper of the keys" },
-    { "name": "Poul", "gender": "m", "eras": ["classic", "modern"], "meaning": "humble; small" },
-    { "name": "Vagn", "gender": "m", "eras": ["classic", "modern"], "meaning": "wagon; battle" },
-    { "name": "Alexander", "gender": "m", "eras": ["classic", "modern"], "meaning": "defender of men" },
-    { "name": "Sebastian", "gender": "m", "eras": ["classic", "modern"], "meaning": "venerable; from Sebastia" },
-    { "name": "Benjamin", "gender": "m", "eras": ["classic", "modern"], "meaning": "son of the right hand" },
-    { "name": "Daniel", "gender": "m", "eras": ["classic", "modern"], "meaning": "God is my judge" },
-    { "name": "Jonas", "gender": "m", "eras": ["classic", "modern"], "meaning": "dove; peaceful" },
-    { "name": "Marcus", "gender": "m", "eras": ["classic", "modern"], "meaning": "of Mars; warlike" },
-    { "name": "Stefan", "gender": "m", "eras": ["classic", "modern"], "meaning": "crown; garland" },
-    { "name": "Casper", "gender": "m", "eras": ["classic", "modern"], "meaning": "treasurer" },
-    { "name": "Albert", "gender": "m", "eras": ["classic", "modern"], "meaning": "noble and bright" },
-    { "name": "Oscar", "gender": "m", "eras": ["classic", "modern"], "meaning": "deer lover; divine spear" },
-    { "name": "August", "gender": "m", "eras": ["classic", "modern"], "meaning": "great; venerable" },
-    { "name": "Theo", "gender": "m", "eras": ["classic", "modern"], "meaning": "gift of God; divine" },
-    { "name": "Felix", "gender": "m", "eras": ["classic", "modern"], "meaning": "happy; fortunate" },
-    { "name": "Nils", "gender": "m", "eras": ["classic", "modern"], "meaning": "victory of the people" },
-    { "name": "Patrick", "gender": "m", "eras": ["classic", "modern"], "meaning": "nobleman; patrician" },
-    { "name": "Magnus", "gender": "m", "eras": ["classic", "modern"], "meaning": "great; mighty" },
-    { "name": "Thor", "gender": "m", "eras": ["viking", "modern"], "meaning": "thunder; god of thunder" },
-    { "name": "Storm", "gender": "m", "eras": ["viking", "modern"], "meaning": "storm; tempest" },
-    { "name": "Oliver", "gender": "m", "eras": ["modern"], "meaning": "olive tree; symbol of peace" },
-    { "name": "Noah", "gender": "m", "eras": ["modern"], "meaning": "rest; comfort" },
-    { "name": "William", "gender": "m", "eras": ["modern"], "meaning": "resolute protector" },
-    { "name": "Liam", "gender": "m", "eras": ["modern"], "meaning": "strong-willed warrior" },
-    { "name": "Lucas", "gender": "m", "eras": ["modern"], "meaning": "light; illumination" },
-    { "name": "Lukas", "gender": "m", "eras": ["modern"], "meaning": "light; from Lucania" },
-    { "name": "Nikolai", "gender": "m", "eras": ["modern"], "meaning": "victory of the people" },
-    { "name": "Tobias", "gender": "m", "eras": ["modern"], "meaning": "God is good" },
-    { "name": "Astrid", "gender": "f", "eras": ["viking", "medieval", "classic", "modern"], "meaning": "divinely beautiful; god's strength" },
-    { "name": "Freya", "gender": "f", "eras": ["viking", "modern"], "meaning": "lady; goddess of love and fertility" },
-    { "name": "Thyra", "gender": "f", "eras": ["viking", "medieval"], "meaning": "Thor's warrior; dedicated to Thor" },
-    { "name": "Ragnhild", "gender": "f", "eras": ["viking", "medieval"], "meaning": "battle counsel; wise in war" },
-    { "name": "Sigrid", "gender": "f", "eras": ["viking", "medieval"], "meaning": "victory; fair victory" },
-    { "name": "Ingrid", "gender": "f", "eras": ["viking", "medieval", "classic", "modern"], "meaning": "Ing's beauty; beloved" },
-    { "name": "Gunhild", "gender": "f", "eras": ["viking", "medieval"], "meaning": "war battle; strife" },
-    { "name": "Gudrun", "gender": "f", "eras": ["viking", "medieval"], "meaning": "God's secret lore; divine wisdom" },
-    { "name": "Estrid", "gender": "f", "eras": ["viking", "medieval"], "meaning": "divine strength; Aesir-beautiful" },
-    { "name": "Alfhild", "gender": "f", "eras": ["viking"], "meaning": "elf battle; elf-warrior" },
-    { "name": "Solvej", "gender": "f", "eras": ["viking", "medieval", "classic", "modern"], "meaning": "sun's strength; path of the sun" },
-    { "name": "Brynhild", "gender": "f", "eras": ["viking"], "meaning": "armored for battle; Valkyrie warrior" },
-    { "name": "Thora", "gender": "f", "eras": ["viking", "medieval", "classic"], "meaning": "Thor's warrior; thunder goddess" },
-    { "name": "Disa", "gender": "f", "eras": ["viking"], "meaning": "divine woman; goddess spirit" },
-    { "name": "Helga", "gender": "f", "eras": ["viking", "medieval", "classic"], "meaning": "holy; prosperous; sacred" },
-    { "name": "Ragnfrid", "gender": "f", "eras": ["viking"], "meaning": "beautiful counsel; fair advice" },
-    { "name": "Vigdis", "gender": "f", "eras": ["viking"], "meaning": "war goddess; battle deity" },
-    { "name": "Ylva", "gender": "f", "eras": ["viking", "modern"], "meaning": "she-wolf" },
-    { "name": "Alva", "gender": "f", "eras": ["viking", "modern"], "meaning": "elf; magical being" },
-    { "name": "Tove", "gender": "f", "eras": ["viking", "medieval", "classic", "modern"], "meaning": "beautiful Thor; dove of Thor" },
-    { "name": "Dagmar", "gender": "f", "eras": ["viking", "medieval", "classic", "modern"], "meaning": "day's glory; maiden of the day" },
-    { "name": "Randi", "gender": "f", "eras": ["viking", "medieval"], "meaning": "shield wolf; house wolf" },
-    { "name": "Bergljot", "gender": "f", "eras": ["viking"], "meaning": "protection of light; mountain of light" },
-    { "name": "Gunnvor", "gender": "f", "eras": ["viking"], "meaning": "war caution; careful in battle" },
-    { "name": "Ingiborg", "gender": "f", "eras": ["viking", "medieval"], "meaning": "Ing's protection; help of Ing" },
-    { "name": "Bodil", "gender": "f", "eras": ["viking", "medieval", "classic"], "meaning": "battle remedy; penance" },
-    { "name": "Dagny", "gender": "f", "eras": ["viking", "classic", "modern"], "meaning": "new day; dawn" },
-    { "name": "Frida", "gender": "f", "eras": ["viking", "classic", "modern"], "meaning": "peaceful; beloved" },
-    { "name": "Hulda", "gender": "f", "eras": ["viking", "classic"], "meaning": "hidden; gracious; sweet" },
-    { "name": "Inga", "gender": "f", "eras": ["viking", "classic", "modern"], "meaning": "protected by Ing" },
-    { "name": "Inge", "gender": "f", "eras": ["viking", "medieval", "classic", "modern"], "meaning": "protected by Ing; divine protection" },
-    { "name": "Signe", "gender": "f", "eras": ["viking", "classic", "modern"], "meaning": "new victory; sign" },
-    { "name": "Nanna", "gender": "f", "eras": ["viking", "modern"], "meaning": "daring; brave; mother" },
-    { "name": "Vigga", "gender": "f", "eras": ["viking", "modern"], "meaning": "war; battle" },
-    { "name": "Liv", "gender": "f", "eras": ["viking", "modern"], "meaning": "life; protection" },
-    { "name": "Freja", "gender": "f", "eras": ["viking", "modern"], "meaning": "lady; goddess of love" },
-    { "name": "Mette", "gender": "f", "eras": ["medieval", "classic", "modern"], "meaning": "pearl" },
-    { "name": "Birte", "gender": "f", "eras": ["medieval", "classic", "modern"], "meaning": "bright; shining" },
-    { "name": "Karen", "gender": "f", "eras": ["medieval", "classic", "modern"], "meaning": "pure; clear" },
-    { "name": "Kirsten", "gender": "f", "eras": ["medieval", "classic", "modern"], "meaning": "Christian; follower of Christ" },
-    { "name": "Anne", "gender": "f", "eras": ["medieval", "classic", "modern"], "meaning": "grace; favour" },
-    { "name": "Margrethe", "gender": "f", "eras": ["medieval", "classic", "modern"], "meaning": "pearl; child of light" },
-    { "name": "Else", "gender": "f", "eras": ["medieval", "classic", "modern"], "meaning": "pledged to God" },
-    { "name": "Gertrud", "gender": "f", "eras": ["medieval", "classic"], "meaning": "spear of strength" },
-    { "name": "Dorte", "gender": "f", "eras": ["medieval", "classic", "modern"], "meaning": "gift of God" },
-    { "name": "Hanne", "gender": "f", "eras": ["medieval", "classic", "modern"], "meaning": "God is gracious" },
-    { "name": "Lisbet", "gender": "f", "eras": ["medieval", "classic"], "meaning": "pledged to God; my God is abundance" },
-    { "name": "Magdalene", "gender": "f", "eras": ["medieval", "classic"], "meaning": "from Magdala; tower" },
-    { "name": "Cecilie", "gender": "f", "eras": ["medieval", "classic", "modern"], "meaning": "blind; heavenly lily" },
-    { "name": "Birgitte", "gender": "f", "eras": ["medieval", "classic", "modern"], "meaning": "strength; exalted one" },
-    { "name": "Katharina", "gender": "f", "eras": ["medieval", "classic"], "meaning": "pure; clear" },
-    { "name": "Elisabeth", "gender": "f", "eras": ["medieval", "classic", "modern"], "meaning": "pledged to God" },
-    { "name": "Johanne", "gender": "f", "eras": ["medieval", "classic"], "meaning": "God is gracious" },
-    { "name": "Margit", "gender": "f", "eras": ["medieval", "classic"], "meaning": "pearl" },
-    { "name": "Benedikte", "gender": "f", "eras": ["medieval", "classic", "modern"], "meaning": "blessed" },
-    { "name": "Kristine", "gender": "f", "eras": ["medieval", "classic", "modern"], "meaning": "Christian; follower of Christ" },
-    { "name": "Agnes", "gender": "f", "eras": ["medieval", "classic"], "meaning": "pure; holy; lamb" },
-    { "name": "Regitze", "gender": "f", "eras": ["medieval", "classic"], "meaning": "powerful ruler; queen" },
-    { "name": "Marie", "gender": "f", "eras": ["medieval", "classic", "modern"], "meaning": "beloved; sea of bitterness" },
-    { "name": "Christine", "gender": "f", "eras": ["medieval", "classic", "modern"], "meaning": "follower of Christ" },
-    { "name": "Pernille", "gender": "f", "eras": ["medieval", "classic", "modern"], "meaning": "rock; stone" },
-    { "name": "Vibeke", "gender": "f", "eras": ["medieval", "classic", "modern"], "meaning": "little woman; war" },
-    { "name": "Maren", "gender": "f", "eras": ["medieval", "classic"], "meaning": "sea; pearl; star of the sea" },
-    { "name": "Ane", "gender": "f", "eras": ["medieval", "classic"], "meaning": "grace; favour" },
-    { "name": "Birgit", "gender": "f", "eras": ["medieval", "classic", "modern"], "meaning": "strength; exalted one" },
-    { "name": "Sara", "gender": "f", "eras": ["medieval", "classic", "modern"], "meaning": "princess; lady" },
-    { "name": "Maria", "gender": "f", "eras": ["medieval", "classic", "modern"], "meaning": "beloved; wished-for child" },
-    { "name": "Katrine", "gender": "f", "eras": ["medieval", "classic", "modern"], "meaning": "pure; clear" },
-    { "name": "Emilie", "gender": "f", "eras": ["classic", "modern"], "meaning": "rival; industrious" },
-    { "name": "Mathilde", "gender": "f", "eras": ["medieval", "classic", "modern"], "meaning": "mighty in battle" },
-    { "name": "Augusta", "gender": "f", "eras": ["classic"], "meaning": "great; venerable" },
-    { "name": "Ida", "gender": "f", "eras": ["classic", "modern"], "meaning": "work; labor; diligent" },
-    { "name": "Pauline", "gender": "f", "eras": ["classic"], "meaning": "humble; small" },
-    { "name": "Hansine", "gender": "f", "eras": ["classic"], "meaning": "God is gracious" },
-    { "name": "Jensine", "gender": "f", "eras": ["classic"], "meaning": "God is gracious" },
-    { "name": "Petrine", "gender": "f", "eras": ["classic"], "meaning": "rock; stone" },
-    { "name": "Caroline", "gender": "f", "eras": ["classic", "modern"], "meaning": "free woman; joy" },
-    { "name": "Vilhelmine", "gender": "f", "eras": ["classic"], "meaning": "resolute protector" },
-    { "name": "Frederikke", "gender": "f", "eras": ["classic"], "meaning": "peaceful ruler" },
-    { "name": "Elvira", "gender": "f", "eras": ["classic"], "meaning": "true; foreign; spear" },
-    { "name": "Louise", "gender": "f", "eras": ["classic", "modern"], "meaning": "famous warrior" },
-    { "name": "Charlotte", "gender": "f", "eras": ["classic", "modern"], "meaning": "free woman" },
-    { "name": "Klara", "gender": "f", "eras": ["classic", "modern"], "meaning": "clear; bright; famous" },
-    { "name": "Amalie", "gender": "f", "eras": ["classic", "modern"], "meaning": "work; vigor" },
-    { "name": "Alma", "gender": "f", "eras": ["classic", "modern"], "meaning": "nourishing; kind; soul" },
-    { "name": "Edith", "gender": "f", "eras": ["classic", "modern"], "meaning": "prosperous in war" },
-    { "name": "Julie", "gender": "f", "eras": ["classic", "modern"], "meaning": "youthful; Jove's child" },
-    { "name": "Kirstine", "gender": "f", "eras": ["classic"], "meaning": "follower of Christ" },
-    { "name": "Laura", "gender": "f", "eras": ["classic", "modern"], "meaning": "crowned with laurel" },
-    { "name": "Silje", "gender": "f", "eras": ["classic", "modern"], "meaning": "blind; heavenly" },
-    { "name": "Josefine", "gender": "f", "eras": ["classic", "modern"], "meaning": "God will add; God increases" },
-    { "name": "Isabella", "gender": "f", "eras": ["classic", "modern"], "meaning": "pledged to God" },
-    { "name": "Camilla", "gender": "f", "eras": ["classic", "modern"], "meaning": "young ceremonial attendant" },
-    { "name": "Stine", "gender": "f", "eras": ["classic", "modern"], "meaning": "Christian; follower of Christ" },
-    { "name": "Lone", "gender": "f", "eras": ["classic", "modern"], "meaning": "God is gracious" },
-    { "name": "Nina", "gender": "f", "eras": ["classic", "modern"], "meaning": "little girl; grace" },
-    { "name": "Tine", "gender": "f", "eras": ["classic", "modern"], "meaning": "Christian" },
-    { "name": "Line", "gender": "f", "eras": ["classic", "modern"], "meaning": "tender; soft; flexible" },
-    { "name": "Mia", "gender": "f", "eras": ["classic", "modern"], "meaning": "mine; beloved; sea of bitterness" },
-    { "name": "Emma", "gender": "f", "eras": ["classic", "modern"], "meaning": "whole; universal" },
-    { "name": "Sofia", "gender": "f", "eras": ["classic", "modern"], "meaning": "wisdom" },
-    { "name": "Ella", "gender": "f", "eras": ["classic", "modern"], "meaning": "fairy maiden; all" },
-    { "name": "Maja", "gender": "f", "eras": ["classic", "modern"], "meaning": "great; mother; pearl" },
-    { "name": "Clara", "gender": "f", "eras": ["classic", "modern"], "meaning": "bright; clear; famous" },
-    { "name": "Nora", "gender": "f", "eras": ["classic", "modern"], "meaning": "light; honor" },
-    { "name": "Sofie", "gender": "f", "eras": ["classic", "modern"], "meaning": "wisdom" },
-    { "name": "Anna", "gender": "f", "eras": ["medieval", "classic", "modern"], "meaning": "grace; favour" },
-    { "name": "Inger", "gender": "f", "eras": ["viking", "classic", "modern"], "meaning": "Ing's daughter; protected by Ing" },
-    { "name": "Ea", "gender": "f", "eras": ["modern"], "meaning": "eagle; divine" },
-    { "name": "Ronja", "gender": "f", "eras": ["modern"], "meaning": "secret lore; God's victory" },
-    { "name": "Luna", "gender": "f", "eras": ["modern"], "meaning": "moon" },
-    { "name": "Fie", "gender": "f", "eras": ["modern"], "meaning": "faith" },
-    { "name": "Vilde", "gender": "f", "eras": ["viking", "modern"], "meaning": "will; desire; helmet" },
-    { "name": "Pernille", "gender": "f", "eras": ["medieval", "classic", "modern"], "meaning": "rock; stone" }
+    {
+      "name": "Bjørn",
+      "gender": "m",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "bear; strength and courage"
+    },
+    {
+      "name": "Erik",
+      "gender": "m",
+      "eras": [
+        "viking",
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "ever-powerful ruler"
+    },
+    {
+      "name": "Leif",
+      "gender": "m",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "heir; descendant"
+    },
+    {
+      "name": "Ragnar",
+      "gender": "m",
+      "eras": [
+        "viking"
+      ],
+      "meaning": "wise warrior; counsel army"
+    },
+    {
+      "name": "Sigurd",
+      "gender": "m",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "guardian of victory"
+    },
+    {
+      "name": "Olaf",
+      "gender": "m",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "ancestor's relic; heritage"
+    },
+    {
+      "name": "Harald",
+      "gender": "m",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "ruler of an army"
+    },
+    {
+      "name": "Knud",
+      "gender": "m",
+      "eras": [
+        "viking",
+        "medieval",
+        "classic"
+      ],
+      "meaning": "knot; kinsman"
+    },
+    {
+      "name": "Svend",
+      "gender": "m",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "young man; servant"
+    },
+    {
+      "name": "Ivar",
+      "gender": "m",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "bow warrior; yew army"
+    },
+    {
+      "name": "Gorm",
+      "gender": "m",
+      "eras": [
+        "viking"
+      ],
+      "meaning": "he who venerates God"
+    },
+    {
+      "name": "Rolf",
+      "gender": "m",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "famous wolf"
+    },
+    {
+      "name": "Gunnar",
+      "gender": "m",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "bold warrior; battle"
+    },
+    {
+      "name": "Halfdan",
+      "gender": "m",
+      "eras": [
+        "viking"
+      ],
+      "meaning": "half-Dane"
+    },
+    {
+      "name": "Helge",
+      "gender": "m",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "holy; prosperous"
+    },
+    {
+      "name": "Frode",
+      "gender": "m",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "wise; learned"
+    },
+    {
+      "name": "Asger",
+      "gender": "m",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "spear of the gods"
+    },
+    {
+      "name": "Einar",
+      "gender": "m",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "lone warrior; one who fights alone"
+    },
+    {
+      "name": "Toke",
+      "gender": "m",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "Thor's kettle"
+    },
+    {
+      "name": "Ulf",
+      "gender": "m",
+      "eras": [
+        "viking"
+      ],
+      "meaning": "wolf"
+    },
+    {
+      "name": "Tyge",
+      "gender": "m",
+      "eras": [
+        "viking",
+        "medieval",
+        "classic"
+      ],
+      "meaning": "ruler of the bow"
+    },
+    {
+      "name": "Roar",
+      "gender": "m",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "famous spear"
+    },
+    {
+      "name": "Uffe",
+      "gender": "m",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "wolf; strength"
+    },
+    {
+      "name": "Åge",
+      "gender": "m",
+      "eras": [
+        "viking",
+        "medieval",
+        "classic"
+      ],
+      "meaning": "ancestor; forefather"
+    },
+    {
+      "name": "Orm",
+      "gender": "m",
+      "eras": [
+        "viking"
+      ],
+      "meaning": "serpent; dragon"
+    },
+    {
+      "name": "Stig",
+      "gender": "m",
+      "eras": [
+        "viking",
+        "medieval",
+        "classic"
+      ],
+      "meaning": "wanderer; path-maker"
+    },
+    {
+      "name": "Agnar",
+      "gender": "m",
+      "eras": [
+        "viking"
+      ],
+      "meaning": "edge of a sword; terror"
+    },
+    {
+      "name": "Grimulf",
+      "gender": "m",
+      "eras": [
+        "viking"
+      ],
+      "meaning": "masked wolf; fierce wolf"
+    },
+    {
+      "name": "Bjarni",
+      "gender": "m",
+      "eras": [
+        "viking"
+      ],
+      "meaning": "bear; young bear"
+    },
+    {
+      "name": "Thorkel",
+      "gender": "m",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "Thor's kettle; sacrifice to Thor"
+    },
+    {
+      "name": "Ragnvald",
+      "gender": "m",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "powerful ruler; ruler's counsel"
+    },
+    {
+      "name": "Styrkar",
+      "gender": "m",
+      "eras": [
+        "viking"
+      ],
+      "meaning": "strong man; steering power"
+    },
+    {
+      "name": "Hemming",
+      "gender": "m",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "shape-changer; nimble one"
+    },
+    {
+      "name": "Gudmund",
+      "gender": "m",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "divine protection; god's hand"
+    },
+    {
+      "name": "Niels",
+      "gender": "m",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "victory of the people"
+    },
+    {
+      "name": "Anders",
+      "gender": "m",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "strong and manly"
+    },
+    {
+      "name": "Jens",
+      "gender": "m",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "God is gracious"
+    },
+    {
+      "name": "Hans",
+      "gender": "m",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "God is gracious"
+    },
+    {
+      "name": "Peder",
+      "gender": "m",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "rock; stone"
+    },
+    {
+      "name": "Christen",
+      "gender": "m",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "Christian; follower of Christ"
+    },
+    {
+      "name": "Mads",
+      "gender": "m",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "gift of God"
+    },
+    {
+      "name": "Lars",
+      "gender": "m",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "crowned with laurel"
+    },
+    {
+      "name": "Søren",
+      "gender": "m",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "stern; severe"
+    },
+    {
+      "name": "Rasmus",
+      "gender": "m",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "beloved; cherished"
+    },
+    {
+      "name": "Thomas",
+      "gender": "m",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "twin"
+    },
+    {
+      "name": "Martin",
+      "gender": "m",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "of Mars; warrior"
+    },
+    {
+      "name": "Jacob",
+      "gender": "m",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "supplanter; held by the heel"
+    },
+    {
+      "name": "Christian",
+      "gender": "m",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "follower of Christ"
+    },
+    {
+      "name": "Frederik",
+      "gender": "m",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "peaceful ruler"
+    },
+    {
+      "name": "Mogens",
+      "gender": "m",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "great; powerful"
+    },
+    {
+      "name": "Bent",
+      "gender": "m",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "blessed"
+    },
+    {
+      "name": "Axel",
+      "gender": "m",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "father of peace"
+    },
+    {
+      "name": "Birger",
+      "gender": "m",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "helper; rescuer"
+    },
+    {
+      "name": "Valdemar",
+      "gender": "m",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "famous ruler"
+    },
+    {
+      "name": "Absalon",
+      "gender": "m",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "father of peace; my father is peace"
+    },
+    {
+      "name": "Jeppe",
+      "gender": "m",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "supplanter"
+    },
+    {
+      "name": "Villads",
+      "gender": "m",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "resolute protector"
+    },
+    {
+      "name": "Troels",
+      "gender": "m",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "Thor's arrow"
+    },
+    {
+      "name": "Oluf",
+      "gender": "m",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "ancestor's relic"
+    },
+    {
+      "name": "Bo",
+      "gender": "m",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "dweller; farmer"
+    },
+    {
+      "name": "Tue",
+      "gender": "m",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "Thor"
+    },
+    {
+      "name": "Esbern",
+      "gender": "m",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "divine bear"
+    },
+    {
+      "name": "Mikkel",
+      "gender": "m",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "who is like God"
+    },
+    {
+      "name": "Mathias",
+      "gender": "m",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "gift of God"
+    },
+    {
+      "name": "Simon",
+      "gender": "m",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "he who hears; listener"
+    },
+    {
+      "name": "Tobias",
+      "gender": "m",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "God is good"
+    },
+    {
+      "name": "Nikolaj",
+      "gender": "m",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "victory of the people"
+    },
+    {
+      "name": "Adam",
+      "gender": "m",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "man; earth"
+    },
+    {
+      "name": "Andreas",
+      "gender": "m",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "strong and manly"
+    },
+    {
+      "name": "Morten",
+      "gender": "m",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "of Mars; warrior"
+    },
+    {
+      "name": "Jakob",
+      "gender": "m",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "supplanter"
+    },
+    {
+      "name": "Henrik",
+      "gender": "m",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "ruler of the home"
+    },
+    {
+      "name": "David",
+      "gender": "m",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "beloved"
+    },
+    {
+      "name": "Elias",
+      "gender": "m",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "my God is Yahweh"
+    },
+    {
+      "name": "Carl",
+      "gender": "m",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "free man; man of strength"
+    },
+    {
+      "name": "Georg",
+      "gender": "m",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "farmer; earth worker"
+    },
+    {
+      "name": "Victor",
+      "gender": "m",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "victor; conqueror"
+    },
+    {
+      "name": "Anton",
+      "gender": "m",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "priceless; of inestimable worth"
+    },
+    {
+      "name": "Vilhelm",
+      "gender": "m",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "resolute protector"
+    },
+    {
+      "name": "Viggo",
+      "gender": "m",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "war; battle"
+    },
+    {
+      "name": "Julius",
+      "gender": "m",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "youthful; downy-bearded"
+    },
+    {
+      "name": "Gustav",
+      "gender": "m",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "staff of the Geats; royal staff"
+    },
+    {
+      "name": "Emil",
+      "gender": "m",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "rival; eager"
+    },
+    {
+      "name": "Holger",
+      "gender": "m",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "island spear"
+    },
+    {
+      "name": "Theodor",
+      "gender": "m",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "gift of God"
+    },
+    {
+      "name": "Laurits",
+      "gender": "m",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "crowned with laurel"
+    },
+    {
+      "name": "Sophus",
+      "gender": "m",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "wisdom"
+    },
+    {
+      "name": "Ludvig",
+      "gender": "m",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "famous warrior"
+    },
+    {
+      "name": "Edvard",
+      "gender": "m",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "wealthy guardian"
+    },
+    {
+      "name": "Alfred",
+      "gender": "m",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "elf counsel; wise advisor"
+    },
+    {
+      "name": "Jørgen",
+      "gender": "m",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "earth worker; farmer"
+    },
+    {
+      "name": "Aage",
+      "gender": "m",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "ancestor; forefather"
+    },
+    {
+      "name": "Otto",
+      "gender": "m",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "wealth; fortune"
+    },
+    {
+      "name": "Kai",
+      "gender": "m",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "earth; keeper of the keys"
+    },
+    {
+      "name": "Poul",
+      "gender": "m",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "humble; small"
+    },
+    {
+      "name": "Vagn",
+      "gender": "m",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "wagon; battle"
+    },
+    {
+      "name": "Alexander",
+      "gender": "m",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "defender of men"
+    },
+    {
+      "name": "Sebastian",
+      "gender": "m",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "venerable; from Sebastia"
+    },
+    {
+      "name": "Benjamin",
+      "gender": "m",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of the right hand"
+    },
+    {
+      "name": "Daniel",
+      "gender": "m",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "God is my judge"
+    },
+    {
+      "name": "Jonas",
+      "gender": "m",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "dove; peaceful"
+    },
+    {
+      "name": "Marcus",
+      "gender": "m",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "of Mars; warlike"
+    },
+    {
+      "name": "Stefan",
+      "gender": "m",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "crown; garland"
+    },
+    {
+      "name": "Casper",
+      "gender": "m",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "treasurer"
+    },
+    {
+      "name": "Albert",
+      "gender": "m",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "noble and bright"
+    },
+    {
+      "name": "Oscar",
+      "gender": "m",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "deer lover; divine spear"
+    },
+    {
+      "name": "August",
+      "gender": "m",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "great; venerable"
+    },
+    {
+      "name": "Theo",
+      "gender": "m",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "gift of God; divine"
+    },
+    {
+      "name": "Felix",
+      "gender": "m",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "happy; fortunate"
+    },
+    {
+      "name": "Nils",
+      "gender": "m",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "victory of the people"
+    },
+    {
+      "name": "Patrick",
+      "gender": "m",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "nobleman; patrician"
+    },
+    {
+      "name": "Magnus",
+      "gender": "m",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "great; mighty"
+    },
+    {
+      "name": "Thor",
+      "gender": "m",
+      "eras": [
+        "viking",
+        "modern"
+      ],
+      "meaning": "thunder; god of thunder"
+    },
+    {
+      "name": "Storm",
+      "gender": "m",
+      "eras": [
+        "viking",
+        "modern"
+      ],
+      "meaning": "storm; tempest"
+    },
+    {
+      "name": "Oliver",
+      "gender": "m",
+      "eras": [
+        "modern"
+      ],
+      "meaning": "olive tree; symbol of peace"
+    },
+    {
+      "name": "Noah",
+      "gender": "m",
+      "eras": [
+        "modern"
+      ],
+      "meaning": "rest; comfort"
+    },
+    {
+      "name": "William",
+      "gender": "m",
+      "eras": [
+        "modern"
+      ],
+      "meaning": "resolute protector"
+    },
+    {
+      "name": "Liam",
+      "gender": "m",
+      "eras": [
+        "modern"
+      ],
+      "meaning": "strong-willed warrior"
+    },
+    {
+      "name": "Lucas",
+      "gender": "m",
+      "eras": [
+        "modern"
+      ],
+      "meaning": "light; illumination"
+    },
+    {
+      "name": "Lukas",
+      "gender": "m",
+      "eras": [
+        "modern"
+      ],
+      "meaning": "light; from Lucania"
+    },
+    {
+      "name": "Nikolai",
+      "gender": "m",
+      "eras": [
+        "modern"
+      ],
+      "meaning": "victory of the people"
+    },
+    {
+      "name": "Tobias",
+      "gender": "m",
+      "eras": [
+        "modern"
+      ],
+      "meaning": "God is good"
+    },
+    {
+      "name": "Astrid",
+      "gender": "f",
+      "eras": [
+        "viking",
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "divinely beautiful; god's strength"
+    },
+    {
+      "name": "Freya",
+      "gender": "f",
+      "eras": [
+        "viking",
+        "modern"
+      ],
+      "meaning": "lady; goddess of love and fertility"
+    },
+    {
+      "name": "Thyra",
+      "gender": "f",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "Thor's warrior; dedicated to Thor"
+    },
+    {
+      "name": "Ragnhild",
+      "gender": "f",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "battle counsel; wise in war"
+    },
+    {
+      "name": "Sigrid",
+      "gender": "f",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "victory; fair victory"
+    },
+    {
+      "name": "Ingrid",
+      "gender": "f",
+      "eras": [
+        "viking",
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "Ing's beauty; beloved"
+    },
+    {
+      "name": "Gunhild",
+      "gender": "f",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "war battle; strife"
+    },
+    {
+      "name": "Gudrun",
+      "gender": "f",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "God's secret lore; divine wisdom"
+    },
+    {
+      "name": "Estrid",
+      "gender": "f",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "divine strength; Aesir-beautiful"
+    },
+    {
+      "name": "Alfhild",
+      "gender": "f",
+      "eras": [
+        "viking"
+      ],
+      "meaning": "elf battle; elf-warrior"
+    },
+    {
+      "name": "Solvej",
+      "gender": "f",
+      "eras": [
+        "viking",
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "sun's strength; path of the sun"
+    },
+    {
+      "name": "Brynhild",
+      "gender": "f",
+      "eras": [
+        "viking"
+      ],
+      "meaning": "armored for battle; Valkyrie warrior"
+    },
+    {
+      "name": "Thora",
+      "gender": "f",
+      "eras": [
+        "viking",
+        "medieval",
+        "classic"
+      ],
+      "meaning": "Thor's warrior; thunder goddess"
+    },
+    {
+      "name": "Disa",
+      "gender": "f",
+      "eras": [
+        "viking"
+      ],
+      "meaning": "divine woman; goddess spirit"
+    },
+    {
+      "name": "Helga",
+      "gender": "f",
+      "eras": [
+        "viking",
+        "medieval",
+        "classic"
+      ],
+      "meaning": "holy; prosperous; sacred"
+    },
+    {
+      "name": "Ragnfrid",
+      "gender": "f",
+      "eras": [
+        "viking"
+      ],
+      "meaning": "beautiful counsel; fair advice"
+    },
+    {
+      "name": "Vigdis",
+      "gender": "f",
+      "eras": [
+        "viking"
+      ],
+      "meaning": "war goddess; battle deity"
+    },
+    {
+      "name": "Ylva",
+      "gender": "f",
+      "eras": [
+        "viking",
+        "modern"
+      ],
+      "meaning": "she-wolf"
+    },
+    {
+      "name": "Alva",
+      "gender": "f",
+      "eras": [
+        "viking",
+        "modern"
+      ],
+      "meaning": "elf; magical being"
+    },
+    {
+      "name": "Tove",
+      "gender": "f",
+      "eras": [
+        "viking",
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "beautiful Thor; dove of Thor"
+    },
+    {
+      "name": "Dagmar",
+      "gender": "f",
+      "eras": [
+        "viking",
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "day's glory; maiden of the day"
+    },
+    {
+      "name": "Randi",
+      "gender": "f",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "shield wolf; house wolf"
+    },
+    {
+      "name": "Bergljot",
+      "gender": "f",
+      "eras": [
+        "viking"
+      ],
+      "meaning": "protection of light; mountain of light"
+    },
+    {
+      "name": "Gunnvor",
+      "gender": "f",
+      "eras": [
+        "viking"
+      ],
+      "meaning": "war caution; careful in battle"
+    },
+    {
+      "name": "Ingiborg",
+      "gender": "f",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "Ing's protection; help of Ing"
+    },
+    {
+      "name": "Bodil",
+      "gender": "f",
+      "eras": [
+        "viking",
+        "medieval",
+        "classic"
+      ],
+      "meaning": "battle remedy; penance"
+    },
+    {
+      "name": "Dagny",
+      "gender": "f",
+      "eras": [
+        "viking",
+        "classic",
+        "modern"
+      ],
+      "meaning": "new day; dawn"
+    },
+    {
+      "name": "Frida",
+      "gender": "f",
+      "eras": [
+        "viking",
+        "classic",
+        "modern"
+      ],
+      "meaning": "peaceful; beloved"
+    },
+    {
+      "name": "Hulda",
+      "gender": "f",
+      "eras": [
+        "viking",
+        "classic"
+      ],
+      "meaning": "hidden; gracious; sweet"
+    },
+    {
+      "name": "Inga",
+      "gender": "f",
+      "eras": [
+        "viking",
+        "classic",
+        "modern"
+      ],
+      "meaning": "protected by Ing"
+    },
+    {
+      "name": "Inge",
+      "gender": "f",
+      "eras": [
+        "viking",
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "protected by Ing; divine protection"
+    },
+    {
+      "name": "Signe",
+      "gender": "f",
+      "eras": [
+        "viking",
+        "classic",
+        "modern"
+      ],
+      "meaning": "new victory; sign"
+    },
+    {
+      "name": "Nanna",
+      "gender": "f",
+      "eras": [
+        "viking",
+        "modern"
+      ],
+      "meaning": "daring; brave; mother"
+    },
+    {
+      "name": "Vigga",
+      "gender": "f",
+      "eras": [
+        "viking",
+        "modern"
+      ],
+      "meaning": "war; battle"
+    },
+    {
+      "name": "Liv",
+      "gender": "f",
+      "eras": [
+        "viking",
+        "modern"
+      ],
+      "meaning": "life; protection"
+    },
+    {
+      "name": "Freja",
+      "gender": "f",
+      "eras": [
+        "viking",
+        "modern"
+      ],
+      "meaning": "lady; goddess of love"
+    },
+    {
+      "name": "Mette",
+      "gender": "f",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "pearl"
+    },
+    {
+      "name": "Birte",
+      "gender": "f",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "bright; shining"
+    },
+    {
+      "name": "Karen",
+      "gender": "f",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "pure; clear"
+    },
+    {
+      "name": "Kirsten",
+      "gender": "f",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "Christian; follower of Christ"
+    },
+    {
+      "name": "Anne",
+      "gender": "f",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "grace; favour"
+    },
+    {
+      "name": "Margrethe",
+      "gender": "f",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "pearl; child of light"
+    },
+    {
+      "name": "Else",
+      "gender": "f",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "pledged to God"
+    },
+    {
+      "name": "Gertrud",
+      "gender": "f",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "spear of strength"
+    },
+    {
+      "name": "Dorte",
+      "gender": "f",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "gift of God"
+    },
+    {
+      "name": "Hanne",
+      "gender": "f",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "God is gracious"
+    },
+    {
+      "name": "Lisbet",
+      "gender": "f",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "pledged to God; my God is abundance"
+    },
+    {
+      "name": "Magdalene",
+      "gender": "f",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "from Magdala; tower"
+    },
+    {
+      "name": "Cecilie",
+      "gender": "f",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "blind; heavenly lily"
+    },
+    {
+      "name": "Birgitte",
+      "gender": "f",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "strength; exalted one"
+    },
+    {
+      "name": "Katharina",
+      "gender": "f",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "pure; clear"
+    },
+    {
+      "name": "Elisabeth",
+      "gender": "f",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "pledged to God"
+    },
+    {
+      "name": "Johanne",
+      "gender": "f",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "God is gracious"
+    },
+    {
+      "name": "Margit",
+      "gender": "f",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "pearl"
+    },
+    {
+      "name": "Benedikte",
+      "gender": "f",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "blessed"
+    },
+    {
+      "name": "Kristine",
+      "gender": "f",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "Christian; follower of Christ"
+    },
+    {
+      "name": "Agnes",
+      "gender": "f",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "pure; holy; lamb"
+    },
+    {
+      "name": "Regitze",
+      "gender": "f",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "powerful ruler; queen"
+    },
+    {
+      "name": "Marie",
+      "gender": "f",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "beloved; sea of bitterness"
+    },
+    {
+      "name": "Christine",
+      "gender": "f",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "follower of Christ"
+    },
+    {
+      "name": "Pernille",
+      "gender": "f",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "rock; stone"
+    },
+    {
+      "name": "Vibeke",
+      "gender": "f",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "little woman; war"
+    },
+    {
+      "name": "Maren",
+      "gender": "f",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "sea; pearl; star of the sea"
+    },
+    {
+      "name": "Ane",
+      "gender": "f",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "grace; favour"
+    },
+    {
+      "name": "Birgit",
+      "gender": "f",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "strength; exalted one"
+    },
+    {
+      "name": "Sara",
+      "gender": "f",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "princess; lady"
+    },
+    {
+      "name": "Maria",
+      "gender": "f",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "beloved; wished-for child"
+    },
+    {
+      "name": "Katrine",
+      "gender": "f",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "pure; clear"
+    },
+    {
+      "name": "Emilie",
+      "gender": "f",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "rival; industrious"
+    },
+    {
+      "name": "Mathilde",
+      "gender": "f",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "mighty in battle"
+    },
+    {
+      "name": "Augusta",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "great; venerable"
+    },
+    {
+      "name": "Ida",
+      "gender": "f",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "work; labor; diligent"
+    },
+    {
+      "name": "Pauline",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "humble; small"
+    },
+    {
+      "name": "Hansine",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "God is gracious"
+    },
+    {
+      "name": "Jensine",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "God is gracious"
+    },
+    {
+      "name": "Petrine",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "rock; stone"
+    },
+    {
+      "name": "Caroline",
+      "gender": "f",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "free woman; joy"
+    },
+    {
+      "name": "Vilhelmine",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "resolute protector"
+    },
+    {
+      "name": "Frederikke",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "peaceful ruler"
+    },
+    {
+      "name": "Elvira",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "true; foreign; spear"
+    },
+    {
+      "name": "Louise",
+      "gender": "f",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "famous warrior"
+    },
+    {
+      "name": "Charlotte",
+      "gender": "f",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "free woman"
+    },
+    {
+      "name": "Klara",
+      "gender": "f",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "clear; bright; famous"
+    },
+    {
+      "name": "Amalie",
+      "gender": "f",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "work; vigor"
+    },
+    {
+      "name": "Alma",
+      "gender": "f",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "nourishing; kind; soul"
+    },
+    {
+      "name": "Edith",
+      "gender": "f",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "prosperous in war"
+    },
+    {
+      "name": "Julie",
+      "gender": "f",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "youthful; Jove's child"
+    },
+    {
+      "name": "Kirstine",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "follower of Christ"
+    },
+    {
+      "name": "Laura",
+      "gender": "f",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "crowned with laurel"
+    },
+    {
+      "name": "Silje",
+      "gender": "f",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "blind; heavenly"
+    },
+    {
+      "name": "Josefine",
+      "gender": "f",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "God will add; God increases"
+    },
+    {
+      "name": "Isabella",
+      "gender": "f",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "pledged to God"
+    },
+    {
+      "name": "Camilla",
+      "gender": "f",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "young ceremonial attendant"
+    },
+    {
+      "name": "Stine",
+      "gender": "f",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "Christian; follower of Christ"
+    },
+    {
+      "name": "Lone",
+      "gender": "f",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "God is gracious"
+    },
+    {
+      "name": "Nina",
+      "gender": "f",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "little girl; grace"
+    },
+    {
+      "name": "Tine",
+      "gender": "f",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "Christian"
+    },
+    {
+      "name": "Line",
+      "gender": "f",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "tender; soft; flexible"
+    },
+    {
+      "name": "Mia",
+      "gender": "f",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "mine; beloved; sea of bitterness"
+    },
+    {
+      "name": "Emma",
+      "gender": "f",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "whole; universal"
+    },
+    {
+      "name": "Sofia",
+      "gender": "f",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "wisdom"
+    },
+    {
+      "name": "Ella",
+      "gender": "f",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "fairy maiden; all"
+    },
+    {
+      "name": "Maja",
+      "gender": "f",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "great; mother; pearl"
+    },
+    {
+      "name": "Clara",
+      "gender": "f",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "bright; clear; famous"
+    },
+    {
+      "name": "Nora",
+      "gender": "f",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "light; honor"
+    },
+    {
+      "name": "Sofie",
+      "gender": "f",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "wisdom"
+    },
+    {
+      "name": "Anna",
+      "gender": "f",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "grace; favour"
+    },
+    {
+      "name": "Inger",
+      "gender": "f",
+      "eras": [
+        "viking",
+        "classic",
+        "modern"
+      ],
+      "meaning": "Ing's daughter; protected by Ing"
+    },
+    {
+      "name": "Ea",
+      "gender": "f",
+      "eras": [
+        "modern"
+      ],
+      "meaning": "eagle; divine"
+    },
+    {
+      "name": "Ronja",
+      "gender": "f",
+      "eras": [
+        "modern"
+      ],
+      "meaning": "secret lore; God's victory"
+    },
+    {
+      "name": "Luna",
+      "gender": "f",
+      "eras": [
+        "modern"
+      ],
+      "meaning": "moon"
+    },
+    {
+      "name": "Fie",
+      "gender": "f",
+      "eras": [
+        "modern"
+      ],
+      "meaning": "faith"
+    },
+    {
+      "name": "Vilde",
+      "gender": "f",
+      "eras": [
+        "viking",
+        "modern"
+      ],
+      "meaning": "will; desire; helmet"
+    },
+    {
+      "name": "Pernille",
+      "gender": "f",
+      "eras": [
+        "medieval",
+        "classic",
+        "modern"
+      ],
+      "meaning": "rock; stone"
+    },
+    {
+      "name": "Hakon",
+      "gender": "m",
+      "eras": [
+        "viking"
+      ],
+      "meaning": "son of the high one"
+    },
+    {
+      "name": "Vidar",
+      "gender": "m",
+      "eras": [
+        "viking"
+      ],
+      "meaning": "wide warrior"
+    },
+    {
+      "name": "Bjarke",
+      "gender": "m",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "birch tree"
+    },
+    {
+      "name": "Halvard",
+      "gender": "m",
+      "eras": [
+        "viking"
+      ],
+      "meaning": "rock defender"
+    },
+    {
+      "name": "Rune",
+      "gender": "m",
+      "eras": [
+        "viking"
+      ],
+      "meaning": "secret lore"
+    },
+    {
+      "name": "Aksel",
+      "gender": "m",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "father of peace"
+    },
+    {
+      "name": "Steinar",
+      "gender": "m",
+      "eras": [
+        "viking"
+      ],
+      "meaning": "stone warrior"
+    },
+    {
+      "name": "Torsten",
+      "gender": "m",
+      "eras": [
+        "viking"
+      ],
+      "meaning": "Thor's stone"
+    },
+    {
+      "name": "Vegard",
+      "gender": "m",
+      "eras": [
+        "viking"
+      ],
+      "meaning": "sanctuary defender"
+    },
+    {
+      "name": "Arve",
+      "gender": "m",
+      "eras": [
+        "viking"
+      ],
+      "meaning": "heir"
+    },
+    {
+      "name": "Sigbjørn",
+      "gender": "m",
+      "eras": [
+        "viking"
+      ],
+      "meaning": "victory bear"
+    },
+    {
+      "name": "Geir",
+      "gender": "m",
+      "eras": [
+        "viking"
+      ],
+      "meaning": "spear"
+    },
+    {
+      "name": "Sindri",
+      "gender": "m",
+      "eras": [
+        "viking"
+      ],
+      "meaning": "sparkling"
+    },
+    {
+      "name": "Sævar",
+      "gender": "m",
+      "eras": [
+        "viking"
+      ],
+      "meaning": "sea warrior"
+    },
+    {
+      "name": "Odd",
+      "gender": "m",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "point of a weapon"
+    },
+    {
+      "name": "Hilmar",
+      "gender": "m",
+      "eras": [
+        "viking"
+      ],
+      "meaning": "famous in battle"
+    },
+    {
+      "name": "Torolf",
+      "gender": "m",
+      "eras": [
+        "viking"
+      ],
+      "meaning": "Thor's wolf"
+    },
+    {
+      "name": "Torvald",
+      "gender": "m",
+      "eras": [
+        "viking"
+      ],
+      "meaning": "Thor's ruler"
+    },
+    {
+      "name": "Øyvind",
+      "gender": "m",
+      "eras": [
+        "viking"
+      ],
+      "meaning": "island friend"
+    },
+    {
+      "name": "Gisle",
+      "gender": "m",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "hostage, pledge"
+    },
+    {
+      "name": "Reidar",
+      "gender": "m",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "warrior rider"
+    },
+    {
+      "name": "Claus",
+      "gender": "m",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "victory of the people"
+    },
+    {
+      "name": "Laurentius",
+      "gender": "m",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "from Laurentum"
+    },
+    {
+      "name": "Ingvar",
+      "gender": "m",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "Ing's warrior"
+    },
+    {
+      "name": "Rikard",
+      "gender": "m",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "brave power"
+    },
+    {
+      "name": "Bendt",
+      "gender": "m",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "blessed"
+    },
+    {
+      "name": "Marinus",
+      "gender": "m",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "of the sea"
+    },
+    {
+      "name": "Lennart",
+      "gender": "m",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "bold lion"
+    },
+    {
+      "name": "Ansgar",
+      "gender": "m",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "warrior of the gods"
+    },
+    {
+      "name": "Osbern",
+      "gender": "m",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "god bear"
+    },
+    {
+      "name": "Siward",
+      "gender": "m",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "victory guard"
+    },
+    {
+      "name": "Asser",
+      "gender": "m",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "ardent one"
+    },
+    {
+      "name": "Benedict",
+      "gender": "m",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "blessed"
+    },
+    {
+      "name": "Dankwart",
+      "gender": "m",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "bold Dane"
+    },
+    {
+      "name": "Erasmus",
+      "gender": "m",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "worthy of love"
+    },
+    {
+      "name": "Flemming",
+      "gender": "m",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "from Flanders"
+    },
+    {
+      "name": "Herman",
+      "gender": "m",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "army man"
+    },
+    {
+      "name": "Isak",
+      "gender": "m",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "he laughs"
+    },
+    {
+      "name": "Kresten",
+      "gender": "m",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "Christian"
+    },
+    {
+      "name": "Oddvar",
+      "gender": "m",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "spear defender"
+    },
+    {
+      "name": "Pelle",
+      "gender": "m",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "rock"
+    },
+    {
+      "name": "Raban",
+      "gender": "m",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "raven"
+    },
+    {
+      "name": "Tage",
+      "gender": "m",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "day"
+    },
+    {
+      "name": "Ulrik",
+      "gender": "m",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "noble power"
+    },
+    {
+      "name": "Verner",
+      "gender": "m",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "army defender"
+    },
+    {
+      "name": "Walter",
+      "gender": "m",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "ruler of the army"
+    },
+    {
+      "name": "Aslak",
+      "gender": "m",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "god's rival"
+    },
+    {
+      "name": "Edmund",
+      "gender": "m",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "wealthy protector"
+    },
+    {
+      "name": "Fridleif",
+      "gender": "m",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "peaceful heir"
+    },
+    {
+      "name": "Gerbrand",
+      "gender": "m",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "spear sword"
+    },
+    {
+      "name": "Hallvard",
+      "gender": "m",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "rock defender"
+    },
+    {
+      "name": "Hjalte",
+      "gender": "m",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "fight luck"
+    },
+    {
+      "name": "Kåre",
+      "gender": "m",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "turbulent, curly"
+    },
+    {
+      "name": "Lyder",
+      "gender": "m",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "famous in Lydia"
+    },
+    {
+      "name": "Bernhard",
+      "gender": "m",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "brave bear"
+    },
+    {
+      "name": "Frants",
+      "gender": "m",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "free man"
+    },
+    {
+      "name": "Gerner",
+      "gender": "m",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "bold spear"
+    },
+    {
+      "name": "Hjalmar",
+      "gender": "m",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "famous helmet"
+    },
+    {
+      "name": "Jarle",
+      "gender": "m",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "earl, nobleman"
+    },
+    {
+      "name": "Knut",
+      "gender": "m",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "knot"
+    },
+    {
+      "name": "Mikal",
+      "gender": "m",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "who is like God"
+    },
+    {
+      "name": "Nicolai",
+      "gender": "m",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "victory of the people"
+    },
+    {
+      "name": "Preben",
+      "gender": "m",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "proof, test"
+    },
+    {
+      "name": "Severin",
+      "gender": "m",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "stern"
+    },
+    {
+      "name": "Wilfred",
+      "gender": "m",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "desire for peace"
+    },
+    {
+      "name": "Amund",
+      "gender": "m",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "divine protector"
+    },
+    {
+      "name": "Anker",
+      "gender": "m",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "anchor"
+    },
+    {
+      "name": "Arne",
+      "gender": "m",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "eagle"
+    },
+    {
+      "name": "Balder",
+      "gender": "m",
+      "eras": [
+        "viking",
+        "classic"
+      ],
+      "meaning": "prince, bold"
+    },
+    {
+      "name": "Bernt",
+      "gender": "m",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "brave bear"
+    },
+    {
+      "name": "Birk",
+      "gender": "m",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "birch"
+    },
+    {
+      "name": "Bruno",
+      "gender": "m",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "brown"
+    },
+    {
+      "name": "Richard",
+      "gender": "m",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "brave ruler"
+    },
+    {
+      "name": "Robert",
+      "gender": "m",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "bright fame"
+    },
+    {
+      "name": "Orla",
+      "gender": "m",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "golden"
+    },
+    {
+      "name": "Adrian",
+      "gender": "m",
+      "eras": [
+        "modern"
+      ],
+      "meaning": "from Hadria"
+    },
+    {
+      "name": "Bastian",
+      "gender": "m",
+      "eras": [
+        "modern"
+      ],
+      "meaning": "venerable, revered"
+    },
+    {
+      "name": "Dennis",
+      "gender": "m",
+      "eras": [
+        "modern"
+      ],
+      "meaning": "follower of Dionysus"
+    },
+    {
+      "name": "Edgar",
+      "gender": "m",
+      "eras": [
+        "modern"
+      ],
+      "meaning": "wealthy spear"
+    },
+    {
+      "name": "Frits",
+      "gender": "m",
+      "eras": [
+        "modern"
+      ],
+      "meaning": "peaceful ruler"
+    },
+    {
+      "name": "Gerhard",
+      "gender": "m",
+      "eras": [
+        "modern"
+      ],
+      "meaning": "spear strength"
+    },
+    {
+      "name": "Iver",
+      "gender": "m",
+      "eras": [
+        "modern"
+      ],
+      "meaning": "bow warrior"
+    },
+    {
+      "name": "Janus",
+      "gender": "m",
+      "eras": [
+        "modern"
+      ],
+      "meaning": "gateway"
+    },
+    {
+      "name": "Kristian",
+      "gender": "m",
+      "eras": [
+        "modern"
+      ],
+      "meaning": "Christian"
+    },
+    {
+      "name": "Leopold",
+      "gender": "m",
+      "eras": [
+        "modern"
+      ],
+      "meaning": "bold people"
+    },
+    {
+      "name": "Marius",
+      "gender": "m",
+      "eras": [
+        "modern"
+      ],
+      "meaning": "of Mars"
+    },
+    {
+      "name": "Peter",
+      "gender": "m",
+      "eras": [
+        "modern"
+      ],
+      "meaning": "rock"
+    },
+    {
+      "name": "Solveig",
+      "gender": "f",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "strong woman"
+    },
+    {
+      "name": "Åse",
+      "gender": "f",
+      "eras": [
+        "viking"
+      ],
+      "meaning": "goddess in Norse mythology"
+    },
+    {
+      "name": "Helle",
+      "gender": "f",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "stone or rock"
+    },
+    {
+      "name": "Runa",
+      "gender": "f",
+      "eras": [
+        "viking"
+      ],
+      "meaning": "secret lore or rune"
+    },
+    {
+      "name": "Svanhild",
+      "gender": "f",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "swan battle"
+    },
+    {
+      "name": "Sigrun",
+      "gender": "f",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "victory secret"
+    },
+    {
+      "name": "Groa",
+      "gender": "f",
+      "eras": [
+        "viking"
+      ],
+      "meaning": "to grow"
+    },
+    {
+      "name": "Skaði",
+      "gender": "f",
+      "eras": [
+        "viking"
+      ],
+      "meaning": "shadow goddess"
+    },
+    {
+      "name": "Hilde",
+      "gender": "f",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "battle"
+    },
+    {
+      "name": "Ran",
+      "gender": "f",
+      "eras": [
+        "viking"
+      ],
+      "meaning": "sea goddess"
+    },
+    {
+      "name": "Bothild",
+      "gender": "f",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "bold warrior"
+    },
+    {
+      "name": "Gyrid",
+      "gender": "f",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "guarded woman"
+    },
+    {
+      "name": "Agathe",
+      "gender": "f",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "good and noble"
+    },
+    {
+      "name": "Margrete",
+      "gender": "f",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "pearl"
+    },
+    {
+      "name": "Petronella",
+      "gender": "f",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "stone or rock"
+    },
+    {
+      "name": "Hedwig",
+      "gender": "f",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "refuge in battle"
+    },
+    {
+      "name": "Adelheid",
+      "gender": "f",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "noble form"
+    },
+    {
+      "name": "Gisla",
+      "gender": "f",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "pledge or promise"
+    },
+    {
+      "name": "Edda",
+      "gender": "f",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "great-grandmother"
+    },
+    {
+      "name": "Gyda",
+      "gender": "f",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "good goddess"
+    },
+    {
+      "name": "Idunn",
+      "gender": "f",
+      "eras": [
+        "viking"
+      ],
+      "meaning": "rejuvenation goddess"
+    },
+    {
+      "name": "Lagertha",
+      "gender": "f",
+      "eras": [
+        "viking"
+      ],
+      "meaning": "shield maiden"
+    },
+    {
+      "name": "Hildegard",
+      "gender": "f",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "battle stronghold"
+    },
+    {
+      "name": "Vilhelmina",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "determined protector"
+    },
+    {
+      "name": "Selma",
+      "gender": "f",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "divine protection"
+    },
+    {
+      "name": "Sophia",
+      "gender": "f",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "wisdom"
+    },
+    {
+      "name": "Henriette",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "estate ruler"
+    },
+    {
+      "name": "Therese",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "summer harvest"
+    },
+    {
+      "name": "Amelie",
+      "gender": "f",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "work or labor"
+    },
+    {
+      "name": "Lena",
+      "gender": "f",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "bright light"
+    },
+    {
+      "name": "Regine",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "queen"
+    },
+    {
+      "name": "Anita",
+      "gender": "f",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "grace and favor"
+    },
+    {
+      "name": "Petra",
+      "gender": "f",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "stone or rock"
+    },
+    {
+      "name": "Rita",
+      "gender": "f",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "pearl"
+    },
+    {
+      "name": "Doris",
+      "gender": "f",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "gift or bounty"
+    },
+    {
+      "name": "Karin",
+      "gender": "f",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "pure and chaste"
+    },
+    {
+      "name": "Berit",
+      "gender": "f",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "bright and famous"
+    },
+    {
+      "name": "Sonja",
+      "gender": "f",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "wise woman"
+    },
+    {
+      "name": "Grete",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "pearl"
+    },
+    {
+      "name": "Birthe",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "bright light"
+    },
+    {
+      "name": "Christiane",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "follower of Christ"
+    },
+    {
+      "name": "Pia",
+      "gender": "f",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "pious or devoted"
+    },
+    {
+      "name": "Sofi",
+      "gender": "f",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "wisdom"
+    },
+    {
+      "name": "Rut",
+      "gender": "f",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "friend or companion"
+    },
+    {
+      "name": "Grethe",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "pearl"
+    },
+    {
+      "name": "Minna",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "loving memory"
+    },
+    {
+      "name": "Gunna",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "warrior maid"
+    },
+    {
+      "name": "Gisela",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "pledge"
+    },
+    {
+      "name": "Evy",
+      "gender": "f",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "life giver"
+    },
+    {
+      "name": "Aase",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "goddess dwelling"
+    },
+    {
+      "name": "Aagot",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "good and noble"
+    },
+    {
+      "name": "Kirstin",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "Christian follower"
+    },
+    {
+      "name": "Brita",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "noble strength"
+    },
+    {
+      "name": "Margot",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "pearl"
+    },
+    {
+      "name": "Edvarda",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "wealthy guardian"
+    },
+    {
+      "name": "Frederica",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "peaceful ruler"
+    },
+    {
+      "name": "Dagrun",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "day secret"
+    },
+    {
+      "name": "Bjørg",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "to help or save"
+    },
+    {
+      "name": "Alvina",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "noble friend"
+    },
+    {
+      "name": "Arnora",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "eagle honor"
+    },
+    {
+      "name": "Ellinor",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "bright light"
+    },
+    {
+      "name": "Gerda",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "enclosure or garden"
+    },
+    {
+      "name": "Gitte",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "girl or maiden"
+    },
+    {
+      "name": "Hedvig",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "refuge warrior"
+    },
+    {
+      "name": "Irene",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "peace"
+    },
+    {
+      "name": "Jacoba",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "supplanter"
+    },
+    {
+      "name": "Joanna",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "God is gracious"
+    },
+    {
+      "name": "Julianna",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "youthful"
+    },
+    {
+      "name": "Kaja",
+      "gender": "f",
+      "eras": [
+        "modern"
+      ],
+      "meaning": "pure maiden"
+    },
+    {
+      "name": "Karola",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "strong and womanly"
+    },
+    {
+      "name": "Kerstin",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "Christian believer"
+    },
+    {
+      "name": "Kristina",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "Christian believer"
+    },
+    {
+      "name": "Laila",
+      "gender": "f",
+      "eras": [
+        "modern"
+      ],
+      "meaning": "night beauty"
+    },
+    {
+      "name": "Lene",
+      "gender": "f",
+      "eras": [
+        "modern"
+      ],
+      "meaning": "bright light"
+    },
+    {
+      "name": "Leonora",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "light"
+    },
+    {
+      "name": "Linnea",
+      "gender": "f",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "linden tree flower"
+    },
+    {
+      "name": "Lotte",
+      "gender": "f",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "small and womanly"
+    },
+    {
+      "name": "Lovise",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "famous warrior"
+    },
+    {
+      "name": "Lydia",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "from Lydia"
+    },
+    {
+      "name": "Magda",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "high tower"
+    },
+    {
+      "name": "Magnhild",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "mighty battle"
+    },
+    {
+      "name": "Marian",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "of the sea"
+    },
+    {
+      "name": "Marit",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "pearl"
+    },
+    {
+      "name": "Marta",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "lady or mistress"
+    },
+    {
+      "name": "Martha",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "lady of the house"
+    },
+    {
+      "name": "Marthe",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "lady"
+    },
+    {
+      "name": "Matilda",
+      "gender": "f",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "mighty battle"
+    },
+    {
+      "name": "Stella",
+      "gender": "f",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "star"
+    },
+    {
+      "name": "Svanhild",
+      "gender": "f",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "swan battle"
+    }
   ],
   "surnames": [
-    { "type": "fixed", "name": "Jensen", "eras": ["classic", "modern"], "meaning": "son of Jens" },
-    { "type": "fixed", "name": "Nielsen", "eras": ["classic", "modern"], "meaning": "son of Niels" },
-    { "type": "fixed", "name": "Hansen", "eras": ["classic", "modern"], "meaning": "son of Hans" },
-    { "type": "fixed", "name": "Pedersen", "eras": ["classic", "modern"], "meaning": "son of Peder" },
-    { "type": "fixed", "name": "Andersen", "eras": ["classic", "modern"], "meaning": "son of Anders" },
-    { "type": "fixed", "name": "Christensen", "eras": ["classic", "modern"], "meaning": "son of Christen" },
-    { "type": "fixed", "name": "Larsen", "eras": ["classic", "modern"], "meaning": "son of Lars" },
-    { "type": "fixed", "name": "Sørensen", "eras": ["classic", "modern"], "meaning": "son of Søren" },
-    { "type": "fixed", "name": "Rasmussen", "eras": ["classic", "modern"], "meaning": "son of Rasmus" },
-    { "type": "fixed", "name": "Jørgensen", "eras": ["classic", "modern"], "meaning": "son of Jørgen" },
-    { "type": "fixed", "name": "Petersen", "eras": ["classic", "modern"], "meaning": "son of Peter" },
-    { "type": "fixed", "name": "Madsen", "eras": ["classic", "modern"], "meaning": "son of Mads" },
-    { "type": "fixed", "name": "Kristensen", "eras": ["classic", "modern"], "meaning": "son of Kristen" },
-    { "type": "fixed", "name": "Poulsen", "eras": ["classic", "modern"], "meaning": "son of Poul" },
-    { "type": "fixed", "name": "Thomsen", "eras": ["classic", "modern"], "meaning": "son of Thomas" },
-    { "type": "fixed", "name": "Jakobsen", "eras": ["classic", "modern"], "meaning": "son of Jakob" },
-    { "type": "fixed", "name": "Mortensen", "eras": ["classic", "modern"], "meaning": "son of Morten" },
-    { "type": "fixed", "name": "Knudsen", "eras": ["classic", "modern"], "meaning": "son of Knud" },
-    { "type": "fixed", "name": "Lund", "eras": ["classic", "modern"], "meaning": "grove; small wood" },
-    { "type": "fixed", "name": "Møller", "eras": ["classic", "modern"], "meaning": "miller" },
-    { "type": "fixed", "name": "Holm", "eras": ["classic", "modern"], "meaning": "small island; islet" },
-    { "type": "fixed", "name": "Kjær", "eras": ["classic", "modern"], "meaning": "marshland; bog" },
-    { "type": "fixed", "name": "Dahl", "eras": ["classic", "modern"], "meaning": "valley" },
-    { "type": "fixed", "name": "Bach", "eras": ["classic", "modern"], "meaning": "stream; brook" },
-    { "type": "fixed", "name": "Berg", "eras": ["classic", "modern"], "meaning": "mountain; hill" },
-    { "type": "fixed", "name": "Dalgaard", "eras": ["classic", "modern"], "meaning": "valley farm" },
-    { "type": "fixed", "name": "Engberg", "eras": ["classic", "modern"], "meaning": "meadow mountain" },
-    { "type": "fixed", "name": "Gregersen", "eras": ["classic", "modern"], "meaning": "son of Gregers" },
-    { "type": "fixed", "name": "Henriksen", "eras": ["classic", "modern"], "meaning": "son of Henrik" },
-    { "type": "fixed", "name": "Iversen", "eras": ["classic", "modern"], "meaning": "son of Iver" },
-    { "type": "fixed", "name": "Jacobsen", "eras": ["classic", "modern"], "meaning": "son of Jacob" },
-    { "type": "fixed", "name": "Karlsen", "eras": ["classic", "modern"], "meaning": "son of Karl" },
-    { "type": "fixed", "name": "Lorentzen", "eras": ["classic", "modern"], "meaning": "son of Lorents" },
-    { "type": "fixed", "name": "Mikkelsen", "eras": ["classic", "modern"], "meaning": "son of Mikkel" },
-    { "type": "fixed", "name": "Nørgaard", "eras": ["classic", "modern"], "meaning": "northern farm" },
-    { "type": "fixed", "name": "Olesen", "eras": ["classic", "modern"], "meaning": "son of Ole" },
-    { "type": "fixed", "name": "Paulsen", "eras": ["classic", "modern"], "meaning": "son of Paul" },
-    { "type": "fixed", "name": "Rosenberg", "eras": ["classic", "modern"], "meaning": "rose mountain" },
-    { "type": "fixed", "name": "Simonsen", "eras": ["classic", "modern"], "meaning": "son of Simon" },
-    { "type": "fixed", "name": "Thorsen", "eras": ["classic", "modern"], "meaning": "son of Thor" },
-    { "type": "fixed", "name": "Vestergaard", "eras": ["classic", "modern"], "meaning": "western farm" },
-    { "type": "fixed", "name": "Winther", "eras": ["classic", "modern"], "meaning": "winter" },
-    { "type": "fixed", "name": "Bendtsen", "eras": ["classic", "modern"], "meaning": "son of Bendt" },
-    { "type": "fixed", "name": "Clausen", "eras": ["classic", "modern"], "meaning": "son of Claus" },
-    { "type": "fixed", "name": "Dam", "eras": ["classic", "modern"], "meaning": "dam; pond" },
-    { "type": "fixed", "name": "Grøn", "eras": ["classic", "modern"], "meaning": "green; verdant" },
-    { "type": "fixed", "name": "Hald", "eras": ["classic", "modern"], "meaning": "slope; hillside" },
-    { "type": "fixed", "name": "Juul", "eras": ["classic", "modern"], "meaning": "Yule; Christmas; wheel" },
-    { "type": "fixed", "name": "Lindberg", "eras": ["classic", "modern"], "meaning": "linden tree mountain" },
-    { "type": "fixed", "name": "Meyer", "eras": ["classic", "modern"], "meaning": "farmer; steward" },
-    { "type": "fixed", "name": "Nissen", "eras": ["classic", "modern"], "meaning": "son of Nisse" },
-    { "type": "fixed", "name": "Ravn", "eras": ["classic", "modern"], "meaning": "raven" },
-    { "type": "fixed", "name": "Stub", "eras": ["classic", "modern"], "meaning": "tree stump" },
-    { "type": "fixed", "name": "Toft", "eras": ["classic", "modern"], "meaning": "homestead; building site" },
-    { "type": "fixed", "name": "Vang", "eras": ["classic", "modern"], "meaning": "meadow; field" },
-    { "type": "fixed", "name": "Wulff", "eras": ["classic", "modern"], "meaning": "wolf" },
-    { "type": "fixed", "name": "Brøndum", "eras": ["classic", "modern"], "meaning": "well village" },
-    { "type": "fixed", "name": "Hammer", "eras": ["classic", "modern"], "meaning": "hammer; rocky crag" },
-    { "type": "fixed", "name": "Kirk", "eras": ["classic", "modern"], "meaning": "church" },
-    { "type": "fixed", "name": "Mark", "eras": ["classic", "modern"], "meaning": "borderland; field" },
-    { "type": "fixed", "name": "Nygaard", "eras": ["classic", "modern"], "meaning": "new farm" },
-    { "type": "fixed", "name": "Skjold", "eras": ["classic", "modern"], "meaning": "shield; legendary Danish king" },
-    { "type": "fixed", "name": "Fog", "eras": ["classic", "modern"], "meaning": "fog; mist" },
-    { "type": "fixed", "name": "Falck", "eras": ["classic", "modern"], "meaning": "falcon" },
-    { "type": "fixed", "name": "Hauge", "eras": ["classic", "modern"], "meaning": "garden; enclosed area" },
-    { "type": "fixed", "name": "Lassen", "eras": ["classic", "modern"], "meaning": "son of Lass" },
-    { "type": "fixed", "name": "Agerholm", "eras": ["classic", "modern"], "meaning": "field island; islet in the field" },
-    { "type": "fixed", "name": "Paludan", "eras": ["classic", "modern"], "meaning": "palisade; fenced enclosure" },
-    { "type": "fixed", "name": "Bundgaard", "eras": ["classic", "modern"], "meaning": "bottom farm; lowland farm" },
-    { "type": "fixed", "name": "Dall", "eras": ["classic", "modern"], "meaning": "valley" },
-    { "type": "fixed", "name": "Faber", "eras": ["classic", "modern"], "meaning": "craftsman; smith" },
-    { "type": "fixed", "name": "Glud", "eras": ["classic", "modern"], "meaning": "inlet; creek" },
-    { "type": "fixed", "name": "Harder", "eras": ["classic", "modern"], "meaning": "army; hard; brave" },
-    { "type": "fixed", "name": "Johansen", "eras": ["classic", "modern"], "meaning": "son of Johan" },
-    { "type": "fixed", "name": "Klausen", "eras": ["classic", "modern"], "meaning": "son of Klaus" },
-    { "type": "fixed", "name": "Lauridsen", "eras": ["classic", "modern"], "meaning": "son of Laurids" },
-    { "type": "fixed", "name": "Norring", "eras": ["classic", "modern"], "meaning": "northern settlement" },
-    { "type": "fixed", "name": "Overgaard", "eras": ["classic", "modern"], "meaning": "upper farm" },
-    { "type": "fixed", "name": "Ryberg", "eras": ["classic", "modern"], "meaning": "rye mountain" },
-    { "type": "fixed", "name": "Svendsen", "eras": ["classic", "modern"], "meaning": "son of Svend" },
-    { "type": "fixed", "name": "Torp", "eras": ["classic", "modern"], "meaning": "outlying farm; hamlet" },
-    { "type": "fixed", "name": "Ulrich", "eras": ["classic", "modern"], "meaning": "prosperity and power" },
-    { "type": "fixed", "name": "Vedel", "eras": ["classic", "modern"], "meaning": "one who lives by the forest" },
-    { "type": "fixed", "name": "Worm", "eras": ["classic", "modern"], "meaning": "serpent; worm" },
-    { "type": "fixed", "name": "Yde", "eras": ["classic", "modern"], "meaning": "one who lives at the headland" },
-    { "type": "fixed", "name": "Zahle", "eras": ["classic", "modern"], "meaning": "from Zahle" },
-    { "type": "fixed", "name": "Aaberg", "eras": ["classic", "modern"], "meaning": "river mountain" },
-    { "type": "fixed", "name": "Dalsgaard", "eras": ["classic", "modern"], "meaning": "valley farm" },
-    { "type": "fixed", "name": "Christoffersen", "eras": ["classic", "modern"], "meaning": "son of Christoffer" },
-    { "type": "fixed", "name": "Frederiksen", "eras": ["classic", "modern"], "meaning": "son of Frederik" },
-    { "type": "fixed", "name": "Trap", "eras": ["classic", "modern"], "meaning": "staircase; step" },
-    { "type": "patronymic", "base": "Erik", "eras": ["viking", "medieval", "classic"], "meaning": "ever-powerful ruler" },
-    { "type": "patronymic", "base": "Anders", "eras": ["medieval", "classic"], "meaning": "strong and manly" },
-    { "type": "patronymic", "base": "Jens", "eras": ["medieval", "classic"], "meaning": "God is gracious" },
-    { "type": "patronymic", "base": "Hans", "eras": ["medieval", "classic"], "meaning": "God is gracious" },
-    { "type": "patronymic", "base": "Peder", "eras": ["medieval", "classic"], "meaning": "rock; stone" },
-    { "type": "patronymic", "base": "Niels", "eras": ["medieval", "classic"], "meaning": "victory of the people" },
-    { "type": "patronymic", "base": "Lars", "eras": ["medieval", "classic"], "meaning": "crowned with laurel" },
-    { "type": "patronymic", "base": "Søren", "eras": ["medieval", "classic"], "meaning": "stern; severe" },
-    { "type": "patronymic", "base": "Rasmus", "eras": ["medieval", "classic"], "meaning": "beloved; cherished" },
-    { "type": "patronymic", "base": "Thomas", "eras": ["medieval", "classic"], "meaning": "twin" },
-    { "type": "patronymic", "base": "Mads", "eras": ["medieval", "classic"], "meaning": "gift of God" },
-    { "type": "patronymic", "base": "Christen", "eras": ["medieval", "classic"], "meaning": "follower of Christ" },
-    { "type": "patronymic", "base": "Oluf", "eras": ["medieval", "classic"], "meaning": "ancestor's relic" },
-    { "type": "patronymic", "base": "Knud", "eras": ["viking", "medieval", "classic"], "meaning": "knot; kinsman" },
-    { "type": "patronymic", "base": "Svend", "eras": ["viking", "medieval"], "meaning": "young man; servant" },
-    { "type": "patronymic", "base": "Ivar", "eras": ["viking", "medieval"], "meaning": "bow warrior; yew army" },
-    { "type": "patronymic", "base": "Gorm", "eras": ["viking"], "meaning": "he who venerates God" },
-    { "type": "patronymic", "base": "Bjørn", "eras": ["viking", "medieval"], "meaning": "bear; strength" },
-    { "type": "patronymic", "base": "Harald", "eras": ["viking", "medieval"], "meaning": "ruler of an army" },
-    { "type": "patronymic", "base": "Leif", "eras": ["viking", "medieval"], "meaning": "heir; descendant" },
-    { "type": "patronymic", "base": "Ragnar", "eras": ["viking"], "meaning": "wise warrior" },
-    { "type": "patronymic", "base": "Sigurd", "eras": ["viking", "medieval"], "meaning": "guardian of victory" },
-    { "type": "patronymic", "base": "Rolf", "eras": ["viking", "medieval"], "meaning": "famous wolf" },
-    { "type": "patronymic", "base": "Gunnar", "eras": ["viking", "medieval"], "meaning": "bold warrior" },
-    { "type": "patronymic", "base": "Halfdan", "eras": ["viking"], "meaning": "half-Dane" },
-    { "type": "patronymic", "base": "Helge", "eras": ["viking", "medieval"], "meaning": "holy; prosperous" },
-    { "type": "patronymic", "base": "Asger", "eras": ["viking", "medieval"], "meaning": "spear of the gods" },
-    { "type": "patronymic", "base": "Einar", "eras": ["viking", "medieval"], "meaning": "lone warrior" },
-    { "type": "patronymic", "base": "Tyge", "eras": ["viking", "medieval", "classic"], "meaning": "ruler of the bow" },
-    { "type": "patronymic", "base": "Toke", "eras": ["viking", "medieval"], "meaning": "Thor's kettle" },
-    { "type": "patronymic", "base": "Ove", "eras": ["viking", "medieval", "classic"], "meaning": "ancestor; forefather" },
-    { "type": "patronymic", "base": "Arne", "eras": ["viking", "medieval", "classic"], "meaning": "eagle; strength" },
-    { "type": "patronymic", "base": "Bent", "eras": ["medieval", "classic"], "meaning": "blessed" },
-    { "type": "patronymic", "base": "Axel", "eras": ["medieval", "classic"], "meaning": "father of peace" },
-    { "type": "patronymic", "base": "Mogens", "eras": ["medieval", "classic"], "meaning": "great; powerful" },
-    { "type": "patronymic", "base": "Georg", "eras": ["classic"], "meaning": "farmer; earth worker" },
-    { "type": "patronymic", "base": "Carl", "eras": ["classic"], "meaning": "free man" },
-    { "type": "patronymic", "base": "Viggo", "eras": ["classic"], "meaning": "war; battle" },
-    { "type": "patronymic", "base": "Holger", "eras": ["classic"], "meaning": "island spear" },
-    { "type": "patronymic", "base": "Laurits", "eras": ["classic"], "meaning": "crowned with laurel" },
-    { "type": "patronymic", "base": "Anton", "eras": ["classic"], "meaning": "priceless; inestimable" },
-    { "type": "patronymic", "base": "Victor", "eras": ["classic"], "meaning": "victor; conqueror" },
-    { "type": "patronymic", "base": "Ludvig", "eras": ["classic"], "meaning": "famous warrior" },
-    { "type": "patronymic", "base": "Alfred", "eras": ["classic"], "meaning": "elf counsel" },
-    { "type": "patronymic", "base": "Jacob", "eras": ["medieval", "classic"], "meaning": "supplanter" },
-    { "type": "patronymic", "base": "Christian", "eras": ["medieval", "classic"], "meaning": "follower of Christ" },
-    { "type": "patronymic", "base": "Frederik", "eras": ["medieval", "classic"], "meaning": "peaceful ruler" },
-    { "type": "patronymic", "base": "Martin", "eras": ["medieval", "classic"], "meaning": "of Mars; warrior" },
-    { "type": "patronymic", "base": "Magnus", "eras": ["classic", "medieval"], "meaning": "great; mighty" },
-    { "type": "patronymic", "base": "Emil", "eras": ["classic"], "meaning": "rival; eager" },
-    { "type": "patronymic", "base": "Julius", "eras": ["classic"], "meaning": "youthful" },
-    { "type": "patronymic", "base": "Otto", "eras": ["classic"], "meaning": "wealth; fortune" }
+    {
+      "type": "fixed",
+      "name": "Jensen",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Jens"
+    },
+    {
+      "type": "fixed",
+      "name": "Nielsen",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Niels"
+    },
+    {
+      "type": "fixed",
+      "name": "Hansen",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Hans"
+    },
+    {
+      "type": "fixed",
+      "name": "Pedersen",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Peder"
+    },
+    {
+      "type": "fixed",
+      "name": "Andersen",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Anders"
+    },
+    {
+      "type": "fixed",
+      "name": "Christensen",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Christen"
+    },
+    {
+      "type": "fixed",
+      "name": "Larsen",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Lars"
+    },
+    {
+      "type": "fixed",
+      "name": "Sørensen",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Søren"
+    },
+    {
+      "type": "fixed",
+      "name": "Rasmussen",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Rasmus"
+    },
+    {
+      "type": "fixed",
+      "name": "Jørgensen",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Jørgen"
+    },
+    {
+      "type": "fixed",
+      "name": "Petersen",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Peter"
+    },
+    {
+      "type": "fixed",
+      "name": "Madsen",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Mads"
+    },
+    {
+      "type": "fixed",
+      "name": "Kristensen",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Kristen"
+    },
+    {
+      "type": "fixed",
+      "name": "Poulsen",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Poul"
+    },
+    {
+      "type": "fixed",
+      "name": "Thomsen",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Thomas"
+    },
+    {
+      "type": "fixed",
+      "name": "Jakobsen",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Jakob"
+    },
+    {
+      "type": "fixed",
+      "name": "Mortensen",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Morten"
+    },
+    {
+      "type": "fixed",
+      "name": "Knudsen",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Knud"
+    },
+    {
+      "type": "fixed",
+      "name": "Lund",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "grove; small wood"
+    },
+    {
+      "type": "fixed",
+      "name": "Møller",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "miller"
+    },
+    {
+      "type": "fixed",
+      "name": "Holm",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "small island; islet"
+    },
+    {
+      "type": "fixed",
+      "name": "Kjær",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "marshland; bog"
+    },
+    {
+      "type": "fixed",
+      "name": "Dahl",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "valley"
+    },
+    {
+      "type": "fixed",
+      "name": "Bach",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "stream; brook"
+    },
+    {
+      "type": "fixed",
+      "name": "Berg",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "mountain; hill"
+    },
+    {
+      "type": "fixed",
+      "name": "Dalgaard",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "valley farm"
+    },
+    {
+      "type": "fixed",
+      "name": "Engberg",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "meadow mountain"
+    },
+    {
+      "type": "fixed",
+      "name": "Gregersen",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Gregers"
+    },
+    {
+      "type": "fixed",
+      "name": "Henriksen",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Henrik"
+    },
+    {
+      "type": "fixed",
+      "name": "Iversen",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Iver"
+    },
+    {
+      "type": "fixed",
+      "name": "Jacobsen",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Jacob"
+    },
+    {
+      "type": "fixed",
+      "name": "Karlsen",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Karl"
+    },
+    {
+      "type": "fixed",
+      "name": "Lorentzen",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Lorents"
+    },
+    {
+      "type": "fixed",
+      "name": "Mikkelsen",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Mikkel"
+    },
+    {
+      "type": "fixed",
+      "name": "Nørgaard",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "northern farm"
+    },
+    {
+      "type": "fixed",
+      "name": "Olesen",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Ole"
+    },
+    {
+      "type": "fixed",
+      "name": "Paulsen",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Paul"
+    },
+    {
+      "type": "fixed",
+      "name": "Rosenberg",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "rose mountain"
+    },
+    {
+      "type": "fixed",
+      "name": "Simonsen",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Simon"
+    },
+    {
+      "type": "fixed",
+      "name": "Thorsen",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Thor"
+    },
+    {
+      "type": "fixed",
+      "name": "Vestergaard",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "western farm"
+    },
+    {
+      "type": "fixed",
+      "name": "Winther",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "winter"
+    },
+    {
+      "type": "fixed",
+      "name": "Bendtsen",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Bendt"
+    },
+    {
+      "type": "fixed",
+      "name": "Clausen",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Claus"
+    },
+    {
+      "type": "fixed",
+      "name": "Dam",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "dam; pond"
+    },
+    {
+      "type": "fixed",
+      "name": "Grøn",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "green; verdant"
+    },
+    {
+      "type": "fixed",
+      "name": "Hald",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "slope; hillside"
+    },
+    {
+      "type": "fixed",
+      "name": "Juul",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "Yule; Christmas; wheel"
+    },
+    {
+      "type": "fixed",
+      "name": "Lindberg",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "linden tree mountain"
+    },
+    {
+      "type": "fixed",
+      "name": "Meyer",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "farmer; steward"
+    },
+    {
+      "type": "fixed",
+      "name": "Nissen",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Nisse"
+    },
+    {
+      "type": "fixed",
+      "name": "Ravn",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "raven"
+    },
+    {
+      "type": "fixed",
+      "name": "Stub",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "tree stump"
+    },
+    {
+      "type": "fixed",
+      "name": "Toft",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "homestead; building site"
+    },
+    {
+      "type": "fixed",
+      "name": "Vang",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "meadow; field"
+    },
+    {
+      "type": "fixed",
+      "name": "Wulff",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "wolf"
+    },
+    {
+      "type": "fixed",
+      "name": "Brøndum",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "well village"
+    },
+    {
+      "type": "fixed",
+      "name": "Hammer",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "hammer; rocky crag"
+    },
+    {
+      "type": "fixed",
+      "name": "Kirk",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "church"
+    },
+    {
+      "type": "fixed",
+      "name": "Mark",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "borderland; field"
+    },
+    {
+      "type": "fixed",
+      "name": "Nygaard",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "new farm"
+    },
+    {
+      "type": "fixed",
+      "name": "Skjold",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "shield; legendary Danish king"
+    },
+    {
+      "type": "fixed",
+      "name": "Fog",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "fog; mist"
+    },
+    {
+      "type": "fixed",
+      "name": "Falck",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "falcon"
+    },
+    {
+      "type": "fixed",
+      "name": "Hauge",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "garden; enclosed area"
+    },
+    {
+      "type": "fixed",
+      "name": "Lassen",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Lass"
+    },
+    {
+      "type": "fixed",
+      "name": "Agerholm",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "field island; islet in the field"
+    },
+    {
+      "type": "fixed",
+      "name": "Paludan",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "palisade; fenced enclosure"
+    },
+    {
+      "type": "fixed",
+      "name": "Bundgaard",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "bottom farm; lowland farm"
+    },
+    {
+      "type": "fixed",
+      "name": "Dall",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "valley"
+    },
+    {
+      "type": "fixed",
+      "name": "Faber",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "craftsman; smith"
+    },
+    {
+      "type": "fixed",
+      "name": "Glud",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "inlet; creek"
+    },
+    {
+      "type": "fixed",
+      "name": "Harder",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "army; hard; brave"
+    },
+    {
+      "type": "fixed",
+      "name": "Johansen",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Johan"
+    },
+    {
+      "type": "fixed",
+      "name": "Klausen",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Klaus"
+    },
+    {
+      "type": "fixed",
+      "name": "Lauridsen",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Laurids"
+    },
+    {
+      "type": "fixed",
+      "name": "Norring",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "northern settlement"
+    },
+    {
+      "type": "fixed",
+      "name": "Overgaard",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "upper farm"
+    },
+    {
+      "type": "fixed",
+      "name": "Ryberg",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "rye mountain"
+    },
+    {
+      "type": "fixed",
+      "name": "Svendsen",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Svend"
+    },
+    {
+      "type": "fixed",
+      "name": "Torp",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "outlying farm; hamlet"
+    },
+    {
+      "type": "fixed",
+      "name": "Ulrich",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "prosperity and power"
+    },
+    {
+      "type": "fixed",
+      "name": "Vedel",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "one who lives by the forest"
+    },
+    {
+      "type": "fixed",
+      "name": "Worm",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "serpent; worm"
+    },
+    {
+      "type": "fixed",
+      "name": "Yde",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "one who lives at the headland"
+    },
+    {
+      "type": "fixed",
+      "name": "Zahle",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "from Zahle"
+    },
+    {
+      "type": "fixed",
+      "name": "Aaberg",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "river mountain"
+    },
+    {
+      "type": "fixed",
+      "name": "Dalsgaard",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "valley farm"
+    },
+    {
+      "type": "fixed",
+      "name": "Christoffersen",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Christoffer"
+    },
+    {
+      "type": "fixed",
+      "name": "Frederiksen",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Frederik"
+    },
+    {
+      "type": "fixed",
+      "name": "Trap",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "staircase; step"
+    },
+    {
+      "type": "patronymic",
+      "base": "Erik",
+      "eras": [
+        "viking",
+        "medieval",
+        "classic"
+      ],
+      "meaning": "ever-powerful ruler"
+    },
+    {
+      "type": "patronymic",
+      "base": "Anders",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "strong and manly"
+    },
+    {
+      "type": "patronymic",
+      "base": "Jens",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "God is gracious"
+    },
+    {
+      "type": "patronymic",
+      "base": "Hans",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "God is gracious"
+    },
+    {
+      "type": "patronymic",
+      "base": "Peder",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "rock; stone"
+    },
+    {
+      "type": "patronymic",
+      "base": "Niels",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "victory of the people"
+    },
+    {
+      "type": "patronymic",
+      "base": "Lars",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "crowned with laurel"
+    },
+    {
+      "type": "patronymic",
+      "base": "Søren",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "stern; severe"
+    },
+    {
+      "type": "patronymic",
+      "base": "Rasmus",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "beloved; cherished"
+    },
+    {
+      "type": "patronymic",
+      "base": "Thomas",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "twin"
+    },
+    {
+      "type": "patronymic",
+      "base": "Mads",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "gift of God"
+    },
+    {
+      "type": "patronymic",
+      "base": "Christen",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "follower of Christ"
+    },
+    {
+      "type": "patronymic",
+      "base": "Oluf",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "ancestor's relic"
+    },
+    {
+      "type": "patronymic",
+      "base": "Knud",
+      "eras": [
+        "viking",
+        "medieval",
+        "classic"
+      ],
+      "meaning": "knot; kinsman"
+    },
+    {
+      "type": "patronymic",
+      "base": "Svend",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "young man; servant"
+    },
+    {
+      "type": "patronymic",
+      "base": "Ivar",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "bow warrior; yew army"
+    },
+    {
+      "type": "patronymic",
+      "base": "Gorm",
+      "eras": [
+        "viking"
+      ],
+      "meaning": "he who venerates God"
+    },
+    {
+      "type": "patronymic",
+      "base": "Bjørn",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "bear; strength"
+    },
+    {
+      "type": "patronymic",
+      "base": "Harald",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "ruler of an army"
+    },
+    {
+      "type": "patronymic",
+      "base": "Leif",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "heir; descendant"
+    },
+    {
+      "type": "patronymic",
+      "base": "Ragnar",
+      "eras": [
+        "viking"
+      ],
+      "meaning": "wise warrior"
+    },
+    {
+      "type": "patronymic",
+      "base": "Sigurd",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "guardian of victory"
+    },
+    {
+      "type": "patronymic",
+      "base": "Rolf",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "famous wolf"
+    },
+    {
+      "type": "patronymic",
+      "base": "Gunnar",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "bold warrior"
+    },
+    {
+      "type": "patronymic",
+      "base": "Halfdan",
+      "eras": [
+        "viking"
+      ],
+      "meaning": "half-Dane"
+    },
+    {
+      "type": "patronymic",
+      "base": "Helge",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "holy; prosperous"
+    },
+    {
+      "type": "patronymic",
+      "base": "Asger",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "spear of the gods"
+    },
+    {
+      "type": "patronymic",
+      "base": "Einar",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "lone warrior"
+    },
+    {
+      "type": "patronymic",
+      "base": "Tyge",
+      "eras": [
+        "viking",
+        "medieval",
+        "classic"
+      ],
+      "meaning": "ruler of the bow"
+    },
+    {
+      "type": "patronymic",
+      "base": "Toke",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "Thor's kettle"
+    },
+    {
+      "type": "patronymic",
+      "base": "Ove",
+      "eras": [
+        "viking",
+        "medieval",
+        "classic"
+      ],
+      "meaning": "ancestor; forefather"
+    },
+    {
+      "type": "patronymic",
+      "base": "Arne",
+      "eras": [
+        "viking",
+        "medieval",
+        "classic"
+      ],
+      "meaning": "eagle; strength"
+    },
+    {
+      "type": "patronymic",
+      "base": "Bent",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "blessed"
+    },
+    {
+      "type": "patronymic",
+      "base": "Axel",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "father of peace"
+    },
+    {
+      "type": "patronymic",
+      "base": "Mogens",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "great; powerful"
+    },
+    {
+      "type": "patronymic",
+      "base": "Georg",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "farmer; earth worker"
+    },
+    {
+      "type": "patronymic",
+      "base": "Carl",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "free man"
+    },
+    {
+      "type": "patronymic",
+      "base": "Viggo",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "war; battle"
+    },
+    {
+      "type": "patronymic",
+      "base": "Holger",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "island spear"
+    },
+    {
+      "type": "patronymic",
+      "base": "Laurits",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "crowned with laurel"
+    },
+    {
+      "type": "patronymic",
+      "base": "Anton",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "priceless; inestimable"
+    },
+    {
+      "type": "patronymic",
+      "base": "Victor",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "victor; conqueror"
+    },
+    {
+      "type": "patronymic",
+      "base": "Ludvig",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "famous warrior"
+    },
+    {
+      "type": "patronymic",
+      "base": "Alfred",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "elf counsel"
+    },
+    {
+      "type": "patronymic",
+      "base": "Jacob",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "supplanter"
+    },
+    {
+      "type": "patronymic",
+      "base": "Christian",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "follower of Christ"
+    },
+    {
+      "type": "patronymic",
+      "base": "Frederik",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "peaceful ruler"
+    },
+    {
+      "type": "patronymic",
+      "base": "Martin",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "of Mars; warrior"
+    },
+    {
+      "type": "patronymic",
+      "base": "Magnus",
+      "eras": [
+        "classic",
+        "medieval"
+      ],
+      "meaning": "great; mighty"
+    },
+    {
+      "type": "patronymic",
+      "base": "Emil",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "rival; eager"
+    },
+    {
+      "type": "patronymic",
+      "base": "Julius",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "youthful"
+    },
+    {
+      "type": "patronymic",
+      "base": "Otto",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "wealth; fortune"
+    },
+    {
+      "name": "Arnesen",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Arne (eagle)"
+    },
+    {
+      "name": "Arup",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "from Arup village, Jutland"
+    },
+    {
+      "name": "Aakjær",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "oak enclosure; woodland name"
+    },
+    {
+      "name": "Aakelsen",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Aak (oak dweller)"
+    },
+    {
+      "name": "Aalseth",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "alder tree dwelling"
+    },
+    {
+      "name": "Aastrup",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "alder village; woodland place"
+    },
+    {
+      "name": "Abild",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "apple tree; fruit dwelling"
+    },
+    {
+      "name": "Abildskov",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "apple tree forest"
+    },
+    {
+      "name": "Baggersen",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Bagger (digger)"
+    },
+    {
+      "name": "Barck",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "birch tree; woodland dwelling"
+    },
+    {
+      "name": "Barnekov",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "barn village; agricultural place"
+    },
+    {
+      "name": "Barnerup",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "barn village; farm settlement"
+    },
+    {
+      "name": "Barner",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "barn dweller; farmer name"
+    },
+    {
+      "name": "Baltzer",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Balthasar"
+    },
+    {
+      "name": "Bartels",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Bartel"
+    },
+    {
+      "name": "Bartelsen",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Bartel; patronymic variant"
+    },
+    {
+      "name": "Barth",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "beard; appearance based"
+    },
+    {
+      "name": "Bartel",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Barth; patronymic"
+    },
+    {
+      "name": "Bartling",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Bartl; patronymic"
+    },
+    {
+      "name": "Bartmann",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "beard man; occupational"
+    },
+    {
+      "name": "Barton",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "barley farm; agricultural place"
+    },
+    {
+      "name": "Sømark",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "sea field; coastal farmland"
+    },
+    {
+      "name": "Søkilde",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "sea spring; coastal source"
+    },
+    {
+      "name": "Skovmark",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "forest field; wooded land"
+    },
+    {
+      "name": "Skovsgård",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "forest farm; woodland estate"
+    },
+    {
+      "name": "Stenbjerg",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "stone mountain; rocky peak"
+    },
+    {
+      "name": "Stenvang",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "stone field; stony meadow"
+    },
+    {
+      "name": "Sterup",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "stone village; rocky settlement"
+    },
+    {
+      "name": "Strand",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "beach; sandy shore"
+    },
+    {
+      "name": "Smed",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "blacksmith; metal worker"
+    },
+    {
+      "name": "Smedsgaard",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "blacksmith's farm"
+    },
+    {
+      "name": "Snedker",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "carpenter; wood craftsman"
+    },
+    {
+      "name": "Snedkergaard",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "carpenter's farm"
+    },
+    {
+      "name": "Spindler",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "spinner; thread maker"
+    },
+    {
+      "name": "Steger",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "roofer; tile layer"
+    },
+    {
+      "name": "Stieler",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "steel worker; metal craftsman"
+    },
+    {
+      "name": "Stokkerup",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "stake village; palisade settlement"
+    },
+    {
+      "name": "Storvang",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "great field; large meadow"
+    },
+    {
+      "name": "Strandgård",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "beach farm; seaside estate"
+    },
+    {
+      "name": "Strandmark",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "beach field; shore land"
+    },
+    {
+      "name": "Strøby",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "straw village; hay settlement"
+    },
+    {
+      "name": "Strødam",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "straw valley; hay area"
+    },
+    {
+      "name": "Strøgård",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "straw farm; hay dwelling"
+    },
+    {
+      "name": "Strølund",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "straw forest; hay wood"
+    },
+    {
+      "name": "Strømsen",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Strøm (stream)"
+    },
+    {
+      "name": "Stubberg",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "stub mountain; stump peak"
+    },
+    {
+      "name": "Stubkær",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "stub enclosure; stump field"
+    },
+    {
+      "name": "Svart",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "black; dark color"
+    },
+    {
+      "name": "Søberg",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "sea mountain; coastal peak"
+    },
+    {
+      "name": "Søby",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "sea village; coastal settlement"
+    },
+    {
+      "name": "Sødam",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "sea valley; water area"
+    },
+    {
+      "name": "Søgård",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "sea farm; coastal dwelling"
+    },
+    {
+      "name": "Søholm",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "sea island; coastal dwelling"
+    },
+    {
+      "name": "Søland",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "sea land; coastal territory"
+    },
+    {
+      "name": "Sølund",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "sea forest; coastal wood"
+    },
+    {
+      "name": "Sønderby",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "south village; southern settlement"
+    },
+    {
+      "name": "Søndervang",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "south field; southern meadow"
+    },
+    {
+      "name": "Søndergård",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "south farm; southern dwelling"
+    },
+    {
+      "name": "Sønsted",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "sound place; strait dwelling"
+    },
+    {
+      "name": "Søvang",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "sea field; coastal meadow"
+    },
+    {
+      "name": "Axelsson",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Axel (father of peace)"
+    },
+    {
+      "name": "Aulund",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "from Aulund settlement"
+    },
+    {
+      "name": "Austrup",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "east village; directional name"
+    },
+    {
+      "name": "Attesen",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Atte (fatherly)"
+    },
+    {
+      "name": "Strandvang",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "beach field; shore meadow"
+    },
+    {
+      "name": "Streg",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "line; mark based surname"
+    },
+    {
+      "name": "Skovby",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "forest village; woodland settlement"
+    },
+    {
+      "name": "Bollesen",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Bolle; patronymic"
+    },
+    {
+      "name": "Bondesen",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of the farmer"
+    },
+    {
+      "name": "Bonde",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "farmer; freeholder"
+    },
+    {
+      "name": "Borum",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "from Borum village, Jutland"
+    },
+    {
+      "name": "Boserup",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "Bose's farm; settlement name"
+    },
+    {
+      "name": "Brandt",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "fire; burned land"
+    },
+    {
+      "name": "Bredahl",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "broad valley"
+    },
+    {
+      "name": "Bregendahl",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "bracken valley"
+    },
+    {
+      "name": "Brink",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "edge of a slope; hillside"
+    },
+    {
+      "name": "Bruun",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "brown; dark complexioned"
+    },
+    {
+      "name": "Bugge",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "from Bugge; old Danish name"
+    },
+    {
+      "name": "Buhl",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "round hill; knoll"
+    },
+    {
+      "name": "Busk",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "bush; shrub dweller"
+    },
+    {
+      "name": "Bødker",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "cooper; barrel maker"
+    },
+    {
+      "name": "Bøgh",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "beech tree"
+    },
+    {
+      "name": "Bøje",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "bend in a river"
+    },
+    {
+      "name": "Bønnelycke",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "bean meadow; legume field"
+    },
+    {
+      "name": "Damsgaard",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "dam farm; water estate"
+    },
+    {
+      "name": "Daugaard",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "Daug's farm; old estate"
+    },
+    {
+      "name": "Dinesen",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Dine; patronymic"
+    },
+    {
+      "name": "Dragsted",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "dragon place; old settlement"
+    },
+    {
+      "name": "Dreyer",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "lathe worker; turner"
+    },
+    {
+      "name": "Duelund",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "dovecote forest"
+    },
+    {
+      "name": "Egholm",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "oak island"
+    },
+    {
+      "name": "Ehmsen",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Ehm; patronymic"
+    },
+    {
+      "name": "Ejlersen",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Ejler; patronymic"
+    },
+    {
+      "name": "Ellegaard",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "alder farm"
+    },
+    {
+      "name": "Elmgreen",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "elm green; wooded place"
+    },
+    {
+      "name": "Engel",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "angel; bright messenger"
+    },
+    {
+      "name": "Engelhardt",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "angel strength"
+    },
+    {
+      "name": "Esmann",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "ash man; ash tree dweller"
+    },
+    {
+      "name": "Fagerberg",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "fair mountain; beautiful hill"
+    },
+    {
+      "name": "Falk",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "falcon; bird of prey"
+    },
+    {
+      "name": "Fibiger",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "from Fib; place origin"
+    },
+    {
+      "name": "Finsen",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Fin; patronymic"
+    },
+    {
+      "name": "Fisker",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "fisherman; fish catcher"
+    },
+    {
+      "name": "Fjeldsøe",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "mountain lake"
+    },
+    {
+      "name": "Flensborg",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "from Flensburg; border town"
+    },
+    {
+      "name": "Friis",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "from Friesland"
+    },
+    {
+      "name": "Fromberg",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "pious mountain; devout hill"
+    },
+    {
+      "name": "Frøslev",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "Frø's heritage; Old Norse"
+    },
+    {
+      "name": "Fuglsang",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "bird song; meadow of birds"
+    },
+    {
+      "name": "Gade",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "street; lane dweller"
+    },
+    {
+      "name": "Gammelgaard",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "old farm; ancient estate"
+    },
+    {
+      "name": "Garde",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "courtyard; enclosed estate"
+    },
+    {
+      "name": "Garner",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "grain store keeper"
+    },
+    {
+      "name": "Gjedde",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "pike fish; river fisher"
+    },
+    {
+      "name": "Gjødesen",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Gjøde; patronymic"
+    },
+    {
+      "name": "Godtfredsen",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Godtfred (God's peace)"
+    },
+    {
+      "name": "Graae",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "gray; grey-haired"
+    },
+    {
+      "name": "Grandahl",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "grand valley; great dale"
+    },
+    {
+      "name": "Graugaard",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "gray farm; muted estate"
+    },
+    {
+      "name": "Grunnet",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "green meadow; grassy place"
+    },
+    {
+      "name": "Gudbergsen",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Gudberg; patronymic"
+    },
+    {
+      "name": "Guldbrandsen",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Guldbrand (gold sword)"
+    },
+    {
+      "name": "Guldmann",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "gold man; wealthy person"
+    },
+    {
+      "name": "Gøtzsche",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "from Götz; Germanic origin"
+    },
+    {
+      "name": "Hagensen",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Hagen (enclosure)"
+    },
+    {
+      "name": "Halberg",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "hall mountain; rocky slope"
+    },
+    {
+      "name": "Hammerich",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "hammer rich; smith family"
+    },
+    {
+      "name": "Harboe",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "hare stream; rabbit brook"
+    },
+    {
+      "name": "Haslund",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "hazel forest"
+    },
+    {
+      "name": "Hedegaard",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "heath farm; moor estate"
+    },
+    {
+      "name": "Heide",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "heath; open moorland"
+    },
+    {
+      "name": "Heiberg",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "heath mountain; moor hill"
+    },
+    {
+      "name": "Helweg",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "holy road; pilgrimage path"
+    },
+    {
+      "name": "Hertel",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "hardy; strong and vigorous"
+    },
+    {
+      "name": "Hjelmslev",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "helmet heritage; warrior estate"
+    },
+    {
+      "name": "Hjort",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "stag; male deer"
+    },
+    {
+      "name": "Holmberg",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "island mountain; islet peak"
+    },
+    {
+      "name": "Holt",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "small wood; copse"
+    },
+    {
+      "name": "Hornemann",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "hornblower; signal man"
+    },
+    {
+      "name": "Houmann",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "man of the mound; hill dweller"
+    },
+    {
+      "name": "Husum",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "house settlement; farmstead"
+    },
+    {
+      "name": "Høeg",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "hawk; bird of prey"
+    },
+    {
+      "name": "Højer",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "high place; elevated ground"
+    },
+    {
+      "name": "Ingerslev",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "Inger's heritage; family estate"
+    },
+    {
+      "name": "Ingwersen",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Ingwer; patronymic"
+    },
+    {
+      "name": "Jacobi",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "of Jacob; apostolic lineage"
+    },
+    {
+      "name": "Jessen",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Jess; patronymic"
+    },
+    {
+      "name": "Juel",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "Yule; Christmas lineage"
+    },
+    {
+      "name": "Jungersen",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Jungen; patronymic"
+    },
+    {
+      "name": "Justesen",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Juste; patronymic"
+    },
+    {
+      "name": "Klindt",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "cliff; rocky escarpment"
+    },
+    {
+      "name": "Kofoed",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "cow foot; livestock farmer"
+    },
+    {
+      "name": "Kolding",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "from Kolding; Jutland town"
+    },
+    {
+      "name": "Kongsted",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "king's place; royal estate"
+    },
+    {
+      "name": "Koppel",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "copse; small wooded area"
+    },
+    {
+      "name": "Kornerup",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "Korn's village; grain farm"
+    },
+    {
+      "name": "Krabbe",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "crab; shore dwelling"
+    },
+    {
+      "name": "Kraft",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "strength; power"
+    },
+    {
+      "name": "Krag",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "crow; rook bird"
+    },
+    {
+      "name": "Krogh",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "hook; bend in a river"
+    },
+    {
+      "name": "Kruse",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "curly; frizzy hair"
+    },
+    {
+      "name": "Kyed",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "cattle enclosure; cow farm"
+    },
+    {
+      "name": "Lange",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "long; tall stature"
+    },
+    {
+      "name": "Langkilde",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "long spring; tall water source"
+    },
+    {
+      "name": "Lanng",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "long; elongated place"
+    },
+    {
+      "name": "Lemche",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "from Lemche; family origin"
+    },
+    {
+      "name": "Levinsen",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Levin; patronymic"
+    },
+    {
+      "name": "Lillelund",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "little forest; small copse"
+    },
+    {
+      "name": "Lindegaard",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "linden farm; lime tree estate"
+    },
+    {
+      "name": "Lindqvist",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "linden branch; lime twig"
+    },
+    {
+      "name": "Lorenzen",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Lorenz; patronymic"
+    },
+    {
+      "name": "Lundberg",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "forest mountain; wooded hill"
+    },
+    {
+      "name": "Lundbeck",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "forest stream; wooded brook"
+    },
+    {
+      "name": "Lunding",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "from Lund; forest origin"
+    },
+    {
+      "name": "Løvschal",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "leaf shelter; leafy bower"
+    },
+    {
+      "name": "Madsdatter",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "daughter of Mads; feminine form"
+    },
+    {
+      "name": "Malling",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "from Malling; Jutland place"
+    },
+    {
+      "name": "Manniche",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "of the men; manly lineage"
+    },
+    {
+      "name": "Marckmann",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "march man; border dweller"
+    },
+    {
+      "name": "Mathiassen",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Mathias; patronymic"
+    },
+    {
+      "name": "Melchior",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "king of light; noble name"
+    },
+    {
+      "name": "Michelsen",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Michel; patronymic"
+    },
+    {
+      "name": "Moestrup",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "peat village; boggy settlement"
+    },
+    {
+      "name": "Molbech",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "mill brook; grinding stream"
+    },
+    {
+      "name": "Moltke",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "bold; courageous"
+    },
+    {
+      "name": "Munck",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "monk; religious order"
+    },
+    {
+      "name": "Munksgaard",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "monk's farm; monastery estate"
+    },
+    {
+      "name": "Mynster",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "minster; cathedral dweller"
+    },
+    {
+      "name": "Mølgaard",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "mill farm; grinding estate"
+    },
+    {
+      "name": "Nathansen",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Nathan; patronymic"
+    },
+    {
+      "name": "Nebelong",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "beak hill; pointed elevation"
+    },
+    {
+      "name": "Nedergaard",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "lower farm; valley estate"
+    },
+    {
+      "name": "Neergaard",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "lower farm; downhill estate"
+    },
+    {
+      "name": "Nicolaisen",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Nicolai; patronymic"
+    },
+    {
+      "name": "Noe",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "Noah; rest and comfort"
+    },
+    {
+      "name": "Nordby",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "north village; northern settlement"
+    },
+    {
+      "name": "Nordentoft",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "north farmstead; northern place"
+    },
+    {
+      "name": "Nordskov",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "north forest; northern wood"
+    },
+    {
+      "name": "Nørhave",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "north garden; northern enclosure"
+    },
+    {
+      "name": "Nørlund",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "north forest; northern copse"
+    },
+    {
+      "name": "Oksen",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "ox; cattle farmer"
+    },
+    {
+      "name": "Olde",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "old one; elder"
+    },
+    {
+      "name": "Oldenburg",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "old fortress; ancient castle"
+    },
+    {
+      "name": "Oppermann",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "upper man; elevated dweller"
+    },
+    {
+      "name": "Ostenfeld",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "east field; eastern plain"
+    },
+    {
+      "name": "Outzen",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Owe; patronymic"
+    },
+    {
+      "name": "Panum",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "bread man; baker lineage"
+    },
+    {
+      "name": "Petri",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "of Peter; apostolic lineage"
+    },
+    {
+      "name": "Pontoppidan",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "bridge town; crossing settlement"
+    },
+    {
+      "name": "Prip",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "from Prip; Danish locality"
+    },
+    {
+      "name": "Rahbek",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "ram brook; sheep stream"
+    },
+    {
+      "name": "Rambusch",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "ram bush; thicket near rams"
+    },
+    {
+      "name": "Randbøl",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "border dwelling; edge settlement"
+    },
+    {
+      "name": "Randrup",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "border village; edge farm"
+    },
+    {
+      "name": "Reenberg",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "border mountain; edge hill"
+    },
+    {
+      "name": "Reedtz",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "from Reedtz; noble family"
+    },
+    {
+      "name": "Refsgaard",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "fox farm; cunning estate"
+    },
+    {
+      "name": "Reimers",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Reimer; patronymic"
+    },
+    {
+      "name": "Reumert",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "fame heart; renowned lineage"
+    },
+    {
+      "name": "Rode",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "clearing; deforested place"
+    },
+    {
+      "name": "Roepstorff",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "turnip village; root crop place"
+    },
+    {
+      "name": "Rohde",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "clearing; open ground"
+    },
+    {
+      "name": "Rolighed",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "calm; tranquil dwelling"
+    },
+    {
+      "name": "Rosen",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "rose; flower surname"
+    },
+    {
+      "name": "Rosenørn",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "rose eagle; noble emblem"
+    },
+    {
+      "name": "Rosted",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "horse place; cavalry estate"
+    },
+    {
+      "name": "Rudolph",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "famous wolf; noble lineage"
+    },
+    {
+      "name": "Rugaard",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "rye farm; grain estate"
+    },
+    {
+      "name": "Runge",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "rung; ladder surname"
+    },
+    {
+      "name": "Rønberg",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "round mountain; knoll"
+    },
+    {
+      "name": "Sandberg",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "sand mountain; dune hill"
+    },
+    {
+      "name": "Saxild",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "Saxon heritage; old tribe"
+    },
+    {
+      "name": "Scheel",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "slanted; askew appearance"
+    },
+    {
+      "name": "Schiøtz",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "shooter; archer lineage"
+    },
+    {
+      "name": "Schmidt",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "blacksmith; metalworker"
+    },
+    {
+      "name": "Schou",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "forest; wooded place"
+    },
+    {
+      "name": "Schouby",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "forest village; wooded settlement"
+    },
+    {
+      "name": "Schroeder",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "tailor; cloth cutter"
+    },
+    {
+      "name": "Sehested",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "sea place; coastal estate"
+    },
+    {
+      "name": "Sejer",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "victory; triumphant"
+    },
+    {
+      "name": "Seligmann",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "blessed man; happy person"
+    },
+    {
+      "name": "Skaarup",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "shear village; cutting farm"
+    },
+    {
+      "name": "Skovlund",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "forest copse; wooded grove"
+    },
+    {
+      "name": "Skovsted",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "forest place; wooded estate"
+    },
+    {
+      "name": "Sloth",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "slow; deliberate person"
+    },
+    {
+      "name": "Sommer",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "summer; warm season"
+    },
+    {
+      "name": "Sommerlund",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "summer forest; warm wood"
+    },
+    {
+      "name": "Sparre",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "rafter; roof timber"
+    },
+    {
+      "name": "Spreckelsen",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Spreckel; patronymic"
+    },
+    {
+      "name": "Stampe",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "stamp; press worker"
+    },
+    {
+      "name": "Staphen",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "Stephen; crown surname"
+    },
+    {
+      "name": "Staun",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "stake; post marker"
+    },
+    {
+      "name": "Steffensen",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "son of Steffen; patronymic"
+    },
+    {
+      "name": "Steglich",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "steep way; hill path"
+    },
+    {
+      "name": "Stemann",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "stone man; rock dweller"
+    },
+    {
+      "name": "Stougaard",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "stave farm; pole estate"
+    },
+    {
+      "name": "Strandholm",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "beach island; shore islet"
+    },
+    {
+      "name": "Ulf",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "wolf; fierce fighter"
+    },
+    {
+      "name": "Vanggaard",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "meadow farm; plain estate"
+    },
+    {
+      "name": "Vibek",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "from Vibek; place name"
+    },
+    {
+      "name": "Visby",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "holy village; sacred settlement"
+    },
+    {
+      "name": "Vissing",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "from Vissing; Jutland place"
+    },
+    {
+      "name": "Voigt",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "steward; estate manager"
+    },
+    {
+      "name": "Volmer",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "famous people; renowned folk"
+    },
+    {
+      "name": "Vonsild",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "from Vonsild; Jutland village"
+    },
+    {
+      "name": "Wadskier",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "wade rock; ford stone"
+    },
+    {
+      "name": "Warberg",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "guard mountain; watch hill"
+    },
+    {
+      "name": "Wegener",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "wagon maker; cartwright"
+    },
+    {
+      "name": "Westergaard",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "western farm; west estate"
+    },
+    {
+      "name": "Wied",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "from the willow; water dwelling"
+    },
+    {
+      "name": "Winkel",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "corner; angle dwelling"
+    },
+    {
+      "name": "Wiuff",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "wolf; fierce surname"
+    },
+    {
+      "name": "Worning",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "from Vorning; Jutland place"
+    },
+    {
+      "name": "Worsaae",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "from Vorsaa; old place"
+    },
+    {
+      "name": "Zeuthen",
+      "type": "fixed",
+      "eras": [
+        "classic",
+        "modern"
+      ],
+      "meaning": "from Zeuthen; place origin"
+    },
+    {
+      "base": "Aksel",
+      "type": "patronymic",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "patronymic base: Akselsen / Akseldatter"
+    },
+    {
+      "base": "Vidar",
+      "type": "patronymic",
+      "eras": [
+        "viking"
+      ],
+      "meaning": "patronymic base: Vidarsen / Vidardatter"
+    },
+    {
+      "base": "Torsten",
+      "type": "patronymic",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "patronymic base: Torstensen / Torstendatter"
+    },
+    {
+      "base": "Trygve",
+      "type": "patronymic",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "patronymic base: Trygvesen / Trygvedatter"
+    },
+    {
+      "base": "Hjalmar",
+      "type": "patronymic",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "patronymic base: Hjalmarsen / Hjalmardatter"
+    },
+    {
+      "base": "Knut",
+      "type": "patronymic",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "patronymic base: Knutsen / Knutdatter"
+    },
+    {
+      "base": "Poul",
+      "type": "patronymic",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "patronymic base: Poulsen / Pouldatter"
+    },
+    {
+      "base": "Birger",
+      "type": "patronymic",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "patronymic base: Birgersen / Birgerdatter"
+    },
+    {
+      "base": "Mikkel",
+      "type": "patronymic",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "patronymic base: Mikkelsen / Mikkeldatter"
+    },
+    {
+      "base": "Kristofer",
+      "type": "patronymic",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "patronymic base: Kristofersen / Kristoferdatter"
+    },
+    {
+      "base": "Kristen",
+      "type": "patronymic",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "patronymic base: Kristensen / Kristendatter"
+    },
+    {
+      "base": "Jørgen",
+      "type": "patronymic",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "patronymic base: Jørgensen / Jørgendatter"
+    },
+    {
+      "base": "Jesper",
+      "type": "patronymic",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "patronymic base: Jespersen / Jesperdatter"
+    },
+    {
+      "base": "Regner",
+      "type": "patronymic",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "patronymic base: Regnersen / Regnerdatter"
+    },
+    {
+      "base": "Ebbe",
+      "type": "patronymic",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "patronymic base: Ebbesen / Ebbedatter"
+    },
+    {
+      "base": "Henning",
+      "type": "patronymic",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "patronymic base: Henningsen / Henningdatter"
+    },
+    {
+      "base": "Johannes",
+      "type": "patronymic",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "patronymic base: Johannessen / Johannesdatter"
+    },
+    {
+      "base": "Matthias",
+      "type": "patronymic",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "patronymic base: Matthiassen / Matthiasdatter"
+    },
+    {
+      "base": "Balthasar",
+      "type": "patronymic",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "patronymic base: Balthasarsen / Balthasardatter"
+    },
+    {
+      "base": "Casper",
+      "type": "patronymic",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "patronymic base: Caspersen / Casperdatter"
+    },
+    {
+      "base": "Clemens",
+      "type": "patronymic",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "patronymic base: Clemenssen / Clemensdatter"
+    },
+    {
+      "base": "Cornelius",
+      "type": "patronymic",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "patronymic base: Corneliussen / Corneliusdatter"
+    },
+    {
+      "base": "Erasmus",
+      "type": "patronymic",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "patronymic base: Erasmussen / Erasmusdatter"
+    },
+    {
+      "base": "Laurentius",
+      "type": "patronymic",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "patronymic base: Laurentiussen / Laurentiusdatter"
+    },
+    {
+      "base": "Nicolaus",
+      "type": "patronymic",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "patronymic base: Nicolaussen / Nicolausdatter"
+    },
+    {
+      "base": "Theodor",
+      "type": "patronymic",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "patronymic base: Theodorsen / Theodordatter"
+    },
+    {
+      "base": "Ulrik",
+      "type": "patronymic",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "patronymic base: Ulriksen / Ulrikdatter"
+    },
+    {
+      "base": "Waldemar",
+      "type": "patronymic",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "patronymic base: Waldemarsen / Waldemardatter"
+    },
+    {
+      "base": "Werner",
+      "type": "patronymic",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "patronymic base: Wernersen / Wernerdatter"
+    },
+    {
+      "base": "Wilhelm",
+      "type": "patronymic",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "patronymic base: Wilhelmsen / Wilhelmdatter"
+    },
+    {
+      "base": "Willum",
+      "type": "patronymic",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "patronymic base: Willumsen / Willumdatter"
+    },
+    {
+      "base": "Zacharias",
+      "type": "patronymic",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "patronymic base: Zachariassen / Zachariasdatter"
+    },
+    {
+      "base": "Sverre",
+      "type": "patronymic",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "patronymic base: Sverresen / Sverredatter"
+    },
+    {
+      "base": "Steinar",
+      "type": "patronymic",
+      "eras": [
+        "viking"
+      ],
+      "meaning": "patronymic base: Steinarsen / Steinardatter"
+    },
+    {
+      "base": "Sigvald",
+      "type": "patronymic",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "patronymic base: Sigvaldsen / Sigvalddatter"
+    },
+    {
+      "base": "Sigfried",
+      "type": "patronymic",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "patronymic base: Sigfriedsen / Sigfrieddatter"
+    },
+    {
+      "base": "Rune",
+      "type": "patronymic",
+      "eras": [
+        "viking"
+      ],
+      "meaning": "patronymic base: Runesen / Runedatter"
+    },
+    {
+      "base": "Snorri",
+      "type": "patronymic",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "patronymic base: Snorrisen / Snorridatter"
+    },
+    {
+      "base": "Sune",
+      "type": "patronymic",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "patronymic base: Sunesen / Sunedatter"
+    },
+    {
+      "base": "Sveinn",
+      "type": "patronymic",
+      "eras": [
+        "viking"
+      ],
+      "meaning": "patronymic base: Sveinnsen / Sveinndatter"
+    },
+    {
+      "base": "Sverker",
+      "type": "patronymic",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "patronymic base: Sverkersen / Sverkerdatter"
+    },
+    {
+      "base": "Tejs",
+      "type": "patronymic",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "patronymic base: Tejssen / Tejsdatter"
+    },
+    {
+      "base": "Teodor",
+      "type": "patronymic",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "patronymic base: Teodorsen / Teodordatter"
+    },
+    {
+      "base": "Valentin",
+      "type": "patronymic",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "patronymic base: Valentinsen / Valentindatter"
+    },
+    {
+      "base": "Thorgrim",
+      "type": "patronymic",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "patronymic base: Thorgrimsen / Thorgrimdatter"
+    },
+    {
+      "base": "Thorgils",
+      "type": "patronymic",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "patronymic base: Thorgilssen / Thorgilsdatter"
+    },
+    {
+      "base": "Thorvald",
+      "type": "patronymic",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "patronymic base: Thorvaldsen / Thorvalddatter"
+    },
+    {
+      "base": "Thorulf",
+      "type": "patronymic",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "patronymic base: Thorulfsen / Thorulfdatter"
+    },
+    {
+      "base": "Thorbrand",
+      "type": "patronymic",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "patronymic base: Thorbrandsen / Thorbranddatter"
+    },
+    {
+      "base": "Olaf",
+      "type": "patronymic",
+      "eras": [
+        "viking",
+        "medieval"
+      ],
+      "meaning": "patronymic base: Olafsen / Olafdatter"
+    },
+    {
+      "base": "Havard",
+      "type": "patronymic",
+      "eras": [
+        "viking"
+      ],
+      "meaning": "patronymic base: Havardsen / Havarddatter"
+    },
+    {
+      "base": "Arild",
+      "type": "patronymic",
+      "eras": [
+        "viking"
+      ],
+      "meaning": "patronymic base: Arildsen / Arilddatter"
+    },
+    {
+      "base": "Tormod",
+      "type": "patronymic",
+      "eras": [
+        "viking"
+      ],
+      "meaning": "patronymic base: Tormodsen / Tormoddatter"
+    },
+    {
+      "base": "Ingvar",
+      "type": "patronymic",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "patronymic base: Ingvarsen / Ingvardatter"
+    },
+    {
+      "base": "Aslak",
+      "type": "patronymic",
+      "eras": [
+        "medieval"
+      ],
+      "meaning": "patronymic base: Aslaksen / Aslakdatter"
+    },
+    {
+      "base": "Flemming",
+      "type": "patronymic",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "patronymic base: Flemmingsen / Flemmingdatter"
+    },
+    {
+      "base": "Herman",
+      "type": "patronymic",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "patronymic base: Hermansen / Hermandatter"
+    },
+    {
+      "base": "Isak",
+      "type": "patronymic",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "patronymic base: Isaksen / Isakdatter"
+    },
+    {
+      "base": "Bendt",
+      "type": "patronymic",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "patronymic base: Bendtsen / Bendtdatter"
+    },
+    {
+      "base": "Ulrik",
+      "type": "patronymic",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "patronymic base: Ulriksen / Ulrikdatter"
+    },
+    {
+      "base": "Verner",
+      "type": "patronymic",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "patronymic base: Vernersen / Vernerdatter"
+    },
+    {
+      "base": "Walter",
+      "type": "patronymic",
+      "eras": [
+        "medieval",
+        "classic"
+      ],
+      "meaning": "patronymic base: Waltersen / Walterdatter"
+    },
+    {
+      "base": "Bernhard",
+      "type": "patronymic",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "patronymic base: Bernhardsen / Bernharddatter"
+    },
+    {
+      "base": "Frants",
+      "type": "patronymic",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "patronymic base: Frantssen / Frantsdatter"
+    },
+    {
+      "base": "Preben",
+      "type": "patronymic",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "patronymic base: Prebensen / Prebendatter"
+    },
+    {
+      "base": "Severin",
+      "type": "patronymic",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "patronymic base: Severinsen / Severindatter"
+    },
+    {
+      "base": "Amund",
+      "type": "patronymic",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "patronymic base: Amundsen / Amunddatter"
+    },
+    {
+      "base": "Anker",
+      "type": "patronymic",
+      "eras": [
+        "classic"
+      ],
+      "meaning": "patronymic base: Ankersen / Ankerdatter"
+    }
   ]
 }
