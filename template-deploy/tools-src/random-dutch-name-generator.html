@@ -576,6 +576,13 @@ document.getElementById('dng-mobile-toggle')?.addEventListener('click', function
   this.textContent = isOpen ? 'Hide options' : 'More options';
 });
 
+document.addEventListener('keydown', function(e) {
+  if ((e.code === 'Space' || e.code === 'Enter') &&
+      !['INPUT','SELECT','TEXTAREA','BUTTON'].includes(e.target.tagName)) {
+    document.getElementById('dng-gen-btn')?.click();
+  }
+}, true);
+
 (function bindWordineerMenu(){
   const mega = document.getElementById("mega");
   const hbg = document.querySelector(".hamburger");
