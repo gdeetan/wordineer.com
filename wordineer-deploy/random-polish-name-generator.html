@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.adsbygoogle = window.adsbygoogle || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  (function(w, d) {
+    var loaded = false;
+    var cfg = {
+      analyticsId: 'G-7DWH3EGM3Z',
+      adsClient: 'ca-pub-7200956978416233',
+      delay: 10000
+    };
+
+    function loadScript(src, attrs) {
+      var s = d.createElement('script');
+      s.async = true;
+      s.src = src;
+      if (attrs) {
+        Object.keys(attrs).forEach(function(key) {
+          s.setAttribute(key, attrs[key]);
+        });
+      }
+      d.head.appendChild(s);
+    }
+
+    function loadMarketing() {
+      if (loaded) return;
+      loaded = true;
+      gtag('js', new Date());
+      gtag('config', cfg.analyticsId);
+      loadScript('https://www.googletagmanager.com/gtag/js?id=' + cfg.analyticsId);
+      loadScript(
+        'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + cfg.adsClient,
+        { crossorigin: 'anonymous' }
+      );
+    }
+
+    function idleLoad() {
+      if ('requestIdleCallback' in w) {
+        w.requestIdleCallback(loadMarketing, { timeout: 5000 });
+      } else {
+        w.setTimeout(loadMarketing, cfg.delay);
+      }
+    }
+
+    ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function(eventName) {
+      w.addEventListener(eventName, loadMarketing, { once: true, passive: true });
+    });
+    w.addEventListener('load', function() {
+      w.setTimeout(idleLoad, cfg.delay);
+    }, { once: true });
+  })(window, document);
+</script>
+<meta name='impact-site-verification' value='32715504-1cfb-4324-bfc7-ae4cfa1591ea'>
+<link rel="preload" href="/fonts/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-sans-italic-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Wordineer",
+  "url": "https://wordineer.com"
+}
+</script>
+<title>1000+ Random Polish Names Generator | Wordineer</title>
+<meta name="description" content="Generate authentic Polish names — Traditional classics (Henryk, Zofia) or Modern favorites (Jakub, Marta). Filter by gender, era, and first letter. Includes meanings and pronunciation. Free, no sign-up.">
+<link rel="canonical" href="https://wordineer.com/random-polish-name-generator/">
+<meta property="og:type"        content="website">
+<meta property="og:site_name"   content="Wordineer">
+<meta property="og:title"       content="1000+ Random Polish Names Generator | Wordineer">
+<meta property="og:description" content="Generate authentic Polish names — Traditional classics (Henryk, Zofia) or Modern favorites (Jakub, Marta). Filter by gender, era, and first letter.">
+<meta property="og:url"         content="https://wordineer.com/random-polish-name-generator/">
+<meta property="og:image"       content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a random Polish name generator?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A tool that generates real Polish given names, surnames, or full names from a curated dataset of 1000+ authentic names. Each name includes its meaning and English-friendly pronunciation guide." }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between Traditional and Modern Polish names?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Traditional names (Henryk, Stanisław, Zofia) were most popular in the 18th–20th centuries and carry a sense of Polish history and literary tradition. Modern names (Jakub, Marta, Filip) have risen in popularity since the 1970s and reflect contemporary Polish usage. Choose Traditional for historical fiction; Modern for contemporary stories." }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do Polish surnames end in -ski?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The -ski suffix is one of the most common Polish surname endings and originally meant 'of/from' — for example, Kowalski meant 'of the smith' (kowal = smith). Other common endings are -ak, -czyk, and -wicz. These endings reflect the name's origin: occupation, place, or patronymic tradition." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use these names in my book?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. All names here are real names from Polish traditions and culture. Names themselves are not copyrightable, so you can use them freely in fiction, screenplays, games, and other creative projects." }
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="/styles/global.css?v=3">
+<style>
+.tool-wrap  { max-width:960px; margin:0 auto; padding:24px 24px 0; }
+.tool-card  { border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg); box-shadow:var(--shadow); }
+.tool-split { display:flex; }
+.ctrl       { width:300px; padding:18px; border-right:1px solid var(--border-2); background:var(--bg-2); flex-shrink:0; }
+.ctrl-row   { margin-bottom:14px; }
+.ctrl-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; display:block; margin-bottom:5px; }
+.ctrl-row input, .ctrl-row select { width:100%; padding:7px 10px; font-size:13px; font-family:inherit; border:1px solid var(--border); border-radius:7px; background:var(--bg); color:var(--text); appearance:none; outline:none; transition:border-color .15s; }
+.ctrl-row input:focus, .ctrl-row select:focus { border-color:var(--brand); }
+.def-row    { display:flex; align-items:center; gap:8px; margin-bottom:14px; }
+.def-row label { font-size:12px; color:var(--text-2); cursor:pointer; }
+.toggle     { position:relative; width:32px; height:18px; flex-shrink:0; }
+.toggle input { opacity:0; width:0; height:0; }
+.toggle-sl  { position:absolute; cursor:pointer; inset:0; background:var(--border); border-radius:9px; transition:.2s; }
+.toggle input:checked + .toggle-sl { background:var(--brand); }
+.toggle-sl::before { content:''; position:absolute; width:14px; height:14px; left:2px; top:2px; background:white; border-radius:50%; transition:.2s; }
+.toggle input:checked + .toggle-sl::before { transform:translateX(14px); }
+.gen-btn    { width:100%; padding:10px 14px; background:var(--brand); color:white; border:none; border-radius:8px; font-size:14px; font-weight:600; font-family:inherit; cursor:pointer; transition:background .15s,transform .1s; letter-spacing:-.01em; }
+.gen-btn:hover { background:var(--brand-dark); }
+.gen-btn:active { transform:scale(.98); }
+.reset-btn  { display:block; width:100%; text-align:center; font-size:11px; color:var(--text-3); margin-top:8px; cursor:pointer; text-decoration:underline; text-underline-offset:2px; border:none; background:none; font-family:inherit; }
+.kbd        { text-align:center; font-size:10px; color:var(--text-3); margin-top:6px; }
+.kbd kbd    { background:var(--bg-3); border:1px solid var(--border); border-radius:3px; padding:1px 5px; font-size:10px; font-family:inherit; }
+.ng-mobile-toggle { display:none; width:100%; margin:-2px 0 14px; padding:9px 12px; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--brand); font-size:13px; font-weight:600; font-family:inherit; cursor:pointer; }
+.ng-advanced { display:block; }
+.result-area { flex:1; min-width:0; padding:18px; }
+.result-top { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:12px; }
+.result-count { font-size:13px; color:var(--text-3); }
+.actions { display:flex; gap:8px; flex-wrap:wrap; }
+.btn-small { padding:8px 11px; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--text); font-size:13px; cursor:pointer; }
+.word-list { list-style:none; padding:0; margin:0; display:grid; gap:10px; }
+.word-item { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; padding:14px; border:1px solid var(--border); border-radius:8px; background:var(--bg); }
+.word-left { min-width:0; }
+.word-text { font-size:22px; line-height:1.2; font-weight:750; color:var(--text); margin-bottom:6px; }
+.ng-meaning { font-size:13px; color:var(--text-2); line-height:1.45; margin-top:6px; }
+.png-badges { display:flex; flex-wrap:wrap; gap:5px; }
+.png-badge { display:inline-flex; align-items:center; padding:3px 7px; border-radius:999px; background:#EAF1FF; color:#1C4D8C; font-size:11px; font-weight:700; text-transform:capitalize; }
+.png-badge--type { background:#F0EEF9; color:#534AB7; }
+.word-right { display:flex; gap:6px; flex-shrink:0; }
+.icon-btn { width:34px; height:34px; display:inline-flex; align-items:center; justify-content:center; border:none; border-radius:8px; background:var(--bg); color:var(--text-2); cursor:pointer; }
+.icon-btn svg { width:16px; height:16px; }
+.icon-btn.saved { color:#E24B4A; background:#FFF5F5; }
+.saved-panel { margin-top:18px; padding:14px; border:1px solid var(--border); border-radius:8px; background:var(--bg-2); }
+.saved-title { font-size:13px; font-weight:700; color:var(--text); margin-bottom:10px; }
+.saved-tags { display:flex; flex-wrap:wrap; gap:7px; }
+.saved-tags span { display:inline-flex; align-items:center; gap:6px; padding:6px 8px; border:1px solid var(--border); border-radius:999px; background:var(--bg); font-size:12px; }
+.saved-tags button { border:0; background:transparent; color:var(--text-3); cursor:pointer; padding:0; }
+.content-section { max-width:900px; margin:34px auto 0; padding:0 24px; }
+.content-section h2 { margin:0 0 10px; font-size:26px; line-height:1.2; }
+.content-section p { color:var(--text-2); line-height:1.7; }
+.content-section a { color:var(--brand); text-decoration:underline; text-underline-offset:3px; }
+.content-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; margin-top:18px; }
+.content-box { border:1px solid var(--border); border-radius:8px; padding:16px; background:var(--bg); }
+.content-box h3 { margin:0 0 8px; font-size:17px; }
+
+@media (max-width: 760px) {
+  .hero--tool .hero-copy p { display:none; }
+  .tool-wrap { padding:16px 14px 0; }
+  .tool-split { display:block; }
+  .ctrl { width:100%; border-right:none; border-bottom:1px solid var(--border-2); }
+  .ng-mobile-toggle { display:block; margin:10px 0 14px; }
+  .ng-advanced { display:none; }
+  .reset-btn, .kbd { display:none; }
+  .ng-advanced.is-open { display:block; }
+  .result-top { align-items:flex-start; flex-direction:column; }
+  .word-item { align-items:flex-start; }
+  .word-text { font-size:20px; }
+  .content-grid { grid-template-columns:1fr; }
+}
+</style>
+</head>
+
+<body>
+<nav class="nav">
+  <a class="nav-logo" href="/">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 15 15" fill="none"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </div>
+    Wordineer
+  </a>
+  <div class="nav-links">
+    <a href="/tools/">Tools</a>
+    <a href="/blog/">Blog</a>
+  </div>
+  <div>
+    <button class="hamburger" type="button" aria-label="All tools" aria-controls="mega" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mega" id="mega">
+  <div class="mega-inner">
+    <div class="mega-col">
+      <div class="mega-cat">Word tools</div>
+      <a class="mega-link" href="/random-sentence-generator/">Random sentence</a>
+      <a class="mega-link" href="/random-letter-generator/">Random letter</a>
+      <a class="mega-link" href="/word-scramble/">Word Scramble</a>
+      <a class="mega-link" href="/word-unscramble/">Word Unscramble</a>
+      <a class="mega-link" href="/word-of-the-day/">Word of the day</a>
+      <a class="mega-link" href="/passphrase-generator/">Passphrase gen</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Name generators</div>
+      <a class="mega-link" href="/random-name-generator/">Random Name Generator</a>
+      <a class="mega-link" href="/username-generator/">Username Generator</a>
+      <a class="mega-link" href="/baby-name-finder/">Baby Name Generator</a>
+      <a class="mega-link" href="/pet-name-generator/">Pet Name Generator</a>
+      <a class="mega-link active" href="/random-polish-name-generator/">Polish name generator</a>
+      <a class="mega-link" href="/band-name-generator/">Band Name Generator</a>
+      <a class="mega-link" href="/name-generators/">More Name Gen Tools</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Number &amp; chance</div>
+      <a class="mega-link" href="/random-number-generator/">Random number</a>
+      <a class="mega-link" href="/dice-roller/">Dice roller</a>
+      <a class="mega-link" href="/coin-flip/">Coin flip</a>
+      <a class="mega-link" href="/lucky-number/">Lucky number</a>
+      <a class="mega-link" href="/list-shuffler/">List shuffler</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Games &amp; fun</div>
+      <a class="mega-link" href="/pictionary-word-generator/">Pictionary words</a>
+      <a class="mega-link" href="/charades-generator/">Charades gen</a>
+      <a class="mega-link" href="/truth-or-dare/">Truth or dare</a>
+      <a class="mega-link" href="/would-you-rather/">Would you rather</a>
+      <a class="mega-link" href="/story-prompts/">Story prompts</a>
+    </div>
+  </div>
+</div>
+
+<section class="hero hero--tool">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <span class="hero-badge">Free &middot; No sign-up &middot; Instant</span>
+      <h1>Random Polish Name Generator</h1>
+      <p>Generate authentic Polish names — Traditional classics (Henryk, Zofia) or Modern favorites (Jakub, Marta). Filter by gender, era, and first letter. Includes meanings and pronunciation.</p>
+    </div>
+  </div>
+</section>
+<main class="tool-wrap">
+  <section class="tool-card" aria-label="Random Polish name generator">
+    <div class="tool-split">
+      <div class="ctrl">
+        <div class="ctrl-row">
+          <label class="ctrl-label" for="png-count">Number of names</label>
+          <input type="number" id="png-count" value="10" min="1" max="50" inputmode="numeric">
+        </div>
+
+        <button type="button" class="ng-mobile-toggle" id="png-mobile-toggle" aria-expanded="false" aria-controls="png-advanced">More options</button>
+
+        <div class="ng-advanced" id="png-advanced">
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="png-type">Name type</label>
+            <select id="png-type">
+              <option value="given">Given name only</option>
+              <option value="full">Full name</option>
+              <option value="surname">Surname only</option>
+            </select>
+          </div>
+
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="png-gender">Gender</label>
+            <select id="png-gender">
+              <option value="any">Any</option>
+              <option value="f">Female</option>
+              <option value="m">Male</option>
+            </select>
+          </div>
+
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="png-era">Era</label>
+            <select id="png-era">
+              <option value="any">Any era</option>
+              <option value="traditional">Traditional (Pre-1970s)</option>
+              <option value="modern">Modern (1970s+)</option>
+            </select>
+          </div>
+
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="png-letter">Starts with</label>
+            <select id="png-letter">
+              <option value="any">Any letter</option>
+              <option value="a">A</option><option value="b">B</option><option value="c">C</option><option value="d">D</option>
+              <option value="e">E</option><option value="f">F</option><option value="g">G</option><option value="h">H</option>
+              <option value="i">I</option><option value="j">J</option><option value="k">K</option><option value="l">L</option>
+              <option value="m">M</option><option value="n">N</option><option value="o">O</option><option value="p">P</option>
+              <option value="q">Q</option><option value="r">R</option><option value="s">S</option><option value="t">T</option>
+              <option value="u">U</option><option value="v">V</option><option value="w">W</option><option value="x">X</option>
+              <option value="y">Y</option><option value="z">Z</option>
+              <option value="ł">Ł</option><option value="ń">Ń</option><option value="ó">Ó</option><option value="ś">Ś</option><option value="ź">Ź</option><option value="ż">Ż</option>
+            </select>
+          </div>
+
+          <div class="def-row">
+            <label class="toggle" aria-label="Show meanings"><input type="checkbox" id="png-defs" checked><span class="toggle-sl"></span></label>
+            <label for="png-defs">Show meanings</label>
+          </div>
+        </div>
+
+        <button class="gen-btn" id="png-gen-btn">Generate names</button>
+        <button class="reset-btn" id="png-reset-btn">Reset options</button>
+        <div class="kbd">Press <kbd>Space</kbd> to regenerate</div>
+      </div>
+
+      <div class="result-area">
+        <div class="result-top">
+          <span class="result-count" id="png-count-display">Generating...</span>
+          <div class="actions">
+            <button class="btn-small" id="png-copy-all-btn">Copy all</button>
+          </div>
+        </div>
+        <ul class="word-list" id="png-list"></ul>
+
+        <div class="saved-panel">
+          <div class="saved-title">Saved names</div>
+          <div class="saved-top" style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px;">
+            <span class="saved-label">Tap the heart on a name to save it here</span>
+            <button class="saved-copy" id="png-copy-saved-btn">Copy saved</button>
+          </div>
+          <div class="saved-tags" id="png-saved-tags">
+            <span class="saved-empty">Click the heart on any name to save it here</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="content-wrap">
+  <div class="section">
+    <h2 class="section-title">More word tools</h2>
+    <p class="section-sub">Every name generator you need, all free</p>
+    <div class="tools-grid">
+      <a class="tool-item" href="/random-british-name-generator/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="3" width="9" height="7" rx="1.2" fill="#F8F7FF" stroke="#534AB7" stroke-width=".9"/><path d="M2.6 3.5l7.8 6M10.4 3.5l-7.8 6" stroke="#B44A61" stroke-width=".75" stroke-linecap="round"/><path d="M6.5 3.2v6.6M2.3 6.5h8.4" stroke="#534AB7" stroke-width="1.1" stroke-linecap="round"/></svg></div><div class="tool-name">Random British Name</div><div class="tool-desc">British first names and surnames.</div></a>
+      <a class="tool-item" href="/random-japanese-name-generator/"><div class="tool-icon" style="background:#FBEAF0"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="3" width="9" height="7" rx="1.2" fill="#FFF9FB" stroke="#993556" stroke-width=".9"/><circle cx="6.5" cy="6.5" r="1.75" fill="#C7435B"/></svg></div><div class="tool-name">Random Japanese Name</div><div class="tool-desc">Japanese names with cultural detail.</div></a>
+      <a class="tool-item" href="/random-american-name-generator/"><div class="tool-icon" style="background:#E1F5EE"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="3" width="9" height="7" rx="1.2" fill="#F7FFFC" stroke="#0F6E56" stroke-width=".9"/><path d="M2.6 4.4h7.8M2.6 6.2h7.8M2.6 8h7.8" stroke="#B23B4B" stroke-width=".75" stroke-linecap="round"/><rect x="2.6" y="3.6" width="3.7" height="3.5" rx=".5" fill="#0F6E56"/></svg></div><div class="tool-name">Random American Name</div><div class="tool-desc">American names by style and era.</div></a>
+      <a class="tool-item" href="/random-filipino-name-generator/"><div class="tool-icon" style="background:#FAEEDA"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="3" width="9" height="7" rx="1.2" fill="#FFF9EE" stroke="#854F0B" stroke-width=".9"/><path d="M4.6 3.5h5.8v3H4.6z" fill="#2758A8"/><path d="M4.6 6.5h5.8v3H4.6z" fill="#B53A3A"/><path d="M2.5 3.6l3.6 2.9-3.6 2.9z" fill="#FFF6D8" stroke="#854F0B" stroke-width=".45"/><circle cx="3.7" cy="6.5" r=".55" fill="#D6A11E"/></svg></div><div class="tool-name">Random Filipino Name</div><div class="tool-desc">Filipino names with meanings.</div></a>
+      <a class="tool-item" href="/random-baby-name-generator/"><div class="tool-icon" style="background:#EAF3DE"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4" r="2.2" stroke="#3B6D11" stroke-width="1.1"/><path d="M1.5 11.5c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="#3B6D11" stroke-width="1.1" stroke-linecap="round"/></svg></div><div class="tool-name">Random Baby Name</div><div class="tool-desc">Baby name ideas and inspiration.</div></a>
+      <a class="tool-item" href="/name-generators/"><div class="tool-icon" style="background:#EAF0F6"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4" r="2.2" stroke="#2F4F6F" stroke-width="1.1"/><path d="M1.5 11.5c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="#2F4F6F" stroke-width="1.1" stroke-linecap="round"/></svg></div><div class="tool-name">More Name Tools</div><div class="tool-desc">Browse every name generator.</div></a>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div>
+    <h2 class="section-title">Other tools</h2>
+    <p class="section-sub">Numbers, names, games and more</p>
+    <div class="other-grid">
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="1" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="1" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/></svg>Number &amp; chance</div><a class="other-link" href="/random-number-generator/">Random number generator</a><a class="other-link" href="/dice-roller/">Dice roller — 4,6,8,12,20 sided</a><a class="other-link" href="/coin-flip/">Coin flip simulator</a><a class="other-link" href="/lucky-number/">Lucky number picker</a><a class="other-link" href="/list-shuffler/">Random list shuffler</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4.5" r="2.5" stroke="currentColor" stroke-width="1"/><path d="M1.5 11.5c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Name generators</div><a class="other-link" href="/random-name-generator/">Random Name Generator</a><a class="other-link" href="/username-generator/">Username Generator</a><a class="other-link" href="/baby-name-finder/">Baby Name Generator</a><a class="other-link" href="/pet-name-generator/">Pet Name Generator</a><a class="other-link" href="/band-name-generator/">Band Name Generator</a><a class="other-link" href="/name-generators/">More Name Gen Tools</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3h9M2 6.5h7M2 10h5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Text &amp; writing</div><a class="other-link" href="/lorem-ipsum/">Lorem ipsum generator</a><a class="other-link" href="/password-generator/">Password generator</a><a class="other-link" href="/acronym-maker/">Acronym maker</a><a class="other-link" href="/random-quote/">Random quote generator</a><a class="other-link" href="/story-prompts/">Story prompt generator</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M6.5 1.5l1.3 3h3.2l-2.6 2 1 3-2.9-1.8-2.9 1.8 1-3-2.6-2h3.2z" stroke="currentColor" stroke-width="1" stroke-linejoin="round"/></svg>Games &amp; fun</div><a class="other-link" href="/pictionary-word-generator/">Pictionary word generator</a><a class="other-link" href="/charades-generator/">Charades generator</a><a class="other-link" href="/truth-or-dare/">Truth or dare gen</a><a class="other-link" href="/would-you-rather/">Would you rather</a><a class="other-link" href="/trivia-questions/">Trivia question gen</a></div>
+    </div>
+  </div>
+
+  <div class="ad-rect">
+    <span class="ad-tag">Advertisement · 336×280</span>
+    <div class="ad-rect-img"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4C10.3 4 4 10.3 4 18s6.3 14 14 14 14-6.3 14-14S25.7 4 18 4z" fill="white" opacity=".2"/><path d="M12 18c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="18" r="2.5" fill="white"/></svg></div>
+    <div class="ad-rect-content">
+      <div class="ad-rect-title">Grammarly — write with confidence</div>
+      <div class="ad-rect-body">Instantly improve grammar, spelling, clarity, and tone. Works everywhere you write online.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
+    </div>
+  </div>
+  <div class="divider"></div>
+
+<section class="content">
+  <h2>How it works</h2>
+  <p>This generator creates authentic Polish names for writers, game makers, character developers, and parents seeking baby names. It draws from 1000+ real Polish given names and surnames, each with meaning and pronunciation.</p>
+  <p><strong>Choose your era:</strong> Traditional names (Henryk, Stanisław, Zofia) carry the weight of Polish history and literary tradition — best for historical fiction or characters with deep roots. Modern names (Jakub, Marta, Filip) reflect contemporary Polish usage since the 1970s.</p>
+  <p><strong>Start with first names:</strong> Most users scan first-name ideas quickly before committing to a full character name. The default "Given name" mode shows you clean, fast options. Switch to "Full name" for complete names with both given and surname.</p>
+  <p><strong>Meanings and pronunciation:</strong> Each name includes its cultural meaning (from etymology, saints, places) and a phonetic pronunciation guide so you can use the name confidently even if you don't speak Polish.</p>
+</section>
+
+<section class="content">
+  <h2>Who uses this?</h2>
+  <p>Writers building Polish characters for novels, short stories, or screenplays. Game designers and worldbuilders creating characters and NPCs. Parents seeking authentic Polish baby names. Students researching Polish naming traditions and language.</p>
+</section>
+  <div class="divider"></div>
+
+<section class="content">
+  <h2>Frequently asked questions</h2>
+
+  <details>
+    <summary>What is a random Polish name generator?</summary>
+    <p>A tool that generates real Polish given names, surnames, or full names from a curated dataset of 1000+ authentic names. Each name includes its meaning and English-friendly pronunciation guide, making it easy to use Polish names confidently in your writing or creative projects.</p>
+  </details>
+
+  <details>
+    <summary>What's the difference between Traditional and Modern Polish names?</summary>
+    <p>Traditional names (Henryk, Stanisław, Zofia) were most popular in the pre-1970s era and carry a sense of Polish history and literary tradition — perfect for historical fiction or characters with deep cultural roots. Modern names (Jakub, Marta, Filip) have risen in popularity since the 1970s and reflect contemporary Polish usage. Choose Traditional for period pieces; Modern for contemporary stories.</p>
+  </details>
+
+  <details>
+    <summary>Why do Polish surnames end in -ski?</summary>
+    <p>The -ski suffix is one of the most common Polish surname endings and originally meant "of/from" — for example, Kowalski meant "of the smith" (kowal = smith). Other common endings are -ak, -czyk, and -wicz. These endings reflect the name's origin: occupation, place of residence, or patronymic tradition. Understanding these patterns helps you recognize and create authentic-sounding Polish names.</p>
+  </details>
+
+  <details>
+    <summary>Can I use these names in my book?</summary>
+    <p>Yes. All names here are real names from Polish traditions and culture. Names themselves are not copyrightable, so you can use them freely in fiction, screenplays, games, and other creative projects. The meanings and pronunciations are cultural glosses meant to help you understand and use the names authentically.</p>
+  </details>
+
+</section>
+  <div class="divider"></div>
+
+<div>
+  <h2 class="section-title" style="margin-bottom:14px">Who uses Wordineer</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">Writers</div><div class="uc-body">Find Polish character names with meaning notes that fit a story's era, tone, and setting — from historical epics to contemporary fiction.</div></div>
+    <div class="uc"><div class="uc-title">Game Masters</div><div class="uc-body">Generate NPCs, nobles, merchants, and modern Polish characters quickly during campaign prep or live sessions.</div></div>
+    <div class="uc"><div class="uc-title">Genealogists</div><div class="uc-body">Browse authentic Polish name forms and naming patterns to understand historical traditions in Polish family research.</div></div>
+    <div class="uc"><div class="uc-title">Game Developers</div><div class="uc-body">Build shortlists for character rosters, RPGs set in Poland, and historical worldbuilding documents from a verified name dataset.</div></div>
+  </div>
+</div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="ad-footer-strip" style="margin-bottom:24px">
+      <span class="ad-tag">Advertisement · 468×60</span>
+      <div class="ad-fs-text"><strong>Grammarly Premium</strong> — Vocabulary suggestions, tone detector, full-sentence rewrites.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-footer-strip-cta">Try free</a>
+    </div>
+    <div class="footer-grid">
+      <div><div class="footer-col-title">Word tools</div><a class="footer-link" href="/">Random word generator</a><a class="footer-link" href="/random-sentence-generator/">Random sentence</a><a class="footer-link" href="/random-letter-generator/">Random letter</a><a class="footer-link" href="/word-scramble/">Word Scramble</a><a class="footer-link" href="/word-of-the-day/">Word of the day</a><a class="footer-link" href="/passphrase-generator/">Passphrase gen</a></div>
+      <div><div class="footer-col-title">Name generators</div><a class="footer-link" href="/random-name-generator/">Random name gen</a><a class="footer-link" href="/username-generator/">Username generator</a><a class="footer-link" href="/fantasy-name-generator/">Fantasy name gen</a><a class="footer-link" href="/baby-name-finder/">Baby name finder</a><a class="footer-link" href="/pet-name-generator/">Pet name gen</a><a class="footer-link" href="/random-polish-name-generator/">Polish names</a><a class="footer-link" href="/name-generators/">More Name Gen Tools</a></div>
+      <div><div class="footer-col-title">Number &amp; chance</div><a class="footer-link" href="/random-number-generator/">Random number</a><a class="footer-link" href="/dice-roller/">Dice roller</a><a class="footer-link" href="/coin-flip/">Coin flip</a><a class="footer-link" href="/lucky-number/">Lucky number</a><a class="footer-link" href="/list-shuffler/">List shuffler</a></div>
+      <div><div class="footer-col-title">Games &amp; fun</div><a class="footer-link" href="/pictionary-word-generator/">Pictionary words</a><a class="footer-link" href="/charades-generator/">Charades gen</a><a class="footer-link" href="/truth-or-dare/">Truth or dare</a><a class="footer-link" href="/would-you-rather/">Would you rather</a><a class="footer-link" href="/story-prompts/">Story prompts</a></div>
+    </div>
+    <div class="footer-bottom">
+      <div style="display:flex;align-items:center;gap:7px">
+        <div class="nav-logo-icon" style="width:22px;height:22px;border-radius:5px"><svg viewBox="0 0 15 15" fill="none" style="width:12px;height:12px"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <span style="font-size:14px;font-weight:600;color:var(--text)">Wordineer</span>
+      </div>
+      <span class="footer-copy">© 2026 Wordineer · Free word tools for everyone</span>
+      <div class="footer-meta"><a href="/about/">About</a><a href="/blog/">Blog</a><a href="/affiliate-disclosure/">Affiliate disclosure</a><a href="/privacy/">Privacy</a></div>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="/scripts/tool-engine.js?v=10"></script>
+<script>
+(function bindSharedWordineerMenu() {
+  const mega = document.getElementById('mega');
+  const hbg = document.querySelector('.hamburger');
+  if (!mega || !hbg) return;
+  if (hbg.dataset.menuBound === '1') return;
+  hbg.dataset.menuBound = '1';
+  hbg.onclick = null;
+  if (hbg.getAttribute('onclick')) hbg.removeAttribute('onclick');
+
+  function setMenu(open) {
+    mega.classList.toggle('open', open);
+    hbg.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+
+  setMenu(mega.classList.contains('open'));
+
+  hbg.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+    setMenu(!mega.classList.contains('open'));
+  }, true);
+
+  hbg.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+      setMenu(!mega.classList.contains('open'));
+    }
+  }, true);
+
+  document.addEventListener('click', function(e) {
+    if (mega.classList.contains('open') && !mega.contains(e.target) && !hbg.contains(e.target)) {
+      setMenu(false);
+    }
+  }, true);
+})();
+</script>
+
+<script src="/scripts/tool-engine.js"></script>
+<script>
+const PNG_ERA_LABELS = {
+  traditional: 'Traditional',
+  modern: 'Modern'
+};
+
+let pngData = { given: [], surnames: [] };
+let pngReady = false;
+let pngCurrentItems = [];
+
+function pngEsc(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function pngShuffle(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function pngCount() {
+  const v = parseInt(document.getElementById('png-count')?.value, 10);
+  if (isNaN(v)) return 10;
+  return Math.max(1, Math.min(50, v));
+}
+
+function pngHasEra(eras, selected) {
+  return selected === 'any' || (Array.isArray(eras) && eras.includes(selected));
+}
+
+function pngDefsVisible() {
+  return document.getElementById('png-defs')?.checked !== false;
+}
+
+function pngNormalizeGiven(entry) {
+  if (!entry || typeof entry !== 'object') return null;
+  const name = String(entry.name || '').trim();
+  if (!name) return null;
+  const gender = String(entry.gender || 'm').trim();
+  const eras = Array.isArray(entry.eras) ? entry.eras : [];
+  const meaning = String(entry.meaning || '').trim();
+  const pronunciation = String(entry.pronunciation || '').trim();
+  return [name, gender, eras, meaning, pronunciation];
+}
+
+function pngNormalizeSurname(entry) {
+  if (!entry || typeof entry !== 'object') return null;
+  const name = String(entry.name || '').trim();
+  if (!name) return null;
+  const eras = Array.isArray(entry.eras) ? entry.eras : [];
+  const meaning = String(entry.meaning || '').trim();
+  const pronunciation = String(entry.pronunciation || '').trim();
+  return { name, eras, meaning, pronunciation };
+}
+
+function pngNoResultsItem() {
+  return {
+    display: 'No matching Polish names found',
+    meaning: 'Try a broader era, gender, or starting letter.',
+    pronunciation: '',
+    era: '',
+    noResult: true
+  };
+}
+
+function pngCurrentFilterValues() {
+  return {
+    type: document.getElementById('png-type')?.value || 'given',
+    gender: document.getElementById('png-gender')?.value || 'any',
+    era: document.getElementById('png-era')?.value || 'any',
+    letter: document.getElementById('png-letter')?.value || 'any'
+  };
+}
+
+function pngGenerateFn(data) {
+  if (!pngReady || !data.given.length || !data.surnames.length) {
+    return [{ display: 'Loading Polish names...', meaning: 'Please wait while the name data loads.', pronunciation: '', era: '' }];
+  }
+
+  const filters = pngCurrentFilterValues();
+  const limit = pngCount();
+  const letter = filters.letter === 'any' ? '' : filters.letter.toUpperCase();
+
+  const givenPool = data.given.filter(function(n) {
+    if (filters.gender !== 'any' && n[1] !== filters.gender) return false;
+    if (!pngHasEra(n[2], filters.era)) return false;
+    if (letter && !n[0].toUpperCase().startsWith(letter)) return false;
+    return true;
+  });
+
+  const surnamePool = data.surnames.filter(function(s) {
+    if (!pngHasEra(s.eras, filters.era)) return false;
+    return true;
+  });
+
+  if (filters.type === 'given' && !givenPool.length) return [pngNoResultsItem()];
+  if (filters.type === 'surname' && !surnamePool.length) return [pngNoResultsItem()];
+  if (filters.type === 'full' && (!givenPool.length || !surnamePool.length)) return [pngNoResultsItem()];
+
+  const sg = pngShuffle(givenPool);
+  const ss = pngShuffle(surnamePool);
+  const results = [];
+  const seen = new Set();
+  let gi = 0;
+  let si = 0;
+  let guard = 0;
+
+  while (results.length < limit && guard < limit * 40) {
+    guard++;
+
+    if (filters.type === 'given') {
+      const given = sg[gi++ % sg.length];
+      if (!given) break;
+      const display = given[0];
+      if (seen.has(display)) continue;
+      seen.add(display);
+      const bestEra = given[2][0] || '';
+      const meaning = given[3] ? given[3] + (given[4] ? ' — ' + given[4] : '') : '';
+      results.push({ display, meaning, pronunciation: given[4] || '', era: bestEra, kind: 'given' });
+      continue;
+    }
+
+    if (filters.type === 'surname') {
+      const sur = ss[si++ % ss.length];
+      if (!sur) break;
+      const display = sur.name;
+      if (letter && !display.toUpperCase().startsWith(letter)) continue;
+      if (seen.has(display)) continue;
+      seen.add(display);
+      const bestEra = sur.eras[0] || '';
+      const meaning = sur.meaning ? sur.meaning + (sur.pronunciation ? ' — ' + sur.pronunciation : '') : '';
+      results.push({ display, meaning, pronunciation: sur.pronunciation || '', era: bestEra, kind: 'surname' });
+      continue;
+    }
+
+    const given = sg[gi++ % sg.length];
+    const sur = ss[si++ % ss.length];
+    if (!given || !sur) break;
+    if (letter && !given[0].toUpperCase().startsWith(letter)) continue;
+    const display = given[0] + ' ' + sur.name;
+    if (seen.has(display)) continue;
+    seen.add(display);
+    const bestEra = given[2][0] || sur.eras[0] || '';
+    const givenMeaning = given[3] || '';
+    const surnameMeaning = sur.meaning || '';
+    const givenPronun = given[4] || '';
+    const surnamePronun = sur.pronunciation || '';
+    let meaning = '';
+    if (givenMeaning && surnameMeaning) {
+      meaning = givenMeaning + '; ' + surnameMeaning;
+    } else {
+      meaning = givenMeaning || surnameMeaning;
+    }
+    let pronunciation = '';
+    if (givenPronun && surnamePronun) {
+      pronunciation = givenPronun + ' ' + surnamePronun;
+    } else {
+      pronunciation = givenPronun || surnamePronun;
+    }
+    const fullMeaning = meaning + (pronunciation ? ' — ' + pronunciation : '');
+    results.push({ display, meaning: fullMeaning, pronunciation, era: bestEra, kind: 'full' });
+  }
+
+  pngCurrentItems = results.slice();
+  return results.length ? results : [pngNoResultsItem()];
+}
+
+function pngRenderItem(item) {
+  if (item.noResult) {
+    return '<li class="word-item png-no-results">'
+      + '<div class="word-left">'
+      +   '<div class="word-text">' + pngEsc(item.display) + '</div>'
+      +   '<div class="ng-meaning">' + pngEsc(item.meaning) + '</div>'
+      + '</div>'
+      + '</li>';
+  }
+
+  let savedArr = [];
+  try { savedArr = JSON.parse(localStorage.getItem('wnr_saved_polish_names') || '[]'); } catch {}
+  const isSaved = savedArr.includes(item.display);
+  const safeAttr = item.display.replace(/"/g, '&quot;');
+  const safeClick = item.display.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+  const eraLabel = item.era ? '<span class="png-badge">' + pngEsc(PNG_ERA_LABELS[item.era] || item.era) + '</span>' : '';
+  const typeLabel = item.kind ? '<span class="png-badge png-badge--type">' + pngEsc(item.kind) + '</span>' : '';
+  const meaningLine = pngDefsVisible() && item.meaning ? '<div class="ng-meaning">' + pngEsc(item.meaning) + '</div>' : '';
+
+  return '<li class="word-item">'
+    + '<div class="word-left">'
+    +   '<div class="word-text">' + pngEsc(item.display) + '</div>'
+    +   '<div class="png-badges">' + eraLabel + typeLabel + '</div>'
+    +   meaningLine
+    + '</div>'
+    + '<div class="word-right">'
+    +   '<button class="icon-btn" title="Copy" onclick="pngCopyName(\'' + safeClick + '\',this)">'
+    +     '<svg viewBox="0 0 14 14" fill="none"><rect x="1" y="4" width="9" height="9.5" rx="1.5" stroke="currentColor" stroke-width="1.1"/><path d="M4.5 4V2.5A1.5 1.5 0 016 1h5.5A1.5 1.5 0 0113 2.5v7a1.5 1.5 0 01-1.5 1.5H10" stroke="currentColor" stroke-width="1.1"/></svg>'
+    +   '</button>'
+    +   '<button class="icon-btn' + (isSaved ? ' saved' : '') + '" title="' + (isSaved ? 'Unsave' : 'Save') + '" data-action="save" data-name="' + safeAttr + '">'
+    +     '<svg viewBox="0 0 16 16" fill="none"><path d="M8 13.5S2 9.5 2 5.5A3 3 0 018 4a3 3 0 016 1.5c0 4-6 8-6 8z" stroke="currentColor" stroke-width="1.3" fill="' + (isSaved ? '#E24B4A' : 'none') + '"/></svg>'
+    +   '</button>'
+    + '</div>'
+    + '</li>';
+}
+
+function pngRenderCurrentItems() {
+  const list = document.getElementById('png-list');
+  if (!list || !pngCurrentItems.length) return;
+  list.innerHTML = '';
+  pngCurrentItems.forEach(function(item) {
+    const wrapper = document.createElement('div');
+    wrapper.innerHTML = pngRenderItem(item);
+    list.appendChild(wrapper.firstElementChild || wrapper);
+  });
+}
+
+function pngCopyName(name, btn) {
+  navigator.clipboard.writeText(name).then(function() {
+    const old = btn.innerHTML;
+    btn.textContent = '✓';
+    setTimeout(function(){ btn.innerHTML = old; }, 900);
+  });
+}
+
+function pngSyncNoResultCount() {
+  setTimeout(function() {
+    const list = document.getElementById('png-list');
+    const display = document.getElementById('png-count-display');
+    if (list?.querySelector('.png-no-results') && display) display.textContent = '0 results found';
+  }, 0);
+}
+
+function pngRegenerateFromFilters() {
+  document.getElementById('png-gen-btn')?.click();
+  pngSyncNoResultCount();
+}
+
+window.pngCopyName = pngCopyName;
+
+fetch('/data/polish-names.json', { cache: 'force-cache' })
+  .then(function(res) {
+    if (!res.ok) throw new Error('Polish name data failed to load');
+    return res.json();
+  })
+  .then(function(data) {
+    pngData = {
+      given: Array.isArray(data?.given) ? data.given.map(pngNormalizeGiven).filter(Boolean) : [],
+      surnames: Array.isArray(data?.surnames) ? data.surnames.map(pngNormalizeSurname).filter(Boolean) : []
+    };
+    pngReady = true;
+    WORDINEER.init({
+      mode: 'custom',
+      data: pngData,
+      renderItem: pngRenderItem,
+      generateFn: pngGenerateFn,
+      listId: 'png-list',
+      countDisplayId: 'png-count-display',
+      generateBtnId: 'png-gen-btn',
+      copyAllBtnId: 'png-copy-all-btn',
+      savedKey: 'wnr_saved_polish_names',
+      savedListId: 'png-saved-tags'
+    });
+    pngRegenerateFromFilters();
+  })
+  .catch(function() {
+    const display = document.getElementById('png-count-display');
+    if (display) display.textContent = 'Name data could not load. Please refresh and try again.';
+  });
+
+const pngCountInput = document.getElementById('png-count');
+pngCountInput?.addEventListener('input', pngRegenerateFromFilters);
+pngCountInput?.addEventListener('change', pngRegenerateFromFilters);
+document.getElementById('png-gen-btn')?.addEventListener('click', pngSyncNoResultCount);
+document.getElementById('png-defs')?.addEventListener('change', pngRenderCurrentItems);
+['png-type','png-gender','png-era','png-letter'].forEach(function(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.addEventListener('change', pngRegenerateFromFilters);
+  el.addEventListener('input',  pngRegenerateFromFilters);
+});
+document.getElementById('png-reset-btn')?.addEventListener('click', function() {
+  document.getElementById('png-count').value = '10';
+  document.getElementById('png-type').value = 'given';
+  document.getElementById('png-gender').value = 'any';
+  document.getElementById('png-era').value = 'any';
+  document.getElementById('png-letter').value = 'any';
+  document.getElementById('png-defs').checked = true;
+  pngRegenerateFromFilters();
+});
+document.getElementById('png-mobile-toggle')?.addEventListener('click', function() {
+  const advanced = document.getElementById('png-advanced');
+  const isOpen = advanced?.classList.toggle('is-open');
+  this.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  this.textContent = isOpen ? 'Hide options' : 'More options';
+});
+
+</script>
+</body>
+</html>
