@@ -20,7 +20,7 @@ const originLabelValues = new Set();
 
 for (const item of data.given) {
   assert.strictEqual(typeof item.name, 'string', 'given name must be a string');
-  assert.ok(/^[A-Z][A-Za-z' -]+$/.test(item.name), `given name should be title case: ${item.name}`);
+  assert.ok(/^\p{Lu}[\p{L}' -]+$/u.test(item.name), `given name should be title case: ${item.name}`);
   assert.ok(['m', 'f', 'u'].includes(item.gender), `invalid gender: ${item.gender}`);
   assert.ok(Array.isArray(item.styles) && item.styles.length > 0, `${item.name} must have styles`);
   assert.ok(Array.isArray(item.themes), `${item.name} must have themes array`);
@@ -37,7 +37,7 @@ for (const item of data.given) {
 
 for (const item of data.surnames) {
   assert.strictEqual(typeof item.name, 'string', 'surname must be a string');
-  assert.ok(/^[A-Z][A-Za-z' -]+$/.test(item.name), `surname should be title case: ${item.name}`);
+  assert.ok(/^\p{Lu}[\p{L}' -]+$/u.test(item.name), `surname should be title case: ${item.name}`);
   assert.ok(Array.isArray(item.styles) && item.styles.length > 0, `${item.name} must have styles`);
   assert.ok(Array.isArray(item.themes), `${item.name} must have themes array`);
   assert.strictEqual(typeof item.meaning, 'string', `${item.name} meaning must be a string`);

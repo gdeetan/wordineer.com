@@ -63,6 +63,14 @@
 .ctrl-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; display:block; margin-bottom:5px; }
 .ctrl-row input, .ctrl-row select { width:100%; padding:7px 10px; font-size:13px; font-family:inherit; border:1px solid var(--border); border-radius:7px; background:var(--bg); color:var(--text); appearance:none; outline:none; transition:border-color .15s; }
 .ctrl-row input:focus, .ctrl-row select:focus { border-color:var(--brand); }
+.def-row    { display:flex; align-items:center; gap:8px; margin-bottom:14px; }
+.def-row label { font-size:12px; color:var(--text-2); cursor:pointer; }
+.toggle     { position:relative; width:32px; height:18px; flex-shrink:0; }
+.toggle input { opacity:0; width:0; height:0; }
+.toggle-sl  { position:absolute; cursor:pointer; inset:0; background:var(--border); border-radius:9px; transition:.2s; }
+.toggle input:checked + .toggle-sl { background:var(--brand); }
+.toggle-sl::before { content:''; position:absolute; width:14px; height:14px; left:2px; top:2px; background:white; border-radius:50%; transition:.2s; }
+.toggle input:checked + .toggle-sl::before { transform:translateX(14px); }
 .gen-btn    { width:100%; padding:10px 14px; background:var(--brand); color:white; border:none; border-radius:8px; font-size:14px; font-weight:600; font-family:inherit; cursor:pointer; transition:background .15s,transform .1s; letter-spacing:-.01em; }
 .gen-btn:hover { background:var(--brand-dark); }
 .gen-btn:active { transform:scale(.98); }
@@ -224,6 +232,10 @@
               <option>Y</option><option>Z</option>
             </select>
           </div>
+          <div class="def-row">
+            <label class="toggle" aria-label="Show definitions"><input type="checkbox" id="ng-defs" checked><span class="toggle-sl"></span></label>
+            <label for="ng-defs">Show definitions</label>
+          </div>
         </div>
 
         <button class="gen-btn" id="ng-gen-btn">Generate names</button>
@@ -287,7 +299,7 @@
 <!-- SLOT:explainer -->
 <div class="explainer">
   <h2>What is a random name generator?</h2>
-  <p>A random name generator picks real names from a curated dataset and delivers them instantly — with meanings shown under every result. Unlike a generic list, this tool lets you filter by gender, cultural origin, era, and first letter, so you can zero in on exactly the kind of name your project needs. Every result card shows the name, its origin as a badge, and a short meaning phrase drawn from the name's linguistic roots. No loading, no account required.</p>
+  <p>A random name generator picks real names from a curated dataset and delivers them instantly — with meanings shown under every result, or hidden with the Show definitions toggle. Unlike a generic list, this tool lets you filter by gender, cultural origin, era, and first letter, so you can zero in on exactly the kind of name your project needs. Every result card shows the name, its origin as a badge, and a short meaning phrase drawn from the name's linguistic roots. No loading, no account required.</p>
 
   <h2>For fiction writers: naming characters that feel authentic</h2>
   <p>Character names do quiet work in a story. A name signals class, culture, and era before a character says a word. The Origin filter is the most useful tool for writers: select Irish to get names that feel genuinely Celtic, not just vaguely fantasy-adjacent. Select German for names that carry old-world weight, Hawaiian for lyrical place-rooted names, or Japanese for names with kanji-based meanings — "radiant sunlight" for Haruki, "cherry blossom" for Sakura — that can quietly reinforce a character's symbolic role.</p>
@@ -396,6 +408,7 @@ let ngFullNameDataPromise = null;
 let ngFullNameDataScheduled = false;
 let ngFullNameDataTimer = null;
 let ngRenderedFallbackResults = false;
+let ngCurrentItems = [];
 
 async function ngLoadFullNameData() {
   if (ngFullNameDataPromise) return ngFullNameDataPromise;
@@ -509,7 +522,23 @@ function ngGenerateFn(data, cfg) {
       results.push({ display, meaning, origin: nameOrigin });
     }
   }
+  ngCurrentItems = results.slice();
   return results;
+}
+
+function ngDefsVisible() {
+  return document.getElementById('ng-defs')?.checked !== false;
+}
+
+function ngRenderCurrentItems() {
+  const list = document.getElementById('ng-list');
+  if (!list || !ngCurrentItems.length) return;
+  list.innerHTML = '';
+  ngCurrentItems.forEach(function(item) {
+    const wrapper = document.createElement('div');
+    wrapper.innerHTML = ngRenderItem(item);
+    list.appendChild(wrapper.firstElementChild || wrapper);
+  });
 }
 
 function ngRenderItem(item) {
@@ -517,13 +546,14 @@ function ngRenderItem(item) {
   try { savedArr = JSON.parse(localStorage.getItem('wnr_saved_names') || '[]'); } catch {}
   const isSaved = savedArr.includes(item.display);
   const originLabel = ORIGIN_LABELS[item.origin] || item.origin;
+  const showDefs   = ngDefsVisible();
   const safeAttr    = item.display.replace(/"/g, '&quot;');
   const safeOnclick = item.display.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
   return '<li class="word-item">'
     + '<div class="word-left">'
     +   '<div class="word-text">' + item.display + '</div>'
     +   '<span class="ng-origin">' + originLabel + '</span>'
-    +   '<div class="ng-meaning">' + item.meaning + '</div>'
+    +   (showDefs ? '<div class="ng-meaning">' + item.meaning + '</div>' : '')
     + '</div>'
     + '<div class="word-right">'
     +   '<button class="icon-btn" title="Copy" onclick="ngCopyName(\'' + safeOnclick + '\',this)">'
@@ -596,6 +626,7 @@ function ngRegenerateFromFilters() {
   document.getElementById('ng-gen-btn')?.addEventListener('click', function() {
     ngScheduleFullNameData(0);
   });
+  document.getElementById('ng-defs')?.addEventListener('change', ngRenderCurrentItems);
 
   document.addEventListener('keydown', function(e) {
     if ((e.code === 'Space' || e.code === 'Enter') && !['INPUT','SELECT','TEXTAREA','BUTTON'].includes(e.target.tagName)) {

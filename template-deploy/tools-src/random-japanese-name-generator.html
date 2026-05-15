@@ -1,4 +1,10 @@
-<!-- CONFIG { "url": "/random-japanese-name-generator/", "output": "random-japanese-name-generator.html", "type": "tool" } -->
+<!-- CONFIG {
+  "url": "/random-japanese-name-generator/",
+  "output": "random-japanese-name-generator.html",
+  "type": "tool",
+  "more_tools_key": "japanese_name_generator_tools",
+  "more_tools_subtitle": "Every name generator you need, all free"
+} -->
 
 <!-- SLOT:meta -->
 <title>Random Japanese Name Generator - Real Names &amp; Meanings | Wordineer</title>
@@ -55,6 +61,14 @@
 .ctrl-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; display:block; margin-bottom:5px; }
 .ctrl-row input, .ctrl-row select { width:100%; padding:7px 10px; font-size:13px; font-family:inherit; border:1px solid var(--border); border-radius:7px; background:var(--bg); color:var(--text); appearance:none; outline:none; transition:border-color .15s; }
 .ctrl-row input:focus, .ctrl-row select:focus { border-color:var(--brand); }
+.def-row    { display:flex; align-items:center; gap:8px; margin-bottom:14px; }
+.def-row label { font-size:12px; color:var(--text-2); cursor:pointer; }
+.toggle     { position:relative; width:32px; height:18px; flex-shrink:0; }
+.toggle input { opacity:0; width:0; height:0; }
+.toggle-sl  { position:absolute; cursor:pointer; inset:0; background:var(--border); border-radius:9px; transition:.2s; }
+.toggle input:checked + .toggle-sl { background:var(--brand); }
+.toggle-sl::before { content:''; position:absolute; width:14px; height:14px; left:2px; top:2px; background:white; border-radius:50%; transition:.2s; }
+.toggle input:checked + .toggle-sl::before { transform:translateX(14px); }
 .gen-btn    { width:100%; padding:10px 14px; background:var(--brand); color:white; border:none; border-radius:8px; font-size:14px; font-weight:600; font-family:inherit; cursor:pointer; transition:background .15s,transform .1s; letter-spacing:-.01em; }
 .gen-btn:hover { background:var(--brand-dark); }
 .gen-btn:active { transform:scale(.98); }
@@ -207,6 +221,10 @@
               <option value="romaji">Romaji only</option>
             </select>
           </div>
+          <div class="def-row">
+            <label class="toggle" aria-label="Show definitions"><input type="checkbox" id="jp-defs" checked><span class="toggle-sl"></span></label>
+            <label for="jp-defs">Show definitions</label>
+          </div>
         </div>
 
         <button type="button" class="gen-btn" id="jp-gen-btn">Generate names</button>
@@ -234,7 +252,7 @@
 <!-- SLOT:explainer -->
 <div class="explainer">
   <h2>What Is a Random Japanese Name Generator?</h2>
-  <p>A random Japanese name generator creates Japanese-style names by combining given names and family names from a curated name list. Japanese names are usually written with the family name first, so a name like Sato Haruka places Sato before Haruka. This tool helps writers, roleplayers, game creators, and name researchers find names with readable spellings, useful meanings, and simple filters.</p>
+  <p>A random Japanese name generator creates Japanese-style names by combining given names and family names from a curated name list. Japanese names are usually written with the family name first, so a name like Sato Haruka places Sato before Haruka. This tool helps writers, roleplayers, game creators, and name researchers find names with readable spellings, useful meanings, and simple filters. Use the Show definitions toggle to hide or show the meaning notes under each result.</p>
 
   <h2>How It Works</h2>
   <p>Choose the type of name you want, select a gender or style, and the results update automatically. The tool pulls matching names from a dedicated Japanese name dataset and displays each result with its romaji spelling, Japanese order, optional Japanese script, and meaning notes. Use More options on mobile to reveal extra filters without crowding the page.</p>
@@ -316,6 +334,7 @@ const JP_GIVEN_STYLES = ['modern','traditional','classic','gentle','strong','ele
 const JP_SURNAME_STYLES = ['common','traditional','classic'];
 let jpData = { given: [], surnames: [] };
 let jpReady = false;
+let jpCurrentItems = [];
 
 function jpEsc(s) {
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
@@ -345,6 +364,21 @@ function jpValidateCount() {
 }
 function jpHas(values, selected) {
   return selected === 'any' || (Array.isArray(values) && values.includes(selected));
+}
+function jpNormalizeRecord(entry, kind) {
+  if (!entry) return null;
+  if (Array.isArray(entry)) return entry;
+  if (typeof entry !== 'object') return null;
+  const romaji = String(entry.romaji || entry.name || '').trim();
+  const kana = String(entry.kana || '').trim();
+  const kanji = Array.isArray(entry.kanji) ? entry.kanji : (entry.kanji ? [entry.kanji] : []);
+  const styles = Array.isArray(entry.styles) ? entry.styles : [];
+  const themes = Array.isArray(entry.themes) ? entry.themes : [];
+  const meaning = String(entry.definition || entry.meaning || '').trim();
+  if (kind === 'given') {
+    return [romaji, kana, kanji, entry.gender || 'u', styles, themes, meaning];
+  }
+  return [romaji, kana, kanji, styles, themes, meaning];
 }
 function jpNoResultsItem() {
   return {
@@ -437,8 +471,25 @@ function jpGenerateFn(data) {
     if (order === 'both' && type === 'full') item.showBoth = true;
     results.push(item);
   }
+  jpCurrentItems = results.slice();
   return results;
 }
+
+function jpDefsVisible() {
+  return document.getElementById('jp-defs')?.checked !== false;
+}
+
+function jpRenderCurrentItems() {
+  const list = document.getElementById('jp-list');
+  if (!list || !jpCurrentItems.length) return;
+  list.innerHTML = '';
+  jpCurrentItems.forEach(function(item) {
+    const wrapper = document.createElement('div');
+    wrapper.innerHTML = jpRenderItem(item);
+    list.appendChild(wrapper.firstElementChild || wrapper);
+  });
+}
+
 function jpRenderItem(item) {
   if (item.noResult) {
     return '<li class="word-item jp-no-results">'
@@ -461,13 +512,14 @@ function jpRenderItem(item) {
   }).join('');
   const orderLine = item.showBoth ? '<div class="jp-order">Japanese order: ' + jpEsc(item.japaneseOrder) + ' | Western order: ' + jpEsc(item.westernOrder) + '</div>' : '';
   const scriptLine = item.script ? '<div class="jp-script">' + jpEsc(item.script) + '</div>' : '';
+  const showDefs = jpDefsVisible();
   return '<li class="word-item">'
     + '<div class="word-left">'
     +   '<div class="word-text">' + jpEsc(item.display) + '</div>'
     +   orderLine
     +   scriptLine
     +   '<div class="jp-badges">' + styles + themes + '</div>'
-    +   '<div class="ng-meaning">' + jpEsc(item.meaning) + '</div>'
+    +   (showDefs ? '<div class="ng-meaning">' + jpEsc(item.meaning) + '</div>' : '')
     + '</div>'
     + '<div class="word-right">'
     +   '<button class="icon-btn" title="Copy" onclick="jpCopyName(\'' + safeClick + '\',this)">'
@@ -507,7 +559,10 @@ fetch('/data/japanese-names.json', { cache: 'force-cache' })
     return res.json();
   })
   .then(function(data) {
-    jpData = data;
+    jpData = {
+      given: Array.isArray(data?.given) ? data.given.map(function(n) { return jpNormalizeRecord(n, 'given'); }).filter(Boolean) : [],
+      surnames: Array.isArray(data?.surnames) ? data.surnames.map(function(n) { return jpNormalizeRecord(n, 'surname'); }).filter(Boolean) : []
+    };
     jpReady = true;
     WORDINEER.init({
       mode:           'custom',
@@ -534,6 +589,7 @@ jpCountInput?.addEventListener('input', function() {
 });
 jpCountInput?.addEventListener('change', jpRegenerateFromFilters);
 document.getElementById('jp-gen-btn')?.addEventListener('click', jpSyncNoResultCount);
+document.getElementById('jp-defs')?.addEventListener('change', jpRenderCurrentItems);
 ['jp-type','jp-gender','jp-style','jp-theme','jp-letter','jp-order','jp-script'].forEach(function(id) {
   const el = document.getElementById(id);
   if (!el) return;

@@ -15,7 +15,7 @@ function mustInclude(haystack, needle, label) {
 }
 
 mustInclude(source, 'CONFIG { "url": "/random-scottish-name-generator/"', 'source config');
-mustInclude(source, 'Random Scottish Name Generator', 'source title');
+mustInclude(source, '1,000+ Random Scottish Names - Free Random Scottish Name Generator', 'source title');
 mustInclude(source, '/data/scottish-names.json', 'source data fetch path');
 
 for (const id of [
@@ -41,6 +41,10 @@ mustInclude(source, '<option value="given">Given name only</option>', 'default g
 mustInclude(source, 'What Is a Random Scottish Name Generator?', 'explainer heading');
 mustInclude(source, 'How It Works', 'how it works heading');
 mustInclude(source, 'Scottish Names: Modern, Gaelic, and Anglicized Forms', 'style explainer');
+mustInclude(source, 'class="explainer"', 'explainer wrapper');
+mustInclude(source, 'faq-item', 'faq accordion layout');
+mustInclude(source, 'uc-grid', 'who uses grid layout');
+mustInclude(source, 'Who uses Wordineer', 'who uses heading');
 mustInclude(source, '"@type": "FAQPage"', 'FAQ schema');
 mustInclude(source, "savedKey: 'wnr_saved_scottish_names'", 'saved key');
 mustInclude(source, 'WORDINEER.init(', 'WORDINEER init call');
@@ -52,10 +56,12 @@ for (const id of filterIds) {
 
 if (fs.existsSync(deployPath)) {
   const deploy = fs.readFileSync(deployPath, 'utf8');
-  mustInclude(deploy, 'Random Scottish Name Generator', 'deploy title');
+  mustInclude(deploy, '1,000+ Random Scottish Names - Free Random Scottish Name Generator', 'deploy title');
   mustInclude(deploy, '/data/scottish-names.json', 'deploy data fetch path');
   mustInclude(deploy, 'id="sng-count"', 'deploy count control');
   mustInclude(deploy, 'What Is a Random Scottish Name Generator?', 'deploy explainer');
+  mustInclude(deploy, 'faq-item', 'deploy faq accordion layout');
+  mustInclude(deploy, 'Who uses Wordineer', 'deploy who uses section');
   mustInclude(deploy, 'WORDINEER.init(', 'deploy WORDINEER init');
 }
 

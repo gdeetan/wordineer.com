@@ -1,4 +1,4 @@
-<!-- CONFIG { "url": "/random-filipino-name-generator/", "output": "random-filipino-name-generator.html", "type": "tool" } -->
+<!-- CONFIG { "url": "/random-filipino-name-generator/", "output": "random-filipino-name-generator.html", "type": "tool", "more_tools_key": "filipino_name_generator_tools", "more_tools_subtitle": "Every name generator you need, all free" } -->
 
 <!-- SLOT:meta -->
 <title>Random Filipino Name Generator — 280+ Names with Meanings | Wordineer</title>
@@ -98,6 +98,14 @@
 .pf-badge--modern      { background:#E8F0FE; color:#1A56DB; }
 .pf-badge--nickname    { background:#FEE8F0; color:#C41E6A; }
 .ng-meaning { font-size:12px; color:var(--text-3); margin-top:3px; font-style:italic; }
+.def-row    { display:flex; align-items:center; gap:8px; margin-bottom:14px; }
+.def-row label { font-size:12px; color:var(--text-2); cursor:pointer; }
+.toggle     { position:relative; width:32px; height:18px; flex-shrink:0; }
+.toggle input { opacity:0; width:0; height:0; }
+.toggle-sl  { position:absolute; cursor:pointer; inset:0; background:var(--border); border-radius:9px; transition:.2s; }
+.toggle input:checked + .toggle-sl { background:var(--brand); }
+.toggle-sl::before { content:''; position:absolute; width:14px; height:14px; left:2px; top:2px; background:white; border-radius:50%; transition:.2s; }
+.toggle input:checked + .toggle-sl::before { transform:translateX(14px); }
 
 .ng-mobile-toggle { display:none; width:100%; margin:-2px 0 14px; padding:9px 12px; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--brand); font-size:13px; font-weight:600; font-family:inherit; cursor:pointer; }
 .ng-advanced { display:block; }
@@ -184,6 +192,10 @@
               <option>Y</option><option>Z</option>
             </select>
           </div>
+          <div class="def-row">
+            <label class="toggle" aria-label="Show definitions"><input type="checkbox" id="pf-defs" checked><span class="toggle-sl"></span></label>
+            <label for="pf-defs">Show definitions</label>
+          </div>
         </div>
 
         <button class="gen-btn" id="pf-gen-btn">Generate names</button>
@@ -247,7 +259,7 @@
 <!-- SLOT:explainer -->
 <div class="explainer">
   <h2>What is a random Filipino name generator?</h2>
-  <p>A random Filipino name generator picks authentic Filipino names from a curated dataset and delivers them instantly — with meanings shown under every result. This tool lets you filter by gender and style (Traditional Tagalog, Spanish-colonial, Modern/Western, or Nickname form), so you can get exactly the kind of Filipino name your project needs. Every result card shows the name, its style as a badge, and a short meaning drawn from the name's cultural and linguistic roots. No loading, no account required.</p>
+  <p>A random Filipino name generator picks authentic Filipino names from a curated dataset and delivers them instantly — with meanings shown under every result, or hidden with the Show definitions toggle. This tool lets you filter by gender and style (Traditional Tagalog, Spanish-colonial, Modern/Western, or Nickname form), so you can get exactly the kind of Filipino name your project needs. Every result card shows the name, its style as a badge, and a short meaning drawn from the name's cultural and linguistic roots. No loading, no account required.</p>
 
   <h2>How Filipino names work</h2>
   <p>Filipino naming is shaped by three major influences. Pre-colonial names — like Ligaya (happiness), Bayani (hero), and Dalisay (pure) — come from Tagalog and other indigenous languages, often carrying meanings tied to nature, virtues, and emotions. Spanish colonization introduced Catholic saint names and Spanish words that became standard surnames: Santos (saints), Reyes (kings), Cruz (cross). A government decree in 1849 required Filipino families to adopt surnames from a Spanish catalogue, which is why most Filipino family names today are Spanish. In the 20th century, American influence brought a wave of English and Western names that remain common today — Faith, Angel, John, and Kevin are as Filipino as Jose and Maria. Across all these layers, Filipinos also maintain a vibrant nickname culture: almost every person has a short, playful "palayaw" used by family and close friends.</p>
@@ -312,6 +324,8 @@ const PF_STYLE_LABELS = {
   modern:      'Modern',
   nickname:    'Nickname'
 };
+
+let pfCurrentItems = [];
 
 const PF_SEED = {
   first: [
@@ -465,6 +479,7 @@ function pfGenerateFn(data) {
       results.push({ display: display, meaning: meaning, style: nameStyle });
     }
   }
+  pfCurrentItems = results.slice();
   return results;
 }
 
@@ -472,18 +487,35 @@ function pfEsc(s) {
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 
+function pfDefsVisible() {
+  return document.getElementById('pf-defs')?.checked !== false;
+}
+
+function pfRenderCurrentItems() {
+  const list = document.getElementById('pf-list');
+  if (!list) return;
+  if (!pfCurrentItems.length) return;
+  list.innerHTML = '';
+  pfCurrentItems.forEach(function(item) {
+    const wrapper = document.createElement('div');
+    wrapper.innerHTML = pfRenderItem(item);
+    list.appendChild(wrapper.firstElementChild || wrapper);
+  });
+}
+
 function pfRenderItem(item) {
   let savedArr = [];
   try { savedArr = JSON.parse(localStorage.getItem('wnr_saved_filipino_names') || '[]'); } catch {}
   const isSaved    = savedArr.includes(item.display);
   const styleLabel = PF_STYLE_LABELS[item.style] || item.style;
+  const showDefs   = pfDefsVisible();
   const safeAttr   = item.display.replace(/"/g, '&quot;');
   const safeClick  = item.display.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
   return '<li class="word-item">'
     + '<div class="word-left">'
     +   '<div class="word-text">' + pfEsc(item.display) + '</div>'
     +   '<span class="pf-badge pf-badge--' + pfEsc(item.style) + '">' + pfEsc(styleLabel) + '</span>'
-    +   '<div class="ng-meaning">' + pfEsc(item.meaning) + '</div>'
+    +   (showDefs ? '<div class="ng-meaning">' + pfEsc(item.meaning) + '</div>' : '')
     + '</div>'
     + '<div class="word-right">'
     +   '<button class="icon-btn" title="Copy" onclick="pfCopyName(\'' + safeClick + '\',this)">'
@@ -578,6 +610,10 @@ window.pfCopyName = function(name, btn) {
     const names = Array.from(tags).map(function(t) { return t.textContent.replace('×','').trim(); }).filter(Boolean);
     navigator.clipboard?.writeText(names.join('\n'));
     WORDINEER.showToast('Saved names copied!');
+  });
+
+  document.getElementById('pf-defs')?.addEventListener('change', function() {
+    pfRenderCurrentItems();
   });
 
   const toggle   = document.getElementById('pf-mobile-toggle');

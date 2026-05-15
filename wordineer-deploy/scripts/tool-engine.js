@@ -432,12 +432,34 @@ q.addEventListener('click', () => q.closest('.faq-item').classList.toggle('open'
 });
 }
 function initMega() {
-document.addEventListener('click', e => {
 const mega = document.getElementById('mega');
 const hbg  = document.querySelector('.hamburger');
 if (!mega || !hbg) return;
+if (hbg.dataset.menuBound === '1') return;
+hbg.dataset.menuBound = '1';
+hbg.onclick = null;
+if (hbg.getAttribute('onclick')) hbg.removeAttribute('onclick');
+function setMenu(open) {
+mega.classList.toggle('open', open);
+hbg.setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+setMenu(mega.classList.contains('open'));
+hbg.addEventListener('click', e => {
+e.preventDefault();
+e.stopPropagation();
+e.stopImmediatePropagation();
+setMenu(!mega.classList.contains('open'));
+});
+hbg.addEventListener('keydown', e => {
+if (e.key === 'Enter' || e.key === ' ') {
+e.preventDefault();
+e.stopImmediatePropagation();
+setMenu(!mega.classList.contains('open'));
+}
+});
+document.addEventListener('click', e => {
 if (mega.classList.contains('open') && !mega.contains(e.target) && !hbg.contains(e.target)) {
-mega.classList.remove('open');
+setMenu(false);
 }
 });
 }

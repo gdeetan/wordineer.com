@@ -1,4 +1,4 @@
-<!-- CONFIG { "url": "/random-american-name-generator/", "output": "random-american-name-generator.html", "type": "tool" } -->
+<!-- CONFIG { "url": "/random-american-name-generator/", "output": "random-american-name-generator.html", "type": "tool", "more_tools_key": "american_name_more_tools" } -->
 
 <!-- SLOT:meta -->
 <title>Random American Name Generator - 1,500+ Realistic US Names</title>
@@ -91,12 +91,23 @@
 .saved-tag-remove { cursor:pointer; opacity:.65; }
 .saved-empty { color:var(--text-3); font-size:12px; }
 .word-text { font-size:17px; font-weight:600; color:var(--text); line-height:1.25; }
-.ang-note { font-size:12px; color:var(--text-3); margin-top:4px; }
+.ang-meaning { font-size:12px; color:var(--text-2); line-height:1.45; margin-top:4px; }
+.ang-meaning-line { display:flex; gap:6px; align-items:flex-start; margin-top:4px; }
+.ang-meaning-icon { flex:0 0 auto; width:13px; height:13px; color:var(--brand); margin-top:1px; }
 .ang-chips { display:flex; flex-wrap:wrap; gap:5px; margin-top:6px; }
 .ang-chip { display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; padding:2px 7px; border-radius:999px; background:#EFF6FF; color:#1A56DB; }
+.ang-chip--era { background:#EEF2FF; color:#4338CA; }
 .ang-chip--gender { background:#F0FDF4; color:#15803D; }
 .ang-chip--style { background:#FFF7ED; color:#C2410C; }
 .ang-chip--last { background:#F5F3FF; color:#6D28D9; }
+.def-row { display:flex; align-items:center; gap:8px; margin-bottom:14px; }
+.def-row label { font-size:12px; color:var(--text-2); cursor:pointer; }
+.toggle { position:relative; width:32px; height:18px; flex-shrink:0; }
+.toggle input { opacity:0; width:0; height:0; }
+.toggle-sl { position:absolute; cursor:pointer; inset:0; background:var(--border); border-radius:9px; transition:.2s; }
+.toggle input:checked + .toggle-sl { background:var(--brand); }
+.toggle-sl::before { content:''; position:absolute; width:14px; height:14px; left:2px; top:2px; background:white; border-radius:50%; transition:.2s; }
+.toggle input:checked + .toggle-sl::before { transform:translateX(14px); }
 .ng-mobile-toggle { display:none; width:100%; margin:-2px 0 14px; padding:9px 12px; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--brand); font-size:13px; font-weight:600; font-family:inherit; cursor:pointer; }
 .ng-advanced { display:block; }
 @media(max-width:700px){
@@ -215,6 +226,11 @@
               <option value="y">Y</option><option value="z">Z</option>
             </select>
           </div>
+
+          <div class="def-row">
+            <label class="toggle" aria-label="Show meanings"><input type="checkbox" id="ang-show-meaning" checked><span class="toggle-sl"></span></label>
+            <label for="ang-show-meaning">Show meanings</label>
+          </div>
         </div>
 
         <button class="gen-btn" id="ang-gen-btn">Generate names</button>
@@ -313,6 +329,15 @@
 <script>
 const ANG_LABELS = {
   gender: { m: 'male', f: 'female', u: 'neutral' },
+  era: {
+    modern: 'modern',
+    '2000s': '2000s',
+    '1990s': '1990s',
+    '1980s': '1980s',
+    '1970s': '1970s',
+    '1950s': '1950s',
+    'early-1900s': 'early 1900s'
+  },
   style: {
     common: 'common',
     classic: 'classic',
@@ -332,6 +357,11 @@ const ANG_LABELS = {
     multicultural: 'multicultural surname'
   }
 };
+
+let angMeaningIndex = { first: new Map(), middle: new Map(), last: new Map() };
+let angGeneralMeaningIndex = { first: new Map(), middle: new Map(), last: new Map() };
+let angAmericanMeaningPromise = null;
+let angGeneralMeaningPromise = null;
 
 const FALLBACK_AMERICAN_NAMES = {
   first: [
@@ -366,12 +396,35 @@ function angMapData(raw) {
   };
 }
 
+function angMapMeaningData(raw, meaningIndexes) {
+  return {
+    first: new Map((raw.first || []).map(function(n) {
+      const key = String(n[0] || '').toLowerCase();
+      const value = String(n[meaningIndexes.first] || '').trim();
+      return [key, value];
+    }).filter(function(pair) { return pair[0] && pair[1]; })),
+    middle: new Map((raw.middle || []).map(function(n) {
+      const key = String(n[0] || '').toLowerCase();
+      const value = String(n[meaningIndexes.middle] || '').trim();
+      return [key, value];
+    }).filter(function(pair) { return pair[0] && pair[1]; })),
+    last: new Map((raw.last || []).map(function(n) {
+      const key = String(n[0] || '').toLowerCase();
+      const value = String(n[meaningIndexes.last] || '').trim();
+      return [key, value];
+    }).filter(function(pair) { return pair[0] && pair[1]; }))
+  };
+}
+
 const angActiveData = angMapData(FALLBACK_AMERICAN_NAMES);
 let angDataIsFull = false;
 let angCorePromise = null;
 let angFullPromise = null;
 let angRenderedFallback = false;
-
+let angLastResults = [];
+function angRefreshRenderedResults() {
+  if (angLastResults.length) angRenderCurrentResults(angLastResults);
+}
 function angApplyData(raw, isFull) {
   if (!Array.isArray(raw.first) || !Array.isArray(raw.middle) || !Array.isArray(raw.last)) throw new Error('Invalid data');
   const data = angMapData(raw);
@@ -409,6 +462,46 @@ async function angLoadFullData() {
     }
   })();
   return angFullPromise;
+}
+
+function angApplyAmericanMeaningData(raw) {
+  if (!raw || !Array.isArray(raw.first) || !Array.isArray(raw.middle) || !Array.isArray(raw.last)) throw new Error('Invalid meaning data');
+  angMeaningIndex = angMapMeaningData(raw, { first: 1, middle: 1, last: 1 });
+  angRefreshRenderedResults();
+}
+
+function angApplyGeneralMeaningData(raw) {
+  if (!raw || !Array.isArray(raw.first) || !Array.isArray(raw.last)) throw new Error('Invalid meaning data');
+  angGeneralMeaningIndex = angMapMeaningData(raw, { first: 4, middle: 4, last: 2 });
+  angRefreshRenderedResults();
+}
+
+async function angLoadAmericanMeaningData() {
+  if (angAmericanMeaningPromise) return angAmericanMeaningPromise;
+  angAmericanMeaningPromise = (async function() {
+    try {
+      const res = await fetch('/data/american-name-meanings.json', { cache: 'force-cache' });
+      if (!res.ok) throw new Error(res.status);
+      angApplyAmericanMeaningData(await res.json());
+    } catch (err) {
+      angAmericanMeaningPromise = null;
+    }
+  })();
+  return angAmericanMeaningPromise;
+}
+
+async function angLoadGeneralMeaningData() {
+  if (angGeneralMeaningPromise) return angGeneralMeaningPromise;
+  angGeneralMeaningPromise = (async function() {
+    try {
+      const res = await fetch('/data/names.json', { cache: 'force-cache' });
+      if (!res.ok) throw new Error(res.status);
+      angApplyGeneralMeaningData(await res.json());
+    } catch (err) {
+      angGeneralMeaningPromise = null;
+    }
+  })();
+  return angGeneralMeaningPromise;
 }
 
 function angScheduleData(preferFull) {
@@ -482,6 +575,43 @@ function angPick(arr, index) {
   return arr[index % arr.length];
 }
 
+function angUniqueLabels(values) {
+  const out = [];
+  (values || []).forEach(function(value) {
+    if (value && !out.includes(value)) out.push(value);
+  });
+  return out;
+}
+
+function angEraLabels(row, selectedEra) {
+  if (selectedEra !== 'any') return [ANG_LABELS.era[selectedEra] || selectedEra];
+  return angUniqueLabels((row.eras || []).filter(function(era) { return era && era !== 'all'; }).map(function(era) {
+    return ANG_LABELS.era[era] || era;
+  }));
+}
+
+function angMeaningFor(name, kind) {
+  const key = String(name || '').trim().toLowerCase();
+  const primary = kind === 'last' ? angMeaningIndex.last : (kind === 'middle' ? angMeaningIndex.middle : angMeaningIndex.first);
+  const fallback = kind === 'last' ? angGeneralMeaningIndex.last : angGeneralMeaningIndex.first;
+  return key ? (primary.get(key) || fallback.get(key) || '') : '';
+}
+
+function angMeaningForResult(type, first, middle, last) {
+  if (type === 'last') {
+    return angMeaningFor(last.n, 'last') || 'Surname meaning uncertain';
+  }
+  if (type === 'middle-full') {
+    const firstMeaning = angMeaningFor(first.n, 'first');
+    const middleMeaning = angMeaningFor(middle.n, 'middle');
+    const parts = [];
+    if (firstMeaning) parts.push('First: ' + firstMeaning);
+    if (middleMeaning) parts.push('Middle: ' + middleMeaning);
+    return parts.length ? parts.join(' · ') : 'Meaning uncertain';
+  }
+  return angMeaningFor(first.n, 'first') || 'Meaning uncertain';
+}
+
 function angTitleForType(type) {
   if (type === 'first') return 'American first name';
   if (type === 'last') return 'American surname';
@@ -518,36 +648,69 @@ function angGenerateFn(data) {
     const middle = angPick(middlePool, i + 3);
     const last = angPick(lastPool, i + 7);
     let display = first.n + ' ' + last.n;
-    let note = angTitleForType(type);
     let chips = [];
+    const eraChip = angEraLabels(first, era)[0] || null;
 
     if (type === 'first') {
       display = first.n;
-      note = first.note || note;
-      chips = [ANG_LABELS.gender[first.g] || first.g].concat(angStyleChips(first, style).slice(0, 2));
+      chips = [
+        { label: ANG_LABELS.gender[first.g] || first.g, kind: 'gender' },
+        eraChip ? { label: eraChip, kind: 'era' } : null
+      ].concat(angStyleChips(first, style).slice(0, 2).map(function(chip) {
+        return { label: chip, kind: 'style' };
+      }));
     } else if (type === 'last') {
       display = last.n;
-      note = last.note || note;
-      chips = angLastChips(last, lastStyle).slice(0, 2);
+      chips = angLastChips(last, lastStyle).slice(0, 2).map(function(chip) {
+        return { label: chip, kind: 'last' };
+      });
     } else if (type === 'middle-full') {
       display = first.n + ' ' + middle.n + ' ' + last.n;
-      chips = [ANG_LABELS.gender[first.g] || first.g, angPreferredStyleChip(first, style), angPreferredLastChip(last, lastStyle)];
+      chips = [
+        { label: ANG_LABELS.gender[first.g] || first.g, kind: 'gender' },
+        eraChip ? { label: eraChip, kind: 'era' } : null,
+        { label: angPreferredStyleChip(first, style), kind: 'style' },
+        { label: angPreferredLastChip(last, lastStyle), kind: 'last' }
+      ];
     } else {
-      chips = [ANG_LABELS.gender[first.g] || first.g, angPreferredStyleChip(first, style), angPreferredLastChip(last, lastStyle)];
+      chips = [
+        { label: ANG_LABELS.gender[first.g] || first.g, kind: 'gender' },
+        eraChip ? { label: eraChip, kind: 'era' } : null,
+        { label: angPreferredStyleChip(first, style), kind: 'style' },
+        { label: angPreferredLastChip(last, lastStyle), kind: 'last' }
+      ];
     }
 
     if (!seen.has(display)) {
       seen.add(display);
-      results.push({ display: display, note: note, chips: chips });
+      results.push({
+        display: display,
+        meaning: angMeaningForResult(type, first, middle, last),
+        chips: chips.filter(Boolean)
+      });
     }
     i++;
   }
 
+  angLastResults = results.slice();
   return results;
 }
 
 function angEsc(s) {
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function angRenderCurrentResults(items) {
+  const list = document.getElementById('ang-list');
+  if (!list) return;
+  const results = Array.isArray(items) ? items : [];
+  list.innerHTML = results.map(function(item) {
+    return angRenderItem(item);
+  }).join('');
+  const countDisplay = document.getElementById('ang-count-display');
+  if (countDisplay) {
+    countDisplay.textContent = results.length + ' result' + (results.length !== 1 ? 's' : '') + ' generated';
+  }
 }
 
 function angRenderItem(item) {
@@ -556,15 +719,17 @@ function angRenderItem(item) {
   const isSaved = savedArr.includes(item.display);
   const safeAttr = item.display.replace(/"/g, '&quot;');
   const safeClick = item.display.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
-  const chipHtml = (item.chips || []).filter(Boolean).slice(0, 3).map(function(chip, idx) {
-    const kind = idx === 0 ? 'gender' : (idx === 1 ? 'style' : 'last');
-    return '<span class="ang-chip ang-chip--' + kind + '">' + angEsc(chip) + '</span>';
+  const showMeaning = document.getElementById('ang-show-meaning')?.checked !== false;
+  const chipHtml = (item.chips || []).filter(Boolean).slice(0, 4).map(function(chip) {
+    const label = typeof chip === 'object' ? chip.label : chip;
+    const kind = typeof chip === 'object' && chip.kind ? chip.kind : 'style';
+    return '<span class="ang-chip ang-chip--' + kind + '">' + angEsc(label) + '</span>';
   }).join('');
   return ''
     + '<li class="word-item" data-name="' + safeAttr + '">'
     +   '<div class="word-left">'
     +     '<div class="word-text">' + angEsc(item.display) + '</div>'
-    +     '<div class="ang-note">' + angEsc(item.note) + '</div>'
+    +     (showMeaning ? '<div class="ang-meaning-line"><svg class="ang-meaning-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.2"/><path d="M8 4.8v.2M8 7.1v4.1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><div class="ang-meaning">' + angEsc(item.meaning || '') + '</div></div>' : '')
     +     '<div class="ang-chips">' + chipHtml + '</div>'
     +   '</div>'
     +   '<div class="word-right">'
@@ -601,6 +766,8 @@ window.angCopyName = function(name, btn) {
   });
 
   angScheduleData(false);
+  angLoadAmericanMeaningData();
+  angLoadGeneralMeaningData();
 
   const countInput = document.getElementById('ang-count');
   const countError = document.getElementById('ang-count-error');
@@ -622,6 +789,10 @@ window.angCopyName = function(name, btn) {
       angScheduleData(true);
       if (angValidateCount()) document.getElementById('ang-gen-btn')?.click();
     });
+  });
+
+  document.getElementById('ang-show-meaning')?.addEventListener('change', function() {
+    angRenderCurrentResults(angLastResults);
   });
 
   document.getElementById('ang-gen-btn')?.addEventListener('click', function(e) {

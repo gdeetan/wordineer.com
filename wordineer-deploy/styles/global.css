@@ -76,7 +76,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);fon
 .nav-links{display:flex;gap:4px;align-items:center}
 .nav-links a{font-size:13px;color:var(--text-2);text-decoration:none;padding:6px 10px;border-radius:6px;transition:background .15s,color .15s}
 .nav-links a:hover{background:var(--bg-2);color:var(--text)}
-.hamburger{width:34px;height:34px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:4.5px;cursor:pointer;border:1px solid var(--border);border-radius:7px;background:transparent;transition:background .15s}
+.hamburger{width:34px;height:34px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:4.5px;cursor:pointer;border:1px solid var(--border);border-radius:7px;background:transparent;transition:background .15s;position:relative;z-index:1001;touch-action:manipulation}
 .hamburger:hover{background:var(--bg-2)}
 .hamburger span{display:block;width:14px;height:1.5px;background:var(--text-2);border-radius:2px}
 .mega{display:none;position:fixed;top:56px;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--border-2);box-shadow:0 8px 24px rgba(0,0,0,0.08);z-index:999;padding:20px 24px}

@@ -7,13 +7,14 @@ Reads tools.json + tools-src/*.html → writes finished pages to output/
 Run: python3 build.py
 """
 
-import os, re, json
+import os, re, json, shutil
 
 ROOT      = os.path.dirname(os.path.abspath(__file__))
 TMPL_DIR  = os.path.join(ROOT, 'template')
 SRC_DIR   = os.path.join(ROOT, 'tools-src')
 OUT_DIR   = os.path.join(ROOT, 'output')
 DATA_FILE = os.path.join(ROOT, 'tools.json')
+DEPLOY_DATA_DIR = os.path.join(ROOT, '..', 'wordineer-deploy', 'data')
 
 
 # ── helpers ──────────────────────────────────────────────────────────────────
@@ -27,6 +28,21 @@ def write(path, content):
     with open(path, 'w', encoding='utf-8') as f:
         f.write(content)
 
+def copy_data_assets():
+    """Mirror deploy JSON assets into output/ so template previews can fetch /data/*.json."""
+    if not os.path.isdir(DEPLOY_DATA_DIR):
+        print('  warning → deploy data directory not found, skipping JSON asset copy')
+        return
+    out_data_dir = os.path.join(OUT_DIR, 'data')
+    os.makedirs(out_data_dir, exist_ok=True)
+    copied = 0
+    for fname in sorted(os.listdir(DEPLOY_DATA_DIR)):
+        if not fname.endswith('.json'):
+            continue
+        shutil.copy2(os.path.join(DEPLOY_DATA_DIR, fname), os.path.join(out_data_dir, fname))
+        copied += 1
+    print(f'  copied → {copied} JSON data file(s) into output/data/')
+
 def slot(src, name):
     """Pull the content between <!-- SLOT:name --> and <!-- /SLOT:name -->."""
     m = re.search(
@@ -39,6 +55,17 @@ def config(src):
     """Pull the JSON block from <!-- CONFIG ... --> at the top of a tool-src file."""
     m = re.search(r'<!-- CONFIG\s*(.*?)\s*-->', src, re.DOTALL)
     return json.loads(m.group(1)) if m else {}
+
+def strip_inline_nav_init(init_html):
+    """Remove page-local hamburger wiring. Shared runtime owns nav behavior now."""
+    if not init_html:
+        return ''
+    return re.sub(
+        r'\n?\(function bindWordineerMenu\(\)\{[\s\S]*?\}\)\(\);\s*',
+        '\n',
+        init_html,
+        count=1,
+    )
 
 
 # ── HTML generators (driven entirely by tools.json) ──────────────────────────
@@ -60,8 +87,15 @@ def build_mega_cols(mega, active_url):
 
 
 def build_tools_grid(more_word_tools, active_url):
-    # Show up to 6 word tools, always excluding the current page
-    items = [t for t in more_word_tools if t['href'] != active_url][:6]
+    # Show up to 6 word tools, always excluding the current page.
+    # If a "More Name Gen Tools" card exists, pin it as the last visible card.
+    items = [t for t in more_word_tools if t['href'] != active_url]
+    more_name_card = next((t for t in items if t.get('name') == 'More Name Gen Tools'), None)
+    if more_name_card:
+        lead_items = [t for t in items if t is not more_name_card][:5]
+        items = lead_items + [more_name_card]
+    else:
+        items = items[:6]
     rows = []
     for t in items:
         badge = ' <span class="new-badge">new</span>' if t.get('new') else ''
@@ -120,6 +154,7 @@ def build_page(src_path, data):
     slots = {name: slot(src, name)
              for name in ('meta', 'style', 'hero', 'tool', 'ad_b',
                           'explainer', 'faq', 'who', 'init', 'content')}
+    slots['init'] = strip_inline_nav_init(slots['init'])
 
     # Build shared nav/footer blocks from tools.json
     mega_html        = build_mega_cols(data['mega'], active_url)
@@ -196,6 +231,7 @@ def main():
     print(f'Building {len(src_files)} page(s)...')
     for fname in src_files:
         build_page(os.path.join(SRC_DIR, fname), data)
+    copy_data_assets()
 
     print(f'\nDone! Output is in:  {OUT_DIR}/')
     print('Copy the contents of output/ to wordineer-deploy/ when ready to deploy.')
