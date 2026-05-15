@@ -25,6 +25,65 @@
     elegant: { elegant: 72, timeless: 34, classic: 28, literary: 20 }
   };
 
+  const VINTAGE_STYLE_PRIORITY = {
+    'old-fashioned': 90,
+    classic: 82,
+    elegant: 64,
+    literary: 58,
+    biblical: 42,
+    timeless: 26,
+    common: 18,
+    modern: 8
+  };
+
+  const VINTAGE_ERA_PRIORITY = {
+    'victorian-edwardian': 96,
+    vintage: 88,
+    timeless: 34,
+    'mid-century': 20,
+    modern: 8
+  };
+
+  const VICTORIAN_STYLE_PRIORITY = {
+    'old-fashioned': 96,
+    classic: 82,
+    elegant: 54,
+    literary: 44,
+    biblical: 34,
+    timeless: 24,
+    common: 18,
+    modern: 6
+  };
+
+  const EDWARDIAN_STYLE_PRIORITY = {
+    classic: 90,
+    timeless: 72,
+    elegant: 60,
+    'old-fashioned': 42,
+    literary: 34,
+    common: 26,
+    biblical: 18,
+    modern: 10
+  };
+
+  const VICTORIAN_SURNAME_PRIORITY = {
+    aristocratic: 84,
+    occupational: 72,
+    patronymic: 60,
+    'place-based': 52,
+    common: 28,
+    'double-barrelled': 18
+  };
+
+  const EDWARDIAN_SURNAME_PRIORITY = {
+    common: 76,
+    occupational: 62,
+    'place-based': 54,
+    patronymic: 42,
+    aristocratic: 24,
+    'double-barrelled': 18
+  };
+
   const POPULAR_FIRST_BOOSTS = {
     olivia: 42, emma: 41, ava: 40, lily: 39, sophie: 38, mia: 37, amelia: 36, isla: 35, charlotte: 34, alice: 33,
     grace: 32, ella: 31, freya: 30, ruby: 29, evie: 28, florence: 27, hannah: 26, isabelle: 25, lucy: 24, harper: 23,
@@ -85,6 +144,7 @@
     const value = normalizeEnglishTag(era);
     if (!value || value === 'any') return true;
     if (value === 'victorian' || value === 'edwardian') return matchesTag(tags, 'victorian-edwardian');
+    if (value === 'vintage') return Array.isArray(tags) && (tags.includes('victorian-edwardian') || tags.includes('mid-century') || tags.includes('timeless'));
     return matchesTag(tags, value);
   }
 
@@ -104,13 +164,36 @@
     const styles = rowStyles(row);
     const eras = rowEras(row);
     const types = rowTypes(row);
+    const eraKey = normalizeEnglishTag(options.era);
 
     let score = 0;
-    score += bestPriority(kind === 'last' ? types : styles, STYLE_PRIORITY[normalizeEnglishTag(options.style)] || STYLE_PRIORITY.any);
-    score += bestPriority(eras, ERA_PRIORITY[normalizeEnglishTag(options.era)] || ERA_PRIORITY.any);
+    if (kind === 'last') {
+      const selectedLastStyle = normalizeEnglishTag(options.lastStyle);
+      if (selectedLastStyle && selectedLastStyle !== 'any') {
+        score += bestPriority(types, STYLE_PRIORITY[selectedLastStyle] || STYLE_PRIORITY.any);
+      }
+      if (eraKey === 'vintage' || eraKey === 'victorian') {
+        score += bestPriority(types, VICTORIAN_SURNAME_PRIORITY);
+      } else if (eraKey === 'edwardian') {
+        score += bestPriority(types, EDWARDIAN_SURNAME_PRIORITY);
+      } else {
+        score += bestPriority(types, { common: 42, occupational: 24, 'place-based': 20, patronymic: 18, aristocratic: 12, 'double-barrelled': 6 });
+      }
+    } else if (eraKey === 'vintage') {
+      score += bestPriority(styles, VINTAGE_STYLE_PRIORITY);
+      score += bestPriority(eras, VINTAGE_ERA_PRIORITY);
+    } else if (eraKey === 'victorian') {
+      score += bestPriority(styles, VICTORIAN_STYLE_PRIORITY);
+      score += bestPriority(eras, { 'victorian-edwardian': 96, vintage: 86, timeless: 26, 'mid-century': 12, modern: 4 });
+    } else if (eraKey === 'edwardian') {
+      score += bestPriority(styles, EDWARDIAN_STYLE_PRIORITY);
+      score += bestPriority(eras, { 'victorian-edwardian': 96, vintage: 78, timeless: 34, 'mid-century': 16, modern: 8 });
+    } else {
+      score += bestPriority(styles, STYLE_PRIORITY[normalizeEnglishTag(options.style)] || STYLE_PRIORITY.any);
+      score += bestPriority(eras, ERA_PRIORITY[eraKey] || ERA_PRIORITY.any);
+    }
 
     if (kind === 'last') {
-      score += bestPriority(types, { common: 42, occupational: 24, 'place-based': 20, patronymic: 18, aristocratic: 12, 'double-barrelled': 6 });
       score += POPULAR_LAST_BOOSTS[name] || 0;
     } else {
       score += bestPriority(styles, { common: 42, modern: 28, timeless: 24, classic: 12, 'old-fashioned': 8, literary: 6, biblical: 6, elegant: 6 });
