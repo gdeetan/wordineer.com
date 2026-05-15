@@ -360,13 +360,15 @@
           </div>
         </div>
         <ol class="word-list" id="jp-list"></ol>
-        <div class="saved-section">
-          <div class="saved-top">
-            <span class="saved-label">Saved names</span>
-            <button class="saved-copy" id="jp-copy-saved-btn">Copy saved</button>
-          </div>
-          <div class="saved-tags" id="jp-saved-tags"></div>
-        </div>
+      </div>
+    </div>
+    <div class="saved-section">
+      <div class="saved-top">
+        <span class="saved-label">Saved names</span>
+        <button class="saved-copy" id="jp-copy-saved-btn">Copy saved</button>
+      </div>
+      <div class="saved-tags" id="jp-saved-tags">
+        <span class="saved-empty">Click the heart on any name to save it here</span>
       </div>
     </div>
   </section>
@@ -800,6 +802,12 @@ fetch('/data/japanese-names.json', { cache: 'force-cache' })
       savedListId:    'jp-saved-tags'
     });
     jpRegenerateFromFilters();
+    document.getElementById('jp-copy-saved-btn')?.addEventListener('click', function() {
+      const tags = document.querySelectorAll('#jp-saved-tags .saved-tag');
+      if (!tags.length) return;
+      const names = Array.from(tags).map(function(t) { return t.textContent.replace('×', '').trim(); }).filter(Boolean);
+      navigator.clipboard?.writeText(names.join('\n'));
+    });
   })
   .catch(function() {
     const display = document.getElementById('jp-count-display');
