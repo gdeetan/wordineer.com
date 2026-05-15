@@ -139,8 +139,8 @@
 .reset-btn  { display:block; width:100%; text-align:center; font-size:11px; color:var(--text-3); margin-top:8px; cursor:pointer; text-decoration:underline; text-underline-offset:2px; border:none; background:none; font-family:inherit; }
 .ng-mobile-toggle { display:none; width:100%; margin:-2px 0 14px; padding:9px 12px; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--brand); font-size:13px; font-weight:600; font-family:inherit; cursor:pointer; }
 .ng-advanced { display:block; }
-.result-area { flex:1; min-width:0; padding:18px; }
-.result-top { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:12px; }
+.result-area { flex:1; min-width:0; display:flex; flex-direction:column; overflow:hidden; }
+.result-top { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:7px; }
 .result-count { font-size:13px; color:var(--text-3); }
 .actions { display:flex; gap:8px; flex-wrap:wrap; }
 .btn-small { padding:8px 11px; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--text); font-size:13px; cursor:pointer; }
@@ -185,6 +185,7 @@
   .ng-advanced.is-open { display:block; }
   #jp-advanced .ctrl-row { margin-bottom:14px; }
   .result-top { align-items:flex-start; flex-direction:column; }
+  .word-list { max-height:440px; overflow-y:auto; }
   .word-text { font-size:17px; font-weight:600; color:var(--text); line-height:1.25; }
   .content-grid { grid-template-columns:1fr; }
 }
