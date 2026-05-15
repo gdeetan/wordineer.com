@@ -25,6 +25,12 @@
     elegant: { elegant: 72, timeless: 34, classic: 28, literary: 20 }
   };
 
+  const STYLE_FAMILIES = {
+    timeless: ['timeless', 'classic', 'old-fashioned', 'common', 'aristocratic'],
+    biblical: ['biblical', 'classic', 'old-fashioned', 'common'],
+    elegant: ['elegant', 'aristocratic', 'literary', 'classic', 'timeless']
+  };
+
   const VINTAGE_STYLE_PRIORITY = {
     'old-fashioned': 90,
     classic: 82,
@@ -140,6 +146,18 @@
     return Array.isArray(tags) && tags.includes(value);
   }
 
+  function matchesStyle(tags, style) {
+    const value = normalizeEnglishTag(style);
+    if (!value || value === 'any') return true;
+    const family = STYLE_FAMILIES[value];
+    if (family) {
+      return Array.isArray(tags) && tags.some(function(tag) {
+        return family.includes(tag);
+      });
+    }
+    return matchesTag(tags, value);
+  }
+
   function matchesEra(tags, era) {
     const value = normalizeEnglishTag(era);
     if (!value || value === 'any') return true;
@@ -224,7 +242,7 @@
       } else {
         const styles = rowStyles(row);
         const eras = rowEras(row);
-        if (style && style !== 'any' && !matchesTag(styles, style)) return false;
+        if (!matchesStyle(styles, style)) return false;
         if (!matchesEra(eras, era)) {
           return false;
         }
@@ -266,6 +284,7 @@
     rowEras: rowEras,
     rowTypes: rowTypes,
     matchesTag: matchesTag,
+    matchesStyle: matchesStyle,
     matchesEra: matchesEra,
     filterEnglishRows: filterEnglishRows,
     scoreEnglishRow: scoreEnglishRow,
