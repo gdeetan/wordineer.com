@@ -544,7 +544,7 @@
 })();
 </script>
 
-<script src="/scripts/english-name-generator.js"></script>
+<script src="/scripts/english-name-generator.js?v=3"></script>
 <script>
 const ANG_LABELS = {
   gender: { m: 'male', f: 'female', u: 'neutral' },
@@ -657,7 +657,7 @@ async function angLoadCoreData() {
   if (angCorePromise || angDataIsFull) return angCorePromise;
   angCorePromise = (async function() {
     try {
-      const res = await fetch('/data/english-names.json', { cache: 'force-cache' });
+      const res = await fetch('/data/english-names.json?v=3', { cache: 'force-cache' });
       if (!res.ok) throw new Error(res.status);
       angApplyData(await res.json(), true);
     } catch (err) {
@@ -671,7 +671,7 @@ async function angLoadFullData() {
   if (angFullPromise || angDataIsFull) return angFullPromise;
   angFullPromise = (async function() {
     try {
-      const res = await fetch('/data/english-names.json', { cache: 'force-cache' });
+      const res = await fetch('/data/english-names.json?v=3', { cache: 'force-cache' });
       if (!res.ok) throw new Error(res.status);
       angApplyData(await res.json(), true);
     } catch (err) {
@@ -728,13 +728,46 @@ function angTagMatch(tags, wanted) {
   });
 }
 
+function angStyleMatch(tags, wanted) {
+  const api = angEnglishApi();
+  if (api && typeof api.matchesStyle === 'function') return api.matchesStyle(tags, wanted);
+  const value = String(wanted || '').toLowerCase();
+  if (!value || value === 'any') return true;
+  const families = {
+    timeless: ['timeless', 'classic', 'old-fashioned', 'common', 'aristocratic'],
+    biblical: ['biblical', 'classic', 'old-fashioned', 'common'],
+    elegant: ['elegant', 'aristocratic', 'literary', 'classic', 'timeless']
+  };
+  const family = families[value];
+  if (family) {
+    return Array.isArray(tags) && tags.some(function(tag) {
+      return family.includes(String(tag || '').toLowerCase());
+    });
+  }
+  return angTagMatch(tags, value);
+}
+
+function angEraMatch(tags, wanted) {
+  const api = angEnglishApi();
+  if (api && typeof api.matchesEra === 'function') return api.matchesEra(tags, wanted);
+  const value = String(wanted || '').toLowerCase();
+  if (!value || value === 'any') return true;
+  if (value === 'victorian' || value === 'edwardian') {
+    return Array.isArray(tags) && tags.includes('victorian-edwardian');
+  }
+  if (value === 'vintage') {
+    return Array.isArray(tags) && (tags.includes('victorian-edwardian') || tags.includes('mid-century') || tags.includes('timeless'));
+  }
+  return angTagMatch(tags, value);
+}
+
 function angFilterFirstLike(rows, gender, era, style, letter) {
   let out = rows.slice();
   if (gender !== 'any') out = out.filter(function(row) { return row.g === gender; });
   if (era !== 'any') out = out.filter(function(row) {
-    return angTagMatch(row.eras, era) || row.eras.includes('all');
+    return angEraMatch(row.eras, era) || row.eras.includes('all');
   });
-  if (style !== 'any') out = out.filter(function(row) { return angTagMatch(row.styles, style); });
+  if (style !== 'any') out = out.filter(function(row) { return angStyleMatch(row.styles, style); });
   if (letter !== 'any') out = out.filter(function(row) { return row.n.toLowerCase().startsWith(letter); });
   return out;
 }
@@ -843,7 +876,7 @@ function angGenerateFn(data) {
 
   const firstPool = angRankPool(data.first, { kind: 'first', gender: gender, era: era, style: style, letter: letter });
   const middlePool = angRankPool(data.middle, { kind: 'middle', gender: gender, era: era, style: style, letter: 'any' });
-  const lastPool = angRankPool(data.last, { kind: 'last', lastStyle: lastStyle, letter: type === 'last' ? letter : 'any' });
+  const lastPool = angRankPool(data.last, { kind: 'last', lastStyle: lastStyle, era: era, type: type, letter: type === 'last' ? letter : 'any' });
   if (type === 'first' && !firstPool.length) return [];
   if (type === 'last' && !lastPool.length) return [];
   if (type === 'middle-full' && (!firstPool.length || !middlePool.length || !lastPool.length)) return [];

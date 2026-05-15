@@ -154,7 +154,7 @@
 .word-list { list-style:none; padding:0; margin:0; display:grid; gap:10px; }
 .word-item { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; padding:14px; border:1px solid var(--border); border-radius:8px; background:var(--bg); }
 .word-left { min-width:0; }
-.word-text { font-size:22px; line-height:1.2; font-weight:750; color:var(--text); margin-bottom:6px; }
+.word-text { font-size:17px; font-weight:600; color:var(--text); line-height:1.25; }
 .ng-meaning { font-size:13px; color:var(--text-2); line-height:1.45; margin-top:6px; }
 .dng-badges { display:flex; flex-wrap:wrap; gap:5px; }
 .dng-badge { display:inline-flex; align-items:center; padding:3px 7px; border-radius:999px; background:#EAF1FF; color:#1C4D8C; font-size:11px; font-weight:700; text-transform:capitalize; }
@@ -163,11 +163,14 @@
 .icon-btn { width:34px; height:34px; display:inline-flex; align-items:center; justify-content:center; border:none; border-radius:8px; background:var(--bg); color:var(--text-2); cursor:pointer; }
 .icon-btn svg { width:16px; height:16px; }
 .icon-btn.saved { color:#E24B4A; background:#FFF5F5; }
-.saved-panel { margin-top:18px; padding:14px; border:1px solid var(--border); border-radius:8px; background:var(--bg-2); }
-.saved-title { font-size:13px; font-weight:700; color:var(--text); margin-bottom:10px; }
-.saved-tags { display:flex; flex-wrap:wrap; gap:7px; }
-.saved-tags span { display:inline-flex; align-items:center; gap:6px; padding:6px 8px; border:1px solid var(--border); border-radius:999px; background:var(--bg); font-size:12px; }
-.saved-tags button { border:0; background:transparent; color:var(--text-3); cursor:pointer; padding:0; }
+.saved-section { margin-top:18px; padding:14px; border:1px solid var(--border); border-radius:8px; background:var(--bg-2); }
+.saved-top { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:8px; }
+.saved-label { font-size:13px; font-weight:700; color:var(--text); }
+.saved-copy { border:1px solid var(--border); background:var(--bg); color:var(--brand); border-radius:7px; padding:5px 9px; font-size:11px; font-weight:600; cursor:pointer; }
+.saved-tags { display:flex; gap:5px; flex-wrap:wrap; min-height:22px; }
+.saved-tag { display:inline-flex; align-items:center; gap:4px; background:#F0F2FF; color:var(--brand); border-radius:999px; padding:4px 8px; font-size:11px; font-weight:600; }
+.saved-tag-remove { cursor:pointer; opacity:.65; }
+.saved-empty { color:var(--text-3); font-size:12px; }
 .content-section { max-width:900px; margin:34px auto 0; padding:0 24px; }
 .content-section h2 { margin:0 0 10px; font-size:26px; line-height:1.2; }
 .content-section p { color:var(--text-2); line-height:1.7; }
@@ -187,7 +190,7 @@
   .ng-advanced.is-open { display:block; }
   .result-top { align-items:flex-start; flex-direction:column; }
   .word-item { align-items:flex-start; }
-  .word-text { font-size:20px; }
+  .word-text { font-size:17px; font-weight:600; color:var(--text); line-height:1.25; }
   .content-grid { grid-template-columns:1fr; }
 }
 </style>
@@ -225,6 +228,7 @@
     <div class="mega-col">
       <div class="mega-cat">Name generators</div>
       <a class="mega-link" href="/random-name-generator/">Random Name Generator</a>
+      <a class="mega-link" href="/random-english-name-generator/">Random English Name</a>
       <a class="mega-link" href="/username-generator/">Username Generator</a>
       <a class="mega-link" href="/baby-name-finder/">Baby Name Generator</a>
       <a class="mega-link" href="/pet-name-generator/">Pet Name Generator</a>
@@ -335,10 +339,9 @@
         </div>
         <ul class="word-list" id="dng-list"></ul>
 
-        <div class="saved-panel">
-          <div class="saved-title">Saved names</div>
-          <div class="saved-top" style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px;">
-            <span class="saved-label">Tap the heart on a name to save it here</span>
+        <div class="saved-section">
+          <div class="saved-top">
+            <span class="saved-label">Saved names</span>
             <button class="saved-copy" id="dng-copy-saved-btn">Copy saved</button>
           </div>
           <div class="saved-tags" id="dng-saved-tags">
@@ -356,11 +359,11 @@
     <p class="section-sub">Every name generator you need, all free</p>
     <div class="tools-grid">
       <a class="tool-item" href="/random-british-name-generator/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="3" width="9" height="7" rx="1.2" fill="#F8F7FF" stroke="#534AB7" stroke-width=".9"/><path d="M2.6 3.5l7.8 6M10.4 3.5l-7.8 6" stroke="#B44A61" stroke-width=".75" stroke-linecap="round"/><path d="M6.5 3.2v6.6M2.3 6.5h8.4" stroke="#534AB7" stroke-width="1.1" stroke-linecap="round"/></svg></div><div class="tool-name">Random British Name</div><div class="tool-desc">British first names and surnames.</div></a>
+      <a class="tool-item" href="/random-english-name-generator/"><div class="tool-icon" style="background:#EEF6E8"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="3" width="9" height="7" rx="1.2" fill="#F7FFFC" stroke="#0F6E56" stroke-width=".9"/><path d="M2.6 4.4h7.8M2.6 6.2h7.8M2.6 8h7.8" stroke="#B23B4B" stroke-width=".75" stroke-linecap="round"/><rect x="2.6" y="3.6" width="3.7" height="3.5" rx=".5" fill="#0F6E56"/></svg></div><div class="tool-name">Random English Name</div><div class="tool-desc">England-focused first names, surnames, and full names.</div></a>
       <a class="tool-item" href="/random-japanese-name-generator/"><div class="tool-icon" style="background:#FBEAF0"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="3" width="9" height="7" rx="1.2" fill="#FFF9FB" stroke="#993556" stroke-width=".9"/><circle cx="6.5" cy="6.5" r="1.75" fill="#C7435B"/></svg></div><div class="tool-name">Random Japanese Name</div><div class="tool-desc">Japanese names with cultural detail.</div></a>
       <a class="tool-item" href="/random-american-name-generator/"><div class="tool-icon" style="background:#E1F5EE"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="3" width="9" height="7" rx="1.2" fill="#F7FFFC" stroke="#0F6E56" stroke-width=".9"/><path d="M2.6 4.4h7.8M2.6 6.2h7.8M2.6 8h7.8" stroke="#B23B4B" stroke-width=".75" stroke-linecap="round"/><rect x="2.6" y="3.6" width="3.7" height="3.5" rx=".5" fill="#0F6E56"/></svg></div><div class="tool-name">Random American Name</div><div class="tool-desc">American names by style and era.</div></a>
       <a class="tool-item" href="/random-filipino-name-generator/"><div class="tool-icon" style="background:#FAEEDA"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="3" width="9" height="7" rx="1.2" fill="#FFF9EE" stroke="#854F0B" stroke-width=".9"/><path d="M4.6 3.5h5.8v3H4.6z" fill="#2758A8"/><path d="M4.6 6.5h5.8v3H4.6z" fill="#B53A3A"/><path d="M2.5 3.6l3.6 2.9-3.6 2.9z" fill="#FFF6D8" stroke="#854F0B" stroke-width=".45"/><circle cx="3.7" cy="6.5" r=".55" fill="#D6A11E"/></svg></div><div class="tool-name">Random Filipino Name</div><div class="tool-desc">Filipino names with meanings.</div></a>
-      <a class="tool-item" href="/random-baby-name-generator/"><div class="tool-icon" style="background:#EAF3DE"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4" r="2.2" stroke="#3B6D11" stroke-width="1.1"/><path d="M1.5 11.5c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="#3B6D11" stroke-width="1.1" stroke-linecap="round"/></svg></div><div class="tool-name">Random Baby Name</div><div class="tool-desc">Baby name ideas and inspiration.</div></a>
-      <a class="tool-item" href="/name-generators/"><div class="tool-icon" style="background:#EAF0F6"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4" r="2.2" stroke="#2F4F6F" stroke-width="1.1"/><path d="M1.5 11.5c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="#2F4F6F" stroke-width="1.1" stroke-linecap="round"/></svg></div><div class="tool-name">More Name Tools</div><div class="tool-desc">Browse every name generator.</div></a>
+      <a class="tool-item" href="/random-polish-name-generator/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="3" width="9" height="7" rx="1.2" fill="#F8F7FF" stroke="#534AB7" stroke-width=".9"/><path d="M2.6 3.5l7.8 6M10.4 3.5l-7.8 6" stroke="#B44A61" stroke-width=".75" stroke-linecap="round"/><path d="M6.5 3.2v6.6M2.3 6.5h8.4" stroke="#534AB7" stroke-width="1.1" stroke-linecap="round"/></svg></div><div class="tool-name">Random Polish Name</div><div class="tool-desc">Polish names and surnames.</div></a>
     </div>
   </div>
   <div class="divider"></div>
