@@ -166,19 +166,15 @@
 .saved-empty { color:var(--text-3); font-size:12px; }
 .ng-mobile-toggle { display:none; width:100%; margin:-2px 0 14px; padding:9px 12px; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--brand); font-size:13px; font-weight:600; font-family:inherit; cursor:pointer; }
 .ng-advanced { display:block; }
-@media(max-width:700px){
-  .tool-wrap { padding:14px 16px 0; }
-  .tool-split { flex-direction:column; }
+@media (max-width: 760px) {
+  .hero--tool .hero-copy p { display:none; }
+  .tool-wrap { padding:16px 14px 0; }
+  .tool-split { display:block; }
   .ctrl { width:100%; border-right:none; border-bottom:1px solid var(--border-2); }
-  .reset-btn, .kbd { display:none; }
-  .words-panel { flex:1; display:flex; flex-direction:column; overflow:hidden; }
-  .word-list { max-height:440px; overflow-y:auto; }
   .ng-mobile-toggle { display:block; margin:10px 0 14px; }
+  .reset-btn, .kbd { display:none; }
   .ng-advanced { display:none; }
   .ng-advanced.is-open { display:block; }
-  .hero { padding:12px 16px 12px; }
-  .hero-badge { margin-bottom:6px; }
-  .hero h1 { font-size:24px; }
 }
 </style>
 </head>
@@ -241,16 +237,17 @@
   </div>
 </div>
 
-<div class="hero">
-  <div class="hero-badge">
-    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
-    Free &middot; No sign-up &middot; Instant
+<section class="hero hero--tool">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <span class="hero-badge">Free &middot; No sign-up &middot; Instant</span>
+      <h1>1500+ Russian names generator</h1>
+      <p>Generate Russian first names, surnames, and full names with patronymics. Filter by gender, name type, script, style, nickname display, and starting letter.</p>
+    </div>
   </div>
-  <h1>1500+ Russian names generator</h1>
-  <p>Generate Russian first names, surnames, and full names with patronymics. Filter by gender, name type, script, style, nickname display, and starting letter.</p>
-</div>
-<div class="tool-wrap">
-  <div class="tool-card">
+</section>
+<main class="tool-wrap">
+  <section class="tool-card" aria-label="Random Russian name generator">
     <div class="tool-split">
       <div class="ctrl">
         <div class="ctrl-row">
@@ -355,7 +352,8 @@
         <span class="saved-empty">Click the heart on any name to save it here</span>
       </div>
     </div>
-</div>
+  </section>
+</main>
 
 <div class="content-wrap">
   <div class="section">
@@ -367,7 +365,7 @@
       <a class="tool-item" href="/random-japanese-name-generator/"><div class="tool-icon" style="background:#FBEAF0"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="3" width="9" height="7" rx="1.2" fill="#FFF9FB" stroke="#993556" stroke-width=".9"/><circle cx="6.5" cy="6.5" r="1.75" fill="#C7435B"/></svg></div><div class="tool-name">Random Japanese Name</div><div class="tool-desc">Japanese names with cultural detail.</div></a>
       <a class="tool-item" href="/random-american-name-generator/"><div class="tool-icon" style="background:#E1F5EE"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="3" width="9" height="7" rx="1.2" fill="#F7FFFC" stroke="#0F6E56" stroke-width=".9"/><path d="M2.6 4.4h7.8M2.6 6.2h7.8M2.6 8h7.8" stroke="#B23B4B" stroke-width=".75" stroke-linecap="round"/><rect x="2.6" y="3.6" width="3.7" height="3.5" rx=".5" fill="#0F6E56"/></svg></div><div class="tool-name">Random American Name</div><div class="tool-desc">American names by style and era.</div></a>
       <a class="tool-item" href="/random-filipino-name-generator/"><div class="tool-icon" style="background:#FAEEDA"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="3" width="9" height="7" rx="1.2" fill="#FFF9EE" stroke="#854F0B" stroke-width=".9"/><path d="M4.6 3.5h5.8v3H4.6z" fill="#2758A8"/><path d="M4.6 6.5h5.8v3H4.6z" fill="#B53A3A"/><path d="M2.5 3.6l3.6 2.9-3.6 2.9z" fill="#FFF6D8" stroke="#854F0B" stroke-width=".45"/><circle cx="3.7" cy="6.5" r=".55" fill="#D6A11E"/></svg></div><div class="tool-name">Random Filipino Name</div><div class="tool-desc">Filipino names with meanings.</div></a>
-      <a class="tool-item" href="/random-polish-name-generator/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="3" width="9" height="7" rx="1.2" fill="#F8F7FF" stroke="#534AB7" stroke-width=".9"/><path d="M2.6 3.5l7.8 6M10.4 3.5l-7.8 6" stroke="#B44A61" stroke-width=".75" stroke-linecap="round"/><path d="M6.5 3.2v6.6M2.3 6.5h8.4" stroke="#534AB7" stroke-width="1.1" stroke-linecap="round"/></svg></div><div class="tool-name">Random Polish Name</div><div class="tool-desc">Polish names and surnames.</div></a>
+      <a class="tool-item" href="/random-arabic-name-generator/"><div class="tool-icon" style="background:#EEF6E8"><svg viewBox="0 0 13 13" fill="none"><rect x="1.7" y="2.6" width="9.6" height="7.8" rx="1.3" fill="#0D7A3C"/><path d="M8.5 4.2l-.22.74.75-.02-.6.44.23.73-.62-.42-.62.42.23-.73-.6-.44.75.02z" fill="#fff"/><path d="M4.7 5.25h2.9" stroke="#fff" stroke-width=".7" stroke-linecap="round"/><path d="M4.7 6.1h3.6" stroke="#fff" stroke-width=".7" stroke-linecap="round"/></svg></div><div class="tool-name">Random Arabic Name</div><div class="tool-desc">Arabic names with script, meanings, and regional filters.</div></a>
     </div>
   </div>
   <div class="divider"></div>
