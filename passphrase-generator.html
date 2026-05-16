@@ -772,6 +772,16 @@
   ppClampInput('pp-count', 1, 20, 5);
   ppClampInput('pp-words', 3, 8, 4);
 
+  // Auto-update results as count value changes (spinner or typing)
+  document.getElementById('pp-count')?.addEventListener('input', function() {
+    var v = parseInt(this.value);
+    if (v >= 1 && v <= 20) document.getElementById('pp-gen-btn')?.click();
+  });
+  document.getElementById('pp-words')?.addEventListener('input', function() {
+    var v = parseInt(this.value);
+    if (v >= 3 && v <= 8) document.getElementById('pp-gen-btn')?.click();
+  });
+
   // Custom separator toggle
   var ppSepSel = document.getElementById('pp-sep');
   var ppCustomRow = document.getElementById('pp-custom-sep-row');
