@@ -161,7 +161,7 @@
 .saved-label { font-size:12px; font-weight:700; color:var(--text); }
 .saved-copy { border:1px solid var(--border); background:var(--bg); color:var(--brand); border-radius:7px; padding:5px 9px; font-size:11px; font-weight:600; cursor:pointer; }
 .saved-tags { display:flex; gap:5px; flex-wrap:wrap; min-height:22px; }
-.saved-tag { display:inline-flex; align-items:center; gap:4px; background:#FDF2F2; color:#9F2D2D; border-radius:999px; padding:4px 8px; font-size:11px; font-weight:600; }
+.saved-tag { display:inline-flex; align-items:center; gap:4px; background:#F0F2FF; color:var(--brand); border-radius:999px; padding:4px 8px; font-size:11px; font-weight:600; }
 .saved-tag-remove { cursor:pointer; opacity:.65; }
 .saved-empty { color:var(--text-3); font-size:12px; }
 .word-text { font-size:17px; font-weight:600; color:var(--text); line-height:1.25; }
@@ -341,6 +341,7 @@
           <span class="words-count" id="sng-count-display">Generating...</span>
           <div class="words-actions">
             <button class="act-btn" id="sng-copy-all-btn">Copy all</button>
+            <button type="button" class="act-btn" id="sng-regen-btn" onclick="document.getElementById('sng-gen-btn')?.click()">Regenerate</button>
           </div>
         </div>
         <ul class="word-list" id="sng-list"></ul>
