@@ -713,11 +713,16 @@ const WORD_UNSCRAMBLER = (() => {
     document.getElementById('un-results').innerHTML = '<div class="ws-results-status">Enter up to 15 letters — use ? for blank tiles</div>';
   }
 
+  function runUnscrambleSearch() {
+    scheduleDictionaryLoad(0);
+    doFindWords();
+  }
+
   function init() {
     scheduleDictionaryLoadAfterFirstLoad();
 
     const unInput = document.getElementById('un-input');
-    unInput?.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); scheduleDictionaryLoad(0); doFindWords(); } });
+    unInput?.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); runUnscrambleSearch(); } });
     unInput?.addEventListener('input', function() {
       const pos = this.selectionStart;
       const cleaned = this.value.replace(/[^a-zA-Z?]/g, '').slice(0, 15);
@@ -727,7 +732,25 @@ const WORD_UNSCRAMBLER = (() => {
       }
     });
 
-    document.getElementById('un-find-btn')?.addEventListener('click', () => { scheduleDictionaryLoad(0); doFindWords(); });
+    const liveFilterIds = ['un-starts', 'un-ends', 'un-must'];
+    liveFilterIds.forEach(id => {
+      const input = document.getElementById(id);
+      input?.addEventListener('input', function() {
+        const pos = this.selectionStart;
+        const cleaned = this.value.replace(/[^a-zA-Z]/g, '').slice(0, 3);
+        if (this.value !== cleaned) {
+          this.value = cleaned;
+          this.setSelectionRange(Math.min(pos, cleaned.length), Math.min(pos, cleaned.length));
+        }
+        runUnscrambleSearch();
+      });
+    });
+
+    ['un-dict', 'un-length'].forEach(id => {
+      document.getElementById(id)?.addEventListener('change', runUnscrambleSearch);
+    });
+
+    document.getElementById('un-find-btn')?.addEventListener('click', runUnscrambleSearch);
     document.getElementById('un-clear-btn')?.addEventListener('click', clearAll);
     document.getElementById('un-copy-all-btn')?.addEventListener('click', () => {
       if (unscrambleResults.length) copyText(unscrambleResults.join(', '));
