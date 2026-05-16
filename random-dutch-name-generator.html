@@ -161,9 +161,10 @@
 .dng-badge--regional { background:#FEF3E2; color:#8B5A0A; }
 .dng-badge--era { background:#EAF0FB; color:#1A47A3; }
 .word-right { display:flex; gap:6px; flex-shrink:0; }
-.icon-btn { width:34px; height:34px; display:inline-flex; align-items:center; justify-content:center; border:none; border-radius:8px; background:var(--bg); color:var(--text-2); cursor:pointer; }
-.icon-btn svg { width:16px; height:16px; }
-.icon-btn.saved { color:#E24B4A; background:#FFF5F5; }
+.icon-btn   { width:28px; height:28px; display:flex; align-items:center; justify-content:center; background:transparent; border:none; cursor:pointer; border-radius:5px; color:var(--text-3); transition:background .12s,color .12s; }
+.icon-btn:hover { background:var(--bg-2); color:var(--text); }
+.icon-btn svg { width:14px; height:14px; }
+.icon-btn.saved { color:#E24B4A; }
 .saved-section { margin-top:18px; padding:14px; border:1px solid var(--border); border-radius:8px; background:var(--bg-2); }
 .saved-top { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:8px; }
 .saved-label { font-size:13px; font-weight:700; color:var(--text); }
