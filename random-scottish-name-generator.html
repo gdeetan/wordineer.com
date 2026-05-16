@@ -142,8 +142,9 @@
 .result-area { flex:1; min-width:0; overflow:hidden; display:flex; flex-direction:column; }
 .result-top { display:flex; align-items:center; justify-content:space-between; padding:12px 16px; border-bottom:1px solid var(--border-2); gap:12px; }
 .result-count { font-size:12px; color:var(--text-3); }
-.actions { display:flex; gap:8px; flex-wrap:wrap; }
-.btn-small { padding:8px 11px; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--text); font-size:13px; cursor:pointer; }
+.words-actions { display:flex; gap:6px; }
+.act-btn { font-size:12px; padding:5px 11px; border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:background .12s; }
+.act-btn:hover { background:var(--bg-2); }
 .word-list { flex:1; overflow-y:auto; list-style:none; padding:0 16px; margin:0; }
 .word-item { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; padding:12px 0; border-bottom:1px solid var(--border-2); animation:fadeIn .2s ease; }
 .word-item:last-child { border-bottom:none; }
@@ -353,8 +354,8 @@
       <div class="result-area">
         <div class="result-top">
           <span class="result-count" id="sng-count-display">Generating...</span>
-          <div class="actions">
-            <button class="btn-small" id="sng-copy-all-btn">Copy all</button>
+          <div class="words-actions">
+            <button class="act-btn" id="sng-copy-all-btn">Copy all</button>
           </div>
         </div>
         <ul class="word-list" id="sng-list"></ul>
