@@ -115,7 +115,32 @@
   ]
 }
 </script>
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://wordineer.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Name Generators",
+      "item": "https://wordineer.com/name-generators/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Random Korean Name Generator",
+      "item": "https://wordineer.com/random-korean-name-generator/"
+    }
+  ]
+}
+</script>
 <link rel="stylesheet" href="/styles/global.css?v=6">
 <style>
 .tool-wrap  { max-width:960px; margin:0 auto; padding:24px 24px 0; }
@@ -247,7 +272,15 @@
   </div>
 </div>
 
-
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Home</a>
+    <span class="breadcrumb-sep" aria-hidden="true">›</span>
+    <a href="/name-generators/">Name Generators</a>
+    <span class="breadcrumb-sep" aria-hidden="true">›</span>
+    <span aria-current="page">Random Korean Name Generator</span>
+  </div>
+</nav>
 <section class="hero hero--tool">
   <div class="hero-inner">
     <div class="hero-copy">
