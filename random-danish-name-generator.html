@@ -152,8 +152,9 @@
 .words-actions { display:flex; gap:6px; flex-wrap:wrap; justify-content:flex-end; }
 .act-btn { font-size:12px; padding:5px 11px; border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:background .12s; }
 .act-btn:hover { background:var(--bg-2); }
-.word-list { flex:1; overflow-y:auto; list-style:none; padding:0 16px; margin:0; display:grid; gap:10px; }
-.word-item { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; padding:14px; border:1px solid var(--border); border-radius:8px; background:var(--bg); }
+.word-list { flex:1; overflow-y:auto; list-style:none; padding:0 16px; margin:0; }
+.word-item { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; padding:12px 0; border-bottom:1px solid var(--border-2); background:var(--bg); }
+.word-item:last-child { border-bottom:none; }
 .word-left { min-width:0; }
 .word-text { font-size:17px; font-weight:600; color:var(--text); line-height:1.25; }
 .ng-meaning { font-size:13px; color:var(--text-2); line-height:1.45; margin-top:6px; }
