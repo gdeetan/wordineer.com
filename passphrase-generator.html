@@ -151,10 +151,12 @@
 .act-btn    { font-size:12px; padding:5px 11px; border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:background .12s; }
 .act-btn:hover { background:var(--bg-2); }
 
-.pp-entropy-bar { padding:8px 16px; border-bottom:1px solid var(--border-2); display:flex; align-items:center; gap:8px; }
-.pp-entropy-icon { font-size:13px; flex-shrink:0; }
-.pp-entropy-text { font-size:12px; font-weight:600; }
-.pp-entropy-sub  { font-size:11px; color:var(--text-3); margin-left:2px; }
+.pp-entropy-bar  { padding:8px 16px 10px; border-bottom:1px solid var(--border-2); }
+.pp-entropy-track { height:4px; background:var(--border-2); border-radius:2px; margin-bottom:6px; overflow:hidden; }
+.pp-entropy-fill  { height:100%; border-radius:2px; transition:width .35s,background-color .35s; width:0; }
+.pp-entropy-info  { display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
+.pp-entropy-text  { font-size:12px; font-weight:600; }
+.pp-entropy-sub   { font-size:11px; color:var(--text-3); }
 
 .word-list  { flex:1; overflow-y:auto; list-style:none; padding:0 16px; margin:0; }
 .word-item  { display:flex; align-items:center; justify-content:space-between; padding:11px 0; border-bottom:1px solid var(--border-2); gap:10px; animation:fadeIn .2s ease; }
@@ -166,7 +168,17 @@
 .icon-btn:hover { background:var(--bg-2); color:var(--text); }
 .icon-btn svg { width:14px; height:14px; }
 .icon-btn.saved { color:#E24B4A; }
-.pp-phrase  { font-size:15px; font-weight:600; color:var(--text); line-height:1.3; word-break:break-all; font-family:monospace; }
+.pp-phrase      { font-size:15px; font-weight:600; color:var(--text); line-height:1.3; word-break:break-all; font-family:monospace; }
+.pp-char-count  { font-size:11px; color:var(--text-3); margin-top:2px; }
+.pp-len-row     { display:flex; align-items:center; gap:6px; }
+.pp-len-row input { width:62px !important; flex-shrink:0; }
+.pp-len-sep     { font-size:13px; color:var(--text-3); }
+.pp-compare     { width:100%; border-collapse:collapse; font-size:13px; margin:0 0 14px; }
+.pp-compare th  { text-align:left; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:var(--text-3); padding:7px 10px; border-bottom:2px solid var(--border); }
+.pp-compare td  { padding:8px 10px; border-bottom:1px solid var(--border-2); color:var(--text-2); vertical-align:top; line-height:1.5; }
+.pp-compare td:first-child { font-weight:600; color:var(--text); white-space:nowrap; }
+.pp-compare tr:last-child td { border-bottom:none; }
+.pp-compare code { font-family:monospace; font-size:12px; }
 
 .saved-section { border-top:1px solid var(--border); padding:12px 14px; background:var(--bg); }
 .saved-top { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:8px; }
@@ -311,6 +323,14 @@
               <option value="random">Random letter</option>
             </select>
           </div>
+          <div class="ctrl-row">
+            <label class="ctrl-label">Word length (chars)</label>
+            <div class="pp-len-row">
+              <input type="number" id="pp-min-len" value="4" min="3" max="10" inputmode="numeric" title="Minimum word length">
+              <span class="pp-len-sep">–</span>
+              <input type="number" id="pp-max-len" value="8" min="3" max="12" inputmode="numeric" title="Maximum word length">
+            </div>
+          </div>
           <div class="def-row">
             <label class="toggle" aria-label="Include a number"><input type="checkbox" id="pp-number"><span class="toggle-sl"></span></label>
             <label for="pp-number">Include a number</label>
@@ -348,9 +368,11 @@
           </div>
         </div>
         <div class="pp-entropy-bar" id="pp-entropy-bar" style="display:none">
-          <span class="pp-entropy-icon">🔒</span>
-          <span class="pp-entropy-text" id="pp-entropy-text"></span>
-          <span class="pp-entropy-sub" id="pp-entropy-sub"></span>
+          <div class="pp-entropy-track"><div class="pp-entropy-fill" id="pp-entropy-fill"></div></div>
+          <div class="pp-entropy-info">
+            <span class="pp-entropy-text" id="pp-entropy-text"></span>
+            <span class="pp-entropy-sub" id="pp-entropy-sub"></span>
+          </div>
         </div>
         <ul class="word-list" id="pp-list"></ul>
       </div>
@@ -419,6 +441,19 @@
   <h2>What is a passphrase?</h2>
   <p>A passphrase is a sequence of random words used as a password — for example, <strong>correct-horse-battery-staple</strong>. Instead of trying to remember a string of symbols like <code>X#m9!qL2</code>, you remember a short story or mental image. The randomness comes from how the words are selected (by a cryptographic random number generator, not by you), not from the words being obscure. Common words chosen randomly are statistically far harder to crack than clever-looking passwords chosen by humans.</p>
   <p>The concept was popularised by the XKCD comic "Password Strength" and is now the recommended approach by NIST (the US National Institute of Standards and Technology), the Electronic Frontier Foundation, and most professional security researchers.</p>
+
+  <h2>Passphrase vs password — at a glance</h2>
+  <table class="pp-compare">
+    <thead><tr><th></th><th>Passphrase</th><th>Traditional password</th></tr></thead>
+    <tbody>
+      <tr><td>Example</td><td><code>flame-orbit-cedar-mist</code></td><td><code>F@m3!x9#Rq</code></td></tr>
+      <tr><td>Entropy (typical)</td><td>51–77 bits (4–6 words)</td><td>30–50 bits (8–12 chars)</td></tr>
+      <tr><td>Easy to remember</td><td>Yes — words form a mental image</td><td>No — symbols are hard to recall</td></tr>
+      <tr><td>Easy to type</td><td>Yes — common words, no hunting for @</td><td>No — special chars slow you down</td></tr>
+      <tr><td>Works on all sites</td><td>Yes</td><td>Yes</td></tr>
+      <tr><td>NIST recommended</td><td>Yes — length over complexity</td><td>No — complexity rules are now discouraged</td></tr>
+    </tbody>
+  </table>
 
   <h2>Why use a passphrase instead of a password?</h2>
   <p>Traditional password advice — add numbers, symbols, capital letters, make it complex — backfires in practice. It produces passwords that are hard for humans to remember but not actually hard for computers to crack, because humans follow predictable patterns (P@ssw0rd, Summer2024!). Passphrases solve both problems at once:</p>
@@ -630,11 +665,16 @@
     var caps     = document.getElementById('pp-caps')?.value || 'first';
     var addNum   = document.getElementById('pp-number')?.checked || false;
     var addSym   = document.getElementById('pp-symbol')?.checked || false;
-    return { count: count, wordCount: wordCount, sep: sep, caps: caps, addNum: addNum, addSym: addSym };
+    var minLenV  = parseInt(document.getElementById('pp-min-len')?.value);
+    var maxLenV  = parseInt(document.getElementById('pp-max-len')?.value);
+    var minLen   = isNaN(minLenV) || minLenV < 3 ? 4 : Math.min(10, minLenV);
+    var maxLen   = isNaN(maxLenV) || maxLenV < minLen ? Math.max(minLen, 8) : Math.min(12, maxLenV);
+    return { count: count, wordCount: wordCount, sep: sep, caps: caps, addNum: addNum, addSym: addSym, minLen: minLen, maxLen: maxLen };
   }
 
   function ppGenerateOne(opts) {
-    var pool = ppWordList;
+    var pool = ppWordList.filter(function(w) { return w.length >= opts.minLen && w.length <= opts.maxLen; });
+    if (!pool.length) pool = ppWordList;
     var picked = [];
     var seen = {};
     var attempts = 0;
@@ -659,13 +699,14 @@
     var strength = ppStrengthLabel(bits);
     var crackTime = ppCrackTime(bits);
     var bar  = document.getElementById('pp-entropy-bar');
+    var fill = document.getElementById('pp-entropy-fill');
     var text = document.getElementById('pp-entropy-text');
     var sub  = document.getElementById('pp-entropy-sub');
-    if (!bar || !text || !sub) return;
-    bar.style.display = 'flex';
-    text.textContent = bits + ' bits · ' + strength.text;
-    text.style.color = strength.color;
-    sub.textContent = '· estimated crack time: ' + crackTime;
+    if (!bar) return;
+    bar.style.display = 'block';
+    if (fill) { fill.style.width = Math.min(bits / 100, 1) * 100 + '%'; fill.style.background = strength.color; }
+    if (text) { text.textContent = bits + ' bits · ' + strength.text; text.style.color = strength.color; }
+    if (sub)  { sub.textContent = '· estimated crack time: ' + crackTime; }
   }
 
   function ppGenerateFn(data, cfg) {
@@ -688,7 +729,7 @@
     var safeAttr = item.replace(/"/g, '&quot;');
     var safeJs   = item.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
     return '<li class="word-item">'
-      + '<div class="word-left"><div class="pp-phrase">' + safe + '</div></div>'
+      + '<div class="word-left"><div class="pp-phrase">' + safe + '</div><div class="pp-char-count">' + item.length + ' characters</div></div>'
       + '<div class="word-right">'
       +   '<button class="icon-btn" title="Copy" onclick="ppCopy(\'' + safeJs + '\',this)">'
       +     '<svg viewBox="0 0 14 14" fill="none"><rect x="1" y="4" width="9" height="9.5" rx="1.5" stroke="currentColor" stroke-width="1.1"/><path d="M4.5 4V2.5A1.5 1.5 0 016 1h5.5A1.5 1.5 0 0113 2.5v7a1.5 1.5 0 01-1.5 1.5H10" stroke="currentColor" stroke-width="1.1"/></svg>'
@@ -775,14 +816,24 @@
   ppClampInput('pp-count', 1, 20, 5);
   ppClampInput('pp-words', 3, 8, 4);
 
-  // Auto-update results as count value changes (spinner or typing)
+  // Auto-update results as count/words/length values change
   document.getElementById('pp-count')?.addEventListener('input', function() {
-    var v = parseInt(this.value);
-    if (v >= 1 && v <= 20) document.getElementById('pp-gen-btn')?.click();
+    var v = parseInt(this.value); if (v >= 1 && v <= 20) document.getElementById('pp-gen-btn')?.click();
   });
   document.getElementById('pp-words')?.addEventListener('input', function() {
-    var v = parseInt(this.value);
-    if (v >= 3 && v <= 8) document.getElementById('pp-gen-btn')?.click();
+    var v = parseInt(this.value); if (v >= 3 && v <= 8) document.getElementById('pp-gen-btn')?.click();
+  });
+  ['pp-min-len', 'pp-max-len'].forEach(function(id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.addEventListener('input', function() {
+      var v = parseInt(this.value); if (!isNaN(v)) document.getElementById('pp-gen-btn')?.click();
+    });
+    el.addEventListener('change', function() {
+      var v = parseInt(this.value);
+      if (isNaN(v)) this.value = id === 'pp-min-len' ? '4' : '8';
+      document.getElementById('pp-gen-btn')?.click();
+    });
   });
 
   // Custom separator toggle
@@ -824,6 +875,8 @@
     document.getElementById('pp-caps').value = 'first';
     document.getElementById('pp-number').checked = false;
     document.getElementById('pp-symbol').checked = false;
+    document.getElementById('pp-min-len').value = '4';
+    document.getElementById('pp-max-len').value = '8';
     document.getElementById('pp-gen-btn').click();
   });
 
