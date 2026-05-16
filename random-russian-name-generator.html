@@ -115,7 +115,7 @@
 .tool-wrap { max-width:960px; margin:0 auto; padding:24px 24px 0; }
 .tool-card { border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg); box-shadow:var(--shadow); }
 .tool-split { display:flex; }
-.ctrl { width:230px; flex-shrink:0; padding:18px; border-right:1px solid var(--border-2); background:var(--bg-2); }
+.ctrl { width:220px; flex-shrink:0; padding:18px; border-right:1px solid var(--border-2); background:var(--bg-2); }
 .ctrl-row { margin-bottom:14px; }
 .ctrl-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; display:block; margin-bottom:5px; }
 .ctrl-row input, .ctrl-row select { width:100%; padding:7px 10px; font-size:13px; font-family:inherit; border:1px solid var(--border); border-radius:7px; background:var(--bg); color:var(--text); appearance:none; outline:none; transition:border-color .15s; }
@@ -134,10 +134,10 @@
 .reset-btn { display:block; width:100%; text-align:center; font-size:11px; color:var(--text-3); margin-top:8px; cursor:pointer; text-decoration:underline; text-underline-offset:2px; border:none; background:none; font-family:inherit; }
 .kbd { text-align:center; font-size:10px; color:var(--text-3); margin-top:6px; }
 .kbd kbd { background:var(--bg-3); border:1px solid var(--border); border-radius:3px; padding:1px 5px; font-size:10px; font-family:inherit; }
-.words-panel { flex:1; display:flex; flex-direction:column; overflow:hidden; min-height:410px; }
-.words-top { display:flex; align-items:center; justify-content:space-between; padding:12px 16px; border-bottom:1px solid var(--border-2); }
+.words-panel { flex:1; display:flex; flex-direction:column; overflow:hidden; }
+.words-top { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 16px; border-bottom:1px solid var(--border-2); }
 .words-count { font-size:12px; color:var(--text-3); }
-.words-actions { display:flex; gap:6px; }
+.words-actions { display:flex; gap:6px; flex-wrap:wrap; justify-content:flex-end; }
 .act-btn { font-size:12px; padding:5px 11px; border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:background .12s; }
 .act-btn:hover { background:var(--bg-2); }
 .word-list { flex:1; overflow-y:auto; list-style:none; padding:0 16px; margin:0; }
@@ -171,7 +171,7 @@
   .tool-split { flex-direction:column; }
   .ctrl { width:100%; border-right:none; border-bottom:1px solid var(--border-2); }
   .reset-btn, .kbd { display:none; }
-  .words-panel { min-height:0; }
+  .words-panel { flex:1; display:flex; flex-direction:column; overflow:hidden; }
   .word-list { max-height:440px; overflow-y:auto; }
   .ng-mobile-toggle { display:block; margin:10px 0 14px; }
   .ng-advanced { display:none; }
@@ -339,6 +339,7 @@
           <span class="words-count" id="rn-count-display">Loading names...</span>
           <div class="words-actions">
             <button class="act-btn" id="rn-copy-all-btn">Copy all</button>
+           <button type="button" class="act-btn" id="rn-regen-btn" onclick="document.getElementById('rn-gen-btn')?.click()">Regenerate</button>
             <button type="button" class="act-btn" id="rn-regen-btn" onclick="document.getElementById('rn-gen-btn')?.click()">Regenerate</button>
           </div>
         </div>
@@ -355,7 +356,6 @@
         <span class="saved-empty">Click the heart on any name to save it here</span>
       </div>
     </div>
-  </div>
 </div>
 
 <div class="content-wrap">
