@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.adsbygoogle = window.adsbygoogle || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  (function(w, d) {
+    var loaded = false;
+    var cfg = {
+      analyticsId: 'G-7DWH3EGM3Z',
+      adsClient: 'ca-pub-7200956978416233',
+      delay: 10000
+    };
+
+    function loadScript(src, attrs) {
+      var s = d.createElement('script');
+      s.async = true;
+      s.src = src;
+      if (attrs) {
+        Object.keys(attrs).forEach(function(key) {
+          s.setAttribute(key, attrs[key]);
+        });
+      }
+      d.head.appendChild(s);
+    }
+
+    function loadMarketing() {
+      if (loaded) return;
+      loaded = true;
+      gtag('js', new Date());
+      gtag('config', cfg.analyticsId);
+      loadScript('https://www.googletagmanager.com/gtag/js?id=' + cfg.analyticsId);
+      loadScript(
+        'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + cfg.adsClient,
+        { crossorigin: 'anonymous' }
+      );
+    }
+
+    function idleLoad() {
+      if ('requestIdleCallback' in w) {
+        w.requestIdleCallback(loadMarketing, { timeout: 5000 });
+      } else {
+        w.setTimeout(loadMarketing, cfg.delay);
+      }
+    }
+
+    ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function(eventName) {
+      w.addEventListener(eventName, loadMarketing, { once: true, passive: true });
+    });
+    w.addEventListener('load', function() {
+      w.setTimeout(idleLoad, cfg.delay);
+    }, { once: true });
+  })(window, document);
+</script>
+<meta name='impact-site-verification' value='32715504-1cfb-4324-bfc7-ae4cfa1591ea'>
+<link rel="preload" href="/fonts/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-sans-italic-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Wordineer",
+  "url": "https://wordineer.com"
+}
+</script>
+<title>1,000+ Random Mexican Names - First, Last &amp; Full Names | Wordineer</title>
+<meta name="description" content="Generate 1,000+ random Mexican names instantly. Filter by gender, first name, surname, full name, style, and starting letter. Great for characters, stories, baby-name ideas, and worldbuilding.">
+<link rel="canonical" href="https://wordineer.com/random-mexican-name-generator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wordineer">
+<meta property="og:title" content="1,000+ Random Mexican Names | Wordineer">
+<meta property="og:description" content="Generate Mexico-focused first names, surnames, and full names with meanings, compound names, and two-surname options.">
+<meta property="og:url" content="https://wordineer.com/random-mexican-name-generator/">
+<meta property="og:image" content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Are these real Mexican names?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The tool uses real Mexico-focused given names and surnames, then combines them for brainstorming and character use. A generated combination may match a real person by coincidence, but the page is not an identity generator." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I generate Mexican names with two surnames?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Choose Two-surname full name to generate a Mexico-focused full name with two surnames, or use the Surname structure filter on Full name to explore one-surname and two-surname formats." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between full name and two-surname full name?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Full name can generate a standard Mexican-style full name and can be narrowed with the Surname structure filter. Two-surname full name always produces a given name followed by two surnames." }
+    },
+    {
+      "@type": "Question",
+      "name": "How is this different from the random name generator?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The generic random name generator covers many origins. This page uses a Mexico-focused dataset, compound-name support, and two-surname rules so the output feels more consistent for Mexican character naming." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this tool create fake identities?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. It only generates names. It does not create addresses, phone numbers, passwords, document numbers, or other identity details." }
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="/styles/global.css?v=3">
+<style>
+.tool-wrap  { max-width:960px; margin:0 auto; padding:24px 24px 0; }
+.tool-card  { border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg); box-shadow:var(--shadow); }
+.tool-split { display:flex; }
+.ctrl { width:220px; flex-shrink:0; padding:18px; border-right:1px solid var(--border-2); background:var(--bg-2); }
+.ctrl-row   { margin-bottom:14px; }
+.ctrl-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; display:block; margin-bottom:5px; }
+.ctrl-row input, .ctrl-row select { width:100%; padding:7px 10px; font-size:13px; font-family:inherit; border:1px solid var(--border); border-radius:7px; background:var(--bg); color:var(--text); appearance:none; outline:none; transition:border-color .15s; }
+.ctrl-row input:focus, .ctrl-row select:focus { border-color:var(--brand); }
+.ctrl-row select:disabled { opacity:.6; cursor:not-allowed; }
+.def-row    { display:flex; align-items:center; gap:8px; margin-bottom:14px; }
+.def-row label { font-size:12px; color:var(--text-2); cursor:pointer; }
+.toggle     { position:relative; width:32px; height:18px; flex-shrink:0; }
+.toggle input { opacity:0; width:0; height:0; }
+.toggle-sl  { position:absolute; cursor:pointer; inset:0; background:var(--border); border-radius:9px; transition:.2s; }
+.toggle input:checked + .toggle-sl { background:var(--brand); }
+.toggle-sl::before { content:''; position:absolute; width:14px; height:14px; left:2px; top:2px; background:white; border-radius:50%; transition:.2s; }
+.toggle input:checked + .toggle-sl::before { transform:translateX(14px); }
+.gen-btn    { width:100%; padding:10px 14px; background:var(--brand); color:white; border:none; border-radius:8px; font-size:14px; font-weight:600; font-family:inherit; cursor:pointer; transition:background .15s,transform .1s; letter-spacing:-.01em; }
+.gen-btn:hover { background:var(--brand-dark); }
+.gen-btn:active { transform:scale(.98); }
+.reset-btn  { display:block; width:100%; text-align:center; font-size:11px; color:var(--text-3); margin-top:8px; cursor:pointer; text-decoration:underline; text-underline-offset:2px; border:none; background:none; font-family:inherit; }
+.kbd        { text-align:center; font-size:10px; color:var(--text-3); margin-top:6px; }
+.kbd kbd    { background:var(--bg-3); border:1px solid var(--border); border-radius:3px; padding:1px 5px; font-size:10px; font-family:inherit; }
+.words-panel { flex:1; display:flex; flex-direction:column; overflow:hidden; }
+.words-top { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 16px; border-bottom:1px solid var(--border-2); }
+.words-count { font-size:12px; color:var(--text-3); }
+.words-actions { display:flex; gap:6px; flex-wrap:wrap; justify-content:flex-end; }
+.act-btn    { font-size:12px; padding:5px 11px; border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:background .12s; }
+.act-btn:hover { background:var(--bg-2); }
+.word-list  { flex:1; overflow-y:auto; list-style:none; padding:0 16px; margin:0; }
+.word-item  { display:flex; align-items:flex-start; justify-content:space-between; padding:12px 0; border-bottom:1px solid var(--border-2); gap:10px; animation:fadeIn .2s ease; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:none} }
+.word-item:last-child { border-bottom:none; }
+.word-left  { flex:1; min-width:0; }
+.word-right { display:flex; align-items:flex-start; gap:4px; padding-top:2px; flex-shrink:0; }
+.icon-btn   { width:28px; height:28px; display:flex; align-items:center; justify-content:center; background:transparent; border:none; cursor:pointer; border-radius:5px; color:var(--text-3); transition:background .12s,color .12s; }
+.icon-btn:hover { background:var(--bg-2); color:var(--text); }
+.icon-btn svg { width:14px; height:14px; }
+.icon-btn.saved { color:#E24B4A; }
+.saved-section { border-top:1px solid var(--border); padding:12px 14px; background:var(--bg); }
+.saved-top { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:8px; }
+.saved-label { font-size:12px; font-weight:700; color:var(--text); }
+.saved-copy { border:1px solid var(--border); background:var(--bg); color:var(--brand); border-radius:7px; padding:5px 9px; font-size:11px; font-weight:600; cursor:pointer; }
+.saved-tags { display:flex; gap:5px; flex-wrap:wrap; min-height:22px; }
+.saved-tag { display:inline-flex; align-items:center; gap:4px; background:#F0F2FF; color:var(--brand); border-radius:999px; padding:4px 8px; font-size:11px; font-weight:600; }
+.saved-tag-remove { cursor:pointer; opacity:.65; }
+.saved-empty { color:var(--text-3); font-size:12px; }
+.word-text { font-size:17px; font-weight:600; color:var(--text); line-height:1.25; }
+.mxn-meaning { font-size:12px; color:var(--text-2); margin-top:4px; line-height:1.45; }
+.mxn-note { font-size:12px; color:var(--text-3); margin-top:4px; line-height:1.45; }
+.mxn-chips { display:flex; flex-wrap:wrap; gap:5px; margin-top:6px; }
+.mxn-chip { display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; padding:2px 7px; border-radius:999px; background:#FFF6DA; color:#8A5200; }
+.mxn-chip--gender { background:#EEF9F1; color:#1F7A4E; }
+.mxn-chip--style { background:#FAEFE6; color:#9A4C1A; }
+.mxn-chip--type { background:#FDEBEC; color:#A33E47; }
+.mxn-no-results .word-text { color:var(--text-2); }
+.ng-mobile-toggle { display:none; width:100%; margin:-2px 0 14px; padding:9px 12px; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--brand); font-size:13px; font-weight:600; font-family:inherit; cursor:pointer; }
+.ng-advanced { display:block; }
+@media(max-width:700px){
+  .tool-wrap { padding:14px 16px 0; }
+  .tool-split { flex-direction:column; }
+  .ctrl { width:100%; border-right:none; border-bottom:1px solid var(--border-2); }
+  .reset-btn, .kbd { display:none; }
+  .word-list { max-height:440px; overflow-y:auto; }
+  .ng-mobile-toggle { display:block; }
+  .ng-advanced { display:none; }
+  .ng-advanced.is-open { display:block; }
+  .hero { padding:12px 16px 12px; }
+  .hero-badge { margin-bottom:6px; }
+  .hero h1 { font-size:24px; }
+}
+</style>
+</head>
+
+<body>
+<nav class="nav">
+  <a class="nav-logo" href="/">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 15 15" fill="none"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </div>
+    Wordineer
+  </a>
+  <div class="nav-links">
+    <a href="/tools/">Tools</a>
+    <a href="/blog/">Blog</a>
+  </div>
+  <div>
+    <button class="hamburger" type="button" aria-label="All tools" aria-controls="mega" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mega" id="mega">
+  <div class="mega-inner">
+    <div class="mega-col">
+      <div class="mega-cat">Word tools</div>
+      <a class="mega-link" href="/random-sentence-generator/">Random sentence</a>
+      <a class="mega-link" href="/random-letter-generator/">Random letter</a>
+      <a class="mega-link" href="/word-scramble/">Word Scramble</a>
+      <a class="mega-link" href="/word-unscramble/">Word Unscramble</a>
+      <a class="mega-link" href="/word-of-the-day/">Word of the day</a>
+      <a class="mega-link" href="/passphrase-generator/">Passphrase gen</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Name generators</div>
+      <a class="mega-link" href="/random-name-generator/">Random Name Generator</a>
+      <a class="mega-link" href="/random-english-name-generator/">Random English Name</a>
+      <a class="mega-link" href="/username-generator/">Username Generator</a>
+      <a class="mega-link" href="/baby-name-finder/">Baby Name Generator</a>
+      <a class="mega-link" href="/pet-name-generator/">Pet Name Generator</a>
+      <a class="mega-link" href="/band-name-generator/">Band Name Generator</a>
+      <a class="mega-link" href="/name-generators/">More Name Gen Tools</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Number &amp; chance</div>
+      <a class="mega-link" href="/random-number-generator/">Random number</a>
+      <a class="mega-link" href="/dice-roller/">Dice roller</a>
+      <a class="mega-link" href="/coin-flip/">Coin flip</a>
+      <a class="mega-link" href="/lucky-number/">Lucky number</a>
+      <a class="mega-link" href="/list-shuffler/">List shuffler</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Games &amp; fun</div>
+      <a class="mega-link" href="/pictionary-word-generator/">Pictionary words</a>
+      <a class="mega-link" href="/charades-generator/">Charades gen</a>
+      <a class="mega-link" href="/truth-or-dare/">Truth or dare</a>
+      <a class="mega-link" href="/would-you-rather/">Would you rather</a>
+      <a class="mega-link" href="/story-prompts/">Story prompts</a>
+    </div>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#B23B4B" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#B23B4B" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free &middot; No sign-up &middot; Instant
+  </div>
+  <h1>1,000+ Random Mexican Names</h1>
+  <p>Generate Mexico-focused first names, surnames, and full names with meanings, compound given names, and two-surname options for writers, creators, and name brainstormers.</p>
+</div>
+<div class="tool-wrap">
+  <div class="tool-card">
+    <div class="tool-split">
+      <div class="ctrl">
+        <div class="ctrl-row">
+          <label class="ctrl-label" for="mxn-count">Number of names</label>
+          <input type="number" id="mxn-count" value="10" min="1" max="50" inputmode="numeric">
+          <span class="mxn-count-error" id="mxn-count-error" style="display:none;font-size:11px;color:#E24B4A;margin-top:4px;">Enter a number from 1 to 50</span>
+        </div>
+
+        <button type="button" class="ng-mobile-toggle" id="mxn-mobile-toggle" aria-expanded="false" aria-controls="mxn-advanced">More options</button>
+
+        <div class="ng-advanced" id="mxn-advanced">
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="mxn-gender">Gender</label>
+            <select id="mxn-gender">
+              <option value="any">Any</option>
+              <option value="f">Female</option>
+              <option value="m">Male</option>
+            </select>
+          </div>
+
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="mxn-type">Name type</label>
+            <select id="mxn-type">
+              <option value="full">Full name</option>
+              <option value="first" selected>First name</option>
+              <option value="last">Last name</option>
+              <option value="compound-first">Compound first name</option>
+              <option value="two-surname-full">Two-surname full name</option>
+            </select>
+          </div>
+
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="mxn-style">Style</label>
+            <select id="mxn-style">
+              <option value="any">Any style</option>
+              <option value="classic">Classic</option>
+              <option value="modern">Modern</option>
+              <option value="traditional">Traditional</option>
+              <option value="religious">Religious</option>
+              <option value="indigenous-influenced">Indigenous-influenced</option>
+            </select>
+          </div>
+
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="mxn-surname-structure">Surname structure</label>
+            <select id="mxn-surname-structure">
+              <option value="any">Any structure</option>
+              <option value="one">One surname</option>
+              <option value="two">Two surnames</option>
+            </select>
+          </div>
+
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="mxn-letter">Starts with</label>
+            <select id="mxn-letter">
+              <option value="any">Any letter</option>
+              <option value="a">A</option><option value="b">B</option><option value="c">C</option><option value="d">D</option>
+              <option value="e">E</option><option value="f">F</option><option value="g">G</option><option value="h">H</option>
+              <option value="i">I</option><option value="j">J</option><option value="k">K</option><option value="l">L</option>
+              <option value="m">M</option><option value="n">N</option><option value="o">O</option><option value="p">P</option>
+              <option value="q">Q</option><option value="r">R</option><option value="s">S</option><option value="t">T</option>
+              <option value="u">U</option><option value="v">V</option><option value="w">W</option><option value="x">X</option>
+              <option value="y">Y</option><option value="z">Z</option>
+            </select>
+          </div>
+
+          <div class="def-row">
+            <label class="toggle" aria-label="Show meanings"><input type="checkbox" id="mxn-defs" checked><span class="toggle-sl"></span></label>
+            <label for="mxn-defs">Show meanings</label>
+          </div>
+        </div>
+
+        <button class="gen-btn" id="mxn-gen-btn">Generate names</button>
+        <button class="reset-btn" id="mxn-reset-btn">Reset options</button>
+        <div class="kbd">Press <kbd>Space</kbd> to regenerate</div>
+      </div>
+
+      <div class="words-panel">
+        <div class="words-top">
+          <span class="words-count" id="mxn-count-display">Generating...</span>
+          <div class="words-actions">
+            <button class="act-btn" id="mxn-copy-all-btn">Copy all</button>
+            <button type="button" class="act-btn" id="mxn-regen-btn" onclick="document.getElementById('mxn-gen-btn')?.click()">Regenerate</button>
+          </div>
+        </div>
+        <ul class="word-list" id="mxn-list"></ul>
+      </div>
+    </div>
+
+    <div class="saved-section">
+      <div class="saved-top">
+        <span class="saved-label">Saved names</span>
+        <button class="saved-copy" id="mxn-copy-saved-btn">Copy saved</button>
+      </div>
+      <div class="saved-tags" id="mxn-saved-tags">
+        <span class="saved-empty">Click the heart on any name to save it here</span>
+      </div>
+    </div>
+</div>
+
+<div class="content-wrap">
+  <div class="section">
+    <h2 class="section-title">More word tools</h2>
+    <p class="section-sub">Every name generator you need, all free</p>
+    <div class="tools-grid">
+      <a class="tool-item" href="/random-british-name-generator/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="3" width="9" height="7" rx="1.2" fill="#F8F7FF" stroke="#534AB7" stroke-width=".9"/><path d="M2.6 3.5l7.8 6M10.4 3.5l-7.8 6" stroke="#B44A61" stroke-width=".75" stroke-linecap="round"/><path d="M6.5 3.2v6.6M2.3 6.5h8.4" stroke="#534AB7" stroke-width="1.1" stroke-linecap="round"/></svg></div><div class="tool-name">Random British Name</div><div class="tool-desc">British first names and surnames.</div></a>
+      <a class="tool-item" href="/random-english-name-generator/"><div class="tool-icon" style="background:#EEF6E8"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="3" width="9" height="7" rx="1.2" fill="#F7FFFC" stroke="#0F6E56" stroke-width=".9"/><path d="M2.6 4.4h7.8M2.6 6.2h7.8M2.6 8h7.8" stroke="#B23B4B" stroke-width=".75" stroke-linecap="round"/><rect x="2.6" y="3.6" width="3.7" height="3.5" rx=".5" fill="#0F6E56"/></svg></div><div class="tool-name">Random English Name</div><div class="tool-desc">England-focused first names, surnames, and full names.</div></a>
+      <a class="tool-item" href="/random-japanese-name-generator/"><div class="tool-icon" style="background:#FBEAF0"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="3" width="9" height="7" rx="1.2" fill="#FFF9FB" stroke="#993556" stroke-width=".9"/><circle cx="6.5" cy="6.5" r="1.75" fill="#C7435B"/></svg></div><div class="tool-name">Random Japanese Name</div><div class="tool-desc">Japanese names with cultural detail.</div></a>
+      <a class="tool-item" href="/random-american-name-generator/"><div class="tool-icon" style="background:#E1F5EE"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="3" width="9" height="7" rx="1.2" fill="#F7FFFC" stroke="#0F6E56" stroke-width=".9"/><path d="M2.6 4.4h7.8M2.6 6.2h7.8M2.6 8h7.8" stroke="#B23B4B" stroke-width=".75" stroke-linecap="round"/><rect x="2.6" y="3.6" width="3.7" height="3.5" rx=".5" fill="#0F6E56"/></svg></div><div class="tool-name">Random American Name</div><div class="tool-desc">American names by style and era.</div></a>
+      <a class="tool-item" href="/random-filipino-name-generator/"><div class="tool-icon" style="background:#FAEEDA"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="3" width="9" height="7" rx="1.2" fill="#FFF9EE" stroke="#854F0B" stroke-width=".9"/><path d="M4.6 3.5h5.8v3H4.6z" fill="#2758A8"/><path d="M4.6 6.5h5.8v3H4.6z" fill="#B53A3A"/><path d="M2.5 3.6l3.6 2.9-3.6 2.9z" fill="#FFF6D8" stroke="#854F0B" stroke-width=".45"/><circle cx="3.7" cy="6.5" r=".55" fill="#D6A11E"/></svg></div><div class="tool-name">Random Filipino Name</div><div class="tool-desc">Filipino names with meanings.</div></a>
+      <a class="tool-item" href="/random-polish-name-generator/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="3" width="9" height="7" rx="1.2" fill="#F8F7FF" stroke="#534AB7" stroke-width=".9"/><path d="M2.6 3.5l7.8 6M10.4 3.5l-7.8 6" stroke="#B44A61" stroke-width=".75" stroke-linecap="round"/><path d="M6.5 3.2v6.6M2.3 6.5h8.4" stroke="#534AB7" stroke-width="1.1" stroke-linecap="round"/></svg></div><div class="tool-name">Random Polish Name</div><div class="tool-desc">Polish names and surnames.</div></a>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div>
+    <h2 class="section-title">Other tools</h2>
+    <p class="section-sub">Numbers, names, games and more</p>
+    <div class="other-grid">
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="1" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="1" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/></svg>Number &amp; chance</div><a class="other-link" href="/random-number-generator/">Random number generator</a><a class="other-link" href="/dice-roller/">Dice roller — 4,6,8,12,20 sided</a><a class="other-link" href="/coin-flip/">Coin flip simulator</a><a class="other-link" href="/lucky-number/">Lucky number picker</a><a class="other-link" href="/list-shuffler/">Random list shuffler</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4.5" r="2.5" stroke="currentColor" stroke-width="1"/><path d="M1.5 11.5c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Name generators</div><a class="other-link" href="/random-name-generator/">Random Name Generator</a><a class="other-link" href="/username-generator/">Username Generator</a><a class="other-link" href="/baby-name-finder/">Baby Name Generator</a><a class="other-link" href="/pet-name-generator/">Pet Name Generator</a><a class="other-link" href="/band-name-generator/">Band Name Generator</a><a class="other-link" href="/name-generators/">More Name Gen Tools</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3h9M2 6.5h7M2 10h5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Text &amp; writing</div><a class="other-link" href="/lorem-ipsum/">Lorem ipsum generator</a><a class="other-link" href="/password-generator/">Password generator</a><a class="other-link" href="/acronym-maker/">Acronym maker</a><a class="other-link" href="/random-quote/">Random quote generator</a><a class="other-link" href="/story-prompts/">Story prompt generator</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M6.5 1.5l1.3 3h3.2l-2.6 2 1 3-2.9-1.8-2.9 1.8 1-3-2.6-2h3.2z" stroke="currentColor" stroke-width="1" stroke-linejoin="round"/></svg>Games &amp; fun</div><a class="other-link" href="/pictionary-word-generator/">Pictionary word generator</a><a class="other-link" href="/charades-generator/">Charades generator</a><a class="other-link" href="/truth-or-dare/">Truth or dare gen</a><a class="other-link" href="/would-you-rather/">Would you rather</a><a class="other-link" href="/trivia-questions/">Trivia question gen</a></div>
+    </div>
+  </div>
+
+  <div class="ad-rect">
+    <span class="ad-tag">Advertisement · 336×280</span>
+    <div class="ad-rect-img"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4C10.3 4 4 10.3 4 18s6.3 14 14 14 14-6.3 14-14S25.7 4 18 4z" fill="white" opacity=".2"/><path d="M12 18c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="18" r="2.5" fill="white"/></svg></div>
+    <div class="ad-rect-content">
+      <div class="ad-rect-title">Grammarly — write with confidence</div>
+      <div class="ad-rect-body">Instantly improve grammar, spelling, clarity, and tone. Works everywhere you write online.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
+    </div>
+  </div>
+  <div class="divider"></div>
+
+<div class="explainer">
+  <h2>What is a random Mexican name generator?</h2>
+  <p>A random Mexican name generator creates names commonly used in Mexico from a dedicated dataset instead of pulling from a generic global list. This version is built for writers, game masters, and anyone who wants names that feel more grounded in Mexican naming patterns, including compound given names and two-surname full names.</p>
+
+  <h2>How it works</h2>
+  <p>Choose how many names you want, then adjust the filters. You can switch between first names, surnames, compound given names, and full names, narrow the gender or style, and control whether full names use one surname or two. When you change a filter, the results refresh automatically so you can compare directions quickly.</p>
+  <p>You can copy the whole list, save favorites, or hide the meaning lines if you want a cleaner scan of the names only.</p>
+
+  <h2>How Mexican names are structured</h2>
+  <p>Mexican names often use one or two given names followed by one or two surnames. A full legal-style name commonly includes a paternal surname followed by a maternal surname. That structure gives Mexican full names a different rhythm from the simple first-name-plus-last-name format that many English-language tools assume.</p>
+
+  <h2>Why some Mexican names use two surnames</h2>
+  <p>Two surnames are a practical part of Mexican naming tradition, not just a stylistic flourish. If you need names that feel closer to real-world conventions used in Mexico, the two-surname full-name option is one of the most useful differences between this page and generic name generators.</p>
+
+  <h2>Why use a Mexico-specific generator?</h2>
+  <p>A dedicated Mexican generator works better when the data and filters match naming habits commonly found in Mexico. A broad <a href="/random-name-generator/">random name generator</a> is useful for general brainstorming, but a Mexico-first page can support compound names, religious traditions, accent-aware spelling, and two-surname combinations in a way that a generic dataset usually cannot.</p>
+
+  <h2>Ways writers can use the tool</h2>
+  <p>Use it for realistic contemporary characters, historical fiction, tabletop NPCs, pen names, classroom writing prompts, and worldbuilding inspired by names used in Mexico. The meaning lines also help when you want a name to quietly reinforce a character’s tone or role.</p>
+</div>
+  <div class="divider"></div>
+
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">Are these real Mexican names?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">The tool uses real Mexico-focused given names and surnames, then combines them for brainstorming and character use. A generated combination may match a real person by coincidence, but the page is not an identity generator.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I generate Mexican names with two surnames?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes. Choose Two-surname full name to force a Mexico-focused full name with two surnames, or use the Surname structure filter on Full name to explore one-surname and two-surname formats.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What is the difference between full name and two-surname full name?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Full name gives you the standard generator path and can be narrowed with the Surname structure filter. Two-surname full name always outputs a given name followed by two surnames.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I use these names for characters?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes. The page is designed for fiction, games, roleplaying, and other creative projects where you want Mexican names that feel more culturally specific than a generic random list.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">How is this different from the random name generator?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">The generic random name generator covers many origins. This page uses a Mexico-focused dataset, compound-name support, and two-surname rules so the output feels more consistent for Mexican character naming.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Does this tool create fake identities?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">No. It only generates names. It does not create addresses, phone numbers, passwords, document numbers, or other identity details.</div>
+  </div>
+</div>
+  <div class="divider"></div>
+
+<div>
+  <h2 class="section-title" style="margin-bottom:14px">Who uses this tool</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">Writers</div><div class="uc-body">Build Mexico-focused character names for novels, scripts, historical fiction, and worldbuilding.</div></div>
+    <div class="uc"><div class="uc-title">Game masters</div><div class="uc-body">Generate Mexican-inspired NPC names quickly for tabletop campaigns and setting notes.</div></div>
+    <div class="uc"><div class="uc-title">Teachers</div><div class="uc-body">Make sample names for creative writing, language class prompts, and cultural context activities.</div></div>
+    <div class="uc"><div class="uc-title">Name brainstormers</div><div class="uc-body">Compare first names, surnames, compound names, and two-surname formats in one place.</div></div>
+  </div>
+</div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="ad-footer-strip" style="margin-bottom:24px">
+      <span class="ad-tag">Advertisement · 468×60</span>
+      <div class="ad-fs-text"><strong>Grammarly Premium</strong> — Vocabulary suggestions, tone detector, full-sentence rewrites.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-footer-strip-cta">Try free</a>
+    </div>
+    <div class="footer-grid">
+      <div><div class="footer-col-title">Word tools</div><a class="footer-link" href="/">Random word generator</a><a class="footer-link" href="/random-sentence-generator/">Random sentence</a><a class="footer-link" href="/random-letter-generator/">Random letter</a><a class="footer-link" href="/word-scramble/">Word Scramble</a><a class="footer-link" href="/word-of-the-day/">Word of the day</a><a class="footer-link" href="/passphrase-generator/">Passphrase gen</a></div>
+      <div><div class="footer-col-title">Name generators</div><a class="footer-link" href="/random-name-generator/">Random name gen</a><a class="footer-link" href="/username-generator/">Username generator</a><a class="footer-link" href="/fantasy-name-generator/">Fantasy name gen</a><a class="footer-link" href="/baby-name-finder/">Baby name finder</a><a class="footer-link" href="/pet-name-generator/">Pet name gen</a><a class="footer-link" href="/name-generators/">More Name Gen Tools</a></div>
+      <div><div class="footer-col-title">Number &amp; chance</div><a class="footer-link" href="/random-number-generator/">Random number</a><a class="footer-link" href="/dice-roller/">Dice roller</a><a class="footer-link" href="/coin-flip/">Coin flip</a><a class="footer-link" href="/lucky-number/">Lucky number</a><a class="footer-link" href="/list-shuffler/">List shuffler</a></div>
+      <div><div class="footer-col-title">Games &amp; fun</div><a class="footer-link" href="/pictionary-word-generator/">Pictionary words</a><a class="footer-link" href="/charades-generator/">Charades gen</a><a class="footer-link" href="/truth-or-dare/">Truth or dare</a><a class="footer-link" href="/would-you-rather/">Would you rather</a><a class="footer-link" href="/story-prompts/">Story prompts</a></div>
+    </div>
+    <div class="footer-bottom">
+      <div style="display:flex;align-items:center;gap:7px">
+        <div class="nav-logo-icon" style="width:22px;height:22px;border-radius:5px"><svg viewBox="0 0 15 15" fill="none" style="width:12px;height:12px"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <span style="font-size:14px;font-weight:600;color:var(--text)">Wordineer</span>
+      </div>
+      <span class="footer-copy">© 2026 Wordineer · Free word tools for everyone</span>
+      <div class="footer-meta"><a href="/about/">About</a><a href="/blog/">Blog</a><a href="/affiliate-disclosure/">Affiliate disclosure</a><a href="/privacy/">Privacy</a></div>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="/scripts/tool-engine.js?v=10"></script>
+<script>
+(function bindSharedWordineerMenu() {
+  const mega = document.getElementById('mega');
+  const hbg = document.querySelector('.hamburger');
+  if (!mega || !hbg) return;
+  if (hbg.dataset.menuBound === '1') return;
+  hbg.dataset.menuBound = '1';
+  hbg.onclick = null;
+  if (hbg.getAttribute('onclick')) hbg.removeAttribute('onclick');
+
+  function setMenu(open) {
+    mega.classList.toggle('open', open);
+    hbg.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+
+  setMenu(mega.classList.contains('open'));
+
+  hbg.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+    setMenu(!mega.classList.contains('open'));
+  }, true);
+
+  hbg.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+      setMenu(!mega.classList.contains('open'));
+    }
+  }, true);
+
+  document.addEventListener('click', function(e) {
+    if (mega.classList.contains('open') && !mega.contains(e.target) && !hbg.contains(e.target)) {
+      setMenu(false);
+    }
+  }, true);
+})();
+</script>
+
+<script src="/scripts/mexican-name-generator.js?v=2"></script>
+<script>
+if (window.initMexicanNameGenerator) window.initMexicanNameGenerator();
+</script>
+</body>
+</html>
