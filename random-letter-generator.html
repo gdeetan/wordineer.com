@@ -780,7 +780,17 @@ const WORDINEER_LETTERS = (() => {
 
     document.getElementById(cfg.countId)?.addEventListener('input', function() {
       const v = parseInt(this.value, 10);
-      setCountError(isNaN(v) || v < 1 || v > 50);
+      const hasError = isNaN(v) || v < 1 || v > 50;
+      setCountError(hasError);
+      if (!hasError) generate();
+    });
+
+    document.querySelectorAll('input[name="lg-case"]').forEach(input => {
+      input.addEventListener('change', generate);
+    });
+
+    [cfg.letterSetId, cfg.duplicatesId, cfg.freqId].forEach(id => {
+      document.getElementById(id)?.addEventListener('change', generate);
     });
 
     document.addEventListener('keydown', e => {
