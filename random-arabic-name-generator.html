@@ -129,6 +129,8 @@
 .gen-btn:hover { background:var(--brand-dark); }
 .gen-btn:active { transform:scale(.98); }
 .reset-btn  { display:block; width:100%; text-align:center; font-size:11px; color:var(--text-3); margin-top:8px; cursor:pointer; text-decoration:underline; text-underline-offset:2px; border:none; background:none; font-family:inherit; }
+.kbd        { text-align:center; font-size:10px; color:var(--text-3); margin-top:6px; }
+.kbd kbd    { background:var(--bg-3); border:1px solid var(--border); border-radius:3px; padding:1px 5px; font-size:10px; font-family:inherit; }
 .def-row    { display:flex; align-items:center; gap:8px; margin-bottom:14px; }
 .def-row label { font-size:12px; color:var(--text-2); cursor:pointer; }
 .toggle     { position:relative; width:32px; height:18px; flex-shrink:0; }
@@ -179,6 +181,7 @@
   .tool-wrap { padding:14px 16px 0; }
   .tool-split { flex-direction:column; }
   .ctrl { width:100%; border-right:none; border-bottom:1px solid var(--border-2); }
+  .reset-btn, .kbd { display:none; }
   .word-list { max-height:440px; overflow-y:auto; }
   .ng-mobile-toggle { display:block; }
   .ng-advanced { display:none; }
@@ -334,6 +337,7 @@
 
         <button class="gen-btn" id="ar-gen-btn">Generate names</button>
         <button class="reset-btn" id="ar-reset-btn">Reset options</button>
+        <div class="kbd">Press <kbd>Space</kbd> to regenerate</div>
       </div>
 
       <div class="words-panel">
