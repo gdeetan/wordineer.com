@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.adsbygoogle = window.adsbygoogle || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  (function(w, d) {
+    var loaded = false;
+    var cfg = {
+      analyticsId: 'G-7DWH3EGM3Z',
+      adsClient: 'ca-pub-7200956978416233',
+      delay: 10000
+    };
+
+    function loadScript(src, attrs) {
+      var s = d.createElement('script');
+      s.async = true;
+      s.src = src;
+      if (attrs) {
+        Object.keys(attrs).forEach(function(key) {
+          s.setAttribute(key, attrs[key]);
+        });
+      }
+      d.head.appendChild(s);
+    }
+
+    function loadMarketing() {
+      if (loaded) return;
+      loaded = true;
+      gtag('js', new Date());
+      gtag('config', cfg.analyticsId);
+      loadScript('https://www.googletagmanager.com/gtag/js?id=' + cfg.analyticsId);
+      loadScript(
+        'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + cfg.adsClient,
+        { crossorigin: 'anonymous' }
+      );
+    }
+
+    function idleLoad() {
+      if ('requestIdleCallback' in w) {
+        w.requestIdleCallback(loadMarketing, { timeout: 5000 });
+      } else {
+        w.setTimeout(loadMarketing, cfg.delay);
+      }
+    }
+
+    ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function(eventName) {
+      w.addEventListener(eventName, loadMarketing, { once: true, passive: true });
+    });
+    w.addEventListener('load', function() {
+      w.setTimeout(idleLoad, cfg.delay);
+    }, { once: true });
+  })(window, document);
+</script>
+<meta name='impact-site-verification' value='32715504-1cfb-4324-bfc7-ae4cfa1591ea'>
+<link rel="preload" href="/fonts/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-sans-italic-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Wordineer",
+  "url": "https://wordineer.com"
+}
+</script>
+<title>Free Word Tools — Generators, Games &amp; Vocabulary | Wordineer</title>
+<meta name="description" content="Browse every word tool on Wordineer in one place. Random word generators, word games, vocabulary builders, and writing tools. Free, no sign-up.">
+<link rel="canonical" href="https://wordineer.com/word-tools/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wordineer">
+<meta property="og:title" content="Free Word Tools — Generators, Games &amp; Vocabulary | Wordineer">
+<meta property="og:description" content="Browse every word tool on Wordineer in one place. Random word generators, word games, vocabulary builders, and writing tools. Free, no sign-up.">
+<meta property="og:url" content="https://wordineer.com/word-tools/">
+<meta property="og:image" content="https://wordineer.com/og-image.png">
+
+<link rel="stylesheet" href="/styles/global.css?v=7">
+<style>
+.name-intro {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-2);
+  margin: 0 0 20px;
+}
+.name-section {
+  margin-top: 26px;
+}
+.name-section:first-of-type {
+  margin-top: 0;
+}
+.name-section .section-title {
+  margin-bottom: 4px;
+}
+.name-section .section-sub {
+  margin-bottom: 14px;
+}
+.name-section .tools-grid {
+  margin-bottom: 0;
+}
+.hub-prose {
+  margin-top: 48px;
+}
+.hub-prose h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 20px;
+  font-weight: 400;
+  margin: 0 0 10px;
+  color: var(--text-1);
+}
+.hub-prose p {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--text-2);
+  margin: 0 0 16px;
+}
+.hub-prose h3 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 32px 0 12px;
+  color: var(--text-1);
+}
+.use-cases {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+.use-case-card {
+  background: var(--surface-2, #f5f5f7);
+  border-radius: 10px;
+  padding: 18px 20px;
+}
+.use-case-card h3 {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0 0 6px;
+  color: var(--text-1);
+}
+.use-case-card p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-2);
+  margin: 0;
+}
+.faq-section {
+  margin-top: 48px;
+}
+.faq-section > h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 16px;
+  color: var(--text-1);
+}
+.faq-item {
+  border-bottom: 1px solid var(--border, #e5e5e5);
+}
+.faq-item summary {
+  font-size: 15px;
+  font-weight: 600;
+  padding: 14px 0;
+  cursor: pointer;
+  list-style: none;
+  color: var(--text-1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+';
+  font-size: 18px;
+  color: var(--text-3, #888);
+  flex-shrink: 0;
+}
+.faq-item[open] summary::after { content: '−'; }
+.faq-item p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-2);
+  margin: 0 0 14px;
+}
+</style>
+</head>
+
+<body>
+<nav class="nav">
+  <a class="nav-logo" href="/">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 15 15" fill="none"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </div>
+    Wordineer
+  </a>
+  <div class="nav-links">
+    <a href="/word-tools/">Tools</a>
+    <a href="/blog/">Blog</a>
+  </div>
+  <div>
+    <button class="hamburger" type="button" aria-label="All tools" aria-controls="mega" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mega" id="mega">
+  <div class="mega-inner">
+    <div class="mega-col">
+      <div class="mega-cat">Writing &amp; Vocabulary</div>
+      <a class="mega-link" href="/">Random Word Generator</a>
+      <a class="mega-link" href="/random-sentence-generator/">Random Sentence Generator</a>
+      <a class="mega-link" href="/random-paragraph-generator/">Random Paragraph Generator</a>
+      <a class="mega-link" href="/word-counter/">Word Counter</a>
+      <a class="mega-link" href="/words-that-start-with/">Words by Letter</a>
+      <a class="mega-link mega-link--view-all" href="/word-tools/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Word Games</div>
+      <a class="mega-link" href="/pictionary-word-generator/">Pictionary Word Generator</a>
+      <a class="mega-link" href="/scattergories-generator/">Scattergories Generator</a>
+      <a class="mega-link" href="/scrabble-word-finder/">Scrabble Word Finder</a>
+      <a class="mega-link" href="/wordle-helper/">Wordle Helper</a>
+      <a class="mega-link mega-link--view-all" href="/word-games/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Names by Origin</div>
+      <a class="mega-link" href="/random-spanish-name-generator/">Spanish Name Generator</a>
+      <a class="mega-link" href="/random-italian-name-generator/">Italian Name Generator</a>
+      <a class="mega-link" href="/random-japanese-name-generator/">Japanese Name Generator</a>
+      <a class="mega-link" href="/random-american-name-generator/">American Name Generator</a>
+      <a class="mega-link mega-link--view-all" href="/name-generators/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Story &amp; Character Names</div>
+      <a class="mega-link" href="/character-name-generator/">Character Name Generator</a>
+      <a class="mega-link" href="/fantasy-name-generator/">Fantasy Name Generator</a>
+      <a class="mega-link" href="/business-name-generator/">Business Name Generator</a>
+      <a class="mega-link" href="/band-name-generator/">Band Name Generator</a>
+      <a class="mega-link mega-link--view-all" href="/fiction-name-generators/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Account &amp; Security</div>
+      <a class="mega-link" href="/username-generator/">Username Generator</a>
+      <a class="mega-link" href="/password-generator/">Password Generator</a>
+      <a class="mega-link" href="/passphrase-generator/">Passphrase Generator</a>
+      <a class="mega-link" href="/random-pin-generator/">Random PIN Generator</a>
+      <a class="mega-link mega-link--view-all" href="/account-tools/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Games &amp; fun</div>
+      <a class="mega-link" href="/random-number-generator/">Number Generator</a>
+      <a class="mega-link" href="/coin-flip/">Flip a Coin</a>
+      <a class="mega-link" href="/name-picker-wheel/">Name Picker Wheel</a>
+      <a class="mega-link" href="/dice-roller/">Dice Roller</a>
+      <a class="mega-link mega-link--view-all" href="/number-chance/">View all →</a>
+    </div>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free · No sign-up · Instant
+  </div>
+  <h1>Free word tools</h1>
+  <p>Browse every word tool on Wordineer in one place. The full collection — random word generators, word games, vocabulary builders, and writing tools — grouped by what you're trying to do.</p>
+</div>
+<div class="content-wrap">
+  <div class="section">
+    <p class="name-intro">Choose a category below. Each card opens a tool that runs instantly in your browser. No sign-up, no limits, no setup.</p>
+
+    <div class="name-section">
+      <h2 class="section-title">Random word generators</h2>
+      <p class="section-sub">Generate words by length, letter, type, or specific count.</p>
+      <div class="tools-grid">
+
+        <a class="tool-item" href="/">
+          <div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><path d="M3 4h7M3 6.5h5M3 9h6" stroke="#4A3FD4" stroke-width="1.1" stroke-linecap="round"/></svg></div>
+          <div class="tool-name">Random Word Generator</div>
+          <div class="tool-desc">The classic. Filter by length, type, difficulty, and starting letter.</div>
+        </a>
+
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#E6F1FB"><svg viewBox="0 0 13 13" fill="none"><path d="M6.5 9.5V4.5C5.7 4 4.5 3.8 3 4.3v5.2c1.5-.5 2.7-.3 3.5.5zM6.5 9.5V4.5c.8-.5 2-.7 3.5-.2v5.2c-1.5-.5-2.7-.3-3.5.5z" stroke="#185FA5" stroke-width=".85" stroke-linejoin="round"/></svg></div>
+          <div class="tool-name">Random Words with Definitions <span class="soon-badge">Coming soon</span></div>
+          <div class="tool-desc">Every word comes with its meaning baked in.</div>
+        </div>
+
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#E1F5EE"><svg viewBox="0 0 13 13" fill="none"><rect x="1" y="4.5" width="11" height="4" rx="1" fill="none" stroke="#1D9E75" stroke-width=".85"/><line x1="3.2" y1="4.5" x2="3.2" y2="8.5" stroke="#1D9E75" stroke-width=".7"/><line x1="5.4" y1="4.5" x2="5.4" y2="8.5" stroke="#1D9E75" stroke-width=".7"/><line x1="7.6" y1="4.5" x2="7.6" y2="8.5" stroke="#1D9E75" stroke-width=".7"/><line x1="9.8" y1="4.5" x2="9.8" y2="8.5" stroke="#1D9E75" stroke-width=".7"/></svg></div>
+          <div class="tool-name">Random 5-Letter Words <span class="soon-badge">Coming soon</span></div>
+          <div class="tool-desc">Wordle-length words on demand.</div>
+        </div>
+
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#FAEEDA"><svg viewBox="0 0 13 13" fill="none"><rect x="1" y="4.5" width="11" height="4" rx="1" fill="none" stroke="#BA7517" stroke-width=".85"/><line x1="3.67" y1="4.5" x2="3.67" y2="8.5" stroke="#BA7517" stroke-width=".7"/><line x1="6.33" y1="4.5" x2="6.33" y2="8.5" stroke="#BA7517" stroke-width=".7"/><line x1="9" y1="4.5" x2="9" y2="8.5" stroke="#BA7517" stroke-width=".7"/></svg></div>
+          <div class="tool-name">Random 4-Letter Words <span class="soon-badge">Coming soon</span></div>
+          <div class="tool-desc">Short words for puzzles and games.</div>
+        </div>
+
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#FDE9E7"><svg viewBox="0 0 13 13" fill="none"><rect x="1" y="4.5" width="11" height="4" rx="1" fill="none" stroke="#C7435B" stroke-width=".85"/><line x1="4.67" y1="4.5" x2="4.67" y2="8.5" stroke="#C7435B" stroke-width=".7"/><line x1="8.33" y1="4.5" x2="8.33" y2="8.5" stroke="#C7435B" stroke-width=".7"/></svg></div>
+          <div class="tool-name">Random 3-Letter Words <span class="soon-badge">Coming soon</span></div>
+          <div class="tool-desc">Three-letter words for early readers and Scrabble.</div>
+        </div>
+
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#E6F1FB"><svg viewBox="0 0 13 13" fill="none"><rect x="1.5" y="7.5" width="2" height="3" rx=".5" fill="#185FA5"/><rect x="4.5" y="5" width="2" height="5.5" rx=".5" fill="#185FA5"/><rect x="7.5" y="6.5" width="2" height="4" rx=".5" fill="#185FA5"/><rect x="10.5" y="4" width="2" height="6.5" rx=".5" fill="#185FA5"/></svg></div>
+          <div class="tool-name">Random Words by Length <span class="soon-badge">Coming soon</span></div>
+          <div class="tool-desc">Pick any length from 2 to 12 letters.</div>
+        </div>
+
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#EEF8EA"><svg viewBox="0 0 13 13" fill="none"><path d="M3 9.5L5.5 3.5 8 9.5M4 7.5h3" stroke="#0F6E56" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10.5" cy="9" r=".85" fill="#0F6E56"/></svg></div>
+          <div class="tool-name">Random Words Starting With… <span class="soon-badge">Coming soon</span></div>
+          <div class="tool-desc">Words that begin with the letter you choose.</div>
+        </div>
+
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4.5" r="1.8" stroke="#4A3FD4" stroke-width=".9"/><path d="M3 10.5c0-2 1.6-3.5 3.5-3.5s3.5 1.5 3.5 3.5" stroke="#4A3FD4" stroke-width=".9" stroke-linecap="round"/></svg></div>
+          <div class="tool-name">Random Nouns <span class="soon-badge">Coming soon</span></div>
+          <div class="tool-desc">Just nouns, no other parts of speech.</div>
+        </div>
+
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#FAEEDA"><svg viewBox="0 0 13 13" fill="none"><path d="M7.5 2L4 7h3.5L5.5 11 10 5.5H6.5L7.5 2z" stroke="#BA7517" stroke-width=".9" stroke-linejoin="round"/></svg></div>
+          <div class="tool-name">Random Verbs <span class="soon-badge">Coming soon</span></div>
+          <div class="tool-desc">Action words for writing and games.</div>
+        </div>
+
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#E6F1FB"><svg viewBox="0 0 13 13" fill="none"><path d="M6.5 2l1.2 3.3H11l-2.8 2 1.1 3.3L6.5 8.7l-2.8 1.9 1.1-3.3L2 5.3h3.3z" stroke="#185FA5" stroke-width=".85" stroke-linejoin="round"/></svg></div>
+          <div class="tool-name">Random Adjectives <span class="soon-badge">Coming soon</span></div>
+          <div class="tool-desc">Describing words on demand.</div>
+        </div>
+
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#E1F5EE"><svg viewBox="0 0 13 13" fill="none"><path d="M2.5 5.5h6M2.5 7.5h5" stroke="#1D9E75" stroke-width=".9" stroke-linecap="round"/><path d="M8 4l3 2.5-3 2.5" stroke="#1D9E75" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="tool-name">Random Adverbs <span class="soon-badge">Coming soon</span></div>
+          <div class="tool-desc">How, when, where, and to what extent.</div>
+        </div>
+
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#FDE9E7"><svg viewBox="0 0 13 13" fill="none"><circle cx="3" cy="4.5" r=".75" fill="#C7435B"/><circle cx="3" cy="6.5" r=".75" fill="#C7435B"/><circle cx="3" cy="8.5" r=".75" fill="#C7435B"/><path d="M5 4.5h5.5M5 6.5h4.5M5 8.5h5" stroke="#C7435B" stroke-width=".9" stroke-linecap="round"/></svg></div>
+          <div class="tool-name">100 Random Words <span class="soon-badge">Coming soon</span></div>
+          <div class="tool-desc">A bulk list ready to copy.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="name-section">
+      <h2 class="section-title">Writing and creativity</h2>
+      <p class="section-sub">Beat writer's block. Find a prompt. Start the page.</p>
+      <div class="tools-grid">
+
+        <a class="tool-item" href="/random-sentence-generator/">
+          <div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3h9v5H5L3 10V8H2z" stroke="#4A3FD4" stroke-width=".9" stroke-linejoin="round"/><path d="M4 5.5h5M4 7h3" stroke="#4A3FD4" stroke-width=".75" stroke-linecap="round"/></svg></div>
+          <div class="tool-name">Random Sentence Generator</div>
+          <div class="tool-desc">Full sentences for prompts and ESL practice.</div>
+        </a>
+
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#FAEEDA"><svg viewBox="0 0 13 13" fill="none"><path d="M6.5 9.5V4.5C5.7 4 4.5 3.8 3 4.3v5.2c1.5-.5 2.7-.3 3.5.5zM6.5 9.5V4.5c.8-.5 2-.7 3.5-.2v5.2c-1.5-.5-2.7-.3-3.5.5z" stroke="#BA7517" stroke-width=".85" stroke-linejoin="round"/></svg></div>
+          <div class="tool-name">Story Prompts <span class="soon-badge">Coming soon</span></div>
+          <div class="tool-desc">Openings, settings, and what-if scenarios.</div>
+        </div>
+
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#E1F5EE"><svg viewBox="0 0 13 13" fill="none"><path d="M3.5 9.5L3 10.5l1.2-.4 5.5-5.5-1.2-1.2zM9 4.1l.7-.7c.4-.4 1-.4 1.4 0s.4 1 0 1.4l-.7.7z" stroke="#1D9E75" stroke-width=".85" stroke-linejoin="round"/></svg></div>
+          <div class="tool-name">Writing Prompt Generator <span class="soon-badge">Coming soon</span></div>
+          <div class="tool-desc">Quick prompts for journals and creative warm-ups.</div>
+        </div>
+
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#E6F1FB"><svg viewBox="0 0 13 13" fill="none"><path d="M2.5 7V5.5c0-1.1.9-2 2-2H5M2.5 7c0 1.1.9 2 2 2H5L4 7" stroke="#185FA5" stroke-width=".9" stroke-linecap="round"/><path d="M7.5 7V5.5c0-1.1.9-2 2-2H10M7.5 7c0 1.1.9 2 2 2H10L9 7" stroke="#185FA5" stroke-width=".9" stroke-linecap="round"/></svg></div>
+          <div class="tool-name">Random Quote <span class="soon-badge">Coming soon</span></div>
+          <div class="tool-desc">A handpicked quote whenever you need one.</div>
+        </div>
+
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#F5F3FF"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3.5h9M2 5.5h9M2 7.5h9M2 9.5h5.5" stroke="#4A3FD4" stroke-width=".9" stroke-linecap="round"/></svg></div>
+          <div class="tool-name">Lorem Ipsum Generator <span class="soon-badge">Coming soon</span></div>
+          <div class="tool-desc">Placeholder text in any length you need.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="name-section">
+      <h2 class="section-title">Vocabulary and learning</h2>
+      <p class="section-sub">For students, teachers, and ESL learners.</p>
+      <div class="tools-grid">
+
+        <a class="tool-item" href="/word-of-the-day/">
+          <div class="tool-icon" style="background:#FAEEDA"><svg viewBox="0 0 13 13" fill="none"><rect x="2.5" y="4" width="8" height="6.5" rx="1" stroke="#BA7517" stroke-width=".9"/><path d="M5 4V2.5M8 4V2.5" stroke="#BA7517" stroke-width=".9" stroke-linecap="round"/><path d="M2.5 6h8" stroke="#BA7517" stroke-width=".7"/></svg></div>
+          <div class="tool-name">Word of the Day</div>
+          <div class="tool-desc">A new word every day with meaning and example.</div>
+        </a>
+
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#E1F5EE"><svg viewBox="0 0 13 13" fill="none"><path d="M6.5 2.5L10 4.5v4L6.5 10.5 3 8.5v-4z" stroke="#1D9E75" stroke-width=".9" stroke-linejoin="round"/><circle cx="5" cy="6.5" r=".65" fill="#1D9E75"/><circle cx="6.5" cy="6.5" r=".65" fill="#1D9E75"/><circle cx="8" cy="6.5" r=".65" fill="#1D9E75"/></svg></div>
+          <div class="tool-name">Spelling Bee Words (3rd Grade) <span class="soon-badge">Coming soon</span></div>
+          <div class="tool-desc">Practice words at third-grade level.</div>
+        </div>
+
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#E6F1FB"><svg viewBox="0 0 13 13" fill="none"><path d="M6.5 2.5L10 4.5v4L6.5 10.5 3 8.5v-4z" stroke="#185FA5" stroke-width=".9" stroke-linejoin="round"/><circle cx="4.7" cy="6.5" r=".6" fill="#185FA5"/><circle cx="6.1" cy="6.5" r=".6" fill="#185FA5"/><circle cx="7.5" cy="6.5" r=".6" fill="#185FA5"/><circle cx="8.9" cy="6.5" r=".6" fill="#185FA5"/></svg></div>
+          <div class="tool-name">Spelling Bee Words (4th Grade) <span class="soon-badge">Coming soon</span></div>
+          <div class="tool-desc">Practice words at fourth-grade level.</div>
+        </div>
+
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><path d="M6.5 2.5L10 4.5v4L6.5 10.5 3 8.5v-4z" stroke="#4A3FD4" stroke-width=".9" stroke-linejoin="round"/><circle cx="4.1" cy="6.5" r=".55" fill="#4A3FD4"/><circle cx="5.4" cy="6.5" r=".55" fill="#4A3FD4"/><circle cx="6.7" cy="6.5" r=".55" fill="#4A3FD4"/><circle cx="8" cy="6.5" r=".55" fill="#4A3FD4"/><circle cx="9.3" cy="6.5" r=".55" fill="#4A3FD4"/></svg></div>
+          <div class="tool-name">Spelling Bee Words (5th Grade) <span class="soon-badge">Coming soon</span></div>
+          <div class="tool-desc">Practice words at fifth-grade level.</div>
+        </div>
+
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#E6F1FB"><svg viewBox="0 0 13 13" fill="none"><path d="M6.5 3L12 5.5 6.5 8 1 5.5z" fill="#185FA5"/><path d="M3.5 6.5v2.5c1 .9 2 1.2 3 1.2s2-.3 3-1.2V6.5" stroke="#185FA5" stroke-width=".9" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 5.5v2.5" stroke="#185FA5" stroke-width=".9" stroke-linecap="round"/></svg></div>
+          <div class="tool-name">SAT Vocabulary Words <span class="soon-badge">Coming soon</span></div>
+          <div class="tool-desc">High-frequency SAT words with definitions.</div>
+        </div>
+
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#E1F5EE"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="4" stroke="#1D9E75" stroke-width=".9"/><path d="M6.5 2.5c-1.5 1-2.5 2.3-2.5 4s1 3 2.5 4c1.5-1 2.5-2.3 2.5-4s-1-3-2.5-4z" stroke="#1D9E75" stroke-width=".7"/><path d="M2.5 6.5h8" stroke="#1D9E75" stroke-width=".7"/></svg></div>
+          <div class="tool-name">ESL Vocabulary <span class="soon-badge">Coming soon</span></div>
+          <div class="tool-desc">Practical words for English learners.</div>
+        </div>
+
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#FAEEDA"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5c1.5-2.5 3.5-4 5-4s3.5 1.5 5 4c-1.5 2.5-3.5 4-5 4s-3.5-1.5-5-4z" stroke="#BA7517" stroke-width=".9"/><circle cx="6.5" cy="6.5" r="1.5" stroke="#BA7517" stroke-width=".85"/></svg></div>
+          <div class="tool-name">Sight Words Generator <span class="soon-badge">Coming soon</span></div>
+          <div class="tool-desc">High-frequency sight words for early readers.</div>
+        </div>
+
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#E6F1FB"><svg viewBox="0 0 13 13" fill="none"><path d="M6.5 2v9M2 6.5h9M4 4l5 5M9 4l-5 5" stroke="#185FA5" stroke-width=".85" stroke-linecap="round"/></svg></div>
+          <div class="tool-name">Cool Words <span class="soon-badge">Coming soon</span></div>
+          <div class="tool-desc">Interesting, unusual English words worth knowing.</div>
+        </div>
+
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><path d="M4.5 4.5c0-1.1.9-2 2-2s2 .9 2 2c0 1-.7 1.5-1.5 2-.5.3-.5.7-.5 1" stroke="#4A3FD4" stroke-width="1.1" stroke-linecap="round"/><circle cx="6.5" cy="10" r=".85" fill="#4A3FD4"/></svg></div>
+          <div class="tool-name">Weird Words <span class="soon-badge">Coming soon</span></div>
+          <div class="tool-desc">Strange and rare words with their meanings.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="name-section">
+      <h2 class="section-title">Letters and characters</h2>
+      <p class="section-sub">Single letters and acronym tools.</p>
+      <div class="tools-grid">
+
+        <a class="tool-item" href="/random-letter-generator/">
+          <div class="tool-icon" style="background:#E1F5EE"><svg viewBox="0 0 13 13" fill="none"><path d="M3.5 10L6.5 3 9.5 10M5 7.5h3" stroke="#1D9E75" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="tool-name">Random Letter Generator</div>
+          <div class="tool-desc">One letter at a time, or a list.</div>
+        </a>
+
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#FAEEDA"><svg viewBox="0 0 13 13" fill="none"><path d="M2 9L4.5 3.5 7 9M3 7.5h3" stroke="#BA7517" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.5 6.5h3M10 5l2 1.5-2 1.5" stroke="#BA7517" stroke-width=".9" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="tool-name">Acronym Maker <span class="soon-badge">Coming soon</span></div>
+          <div class="tool-desc">Build an acronym from a phrase, or vice versa.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="hub-prose">
+      <h2>Looking for words by starting letter?</h2>
+      <p>If you need words that begin with a specific letter — for Wordle, Scrabble, a vocabulary exercise, or a writing prompt — the <a href="/words-that-start-with/">words by letter hub</a> has a full A–Z index. Each letter links to a filterable list you can sort by word type and difficulty.</p>
+    </div>
+
+    <div class="hub-prose">
+      <h2>Looking for a name? They live in their own section.</h2>
+      <p>Name generators are a category on their own — first names, surnames, baby names, usernames, and 25+ regional generators covering cultures from Japanese and Korean to Spanish, Polish, Arabic, and more. Because the collection is large enough to warrant its own hub, names aren't grouped here with the word and writing tools.</p>
+      <p>The <a href="/name-generators/">Names by Origin hub</a> is organized by region: Asian names (Japanese, Korean, Filipino, Chinese, Thai, Vietnamese, Indian), European names (British, English, Scottish, Irish, French, German, Spanish, Italian, Greek, Norwegian, Danish, Dutch, Polish, Russian), the Americas (American, Mexican, Dominican), and the Middle East (Arabic, Turkish). Every generator draws from real name data for that culture — not phonetic approximations, but the kinds of names people in that country actually have. If you're writing a character, localizing a game, or researching a family name, that hub is the right place to start.</p>
+    </div>
+
+    <div class="hub-prose">
+      <h2>What are word tools?</h2>
+      <p>Word tools are anything that helps you put words on a page — but the ones on this hub are specifically designed to generate, count, and organize words and sentences. The core problem they solve is simple: the hardest part of writing is usually getting started. A random word can break a creative block in seconds. A sentence can show you a grammatical structure you hadn't tried before. These tools don't write for you. They give you material to react to, which is often exactly what you need to get moving. Each one is free, works immediately in your browser, and doesn't require an account.</p>
+
+      <h2>How word generators help writers</h2>
+      <p>The <a href="/">random word generator</a> pulls from a curated list of English words filtered by type (noun, verb, adjective, adverb), difficulty, and starting letter. Fiction writers use it for character traits, place names, and scene prompts. Poets use it to find unexpected nouns that can anchor a line. Screenwriters use it when they need a prop, a location, or a character detail and want something that doesn't feel predictable.</p>
+      <p>The <a href="/random-sentence-generator/">random sentence generator</a> goes a step further, producing complete sentences you can use as dialogue prompts, opening lines, or grammar practice exercises. Try generating five sentences and using the most interesting one as the first line of a story — it's a constraint that tends to produce surprisingly good results. Word games like <a href="/word-scramble/">Word Scramble</a> and <a href="/word-unscramble/">Word Unscramble</a> take a different angle: rather than generating new words, they present familiar ones in a way that makes you think harder about their structure. That cognitive effort turns passive recognition into active recall, which is what actually builds vocabulary.</p>
+
+      <h2>Building vocabulary without boring flashcards</h2>
+      <p>Traditional vocabulary study — flashcards, word lists, memorization — works eventually, but it's slow and easy to abandon. Word generators offer a different approach: you encounter words in situations adjacent to context rather than in isolation, which tends to help retention. ESL students use the random word tool to test whether they already know a word before looking up its definition, turning passive review into active recall. Bloggers and content writers use it to find synonyms and alternatives they'd stopped noticing in their own writing.</p>
+      <p><a href="/word-of-the-day/">Word of the Day</a> is a lightweight daily habit: one new word, its definition, and an example sentence. Over weeks it quietly expands your vocabulary without any dedicated study session. For spelling and pattern recognition, the scramble and unscramble tools give you the tactile experience of reassembling a word — harder than it sounds, and more memorable than reading a definition.</p>
+      <p>The tools here aren't designed to replace a dictionary or a grammar textbook. They're designed to remove the friction between "I should work on my vocabulary" and actually doing something. Opening a tool, generating a word, and writing a sentence with it takes under a minute. That low barrier is the point.</p>
+
+      <h2>Tools for teachers and students</h2>
+      <p>These tools are low-prep and easy to use in a classroom. A teacher can project the random word generator, ask students to write a definition from context, then check together as a group — it takes five minutes and works as a warm-up for any subject that uses vocabulary. For writing classes, the random sentence generator produces passages students can edit, summarize, or rewrite, which is more engaging than a static worksheet and produces different material every time.</p>
+      <p>For standardized tests with timed writing sections, practicing with a random sentence as a prompt builds the habit of starting quickly rather than spending the first minutes deciding on a topic. Word of the Day is another practical classroom option — students can look up the daily word, write a definition in their own words, and use it in a sentence, all as a five-minute exercise. Every tool here works on phones and tablets without any setup, which matters in classrooms where device access varies.</p>
+      <p>Word scramble and unscramble tools fit naturally into spelling lessons: generate a scrambled word, have students solve it on paper, then check as a class. The Pictionary word generator is useful for classroom games — it produces a word to draw, keeping rounds moving without anyone having to think up a word on the spot.</p>
+
+      <h3>Who uses these tools</h3>
+      <div class="use-cases">
+        <div class="use-case-card">
+          <h3>Fiction writers</h3>
+          <p>Stuck on a scene? Generate a random word as a character detail, setting element, or story prompt and write toward it. Takes less than a minute to break a block.</p>
+        </div>
+        <div class="use-case-card">
+          <h3>ESL students</h3>
+          <p>Test your vocabulary by generating a word and guessing its definition before checking. Turns passive review into active recall and makes study feel less like a chore.</p>
+        </div>
+        <div class="use-case-card">
+          <h3>Classroom teachers</h3>
+          <p>Use the word generator as a warm-up, the sentence generator as a writing prompt, and the scramble tools for spelling practice. No setup, no student accounts needed.</p>
+        </div>
+        <div class="use-case-card">
+          <h3>Bloggers and copywriters</h3>
+          <p>Find your way out of a rut with a random word, get a quick letter for a naming exercise, or use the sentence generator to shake up your writing voice.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <h2>Frequently asked questions</h2>
+      <details class="faq-item">
+        <summary>What is a random word generator?</summary>
+        <p>A random word generator picks words from a curated list and displays them on demand. On Wordineer, you can filter by word type (noun, verb, adjective, adverb), difficulty level, starting letter, and word length. It's mainly used by writers who want a creative prompt, students practicing vocabulary, and teachers who need a quick classroom activity. Every word comes with a definition so you're never left guessing.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Which tool should I use for creative writing?</summary>
+        <p>It depends on where you're stuck. If you need a single word — a character detail, a setting element, a story concept — start with the <a href="/">random word generator</a>. If you need a sentence to react to or use as a first line, try the <a href="/random-sentence-generator/">random sentence generator</a>. Any of the two can break a creative block; the word generator is faster, the sentence generator gives you more to work with.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Are these word tools free?</summary>
+        <p>Yes, completely free. There's no sign-up, no trial period, and no premium tier. Every tool on this hub works the moment you open the page — no login, no install, no waiting. The tools are supported by non-intrusive ads, which keeps everything free for everyone without paywalls or subscriptions.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How do teachers use these tools in the classroom?</summary>
+        <p>Teachers use the random word generator as a warm-up, projecting it at the start of class and asking students to define or use each word in a sentence. The random sentence generator works as a quick writing prompt. The word scramble and unscramble tools are useful for spelling exercises — students solve them on paper or as a timed challenge. All tools work on any device and need no setup or student accounts.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What's the difference between a word generator and a sentence generator?</summary>
+        <p>A word generator returns individual words — useful when you need a concept, a noun, a descriptor, or a creative prompt to react to. A sentence generator returns complete grammatical sentences, which are better when you want a writing prompt or a structure to imitate. Both are on Wordineer and work the same way: generate as many times as you want until something clicks.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What is word scramble and how is it different from word unscramble?</summary>
+        <p>Both tools are about rearranging letters, but from opposite directions. The <a href="/word-scramble/">word scramble</a> tool takes a word and jumbles the letters so you have to figure out what it is — useful for spelling games and vocabulary practice. The <a href="/word-unscramble/">word unscramble</a> tool lets you enter a set of letters and find all valid English words you can make from them, which is helpful for Scrabble, Wordle, and word puzzle games. Same concept, opposite direction.</p>
+      </details>
+    </div>
+
+  </div>
+</div>
+<script>
+(function() {
+  const mega = document.getElementById('mega');
+  const hbg = document.querySelector('.hamburger');
+  if (!mega || !hbg) return;
+
+  function setMenu(open) {
+    mega.classList.toggle('open', open);
+    hbg.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+
+  hbg.addEventListener('click', e => {
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+    setMenu(!mega.classList.contains('open'));
+  }, true);
+
+  hbg.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+      setMenu(!mega.classList.contains('open'));
+    }
+  }, true);
+
+  document.addEventListener('click', e => {
+    if (mega.classList.contains('open') && !mega.contains(e.target) && !hbg.contains(e.target)) {
+      setMenu(false);
+    }
+  }, true);
+})();
+</script>
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="ad-footer-strip" style="margin-bottom:24px">
+      <span class="ad-tag">Advertisement · 468×60</span>
+      <div class="ad-fs-text"><strong>Grammarly Premium</strong> — Vocabulary suggestions, tone detector, full-sentence rewrites.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-footer-strip-cta">Try free</a>
+    </div>
+    <div class="footer-grid">
+      <div><div class="footer-col-title">Writing &amp; Vocabulary</div><a class="footer-link" href="/">Random Word Generator</a><a class="footer-link" href="/random-sentence-generator/">Random Sentence Generator</a><a class="footer-link" href="/random-paragraph-generator/">Random Paragraph Generator</a><a class="footer-link" href="/word-counter/">Word Counter</a><a class="footer-link" href="/words-that-start-with/">Words by Letter</a><a class="footer-link footer-link--view-all" href="/word-tools/">View all →</a></div>
+      <div><div class="footer-col-title">Word Games</div><a class="footer-link" href="/pictionary-word-generator/">Pictionary Word Generator</a><a class="footer-link" href="/scattergories-generator/">Scattergories Generator</a><a class="footer-link" href="/scrabble-word-finder/">Scrabble Word Finder</a><a class="footer-link" href="/wordle-helper/">Wordle Helper</a><a class="footer-link footer-link--view-all" href="/word-games/">View all →</a></div>
+      <div><div class="footer-col-title">Names by Origin</div><a class="footer-link" href="/random-spanish-name-generator/">Spanish Name Generator</a><a class="footer-link" href="/random-italian-name-generator/">Italian Name Generator</a><a class="footer-link" href="/random-japanese-name-generator/">Japanese Name Generator</a><a class="footer-link" href="/random-american-name-generator/">American Name Generator</a><a class="footer-link footer-link--view-all" href="/name-generators/">View all →</a></div>
+      <div><div class="footer-col-title">Story &amp; Character Names</div><a class="footer-link" href="/character-name-generator/">Character Name Generator</a><a class="footer-link" href="/fantasy-name-generator/">Fantasy Name Generator</a><a class="footer-link" href="/business-name-generator/">Business Name Generator</a><a class="footer-link" href="/band-name-generator/">Band Name Generator</a><a class="footer-link footer-link--view-all" href="/fiction-name-generators/">View all →</a></div>
+      <div><div class="footer-col-title">Account &amp; Security</div><a class="footer-link" href="/username-generator/">Username Generator</a><a class="footer-link" href="/password-generator/">Password Generator</a><a class="footer-link" href="/passphrase-generator/">Passphrase Generator</a><a class="footer-link" href="/random-pin-generator/">Random PIN Generator</a><a class="footer-link footer-link--view-all" href="/account-tools/">View all →</a></div>
+      <div><div class="footer-col-title">Games &amp; fun</div><a class="footer-link" href="/random-number-generator/">Number Generator</a><a class="footer-link" href="/coin-flip/">Flip a Coin</a><a class="footer-link" href="/name-picker-wheel/">Name Picker Wheel</a><a class="footer-link" href="/dice-roller/">Dice Roller</a><a class="footer-link footer-link--view-all" href="/number-chance/">View all →</a></div>
+    </div>
+    <div class="footer-bottom">
+      <div style="display:flex;align-items:center;gap:7px">
+        <div class="nav-logo-icon" style="width:22px;height:22px;border-radius:5px"><svg viewBox="0 0 15 15" fill="none" style="width:12px;height:12px"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <span style="font-size:14px;font-weight:600;color:var(--text)">Wordineer</span>
+      </div>
+      <span class="footer-copy">© 2026 Wordineer · Free word tools for everyone</span>
+      <div class="footer-meta"><a href="/about/">About</a><a href="/blog/">Blog</a><a href="/affiliate-disclosure/">Affiliate disclosure</a><a href="/privacy/">Privacy</a></div>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="/scripts/tool-engine.js?v=10"></script>
+<script>
+(function bindSharedWordineerMenu() {
+  const mega = document.getElementById('mega');
+  const hbg = document.querySelector('.hamburger');
+  if (!mega || !hbg) return;
+  if (hbg.dataset.menuBound === '1') return;
+  hbg.dataset.menuBound = '1';
+  hbg.onclick = null;
+  if (hbg.getAttribute('onclick')) hbg.removeAttribute('onclick');
+
+  function setMenu(open) {
+    mega.classList.toggle('open', open);
+    hbg.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+
+  setMenu(mega.classList.contains('open'));
+
+  hbg.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+    setMenu(!mega.classList.contains('open'));
+  }, true);
+
+  hbg.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+      setMenu(!mega.classList.contains('open'));
+    }
+  }, true);
+
+  document.addEventListener('click', function(e) {
+    if (mega.classList.contains('open') && !mega.contains(e.target) && !hbg.contains(e.target)) {
+      setMenu(false);
+    }
+  }, true);
+})();
+</script>
+
+</body>
+</html>
