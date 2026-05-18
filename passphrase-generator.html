@@ -614,16 +614,25 @@
     return Math.round(wordCount * Math.log2(7776));
   }
 
+  function ppFmtNum(n) {
+    return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+
   function ppCrackTime(bits) {
     // Assumes 1 trillion guesses/second attacker
     var secs = Math.pow(2, bits) / 1e12;
-    if (secs > 3.15e16) return 'billions of years';
-    if (secs > 3.15e13) return 'millions of years';
-    if (secs > 3.15e10) return 'thousands of years';
-    if (secs > 3.15e7)  return 'decades';
-    if (secs > 86400)   return 'days';
-    if (secs > 3600)    return 'hours';
-    return 'minutes or less';
+    var years = secs / (365.25 * 86400);
+    if (years >= 1e9)  return '~' + ppFmtNum(years / 1e9) + ' billion years';
+    if (years >= 1e6)  return '~' + ppFmtNum(years / 1e6) + ' million years';
+    if (years >= 1000) return '~' + ppFmtNum(years / 1000) + 'k years';
+    if (years >= 1)    return '~' + ppFmtNum(years) + ' years';
+    var days = secs / 86400;
+    if (days >= 1)     return '~' + ppFmtNum(days) + ' days';
+    var hours = secs / 3600;
+    if (hours >= 1)    return '~' + ppFmtNum(hours) + ' hours';
+    var mins = secs / 60;
+    if (mins >= 1)     return '~' + ppFmtNum(mins) + ' minutes';
+    return 'under a minute';
   }
 
   function ppStrengthLabel(bits) {
@@ -818,7 +827,11 @@
 
   // Auto-update results as count/words/length values change
   document.getElementById('pp-count')?.addEventListener('input', function() {
-    var v = parseInt(this.value); if (v >= 1 && v <= 20) document.getElementById('pp-gen-btn')?.click();
+    var v = parseInt(this.value);
+    if (isNaN(v)) return;
+    if (v < 1) this.value = 1;
+    if (v > 20) this.value = 20;
+    document.getElementById('pp-gen-btn')?.click();
   });
   document.getElementById('pp-words')?.addEventListener('input', function() {
     var v = parseInt(this.value); if (v >= 3 && v <= 8) document.getElementById('pp-gen-btn')?.click();
