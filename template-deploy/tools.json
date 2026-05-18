@@ -1,115 +1,64 @@
 {
   "mega": [
     {
-      "cat": "Word tools",
+      "cat": "Writing &amp; Vocabulary",
+      "view_all_href": "/word-tools/",
       "tools": [
-        {
-          "href": "/random-sentence-generator/",
-          "text": "Random sentence"
-        },
-        {
-          "href": "/random-letter-generator/",
-          "text": "Random letter"
-        },
-        {
-          "href": "/word-scramble/",
-          "text": "Word Scramble"
-        },
-        {
-          "href": "/word-unscramble/",
-          "text": "Word Unscramble"
-        },
-        {
-          "href": "/word-of-the-day/",
-          "text": "Word of the day"
-        },
-        {
-          "href": "/passphrase-generator/",
-          "text": "Passphrase gen"
-        }
+        { "href": "/", "text": "Random Word Generator" },
+        { "href": "/random-sentence-generator/", "text": "Random Sentence Generator" },
+        { "href": "/random-paragraph-generator/", "text": "Random Paragraph Generator", "status": "planned" },
+        { "href": "/word-counter/", "text": "Word Counter", "status": "planned" },
+        { "href": "/words-that-start-with/", "text": "Words by Letter" }
       ]
     },
     {
-      "cat": "Name generators",
+      "cat": "Word Games",
+      "view_all_href": "/word-games/",
       "tools": [
-        {
-          "href": "/random-name-generator/",
-          "text": "Random Name Generator"
-        },
-        {
-          "href": "/username-generator/",
-          "text": "Username Generator"
-        },
-        {
-          "href": "/baby-name-finder/",
-          "text": "Baby Name Generator"
-        },
-        {
-          "href": "/pet-name-generator/",
-          "text": "Pet Name Generator"
-        },
-        {
-          "href": "/random-polish-name-generator/",
-          "text": "Polish name generator"
-        },
-        {
-          "href": "/band-name-generator/",
-          "text": "Band Name Generator"
-        },
-        {
-          "href": "/name-generators/",
-          "text": "More Name Gen Tools"
-        }
+        { "href": "/pictionary-word-generator/", "text": "Pictionary Word Generator" },
+        { "href": "/scattergories-generator/", "text": "Scattergories Generator", "status": "planned" },
+        { "href": "/scrabble-word-finder/", "text": "Scrabble Word Finder", "status": "planned" },
+        { "href": "/wordle-helper/", "text": "Wordle Helper", "status": "planned" }
       ]
     },
     {
-      "cat": "Number &amp; chance",
+      "cat": "Names by Origin",
+      "view_all_href": "/name-generators/",
       "tools": [
-        {
-          "href": "/random-number-generator/",
-          "text": "Random number"
-        },
-        {
-          "href": "/dice-roller/",
-          "text": "Dice roller"
-        },
-        {
-          "href": "/coin-flip/",
-          "text": "Coin flip"
-        },
-        {
-          "href": "/lucky-number/",
-          "text": "Lucky number"
-        },
-        {
-          "href": "/list-shuffler/",
-          "text": "List shuffler"
-        }
+        { "href": "/random-spanish-name-generator/", "text": "Spanish Name Generator" },
+        { "href": "/random-italian-name-generator/", "text": "Italian Name Generator" },
+        { "href": "/random-japanese-name-generator/", "text": "Japanese Name Generator" },
+        { "href": "/random-american-name-generator/", "text": "American Name Generator" }
+      ]
+    },
+    {
+      "cat": "Story &amp; Character Names",
+      "view_all_href": "/fiction-name-generators/",
+      "tools": [
+        { "href": "/character-name-generator/", "text": "Character Name Generator", "status": "planned" },
+        { "href": "/fantasy-name-generator/", "text": "Fantasy Name Generator", "status": "planned" },
+        { "href": "/business-name-generator/", "text": "Business Name Generator", "status": "planned" },
+        { "href": "/band-name-generator/", "text": "Band Name Generator", "status": "planned" }
+      ]
+    },
+    {
+      "cat": "Account &amp; Security",
+      "view_all_href": "/account-tools/",
+      "tools": [
+        { "href": "/username-generator/", "text": "Username Generator", "status": "planned" },
+        { "href": "/password-generator/", "text": "Password Generator", "status": "planned" },
+        { "href": "/passphrase-generator/", "text": "Passphrase Generator" },
+        { "href": "/random-pin-generator/", "text": "Random PIN Generator", "status": "planned" }
       ]
     },
     {
       "cat": "Games &amp; fun",
+      "view_all_href": "/number-chance/",
       "tools": [
-        {
-          "href": "/pictionary-word-generator/",
-          "text": "Pictionary words"
-        },
-        {
-          "href": "/charades-generator/",
-          "text": "Charades gen"
-        },
-        {
-          "href": "/truth-or-dare/",
-          "text": "Truth or dare"
-        },
-        {
-          "href": "/would-you-rather/",
-          "text": "Would you rather"
-        },
-        {
-          "href": "/story-prompts/",
-          "text": "Story prompts"
-        }
+        { "href": "/random-number-generator/", "text": "Number Generator" },
+        { "href": "/coin-flip/", "text": "Flip a Coin" },
+        { "href": "/name-picker-wheel/", "text": "Name Picker Wheel", "status": "planned" },
+        { "href": "/dice-roller/", "text": "Dice Roller" }
       ]
     }
   ],
@@ -121,18 +70,25 @@
       "icon_bg": "#EEEDFE",
       "icon_path": "<path d=\"M2 3.5h11M2 7.5h7.5M2 11.5h5\" stroke=\"#534AB7\" stroke-width=\"1.3\" stroke-linecap=\"round\"/>"
     },
-    {
-      "href": "/random-name-generator/",
-      "name": "Random name",
-      "desc": "Generate first names, last names, and full names across cultures.",
-      "icon_bg": "#EEEDFE",
-      "icon_path": "<rect x=\"2\" y=\"3\" width=\"9\" height=\"7\" rx=\"1.2\" fill=\"#F8F7FF\" stroke=\"#534AB7\" stroke-width=\".9\"/><path d=\"M2.6 3.5l7.8 6M10.4 3.5l-7.8 6\" stroke=\"#B44A61\" stroke-width=\".75\" stroke-linecap=\"round\"/><path d=\"M6.5 3.2v6.6M2.3 6.5h8.4\" stroke=\"#534AB7\" stroke-width=\"1.1\" stroke-linecap=\"round\"/>"
-    },
-    {
-      "href": "/pictionary-word-generator/",
-      "name": "Pictionary Word Generator",
-      "desc": "Random drawing words for Pictionary rounds.",
-      "icon_bg": "#EEF6E8",
+        {
+          "href": "/random-name-generator/",
+          "name": "Random name",
+          "desc": "Generate first names, last names, and full names across cultures.",
+          "icon_bg": "#EEEDFE",
+          "icon_path": "<rect x=\"2\" y=\"3\" width=\"9\" height=\"7\" rx=\"1.2\" fill=\"#F8F7FF\" stroke=\"#534AB7\" stroke-width=\".9\"/><path d=\"M2.6 3.5l7.8 6M10.4 3.5l-7.8 6\" stroke=\"#B44A61\" stroke-width=\".75\" stroke-linecap=\"round\"/><path d=\"M6.5 3.2v6.6M2.3 6.5h8.4\" stroke=\"#534AB7\" stroke-width=\"1.1\" stroke-linecap=\"round\"/>"
+        },
+        {
+          "href": "/random-english-name-generator/",
+          "name": "Random English Name",
+          "desc": "England-focused first names, surnames, and full names.",
+          "icon_bg": "#EEF6E8",
+          "icon_path": "<rect x=\"2\" y=\"3\" width=\"9\" height=\"7\" rx=\"1.2\" fill=\"#F7FFFC\" stroke=\"#0F6E56\" stroke-width=\".9\"/><path d=\"M2.6 4.4h7.8M2.6 6.2h7.8M2.6 8h7.8\" stroke=\"#B23B4B\" stroke-width=\".75\" stroke-linecap=\"round\"/><rect x=\"2.6\" y=\"3.6\" width=\"3.7\" height=\"3.5\" rx=\".5\" fill=\"#0F6E56\"/>"
+        },
+        {
+          "href": "/pictionary-word-generator/",
+          "name": "Pictionary Word Generator",
+          "desc": "Random drawing words for Pictionary rounds.",
+          "icon_bg": "#EEF6E8",
       "icon_path": "<path d=\"M2 2.5h9v6H6.5L3.5 11V8.5H2z\" stroke=\"#2F6B1F\" stroke-width=\"1.1\" stroke-linejoin=\"round\"/><path d=\"M8.5 4l.4.8.9.1-.7.6.2.9-.8-.4-.8.4.2-.9-.7-.6.9-.1z\" fill=\"#2F6B1F\"/>"
     },
     {
@@ -190,6 +146,13 @@
       "desc": "Secure memorable passwords",
       "icon_bg": "#FBEAF0",
       "icon_path": "<rect x=\"2\" y=\"2\" width=\"9\" height=\"9\" rx=\"2\" stroke=\"#993556\" stroke-width=\"1.1\"/>"
+    },
+    {
+      "href": "/words-that-start-with/",
+      "name": "Words by letter",
+      "desc": "Browse A–Z word lists by starting letter",
+      "icon_bg": "#EEEDFE",
+      "icon_path": "<text x=\"2\" y=\"9\" font-size=\"6\" font-weight=\"700\" font-family=\"sans-serif\" fill=\"#534AB7\">A</text><text x=\"7\" y=\"9\" font-size=\"6\" font-weight=\"700\" font-family=\"sans-serif\" fill=\"#534AB7\">Z</text>"
     }
   ],
   "name_generator_tools": [
@@ -199,6 +162,13 @@
       "desc": "British first names and surnames.",
       "icon_bg": "#EEEDFE",
       "icon_path": "<rect x=\"2\" y=\"3\" width=\"9\" height=\"7\" rx=\"1.2\" fill=\"#F8F7FF\" stroke=\"#534AB7\" stroke-width=\".9\"/><path d=\"M2.6 3.5l7.8 6M10.4 3.5l-7.8 6\" stroke=\"#B44A61\" stroke-width=\".75\" stroke-linecap=\"round\"/><path d=\"M6.5 3.2v6.6M2.3 6.5h8.4\" stroke=\"#534AB7\" stroke-width=\"1.1\" stroke-linecap=\"round\"/>"
+    },
+    {
+      "href": "/random-english-name-generator/",
+      "name": "Random English Name",
+      "desc": "England-focused first names, surnames, and full names.",
+      "icon_bg": "#EEF6E8",
+      "icon_path": "<rect x=\"2\" y=\"3\" width=\"9\" height=\"7\" rx=\"1.2\" fill=\"#F7FFFC\" stroke=\"#0F6E56\" stroke-width=\".9\"/><path d=\"M2.6 4.4h7.8M2.6 6.2h7.8M2.6 8h7.8\" stroke=\"#B23B4B\" stroke-width=\".75\" stroke-linecap=\"round\"/><rect x=\"2.6\" y=\"3.6\" width=\"3.7\" height=\"3.5\" rx=\".5\" fill=\"#0F6E56\"/>"
     },
     {
       "href": "/random-japanese-name-generator/",
@@ -222,11 +192,18 @@
       "icon_path": "<rect x=\"2\" y=\"3\" width=\"9\" height=\"7\" rx=\"1.2\" fill=\"#FFF9EE\" stroke=\"#854F0B\" stroke-width=\".9\"/><path d=\"M4.6 3.5h5.8v3H4.6z\" fill=\"#2758A8\"/><path d=\"M4.6 6.5h5.8v3H4.6z\" fill=\"#B53A3A\"/><path d=\"M2.5 3.6l3.6 2.9-3.6 2.9z\" fill=\"#FFF6D8\" stroke=\"#854F0B\" stroke-width=\".45\"/><circle cx=\"3.7\" cy=\"6.5\" r=\".55\" fill=\"#D6A11E\"/>"
     },
     {
-      "href": "/random-baby-name-generator/",
-      "name": "Random Baby Name",
-      "desc": "Baby name ideas and inspiration.",
-      "icon_bg": "#EAF3DE",
-      "icon_path": "<circle cx=\"6.5\" cy=\"4\" r=\"2.2\" stroke=\"#3B6D11\" stroke-width=\"1.1\"/><path d=\"M1.5 11.5c0-2.8 2.2-5 5-5s5 2.2 5 5\" stroke=\"#3B6D11\" stroke-width=\"1.1\" stroke-linecap=\"round\"/>"
+      "href": "/random-arabic-name-generator/",
+      "name": "Random Arabic Name",
+      "desc": "Arabic names with script, meanings, and regional filters.",
+      "icon_bg": "#EEF6E8",
+      "icon_path": "<rect x=\"1.7\" y=\"2.6\" width=\"9.6\" height=\"7.8\" rx=\"1.3\" fill=\"#0D7A3C\"/><path d=\"M8.5 4.2l-.22.74.75-.02-.6.44.23.73-.62-.42-.62.42.23-.73-.6-.44.75.02z\" fill=\"#fff\"/><path d=\"M4.7 5.25h2.9\" stroke=\"#fff\" stroke-width=\".7\" stroke-linecap=\"round\"/><path d=\"M4.7 6.1h3.6\" stroke=\"#fff\" stroke-width=\".7\" stroke-linecap=\"round\"/>"
+    },
+    {
+      "href": "/random-turkish-name-generator/",
+      "name": "Random Turkish Name",
+      "desc": "Turkish names with meanings, themes, and authentic spellings.",
+      "icon_bg": "#FAEEDA",
+      "icon_path": "<rect x=\"2\" y=\"3\" width=\"9\" height=\"7\" rx=\"1.2\" fill=\"#FFF9EE\" stroke=\"#854F0B\" stroke-width=\".9\"/><circle cx=\"6.8\" cy=\"6.45\" r=\"1.55\" fill=\"#C83E3E\"/><circle cx=\"6.35\" cy=\"6.45\" r=\"1.05\" fill=\"#FFF9EE\"/><path d=\"M8.15 6.45l.36.72.81.11-.59.57.14.8-.72-.38-.72.38.14-.8-.59-.57.81-.11z\" fill=\"#FFF9EE\"/>"
     },
     {
       "href": "/random-polish-name-generator/",
@@ -234,6 +211,13 @@
       "desc": "Polish names and surnames.",
       "icon_bg": "#EEEDFE",
       "icon_path": "<rect x=\"2\" y=\"3\" width=\"9\" height=\"7\" rx=\"1.2\" fill=\"#F8F7FF\" stroke=\"#534AB7\" stroke-width=\".9\"/><path d=\"M2.6 3.5l7.8 6M10.4 3.5l-7.8 6\" stroke=\"#B44A61\" stroke-width=\".75\" stroke-linecap=\"round\"/><path d=\"M6.5 3.2v6.6M2.3 6.5h8.4\" stroke=\"#534AB7\" stroke-width=\"1.1\" stroke-linecap=\"round\"/>"
+    },
+    {
+      "href": "/random-dominican-name-generator/",
+      "name": "Random Dominican Name",
+      "desc": "Authentic Dominican first names, last names, and full names with meanings.",
+      "icon_bg": "#FEF3E8",
+      "icon_path": "<rect x=\"2\" y=\"3\" width=\"9\" height=\"7\" rx=\"1.2\" fill=\"#FFFBF7\" stroke=\"#C2410C\" stroke-width=\".9\"/><path d=\"M2.6 4.4h7.8M2.6 6.2h7.8M2.6 8h7.8\" stroke=\"#16A34A\" stroke-width=\".75\" stroke-linecap=\"round\"/><rect x=\"2.6\" y=\"3.6\" width=\"3.7\" height=\"3.5\" rx=\".5\" fill=\"#C2410C\"/>"
     },
     {
       "href": "/name-generators/",
@@ -245,225 +229,133 @@
   ],
   "other_tools": [
     {
-      "cat": "Number &amp; chance",
-      "icon_path": "<rect x=\"1\" y=\"1\" width=\"4.5\" height=\"4.5\" rx=\"1\" stroke=\"currentColor\" stroke-width=\"1\"/><rect x=\"7.5\" y=\"1\" width=\"4.5\" height=\"4.5\" rx=\"1\" stroke=\"currentColor\" stroke-width=\"1\"/><rect x=\"1\" y=\"7.5\" width=\"4.5\" height=\"4.5\" rx=\"1\" stroke=\"currentColor\" stroke-width=\"1\"/><rect x=\"7.5\" y=\"7.5\" width=\"4.5\" height=\"4.5\" rx=\"1\" stroke=\"currentColor\" stroke-width=\"1\"/>",
-      "links": [
-        {
-          "href": "/random-number-generator/",
-          "text": "Random number generator"
-        },
-        {
-          "href": "/dice-roller/",
-          "text": "Dice roller — 4,6,8,12,20 sided"
-        },
-        {
-          "href": "/coin-flip/",
-          "text": "Coin flip simulator"
-        },
-        {
-          "href": "/lucky-number/",
-          "text": "Lucky number picker"
-        },
-        {
-          "href": "/list-shuffler/",
-          "text": "Random list shuffler"
-        }
-      ]
-    },
-    {
-      "cat": "Name generators",
-      "icon_path": "<circle cx=\"6.5\" cy=\"4.5\" r=\"2.5\" stroke=\"currentColor\" stroke-width=\"1\"/><path d=\"M1.5 11.5c0-2.8 2.2-5 5-5s5 2.2 5 5\" stroke=\"currentColor\" stroke-width=\"1\" stroke-linecap=\"round\"/>",
-      "links": [
-        {
-          "href": "/random-name-generator/",
-          "text": "Random Name Generator"
-        },
-        {
-          "href": "/username-generator/",
-          "text": "Username Generator"
-        },
-        {
-          "href": "/baby-name-finder/",
-          "text": "Baby Name Generator"
-        },
-        {
-          "href": "/pet-name-generator/",
-          "text": "Pet Name Generator"
-        },
-        {
-          "href": "/band-name-generator/",
-          "text": "Band Name Generator"
-        },
-        {
-          "href": "/name-generators/",
-          "text": "More Name Gen Tools"
-        }
-      ]
-    },
-    {
-      "cat": "Text &amp; writing",
+      "cat": "Writing &amp; Vocabulary",
+      "view_all_href": "/word-tools/",
       "icon_path": "<path d=\"M2 3h9M2 6.5h7M2 10h5\" stroke=\"currentColor\" stroke-width=\"1\" stroke-linecap=\"round\"/>",
       "links": [
-        {
-          "href": "/lorem-ipsum/",
-          "text": "Lorem ipsum generator"
-        },
-        {
-          "href": "/password-generator/",
-          "text": "Password generator"
-        },
-        {
-          "href": "/acronym-maker/",
-          "text": "Acronym maker"
-        },
-        {
-          "href": "/random-quote/",
-          "text": "Random quote generator"
-        },
-        {
-          "href": "/story-prompts/",
-          "text": "Story prompt generator"
-        }
+        { "href": "/", "text": "Random Word Generator" },
+        { "href": "/random-sentence-generator/", "text": "Random Sentence Generator" },
+        { "href": "/random-paragraph-generator/", "text": "Random Paragraph Generator" },
+        { "href": "/word-counter/", "text": "Word Counter" },
+        { "href": "/words-that-start-with/", "text": "Words by Letter" }
+      ]
+    },
+    {
+      "cat": "Word Games",
+      "view_all_href": "/word-games/",
+      "icon_path": "<path d=\"M6.5 1.5l1.3 3h3.2l-2.6 2 1 3-2.9-1.8-2.9 1.8 1-3-2.6-2h3.2z\" stroke=\"currentColor\" stroke-width=\"1\" stroke-linejoin=\"round\"/>",
+      "links": [
+        { "href": "/pictionary-word-generator/", "text": "Pictionary Word Generator" },
+        { "href": "/scattergories-generator/", "text": "Scattergories Generator" },
+        { "href": "/scrabble-word-finder/", "text": "Scrabble Word Finder" },
+        { "href": "/wordle-helper/", "text": "Wordle Helper" }
+      ]
+    },
+    {
+      "cat": "Names by Origin",
+      "view_all_href": "/name-generators/",
+      "icon_path": "<circle cx=\"6.5\" cy=\"4.5\" r=\"2.5\" stroke=\"currentColor\" stroke-width=\"1\"/><path d=\"M1.5 11.5c0-2.8 2.2-5 5-5s5 2.2 5 5\" stroke=\"currentColor\" stroke-width=\"1\" stroke-linecap=\"round\"/>",
+      "links": [
+        { "href": "/random-spanish-name-generator/", "text": "Spanish Name Generator" },
+        { "href": "/random-italian-name-generator/", "text": "Italian Name Generator" },
+        { "href": "/random-japanese-name-generator/", "text": "Japanese Name Generator" },
+        { "href": "/random-american-name-generator/", "text": "American Name Generator" }
+      ]
+    },
+    {
+      "cat": "Story &amp; Character Names",
+      "view_all_href": "/fiction-name-generators/",
+      "icon_path": "<rect x=\"2\" y=\"1.5\" width=\"9\" height=\"10\" rx=\"1\" stroke=\"currentColor\" stroke-width=\"1\"/><path d=\"M4 4.5h5M4 6.5h5M4 8.5h3\" stroke=\"currentColor\" stroke-width=\"1\" stroke-linecap=\"round\"/>",
+      "links": [
+        { "href": "/character-name-generator/", "text": "Character Name Generator" },
+        { "href": "/fantasy-name-generator/", "text": "Fantasy Name Generator" },
+        { "href": "/business-name-generator/", "text": "Business Name Generator" },
+        { "href": "/band-name-generator/", "text": "Band Name Generator" }
+      ]
+    },
+    {
+      "cat": "Account &amp; Security",
+      "view_all_href": "/account-tools/",
+      "icon_path": "<rect x=\"3.5\" y=\"5.5\" width=\"6\" height=\"5\" rx=\"1\" stroke=\"currentColor\" stroke-width=\"1\"/><path d=\"M5 5.5V4a1.5 1.5 0 013 0v1.5\" stroke=\"currentColor\" stroke-width=\"1\" stroke-linecap=\"round\"/>",
+      "links": [
+        { "href": "/username-generator/", "text": "Username Generator" },
+        { "href": "/password-generator/", "text": "Password Generator" },
+        { "href": "/passphrase-generator/", "text": "Passphrase Generator" },
+        { "href": "/random-pin-generator/", "text": "Random PIN Generator" }
       ]
     },
     {
       "cat": "Games &amp; fun",
-      "icon_path": "<path d=\"M6.5 1.5l1.3 3h3.2l-2.6 2 1 3-2.9-1.8-2.9 1.8 1-3-2.6-2h3.2z\" stroke=\"currentColor\" stroke-width=\"1\" stroke-linejoin=\"round\"/>",
+      "view_all_href": "/number-chance/",
+      "icon_path": "<rect x=\"1\" y=\"1\" width=\"4.5\" height=\"4.5\" rx=\"1\" stroke=\"currentColor\" stroke-width=\"1\"/><rect x=\"7.5\" y=\"1\" width=\"4.5\" height=\"4.5\" rx=\"1\" stroke=\"currentColor\" stroke-width=\"1\"/><rect x=\"1\" y=\"7.5\" width=\"4.5\" height=\"4.5\" rx=\"1\" stroke=\"currentColor\" stroke-width=\"1\"/><rect x=\"7.5\" y=\"7.5\" width=\"4.5\" height=\"4.5\" rx=\"1\" stroke=\"currentColor\" stroke-width=\"1\"/>",
       "links": [
-        {
-          "href": "/pictionary-word-generator/",
-          "text": "Pictionary word generator"
-        },
-        {
-          "href": "/charades-generator/",
-          "text": "Charades generator"
-        },
-        {
-          "href": "/truth-or-dare/",
-          "text": "Truth or dare gen"
-        },
-        {
-          "href": "/would-you-rather/",
-          "text": "Would you rather"
-        },
-        {
-          "href": "/trivia-questions/",
-          "text": "Trivia question gen"
-        }
+        { "href": "/random-number-generator/", "text": "Number Generator" },
+        { "href": "/coin-flip/", "text": "Flip a Coin" },
+        { "href": "/name-picker-wheel/", "text": "Name Picker Wheel" },
+        { "href": "/dice-roller/", "text": "Dice Roller" }
       ]
     }
   ],
   "footer_cols": [
     {
-      "title": "Word tools",
+      "title": "Writing &amp; Vocabulary",
+      "view_all_href": "/word-tools/",
       "links": [
-        {
-          "href": "/",
-          "text": "Random word generator"
-        },
-        {
-          "href": "/random-sentence-generator/",
-          "text": "Random sentence"
-        },
-        {
-          "href": "/random-letter-generator/",
-          "text": "Random letter"
-        },
-        {
-          "href": "/word-scramble/",
-          "text": "Word Scramble"
-        },
-        {
-          "href": "/word-of-the-day/",
-          "text": "Word of the day"
-        },
-        {
-          "href": "/passphrase-generator/",
-          "text": "Passphrase gen"
-        }
+        { "href": "/", "text": "Random Word Generator" },
+        { "href": "/random-sentence-generator/", "text": "Random Sentence Generator" },
+        { "href": "/random-paragraph-generator/", "text": "Random Paragraph Generator", "status": "planned" },
+        { "href": "/word-counter/", "text": "Word Counter", "status": "planned" },
+        { "href": "/words-that-start-with/", "text": "Words by Letter" }
       ]
     },
     {
-      "title": "Name generators",
+      "title": "Word Games",
+      "view_all_href": "/word-games/",
       "links": [
-        {
-          "href": "/random-name-generator/",
-          "text": "Random name gen"
-        },
-        {
-          "href": "/username-generator/",
-          "text": "Username generator"
-        },
-        {
-          "href": "/fantasy-name-generator/",
-          "text": "Fantasy name gen"
-        },
-        {
-          "href": "/baby-name-finder/",
-          "text": "Baby name finder"
-        },
-        {
-          "href": "/pet-name-generator/",
-          "text": "Pet name gen"
-        },
-        {
-          "href": "/random-polish-name-generator/",
-          "text": "Polish names"
-        },
-        {
-          "href": "/name-generators/",
-          "text": "More Name Gen Tools"
-        }
+        { "href": "/pictionary-word-generator/", "text": "Pictionary Word Generator" },
+        { "href": "/scattergories-generator/", "text": "Scattergories Generator", "status": "planned" },
+        { "href": "/scrabble-word-finder/", "text": "Scrabble Word Finder", "status": "planned" },
+        { "href": "/wordle-helper/", "text": "Wordle Helper", "status": "planned" }
       ]
     },
     {
-      "title": "Number &amp; chance",
+      "title": "Names by Origin",
+      "view_all_href": "/name-generators/",
       "links": [
-        {
-          "href": "/random-number-generator/",
-          "text": "Random number"
-        },
-        {
-          "href": "/dice-roller/",
-          "text": "Dice roller"
-        },
-        {
-          "href": "/coin-flip/",
-          "text": "Coin flip"
-        },
-        {
-          "href": "/lucky-number/",
-          "text": "Lucky number"
-        },
-        {
-          "href": "/list-shuffler/",
-          "text": "List shuffler"
-        }
+        { "href": "/random-spanish-name-generator/", "text": "Spanish Name Generator" },
+        { "href": "/random-italian-name-generator/", "text": "Italian Name Generator" },
+        { "href": "/random-japanese-name-generator/", "text": "Japanese Name Generator" },
+        { "href": "/random-american-name-generator/", "text": "American Name Generator" }
+      ]
+    },
+    {
+      "title": "Story &amp; Character Names",
+      "view_all_href": "/fiction-name-generators/",
+      "links": [
+        { "href": "/character-name-generator/", "text": "Character Name Generator", "status": "planned" },
+        { "href": "/fantasy-name-generator/", "text": "Fantasy Name Generator", "status": "planned" },
+        { "href": "/business-name-generator/", "text": "Business Name Generator", "status": "planned" },
+        { "href": "/band-name-generator/", "text": "Band Name Generator", "status": "planned" }
+      ]
+    },
+    {
+      "title": "Account &amp; Security",
+      "view_all_href": "/account-tools/",
+      "links": [
+        { "href": "/username-generator/", "text": "Username Generator", "status": "planned" },
+        { "href": "/password-generator/", "text": "Password Generator", "status": "planned" },
+        { "href": "/passphrase-generator/", "text": "Passphrase Generator" },
+        { "href": "/random-pin-generator/", "text": "Random PIN Generator", "status": "planned" }
       ]
     },
     {
       "title": "Games &amp; fun",
+      "view_all_href": "/number-chance/",
       "links": [
-        {
-          "href": "/pictionary-word-generator/",
-          "text": "Pictionary words"
-        },
-        {
-          "href": "/charades-generator/",
-          "text": "Charades gen"
-        },
-        {
-          "href": "/truth-or-dare/",
-          "text": "Truth or dare"
-        },
-        {
-          "href": "/would-you-rather/",
-          "text": "Would you rather"
-        },
-        {
-          "href": "/story-prompts/",
-          "text": "Story prompts"
-        }
+        { "href": "/random-number-generator/", "text": "Number Generator" },
+        { "href": "/coin-flip/", "text": "Flip a Coin" },
+        { "href": "/name-picker-wheel/", "text": "Name Picker Wheel", "status": "planned" },
+        { "href": "/dice-roller/", "text": "Dice Roller" }
       ]
     }
   ]
