@@ -107,6 +107,90 @@
 .name-section .tools-grid {
   margin-bottom: 0;
 }
+.hub-prose {
+  margin-top: 48px;
+}
+.hub-prose h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 10px;
+  color: var(--text-1);
+}
+.hub-prose p {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--text-2);
+  max-width: 760px;
+  margin: 0 0 16px;
+}
+.hub-prose h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 32px 0 12px;
+  color: var(--text-1);
+}
+.use-cases {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+.use-case-card {
+  background: var(--surface-2, #f5f5f7);
+  border-radius: 10px;
+  padding: 18px 20px;
+}
+.use-case-card h3 {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0 0 6px;
+  color: var(--text-1);
+}
+.use-case-card p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-2);
+  margin: 0;
+}
+.faq-section {
+  margin-top: 48px;
+}
+.faq-section > h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 16px;
+  color: var(--text-1);
+}
+.faq-item {
+  border-bottom: 1px solid var(--border, #e5e5e5);
+}
+.faq-item summary {
+  font-size: 15px;
+  font-weight: 600;
+  padding: 14px 0;
+  cursor: pointer;
+  list-style: none;
+  color: var(--text-1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+';
+  font-size: 18px;
+  color: var(--text-3, #888);
+  flex-shrink: 0;
+}
+.faq-item[open] summary::after { content: '−'; }
+.faq-item p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-2);
+  margin: 0 0 14px;
+  max-width: 700px;
+}
 </style>
 </head>
 
@@ -191,7 +275,7 @@
 </div>
 <div class="content-wrap">
   <div class="section">
-    <p class="name-intro">Choose a region below to find name generators built for that naming style. The layout matches the familiar card grid used across Wordineer, but each card now uses a flag icon so the categories are easier to scan.</p>
+    <p class="name-intro">This hub is your directory of name generators organized by culture and country of origin — not fictional names, but the kinds of names real people have. Whether you're writing a story and need authentic Spanish surnames, researching family history, or building a game that requires accurate Japanese character names, each tool is built around real naming conventions for that culture. There are 26 generators here covering Asia, Europe, the Americas, and the Middle East. All free, all instant.</p>
 
     <div class="name-section">
       <h2 class="section-title">Asian</h2>
@@ -246,6 +330,69 @@
         <a class="tool-item" href="/random-turkish-name-generator/"><div class="tool-icon" style="background:#FDE9E7"><svg viewBox="0 0 13 13" fill="none"><rect x="1.7" y="2.6" width="9.6" height="7.8" rx="1.3" fill="#C62828"/><circle cx="6.0" cy="6.5" r="1.85" fill="#fff"/><circle cx="6.35" cy="6.5" r="1.55" fill="#C62828"/><path d="M8.2 6.5l1.05.36-.66.9v-1.12l-.84-.45.84-.45v-1.12l.66.9z" fill="#fff"/></svg></div><div class="tool-name">Turkish Name Generator</div><div class="tool-desc">Turkish names with modern and classic forms.</div></a>
       </div>
     </div>
+
+    <div class="hub-prose">
+      <h2>Names by culture and origin</h2>
+      <p>Every country has its own naming traditions — distinct sounds, structures, and meanings that make a name immediately recognizable as Spanish, Japanese, Polish, or Arabic. The generators on this hub reflect those conventions. Each one draws from authentic name data for that culture: common given names, traditional surnames, regional variations, and in some cases the original script (Japanese kanji, Greek letters, Russian Cyrillic). When you generate a Japanese name, you get a name a Japanese person might actually have — not a phonetically approximate invented word.</p>
+      <p>This makes the tools useful for a specific problem: you need a name that's authentically from a particular place, not just one that sounds vaguely foreign. Writers researching historical fiction, developers localizing a game, and students studying a language all run into this need. The 26 generators on this hub cover enough geographic ground that most requests — "I need a convincing French surname" or "what's a realistic Korean given name" — can be answered in seconds.</p>
+
+      <h2>Popular origins: Spanish, Italian, Japanese, and more</h2>
+      <p>The <a href="/random-spanish-name-generator/">Spanish name generator</a> is among the most searched on Wordineer, reflecting both the global reach of Spanish-language culture and the practical demand from writers working on Latin American and European settings. The <a href="/random-italian-name-generator/">Italian name generator</a> is close behind, particularly for historical fiction set in Italy or for writers who want names with a Mediterranean feel.</p>
+      <p>The <a href="/random-japanese-name-generator/">Japanese name generator</a> includes kanji annotations and notes on name order, which matters since Japanese names are family name first. For European names beyond Romance languages, the hub covers German, French, Dutch, Polish, Russian, Greek, and all four nations of the British Isles. Asian coverage includes Japanese, Korean, Filipino, Chinese, Thai, Vietnamese, and Indian names. The Americas section covers American, Mexican, and Dominican names; the Middle Eastern section covers Arabic and Turkish.</p>
+
+      <h2>How cultural name generators work</h2>
+      <p>The name data behind each generator comes from research into real name distributions — common names in that country, both historically and in contemporary use. Each generator produces a first name, a surname, and in many cases a brief note about the name's meaning or origin. That context matters: if you're writing a character, knowing that a name means "warrior" or "river" or "first born" gives you something to build on.</p>
+      <p>The generators also account for naming conventions that differ by culture. In East Asian cultures, family names come before given names — the generators reflect this. In cultures with patronymic naming traditions like Russian and Arabic, the generators note the relevant forms. In cultures with compound naming structures — Spanish speakers typically have two surnames — the generators produce the right format. These details are what separate a convincing name from a generically foreign-sounding one.</p>
+
+      <h2>Looking for fictional or fantasy names?</h2>
+      <p>This hub is specifically about real cultural names — names grounded in actual languages and traditions. If you're building a fictional world, creating characters for a fantasy novel, or naming a D&D party, the names here might feel too grounded for your setting.</p>
+      <p>For that, Wordineer's <a href="/fiction-name-generators/">Story &amp; Character Names hub</a> has tools designed for fictional contexts: character name generators, fantasy name generators, and tools for game and story worldbuilding. The two hubs serve different needs, and the distinction matters: a Spanish name for a character set in Barcelona and a fantasy name for a wizard in an invented world call for very different tools.</p>
+
+      <h3>Who uses these generators</h3>
+      <div class="use-cases">
+        <div class="use-case-card">
+          <h3>Historical fiction writers</h3>
+          <p>Need authentic names for a character in Meiji-era Japan or Renaissance Italy? Each generator reflects the actual naming conventions of that culture, not phonetic approximations.</p>
+        </div>
+        <div class="use-case-card">
+          <h3>Game developers</h3>
+          <p>Localize character names, NPCs, and places with names that fit the cultural setting. 26 cultures covered, from Japanese and Korean to Spanish, Polish, and Arabic.</p>
+        </div>
+        <div class="use-case-card">
+          <h3>Language learners</h3>
+          <p>Explore the name traditions of the language you're studying. Each name comes with meaning notes that reveal something about how that culture thinks about naming and identity.</p>
+        </div>
+        <div class="use-case-card">
+          <h3>Genealogy researchers</h3>
+          <p>Find authentic name variants from your family's country of origin. Useful for understanding naming patterns when tracing family history across countries and generations.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <h2>Frequently asked questions</h2>
+      <details class="faq-item">
+        <summary>What is a cultural name generator?</summary>
+        <p>A cultural name generator produces authentic names from a specific country or linguistic tradition — not invented names that sound foreign, but real given names and surnames used by people in that culture. Wordineer's name generators draw from actual name data for each region, often including meaning notes and script variants where relevant. They're built for writers, researchers, developers, and anyone who needs a name that accurately represents a specific cultural background.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Which generator should I use for Spanish names?</summary>
+        <p>Use the <a href="/random-spanish-name-generator/">Spanish name generator</a> for names from Spain or Latin America — it covers both traditional and modern Spanish names with common surnames. If you specifically need Mexican names, the <a href="/random-mexican-name-generator/">Mexican name generator</a> focuses on naming patterns common in Mexico, including regional variations. For Dominican names, there's a separate <a href="/random-dominican-name-generator/">Dominican generator</a> covering Caribbean Spanish naming traditions.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Are the names authentic, or are they made up?</summary>
+        <p>The names come from real naming data for each culture — actual given names and surnames used in that country or tradition. They're not invented phonetically. Many generators include cultural notes, meaning annotations, or script variants (kanji for Japanese, Cyrillic for Russian) to help you use names accurately. They're a reliable starting point, though if your project requires precise factual accuracy, verifying against a primary source is worth the extra step.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What's the difference between this hub and the Story &amp; Character Names hub?</summary>
+        <p>Names by Origin is for authentic cultural names rooted in real languages and traditions. The <a href="/fiction-name-generators/">Story &amp; Character Names hub</a> is for fictional contexts: fantasy characters, D&amp;D parties, novel protagonists, and invented-world worldbuilding. If you need a convincing real-world name for a character set in Japan, use this hub. If you need a name for a wizard in a made-up world, the fiction hub will serve you better.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can I use these names in a story or game?</summary>
+        <p>Yes. Names are not copyrightable, so using a generated name in a story, game, screenplay, or any other project is fine. The generators are designed specifically for creative use — writers, game developers, and screenwriters all use them for this purpose. The meaning and origin notes included with many names can also help you choose one that fits the character rather than just picking at random.</p>
+      </details>
+    </div>
+
   </div>
 </div>
 <script>
