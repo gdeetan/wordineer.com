@@ -106,6 +106,88 @@
 .name-section .tools-grid {
   margin-bottom: 0;
 }
+.hub-prose {
+  margin-top: 48px;
+}
+.hub-prose h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 10px;
+  color: var(--text-1);
+}
+.hub-prose p {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--text-2);
+  margin: 0 0 16px;
+}
+.hub-prose h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 32px 0 12px;
+  color: var(--text-1);
+}
+.use-cases {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+.use-case-card {
+  background: var(--surface-2, #f5f5f7);
+  border-radius: 10px;
+  padding: 18px 20px;
+}
+.use-case-card h3 {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0 0 6px;
+  color: var(--text-1);
+}
+.use-case-card p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-2);
+  margin: 0;
+}
+.faq-section {
+  margin-top: 48px;
+}
+.faq-section > h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 16px;
+  color: var(--text-1);
+}
+.faq-item {
+  border-bottom: 1px solid var(--border, #e5e5e5);
+}
+.faq-item summary {
+  font-size: 15px;
+  font-weight: 600;
+  padding: 14px 0;
+  cursor: pointer;
+  list-style: none;
+  color: var(--text-1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+';
+  font-size: 18px;
+  color: var(--text-3, #888);
+  flex-shrink: 0;
+}
+.faq-item[open] summary::after { content: '−'; }
+.faq-item p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-2);
+  margin: 0 0 14px;
+}
 </style>
 </head>
 
@@ -392,16 +474,77 @@
       </div>
     </div>
 
-    <div class="name-section">
-      <h2 class="section-title">Name generators</h2>
-      <p class="section-sub">Looking for a name? Names live in their own section.</p>
-      <div class="tools-grid">
-        <a class="tool-item" href="/name-generators/" style="grid-column:1/-1;background:var(--bg-2)">
-          <div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><circle cx="4.8" cy="4.5" r="1.5" stroke="#4A3FD4" stroke-width=".85"/><path d="M2 9.5c0-1.6 1.3-2.8 2.8-2.8s2.8 1.2 2.8 2.8" stroke="#4A3FD4" stroke-width=".85" stroke-linecap="round"/><circle cx="9.2" cy="4.5" r="1.2" stroke="#4A3FD4" stroke-width=".8"/><path d="M7.5 9.5c.3-1.4 1.2-2.3 2.3-2.3" stroke="#4A3FD4" stroke-width=".8" stroke-linecap="round"/></svg></div>
-          <div class="tool-name">Name Generators →</div>
-          <div class="tool-desc">First names, usernames, baby names, pet names, band names, and regional name generators. See all 25+ name tools.</div>
-        </a>
+    <div class="hub-prose">
+      <h2>Looking for a name? They live in their own section.</h2>
+      <p>Name generators are a category on their own — first names, surnames, baby names, usernames, and 25+ regional generators covering cultures from Japanese and Korean to Spanish, Polish, Arabic, and more. Because the collection is large enough to warrant its own hub, names aren't grouped here with the word and writing tools.</p>
+      <p>The <a href="/name-generators/">Names by Origin hub</a> is organized by region: Asian names (Japanese, Korean, Filipino, Chinese, Thai, Vietnamese, Indian), European names (British, English, Scottish, Irish, French, German, Spanish, Italian, Greek, Norwegian, Danish, Dutch, Polish, Russian), the Americas (American, Mexican, Dominican), and the Middle East (Arabic, Turkish). Every generator draws from real name data for that culture — not phonetic approximations, but the kinds of names people in that country actually have. If you're writing a character, localizing a game, or researching a family name, that hub is the right place to start.</p>
+    </div>
+
+    <div class="hub-prose">
+      <h2>What are word tools?</h2>
+      <p>Word tools are anything that helps you put words on a page — but the ones on this hub are specifically designed to generate, count, and organize words and sentences. The core problem they solve is simple: the hardest part of writing is usually getting started. A random word can break a creative block in seconds. A sentence can show you a grammatical structure you hadn't tried before. These tools don't write for you. They give you material to react to, which is often exactly what you need to get moving. Each one is free, works immediately in your browser, and doesn't require an account.</p>
+
+      <h2>How word generators help writers</h2>
+      <p>The <a href="/">random word generator</a> pulls from a curated list of English words filtered by type (noun, verb, adjective, adverb), difficulty, and starting letter. Fiction writers use it for character traits, place names, and scene prompts. Poets use it to find unexpected nouns that can anchor a line. Screenwriters use it when they need a prop, a location, or a character detail and want something that doesn't feel predictable.</p>
+      <p>The <a href="/random-sentence-generator/">random sentence generator</a> goes a step further, producing complete sentences you can use as dialogue prompts, opening lines, or grammar practice exercises. Try generating five sentences and using the most interesting one as the first line of a story — it's a constraint that tends to produce surprisingly good results. Word games like <a href="/word-scramble/">Word Scramble</a> and <a href="/word-unscramble/">Word Unscramble</a> take a different angle: rather than generating new words, they present familiar ones in a way that makes you think harder about their structure. That cognitive effort turns passive recognition into active recall, which is what actually builds vocabulary.</p>
+
+      <h2>Building vocabulary without boring flashcards</h2>
+      <p>Traditional vocabulary study — flashcards, word lists, memorization — works eventually, but it's slow and easy to abandon. Word generators offer a different approach: you encounter words in situations adjacent to context rather than in isolation, which tends to help retention. ESL students use the random word tool to test whether they already know a word before looking up its definition, turning passive review into active recall. Bloggers and content writers use it to find synonyms and alternatives they'd stopped noticing in their own writing.</p>
+      <p><a href="/word-of-the-day/">Word of the Day</a> is a lightweight daily habit: one new word, its definition, and an example sentence. Over weeks it quietly expands your vocabulary without any dedicated study session. For spelling and pattern recognition, the scramble and unscramble tools give you the tactile experience of reassembling a word — harder than it sounds, and more memorable than reading a definition.</p>
+      <p>The tools here aren't designed to replace a dictionary or a grammar textbook. They're designed to remove the friction between "I should work on my vocabulary" and actually doing something. Opening a tool, generating a word, and writing a sentence with it takes under a minute. That low barrier is the point.</p>
+
+      <h2>Tools for teachers and students</h2>
+      <p>These tools are low-prep and easy to use in a classroom. A teacher can project the random word generator, ask students to write a definition from context, then check together as a group — it takes five minutes and works as a warm-up for any subject that uses vocabulary. For writing classes, the random sentence generator produces passages students can edit, summarize, or rewrite, which is more engaging than a static worksheet and produces different material every time.</p>
+      <p>For standardized tests with timed writing sections, practicing with a random sentence as a prompt builds the habit of starting quickly rather than spending the first minutes deciding on a topic. Word of the Day is another practical classroom option — students can look up the daily word, write a definition in their own words, and use it in a sentence, all as a five-minute exercise. Every tool here works on phones and tablets without any setup, which matters in classrooms where device access varies.</p>
+      <p>Word scramble and unscramble tools fit naturally into spelling lessons: generate a scrambled word, have students solve it on paper, then check as a class. The Pictionary word generator is useful for classroom games — it produces a word to draw, keeping rounds moving without anyone having to think up a word on the spot.</p>
+
+      <h3>Who uses these tools</h3>
+      <div class="use-cases">
+        <div class="use-case-card">
+          <h3>Fiction writers</h3>
+          <p>Stuck on a scene? Generate a random word as a character detail, setting element, or story prompt and write toward it. Takes less than a minute to break a block.</p>
+        </div>
+        <div class="use-case-card">
+          <h3>ESL students</h3>
+          <p>Test your vocabulary by generating a word and guessing its definition before checking. Turns passive review into active recall and makes study feel less like a chore.</p>
+        </div>
+        <div class="use-case-card">
+          <h3>Classroom teachers</h3>
+          <p>Use the word generator as a warm-up, the sentence generator as a writing prompt, and the scramble tools for spelling practice. No setup, no student accounts needed.</p>
+        </div>
+        <div class="use-case-card">
+          <h3>Bloggers and copywriters</h3>
+          <p>Find your way out of a rut with a random word, get a quick letter for a naming exercise, or use the sentence generator to shake up your writing voice.</p>
+        </div>
       </div>
+    </div>
+
+    <div class="faq-section">
+      <h2>Frequently asked questions</h2>
+      <details class="faq-item">
+        <summary>What is a random word generator?</summary>
+        <p>A random word generator picks words from a curated list and displays them on demand. On Wordineer, you can filter by word type (noun, verb, adjective, adverb), difficulty level, starting letter, and word length. It's mainly used by writers who want a creative prompt, students practicing vocabulary, and teachers who need a quick classroom activity. Every word comes with a definition so you're never left guessing.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Which tool should I use for creative writing?</summary>
+        <p>It depends on where you're stuck. If you need a single word — a character detail, a setting element, a story concept — start with the <a href="/">random word generator</a>. If you need a sentence to react to or use as a first line, try the <a href="/random-sentence-generator/">random sentence generator</a>. Any of the two can break a creative block; the word generator is faster, the sentence generator gives you more to work with.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Are these word tools free?</summary>
+        <p>Yes, completely free. There's no sign-up, no trial period, and no premium tier. Every tool on this hub works the moment you open the page — no login, no install, no waiting. The tools are supported by non-intrusive ads, which keeps everything free for everyone without paywalls or subscriptions.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How do teachers use these tools in the classroom?</summary>
+        <p>Teachers use the random word generator as a warm-up, projecting it at the start of class and asking students to define or use each word in a sentence. The random sentence generator works as a quick writing prompt. The word scramble and unscramble tools are useful for spelling exercises — students solve them on paper or as a timed challenge. All tools work on any device and need no setup or student accounts.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What's the difference between a word generator and a sentence generator?</summary>
+        <p>A word generator returns individual words — useful when you need a concept, a noun, a descriptor, or a creative prompt to react to. A sentence generator returns complete grammatical sentences, which are better when you want a writing prompt or a structure to imitate. Both are on Wordineer and work the same way: generate as many times as you want until something clicks.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What is word scramble and how is it different from word unscramble?</summary>
+        <p>Both tools are about rearranging letters, but from opposite directions. The <a href="/word-scramble/">word scramble</a> tool takes a word and jumbles the letters so you have to figure out what it is — useful for spelling games and vocabulary practice. The <a href="/word-unscramble/">word unscramble</a> tool lets you enter a set of letters and find all valid English words you can make from them, which is helpful for Scrabble, Wordle, and word puzzle games. Same concept, opposite direction.</p>
+      </details>
     </div>
 
   </div>
