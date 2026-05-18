@@ -81,12 +81,23 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);fon
 .hamburger span{display:block;width:14px;height:1.5px;background:var(--text-2);border-radius:2px}
 .mega{display:none;position:fixed;top:56px;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--border-2);box-shadow:0 8px 24px rgba(0,0,0,0.08);z-index:999;padding:20px 24px}
 .mega.open{display:block}
-.mega-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:0;max-width:900px;margin:0 auto}
+.mega-inner{display:grid;grid-template-columns:repeat(6,1fr);gap:0;max-width:1200px;margin:0 auto}
 .mega-col{padding:0 20px 0 0}
 .mega-cat{font-size:10px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
 .mega-link{display:block;font-size:13px;color:var(--text-2);text-decoration:none;padding:4px 0;transition:color .12s}
 .mega-link:hover,.mega-link.active{color:var(--brand)}
 .mega-link.active{font-weight:500}
+.mega-link--view-all{color:var(--brand);font-weight:500}
+.mega-link--view-all:hover{color:var(--brand)}
+.footer-link--view-all{color:var(--brand);font-weight:500}
+.footer-link--view-all:hover{color:var(--brand)}
+.breadcrumb{padding-top:14px}
+.breadcrumb-inner{max-width:960px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:7px;flex-wrap:wrap;font-size:11px;line-height:1.45;color:var(--text-3);font-family:'DM Sans',sans-serif}
+.breadcrumb a{color:var(--text-2);text-decoration:none;transition:color .12s}
+.breadcrumb a:hover{color:var(--brand)}
+.breadcrumb-sep{color:var(--text-3)}
+.breadcrumb [aria-current="page"]{color:var(--text);font-weight:500}
+.breadcrumb + .hero{padding-top:10px}
 .hero{text-align:center;padding:40px 24px 28px;border-bottom:1px solid var(--border-2)}
 .hero-badge{display:inline-flex;align-items:center;gap:5px;background:var(--brand-light);color:var(--brand-dark);font-size:12px;font-weight:500;padding:4px 12px;border-radius:20px;margin-bottom:14px}
 .hero-badge svg{width:11px;height:11px}
@@ -174,7 +185,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);fon
 .aff-faq-link{font-size:12px;color:var(--amber);text-decoration:underline;text-underline-offset:2px}
 .footer{border-top:1px solid var(--border-2);padding:32px 24px 24px;margin-top:32px;background:var(--bg-2)}
 .footer-inner{max-width:960px;margin:0 auto}
-.footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-bottom:28px}
+.footer-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:24px;margin-bottom:28px}
 .footer-col-title{font-size:11px;font-weight:700;color:var(--text);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
 .footer-link{display:block;font-size:12px;color:var(--text-2);text-decoration:none;padding:3px 0;line-height:1.5;transition:color .12s}
 .footer-link:hover{color:var(--brand)}
@@ -188,8 +199,14 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);fon
 @media(max-width:900px){
   .hero > p { display:none !important; }
 }
-@media(max-width:700px){.nav-links{display:none}.hero{padding:12px 16px 12px}.hero-badge{margin-bottom:6px}.hero h1{font-size:24px}.tools-grid{grid-template-columns:repeat(2,1fr)}.other-grid{grid-template-columns:1fr}.uc-grid{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:repeat(2,1fr)}.mega{max-height:calc(100vh - 56px);overflow-y:auto}.mega-inner{grid-template-columns:repeat(2,1fr)}.ad-rect{flex-direction:column}.ad-sidebar{display:none}}
+@media(max-width:700px){.nav-links{display:none}.breadcrumb{padding-top:10px}.breadcrumb-inner{padding:0 16px}.hero{padding:12px 16px 12px}.hero-badge{margin-bottom:6px}.hero h1{font-size:24px}.tools-grid{grid-template-columns:repeat(2,1fr)}.other-grid{grid-template-columns:1fr}.uc-grid{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:repeat(2,1fr)}.mega{max-height:calc(100vh - 56px);overflow-y:auto}.mega-inner{grid-template-columns:repeat(2,1fr)}.ad-rect{flex-direction:column}.ad-sidebar{display:none}}
 /* Mobile: hide hero subtitle to bring generated words higher */
 @media (max-width: 900px){
   .hero > p{display:none !important;}
 }
+/* Added for /word-tools/ hub page */
+.tool-item--soon{cursor:default}
+.tool-item--soon:hover{border-color:var(--border);background:var(--bg)}
+.tool-item--soon .tool-name{color:var(--text-2);font-size:12px}
+.tool-item--soon .tool-desc{color:var(--text-3);font-size:10px}
+.soon-badge{display:inline-block;font-size:10px;padding:2px 7px;background:var(--bg-3);color:var(--text-3);border-radius:99px;font-weight:500;vertical-align:middle;margin-left:6px}

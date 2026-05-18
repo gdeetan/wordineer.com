@@ -10,6 +10,10 @@
 
 `indian-names.json` powers the Random Indian Name Generator. It is a dedicated pan-Indian dataset with separate `givenNames` and `surnames` arrays so the page can support region or language tradition filters, surname-only mode, and full-name generation without relying on the small generic origin list in `names.json`.
 
+`arabic-names.json` powers the Random Arabic Name Generator. It is a dedicated Arabic dataset with separate `givenNames` and `surnames` arrays, Arabic-script forms, region tags, meaning-theme tags, and common Latin transliteration variants so the page can support script display and practical writer-focused filters without pretending one English spelling is always the only correct form.
+
+`turkish-names.json` powers the Random Turkish Name Generator. It uses a dedicated Turkish dataset with separate `givenNames` and `surnames` arrays, authentic Turkish spellings, meaning-theme tags for given names, and practical surname notes. Keep real Turkish characters in the public data, keep meaning notes short, and avoid padding the file with low-confidence entries just to inflate the count.
+
 `german-names.json` powers the Random German Name Generator. The expanded v1 dataset is generated from public German-speaking usage pages on Behind the Name and surnames.behindthename.com, then normalized into compact tuples with short meaning or origin notes plus Wordineer-specific style, region, and surname-category tags. Treat the note field as a reader-friendly gloss, not a scholarly etymology citation.
 
 Preferred source types:
