@@ -74,12 +74,12 @@
 }
 </script>
 <title>5 Letter Words Starting With C — Full List With Definitions | Wordineer</title>
-<meta name="description" content="Browse 100+ five-letter words starting with C, filtered by word type and difficulty. Definitions included. Great for Wordle, Scrabble, vocabulary building, and creative writing.">
+<meta name="description" content="Browse 600+ five-letter words starting with C, filtered by word type and difficulty. Definitions included. Great for Wordle, Scrabble, vocabulary building, and creative writing.">
 <link rel="canonical" href="https://wordineer.com/5-letter-words-starting-with-c/">
 <meta property="og:type"        content="website">
 <meta property="og:site_name"   content="Wordineer">
 <meta property="og:title"       content="5 Letter Words Starting With C | Wordineer">
-<meta property="og:description" content="100+ five-letter words starting with C. Filter by word type and difficulty. Definitions included.">
+<meta property="og:description" content="600+ five-letter words starting with C. Filter by word type and difficulty. Definitions included.">
 <meta property="og:url"         content="https://wordineer.com/5-letter-words-starting-with-c/">
 <meta property="og:image"       content="https://wordineer.com/og-image.png">
 
@@ -136,7 +136,7 @@
       "name": "How many 5-letter words start with C?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Standard English dictionaries contain between 400 and 700 five-letter words beginning with C, depending on the source. Common word game dictionaries used for Wordle and Scrabble typically include 350–550. This list covers the most useful ones, tagged by type and difficulty."
+        "text": "This page includes 635 five-letter words starting with C. Many entries come from broader dictionary coverage, so common and game-oriented words are mixed with rarer terms."
       }
     },
     {
@@ -280,6 +280,11 @@
   grid-template-columns: repeat(auto-fill, minmax(195px, 1fr));
   gap: 10px;
   margin-bottom: 40px;
+}
+.lp-more-wrap {
+  display: flex;
+  justify-content: center;
+  margin: -20px 0 40px;
 }
 .lp-card {
   border: 1px solid var(--border);
@@ -615,6 +620,9 @@ details[open] .faq-item summary::after { content: '−'; }
         <div class="lp-loading" id="lp-loading">Loading words…</div>
       </div>
       <div class="lp-no-results" id="lp-no-results">No words match your filters. Try broadening your selection.</div>
+      <div class="lp-more-wrap" id="lp-more-wrap" hidden>
+        <button class="lp-btn" id="lp-more-btn" type="button">Show more words</button>
+      </div>
 
       <!-- A–Z nav -->
       <div class="az-nav">
@@ -704,7 +712,7 @@ details[open] .faq-item summary::after { content: '−'; }
 
         <details class="faq-item">
           <summary>How many 5-letter words start with C?</summary>
-          <p>Standard English dictionaries contain between 400 and 700 five-letter words beginning with C, depending on the source. Common word game dictionaries used for Wordle and Scrabble typically include 350–550. This list covers the most useful ones, tagged by type and difficulty.</p>
+          <p>This page includes 635 five-letter words starting with C. Many entries come from broader dictionary coverage, so common and game-oriented words are mixed with rarer terms.</p>
         </details>
 
         <details class="faq-item">
@@ -759,7 +767,17 @@ details[open] .faq-item summary::after { content: '−'; }
 
   var allWords = SEED.slice();
   var filtered = allWords.slice();
+  var BATCH_SIZE = 50;
+  var visibleCount = BATCH_SIZE;
   var fullLoaded = false;
+  var grid = document.getElementById('lp-grid');
+  var noResults = document.getElementById('lp-no-results');
+  var loading = document.getElementById('lp-loading');
+  var count = document.getElementById('lp-count');
+  var typeFilter = document.getElementById('lp-type');
+  var diffFilter = document.getElementById('lp-diff');
+  var moreWrap = document.getElementById('lp-more-wrap');
+  var moreBtn = document.getElementById('lp-more-btn');
 
   function diffClass(d) {
     return d === 'easy' ? 'badge-easy' : d === 'medium' ? 'badge-medium' : 'badge-hard';
@@ -767,36 +785,48 @@ details[open] .faq-item summary::after { content: '−'; }
 
   var COPY_SVG = '<svg viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="8" height="8" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M2 10V2h8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>';
 
-  function render() {
-    var type = document.getElementById('lp-type').value;
-    var diff = document.getElementById('lp-diff').value;
-
+  function applyFilters() {
+    var type = typeFilter.value;
+    var diff = diffFilter.value;
     filtered = allWords.filter(function (w) {
       if (type !== 'all' && w.t !== type) return false;
       if (diff !== 'all' && w.diff !== diff) return false;
       return true;
     });
+  }
 
-    var grid = document.getElementById('lp-grid');
-    var noResults = document.getElementById('lp-no-results');
-    var loading = document.getElementById('lp-loading');
-    var count = document.getElementById('lp-count');
+  function resetVisibleCount() {
+    visibleCount = BATCH_SIZE;
+  }
+
+  function renderCount(total) {
+    var shown = Math.min(visibleCount, total);
+    count.textContent = 'Showing ' + shown + ' of ' + total + ' words';
+  }
+
+  function renderMoreButton(total) {
+    moreWrap.hidden = total <= visibleCount;
+  }
+
+  function render() {
+    applyFilters();
 
     if (loading) loading.style.display = 'none';
 
     if (filtered.length === 0) {
       grid.innerHTML = '';
       noResults.style.display = 'block';
-      count.textContent = '0 words';
+      count.textContent = 'Showing 0 of 0 words';
+      moreWrap.hidden = true;
       return;
     }
 
     noResults.style.display = 'none';
-    var total = fullLoaded ? allWords.length : allWords.length + '+';
-    count.textContent = filtered.length + ' word' + (filtered.length === 1 ? '' : 's') +
-      (type === 'all' && diff === 'all' ? ' (from ' + total + ' total)' : '');
+    visibleCount = Math.min(visibleCount, filtered.length);
+    renderCount(filtered.length);
+    renderMoreButton(filtered.length);
 
-    grid.innerHTML = filtered.map(function (w) {
+    grid.innerHTML = filtered.slice(0, Math.min(visibleCount, filtered.length)).map(function (w) {
       return '<div class="lp-card">' +
         '<div class="lp-card-word">' + w.w + '</div>' +
         '<div class="lp-card-badges">' +
@@ -821,7 +851,7 @@ details[open] .faq-item summary::after { content: '−'; }
       .catch(function () {});
   }
 
-  document.getElementById('lp-grid').addEventListener('click', function (e) {
+  grid.addEventListener('click', function (e) {
     var btn = e.target.closest('.lp-copy-word');
     if (!btn) return;
     var word = btn.getAttribute('data-word');
@@ -832,8 +862,20 @@ details[open] .faq-item summary::after { content: '−'; }
     });
   });
 
-  document.getElementById('lp-type').addEventListener('change', function () { loadFull(); render(); });
-  document.getElementById('lp-diff').addEventListener('change', function () { loadFull(); render(); });
+  typeFilter.addEventListener('change', function () {
+    loadFull();
+    resetVisibleCount();
+    render();
+  });
+  diffFilter.addEventListener('change', function () {
+    loadFull();
+    resetVisibleCount();
+    render();
+  });
+  moreBtn.addEventListener('click', function () {
+    visibleCount = Math.min(visibleCount + BATCH_SIZE, filtered.length);
+    render();
+  });
 
   // Copy dropdown
   var copyBtn = document.getElementById('lp-copy-btn');
