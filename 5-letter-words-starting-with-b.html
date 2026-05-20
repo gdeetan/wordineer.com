@@ -808,7 +808,7 @@ details[open] .faq-item summary::after { content: '−'; }
           '<span class="badge ' + diffClass(w.diff) + '">' + w.diff + '</span>' +
         '</div>' +
         '<div class="lp-card-def">' + w.d + '</div>' +
-        '<button class="lp-copy-word" aria-label="Copy ' + w.w + '" onclick="(function(b){navigator.clipboard.writeText(\'' + w.w + '\').then(function(){b.innerHTML=\'✓\';setTimeout(function(){b.innerHTML=\'' + COPY_SVG.replace(/'/g, "\\'") + '\'},1000)})})(this)">' + COPY_SVG + '</button>' +
+        '<button class="lp-copy-word" data-word="' + w.w + '" aria-label="Copy ' + w.w + '">' + COPY_SVG + '</button>' +
       '</div>';
     }).join('');
   }
@@ -824,6 +824,17 @@ details[open] .faq-item summary::after { content: '−'; }
       })
       .catch(function () {});
   }
+
+  document.getElementById('lp-grid').addEventListener('click', function (e) {
+    var btn = e.target.closest('.lp-copy-word');
+    if (!btn) return;
+    var word = btn.getAttribute('data-word');
+    if (!word) return;
+    navigator.clipboard.writeText(word).then(function () {
+      btn.innerHTML = '✓';
+      setTimeout(function () { btn.innerHTML = COPY_SVG; }, 1000);
+    });
+  });
 
   document.getElementById('lp-type').addEventListener('change', function () { loadFull(); render(); });
   document.getElementById('lp-diff').addEventListener('change', function () { loadFull(); render(); });
