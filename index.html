@@ -68,9 +68,29 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Wordineer",
-  "url": "https://wordineer.com"
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://wordineer.com/#website",
+      "name": "Wordineer",
+      "url": "https://wordineer.com",
+      "description": "Free online word tools for writers, students, and word game players — random word generator, name generators, word scramble, sentence generator, and more.",
+      "publisher": { "@id": "https://wordineer.com/#organization" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://wordineer.com/#organization",
+      "name": "Wordineer",
+      "url": "https://wordineer.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://wordineer.com/logo.png",
+        "width": 1254,
+        "height": 1254
+      },
+      "description": "Wordineer provides free online word tools for writers, students, and word game players."
+    }
+  ]
 }
 </script>
 <title>Random Word Generator — Free, Instant, No Sign-up | Wordineer</title>
@@ -118,6 +138,49 @@
       "acceptedAnswer": { "@type": "Answer", "text": "Yes — set the word type to \"Nouns only\" so every generated word is something drawable. For a dedicated experience with category filters (easy, medium, hard), try the Pictionary word generator instead." }
     }
   ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Random Word Generator",
+  "url": "https://wordineer.com/",
+  "description": "Generate random English words instantly. Filter by type, difficulty, and starting letter. Definitions included. Free forever.",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@id": "https://wordineer.com/#organization" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": "https://wordineer.com/#homepage",
+  "name": "Wordineer — Free Online Word Tools",
+  "url": "https://wordineer.com/",
+  "description": "Free online word tools for writers, students, and word game players. Generate random words, names, sentences, and more.",
+  "publisher": { "@id": "https://wordineer.com/#organization" },
+  "mainEntity": {
+    "@type": "ItemList",
+    "name": "Wordineer Tools",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1,  "name": "Random Word Generator",         "url": "https://wordineer.com/" },
+      { "@type": "ListItem", "position": 2,  "name": "Random Name Generator",         "url": "https://wordineer.com/random-name-generator/" },
+      { "@type": "ListItem", "position": 3,  "name": "Pictionary Word Generator",     "url": "https://wordineer.com/pictionary-word-generator/" },
+      { "@type": "ListItem", "position": 4,  "name": "Random Sentence Generator",     "url": "https://wordineer.com/random-sentence-generator/" },
+      { "@type": "ListItem", "position": 5,  "name": "Word Scramble",                 "url": "https://wordineer.com/word-scramble/" },
+      { "@type": "ListItem", "position": 6,  "name": "Word Unscramble",               "url": "https://wordineer.com/word-unscramble/" },
+      { "@type": "ListItem", "position": 7,  "name": "Word of the Day",               "url": "https://wordineer.com/word-of-the-day/" },
+      { "@type": "ListItem", "position": 8,  "name": "Passphrase Generator",          "url": "https://wordineer.com/passphrase-generator/" },
+      { "@type": "ListItem", "position": 9,  "name": "Random Letter Generator",       "url": "https://wordineer.com/random-letter-generator/" },
+      { "@type": "ListItem", "position": 10, "name": "Words That Start With",         "url": "https://wordineer.com/words-that-start-with/" },
+      { "@type": "ListItem", "position": 11, "name": "Random 5 Letter Word Generator","url": "https://wordineer.com/random-5-letter-word-generator/" },
+      { "@type": "ListItem", "position": 12, "name": "Word Tools Hub",                "url": "https://wordineer.com/word-tools/" },
+      { "@type": "ListItem", "position": 13, "name": "Name Generators Hub",           "url": "https://wordineer.com/name-generators/" }
+    ]
+  }
 }
 </script>
 

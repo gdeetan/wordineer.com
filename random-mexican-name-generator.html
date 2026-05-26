@@ -68,9 +68,29 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Wordineer",
-  "url": "https://wordineer.com"
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://wordineer.com/#website",
+      "name": "Wordineer",
+      "url": "https://wordineer.com",
+      "description": "Free online word tools for writers, students, and word game players — random word generator, name generators, word scramble, sentence generator, and more.",
+      "publisher": { "@id": "https://wordineer.com/#organization" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://wordineer.com/#organization",
+      "name": "Wordineer",
+      "url": "https://wordineer.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://wordineer.com/logo.png",
+        "width": 1254,
+        "height": 1254
+      },
+      "description": "Wordineer provides free online word tools for writers, students, and word game players."
+    }
+  ]
 }
 </script>
 <title>1,000+ Random Mexican Names - First, Last &amp; Full Names | Wordineer</title>
@@ -112,6 +132,30 @@
       "name": "Does this tool create fake identities?",
       "acceptedAnswer": { "@type": "Answer", "text": "No. It only generates names. It does not create addresses, phone numbers, passwords, document numbers, or other identity details." }
     }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Random Mexican Name Generator",
+  "url": "https://wordineer.com/random-mexican-name-generator/",
+  "description": "Generate 1,000+ random Mexican names instantly. Filter by gender, first name, surname, full name, style, and starting letter. Great for characters, stories, baby-name ideas, and worldbuilding.",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@id": "https://wordineer.com/#organization" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Name Generators", "item": "https://wordineer.com/name-generators/" },
+    { "@type": "ListItem", "position": 3, "name": "Random Mexican Name Generator", "item": "https://wordineer.com/random-mexican-name-generator/" }
   ]
 }
 </script>
@@ -294,6 +338,15 @@
     <span aria-current="page">Random Mexican Name Generator</span>
   </div>
 </nav>
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/name-generators/">Name Generators</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Random Mexican Name Generator</span>
+  </div>
+</div>
 <section class="hero hero--tool">
   <div class="hero-inner">
     <div class="hero-copy">

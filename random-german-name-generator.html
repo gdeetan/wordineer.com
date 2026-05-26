@@ -68,9 +68,29 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Wordineer",
-  "url": "https://wordineer.com"
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://wordineer.com/#website",
+      "name": "Wordineer",
+      "url": "https://wordineer.com",
+      "description": "Free online word tools for writers, students, and word game players — random word generator, name generators, word scramble, sentence generator, and more.",
+      "publisher": { "@id": "https://wordineer.com/#organization" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://wordineer.com/#organization",
+      "name": "Wordineer",
+      "url": "https://wordineer.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://wordineer.com/logo.png",
+        "width": 1254,
+        "height": 1254
+      },
+      "description": "Wordineer provides free online word tools for writers, students, and word game players."
+    }
+  ]
 }
 </script>
 <title>1000+ Random German Names - Given Names, Surnames &amp; Full Names | Wordineer</title>
@@ -112,6 +132,30 @@
       "name": "Is this random German name generator free?",
       "acceptedAnswer": { "@type": "Answer", "text": "Yes. The tool is free to use, needs no sign-up, and runs entirely in the browser with a dedicated static dataset." }
     }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Random German Name Generator",
+  "url": "https://wordineer.com/random-german-name-generator/",
+  "description": "Generate 1000+ random German names instantly. Browse German given names, surnames, and full names by gender, style, region, surname category, and starting letter. Free, fast, no sign-up.",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@id": "https://wordineer.com/#organization" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Name Generators", "item": "https://wordineer.com/name-generators/" },
+    { "@type": "ListItem", "position": 3, "name": "Random German Name Generator", "item": "https://wordineer.com/random-german-name-generator/" }
   ]
 }
 </script>
@@ -296,6 +340,15 @@
     <span aria-current="page">Random German Name Generator</span>
   </div>
 </nav>
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/name-generators/">Name Generators</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Random German Name Generator</span>
+  </div>
+</div>
 <section class="hero hero--tool">
   <div class="hero-inner">
     <div class="hero-copy">

@@ -68,9 +68,29 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Wordineer",
-  "url": "https://wordineer.com"
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://wordineer.com/#website",
+      "name": "Wordineer",
+      "url": "https://wordineer.com",
+      "description": "Free online word tools for writers, students, and word game players — random word generator, name generators, word scramble, sentence generator, and more.",
+      "publisher": { "@id": "https://wordineer.com/#organization" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://wordineer.com/#organization",
+      "name": "Wordineer",
+      "url": "https://wordineer.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://wordineer.com/logo.png",
+        "width": 1254,
+        "height": 1254
+      },
+      "description": "Wordineer provides free online word tools for writers, students, and word game players."
+    }
+  ]
 }
 </script>
 <title>Random Filipino Name Generator — 280+ Names with Meanings | Wordineer</title>
@@ -112,6 +132,30 @@
       "name": "Can I use these names for fiction?",
       "acceptedAnswer": { "@type": "Answer", "text": "Yes — all names generated here are real Filipino names drawn from authentic cultural sources. You can use them freely for fiction, screenplays, game characters, or any creative project. For writers, the style filter is especially useful: pick Traditional for historical or rural Philippine settings, Spanish-colonial for upper-class or older-generation characters, Modern for contemporary urban characters, and Nickname for casual or close-community portrayals. Names are not copyrightable." }
     }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Random Filipino Name Generator",
+  "url": "https://wordineer.com/random-filipino-name-generator/",
+  "description": "Generate random Filipino names instantly — traditional Tagalog, Spanish-colonial, modern, and nickname styles. Meanings shown under every result. Filter by gender and style. Free, no sign-up.",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@id": "https://wordineer.com/#organization" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Name Generators", "item": "https://wordineer.com/name-generators/" },
+    { "@type": "ListItem", "position": 3, "name": "Random Filipino Name Generator", "item": "https://wordineer.com/random-filipino-name-generator/" }
   ]
 }
 </script>
@@ -299,6 +343,15 @@
     <span aria-current="page">Random Filipino Name Generator</span>
   </div>
 </nav>
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/name-generators/">Name Generators</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Random Filipino Name Generator</span>
+  </div>
+</div>
 <section class="hero hero--tool">
   <div class="hero-inner">
     <div class="hero-copy">
