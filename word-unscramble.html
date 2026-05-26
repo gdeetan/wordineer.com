@@ -68,9 +68,29 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Wordineer",
-  "url": "https://wordineer.com"
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://wordineer.com/#website",
+      "name": "Wordineer",
+      "url": "https://wordineer.com",
+      "description": "Free online word tools for writers, students, and word game players — random word generator, name generators, word scramble, sentence generator, and more.",
+      "publisher": { "@id": "https://wordineer.com/#organization" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://wordineer.com/#organization",
+      "name": "Wordineer",
+      "url": "https://wordineer.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://wordineer.com/logo.png",
+        "width": 1254,
+        "height": 1254
+      },
+      "description": "Wordineer provides free online word tools for writers, students, and word game players."
+    }
+  ]
 }
 </script>
 <title>Word Unscramble — Find Every Word from Your Letters | Wordineer</title>
@@ -113,6 +133,19 @@
       "acceptedAnswer": { "@type": "Answer", "text": "You can enter up to 15 letters at once. You can also mix in ? wildcard characters — each ? counts as one letter slot but can stand in for any letter of the alphabet. Results are grouped by length, longest first, so the most useful words for games like Scrabble surface at the top." }
     }
   ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Word Unscrambler",
+  "url": "https://wordineer.com/word-unscramble/",
+  "description": "Enter up to 15 letters and instantly find every real word you can make. Use ? for blank tiles. Filter by length, starts with, ends with. Free Scrabble & word game solver.",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@id": "https://wordineer.com/#organization" }
 }
 </script>
 

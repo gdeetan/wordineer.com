@@ -68,9 +68,29 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Wordineer",
-  "url": "https://wordineer.com"
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://wordineer.com/#website",
+      "name": "Wordineer",
+      "url": "https://wordineer.com",
+      "description": "Free online word tools for writers, students, and word game players — random word generator, name generators, word scramble, sentence generator, and more.",
+      "publisher": { "@id": "https://wordineer.com/#organization" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://wordineer.com/#organization",
+      "name": "Wordineer",
+      "url": "https://wordineer.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://wordineer.com/logo.png",
+        "width": 1254,
+        "height": 1254
+      },
+      "description": "Wordineer provides free online word tools for writers, students, and word game players."
+    }
+  ]
 }
 </script>
 <title>Passphrase Generator — Secure, Memorable Passphrases | Wordineer</title>
@@ -113,6 +133,19 @@
       "acceptedAnswer": { "@type": "Answer", "text": "For most accounts, 4 words is a reasonable minimum (51 bits). For sensitive accounts — email, banking, your password manager master password — use 5 words (64 bits) or 6 words (77 bits). Adding a number or symbol increases entropy further. The key advantage of passphrases is that more words means both higher security AND easier to remember, which is the opposite of how traditional password complexity advice works." }
     }
   ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Passphrase Generator",
+  "url": "https://wordineer.com/passphrase-generator/",
+  "description": "Generate strong, memorable passphrases instantly. Choose word count, separators, capitalization, and more. Uses the EFF word list and cryptographically secure randomness. Free, no sign-up.",
+  "applicationCategory": "SecurityApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@id": "https://wordineer.com/#organization" }
 }
 </script>
 

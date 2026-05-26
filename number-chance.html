@@ -68,9 +68,29 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Wordineer",
-  "url": "https://wordineer.com"
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://wordineer.com/#website",
+      "name": "Wordineer",
+      "url": "https://wordineer.com",
+      "description": "Free online word tools for writers, students, and word game players — random word generator, name generators, word scramble, sentence generator, and more.",
+      "publisher": { "@id": "https://wordineer.com/#organization" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://wordineer.com/#organization",
+      "name": "Wordineer",
+      "url": "https://wordineer.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://wordineer.com/logo.png",
+        "width": 1254,
+        "height": 1254
+      },
+      "description": "Wordineer provides free online word tools for writers, students, and word game players."
+    }
+  ]
 }
 </script>
 <title>Free Number &amp; Chance Tools — Coin Flip, Dice, Wheels &amp; More | Wordineer</title>
@@ -82,6 +102,19 @@
 <meta property="og:description" content="Flip a coin, roll dice, spin a wheel, or pick a random number. Every free chance and number tool in one place — no sign-up, no limits, instant results.">
 <meta property="og:url" content="https://wordineer.com/number-chance/">
 <meta property="og:image" content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Number & Chance Tools",
+  "url": "https://wordineer.com/number-chance/",
+  "description": "Flip a coin, roll dice, spin a wheel, or pick a random number. Every free chance and number tool in one place — no sign-up, no limits, instant results.",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@id": "https://wordineer.com/#organization" }
+}
+</script>
 
 <link rel="stylesheet" href="/styles/global.css?v=7">
 <style>
