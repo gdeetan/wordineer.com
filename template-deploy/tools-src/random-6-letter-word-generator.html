@@ -645,7 +645,7 @@
         '</div>' +
         '<div class="word-right">' +
           '<button class="icon-btn' + (isSaved ? ' saved' : '') + '" data-word="' + w.w + '" aria-label="Save ' + w.w + '" onclick="toggleSave(this)">' + HEART_SVG + '</button>' +
-          '<button class="icon-btn" aria-label="Copy ' + w.w + '" onclick="copyWord(this,'' + w.w + '')">' + COPY_SVG + '</button>' +
+          '<button class="icon-btn" data-word="' + w.w + '" aria-label="Copy ' + w.w + '" onclick="copyWord(this)">' + COPY_SVG + '</button>' +
         '</div>' +
       '</li>';
     }).join('');
@@ -659,7 +659,8 @@
     renderSaved();
   };
 
-  window.copyWord = function (btn, word) {
+  window.copyWord = function (btn) {
+    var word = btn.getAttribute('data-word');
     navigator.clipboard.writeText(word).then(function () {
       btn.innerHTML = '✓';
       setTimeout(function () { btn.innerHTML = COPY_SVG; }, 1000);
@@ -676,7 +677,7 @@
     }
     container.innerHTML = savedWords.map(function (w) {
       return '<span class="saved-tag">' + w +
-        '<span class="saved-tag-remove" onclick="removeSaved('' + w + '')" aria-label="Remove ' + w + '">×</span>' +
+        '<span class="saved-tag-remove" onclick="removeSaved(\'' + w + '\')" aria-label="Remove ' + w + '">×</span>' +
       '</span>';
     }).join('');
   }
