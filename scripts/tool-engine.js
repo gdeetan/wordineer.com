@@ -73,7 +73,7 @@ if (!res.ok) throw new Error(res.status);
 const raw = await res.json();
 const data = Array.isArray(raw[0])
 ? raw.map(e => ({ w: e[0], t: e[1], d: e[2], diff: e[3], borrowed: e[4], syl: e[5] ?? countSyllables(e[0]) }))
-: raw.map(e => ({ w: e.w, t: e.t || 'noun', nt: e.nt, vt: e.vt, d: e.d || '', diff: e.diff || 'medium', borrowed: false, syl: countSyllables(e.w) }));
+: raw.map(e => ({ w: e.w, t: e.t || 'noun', nt: e.nt, vt: e.vt, at: e.at, comp: e.comp || '', d: e.d || '', diff: e.diff || 'medium', borrowed: false, syl: countSyllables(e.w) }));
 WORDS = data;
 fullLoaded = true;
 scSet(cKey, data);
@@ -272,6 +272,7 @@ const sizeVal  = parseInt(document.getElementById(config.sizeValId)?.value) || 0
 const useSize  = sizeCond !== 'Any length' && sizeVal > 0;
 const nounType = config.nounTypeId ? (document.getElementById(config.nounTypeId)?.value || 'all') : null;
 const verbType = config.verbTypeId ? (document.getElementById(config.verbTypeId)?.value || 'all') : null;
+const adjType  = config.adjTypeId  ? (document.getElementById(config.adjTypeId)?.value  || 'all') : null;
 let pool = WORDS.filter(w => {
 if (type === 'noun'      && w.t !== 'noun')      return false;
 if (type === 'adjective' && w.t !== 'adjective') return false;
@@ -281,6 +282,7 @@ if (type === 'extended'  && w.diff !== 'hard')   return false;
 if (type === 'nonenglish'&& !w.borrowed)         return false;
 if (nounType && nounType !== 'all' && w.nt !== nounType) return false;
 if (verbType && verbType !== 'all' && w.vt !== verbType) return false;
+if (adjType  && adjType  !== 'all' && w.at !== adjType)  return false;
 if (diff !== 'all'       && w.diff !== diff)     return false;
 if (first && !w.w.toUpperCase().startsWith(first)) return false;
 if (last  && !w.w.toUpperCase().endsWith(last))    return false;
@@ -321,7 +323,8 @@ const hideStyle = defsShown ? '' : ' style="display:none"';
 li.innerHTML = `
 <div class="word-left">
 <div class="word-text">${wd.w}</div>
-<div class="word-pos">${wd.nt ? wd.nt + ' noun' : wd.vt ? wd.vt + ' verb' : wd.t}</div>
+<div class="word-pos">${wd.at ? wd.at + (wd.diff ? ' · ' + wd.diff : '') : wd.nt ? wd.nt + ' noun' : wd.vt ? wd.vt + ' verb' : wd.t}</div>
+${wd.comp ? `<div class="word-comp">${wd.comp}</div>` : ''}
 <div class="word-def"${hideStyle}>${wd.d}</div>
 ${i < 3 ? `<div class="word-grammarly"${hideStyle}><a href="https://grammarly.com" target="_blank" rel="noopener">Use in a sentence with Grammarly →</a></div>` : ''}
 </div>
