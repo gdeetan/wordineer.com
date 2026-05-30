@@ -707,7 +707,7 @@ WORDINEER.init({
     count.addEventListener('change', validateAndGenerate);
   }
 
-  ['ctrl-noun-type', 'ctrl-diff', 'ctrl-first', 'ctrl-defs'].forEach(function(id) {
+  ['ctrl-noun-type', 'ctrl-diff', 'ctrl-first'].forEach(function(id) {
     const el = document.getElementById(id);
     if (!el) return;
     el.addEventListener('change', validateAndGenerate);
