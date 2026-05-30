@@ -73,7 +73,7 @@ if (!res.ok) throw new Error(res.status);
 const raw = await res.json();
 const data = Array.isArray(raw[0])
 ? raw.map(e => ({ w: e[0], t: e[1], d: e[2], diff: e[3], borrowed: e[4], syl: e[5] ?? countSyllables(e[0]) }))
-: raw.map(e => ({ w: e.w, t: e.t || 'noun', nt: e.nt, d: e.d || '', diff: e.diff || 'medium', borrowed: false, syl: countSyllables(e.w) }));
+: raw.map(e => ({ w: e.w, t: e.t || 'noun', nt: e.nt, vt: e.vt, d: e.d || '', diff: e.diff || 'medium', borrowed: false, syl: countSyllables(e.w) }));
 WORDS = data;
 fullLoaded = true;
 scSet(cKey, data);
@@ -270,6 +270,7 @@ const sizeCond = document.getElementById(config.sizeCondId)?.value || 'Any lengt
 const sizeVal  = parseInt(document.getElementById(config.sizeValId)?.value) || 0;
 const useSize  = sizeCond !== 'Any length' && sizeVal > 0;
 const nounType = config.nounTypeId ? (document.getElementById(config.nounTypeId)?.value || 'all') : null;
+const verbType = config.verbTypeId ? (document.getElementById(config.verbTypeId)?.value || 'all') : null;
 let pool = WORDS.filter(w => {
 if (type === 'noun'      && w.t !== 'noun')      return false;
 if (type === 'adjective' && w.t !== 'adjective') return false;
@@ -278,6 +279,7 @@ if (type === 'adverb'    && w.t !== 'adverb')    return false;
 if (type === 'extended'  && w.diff !== 'hard')   return false;
 if (type === 'nonenglish'&& !w.borrowed)         return false;
 if (nounType && nounType !== 'all' && w.nt !== nounType) return false;
+if (verbType && verbType !== 'all' && w.vt !== verbType) return false;
 if (diff !== 'all'       && w.diff !== diff)     return false;
 if (first && !w.w.toUpperCase().startsWith(first)) return false;
 if (last  && !w.w.toUpperCase().endsWith(last))    return false;
@@ -318,7 +320,7 @@ const hideStyle = defsShown ? '' : ' style="display:none"';
 li.innerHTML = `
 <div class="word-left">
 <div class="word-text">${wd.w}</div>
-<div class="word-pos">${wd.nt ? wd.nt + ' noun' : wd.t}</div>
+<div class="word-pos">${wd.nt ? wd.nt + ' noun' : wd.vt ? wd.vt + ' verb' : wd.t}</div>
 <div class="word-def"${hideStyle}>${wd.d}</div>
 ${i < 3 ? `<div class="word-grammarly"${hideStyle}><a href="https://grammarly.com" target="_blank" rel="noopener">Use in a sentence with Grammarly →</a></div>` : ''}
 </div>
@@ -428,6 +430,10 @@ if (config.nounTypeId) {
 const ntEl = document.getElementById(config.nounTypeId);
 if (ntEl) ntEl.value = 'all';
 }
+if (config.verbTypeId) {
+const vtEl = document.getElementById(config.verbTypeId);
+if (vtEl) vtEl.value = 'all';
+}
 const defs = document.getElementById(config.defsId);
 if (defs) defs.checked = true;
 const sizeCond = document.getElementById(config.sizeCondId);
@@ -487,12 +493,7 @@ function initDefToggle() {
 const el = document.getElementById(config.defsId);
 if (!el) return;
 el.addEventListener('change', function() {
-defsShown = el.checked;
-const list = document.getElementById(config.listId);
-if (!list) return;
-list.querySelectorAll('.word-def, .word-grammarly').forEach(function(d) {
-d.style.display = defsShown ? '' : 'none';
-});
+renderList();
 });
 }
 const _render = render;
@@ -639,6 +640,7 @@ defsId:         cfg.defsId         || 'ctrl-defs',
 sizeCondId:     cfg.sizeCondId     || 'ctrl-size-cond',
 sizeValId:      cfg.sizeValId      || 'ctrl-size-val',
 nounTypeId:     cfg.nounTypeId     || null,
+verbTypeId:     cfg.verbTypeId     || null,
 dataUrl:        cfg.dataUrl        || null,
 };
 if (cfg.apiKeys) {
