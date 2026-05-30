@@ -645,6 +645,7 @@ sizeCondId:     cfg.sizeCondId     || 'ctrl-size-cond',
 sizeValId:      cfg.sizeValId      || 'ctrl-size-val',
 nounTypeId:     cfg.nounTypeId     || null,
 verbTypeId:     cfg.verbTypeId     || null,
+adjTypeId:      cfg.adjTypeId      || null,
 dataUrl:        cfg.dataUrl        || null,
 };
 if (cfg.apiKeys) {
