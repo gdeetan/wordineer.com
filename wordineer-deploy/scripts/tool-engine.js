@@ -33,6 +33,7 @@ let defsShown  = true;
 let fullLoaded = false;
 let fullLoadPromise = null;
 let fullLoadScheduled = false;
+let userGenerated = false;
 let API_KEYS   = { wordnik: '', merriam: '' };
 const SC_WORDS_KEY = 'wnr_words_v3';
 function countSyllables(word) {
@@ -57,21 +58,25 @@ try { sessionStorage.setItem(key, JSON.stringify(val)); } catch {}
 }
 async function loadWords() {
 if (fullLoadPromise) return fullLoadPromise;
+const url  = config.dataUrl || '/data/words.json';
+const cKey = config.dataUrl ? 'wnr_custom_' + url.replace(/\W/g,'').slice(-12) : SC_WORDS_KEY;
 fullLoadPromise = (async () => {
-const cached = scGet(SC_WORDS_KEY);
-if (Array.isArray(cached) && cached.length > 100) {
+const cached = scGet(cKey);
+if (Array.isArray(cached) && cached.length > 10) {
 WORDS = cached;
 fullLoaded = true;
 return;
 }
 try {
-const res = await fetch('/data/words.json');
+const res = await fetch(url);
 if (!res.ok) throw new Error(res.status);
 const raw = await res.json();
-const data = raw.map(e => ({ w: e[0], t: e[1], d: e[2], diff: e[3], borrowed: e[4], syl: e[5] ?? countSyllables(e[0]) }));
+const data = Array.isArray(raw[0])
+? raw.map(e => ({ w: e[0], t: e[1], d: e[2], diff: e[3], borrowed: e[4], syl: e[5] ?? countSyllables(e[0]) }))
+: raw.map(e => ({ w: e.w, t: e.t || 'noun', nt: e.nt, vt: e.vt, at: e.at, comp: e.comp || '', d: e.d || '', diff: e.diff || 'medium', borrowed: false, syl: countSyllables(e.w) }));
 WORDS = data;
 fullLoaded = true;
-scSet(SC_WORDS_KEY, data);
+scSet(cKey, data);
 } catch {
 }
 })();
@@ -228,7 +233,8 @@ if (fullLoaded || fullLoadScheduled) return;
 fullLoadScheduled = true;
 const run = () => {
 loadWords().then(() => {
-if (currentIsSeedOnly()) render();
+if (currentIsSeedOnly() && !userGenerated) render();
+else if (current.length === 0) render();
 }).catch(() => {});
 };
 setTimeout(() => {
@@ -264,6 +270,9 @@ const sizeby   = document.querySelector('input[name="sizeby"]:checked')?.value |
 const sizeCond = document.getElementById(config.sizeCondId)?.value || 'Any length';
 const sizeVal  = parseInt(document.getElementById(config.sizeValId)?.value) || 0;
 const useSize  = sizeCond !== 'Any length' && sizeVal > 0;
+const nounType = config.nounTypeId ? (document.getElementById(config.nounTypeId)?.value || 'all') : null;
+const verbType = config.verbTypeId ? (document.getElementById(config.verbTypeId)?.value || 'all') : null;
+const adjType  = config.adjTypeId  ? (document.getElementById(config.adjTypeId)?.value  || 'all') : null;
 let pool = WORDS.filter(w => {
 if (type === 'noun'      && w.t !== 'noun')      return false;
 if (type === 'adjective' && w.t !== 'adjective') return false;
@@ -271,6 +280,9 @@ if (type === 'verb'      && w.t !== 'verb')      return false;
 if (type === 'adverb'    && w.t !== 'adverb')    return false;
 if (type === 'extended'  && w.diff !== 'hard')   return false;
 if (type === 'nonenglish'&& !w.borrowed)         return false;
+if (nounType && nounType !== 'all' && w.nt !== nounType) return false;
+if (verbType && verbType !== 'all' && w.vt !== verbType) return false;
+if (adjType  && adjType  !== 'all' && w.at !== adjType)  return false;
 if (diff !== 'all'       && w.diff !== diff)     return false;
 if (first && !w.w.toUpperCase().startsWith(first)) return false;
 if (last  && !w.w.toUpperCase().endsWith(last))    return false;
@@ -287,14 +299,7 @@ return true;
 const shuffled = [...pool].sort(() => Math.random() - 0.5);
 return shuffled.slice(0, Math.min(count, shuffled.length, MAX_WORDS));
 }
-function render() {
-const rawCount = parseInt(document.getElementById(config.countId)?.value, 10);
-if (isNaN(rawCount) || rawCount < 1 || rawCount > MAX_WORDS) {
-setCountError(true);
-return;
-}
-setCountError(false);
-current   = pick();
+function renderList() {
 defsShown = document.getElementById(config.defsId)?.checked !== false;
 const list = document.getElementById(config.listId);
 if (!list) return;
@@ -313,16 +318,15 @@ current.forEach((wd, i) => {
 const li = document.createElement('li');
 li.className = 'word-item';
 const isSaved      = saved.some(s => s.w === wd.w);
-const showGrammarly = i < 3 && defsShown;
 const safeD = wd.d.replace(/'/g, "\\'");
+const hideStyle = defsShown ? '' : ' style="display:none"';
 li.innerHTML = `
 <div class="word-left">
 <div class="word-text">${wd.w}</div>
-<div class="word-pos">${wd.t}</div>
-${defsShown ? `<div class="word-def">${wd.d}</div>` : ''}
-${showGrammarly
-? `<div class="word-grammarly"><a href="https://grammarly.com" target="_blank" rel="noopener">Use in a sentence with Grammarly →</a></div>`
-: ''}
+<div class="word-pos">${wd.at ? wd.at + (wd.diff ? ' · ' + wd.diff : '') : wd.nt ? wd.nt + ' noun' : wd.vt ? wd.vt + ' verb' : wd.t}</div>
+${wd.comp ? `<div class="word-comp">${wd.comp}</div>` : ''}
+<div class="word-def"${hideStyle}>${wd.d}</div>
+${i < 3 ? `<div class="word-grammarly"${hideStyle}><a href="https://grammarly.com" target="_blank" rel="noopener">Use in a sentence with Grammarly →</a></div>` : ''}
 </div>
 <div class="word-right">
 <button class="icon-btn" title="Copy" onclick="WORDINEER.copyWord('${wd.w}', this)">
@@ -344,6 +348,16 @@ list.appendChild(li);
 });
 const wc = document.getElementById(config.countDisplayId);
 if (wc) wc.textContent = current.length + ' word' + (current.length !== 1 ? 's' : '') + ' generated';
+}
+function render() {
+const rawCount = parseInt(document.getElementById(config.countId)?.value, 10);
+if (isNaN(rawCount) || rawCount < 1 || rawCount > MAX_WORDS) {
+setCountError(true);
+return;
+}
+setCountError(false);
+current = pick();
+renderList();
 }
 function toggleSave(word, type, def, btn) {
 const idx = saved.findIndex(s => s.w === word);
@@ -416,6 +430,14 @@ ids.forEach((id, i) => {
 const el = document.getElementById(id);
 if (el) el.value = defaults[i];
 });
+if (config.nounTypeId) {
+const ntEl = document.getElementById(config.nounTypeId);
+if (ntEl) ntEl.value = 'all';
+}
+if (config.verbTypeId) {
+const vtEl = document.getElementById(config.verbTypeId);
+if (vtEl) vtEl.value = 'all';
+}
 const defs = document.getElementById(config.defsId);
 if (defs) defs.checked = true;
 const sizeCond = document.getElementById(config.sizeCondId);
@@ -473,10 +495,14 @@ generate();
 }
 function initDefToggle() {
 const el = document.getElementById(config.defsId);
-if (el) el.addEventListener('change', render);
+if (!el) return;
+el.addEventListener('change', function() {
+renderList();
+});
 }
 const _render = render;
 function generate() {
+userGenerated = true;
 _render();
 const type = document.getElementById(config.typeId)?.value || 'all';
 scheduleFullDictionary(0);
@@ -617,13 +643,20 @@ lastId:         cfg.lastId         || 'ctrl-last',
 defsId:         cfg.defsId         || 'ctrl-defs',
 sizeCondId:     cfg.sizeCondId     || 'ctrl-size-cond',
 sizeValId:      cfg.sizeValId      || 'ctrl-size-val',
+nounTypeId:     cfg.nounTypeId     || null,
+verbTypeId:     cfg.verbTypeId     || null,
+dataUrl:        cfg.dataUrl        || null,
 };
 if (cfg.apiKeys) {
   API_KEYS.wordnik  = cfg.apiKeys.wordnik  || '';
   API_KEYS.merriam  = cfg.apiKeys.merriam  || '';
 }
 render();
-scheduleFullDictionaryAfterFirstLoad();
+if (config.dataUrl) {
+  scheduleFullDictionary(0);
+} else {
+  scheduleFullDictionaryAfterFirstLoad();
+}
 scheduleLiveAugment('all', 12000);
 initFaq();
 initMega();
