@@ -33,6 +33,7 @@ let defsShown  = true;
 let fullLoaded = false;
 let fullLoadPromise = null;
 let fullLoadScheduled = false;
+let userGenerated = false;
 let API_KEYS   = { wordnik: '', merriam: '' };
 const SC_WORDS_KEY = 'wnr_words_v3';
 function countSyllables(word) {
@@ -232,7 +233,7 @@ if (fullLoaded || fullLoadScheduled) return;
 fullLoadScheduled = true;
 const run = () => {
 loadWords().then(() => {
-if (currentIsSeedOnly()) render();
+if (currentIsSeedOnly() && !userGenerated) render();
 }).catch(() => {});
 };
 setTimeout(() => {
@@ -312,16 +313,14 @@ current.forEach((wd, i) => {
 const li = document.createElement('li');
 li.className = 'word-item';
 const isSaved      = saved.some(s => s.w === wd.w);
-const showGrammarly = i < 3 && defsShown;
 const safeD = wd.d.replace(/'/g, "\\'");
+const hideStyle = defsShown ? '' : ' style="display:none"';
 li.innerHTML = `
 <div class="word-left">
 <div class="word-text">${wd.w}</div>
 <div class="word-pos">${wd.nt ? wd.nt + ' noun' : wd.t}</div>
-${defsShown ? `<div class="word-def">${wd.d}</div>` : ''}
-${showGrammarly
-? `<div class="word-grammarly"><a href="https://grammarly.com" target="_blank" rel="noopener">Use in a sentence with Grammarly →</a></div>`
-: ''}
+<div class="word-def"${hideStyle}>${wd.d}</div>
+${i < 3 ? `<div class="word-grammarly"${hideStyle}><a href="https://grammarly.com" target="_blank" rel="noopener">Use in a sentence with Grammarly →</a></div>` : ''}
 </div>
 <div class="word-right">
 <button class="icon-btn" title="Copy" onclick="WORDINEER.copyWord('${wd.w}', this)">
@@ -498,6 +497,7 @@ d.style.display = defsShown ? '' : 'none';
 }
 const _render = render;
 function generate() {
+userGenerated = true;
 _render();
 const type = document.getElementById(config.typeId)?.value || 'all';
 scheduleFullDictionary(0);
