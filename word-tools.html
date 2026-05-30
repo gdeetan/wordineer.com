@@ -133,7 +133,8 @@
         { "@type": "ListItem", "position": 12, "name": "Random 3-Letter Word Generator", "url": "https://wordineer.com/random-3-letter-word-generator/" },
         { "@type": "ListItem", "position": 13, "name": "Passphrase Generator",        "url": "https://wordineer.com/passphrase-generator/" },
         { "@type": "ListItem", "position": 14, "name": "Words That Start With",       "url": "https://wordineer.com/words-that-start-with/" },
-        { "@type": "ListItem", "position": 15, "name": "Random 8-Letter Word Generator", "url": "https://wordineer.com/random-8-letter-word-generator/" }
+        { "@type": "ListItem", "position": 15, "name": "Random 8-Letter Word Generator", "url": "https://wordineer.com/random-8-letter-word-generator/" },
+        { "@type": "ListItem", "position": 16, "name": "Random Verb Generator",          "url": "https://wordineer.com/random-verb-generator/" }
       ]
     }
   ]
@@ -275,6 +276,7 @@
       <div class="mega-cat">Writing &amp; Vocabulary</div>
       <a class="mega-link" href="/">Random Word Generator</a>
       <a class="mega-link" href="/random-noun-generator/">Random Noun Generator</a>
+      <a class="mega-link" href="/random-verb-generator/">Random Verb Generator</a>
       <a class="mega-link" href="/random-sentence-generator/">Random Sentence Generator</a>
       <a class="mega-link" href="/random-paragraph-generator/">Random Paragraph Generator</a>
       <a class="mega-link" href="/word-counter/">Word Counter</a>
@@ -407,11 +409,11 @@
           <div class="tool-desc">Filter by abstract, concrete, proper, or collective.</div>
         </a>
 
-        <div class="tool-item tool-item--soon">
-          <div class="tool-icon" style="background:#FAEEDA"><svg viewBox="0 0 13 13" fill="none"><path d="M7.5 2L4 7h3.5L5.5 11 10 5.5H6.5L7.5 2z" stroke="#BA7517" stroke-width=".9" stroke-linejoin="round"/></svg></div>
-          <div class="tool-name">Random Verbs <span class="soon-badge">Coming soon</span></div>
-          <div class="tool-desc">Action words for writing and games.</div>
-        </div>
+        <a class="tool-item" href="/random-verb-generator/">
+          <div class="tool-icon" style="background:#EEF6FE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h9M2 7h7M2 10h5" stroke="#2B6CB0" stroke-width="1.1" stroke-linecap="round"/><path d="M10 8.5l2 1.5-2 1.5" stroke="#2B6CB0" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="tool-name">Random Verb Generator</div>
+          <div class="tool-desc">Filter by action, linking, auxiliary, or modal. Definitions included.</div>
+        </a>
 
         <div class="tool-item tool-item--soon">
           <div class="tool-icon" style="background:#E6F1FB"><svg viewBox="0 0 13 13" fill="none"><path d="M6.5 2l1.2 3.3H11l-2.8 2 1.1 3.3L6.5 8.7l-2.8 1.9 1.1-3.3L2 5.3h3.3z" stroke="#185FA5" stroke-width=".85" stroke-linejoin="round"/></svg></div>
@@ -762,7 +764,7 @@
       <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-footer-strip-cta">Try free</a>
     </div>
     <div class="footer-grid">
-      <div><div class="footer-col-title">Writing &amp; Vocabulary</div><a class="footer-link" href="/">Random Word Generator</a><a class="footer-link" href="/random-noun-generator/">Random Noun Generator</a><a class="footer-link" href="/random-sentence-generator/">Random Sentence Generator</a><a class="footer-link" href="/random-paragraph-generator/">Random Paragraph Generator</a><a class="footer-link" href="/word-counter/">Word Counter</a><a class="footer-link footer-link--view-all" href="/word-tools/">View all →</a></div>
+      <div><div class="footer-col-title">Writing &amp; Vocabulary</div><a class="footer-link" href="/">Random Word Generator</a><a class="footer-link" href="/random-noun-generator/">Random Noun Generator</a><a class="footer-link" href="/random-verb-generator/">Random Verb Generator</a><a class="footer-link" href="/random-sentence-generator/">Random Sentence Generator</a><a class="footer-link" href="/random-paragraph-generator/">Random Paragraph Generator</a><a class="footer-link" href="/word-counter/">Word Counter</a><a class="footer-link footer-link--view-all" href="/word-tools/">View all →</a></div>
       <div><div class="footer-col-title">Browse by Letter</div><a class="footer-link" href="/words-that-start-with/">Words by Letter (A–Z)</a><a class="footer-link" href="/words-that-start-with/a/">Words Starting with A</a><a class="footer-link" href="/words-that-start-with/s/">Words Starting with S</a><a class="footer-link" href="/words-that-start-with/q/">Words Starting with Q</a><a class="footer-link footer-link--view-all" href="/words-that-start-with/">View all →</a></div>
       <div><div class="footer-col-title">Names by Origin</div><a class="footer-link" href="/random-spanish-name-generator/">Spanish Name Generator</a><a class="footer-link" href="/random-italian-name-generator/">Italian Name Generator</a><a class="footer-link" href="/random-japanese-name-generator/">Japanese Name Generator</a><a class="footer-link" href="/random-american-name-generator/">American Name Generator</a><a class="footer-link footer-link--view-all" href="/name-generators/">View all →</a></div>
       <div><div class="footer-col-title">Other Name Generators</div><a class="footer-link" href="/character-name-generator/">Character Name Generator</a><a class="footer-link" href="/fantasy-name-generator/">Fantasy Name Generator</a><a class="footer-link" href="/business-name-generator/">Business Name Generator</a><a class="footer-link" href="/band-name-generator/">Band Name Generator</a><a class="footer-link footer-link--view-all" href="/other-generators/">View all →</a></div>
@@ -782,7 +784,7 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="/scripts/tool-engine.js?v=11"></script>
+<script src="/scripts/tool-engine.js?v=19"></script>
 <script>
 (function bindSharedWordineerMenu() {
   const mega = document.getElementById('mega');
