@@ -673,7 +673,7 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="/scripts/tool-engine.js?v=13"></script>
+<script src="/scripts/tool-engine.js?v=16"></script>
 <script>
 (function bindSharedWordineerMenu() {
   const mega = document.getElementById('mega');
@@ -920,18 +920,22 @@
   document.getElementById('word-gen-btn').addEventListener('click', function () { loadFull(); validateAndGenerate(); });
   document.getElementById('word-regen-btn').addEventListener('click', function () { loadFull(); validateAndGenerate(); });
 
-  ['ctrl-type','ctrl-diff','ctrl-first','ctrl-last'].forEach(function (id) {
+  ['ctrl-type','ctrl-diff'].forEach(function (id) {
     var el = document.getElementById(id);
     if (!el) return;
     el.addEventListener('change', function () { loadFull(); validateAndGenerate(); });
-    el.addEventListener('input',  function () { loadFull(); validateAndGenerate(); });
+  });
+
+  ['ctrl-first','ctrl-last'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.addEventListener('input', function () { loadFull(); validateAndGenerate(); });
   });
 
   var defsEl = document.getElementById('ctrl-defs');
   if (defsEl) defsEl.addEventListener('change', redrawList);
 
-  document.getElementById('ctrl-count').addEventListener('input',  validateAndGenerate);
-  document.getElementById('ctrl-count').addEventListener('change', validateAndGenerate);
+  document.getElementById('ctrl-count').addEventListener('input', validateAndGenerate);
 
   var copyBtn  = document.getElementById('copy-all-btn');
   var copyMenu = document.getElementById('copy-menu');
