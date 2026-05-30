@@ -657,7 +657,7 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="/scripts/tool-engine.js?v=12"></script>
+<script src="/scripts/tool-engine.js?v=16"></script>
 <script>
 (function bindSharedWordineerMenu() {
   const mega = document.getElementById('mega');
@@ -740,13 +740,17 @@ WORDINEER.init({
 
   if (count) {
     count.addEventListener('input', validateAndGenerate);
-    count.addEventListener('change', validateAndGenerate);
   }
 
-  ['ctrl-type', 'ctrl-diff', 'ctrl-first', 'ctrl-last', 'ctrl-size-cond', 'ctrl-size-val'].forEach(function(id) {
+  ['ctrl-type', 'ctrl-diff', 'ctrl-size-cond'].forEach(function(id) {
     const el = document.getElementById(id);
     if (!el) return;
     el.addEventListener('change', validateAndGenerate);
+  });
+
+  ['ctrl-first', 'ctrl-last', 'ctrl-size-val'].forEach(function(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
     el.addEventListener('input', validateAndGenerate);
   });
 
