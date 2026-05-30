@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.adsbygoogle = window.adsbygoogle || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  (function(w, d) {
+    var loaded = false;
+    var cfg = {
+      analyticsId: 'G-7DWH3EGM3Z',
+      adsClient: 'ca-pub-7200956978416233',
+      delay: 10000
+    };
+
+    function loadScript(src, attrs) {
+      var s = d.createElement('script');
+      s.async = true;
+      s.src = src;
+      if (attrs) {
+        Object.keys(attrs).forEach(function(key) {
+          s.setAttribute(key, attrs[key]);
+        });
+      }
+      d.head.appendChild(s);
+    }
+
+    function loadMarketing() {
+      if (loaded) return;
+      loaded = true;
+      gtag('js', new Date());
+      gtag('config', cfg.analyticsId);
+      loadScript('https://www.googletagmanager.com/gtag/js?id=' + cfg.analyticsId);
+      loadScript(
+        'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + cfg.adsClient,
+        { crossorigin: 'anonymous' }
+      );
+    }
+
+    function idleLoad() {
+      if ('requestIdleCallback' in w) {
+        w.requestIdleCallback(loadMarketing, { timeout: 5000 });
+      } else {
+        w.setTimeout(loadMarketing, cfg.delay);
+      }
+    }
+
+    ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function(eventName) {
+      w.addEventListener(eventName, loadMarketing, { once: true, passive: true });
+    });
+    w.addEventListener('load', function() {
+      w.setTimeout(idleLoad, cfg.delay);
+    }, { once: true });
+  })(window, document);
+</script>
+<meta name='impact-site-verification' value='32715504-1cfb-4324-bfc7-ae4cfa1591ea'>
+<link rel="preload" href="/fonts/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-sans-italic-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://wordineer.com/#website",
+      "name": "Wordineer",
+      "url": "https://wordineer.com",
+      "description": "Free online word tools for writers, students, and word game players — random word generator, name generators, word scramble, sentence generator, and more.",
+      "publisher": { "@id": "https://wordineer.com/#organization" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://wordineer.com/#organization",
+      "name": "Wordineer",
+      "url": "https://wordineer.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://wordineer.com/logo.png",
+        "width": 1254,
+        "height": 1254
+      },
+      "description": "Wordineer provides free online word tools for writers, students, and word game players."
+    }
+  ]
+}
+</script>
+<title>Fantasy, Pet & Creative Name Generators | Wordineer</title>
+<meta name="description" content="Generate fictional names for fantasy characters, D&D parties, pets, bands, businesses, and more. Free creative name generators organized by category.">
+<link rel="canonical" href="https://wordineer.com/other-generators/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wordineer">
+<meta property="og:title" content="Fantasy, Pet & Creative Name Generators | Wordineer">
+<meta property="og:description" content="Fantasy characters, D&D names, pet generators, band names, business branding tools, and creative writing helpers. Free, no sign-up.">
+<meta property="og:url" content="https://wordineer.com/other-generators/">
+<meta property="og:image" content="https://wordineer.com/og-image.png">
+
+<link rel="stylesheet" href="/styles/global.css?v=7">
+<style>
+.name-intro {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-2);
+  margin: 0 0 20px;
+}
+.name-section {
+  margin-top: 26px;
+}
+.name-section:first-of-type {
+  margin-top: 0;
+}
+.name-section .section-title {
+  margin-bottom: 4px;
+}
+.faq-section .section-title {
+  margin-bottom: 4px;
+}
+.name-section .section-sub {
+  margin-bottom: 14px;
+}
+.name-section .tools-grid {
+  margin-bottom: 0;
+}
+.hub-prose {
+  margin-top: 48px;
+}
+.hub-prose h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 10px;
+  color: var(--text-1);
+}
+.hub-prose p {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--text-2);
+  margin: 0 0 16px;
+}
+.hub-prose h3 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 22px;
+  font-weight: 400;
+  margin: 32px 0 6px;
+  color: var(--text);
+}
+.use-cases {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+.use-case-card {
+  background: var(--surface-2, #f5f5f7);
+  border-radius: 10px;
+  padding: 18px 20px;
+}
+.use-case-card h3 {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0 0 6px;
+  color: var(--text-1);
+}
+.use-case-card p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-2);
+  margin: 0;
+}
+.faq-section {
+  margin-top: 48px;
+}
+.faq-item {
+  border-bottom: 1px solid var(--border, #e5e5e5);
+}
+.faq-item summary {
+  font-size: 15px;
+  font-weight: 600;
+  padding: 14px 0;
+  cursor: pointer;
+  list-style: none;
+  color: var(--text-1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+';
+  font-size: 18px;
+  color: var(--text-3, #888);
+  flex-shrink: 0;
+}
+.faq-item[open] summary::after { content: '−'; }
+.faq-item p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-2);
+  margin: 0 0 14px;
+}
+</style>
+</head>
+
+<body>
+<nav class="nav">
+  <a class="nav-logo" href="/">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 15 15" fill="none"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </div>
+    Wordineer
+  </a>
+  <div class="nav-links">
+    <a href="/word-tools/">Tools</a>
+    <a href="/blog/">Blog</a>
+  </div>
+  <div>
+    <button class="hamburger" type="button" aria-label="All tools" aria-controls="mega" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mega" id="mega">
+  <div class="mega-inner">
+    <div class="mega-col">
+      <div class="mega-cat">Writing &amp; Vocabulary</div>
+      <a class="mega-link" href="/">Random Word Generator</a>
+      <a class="mega-link" href="/random-sentence-generator/">Random Sentence Generator</a>
+      <a class="mega-link" href="/random-paragraph-generator/">Random Paragraph Generator</a>
+      <a class="mega-link" href="/word-counter/">Word Counter</a>
+      <a class="mega-link mega-link--view-all" href="/word-tools/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Browse by Letter</div>
+      <a class="mega-link" href="/words-that-start-with/">Words by Letter (A–Z)</a>
+      <a class="mega-link" href="/words-that-start-with/a/">Words Starting with A</a>
+      <a class="mega-link" href="/words-that-start-with/s/">Words Starting with S</a>
+      <a class="mega-link" href="/words-that-start-with/q/">Words Starting with Q</a>
+      <a class="mega-link mega-link--view-all" href="/words-that-start-with/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Names by Origin</div>
+      <a class="mega-link" href="/random-spanish-name-generator/">Spanish Name Generator</a>
+      <a class="mega-link" href="/random-italian-name-generator/">Italian Name Generator</a>
+      <a class="mega-link" href="/random-japanese-name-generator/">Japanese Name Generator</a>
+      <a class="mega-link" href="/random-american-name-generator/">American Name Generator</a>
+      <a class="mega-link mega-link--view-all" href="/name-generators/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Other Name Generators</div>
+      <a class="mega-link" href="/character-name-generator/">Character Name Generator</a>
+      <a class="mega-link" href="/fantasy-name-generator/">Fantasy Name Generator</a>
+      <a class="mega-link" href="/business-name-generator/">Business Name Generator</a>
+      <a class="mega-link" href="/band-name-generator/">Band Name Generator</a>
+      <a class="mega-link mega-link--view-all" href="/other-generators/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Account &amp; Security</div>
+      <a class="mega-link" href="/username-generator/">Username Generator</a>
+      <a class="mega-link" href="/password-generator/">Password Generator</a>
+      <a class="mega-link" href="/passphrase-generator/">Passphrase Generator</a>
+      <a class="mega-link" href="/random-pin-generator/">Random PIN Generator</a>
+      <a class="mega-link mega-link--view-all" href="/account-tools/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Games &amp; fun</div>
+      <a class="mega-link" href="/random-number-generator/">Number Generator</a>
+      <a class="mega-link" href="/coin-flip/">Flip a Coin</a>
+      <a class="mega-link" href="/name-picker-wheel/">Name Picker Wheel</a>
+      <a class="mega-link" href="/dice-roller/">Dice Roller</a>
+      <a class="mega-link mega-link--view-all" href="/number-chance/">View all →</a>
+    </div>
+  </div>
+</div>
+
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Other Generators</span>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free · No sign-up · Instant
+  </div>
+  <h1>Fantasy, pet & creative name generators</h1>
+  <p>Fictional characters don't need real-world names. Find D&D names, fantasy heroes, pet names, band names, business branding tools, and writing helpers all in one place.</p>
+</div>
+<div class="content-wrap">
+  <div class="section">
+    <p class="name-intro">This hub collects name and creative generators for fiction, imagination, and entertainment. Unlike the cultural names hub — which focuses on authentic real-world names by country — these tools are built for invented worlds, fictional characters, and playful naming challenges. Whether you're writing a fantasy novel, building a D&D campaign, naming your pet, starting a band, launching a startup, or writing a story, you'll find a focused generator here. All tools are free and instant, with no sign-up required.</p>
+
+    <div class="name-section">
+      <h2 class="section-title">Fantasy & Story Names</h2>
+      <p class="section-sub">Elf, hero, character, fantasy, villain, barbarian, and pirate name generators for worldbuilding</p>
+      <div class="tools-grid">
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#F0E7FF">
+            <svg viewBox="0 0 13 13" fill="none">
+              <rect x="1.7" y="2.6" width="9.6" height="7.8" rx="1.3" fill="#8B5FBF" stroke="#6B3FA0" stroke-width=".8"/>
+              <path d="M4.5 5.5L6 3.5L7.5 5.5M5 8L6 5.5L7 8" stroke="#fff" stroke-width=".9" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="4" cy="4" r=".6" fill="#FFD700"/>
+              <circle cx="8" cy="4" r=".6" fill="#FFD700"/>
+            </svg>
+          </div>
+          <div class="tool-name">Elf Name Generator</div>
+          <div class="tool-desc">Fantasy elf names with mystical and ethereal style.</div>
+          <span class="soon-badge">Coming soon</span>
+        </div>
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#FFE8D6">
+            <svg viewBox="0 0 13 13" fill="none">
+              <rect x="1.7" y="2.6" width="9.6" height="7.8" rx="1.3" fill="#F4A460" stroke="#D97B3F" stroke-width=".8"/>
+              <path d="M4 7.5L6.5 4.5L9 7.5" stroke="#fff" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="5.5" y="4" width="1" height="3.5" fill="#fff"/>
+            </svg>
+          </div>
+          <div class="tool-name">Hero Name Generator</div>
+          <div class="tool-desc">Legendary and heroic names for noble characters.</div>
+          <span class="soon-badge">Coming soon</span>
+        </div>
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#E8F0FF">
+            <svg viewBox="0 0 13 13" fill="none">
+              <rect x="1.7" y="2.6" width="9.6" height="7.8" rx="1.3" fill="#4A7BA7" stroke="#2F5C8C" stroke-width=".8"/>
+              <circle cx="6.5" cy="4.5" r="1.2" fill="#fff"/>
+              <path d="M4.5 7.5C4.5 6.5 5.4 5.8 6.5 5.8C7.6 5.8 8.5 6.5 8.5 7.5" stroke="#fff" stroke-width=".9" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="tool-name">Character Name Generator</div>
+          <div class="tool-desc">Names for any fictional character or protagonist.</div>
+          <span class="soon-badge">Coming soon</span>
+        </div>
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#FFF0E8">
+            <svg viewBox="0 0 13 13" fill="none">
+              <rect x="1.7" y="2.6" width="9.6" height="7.8" rx="1.3" fill="#D4495B" stroke="#A83844" stroke-width=".8"/>
+              <circle cx="5.5" cy="4.5" r="1.1" fill="#fff"/>
+              <path d="M5.5 6L4.2 7.3M5.5 6L6.8 7.3M7 4L8 5.5" stroke="#fff" stroke-width=".8" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="tool-name">Harry Potter Name Generator</div>
+          <div class="tool-desc">Wizard and witch names in the Potterverse style.</div>
+          <span class="soon-badge">Coming soon</span>
+        </div>
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#F5E6FF">
+            <svg viewBox="0 0 13 13" fill="none">
+              <rect x="1.7" y="2.6" width="9.6" height="7.8" rx="1.3" fill="#9D4EDD" stroke="#7A2FA0" stroke-width=".8"/>
+              <path d="M6.5 3L5 6.5H8L6.5 9" stroke="#FFD700" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <circle cx="6.5" cy="5" r="2.2" fill="none" stroke="#FFD700" stroke-width=".7"/>
+            </svg>
+          </div>
+          <div class="tool-name">Fantasy Name Generator</div>
+          <div class="tool-desc">Original fantasy names for any magical world.</div>
+          <span class="soon-badge">Coming soon</span>
+        </div>
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#FFE8EA">
+            <svg viewBox="0 0 13 13" fill="none">
+              <rect x="1.7" y="2.6" width="9.6" height="7.8" rx="1.3" fill="#8B0000" stroke="#660000" stroke-width=".8"/>
+              <path d="M5 4.5C4.2 5 3.5 6 3.5 7C3.5 8.4 4.6 9.5 6 9.5C7.4 9.5 8.5 8.4 8.5 7C8.5 6 7.8 5 7 4.5" stroke="#fff" stroke-width=".9" stroke-linecap="round"/>
+              <path d="M6 3.5L5.5 4.8L6 4.2L6.5 4.8Z" fill="#fff"/>
+            </svg>
+          </div>
+          <div class="tool-name">Villain Name Generator</div>
+          <div class="tool-desc">Dark, menacing names for antagonists and villains.</div>
+          <span class="soon-badge">Coming soon</span>
+        </div>
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#F0E8D8">
+            <svg viewBox="0 0 13 13" fill="none">
+              <rect x="1.7" y="2.6" width="9.6" height="7.8" rx="1.3" fill="#8B4513" stroke="#6B3410" stroke-width=".8"/>
+              <path d="M3.5 5L4.8 6.5L8 3.5" stroke="#FFD700" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6 3.5L7.5 2.5L8 4" stroke="#FFD700" stroke-width=".9" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="tool-name">Barbarian Name Generator</div>
+          <div class="tool-desc">Fierce and primal names for warrior characters.</div>
+          <span class="soon-badge">Coming soon</span>
+        </div>
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#2D2D2D">
+            <svg viewBox="0 0 13 13" fill="none">
+              <rect x="1.7" y="2.6" width="9.6" height="7.8" rx="1.3" fill="#1C1C1C" stroke="#000" stroke-width=".8"/>
+              <path d="M4 5.5L5.5 4L7 5.5M5.5 4V8" stroke="#FFD700" stroke-width=".95" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8.5 7L7 8.5" stroke="#FFD700" stroke-width=".8" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="tool-name">Pirate Name Generator</div>
+          <div class="tool-desc">Swashbuckling and nautical names for seafarers.</div>
+          <span class="soon-badge">Coming soon</span>
+        </div>
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#FFE8F5">
+            <svg viewBox="0 0 13 13" fill="none">
+              <rect x="1.7" y="2.6" width="9.6" height="7.8" rx="1.3" fill="#E75480" stroke="#C73E63" stroke-width=".8"/>
+              <circle cx="6.5" cy="4.3" r="1.2" fill="#fff"/>
+              <path d="M4 7.5C4 6.2 5.1 5.2 6.5 5.2C7.9 5.2 9 6.2 9 7.5" stroke="#fff" stroke-width="1" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="tool-name">Female Name Generator</div>
+          <div class="tool-desc">Fantasy and fictional female character names.</div>
+          <span class="soon-badge">Coming soon</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="name-section">
+      <h2 class="section-title">Pets & Animals</h2>
+      <p class="section-sub">Dog, cat, and fish name generators for your furry and scaly friends</p>
+      <div class="tools-grid">
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#FFF4E6">
+            <svg viewBox="0 0 13 13" fill="none">
+              <rect x="1.7" y="2.6" width="9.6" height="7.8" rx="1.3" fill="#D2691E" stroke="#A0522D" stroke-width=".8"/>
+              <path d="M4 6.5L5 4L6 6.5M7 6.5L8 4L9 6.5" fill="#fff"/>
+              <circle cx="6.5" cy="7.5" r="1.2" fill="#fff" stroke="#D2691E" stroke-width=".5"/>
+            </svg>
+          </div>
+          <div class="tool-name">Dog Name Generator</div>
+          <div class="tool-desc">Perfect names for puppies and dogs of all sizes.</div>
+          <span class="soon-badge">Coming soon</span>
+        </div>
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#FFF0E6">
+            <svg viewBox="0 0 13 13" fill="none">
+              <rect x="1.7" y="2.6" width="9.6" height="7.8" rx="1.3" fill="#FF8C42" stroke="#FF6B1A" stroke-width=".8"/>
+              <path d="M3.5 3.5L3 2.5M10 3.5L10.5 2.5" stroke="#fff" stroke-width="1" stroke-linecap="round"/>
+              <circle cx="6.5" cy="5.5" r="1.5" fill="none" stroke="#fff" stroke-width=".85"/>
+              <circle cx="5" cy="5.5" r=".4" fill="#fff"/>
+              <circle cx="8" cy="5.5" r=".4" fill="#fff"/>
+            </svg>
+          </div>
+          <div class="tool-name">Cat Name Generator</div>
+          <div class="tool-desc">Cute and quirky names for cats and kittens.</div>
+          <span class="soon-badge">Coming soon</span>
+        </div>
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#E0F4FF">
+            <svg viewBox="0 0 13 13" fill="none">
+              <rect x="1.7" y="2.6" width="9.6" height="7.8" rx="1.3" fill="#1E90FF" stroke="#1873CC" stroke-width=".8"/>
+              <path d="M3.5 6C4.5 5 5.5 4.5 6.5 4.5C7.5 4.5 8.5 5 9.5 6" stroke="#fff" stroke-width="1.1" stroke-linecap="round"/>
+              <path d="M4 6.5L5.5 8M9 6.5L7.5 8" stroke="#fff" stroke-width=".85" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="tool-name">Fish Name Generator</div>
+          <div class="tool-desc">Creative names for aquatic pets and fish tanks.</div>
+          <span class="soon-badge">Coming soon</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="name-section">
+      <h2 class="section-title">Bands, Music & Teams</h2>
+      <p class="section-sub">Band, musician, and team name generators for groups and ensembles</p>
+      <div class="tools-grid">
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#F5E8FF">
+            <svg viewBox="0 0 13 13" fill="none">
+              <rect x="1.7" y="2.6" width="9.6" height="7.8" rx="1.3" fill="#7B68EE" stroke="#5A4DBF" stroke-width=".8"/>
+              <circle cx="4.5" cy="6.5" r=".8" fill="#fff"/>
+              <circle cx="8.5" cy="4" r=".8" fill="#fff"/>
+              <path d="M5 6L8 4.5" stroke="#fff" stroke-width=".7" stroke-linecap="round"/>
+              <path d="M4.5 7.3V9" stroke="#fff" stroke-width=".8" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="tool-name">Band Name Generator</div>
+          <div class="tool-desc">Original and catchy names for music bands.</div>
+          <span class="soon-badge">Coming soon</span>
+        </div>
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#FFE8E8">
+            <svg viewBox="0 0 13 13" fill="none">
+              <rect x="1.7" y="2.6" width="9.6" height="7.8" rx="1.3" fill="#D83A56" stroke="#B31D44" stroke-width=".8"/>
+              <path d="M6.5 3.5C7 3.5 7.5 4 7.5 5V8C7.5 8.8 7 9.3 6.5 9.3C6 9.3 5.5 8.8 5.5 8V5C5.5 4 6 3.5 6.5 3.5" stroke="#fff" stroke-width=".9" stroke-linecap="round"/>
+              <circle cx="6.5" cy="2.5" r=".6" fill="#fff"/>
+            </svg>
+          </div>
+          <div class="tool-name">Musician Name Generator</div>
+          <div class="tool-desc">Stage names and artist names for solo musicians.</div>
+          <span class="soon-badge">Coming soon</span>
+        </div>
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#E8F5FF">
+            <svg viewBox="0 0 13 13" fill="none">
+              <rect x="1.7" y="2.6" width="9.6" height="7.8" rx="1.3" fill="#2E7D32" stroke="#1B5E20" stroke-width=".8"/>
+              <circle cx="4" cy="6.5" r=".9" fill="#fff"/>
+              <circle cx="6.5" cy="5" r=".9" fill="#fff"/>
+              <circle cx="9" cy="6.5" r=".9" fill="#fff"/>
+              <path d="M4.6 6.2L5.9 5.4M6.9 5.6L8.4 6.2" stroke="#fff" stroke-width=".6" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="tool-name">Team Name Generator</div>
+          <div class="tool-desc">Inspiring and competitive names for sports teams.</div>
+          <span class="soon-badge">Coming soon</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="name-section">
+      <h2 class="section-title">Business & Brand Names</h2>
+      <p class="section-sub">Startup, trademark, enterprise, and e-commerce naming tools</p>
+      <div class="tools-grid">
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#E8F4FF">
+            <svg viewBox="0 0 13 13" fill="none">
+              <rect x="1.7" y="2.6" width="9.6" height="7.8" rx="1.3" fill="#1E5A96" stroke="#144070" stroke-width=".8"/>
+              <rect x="3.5" y="4" width="6" height="5" rx=".5" fill="none" stroke="#fff" stroke-width=".9"/>
+              <path d="M5 5.5V7M6.5 5V7M8 5.5V7" stroke="#fff" stroke-width=".8" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="tool-name">Business Name Generator</div>
+          <div class="tool-desc">Creative names for startups and new ventures.</div>
+          <span class="soon-badge">Coming soon</span>
+        </div>
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#FFF0E8">
+            <svg viewBox="0 0 13 13" fill="none">
+              <rect x="1.7" y="2.6" width="9.6" height="7.8" rx="1.3" fill="#C85A54" stroke="#A63F3A" stroke-width=".8"/>
+              <rect x="3.5" y="4.5" width="6" height="3.5" fill="none" stroke="#fff" stroke-width=".9" rx=".3"/>
+              <text x="6.5" y="7.2" text-anchor="middle" fill="#fff" font-size="1.8" font-weight="700" font-family="Arial">™</text>
+            </svg>
+          </div>
+          <div class="tool-name">Trademark Name Generator</div>
+          <div class="tool-desc">Distinctive names for brands and trademarks.</div>
+          <span class="soon-badge">Coming soon</span>
+        </div>
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#E8EEFF">
+            <svg viewBox="0 0 13 13" fill="none">
+              <rect x="1.7" y="2.6" width="9.6" height="7.8" rx="1.3" fill="#4A5E8C" stroke="#2F3F5F" stroke-width=".8"/>
+              <rect x="3" y="3.5" width="7" height="6" fill="none" stroke="#fff" stroke-width=".95" rx=".5"/>
+              <rect x="3.5" y="4" width="3" height="1.5" fill="#fff" rx=".3"/>
+              <path d="M4 6.5H9M4 7.5H7" stroke="#fff" stroke-width=".7" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="tool-name">Enterprise Name Suggestions</div>
+          <div class="tool-desc">Professional names for corporate entities.</div>
+          <span class="soon-badge">Coming soon</span>
+        </div>
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#FFF5E8">
+            <svg viewBox="0 0 13 13" fill="none">
+              <rect x="1.7" y="2.6" width="9.6" height="7.8" rx="1.3" fill="#E67E22" stroke="#C25C0F" stroke-width=".8"/>
+              <path d="M4.5 5.5L4 7.5H9L8.5 5.5" stroke="#fff" stroke-width=".9" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M5 5L5.5 3.5H7.5L8 5" fill="none" stroke="#fff" stroke-width=".8" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="6.5" cy="6.5" r=".4" fill="#fff"/>
+            </svg>
+          </div>
+          <div class="tool-name">Shopify Business Name Generator</div>
+          <div class="tool-desc">Store names and e-commerce branding for Shopify.</div>
+          <span class="soon-badge">Coming soon</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="name-section">
+      <h2 class="section-title">Writing & Creativity</h2>
+      <p class="section-sub">Gen Z slang, quotes, acronyms, and writing prompt generators</p>
+      <div class="tools-grid">
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#FFE8F0">
+            <svg viewBox="0 0 13 13" fill="none">
+              <rect x="1.7" y="2.6" width="9.6" height="7.8" rx="1.3" fill="#D946A6" stroke="#AB1A7F" stroke-width=".8"/>
+              <path d="M4 6.5C4 5.7 4.6 5 5.5 5C6.4 5 7 5.7 7 6.5" fill="none" stroke="#fff" stroke-width=".9" stroke-linecap="round"/>
+              <text x="6.5" y="7.5" text-anchor="middle" fill="#fff" font-size="1.2" font-weight="700" font-family="Arial">Z</text>
+            </svg>
+          </div>
+          <div class="tool-name">Gen Z Slang Generator</div>
+          <div class="tool-desc">Trendy and up-to-date Gen Z slang and phrases.</div>
+          <span class="soon-badge">Coming soon</span>
+        </div>
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#FFF0E8">
+            <svg viewBox="0 0 13 13" fill="none">
+              <rect x="1.7" y="2.6" width="9.6" height="7.8" rx="1.3" fill="#D97757" stroke="#AD5639" stroke-width=".8"/>
+              <path d="M4.5 6.5C4.5 5.5 5 4.5 6.5 4.5C8 4.5 8.5 5.5 8.5 6.5" fill="none" stroke="#fff" stroke-width=".95" stroke-linecap="round"/>
+              <path d="M5 5.8L8 5.8" stroke="#fff" stroke-width=".6" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="tool-name">Random Quote Generator</div>
+          <div class="tool-desc">Inspirational and thought-provoking quotes.</div>
+          <span class="soon-badge">Coming soon</span>
+        </div>
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#E8F5FF">
+            <svg viewBox="0 0 13 13" fill="none">
+              <rect x="1.7" y="2.6" width="9.6" height="7.8" rx="1.3" fill="#2196F3" stroke="#1565C0" stroke-width=".8"/>
+              <text x="6.5" y="7" text-anchor="middle" fill="#fff" font-size="2.5" font-weight="700" font-family="Arial">A</text>
+              <text x="5" y="7.5" text-anchor="middle" fill="#fff" font-size="1.4" font-weight="700" font-family="Arial">B</text>
+              <text x="8" y="7.5" text-anchor="middle" fill="#fff" font-size="1.4" font-weight="700" font-family="Arial">C</text>
+            </svg>
+          </div>
+          <div class="tool-name">Acronym Generator</div>
+          <div class="tool-desc">Create acronyms and initialisms for any phrase.</div>
+          <span class="soon-badge">Coming soon</span>
+        </div>
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#FFF4E6">
+            <svg viewBox="0 0 13 13" fill="none">
+              <rect x="1.7" y="2.6" width="9.6" height="7.8" rx="1.3" fill="#FF9800" stroke="#E68500" stroke-width=".8"/>
+              <path d="M4 8L5.5 4.5L7 8" stroke="#fff" stroke-width=".95" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M5 7H6.5M7.5 6.5H8.5" stroke="#fff" stroke-width=".7" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="tool-name">Writing Prompts Generator</div>
+          <div class="tool-desc">Daily story prompts and creative writing ideas.</div>
+          <span class="soon-badge">Coming soon</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hub-prose">
+      <h2 class="section-title">When reality doesn't inspire — imagination does</h2>
+      <p>Real-world naming conventions serve a purpose: they anchor characters in place, make dialogue feel authentic, and help readers suspend disbelief. But not every story needs that anchor. A fantasy quest has room for invented names. A D&D campaign is built on the idea that the world itself is made up. A pet name can be whatever brings you joy. The generators on this hub are built for that freedom — not authenticity, but invention. Not grounding names in culture, but creating names free from the constraints of any real world.</p>
+      <p>This distinction matters because different projects call for different tools. A historical novel set in 1920s Paris needs real French names; a novel set in a made-up kingdom does not. The hub you're looking at now focuses entirely on the invented side of naming. All 23 generators on this page are built for contexts where the name exists for entertainment, imagination, or branding — not for representing a real place or culture.</p>
+
+      <h2 class="section-title">Fantasy and fictional character names</h2>
+      <p>The largest category on this hub is fantasy names. Fantasy fiction — from high fantasy to urban fantasy to paranormal romance — lives or dies on how believable the invented world feels. Names are a huge part of that. A character named "Bob" in a fantasy world reads as wrong. A character with a name you've never encountered, but that sounds like it could exist in that world, pulls the reader in.</p>
+      <p>The fantasy name generators on this hub cover specific contexts: elves have a certain kind of name (ethereal, musical), villains have another (dark, threatening), barbarians have a third (primal, forceful). The Harry Potter generator is tuned to the specific feel of Potterverse names. Each tool is built to generate names that fit not just a character type, but a specific fictional tradition or genre.</p>
+      <p>These generators are most useful for novelists, screenwriters, game designers, and anyone building a fictional world. Some people generate 10 names and pick the one that feels right. Others generate dozens, looking for that moment when a name clicks with the character they're imagining. There's no wrong way to use them — they're designed to spark ideas, not to make decisions for you.</p>
+
+      <h2 class="section-title">Naming your pets</h2>
+      <p>Pet naming is simpler in concept but no less important in practice. A pet's name becomes part of their identity in your household, something you'll use thousands of times. It should feel right. Some people name pets after colors (Pepper, Ash), some after foods (Biscuit, Pepper again), some after personalities (Scout, Chaos). The pet name generator is built around real names that pet owners choose — cute, memorable, easy to call out, and with enough personality that they fit different kinds of pets.</p>
+      <p>Whether you have a dog, cat, fish, or something more unusual, the concept is the same: you want a name that's easy to say, sounds good, and feels like it matches your pet's personality. The generators work because they produce names that are actually used by pet owners, not invented phonetically.</p>
+
+      <h2 class="section-title">Band names, musician names, and team names</h2>
+      <p>Naming a band, a musician project, or a sports team is a creative challenge with real stakes. A band name affects how people search for you, how memorable you are, how you show up on playlists and in venues. It's one of the first decisions you make as a group, and it's often harder than it seems. Too generic and you disappear into a sea of other bands with similar names. Too obscure and no one can spell or remember it. Too inside-jokey and it limits your appeal.</p>
+      <p>A band name generator can help by producing a range of names — some punchy, some atmospheric, some unexpected — that spark ideas or combinations you hadn't considered. The same applies to musician names: a stage name is a different decision than your real name, and it deserves its own process. Team names are high-energy and competitive by nature, designed to energize your members and be memorable to fans.</p>
+
+      <h2 class="section-title">Business names and branding</h2>
+      <p>Naming a startup or business is one of the highest-stakes naming decisions you can make. Your business name affects discoverability, brand perception, whether you can buy the domain, trademark availability, and more. It's also harder than it looks. The business name generator is built around the kinds of names that actually work in the startup world: names that are easy to say, easy to remember, short enough to fit on a card, distinctive enough to trademark, and flexible enough to grow with the company as it evolves.</p>
+      <p>For e-commerce and Shopify stores, the generator is tuned to retail: names that work for online shops, feel trustworthy, and signal what the store is about without being too literal. For trademark names, the focus is on distinctiveness and linguistic appeal — names that feel premium and ownable. For enterprise, the generator leans more formal and corporate, names that feel established and credible.</p>
+
+      <h2 class="section-title">Writing helpers and language tools</h2>
+      <p>The writing and creativity category covers a mix of tools designed to help or inspire writers. A writing prompts generator gives you a scenario, a conflict, or a question to explore — useful when you're stuck or looking for a creative spark. The random quote generator is useful for getting unstuck, finding perspective, or just enjoying a piece of wisdom. Gen Z slang is for writers trying to capture how young people actually talk. An acronym generator is useful for naming organizations, projects, or code names in your story.</p>
+      <p>None of these replace the work of writing itself, but they all exist in the space of brainstorming and ideation — tools to help you think through a problem or generate possibilities that you then shape into something specific to your story, character, or world.</p>
+
+      <h3>Who uses these generators</h3>
+      <div class="use-cases">
+        <div class="use-case-card">
+          <h3>Fiction and fantasy writers</h3>
+          <p>Build believable fictional worlds by generating names that fit your setting. From D&D campaigns to epic fantasy novels, the right character name sets the tone and helps readers immerse in your world.</p>
+        </div>
+        <div class="use-case-card">
+          <h3>Entrepreneurs and startups</h3>
+          <p>Launch with confidence. A strong business or brand name affects perception, discoverability, and whether your venture feels ready for prime time. Find names that are memorable, trademark-able, and scalable.</p>
+        </div>
+        <div class="use-case-card">
+          <h3>Pet owners</h3>
+          <p>Your pet's name should fit their personality and feel good to say a thousand times a day. Browse ideas until you find the one that clicks.</p>
+        </div>
+        <div class="use-case-card">
+          <h3>Musicians, bands, and teams</h3>
+          <p>Find a name that's memorable, matches your brand or vibe, and stands out. Whether you're a solo artist, a band, or a team, the right name helps your identity resonate.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <h2 class="section-title">Frequently asked questions</h2>
+      <details class="faq-item">
+        <summary>What's the difference between this hub and the cultural names hub?</summary>
+        <p>The <a href="/name-generators/">cultural names hub</a> focuses on authentic real-world names from specific countries and traditions — Spanish names, Japanese names, Polish names, and so on. Those names are actual names real people have. This hub is the opposite: it's for invented, fictional, and creative contexts where you don't need a real-world name. Fantasy characters, D&D parties, pets, bands, business branding — all the contexts where imagination matters more than authenticity.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Are all these generators free?</summary>
+        <p>Yes, all 23 generators on this hub are completely free. No sign-up required, no ads blocking the tool, no "premium" version. You generate as many names as you need, whenever you need them. Wordineer doesn't charge for tools or put generators behind paywalls.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can I use generated names commercially?</summary>
+        <p>Names themselves aren't copyrightable, so yes — you can use a generated name in a published book, a commercial game, a Shopify store, a band, or any other project. The generator produces the name, but you own it once it's generated. That's what these tools are for. The generators are designed specifically so you can take a name and run with it.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Which generator should I use for a D&D character?</summary>
+        <p>It depends on what kind of character you're playing. A human fighter might use the barbarian or hero generator. An elf wizard would use the elf or fantasy generator. A villain character could use the villain generator. The character generator is a good catch-all if you're not sure. Most D&D players generate a few options and pick the one that feels right for the character's personality and backstory.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How does a business name generator work?</summary>
+        <p>A business name generator combines linguistic patterns, word combinations, and branding principles to produce names that are memorable, distinctive, easy to spell, and — ideally — available for trademark. The generator learns from names that actually exist in the startup world: names that are short, pronounceable, and either descriptive or evocative. When you generate, you get a mix of names that vary in style, some more literal and some more poetic, giving you options to explore.</p>
+      </details>
+    </div>
+
+  </div>
+</div>
+<script>
+(function() {
+  const mega = document.getElementById('mega');
+  const hbg = document.querySelector('.hamburger');
+  if (!mega || !hbg) return;
+
+  function setMenu(open) {
+    mega.classList.toggle('open', open);
+    hbg.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+
+  hbg.addEventListener('click', e => {
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+    setMenu(!mega.classList.contains('open'));
+  }, true);
+
+  hbg.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+      setMenu(!mega.classList.contains('open'));
+    }
+  }, true);
+
+  document.addEventListener('click', e => {
+    if (mega.classList.contains('open') && !mega.contains(e.target) && !hbg.contains(e.target)) {
+      setMenu(false);
+    }
+  }, true);
+})();
+</script>
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="ad-footer-strip" style="margin-bottom:24px">
+      <span class="ad-tag">Advertisement · 468×60</span>
+      <div class="ad-fs-text"><strong>Grammarly Premium</strong> — Vocabulary suggestions, tone detector, full-sentence rewrites.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-footer-strip-cta">Try free</a>
+    </div>
+    <div class="footer-grid">
+      <div><div class="footer-col-title">Writing &amp; Vocabulary</div><a class="footer-link" href="/">Random Word Generator</a><a class="footer-link" href="/random-sentence-generator/">Random Sentence Generator</a><a class="footer-link" href="/random-adjective-generator/">Random Adjective Generator</a><a class="footer-link" href="/random-paragraph-generator/">Random Paragraph Generator</a><a class="footer-link" href="/word-counter/">Word Counter</a><a class="footer-link footer-link--view-all" href="/word-tools/">View all →</a></div>
+      <div><div class="footer-col-title">Browse by Letter</div><a class="footer-link" href="/words-that-start-with/">Words by Letter (A–Z)</a><a class="footer-link" href="/words-that-start-with/a/">Words Starting with A</a><a class="footer-link" href="/words-that-start-with/s/">Words Starting with S</a><a class="footer-link" href="/words-that-start-with/q/">Words Starting with Q</a><a class="footer-link footer-link--view-all" href="/words-that-start-with/">View all →</a></div>
+      <div><div class="footer-col-title">Names by Origin</div><a class="footer-link" href="/random-spanish-name-generator/">Spanish Name Generator</a><a class="footer-link" href="/random-italian-name-generator/">Italian Name Generator</a><a class="footer-link" href="/random-japanese-name-generator/">Japanese Name Generator</a><a class="footer-link" href="/random-american-name-generator/">American Name Generator</a><a class="footer-link footer-link--view-all" href="/name-generators/">View all →</a></div>
+      <div><div class="footer-col-title">Other Name Generators</div><a class="footer-link" href="/character-name-generator/">Character Name Generator</a><a class="footer-link" href="/fantasy-name-generator/">Fantasy Name Generator</a><a class="footer-link" href="/business-name-generator/">Business Name Generator</a><a class="footer-link" href="/band-name-generator/">Band Name Generator</a><a class="footer-link footer-link--view-all" href="/other-generators/">View all →</a></div>
+      <div><div class="footer-col-title">Account &amp; Security</div><a class="footer-link" href="/password-generator/">Password Generator</a><a class="footer-link" href="/passphrase-generator/">Passphrase Generator</a><a class="footer-link" href="/username-generator/">Username Generator</a><a class="footer-link" href="/random-pin-generator/">Random PIN Generator</a><a class="footer-link" href="/account-tools/">All Account Tools</a><a class="footer-link footer-link--view-all" href="/account-tools/">View all →</a></div>
+      <div><div class="footer-col-title">Games &amp; fun</div><a class="footer-link" href="/random-number-generator/">Number Generator</a><a class="footer-link" href="/coin-flip/">Flip a Coin</a><a class="footer-link" href="/name-picker-wheel/">Name Picker Wheel</a><a class="footer-link" href="/dice-roller/">Dice Roller</a><a class="footer-link footer-link--view-all" href="/number-chance/">View all →</a></div>
+    </div>
+    <div class="footer-bottom">
+      <div style="display:flex;align-items:center;gap:7px">
+        <div class="nav-logo-icon" style="width:22px;height:22px;border-radius:5px"><svg viewBox="0 0 15 15" fill="none" style="width:12px;height:12px"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <span style="font-size:14px;font-weight:600;color:var(--text)">Wordineer</span>
+      </div>
+      <span class="footer-copy">© 2026 Wordineer · Free word tools for everyone</span>
+      <div class="footer-meta"><a href="/about/">About</a><a href="/blog/">Blog</a><a href="/affiliate-disclosure/">Affiliate disclosure</a><a href="/privacy/">Privacy</a></div>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="/scripts/tool-engine.js?v=21"></script>
+<script>
+(function bindSharedWordineerMenu() {
+  const mega = document.getElementById('mega');
+  const hbg = document.querySelector('.hamburger');
+  if (!mega || !hbg) return;
+  if (hbg.dataset.menuBound === '1') return;
+  hbg.dataset.menuBound = '1';
+  hbg.onclick = null;
+  if (hbg.getAttribute('onclick')) hbg.removeAttribute('onclick');
+
+  function setMenu(open) {
+    mega.classList.toggle('open', open);
+    hbg.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+
+  setMenu(mega.classList.contains('open'));
+
+  hbg.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+    setMenu(!mega.classList.contains('open'));
+  }, true);
+
+  hbg.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+      setMenu(!mega.classList.contains('open'));
+    }
+  }, true);
+
+  document.addEventListener('click', function(e) {
+    if (mega.classList.contains('open') && !mega.contains(e.target) && !hbg.contains(e.target)) {
+      setMenu(false);
+    }
+  }, true);
+})();
+</script>
+
+</body>
+</html>
