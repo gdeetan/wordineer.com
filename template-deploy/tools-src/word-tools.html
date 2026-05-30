@@ -16,6 +16,40 @@
 <meta property="og:description" content="Browse every word tool on Wordineer in one place. Random word generators, word games, vocabulary builders, and writing tools. Free, no sign-up.">
 <meta property="og:url" content="https://wordineer.com/word-tools/">
 <meta property="og:image" content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "https://wordineer.com/word-tools/#page",
+      "name": "Free Word Tools",
+      "url": "https://wordineer.com/word-tools/",
+      "description": "Browse every word tool on Wordineer in one place. Random word generators, word games, vocabulary builders, and writing tools. Free, no sign-up.",
+      "publisher": { "@id": "https://wordineer.com/#organization" }
+    },
+    {
+      "@type": "ItemList",
+      "name": "Word Tools on Wordineer",
+      "url": "https://wordineer.com/word-tools/",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1,  "name": "Random Word Generator",       "url": "https://wordineer.com/" },
+        { "@type": "ListItem", "position": 2,  "name": "Random Sentence Generator",   "url": "https://wordineer.com/random-sentence-generator/" },
+        { "@type": "ListItem", "position": 3,  "name": "Random Letter Generator",     "url": "https://wordineer.com/random-letter-generator/" },
+        { "@type": "ListItem", "position": 4,  "name": "Word Scramble Generator",     "url": "https://wordineer.com/word-scramble/" },
+        { "@type": "ListItem", "position": 5,  "name": "Word Unscrambler",            "url": "https://wordineer.com/word-unscramble/" },
+        { "@type": "ListItem", "position": 6,  "name": "Pictionary Word Generator",   "url": "https://wordineer.com/pictionary-word-generator/" },
+        { "@type": "ListItem", "position": 7,  "name": "Word of the Day",             "url": "https://wordineer.com/word-of-the-day/" },
+        { "@type": "ListItem", "position": 8,  "name": "Random 5-Letter Word Generator", "url": "https://wordineer.com/random-5-letter-word-generator/" },
+        { "@type": "ListItem", "position": 9,  "name": "Random 4-Letter Word Generator", "url": "https://wordineer.com/random-4-letter-word-generator/" },
+        { "@type": "ListItem", "position": 10, "name": "Random 3-Letter Word Generator", "url": "https://wordineer.com/random-3-letter-word-generator/" },
+        { "@type": "ListItem", "position": 11, "name": "Passphrase Generator",        "url": "https://wordineer.com/passphrase-generator/" },
+        { "@type": "ListItem", "position": 12, "name": "Words That Start With",       "url": "https://wordineer.com/words-that-start-with/" }
+      ]
+    }
+  ]
+}
+</script>
 <!-- /SLOT:meta -->
 
 <!-- SLOT:style -->
@@ -59,10 +93,10 @@
 }
 .hub-prose h3 {
   font-family: 'DM Serif Display', serif;
-  font-size: 16px;
+  font-size: 22px;
   font-weight: 400;
-  margin: 32px 0 12px;
-  color: var(--text-1);
+  margin: 32px 0 6px;
+  color: var(--text);
 }
 .use-cases {
   display: grid;
@@ -91,9 +125,10 @@
   margin-top: 48px;
 }
 .faq-section > h2 {
+  font-family: 'DM Serif Display', serif;
   font-size: 20px;
-  font-weight: 700;
-  margin: 0 0 16px;
+  font-weight: 400;
+  margin: 0 0 10px;
   color: var(--text-1);
 }
 .faq-item {
@@ -129,6 +164,13 @@
 <!-- /SLOT:style -->
 
 <!-- SLOT:hero -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Word Tools</span>
+  </div>
+</div>
 <div class="hero">
   <div class="hero-badge">
     <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
@@ -156,33 +198,45 @@
         </a>
 
         <div class="tool-item tool-item--soon">
-          <div class="tool-icon" style="background:#E6F1FB"><svg viewBox="0 0 13 13" fill="none"><path d="M6.5 9.5V4.5C5.7 4 4.5 3.8 3 4.3v5.2c1.5-.5 2.7-.3 3.5.5zM6.5 9.5V4.5c.8-.5 2-.7 3.5-.2v5.2c-1.5-.5-2.7-.3-3.5.5z" stroke="#185FA5" stroke-width=".85" stroke-linejoin="round"/></svg></div>
-          <div class="tool-name">Random Words with Definitions <span class="soon-badge">Coming soon</span></div>
+          <div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><path d="M5 4.2c0-1.1.9-1.7 1.5-1.7C7.6 2.5 8 3.3 8 4c0 .9-.6 1.3-1 1.8-.2.2-.3.5-.3.8" stroke="#4A3FD4" stroke-width="1" stroke-linecap="round"/><circle cx="6.5" cy="9.5" r=".75" fill="#4A3FD4"/><path d="M10.5 2.5v1M10 3h1" stroke="#4A3FD4" stroke-width=".8" stroke-linecap="round"/><path d="M2.5 7.5v1M2 8h1" stroke="#4A3FD4" stroke-width=".8" stroke-linecap="round"/></svg></div>
+          <div class="tool-name">Random Weird Words <span class="soon-badge">Coming soon</span></div>
           <div class="tool-desc">Every word comes with its meaning baked in.</div>
         </div>
 
-        <div class="tool-item tool-item--soon">
-          <div class="tool-icon" style="background:#E1F5EE"><svg viewBox="0 0 13 13" fill="none"><rect x="1" y="4.5" width="11" height="4" rx="1" fill="none" stroke="#1D9E75" stroke-width=".85"/><line x1="3.2" y1="4.5" x2="3.2" y2="8.5" stroke="#1D9E75" stroke-width=".7"/><line x1="5.4" y1="4.5" x2="5.4" y2="8.5" stroke="#1D9E75" stroke-width=".7"/><line x1="7.6" y1="4.5" x2="7.6" y2="8.5" stroke="#1D9E75" stroke-width=".7"/><line x1="9.8" y1="4.5" x2="9.8" y2="8.5" stroke="#1D9E75" stroke-width=".7"/></svg></div>
-          <div class="tool-name">Random 5-Letter Words <span class="soon-badge">Coming soon</span></div>
-          <div class="tool-desc">Wordle-length words on demand.</div>
-        </div>
-
-        <div class="tool-item tool-item--soon">
-          <div class="tool-icon" style="background:#FAEEDA"><svg viewBox="0 0 13 13" fill="none"><rect x="1" y="4.5" width="11" height="4" rx="1" fill="none" stroke="#BA7517" stroke-width=".85"/><line x1="3.67" y1="4.5" x2="3.67" y2="8.5" stroke="#BA7517" stroke-width=".7"/><line x1="6.33" y1="4.5" x2="6.33" y2="8.5" stroke="#BA7517" stroke-width=".7"/><line x1="9" y1="4.5" x2="9" y2="8.5" stroke="#BA7517" stroke-width=".7"/></svg></div>
-          <div class="tool-name">Random 4-Letter Words <span class="soon-badge">Coming soon</span></div>
-          <div class="tool-desc">Short words for puzzles and games.</div>
-        </div>
-
-        <div class="tool-item tool-item--soon">
+        <a class="tool-item" href="/random-3-letter-word-generator/">
           <div class="tool-icon" style="background:#FDE9E7"><svg viewBox="0 0 13 13" fill="none"><rect x="1" y="4.5" width="11" height="4" rx="1" fill="none" stroke="#C7435B" stroke-width=".85"/><line x1="4.67" y1="4.5" x2="4.67" y2="8.5" stroke="#C7435B" stroke-width=".7"/><line x1="8.33" y1="4.5" x2="8.33" y2="8.5" stroke="#C7435B" stroke-width=".7"/></svg></div>
-          <div class="tool-name">Random 3-Letter Words <span class="soon-badge">Coming soon</span></div>
+          <div class="tool-name">Random 3-Letter Words</div>
           <div class="tool-desc">Three-letter words for early readers and Scrabble.</div>
+        </a>
+
+        <a class="tool-item" href="/random-4-letter-word-generator/">
+          <div class="tool-icon" style="background:#FAEEDA"><svg viewBox="0 0 13 13" fill="none"><rect x="1" y="4.5" width="11" height="4" rx="1" fill="none" stroke="#BA7517" stroke-width=".85"/><line x1="3.67" y1="4.5" x2="3.67" y2="8.5" stroke="#BA7517" stroke-width=".7"/><line x1="6.33" y1="4.5" x2="6.33" y2="8.5" stroke="#BA7517" stroke-width=".7"/><line x1="9" y1="4.5" x2="9" y2="8.5" stroke="#BA7517" stroke-width=".7"/></svg></div>
+          <div class="tool-name">Random 4-Letter Words</div>
+          <div class="tool-desc">Short words for puzzles and games.</div>
+        </a>
+
+        <a class="tool-item" href="/random-5-letter-word-generator/">
+          <div class="tool-icon" style="background:#E1F5EE"><svg viewBox="0 0 13 13" fill="none"><rect x="1" y="4.5" width="11" height="4" rx="1" fill="none" stroke="#1D9E75" stroke-width=".85"/><line x1="3.2" y1="4.5" x2="3.2" y2="8.5" stroke="#1D9E75" stroke-width=".7"/><line x1="5.4" y1="4.5" x2="5.4" y2="8.5" stroke="#1D9E75" stroke-width=".7"/><line x1="7.6" y1="4.5" x2="7.6" y2="8.5" stroke="#1D9E75" stroke-width=".7"/><line x1="9.8" y1="4.5" x2="9.8" y2="8.5" stroke="#1D9E75" stroke-width=".7"/></svg></div>
+          <div class="tool-name">Random 5-Letter Words</div>
+          <div class="tool-desc">Wordle-length words on demand.</div>
+        </a>
+
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#E6F1FB"><svg viewBox="0 0 13 13" fill="none"><rect x="1" y="4.5" width="11" height="4" rx="1" fill="none" stroke="#185FA5" stroke-width=".85"/><line x1="2.83" y1="4.5" x2="2.83" y2="8.5" stroke="#185FA5" stroke-width=".7"/><line x1="4.67" y1="4.5" x2="4.67" y2="8.5" stroke="#185FA5" stroke-width=".7"/><line x1="6.5" y1="4.5" x2="6.5" y2="8.5" stroke="#185FA5" stroke-width=".7"/><line x1="8.33" y1="4.5" x2="8.33" y2="8.5" stroke="#185FA5" stroke-width=".7"/><line x1="10.17" y1="4.5" x2="10.17" y2="8.5" stroke="#185FA5" stroke-width=".7"/></svg></div>
+          <div class="tool-name">Random 6-Letter Words <span class="soon-badge">Coming soon</span></div>
+          <div class="tool-desc">Six-letter words for word games and puzzles.</div>
         </div>
 
         <div class="tool-item tool-item--soon">
-          <div class="tool-icon" style="background:#E6F1FB"><svg viewBox="0 0 13 13" fill="none"><rect x="1.5" y="7.5" width="2" height="3" rx=".5" fill="#185FA5"/><rect x="4.5" y="5" width="2" height="5.5" rx=".5" fill="#185FA5"/><rect x="7.5" y="6.5" width="2" height="4" rx=".5" fill="#185FA5"/><rect x="10.5" y="4" width="2" height="6.5" rx=".5" fill="#185FA5"/></svg></div>
-          <div class="tool-name">Random Words by Length <span class="soon-badge">Coming soon</span></div>
-          <div class="tool-desc">Pick any length from 2 to 12 letters.</div>
+          <div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><rect x="1" y="4.5" width="11" height="4" rx="1" fill="none" stroke="#4A3FD4" stroke-width=".85"/><line x1="2.57" y1="4.5" x2="2.57" y2="8.5" stroke="#4A3FD4" stroke-width=".7"/><line x1="4.14" y1="4.5" x2="4.14" y2="8.5" stroke="#4A3FD4" stroke-width=".7"/><line x1="5.71" y1="4.5" x2="5.71" y2="8.5" stroke="#4A3FD4" stroke-width=".7"/><line x1="7.29" y1="4.5" x2="7.29" y2="8.5" stroke="#4A3FD4" stroke-width=".7"/><line x1="8.86" y1="4.5" x2="8.86" y2="8.5" stroke="#4A3FD4" stroke-width=".7"/><line x1="10.43" y1="4.5" x2="10.43" y2="8.5" stroke="#4A3FD4" stroke-width=".7"/></svg></div>
+          <div class="tool-name">Random 7-Letter Words <span class="soon-badge">Coming soon</span></div>
+          <div class="tool-desc">Seven-letter words for Scrabble and advanced word games.</div>
+        </div>
+
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#E0F5F1"><svg viewBox="0 0 13 13" fill="none"><rect x="1" y="4.5" width="11" height="4" rx="1" fill="none" stroke="#0B7B6A" stroke-width=".85"/><line x1="2.38" y1="4.5" x2="2.38" y2="8.5" stroke="#0B7B6A" stroke-width=".7"/><line x1="3.75" y1="4.5" x2="3.75" y2="8.5" stroke="#0B7B6A" stroke-width=".7"/><line x1="5.13" y1="4.5" x2="5.13" y2="8.5" stroke="#0B7B6A" stroke-width=".7"/><line x1="6.5" y1="4.5" x2="6.5" y2="8.5" stroke="#0B7B6A" stroke-width=".7"/><line x1="7.88" y1="4.5" x2="7.88" y2="8.5" stroke="#0B7B6A" stroke-width=".7"/><line x1="9.25" y1="4.5" x2="9.25" y2="8.5" stroke="#0B7B6A" stroke-width=".7"/><line x1="10.63" y1="4.5" x2="10.63" y2="8.5" stroke="#0B7B6A" stroke-width=".7"/></svg></div>
+          <div class="tool-name">Random 8-Letter Words <span class="soon-badge">Coming soon</span></div>
+          <div class="tool-desc">Eight-letter words for Scrabble, crosswords, and word challenges.</div>
         </div>
 
         <div class="tool-item tool-item--soon">
@@ -213,12 +267,6 @@
           <div class="tool-icon" style="background:#E1F5EE"><svg viewBox="0 0 13 13" fill="none"><path d="M2.5 5.5h6M2.5 7.5h5" stroke="#1D9E75" stroke-width=".9" stroke-linecap="round"/><path d="M8 4l3 2.5-3 2.5" stroke="#1D9E75" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <div class="tool-name">Random Adverbs <span class="soon-badge">Coming soon</span></div>
           <div class="tool-desc">How, when, where, and to what extent.</div>
-        </div>
-
-        <div class="tool-item tool-item--soon">
-          <div class="tool-icon" style="background:#FDE9E7"><svg viewBox="0 0 13 13" fill="none"><circle cx="3" cy="4.5" r=".75" fill="#C7435B"/><circle cx="3" cy="6.5" r=".75" fill="#C7435B"/><circle cx="3" cy="8.5" r=".75" fill="#C7435B"/><path d="M5 4.5h5.5M5 6.5h4.5M5 8.5h5" stroke="#C7435B" stroke-width=".9" stroke-linecap="round"/></svg></div>
-          <div class="tool-name">100 Random Words <span class="soon-badge">Coming soon</span></div>
-          <div class="tool-desc">A bulk list ready to copy.</div>
         </div>
 
       </div>
@@ -263,6 +311,86 @@
           <div class="tool-icon" style="background:#EAF0F6"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3.5h9M2 6h6M2 8.5h7.5" stroke="#2F4F6F" stroke-width=".9" stroke-linecap="round"/><path d="M9.5 7l1.5 1.5-1.5 1.5" stroke="#2F4F6F" stroke-width=".9" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <div class="tool-name">Word Counter <span class="soon-badge">Coming soon</span></div>
           <div class="tool-desc">Count words, characters, sentences, and reading time.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="name-section">
+      <h2 class="section-title">Word games</h2>
+      <p class="section-sub">Generate clues, prompts, and categories for your favourite party games.</p>
+      <div class="tools-grid">
+
+        <a class="tool-item" href="/pictionary-word-generator/">
+          <div class="tool-icon" style="background:#EEF6E8"><svg viewBox="0 0 13 13" fill="none"><path d="M2 2.5h9v6H6.5L3.5 11V8.5H2z" stroke="#2F6B1F" stroke-width="1.1" stroke-linejoin="round"/><path d="M8.5 4l.4.8.9.1-.7.6.2.9-.8-.4-.8.4.2-.9-.7-.6.9-.1z" fill="#2F6B1F"/></svg></div>
+          <div class="tool-name">Pictionary Word Generator</div>
+          <div class="tool-desc">Random drawing words for every round of Pictionary.</div>
+        </a>
+
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#FAEEDA"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3h9M2 6.5h7M2 10h5" stroke="#854F0B" stroke-width="1.2" stroke-linecap="round"/><path d="M9.5 8.2l1.2 1.2 1.8-2.3" stroke="#854F0B" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="tool-name">Pictionary Phrase Generator <span class="soon-badge">Coming soon</span></div>
+          <div class="tool-desc">Multi-word phrases for harder drawing rounds.</div>
+        </div>
+
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 2.5h9v6H6.5L3.5 11V8.5H2z" stroke="#4A3FD4" stroke-width="1" stroke-linejoin="round"/><path d="M4.5 5h4M4.5 7h2.5" stroke="#4A3FD4" stroke-width=".85" stroke-linecap="round"/></svg></div>
+          <div class="tool-name">Pictionary Topic Generator <span class="soon-badge">Coming soon</span></div>
+          <div class="tool-desc">Drawing themes and game categories for any group.</div>
+        </div>
+
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#E6F1FB"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="3.5" r="1.2" stroke="#185FA5" stroke-width=".9"/><path d="M4 6c0-1.4 1.1-2.5 2.5-2.5S9 4.6 9 6" stroke="#185FA5" stroke-width=".9" stroke-linecap="round"/><path d="M3.5 6.5h6M5.5 6.5v3.5M7.5 6.5v3.5M4.5 10h4" stroke="#185FA5" stroke-width=".9" stroke-linecap="round"/></svg></div>
+          <div class="tool-name">Charades Generator <span class="soon-badge">Coming soon</span></div>
+          <div class="tool-desc">Words and phrases to act out — no props needed.</div>
+        </div>
+
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#FDE9E7"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="2" width="4" height="4" rx=".6" stroke="#C7435B" stroke-width=".9"/><rect x="7" y="2" width="4" height="4" rx=".6" stroke="#C7435B" stroke-width=".9"/><rect x="2" y="7" width="4" height="4" rx=".6" stroke="#C7435B" stroke-width=".9"/><rect x="7" y="7" width="4" height="4" rx=".6" stroke="#C7435B" stroke-width=".9"/></svg></div>
+          <div class="tool-name">Scattergories Generator <span class="soon-badge">Coming soon</span></div>
+          <div class="tool-desc">Random letters and categories for Scattergories rounds.</div>
+        </div>
+
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#E1F5EE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 2.5h9v6H6.5L3.5 11V8.5H2z" stroke="#1D9E75" stroke-width="1" stroke-linejoin="round"/><path d="M6.5 4.5l.3.7.8.05-.6.5.2.7-.7-.4-.7.4.2-.7-.6-.5.8-.05z" fill="#1D9E75"/></svg></div>
+          <div class="tool-name">Christmas Charades Generator <span class="soon-badge">Coming soon</span></div>
+          <div class="tool-desc">Holiday-themed acting prompts for the whole family.</div>
+        </div>
+
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#FAEEDA"><svg viewBox="0 0 13 13" fill="none"><path d="M2 2.5h9v5.5H2z" stroke="#BA7517" stroke-width=".9" stroke-linejoin="round"/><path d="M6.5 8v2.5M4.5 10.5h4" stroke="#BA7517" stroke-width=".9" stroke-linecap="round"/><path d="M5.5 4.5l1.5.5 1.5-.5" stroke="#BA7517" stroke-width=".85" stroke-linecap="round"/><circle cx="6.5" cy="3.5" r=".6" fill="#BA7517"/></svg></div>
+          <div class="tool-name">Catchphrase Generator <span class="soon-badge">Coming soon</span></div>
+          <div class="tool-desc">Fast-paced clue words and phrases for Catchphrase.</div>
+        </div>
+
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3.5h3.5v3H2z" rx=".5" stroke="#4A3FD4" stroke-width=".9" stroke-linejoin="round"/><path d="M7.5 3.5h3.5v3H7.5z" stroke="#4A3FD4" stroke-width=".9" stroke-linejoin="round"/><path d="M3.75 6.5v2.5M9.25 6.5v2.5M3.75 9h5.5" stroke="#4A3FD4" stroke-width=".9" stroke-linecap="round"/></svg></div>
+          <div class="tool-name">Would You Rather Generator <span class="soon-badge">Coming soon</span></div>
+          <div class="tool-desc">Dilemma questions for icebreakers and party games.</div>
+        </div>
+
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#FDE9E7"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="4" stroke="#C7435B" stroke-width=".9"/><path d="M6.5 4v3" stroke="#C7435B" stroke-width="1.1" stroke-linecap="round"/><circle cx="6.5" cy="8.5" r=".6" fill="#C7435B"/></svg></div>
+          <div class="tool-name">Truth or Dare Generator <span class="soon-badge">Coming soon</span></div>
+          <div class="tool-desc">Truth questions and dare challenges for any group.</div>
+        </div>
+
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#FBEAF0"><svg viewBox="0 0 13 13" fill="none"><circle cx="4" cy="4.5" r="1.5" stroke="#993556" stroke-width=".9"/><path d="M1.5 7c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5" stroke="#993556" stroke-width=".9" stroke-linecap="round"/><circle cx="9" cy="4.5" r="1.5" stroke="#993556" stroke-width=".9"/><path d="M6.5 7c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5" stroke="#993556" stroke-width=".9" stroke-linecap="round"/><path d="M5.5 9.5h2" stroke="#993556" stroke-width=".85" stroke-linecap="round"/></svg></div>
+          <div class="tool-name">Couples Truth or Dare Generator <span class="soon-badge">Coming soon</span></div>
+          <div class="tool-desc">Fun truth questions and dares designed for couples.</div>
+        </div>
+
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#EAF0F6"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="5.5" r="2" stroke="#2F4F6F" stroke-width=".9"/><path d="M5.5 5.5h2M6.5 4.5v2" stroke="#2F4F6F" stroke-width=".7" stroke-linecap="round"/><path d="M3 10.5h7M4 9h5" stroke="#2F4F6F" stroke-width=".85" stroke-linecap="round"/></svg></div>
+          <div class="tool-name">Random Trivia Generator <span class="soon-badge">Coming soon</span></div>
+          <div class="tool-desc">Trivia questions on any topic for trivia nights.</div>
+        </div>
+
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#FFF3E0"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="4" stroke="#B85C00" stroke-width=".9"/><path d="M4.5 7.5c.5 1.2 4 1.2 4.5 0" stroke="#B85C00" stroke-width=".9" stroke-linecap="round"/><circle cx="4.8" cy="5.5" r=".65" fill="#B85C00"/><circle cx="8.2" cy="5.5" r=".65" fill="#B85C00"/></svg></div>
+          <div class="tool-name">Random Dad Jokes <span class="soon-badge">Coming soon</span></div>
+          <div class="tool-desc">Groan-worthy puns and one-liners for the whole family.</div>
         </div>
 
       </div>
@@ -319,6 +447,12 @@
           <div class="tool-icon" style="background:#E6F1FB"><svg viewBox="0 0 13 13" fill="none"><path d="M6.5 2v9M2 6.5h9M4 4l5 5M9 4l-5 5" stroke="#185FA5" stroke-width=".85" stroke-linecap="round"/></svg></div>
           <div class="tool-name">Cool Words <span class="soon-badge">Coming soon</span></div>
           <div class="tool-desc">Interesting, unusual English words worth knowing.</div>
+        </div>
+
+        <div class="tool-item tool-item--soon">
+          <div class="tool-icon" style="background:#FEE9F9"><svg viewBox="0 0 13 13" fill="none"><path d="M2 2.5h9v6H6.5L3.5 11V8.5H2z" stroke="#B0279A" stroke-width=".9" stroke-linejoin="round"/><path d="M4.5 4.8h4M4.5 6.8h4M5.5 4v3.6M7.5 4v3.6" stroke="#B0279A" stroke-width=".75" stroke-linecap="round"/></svg></div>
+          <div class="tool-name">Gen Z Words List <span class="soon-badge">Coming soon</span></div>
+          <div class="tool-desc">Current slang and Gen Z vocabulary with definitions.</div>
         </div>
 
         <div class="tool-item tool-item--soon">

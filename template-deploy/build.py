@@ -7,7 +7,11 @@ Reads tools.json + tools-src/*.html → writes finished pages to output/
 Run: python3 build.py
 """
 
-import os, re, json, shutil
+import html
+import json
+import os
+import re
+import shutil
 
 ROOT      = os.path.dirname(os.path.abspath(__file__))
 TMPL_DIR  = os.path.join(ROOT, 'template')
@@ -43,6 +47,22 @@ def copy_data_assets():
         copied += 1
     print(f'  copied → {copied} JSON data file(s) into output/data/')
 
+def copy_script_assets():
+    """Mirror page-local JS assets into output/scripts/ for preview builds."""
+    scripts_dir = os.path.join(ROOT, 'scripts')
+    if not os.path.isdir(scripts_dir):
+        print('  warning → template scripts directory not found, skipping script asset copy')
+        return
+    out_scripts_dir = os.path.join(OUT_DIR, 'scripts')
+    os.makedirs(out_scripts_dir, exist_ok=True)
+    copied = 0
+    for fname in sorted(os.listdir(scripts_dir)):
+        if not fname.endswith('.js'):
+            continue
+        shutil.copy2(os.path.join(scripts_dir, fname), os.path.join(out_scripts_dir, fname))
+        copied += 1
+    print(f'  copied → {copied} JS script file(s) into output/scripts/')
+
 def slot(src, name):
     """Pull the content between <!-- SLOT:name --> and <!-- /SLOT:name -->."""
     m = re.search(
@@ -68,6 +88,97 @@ def strip_inline_nav_init(init_html):
     )
 
 
+def format_name_generator_label(raw_label):
+    if not raw_label:
+        return ''
+    if raw_label.lower() == 'random name':
+        return 'Random Name Generator'
+    if 'generator' in raw_label.lower():
+        return raw_label
+    return raw_label + ' Generator'
+
+
+def is_name_generator_page(active_url):
+    return (
+        active_url == '/random-name-generator/'
+        or bool(re.fullmatch(r'/random(?:-[a-z0-9]+)+-name-generator/', active_url))
+    )
+
+
+def label_from_name_generator_url(active_url):
+    slug = active_url.strip('/')
+    if not slug.endswith('-name-generator'):
+        return ''
+    if slug == 'random-name-generator':
+        return 'Random Name Generator'
+    middle = slug[len('random-'):-len('-name-generator')]
+    words = [part.capitalize() for part in middle.split('-') if part]
+    return 'Random ' + ' '.join(words) + ' Name Generator'
+
+
+def find_name_generator_label(data, active_url):
+    for tool in data.get('name_generator_tools', []):
+        if tool.get('href') == active_url:
+            return format_name_generator_label(tool.get('name', ''))
+
+    return label_from_name_generator_url(active_url)
+
+
+def build_breadcrumb(active_url, data, cfg):
+    # Breadcrumbs are now handled per-page in tools-src (hero slot + meta slot schema)
+    return '', ''
+    if not is_name_generator_page(active_url):
+        return '', ''
+
+    current_label = find_name_generator_label(data, active_url)
+    if not current_label:
+        return '', ''
+
+    current_label_html = html.escape(current_label)
+    breadcrumb_html = '\n'.join([
+        '<nav class="breadcrumb" aria-label="Breadcrumb">',
+        '  <div class="breadcrumb-inner">',
+        '    <a href="/">Home</a>',
+        '    <span class="breadcrumb-sep" aria-hidden="true">›</span>',
+        '    <a href="/name-generators/">Name Generators</a>',
+        '    <span class="breadcrumb-sep" aria-hidden="true">›</span>',
+        f'    <span aria-current="page">{current_label_html}</span>',
+        '  </div>',
+        '</nav>',
+    ])
+
+    breadcrumb_schema = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://wordineer.com/",
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Name Generators",
+                "item": "https://wordineer.com/name-generators/",
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": current_label,
+                "item": f'https://wordineer.com{active_url}',
+            },
+        ],
+    }
+    breadcrumb_schema_html = (
+        '<script type="application/ld+json">\n'
+        + json.dumps(breadcrumb_schema, ensure_ascii=False, indent=2)
+        + '\n</script>'
+    )
+    return breadcrumb_html, breadcrumb_schema_html
+
+
 # ── HTML generators (driven entirely by tools.json) ──────────────────────────
 
 def build_mega_cols(mega, active_url):
@@ -77,6 +188,8 @@ def build_mega_cols(mega, active_url):
         for t in cat['tools']:
             cls = 'mega-link active' if t['href'] == active_url else 'mega-link'
             links.append(f'      <a class="{cls}" href="{t["href"]}">{t["text"]}</a>')
+        if cat.get('view_all_href'):
+            links.append(f'      <a class="mega-link mega-link--view-all" href="{cat["view_all_href"]}">View all →</a>')
         cols.append(
             '    <div class="mega-col">\n'
             f'      <div class="mega-cat">{cat["cat"]}</div>\n'
@@ -116,6 +229,8 @@ def build_other_grid(other_tools):
             f'<a class="other-link" href="{l["href"]}">{l["text"]}</a>'
             for l in cat['links']
         )
+        if cat.get('view_all_href'):
+            links += f'<a class="other-link other-link--view-all" href="{cat["view_all_href"]}">View all →</a>'
         cols.append(
             '      <div class="other-cat">'
             f'<div class="other-cat-title">'
@@ -129,13 +244,14 @@ def build_other_grid(other_tools):
 def build_footer_cols(footer_cols):
     cols = []
     for col in footer_cols:
-        links = ''.join(
-            f'<a class="footer-link" href="{l["href"]}">{l["text"]}</a>'
-            for l in col['links']
-        )
+        links_html = ''
+        for l in col['links']:
+            links_html += f'<a class="footer-link" href="{l["href"]}">{l["text"]}</a>'
+        if col.get('view_all_href'):
+            links_html += f'<a class="footer-link footer-link--view-all" href="{col["view_all_href"]}">View all →</a>'
         cols.append(
             f'      <div><div class="footer-col-title">{col["title"]}</div>'
-            f'{links}</div>'
+            f'{links_html}</div>'
         )
     return '\n'.join(cols)
 
@@ -159,6 +275,7 @@ def build_page(src_path, data):
     # Build shared nav/footer blocks from tools.json
     mega_html        = build_mega_cols(data['mega'], active_url)
     footer_cols_html = build_footer_cols(data['footer_cols'])
+    breadcrumb_html, breadcrumb_schema_html = build_breadcrumb(active_url, data, cfg)
 
     # Load shared template fragments
     head   = read(os.path.join(TMPL_DIR, 'head.html'))
@@ -166,7 +283,10 @@ def build_page(src_path, data):
     footer = read(os.path.join(TMPL_DIR, 'footer.html'))
 
     # Inject slots into shared templates
-    head   = head.replace('{{META}}', slots['meta']).replace('{{STYLE}}', slots['style'])
+    head   = (head
+        .replace('{{META}}', slots['meta'])
+        .replace('{{HEAD_EXTRAS}}', breadcrumb_schema_html)
+        .replace('{{STYLE}}', slots['style']))
     nav    = nav.replace('{{MEGA_COLS}}', mega_html)
     footer = footer.replace('{{FOOTER_COLS}}', footer_cols_html)
 
@@ -202,6 +322,7 @@ def build_page(src_path, data):
             head,
             '<body>',
             nav,
+            breadcrumb_html,
             slots['hero'],
             slots['tool'],
             slots['ad_b'],
@@ -232,6 +353,7 @@ def main():
     for fname in src_files:
         build_page(os.path.join(SRC_DIR, fname), data)
     copy_data_assets()
+    copy_script_assets()
 
     print(f'\nDone! Output is in:  {OUT_DIR}/')
     print('Copy the contents of output/ to wordineer-deploy/ when ready to deploy.')

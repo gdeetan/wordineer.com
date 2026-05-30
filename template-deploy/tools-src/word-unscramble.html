@@ -43,6 +43,30 @@
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Word Unscrambler",
+  "url": "https://wordineer.com/word-unscramble/",
+  "description": "Enter up to 15 letters and instantly find every real word you can make. Use ? for blank tiles. Filter by length, starts with, ends with. Free Scrabble & word game solver.",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@id": "https://wordineer.com/#organization" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Word Tools", "item": "https://wordineer.com/word-tools/" },
+    { "@type": "ListItem", "position": 3, "name": "Word Unscrambler", "item": "https://wordineer.com/word-unscramble/" }
+  ]
+}
+</script>
 <!-- /SLOT:meta -->
 
 <!-- SLOT:style -->
@@ -118,6 +142,15 @@
 <!-- /SLOT:style -->
 
 <!-- SLOT:hero -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/word-tools/">Word Tools</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Word Unscrambler</span>
+  </div>
+</div>
 <div class="hero">
   <div class="hero-badge">
     <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
@@ -202,6 +235,7 @@
           <span class="words-count" id="un-count-display">Enter letters and click Find words</span>
           <div class="words-actions">
             <button class="act-btn" id="un-copy-all-btn">Copy all</button>
+            <button type="button" class="act-btn" id="un-regen-btn" onclick="document.getElementById('un-find-btn')?.click()">Regenerate</button>
           </div>
         </div>
         <div class="ws-results-area" id="un-results">
@@ -493,11 +527,16 @@ const WORD_UNSCRAMBLER = (() => {
     document.getElementById('un-results').innerHTML = '<div class="ws-results-status">Enter up to 15 letters — use ? for blank tiles</div>';
   }
 
+  function runUnscrambleSearch() {
+    scheduleDictionaryLoad(0);
+    doFindWords();
+  }
+
   function init() {
     scheduleDictionaryLoadAfterFirstLoad();
 
     const unInput = document.getElementById('un-input');
-    unInput?.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); scheduleDictionaryLoad(0); doFindWords(); } });
+    unInput?.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); runUnscrambleSearch(); } });
     unInput?.addEventListener('input', function() {
       const pos = this.selectionStart;
       const cleaned = this.value.replace(/[^a-zA-Z?]/g, '').slice(0, 15);
@@ -507,7 +546,25 @@ const WORD_UNSCRAMBLER = (() => {
       }
     });
 
-    document.getElementById('un-find-btn')?.addEventListener('click', () => { scheduleDictionaryLoad(0); doFindWords(); });
+    const liveFilterIds = ['un-starts', 'un-ends', 'un-must'];
+    liveFilterIds.forEach(id => {
+      const input = document.getElementById(id);
+      input?.addEventListener('input', function() {
+        const pos = this.selectionStart;
+        const cleaned = this.value.replace(/[^a-zA-Z]/g, '').slice(0, 3);
+        if (this.value !== cleaned) {
+          this.value = cleaned;
+          this.setSelectionRange(Math.min(pos, cleaned.length), Math.min(pos, cleaned.length));
+        }
+        runUnscrambleSearch();
+      });
+    });
+
+    ['un-dict', 'un-length'].forEach(id => {
+      document.getElementById(id)?.addEventListener('change', runUnscrambleSearch);
+    });
+
+    document.getElementById('un-find-btn')?.addEventListener('click', runUnscrambleSearch);
     document.getElementById('un-clear-btn')?.addEventListener('click', clearAll);
     document.getElementById('un-copy-all-btn')?.addEventListener('click', () => {
       if (unscrambleResults.length) copyText(unscrambleResults.join(', '));

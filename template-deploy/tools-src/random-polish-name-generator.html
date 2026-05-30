@@ -46,6 +46,30 @@
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Random Polish Name Generator",
+  "url": "https://wordineer.com/random-polish-name-generator/",
+  "description": "Generate authentic Polish names — Traditional classics (Henryk, Zofia) or Modern favorites (Jakub, Marta). Filter by gender, era, and first letter. Includes meanings and pronunciation. Free, no sign-up.",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@id": "https://wordineer.com/#organization" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Name Generators", "item": "https://wordineer.com/name-generators/" },
+    { "@type": "ListItem", "position": 3, "name": "Random Polish Name Generator", "item": "https://wordineer.com/random-polish-name-generator/" }
+  ]
+}
+</script>
 <!-- /SLOT:meta -->
 
 <!-- SLOT:style -->
@@ -53,7 +77,7 @@
 .tool-wrap  { max-width:960px; margin:0 auto; padding:24px 24px 0; }
 .tool-card  { border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg); box-shadow:var(--shadow); }
 .tool-split { display:flex; }
-.ctrl       { width:300px; padding:18px; border-right:1px solid var(--border-2); background:var(--bg-2); flex-shrink:0; }
+.ctrl { width:220px; flex-shrink:0; padding:18px; border-right:1px solid var(--border-2); background:var(--bg-2); }
 .ctrl-row   { margin-bottom:14px; }
 .ctrl-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; display:block; margin-bottom:5px; }
 .ctrl-row input, .ctrl-row select { width:100%; padding:7px 10px; font-size:13px; font-family:inherit; border:1px solid var(--border); border-radius:7px; background:var(--bg); color:var(--text); appearance:none; outline:none; transition:border-color .15s; }
@@ -74,28 +98,36 @@
 .kbd kbd    { background:var(--bg-3); border:1px solid var(--border); border-radius:3px; padding:1px 5px; font-size:10px; font-family:inherit; }
 .ng-mobile-toggle { display:none; width:100%; margin:-2px 0 14px; padding:9px 12px; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--brand); font-size:13px; font-weight:600; font-family:inherit; cursor:pointer; }
 .ng-advanced { display:block; }
-.result-area { flex:1; min-width:0; padding:18px; }
-.result-top { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:12px; }
-.result-count { font-size:13px; color:var(--text-3); }
-.actions { display:flex; gap:8px; flex-wrap:wrap; }
-.btn-small { padding:8px 11px; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--text); font-size:13px; cursor:pointer; }
-.word-list { list-style:none; padding:0; margin:0; display:grid; gap:10px; }
-.word-item { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; padding:14px; border:1px solid var(--border); border-radius:8px; background:var(--bg); }
+.words-panel { flex:1; display:flex; flex-direction:column; overflow:hidden; }
+.words-top { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 16px; border-bottom:1px solid var(--border-2); }
+.words-count { font-size:12px; color:var(--text-3); }
+.words-actions { display:flex; gap:6px; flex-wrap:wrap; justify-content:flex-end; }
+.act-btn { font-size:12px; padding:5px 11px; border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:background .12s; }
+.act-btn:hover { background:var(--bg-2); }
+.word-list { flex:1; overflow-y:auto; list-style:none; padding:0 16px; margin:0; }
+.word-item { display:flex; align-items:flex-start; justify-content:space-between; gap:10px; padding:12px 0; border-bottom:1px solid var(--border-2); }
+.word-item:last-child { border-bottom:none; }
 .word-left { min-width:0; }
-.word-text { font-size:22px; line-height:1.2; font-weight:750; color:var(--text); margin-bottom:6px; }
+.word-text { font-size:17px; font-weight:600; color:var(--text); line-height:1.25; }
 .ng-meaning { font-size:13px; color:var(--text-2); line-height:1.45; margin-top:6px; }
 .png-badges { display:flex; flex-wrap:wrap; gap:5px; }
 .png-badge { display:inline-flex; align-items:center; padding:3px 7px; border-radius:999px; background:#EAF1FF; color:#1C4D8C; font-size:11px; font-weight:700; text-transform:capitalize; }
 .png-badge--type { background:#F0EEF9; color:#534AB7; }
+.png-badge--origin { background:#EEF6F0; color:#276033; }
 .word-right { display:flex; gap:6px; flex-shrink:0; }
-.icon-btn { width:34px; height:34px; display:inline-flex; align-items:center; justify-content:center; border:none; border-radius:8px; background:var(--bg); color:var(--text-2); cursor:pointer; }
-.icon-btn svg { width:16px; height:16px; }
-.icon-btn.saved { color:#E24B4A; background:#FFF5F5; }
-.saved-panel { margin-top:18px; padding:14px; border:1px solid var(--border); border-radius:8px; background:var(--bg-2); }
-.saved-title { font-size:13px; font-weight:700; color:var(--text); margin-bottom:10px; }
-.saved-tags { display:flex; flex-wrap:wrap; gap:7px; }
-.saved-tags span { display:inline-flex; align-items:center; gap:6px; padding:6px 8px; border:1px solid var(--border); border-radius:999px; background:var(--bg); font-size:12px; }
-.saved-tags button { border:0; background:transparent; color:var(--text-3); cursor:pointer; padding:0; }
+.icon-btn   { width:28px; height:28px; display:flex; align-items:center; justify-content:center; background:transparent; border:none; cursor:pointer; border-radius:5px; color:var(--text-3); transition:background .12s,color .12s; }
+.icon-btn:hover { background:var(--bg-2); color:var(--text); }
+.icon-btn svg { width:14px; height:14px; }
+.icon-btn.saved { color:#E24B4A; }
+.saved-section { border-top:1px solid var(--border); padding:12px 14px; background:var(--bg); }
+.saved-top { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:8px; }
+.saved-label { font-size:12px; font-weight:700; color:var(--text); }
+.saved-copy { border:1px solid var(--border); background:var(--bg); color:var(--brand); border-radius:7px; padding:5px 9px; font-size:11px; font-weight:600; cursor:pointer; }
+.saved-tags { display:flex; gap:5px; flex-wrap:wrap; min-height:22px; }
+.saved-tag { display:inline-flex; align-items:center; gap:4px; background:#F0F2FF; color:var(--brand); border-radius:999px; padding:4px 8px; font-size:11px; font-weight:600; }
+.saved-tag-remove { cursor:pointer; opacity:.65; }
+.saved-tag-remove:hover { opacity:1; }
+.saved-empty { color:var(--text-3); font-size:12px; }
 .content-section { max-width:900px; margin:34px auto 0; padding:0 24px; }
 .content-section h2 { margin:0 0 10px; font-size:26px; line-height:1.2; }
 .content-section p { color:var(--text-2); line-height:1.7; }
@@ -113,15 +145,24 @@
   .ng-advanced { display:none; }
   .reset-btn, .kbd { display:none; }
   .ng-advanced.is-open { display:block; }
-  .result-top { align-items:flex-start; flex-direction:column; }
+  .words-top { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 16px; border-bottom:1px solid var(--border-2); }
   .word-item { align-items:flex-start; }
-  .word-text { font-size:20px; }
+  .word-text { font-size:17px; font-weight:600; color:var(--text); line-height:1.25; }
   .content-grid { grid-template-columns:1fr; }
 }
 </style>
 <!-- /SLOT:style -->
 
 <!-- SLOT:hero -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/name-generators/">Name Generators</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Random Polish Name Generator</span>
+  </div>
+</div>
 <section class="hero hero--tool">
   <div class="hero-inner">
     <div class="hero-copy">
@@ -174,6 +215,27 @@
           </div>
 
           <div class="ctrl-row">
+            <label class="ctrl-label" for="png-length">Name length</label>
+            <select id="png-length">
+              <option value="any">Any length</option>
+              <option value="short">Short (1–5 letters)</option>
+              <option value="medium">Medium (6–8 letters)</option>
+              <option value="long">Long (9+ letters)</option>
+            </select>
+          </div>
+
+          <div class="ctrl-row" id="png-origin-row">
+            <label class="ctrl-label" for="png-origin">Name origin</label>
+            <select id="png-origin">
+              <option value="any">Any origin</option>
+              <option value="slavic">Slavic</option>
+              <option value="biblical">Biblical / Hebrew</option>
+              <option value="germanic">Germanic</option>
+              <option value="latin-greek">Latin / Greek</option>
+            </select>
+          </div>
+
+          <div class="ctrl-row">
             <label class="ctrl-label" for="png-letter">Starts with</label>
             <select id="png-letter">
               <option value="any">Any letter</option>
@@ -192,6 +254,11 @@
             <label class="toggle" aria-label="Show meanings"><input type="checkbox" id="png-defs" checked><span class="toggle-sl"></span></label>
             <label for="png-defs">Show meanings</label>
           </div>
+
+          <div class="def-row">
+            <label class="toggle" aria-label="Easy to spell for English speakers"><input type="checkbox" id="png-easy-spell"><span class="toggle-sl"></span></label>
+            <label for="png-easy-spell">Easy to spell (no diacritics)</label>
+          </div>
         </div>
 
         <button class="gen-btn" id="png-gen-btn">Generate names</button>
@@ -199,81 +266,93 @@
         <div class="kbd">Press <kbd>Space</kbd> to regenerate</div>
       </div>
 
-      <div class="result-area">
-        <div class="result-top">
-          <span class="result-count" id="png-count-display">Generating...</span>
-          <div class="actions">
-            <button class="btn-small" id="png-copy-all-btn">Copy all</button>
+      <div class="words-panel">
+        <div class="words-top">
+          <span class="words-count" id="png-count-display">Generating...</span>
+          <div class="words-actions">
+            <button class="act-btn" id="png-copy-all-btn">Copy all</button>
+          <button type="button" class="act-btn" id="png-regen-btn" onclick="document.getElementById('png-gen-btn')?.click()">Regenerate</button>
           </div>
         </div>
         <ul class="word-list" id="png-list"></ul>
+      </div>
+    </div>
 
-        <div class="saved-panel">
-          <div class="saved-title">Saved names</div>
-          <div class="saved-top" style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px;">
-            <span class="saved-label">Tap the heart on a name to save it here</span>
+    
+
+        <div class="saved-section">
+          <div class="saved-top">
+            <span class="saved-label">Saved names</span>
             <button class="saved-copy" id="png-copy-saved-btn">Copy saved</button>
           </div>
           <div class="saved-tags" id="png-saved-tags">
             <span class="saved-empty">Click the heart on any name to save it here</span>
           </div>
-        </div>
-      </div>
+        
+
+  </div>
     </div>
   </section>
 </main>
 <!-- /SLOT:tool -->
 
 <!-- SLOT:explainer -->
-<section class="content">
-  <h2>How it works</h2>
-  <p>This generator creates authentic Polish names for writers, game makers, character developers, and parents seeking baby names. It draws from 1000+ real Polish given names and surnames, each with meaning and pronunciation.</p>
-  <p><strong>Choose your era:</strong> Traditional names (Henryk, Stanisław, Zofia) carry the weight of Polish history and literary tradition — best for historical fiction or characters with deep roots. Modern names (Jakub, Marta, Filip) reflect contemporary Polish usage since the 1970s.</p>
-  <p><strong>Start with first names:</strong> Most users scan first-name ideas quickly before committing to a full character name. The default "Given name" mode shows you clean, fast options. Switch to "Full name" for complete names with both given and surname.</p>
-  <p><strong>Meanings and pronunciation:</strong> Each name includes its cultural meaning (from etymology, saints, places) and a phonetic pronunciation guide so you can use the name confidently even if you don't speak Polish.</p>
-</section>
+<div class="explainer">
+  <h2>What is a random Polish name generator?</h2>
+  <p>A random Polish name generator picks authentic Polish names from a curated dataset of 1000+ given names and surnames and delivers them instantly — with meanings and pronunciation guides shown under every result. This tool lets you filter by gender, era (Traditional pre-1970s or Modern), name length, origin, and first letter, so you can get exactly the kind of Polish name your project needs. Every result shows the name, its era and origin as badges, and a short meaning drawn from etymology, saints, or historical roots. No account required, works instantly in any browser.</p>
 
-<section class="content">
-  <h2>Who uses this?</h2>
-  <p>Writers building Polish characters for novels, short stories, or screenplays. Game designers and worldbuilders creating characters and NPCs. Parents seeking authentic Polish baby names. Students researching Polish naming traditions and language.</p>
-</section>
+  <h2>How Polish names work</h2>
+  <p>Polish given names come from four main roots. <strong>Slavic</strong> names are the oldest layer — names like Sławomir (glory and peace), Zbigniew (rid of anger), and Władysław (one who rules with glory) come from native West Slavic roots and were common before and after Poland's Christianisation in 966 AD. <strong>Biblical and Christian</strong> names arrived with the Church: Jan (John), Piotr (Peter), Paweł (Paul), Maria, and Anna became standard as Poland became Catholic. <strong>Germanic</strong> names entered through trade, dynastic marriages, and Teutonic influence: Henryk (Henry), Karol (Karl), and Jadwiga (Hedwig) all have Old High German origins. <strong>Latin and Greek</strong> names spread through Renaissance scholarship and the Church's liturgical calendar — Aleksander, Katarzyna, and Grzegorz are all in this group.</p>
+  <p>Polish surnames follow clear patterns. The <em>-ski / -cki</em> suffix (Kowalski, Wiśniewski) originally meant "of" or "from" — Kowalski literally meant "of the smith." The <em>-ak / -czyk</em> endings (Nowak, Wojcieczyk) often marked an occupational or place-of-origin root. The <em>-wicz / -icz</em> suffix (Mickiewicz, Sienkiewicz) is a patronymic ending meaning "son of." Polish surnames are also grammatically gendered: a man is Kowalski, a woman is Kowalska.</p>
+
+  <h2>Name origins explained</h2>
+  <p><strong>Slavic</strong> names are native to Polish and West Slavic culture — compound names built from roots like <em>sław</em> (glory), <em>mir</em> (peace), <em>bor</em> (battle), and <em>wład</em> (power). They are ideal for historical Polish settings and pre-Christian or early-medieval characters.</p>
+  <p><strong>Biblical / Hebrew</strong> names came with Christianity and the Church calendar. They are the most internationally recognisable Polish names — Jan, Jakub, Michał, Anna, Maria — and have been in continuous use since the Middle Ages. Use them for any era or social class.</p>
+  <p><strong>Germanic</strong> names reflect centuries of dynastic ties, Teutonic settlement, and Central European cultural exchange. Henryk, Karol, Leopold, and Jadwiga all have Old High German roots. They suit noble families, historical figures, and characters from western Poland or the German-Polish borderlands.</p>
+  <p><strong>Latin / Greek</strong> names spread through the Renaissance, the Church's liturgical calendar, and classical education. Aleksander, Grzegorz, Katarzyna, and Zofia all belong here. They are common across all eras and social strata in Polish history.</p>
+
+  <h2>For writers and worldbuilders</h2>
+  <p>The Era and Origin filters together give you fine control over how a character feels. A character named Henryk Kowalski (Germanic given name, occupational surname) reads as solid Central European bourgeois. A Sławomir Wiśniewski (Slavic given name, place-origin surname) feels rooted in rural Polish tradition. A Jakub Nowak (Biblical given name, common modern surname) is entirely contemporary. Use Traditional era for historical fiction, World War II settings, or older-generation characters. Use Modern for contemporary Polish stories, urban settings, or younger characters. The Easy to Spell toggle is useful if your readership is primarily English-speaking and you want to avoid names with ą, ę, ó, ś, and ż.</p>
+
+  <h2>Want names from other countries?</h2>
+  <p>For random names from 30+ world origins — American, English, Japanese, Arabic, Italian, and more — try the <a href="/random-name-generator/">random name generator</a>. It covers hundreds of names with the same meanings-inline format. For other European name generators, see the <a href="/random-name-generator/">name generator hub</a>.</p>
+</div>
 <!-- /SLOT:explainer -->
 
 <!-- SLOT:faq -->
-<section class="content">
-  <h2>Frequently asked questions</h2>
-
-  <details>
-    <summary>What is a random Polish name generator?</summary>
-    <p>A tool that generates real Polish given names, surnames, or full names from a curated dataset of 1000+ authentic names. Each name includes its meaning and English-friendly pronunciation guide, making it easy to use Polish names confidently in your writing or creative projects.</p>
-  </details>
-
-  <details>
-    <summary>What's the difference between Traditional and Modern Polish names?</summary>
-    <p>Traditional names (Henryk, Stanisław, Zofia) were most popular in the pre-1970s era and carry a sense of Polish history and literary tradition — perfect for historical fiction or characters with deep cultural roots. Modern names (Jakub, Marta, Filip) have risen in popularity since the 1970s and reflect contemporary Polish usage. Choose Traditional for period pieces; Modern for contemporary stories.</p>
-  </details>
-
-  <details>
-    <summary>Why do Polish surnames end in -ski?</summary>
-    <p>The -ski suffix is one of the most common Polish surname endings and originally meant "of/from" — for example, Kowalski meant "of the smith" (kowal = smith). Other common endings are -ak, -czyk, and -wicz. These endings reflect the name's origin: occupation, place of residence, or patronymic tradition. Understanding these patterns helps you recognize and create authentic-sounding Polish names.</p>
-  </details>
-
-  <details>
-    <summary>Can I use these names in my book?</summary>
-    <p>Yes. All names here are real names from Polish traditions and culture. Names themselves are not copyrightable, so you can use them freely in fiction, screenplays, games, and other creative projects. The meanings and pronunciations are cultural glosses meant to help you understand and use the names authentically.</p>
-  </details>
-
-</section>
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">What's the difference between Traditional and Modern Polish names?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Traditional names (Henryk, Stanisław, Zofia, Tadeusz) were most common in the pre-1970s era and carry a sense of Polish history, literature, and Catholic tradition — perfect for historical fiction or older-generation characters. Modern names (Jakub, Marta, Filip, Natalia) rose in popularity from the 1970s onward and reflect contemporary Polish usage. Some names like Piotr, Michał, and Anna span both eras and remain popular across generations.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Why do Polish surnames end in -ski?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">The -ski suffix originally meant "of" or "from" — Kowalski meant "of the smith" (kowal = smith), Wiśniewski meant "from the cherry orchard." It was historically a noble suffix but became widespread across all social classes over centuries. Other common endings are -ak and -czyk (often occupational or patronymic: Nowak = "new one," Wojcieczyk = "son of Wojciech") and -wicz / -icz (patronymic: Mickiewicz = "son of Mickiew"). Polish surnames are also gendered: men use -ski, women use -ska; men use -czyk, women use -czyk without change.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What does the Name Origin filter mean?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Origin refers to the linguistic and cultural root of a given name. Slavic names (Sławomir, Zbigniew, Wanda) come from native West Slavic roots and are the oldest Polish names. Biblical names (Jan, Jakub, Anna, Maria) arrived with Christianity. Germanic names (Henryk, Karol, Jadwiga) came through dynastic and cultural contact with German-speaking Central Europe. Latin/Greek names (Aleksander, Katarzyna, Grzegorz, Zofia) spread through the Church's liturgical calendar and Renaissance scholarship. The filter applies to given names only — Polish surnames are almost entirely Slavic in structure.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Are Polish names hard to pronounce in English?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Polish uses several letters that look unfamiliar to English readers: ą (nasal "on"), ę (nasal "en"), ó (like "oo"), ś and ź (softened "sh" and "zh"), ż (like "zh"), ń (like "ny"), ć (like "ch"), and ł (like "w"). Each name card includes a phonetic English pronunciation guide — for example, Krzysztof is KSHISH-tof and Wojciech is VOY-chekh. Use the Easy to Spell toggle to filter out names with diacritics entirely if your readership is primarily English-speaking.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I use these names in my book or game?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes. All names here are real Polish names drawn from authentic cultural and historical sources. Names are not copyrightable. For fiction, combine the Era and Origin filters to match your setting: Slavic + Traditional for pre-Christian or medieval Poland, Germanic + Traditional for noble or borderland families, Biblical + any era for mainstream Catholic Polish characters, Modern for contemporary stories. Save your favourites with the heart icon and copy them all in one click.</div>
+  </div>
+</div>
 <!-- /SLOT:faq -->
 
 <!-- SLOT:who -->
 <div>
-  <h2 class="section-title" style="margin-bottom:14px">Who uses Wordineer</h2>
+  <h2 class="section-title" style="margin-bottom:14px">Who uses this tool</h2>
   <div class="uc-grid">
-    <div class="uc"><div class="uc-title">Writers</div><div class="uc-body">Find Polish character names with meaning notes that fit a story's era, tone, and setting — from historical epics to contemporary fiction.</div></div>
-    <div class="uc"><div class="uc-title">Game Masters</div><div class="uc-body">Generate NPCs, nobles, merchants, and modern Polish characters quickly during campaign prep or live sessions.</div></div>
-    <div class="uc"><div class="uc-title">Genealogists</div><div class="uc-body">Browse authentic Polish name forms and naming patterns to understand historical traditions in Polish family research.</div></div>
-    <div class="uc"><div class="uc-title">Game Developers</div><div class="uc-body">Build shortlists for character rosters, RPGs set in Poland, and historical worldbuilding documents from a verified name dataset.</div></div>
+    <div class="uc"><div class="uc-title">Writers &amp; screenwriters</div><div class="uc-body">Find authentic Polish character names for fiction, scripts, and games. Filter by era and origin to match your story's setting — from medieval Kraków to contemporary Warsaw.</div></div>
+    <div class="uc"><div class="uc-title">Game Masters</div><div class="uc-body">Generate Polish NPCs, nobles, merchants, and soldiers quickly during campaign prep or live sessions. The origin filter keeps naming consistent with your world's tone.</div></div>
+    <div class="uc"><div class="uc-title">Genealogists</div><div class="uc-body">Browse authentic Polish name forms and surname patterns to understand historical naming traditions when researching Polish family history.</div></div>
+    <div class="uc"><div class="uc-title">Expecting parents</div><div class="uc-body">Explore Polish names with meanings and pronunciation guides. Save your favourites and share your shortlist — traditional classics or modern picks.</div></div>
   </div>
 </div>
 <!-- /SLOT:who -->
@@ -285,6 +364,13 @@ const PNG_ERA_LABELS = {
   traditional: 'Traditional',
   modern: 'Modern'
 };
+const PNG_ORIGIN_LABELS = {
+  slavic: 'Slavic',
+  biblical: 'Biblical',
+  germanic: 'Germanic',
+  'latin-greek': 'Latin/Greek'
+};
+const PNG_DIACRITICS = /[ąęóśźżńćłĄĘÓŚŹŻŃĆŁ]/;
 
 let pngData = { given: [], surnames: [] };
 let pngReady = false;
@@ -317,22 +403,38 @@ function pngDefsVisible() {
   return document.getElementById('png-defs')?.checked !== false;
 }
 
+function pngMatchesLength(name, filter) {
+  if (filter === 'any') return true;
+  const l = name.length;
+  if (filter === 'short')  return l <= 5;
+  if (filter === 'medium') return l >= 6 && l <= 8;
+  if (filter === 'long')   return l >= 9;
+  return true;
+}
+
+function pngSyncOriginVisibility() {
+  const type = document.getElementById('png-type')?.value;
+  const row = document.getElementById('png-origin-row');
+  if (row) row.style.display = (type === 'surname') ? 'none' : '';
+}
+
 function pngNormalizeGiven(entry) {
   if (!entry || typeof entry !== 'object') return null;
   const name = String(entry.name || '').trim();
   if (!name) return null;
   const gender = String(entry.gender || 'm').trim();
-  const eras = Array.isArray(entry.eras) ? entry.eras : [];
+  const eras = Array.isArray(entry.era) ? entry.era : [];
   const meaning = String(entry.meaning || '').trim();
   const pronunciation = String(entry.pronunciation || '').trim();
-  return [name, gender, eras, meaning, pronunciation];
+  const origin = String(entry.origin || '').trim();
+  return [name, gender, eras, meaning, pronunciation, origin];
 }
 
 function pngNormalizeSurname(entry) {
   if (!entry || typeof entry !== 'object') return null;
   const name = String(entry.name || '').trim();
   if (!name) return null;
-  const eras = Array.isArray(entry.eras) ? entry.eras : [];
+  const eras = Array.isArray(entry.era) ? entry.era : [];
   const meaning = String(entry.meaning || '').trim();
   const pronunciation = String(entry.pronunciation || '').trim();
   return { name, eras, meaning, pronunciation };
@@ -353,7 +455,10 @@ function pngCurrentFilterValues() {
     type: document.getElementById('png-type')?.value || 'given',
     gender: document.getElementById('png-gender')?.value || 'any',
     era: document.getElementById('png-era')?.value || 'any',
-    letter: document.getElementById('png-letter')?.value || 'any'
+    letter: document.getElementById('png-letter')?.value || 'any',
+    length: document.getElementById('png-length')?.value || 'any',
+    origin: document.getElementById('png-origin')?.value || 'any',
+    easySpell: document.getElementById('png-easy-spell')?.checked || false
   };
 }
 
@@ -370,11 +475,16 @@ function pngGenerateFn(data) {
     if (filters.gender !== 'any' && n[1] !== filters.gender) return false;
     if (!pngHasEra(n[2], filters.era)) return false;
     if (letter && !n[0].toUpperCase().startsWith(letter)) return false;
+    if (!pngMatchesLength(n[0], filters.length)) return false;
+    if (filters.origin !== 'any' && n[5] !== filters.origin) return false;
+    if (filters.easySpell && PNG_DIACRITICS.test(n[0])) return false;
     return true;
   });
 
   const surnamePool = data.surnames.filter(function(s) {
-    if (!pngHasEra(s.eras, filters.era)) return false;
+    if (s.eras.length > 0 && !pngHasEra(s.eras, filters.era)) return false;
+    if (!pngMatchesLength(s.name, filters.length)) return false;
+    if (filters.easySpell && PNG_DIACRITICS.test(s.name)) return false;
     return true;
   });
 
@@ -401,7 +511,7 @@ function pngGenerateFn(data) {
       seen.add(display);
       const bestEra = given[2][0] || '';
       const meaning = given[3] ? given[3] + (given[4] ? ' — ' + given[4] : '') : '';
-      results.push({ display, meaning, pronunciation: given[4] || '', era: bestEra, kind: 'given' });
+      results.push({ display, meaning, pronunciation: given[4] || '', era: bestEra, origin: given[5] || '', kind: 'given' });
       continue;
     }
 
@@ -443,7 +553,7 @@ function pngGenerateFn(data) {
       pronunciation = givenPronun || surnamePronun;
     }
     const fullMeaning = meaning + (pronunciation ? ' — ' + pronunciation : '');
-    results.push({ display, meaning: fullMeaning, pronunciation, era: bestEra, kind: 'full' });
+    results.push({ display, meaning: fullMeaning, pronunciation, era: bestEra, origin: given[5] || '', kind: 'full' });
   }
 
   pngCurrentItems = results.slice();
@@ -467,12 +577,13 @@ function pngRenderItem(item) {
   const safeClick = item.display.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
   const eraLabel = item.era ? '<span class="png-badge">' + pngEsc(PNG_ERA_LABELS[item.era] || item.era) + '</span>' : '';
   const typeLabel = item.kind ? '<span class="png-badge png-badge--type">' + pngEsc(item.kind) + '</span>' : '';
+  const originLabel = item.origin ? '<span class="png-badge png-badge--origin">' + pngEsc(PNG_ORIGIN_LABELS[item.origin] || item.origin) + '</span>' : '';
   const meaningLine = pngDefsVisible() && item.meaning ? '<div class="ng-meaning">' + pngEsc(item.meaning) + '</div>' : '';
 
   return '<li class="word-item">'
     + '<div class="word-left">'
     +   '<div class="word-text">' + pngEsc(item.display) + '</div>'
-    +   '<div class="png-badges">' + eraLabel + typeLabel + '</div>'
+    +   '<div class="png-badges">' + eraLabel + typeLabel + originLabel + '</div>'
     +   meaningLine
     + '</div>'
     + '<div class="word-right">'
@@ -555,19 +666,26 @@ pngCountInput?.addEventListener('input', pngRegenerateFromFilters);
 pngCountInput?.addEventListener('change', pngRegenerateFromFilters);
 document.getElementById('png-gen-btn')?.addEventListener('click', pngSyncNoResultCount);
 document.getElementById('png-defs')?.addEventListener('change', pngRenderCurrentItems);
-['png-type','png-gender','png-era','png-letter'].forEach(function(id) {
+document.getElementById('png-easy-spell')?.addEventListener('change', pngRegenerateFromFilters);
+document.getElementById('png-type')?.addEventListener('change', pngSyncOriginVisibility);
+['png-type','png-gender','png-era','png-length','png-origin','png-letter'].forEach(function(id) {
   const el = document.getElementById(id);
   if (!el) return;
   el.addEventListener('change', pngRegenerateFromFilters);
   el.addEventListener('input',  pngRegenerateFromFilters);
 });
+pngSyncOriginVisibility();
 document.getElementById('png-reset-btn')?.addEventListener('click', function() {
   document.getElementById('png-count').value = '10';
   document.getElementById('png-type').value = 'given';
   document.getElementById('png-gender').value = 'any';
   document.getElementById('png-era').value = 'any';
+  document.getElementById('png-length').value = 'any';
+  document.getElementById('png-origin').value = 'any';
   document.getElementById('png-letter').value = 'any';
   document.getElementById('png-defs').checked = true;
+  document.getElementById('png-easy-spell').checked = false;
+  pngSyncOriginVisibility();
   pngRegenerateFromFilters();
 });
 document.getElementById('png-mobile-toggle')?.addEventListener('click', function() {
