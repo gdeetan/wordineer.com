@@ -57,21 +57,25 @@ try { sessionStorage.setItem(key, JSON.stringify(val)); } catch {}
 }
 async function loadWords() {
 if (fullLoadPromise) return fullLoadPromise;
+const url  = config.dataUrl || '/data/words.json';
+const cKey = config.dataUrl ? 'wnr_custom_' + url.replace(/\W/g,'').slice(-12) : SC_WORDS_KEY;
 fullLoadPromise = (async () => {
-const cached = scGet(SC_WORDS_KEY);
-if (Array.isArray(cached) && cached.length > 100) {
+const cached = scGet(cKey);
+if (Array.isArray(cached) && cached.length > 10) {
 WORDS = cached;
 fullLoaded = true;
 return;
 }
 try {
-const res = await fetch('/data/words.json');
+const res = await fetch(url);
 if (!res.ok) throw new Error(res.status);
 const raw = await res.json();
-const data = raw.map(e => ({ w: e[0], t: e[1], d: e[2], diff: e[3], borrowed: e[4], syl: e[5] ?? countSyllables(e[0]) }));
+const data = Array.isArray(raw[0])
+? raw.map(e => ({ w: e[0], t: e[1], d: e[2], diff: e[3], borrowed: e[4], syl: e[5] ?? countSyllables(e[0]) }))
+: raw.map(e => ({ w: e.w, t: e.t || 'noun', nt: e.nt, d: e.d || '', diff: e.diff || 'medium', borrowed: false, syl: countSyllables(e.w) }));
 WORDS = data;
 fullLoaded = true;
-scSet(SC_WORDS_KEY, data);
+scSet(cKey, data);
 } catch {
 }
 })();
@@ -264,6 +268,7 @@ const sizeby   = document.querySelector('input[name="sizeby"]:checked')?.value |
 const sizeCond = document.getElementById(config.sizeCondId)?.value || 'Any length';
 const sizeVal  = parseInt(document.getElementById(config.sizeValId)?.value) || 0;
 const useSize  = sizeCond !== 'Any length' && sizeVal > 0;
+const nounType = config.nounTypeId ? (document.getElementById(config.nounTypeId)?.value || 'all') : null;
 let pool = WORDS.filter(w => {
 if (type === 'noun'      && w.t !== 'noun')      return false;
 if (type === 'adjective' && w.t !== 'adjective') return false;
@@ -271,6 +276,7 @@ if (type === 'verb'      && w.t !== 'verb')      return false;
 if (type === 'adverb'    && w.t !== 'adverb')    return false;
 if (type === 'extended'  && w.diff !== 'hard')   return false;
 if (type === 'nonenglish'&& !w.borrowed)         return false;
+if (nounType && nounType !== 'all' && w.nt !== nounType) return false;
 if (diff !== 'all'       && w.diff !== diff)     return false;
 if (first && !w.w.toUpperCase().startsWith(first)) return false;
 if (last  && !w.w.toUpperCase().endsWith(last))    return false;
@@ -287,14 +293,7 @@ return true;
 const shuffled = [...pool].sort(() => Math.random() - 0.5);
 return shuffled.slice(0, Math.min(count, shuffled.length, MAX_WORDS));
 }
-function render() {
-const rawCount = parseInt(document.getElementById(config.countId)?.value, 10);
-if (isNaN(rawCount) || rawCount < 1 || rawCount > MAX_WORDS) {
-setCountError(true);
-return;
-}
-setCountError(false);
-current   = pick();
+function renderList() {
 defsShown = document.getElementById(config.defsId)?.checked !== false;
 const list = document.getElementById(config.listId);
 if (!list) return;
@@ -318,7 +317,7 @@ const safeD = wd.d.replace(/'/g, "\\'");
 li.innerHTML = `
 <div class="word-left">
 <div class="word-text">${wd.w}</div>
-<div class="word-pos">${wd.t}</div>
+<div class="word-pos">${wd.nt ? wd.nt + ' noun' : wd.t}</div>
 ${defsShown ? `<div class="word-def">${wd.d}</div>` : ''}
 ${showGrammarly
 ? `<div class="word-grammarly"><a href="https://grammarly.com" target="_blank" rel="noopener">Use in a sentence with Grammarly →</a></div>`
@@ -344,6 +343,16 @@ list.appendChild(li);
 });
 const wc = document.getElementById(config.countDisplayId);
 if (wc) wc.textContent = current.length + ' word' + (current.length !== 1 ? 's' : '') + ' generated';
+}
+function render() {
+const rawCount = parseInt(document.getElementById(config.countId)?.value, 10);
+if (isNaN(rawCount) || rawCount < 1 || rawCount > MAX_WORDS) {
+setCountError(true);
+return;
+}
+setCountError(false);
+current = pick();
+renderList();
 }
 function toggleSave(word, type, def, btn) {
 const idx = saved.findIndex(s => s.w === word);
@@ -416,6 +425,10 @@ ids.forEach((id, i) => {
 const el = document.getElementById(id);
 if (el) el.value = defaults[i];
 });
+if (config.nounTypeId) {
+const ntEl = document.getElementById(config.nounTypeId);
+if (ntEl) ntEl.value = 'all';
+}
 const defs = document.getElementById(config.defsId);
 if (defs) defs.checked = true;
 const sizeCond = document.getElementById(config.sizeCondId);
@@ -473,7 +486,15 @@ generate();
 }
 function initDefToggle() {
 const el = document.getElementById(config.defsId);
-if (el) el.addEventListener('change', render);
+if (!el) return;
+el.addEventListener('change', function() {
+defsShown = el.checked;
+const list = document.getElementById(config.listId);
+if (!list) return;
+list.querySelectorAll('.word-def, .word-grammarly').forEach(function(d) {
+d.style.display = defsShown ? '' : 'none';
+});
+});
 }
 const _render = render;
 function generate() {
@@ -617,6 +638,8 @@ lastId:         cfg.lastId         || 'ctrl-last',
 defsId:         cfg.defsId         || 'ctrl-defs',
 sizeCondId:     cfg.sizeCondId     || 'ctrl-size-cond',
 sizeValId:      cfg.sizeValId      || 'ctrl-size-val',
+nounTypeId:     cfg.nounTypeId     || null,
+dataUrl:        cfg.dataUrl        || null,
 };
 if (cfg.apiKeys) {
   API_KEYS.wordnik  = cfg.apiKeys.wordnik  || '';
