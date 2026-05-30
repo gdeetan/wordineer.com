@@ -715,6 +715,7 @@
 
   var allWords = SEED.slice();
   var currentWords = [];
+  var currentTotal = 0;
   var savedWords = [];
   var fullLoaded = false;
   var showDefs = true;
@@ -747,18 +748,12 @@
     return result;
   }
 
-  function renderList() {
-    var n = parseInt(document.getElementById('ctrl-count').value, 10);
-    if (isNaN(n) || n < 1 || n > 20) return;
-
-    var pool = getFiltered();
-    var total = pool.length;
-    currentWords = pickRandom(pool, n);
+  function redrawList() {
     showDefs  = document.getElementById('ctrl-defs').checked;
     showNotes = document.getElementById('ctrl-notes').checked;
 
     document.getElementById('word-count').textContent =
-      'Showing ' + currentWords.length + ' of ' + total + ' matching words';
+      'Showing ' + currentWords.length + ' of ' + currentTotal + ' matching words';
 
     var list = document.getElementById('word-list');
     if (currentWords.length === 0) {
@@ -784,6 +779,16 @@
         '</div>' +
       '</li>';
     }).join('');
+  }
+
+  function renderList() {
+    var n = parseInt(document.getElementById('ctrl-count').value, 10);
+    if (isNaN(n) || n < 1 || n > 20) return;
+
+    var pool = getFiltered();
+    currentTotal = pool.length;
+    currentWords = pickRandom(pool, n);
+    redrawList();
   }
 
   window.toggleSave = function (btn) {
@@ -838,18 +843,19 @@
     fullLoaded = true;
     fetch('/data/weird-words.json')
       .then(function (r) { return r.json(); })
-      .then(function (data) { allWords = data; renderList(); })
+      .then(function (data) { allWords = data; if (currentWords.length === 0) renderList(); })
       .catch(function () {});
   }
 
   document.getElementById('word-gen-btn').addEventListener('click', function () { loadFull(); validateAndGenerate(); });
   document.getElementById('word-regen-btn').addEventListener('click', function () { loadFull(); validateAndGenerate(); });
 
-  ['ctrl-cat', 'ctrl-defs', 'ctrl-notes'].forEach(function (id) {
+  document.getElementById('ctrl-cat').addEventListener('change', function () { loadFull(); validateAndGenerate(); });
+
+  ['ctrl-defs', 'ctrl-notes'].forEach(function (id) {
     var el = document.getElementById(id);
     if (!el) return;
-    el.addEventListener('change', function () { loadFull(); validateAndGenerate(); });
-    el.addEventListener('input',  function () { loadFull(); validateAndGenerate(); });
+    el.addEventListener('change', redrawList);
   });
 
   document.getElementById('ctrl-count').addEventListener('input',  validateAndGenerate);
