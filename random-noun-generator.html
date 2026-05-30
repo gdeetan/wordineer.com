@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.adsbygoogle = window.adsbygoogle || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  (function(w, d) {
+    var loaded = false;
+    var cfg = {
+      analyticsId: 'G-7DWH3EGM3Z',
+      adsClient: 'ca-pub-7200956978416233',
+      delay: 10000
+    };
+
+    function loadScript(src, attrs) {
+      var s = d.createElement('script');
+      s.async = true;
+      s.src = src;
+      if (attrs) {
+        Object.keys(attrs).forEach(function(key) {
+          s.setAttribute(key, attrs[key]);
+        });
+      }
+      d.head.appendChild(s);
+    }
+
+    function loadMarketing() {
+      if (loaded) return;
+      loaded = true;
+      gtag('js', new Date());
+      gtag('config', cfg.analyticsId);
+      loadScript('https://www.googletagmanager.com/gtag/js?id=' + cfg.analyticsId);
+      loadScript(
+        'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + cfg.adsClient,
+        { crossorigin: 'anonymous' }
+      );
+    }
+
+    function idleLoad() {
+      if ('requestIdleCallback' in w) {
+        w.requestIdleCallback(loadMarketing, { timeout: 5000 });
+      } else {
+        w.setTimeout(loadMarketing, cfg.delay);
+      }
+    }
+
+    ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function(eventName) {
+      w.addEventListener(eventName, loadMarketing, { once: true, passive: true });
+    });
+    w.addEventListener('load', function() {
+      w.setTimeout(idleLoad, cfg.delay);
+    }, { once: true });
+  })(window, document);
+</script>
+<meta name='impact-site-verification' value='32715504-1cfb-4324-bfc7-ae4cfa1591ea'>
+<link rel="preload" href="/fonts/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-sans-italic-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://wordineer.com/#website",
+      "name": "Wordineer",
+      "url": "https://wordineer.com",
+      "description": "Free online word tools for writers, students, and word game players — random word generator, name generators, word scramble, sentence generator, and more.",
+      "publisher": { "@id": "https://wordineer.com/#organization" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://wordineer.com/#organization",
+      "name": "Wordineer",
+      "url": "https://wordineer.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://wordineer.com/logo.png",
+        "width": 1254,
+        "height": 1254
+      },
+      "description": "Wordineer provides free online word tools for writers, students, and word game players."
+    }
+  ]
+}
+</script>
+<title>Random Noun Generator — Filter by Type, Instant Results | Wordineer</title>
+<meta name="description" content="Generate random nouns instantly. Filter by noun type (abstract, concrete, proper, collective), difficulty, and starting letter. Definitions included. Free.">
+<link rel="canonical" href="https://wordineer.com/random-noun-generator/">
+<meta property="og:type"        content="website">
+<meta property="og:site_name"   content="Wordineer">
+<meta property="og:title"       content="Random Noun Generator — Filter by Type, Instant Results | Wordineer">
+<meta property="og:description" content="Generate random nouns instantly. Filter by noun type (abstract, concrete, proper, collective), difficulty, and starting letter. Definitions included. Free.">
+<meta property="og:url"         content="https://wordineer.com/random-noun-generator/">
+<meta property="og:image"       content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a noun?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A noun is a word that names a person, place, thing, or idea. Nouns come in several types: concrete nouns name physical things you can sense (river, hammer), abstract nouns name ideas and feelings (freedom, grief), proper nouns name specific individuals or places (London, Everest), common nouns are everyday general words (dog, garden), and collective nouns name groups (flock, parliament)." }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between abstract and concrete nouns?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Concrete nouns refer to things that exist in the physical world and can be perceived by the senses — hammer, cathedral, river, ember. Abstract nouns refer to concepts, emotions, or qualities that exist in the mind — freedom, grief, ambition, velocity. Both are useful for writers: concrete nouns anchor a scene in physical reality; abstract nouns convey theme and emotional depth." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a collective noun?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A collective noun names a group of people, animals, or things as a single unit. Examples: a flock of birds, a parliament of owls, a murder of crows, a pod of whales, a pride of lions. Collective nouns are more vivid and precise than generic group words like 'a group of' or 'a bunch of'." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I filter nouns by type?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes — the Noun type dropdown lets you filter by Abstract, Concrete, Proper, Common, or Collective. Select any type and hit Generate. You can also combine this with the Difficulty filter and First letter filter for more precise results." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this tool free?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Completely free, forever. No account required, no limits, no paywalls." }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I save nouns I like?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Click the heart icon on any noun to save it to the Saved section at the bottom of the tool. When you're done, click 'Copy saved' to copy your entire saved list to the clipboard." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a proper noun?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A proper noun is the specific name of a particular person, place, organisation, or thing. Proper nouns are always capitalised. Examples: London, Monday, Everest, Amazon, Shakespeare. Use the Proper filter to generate proper nouns for character names, place names, and historical fiction research." }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Random Noun Generator",
+  "url": "https://wordineer.com/random-noun-generator/",
+  "description": "Generate random nouns instantly. Filter by noun type (abstract, concrete, proper, collective), difficulty, and starting letter. Definitions included. Free.",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@id": "https://wordineer.com/#organization" }
+}
+</script>
+
+<link rel="stylesheet" href="/styles/global.css?v=7">
+<style>
+/* ── Word Generator Tool Styles ── */
+.tool-wrap  { max-width:960px; margin:0 auto; padding:24px 24px 0; }
+.tool-card  { border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg); box-shadow:var(--shadow); }
+.tool-split { display:flex; }
+
+.ctrl       { width:220px; flex-shrink:0; padding:18px; border-right:1px solid var(--border-2); background:var(--bg-2); }
+.ctrl-row   { margin-bottom:14px; }
+.ctrl-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; display:block; margin-bottom:5px; }
+.ctrl-row input, .ctrl-row select { width:100%; padding:7px 10px; font-size:13px; font-family:inherit; border:1px solid var(--border); border-radius:7px; background:var(--bg); color:var(--text); appearance:none; outline:none; transition:border-color .15s; }
+.ctrl-row input:focus, .ctrl-row select:focus { border-color:var(--brand); }
+.count-error { display:none; font-size:11px; color:#E24B4A; margin-top:4px; }
+.count-error.show { display:block; }
+.ctrl-row input.input-error { border-color:#E24B4A !important; }
+.letter-row { display:flex; gap:6px; }
+.letter-row input { text-transform:uppercase; text-align:center; }
+.size-opts  { display:flex; gap:10px; margin-bottom:6px; }
+.size-opt   { display:flex; align-items:center; gap:4px; font-size:12px; color:var(--text-2); cursor:pointer; }
+.size-opt input { accent-color:var(--brand); cursor:pointer; }
+.size-ctrls { display:flex; gap:5px; }
+.size-ctrls select { flex:0 0 60%; font-size:12px; padding:6px 8px; min-width:0; }
+.size-ctrls input  { flex:0 0 calc(40% - 5px); font-size:12px; padding:6px 8px; text-align:center; min-width:0; width:auto; }
+.def-row    { display:flex; align-items:center; gap:8px; margin-bottom:14px; }
+.def-row label { font-size:12px; color:var(--text-2); cursor:pointer; }
+.toggle     { position:relative; width:32px; height:18px; flex-shrink:0; }
+.toggle input { opacity:0; width:0; height:0; }
+.toggle-sl  { position:absolute; cursor:pointer; inset:0; background:var(--border); border-radius:9px; transition:.2s; }
+.toggle input:checked + .toggle-sl { background:var(--brand); }
+.toggle-sl::before { content:''; position:absolute; width:14px; height:14px; left:2px; top:2px; background:white; border-radius:50%; transition:.2s; }
+.toggle input:checked + .toggle-sl::before { transform:translateX(14px); }
+.gen-btn    { width:100%; padding:10px 14px; background:var(--brand); color:white; border:none; border-radius:8px; font-size:14px; font-weight:600; font-family:inherit; cursor:pointer; transition:background .15s,transform .1s; letter-spacing:-.01em; }
+.gen-btn:hover { background:var(--brand-dark); }
+.gen-btn:active { transform:scale(.98); }
+.reset-btn  { display:block; width:100%; text-align:center; font-size:11px; color:var(--text-3); margin-top:8px; cursor:pointer; text-decoration:underline; text-underline-offset:2px; border:none; background:none; font-family:inherit; }
+.kbd        { text-align:center; font-size:10px; color:var(--text-3); margin-top:6px; }
+.kbd kbd    { background:var(--bg-3); border:1px solid var(--border); border-radius:3px; padding:1px 5px; font-size:10px; font-family:inherit; }
+
+.words-panel { flex:1; display:flex; flex-direction:column; overflow:hidden; min-height:320px; }
+.words-top  { display:flex; align-items:center; justify-content:space-between; padding:12px 16px; border-bottom:1px solid var(--border-2); }
+.words-count { font-size:12px; color:var(--text-3); }
+.words-actions { display:flex; gap:6px; }
+.act-btn    { font-size:12px; padding:5px 11px; border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:background .12s; }
+.act-btn:hover { background:var(--bg-2); }
+.word-list  { flex:1; overflow-y:auto; list-style:none; padding:0 16px; }
+.word-item  { display:flex; align-items:flex-start; justify-content:space-between; padding:10px 0; border-bottom:1px solid var(--border-2); gap:10px; animation:fadeIn .2s ease; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:none} }
+.word-item:last-child { border-bottom:none; }
+.word-left  { flex:1; }
+.word-text  { font-size:20px; font-weight:500; color:var(--text); line-height:1.2; letter-spacing:-.02em; }
+.word-pos   { font-size:11px; color:var(--text-3); margin-top:1px; font-style:italic; }
+.word-def   { font-size:12px; color:var(--text-2); margin-top:3px; line-height:1.4; }
+.word-grammarly { font-size:11px; margin-top:3px; }
+.word-grammarly a { color:var(--brand); text-decoration:underline; text-underline-offset:2px; }
+.word-right { display:flex; align-items:center; gap:4px; padding-top:3px; flex-shrink:0; }
+.icon-btn   { width:28px; height:28px; display:flex; align-items:center; justify-content:center; background:transparent; border:none; cursor:pointer; border-radius:5px; color:var(--text-3); transition:background .12s, color .12s; }
+.icon-btn:hover { background:var(--bg-2); color:var(--text); }
+.icon-btn svg { width:14px; height:14px; }
+.icon-btn.saved { color:#E24B4A; }
+.icon-btn.saved svg path { fill:#E24B4A; }
+
+.saved-section { border-top:1px solid var(--border); padding:12px 14px; background:var(--bg); }
+.saved-top { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:8px; }
+.saved-label { font-size:12px; font-weight:700; color:var(--text); }
+.saved-copy { border:1px solid var(--border); background:var(--bg); color:var(--brand); border-radius:7px; padding:5px 9px; font-size:11px; font-weight:600; cursor:pointer; }
+.saved-tags { display:flex; gap:5px; flex-wrap:wrap; min-height:22px; }
+.saved-tag { display:inline-flex; align-items:center; gap:4px; background:#F0F2FF; color:var(--brand); border-radius:999px; padding:4px 8px; font-size:11px; font-weight:600; }
+.saved-tag-remove { cursor:pointer; opacity:.65; }
+.saved-tag-remove:hover { opacity:1; }
+.saved-empty { color:var(--text-3); font-size:12px; }
+
+.mobile-more-toggle { display:none; width:100%; margin:-2px 0 14px; padding:9px 12px; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--brand); font-size:13px; font-weight:600; font-family:inherit; cursor:pointer; }
+.advanced-options { display:block; }
+.size-opt { position:relative; gap:7px; }
+.size-opt input { position:absolute; opacity:0; pointer-events:none; }
+.size-tick { width:18px; height:18px; border:1px solid var(--border); border-radius:5px; background:var(--bg); display:inline-flex; align-items:center; justify-content:center; transition:background .15s, border-color .15s; flex-shrink:0; }
+.size-tick::after { content:'✓'; font-size:13px; font-weight:700; color:white; line-height:1; opacity:0; transform:scale(.7); transition:opacity .15s, transform .15s; }
+.size-opt input:checked + .size-tick { background:var(--brand); border-color:var(--brand); }
+.size-opt input:checked + .size-tick::after { opacity:1; transform:scale(1); }
+.size-opt:hover .size-tick { border-color:var(--brand); }
+
+@media(max-width:700px){
+  .tool-wrap { padding:14px 16px 0; }
+  .tool-card { border-radius:12px; }
+  .ctrl { padding:16px; }
+  .mobile-more-toggle { display:block; }
+  .advanced-options { display:none; }
+  .advanced-options.is-open { display:block; }
+  .ctrl-row:first-child { margin-bottom:12px; }
+  .gen-btn { margin-top:0; }
+  .reset-btn, .kbd { display:none; }
+  .words-top { padding:10px 16px; }
+  .word-list { max-height:420px; overflow-y:auto; }
+  .word-text { font-size:19px; }
+  .tool-split { flex-direction:column; }
+  .ctrl { width:100%; border-right:none; border-bottom:1px solid var(--border-2); }
+  .size-ctrls select { flex:0 0 50%; }
+  .size-ctrls input  { flex:0 0 calc(50% - 5px); }
+  .hero { padding:12px 16px 12px; }
+  .hero-badge { margin-bottom:6px; }
+  .hero h1 { font-size:24px; }
+}
+</style>
+</head>
+
+<body>
+<nav class="nav">
+  <a class="nav-logo" href="/">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 15 15" fill="none"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </div>
+    Wordineer
+  </a>
+  <div class="nav-links">
+    <a href="/word-tools/">Tools</a>
+    <a href="/blog/">Blog</a>
+  </div>
+  <div>
+    <button class="hamburger" type="button" aria-label="All tools" aria-controls="mega" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mega" id="mega">
+  <div class="mega-inner">
+    <div class="mega-col">
+      <div class="mega-cat">Writing &amp; Vocabulary</div>
+      <a class="mega-link" href="/">Random Word Generator</a>
+      <a class="mega-link active" href="/random-noun-generator/">Random Noun Generator</a>
+      <a class="mega-link" href="/random-sentence-generator/">Random Sentence Generator</a>
+      <a class="mega-link" href="/random-paragraph-generator/">Random Paragraph Generator</a>
+      <a class="mega-link" href="/word-counter/">Word Counter</a>
+      <a class="mega-link mega-link--view-all" href="/word-tools/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Browse by Letter</div>
+      <a class="mega-link" href="/words-that-start-with/">Words by Letter (A–Z)</a>
+      <a class="mega-link" href="/words-that-start-with/a/">Words Starting with A</a>
+      <a class="mega-link" href="/words-that-start-with/s/">Words Starting with S</a>
+      <a class="mega-link" href="/words-that-start-with/q/">Words Starting with Q</a>
+      <a class="mega-link mega-link--view-all" href="/words-that-start-with/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Names by Origin</div>
+      <a class="mega-link" href="/random-spanish-name-generator/">Spanish Name Generator</a>
+      <a class="mega-link" href="/random-italian-name-generator/">Italian Name Generator</a>
+      <a class="mega-link" href="/random-japanese-name-generator/">Japanese Name Generator</a>
+      <a class="mega-link" href="/random-american-name-generator/">American Name Generator</a>
+      <a class="mega-link mega-link--view-all" href="/name-generators/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Other Name Generators</div>
+      <a class="mega-link" href="/character-name-generator/">Character Name Generator</a>
+      <a class="mega-link" href="/fantasy-name-generator/">Fantasy Name Generator</a>
+      <a class="mega-link" href="/business-name-generator/">Business Name Generator</a>
+      <a class="mega-link" href="/band-name-generator/">Band Name Generator</a>
+      <a class="mega-link mega-link--view-all" href="/other-generators/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Account &amp; Security</div>
+      <a class="mega-link" href="/username-generator/">Username Generator</a>
+      <a class="mega-link" href="/password-generator/">Password Generator</a>
+      <a class="mega-link" href="/passphrase-generator/">Passphrase Generator</a>
+      <a class="mega-link" href="/random-pin-generator/">Random PIN Generator</a>
+      <a class="mega-link mega-link--view-all" href="/account-tools/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Games &amp; fun</div>
+      <a class="mega-link" href="/random-number-generator/">Number Generator</a>
+      <a class="mega-link" href="/coin-flip/">Flip a Coin</a>
+      <a class="mega-link" href="/name-picker-wheel/">Name Picker Wheel</a>
+      <a class="mega-link" href="/dice-roller/">Dice Roller</a>
+      <a class="mega-link mega-link--view-all" href="/number-chance/">View all →</a>
+    </div>
+  </div>
+</div>
+
+
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/word-tools/">Word Tools</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Random Noun Generator</span>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free · No sign-up · Instant
+  </div>
+  <h1>Random noun generator</h1>
+  <p>Generate random English nouns instantly — filter by noun type, difficulty, and starting letter. The only noun generator with abstract, concrete, proper, and collective filters built in.</p>
+</div>
+<div class="tool-wrap">
+  <div class="tool-card">
+    <div class="tool-split">
+
+      <div class="ctrl">
+        <select id="ctrl-type" style="display:none"><option value="noun">noun</option></select>
+        <div class="ctrl-row">
+          <label class="ctrl-label" for="ctrl-count">Number of nouns</label>
+          <input type="number" id="ctrl-count" value="10" min="1" max="50" inputmode="numeric" aria-describedby="count-error">
+          <span class="count-error" id="count-error">Enter a number from 1 to 50</span>
+        </div>
+        <button type="button" class="mobile-more-toggle" id="mobile-more-toggle" aria-expanded="false" aria-controls="advanced-options">Toggle More Options</button>
+        <div class="advanced-options" id="advanced-options">
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="ctrl-noun-type">Noun type</label>
+            <select id="ctrl-noun-type">
+              <option value="all">All types</option>
+              <option value="abstract">Abstract</option>
+              <option value="concrete">Concrete</option>
+              <option value="proper">Proper</option>
+              <option value="common">Common</option>
+              <option value="collective">Collective</option>
+            </select>
+          </div>
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="ctrl-diff">Difficulty</label>
+            <select id="ctrl-diff">
+              <option value="all">All levels</option>
+              <option value="easy">Easy (common)</option>
+              <option value="medium">Medium</option>
+              <option value="hard">Advanced / rare</option>
+            </select>
+          </div>
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="ctrl-first">First letter</label>
+            <input type="text" id="ctrl-first" maxlength="1" placeholder="A" aria-label="First letter" style="text-transform:uppercase;text-align:center;">
+          </div>
+          <div class="def-row">
+            <label class="toggle" aria-label="Show definitions"><input type="checkbox" id="ctrl-defs" checked><span class="toggle-sl"></span></label>
+            <label for="ctrl-defs">Show definitions</label>
+          </div>
+        </div>
+        <button class="gen-btn" id="word-gen-btn">Generate nouns</button>
+        <button class="reset-btn" onclick="WORDINEER.reset()">Reset options</button>
+        <div class="kbd">Press <kbd>Space</kbd> to regenerate</div>
+        <div class="ad-sidebar">
+          <span class="ad-sidebar-tag">Ad</span>
+          <div class="ad-sidebar-logo">
+            <svg viewBox="0 0 32 32" fill="none" width="32" height="32"><circle cx="16" cy="16" r="14" fill="#15a249"/><path d="M10 16c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="16" r="2.5" fill="white"/></svg>
+            <span class="ad-sidebar-brand">Grammarly</span>
+          </div>
+          <div class="ad-sidebar-headline">Write with confidence</div>
+          <div class="ad-sidebar-body">Fix grammar, improve clarity, and choose the right words — everywhere you write.</div>
+          <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-sidebar-cta">Try free →</a>
+          <div class="ad-sidebar-sub">Free plan · No credit card</div>
+        </div>
+      </div>
+
+      <div class="words-panel">
+        <div class="words-top">
+          <span class="words-count" id="word-count">Generating…</span>
+          <div class="words-actions">
+            <button class="act-btn" onclick="WORDINEER.copyAll()">Copy all</button>
+            <button class="act-btn" id="word-regen-btn">Regenerate</button>
+          </div>
+        </div>
+        <ul class="word-list" id="word-list"></ul>
+      </div>
+
+    </div>
+
+    <div class="saved-section">
+      <div class="saved-top">
+        <span class="saved-label">Saved nouns <span id="saved-count" style="font-weight:400;opacity:.7">(0)</span></span>
+        <span class="saved-copy" onclick="WORDINEER.copySaved()">Copy saved</span>
+      </div>
+      <div class="saved-tags" id="saved-tags">
+        <span class="saved-empty">Click the heart on any noun to save it here</span>
+      </div>
+    </div>
+
+    <div class="aff-nudge" id="aff-nudge">
+      <div>
+        <div class="aff-nudge-title">Put your saved nouns to work</div>
+        <div class="aff-nudge-body">Grammarly helps you use new vocabulary naturally — checks grammar, tone and word choice. Free to start.</div>
+      </div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-nudge-cta">
+        Try free
+        <svg viewBox="0 0 10 10" fill="none"><path d="M2 5h6M6 3l2 2-2 2" stroke="white" stroke-width="1.2" stroke-linecap="round"/></svg>
+      </a>
+    </div>
+
+  </div>
+</div>
+<div class="ad-leaderboard">
+  <div class="ad-leaderboard-inner">
+    <span class="ad-tag">Advertisement · 728×90</span>
+    <div class="ad-mock-content">
+      <div class="ad-title">Grammarly — write with confidence. Grammar, tone &amp; clarity.</div>
+      <div class="ad-sub">Used by 30 million people. Works in Google Docs, Gmail, Word and more.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-mock-cta">Try Grammarly free</a>
+    </div>
+  </div>
+</div>
+<div class="content-wrap">
+  <div class="section">
+    <h2 class="section-title">More word tools</h2>
+    <p class="section-sub">Every word generator you need, all free</p>
+    <div class="tools-grid">
+      <a class="tool-item" href="/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="#534AB7" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="tool-name">Random word</div><div class="tool-desc">Filter by type, difficulty, length</div></a>
+      <a class="tool-item" href="/random-6-letter-word-generator/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h9M2 7h7M2 10h5" stroke="#534AB7" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="tool-name">6 Letter Word Generator</div><div class="tool-desc">Random 6-letter words with Scrabble scores and crossword helper.</div></a>
+      <a class="tool-item" href="/random-7-letter-word-generator/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h9M2 7h8M2 10h6" stroke="#534AB7" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="tool-name">7 Letter Word Generator</div><div class="tool-desc">Random 7-letter words — Scrabble bingos, crossword helper, and Scrabble scores.</div></a>
+      <a class="tool-item" href="/random-8-letter-word-generator/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h9M2 7h8M2 10h7" stroke="#534AB7" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="tool-name">8 Letter Word Generator</div><div class="tool-desc">Random 8-letter words — advanced vocabulary, crossword helper, and Scrabble scores.</div></a>
+      <a class="tool-item" href="/random-name-generator/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="3" width="9" height="7" rx="1.2" fill="#F8F7FF" stroke="#534AB7" stroke-width=".9"/><path d="M2.6 3.5l7.8 6M10.4 3.5l-7.8 6" stroke="#B44A61" stroke-width=".75" stroke-linecap="round"/><path d="M6.5 3.2v6.6M2.3 6.5h8.4" stroke="#534AB7" stroke-width="1.1" stroke-linecap="round"/></svg></div><div class="tool-name">Random name</div><div class="tool-desc">Generate first names, last names, and full names across cultures.</div></a>
+      <a class="tool-item" href="/random-english-name-generator/"><div class="tool-icon" style="background:#EEF6E8"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="3" width="9" height="7" rx="1.2" fill="#F7FFFC" stroke="#0F6E56" stroke-width=".9"/><path d="M2.6 4.4h7.8M2.6 6.2h7.8M2.6 8h7.8" stroke="#B23B4B" stroke-width=".75" stroke-linecap="round"/><rect x="2.6" y="3.6" width="3.7" height="3.5" rx=".5" fill="#0F6E56"/></svg></div><div class="tool-name">Random English Name</div><div class="tool-desc">England-focused first names, surnames, and full names.</div></a>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div>
+    <h2 class="section-title">Other tools</h2>
+    <p class="section-sub">Numbers, names, games and more</p>
+    <div class="other-grid">
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3h9M2 6.5h7M2 10h5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Writing &amp; Vocabulary</div><a class="other-link" href="/">Random Word Generator</a><a class="other-link" href="/random-sentence-generator/">Random Sentence Generator</a><a class="other-link" href="/random-paragraph-generator/">Random Paragraph Generator</a><a class="other-link" href="/word-counter/">Word Counter</a><a class="other-link other-link--view-all" href="/word-tools/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h3.5M2 7h9M2 10h6" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Browse by Letter</div><a class="other-link" href="/words-that-start-with/">Words by Letter (A–Z)</a><a class="other-link" href="/words-that-start-with/a/">Words Starting with A</a><a class="other-link" href="/words-that-start-with/s/">Words Starting with S</a><a class="other-link" href="/words-that-start-with/q/">Words Starting with Q</a><a class="other-link other-link--view-all" href="/words-that-start-with/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4.5" r="2.5" stroke="currentColor" stroke-width="1"/><path d="M1.5 11.5c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Names by Origin</div><a class="other-link" href="/random-spanish-name-generator/">Spanish Name Generator</a><a class="other-link" href="/random-italian-name-generator/">Italian Name Generator</a><a class="other-link" href="/random-japanese-name-generator/">Japanese Name Generator</a><a class="other-link" href="/random-american-name-generator/">American Name Generator</a><a class="other-link other-link--view-all" href="/name-generators/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="1.5" width="9" height="10" rx="1" stroke="currentColor" stroke-width="1"/><path d="M4 4.5h5M4 6.5h5M4 8.5h3" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Other Name Generators</div><a class="other-link" href="/character-name-generator/">Character Name Generator</a><a class="other-link" href="/fantasy-name-generator/">Fantasy Name Generator</a><a class="other-link" href="/business-name-generator/">Business Name Generator</a><a class="other-link" href="/band-name-generator/">Band Name Generator</a><a class="other-link other-link--view-all" href="/other-generators/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="3.5" y="5.5" width="6" height="5" rx="1" stroke="currentColor" stroke-width="1"/><path d="M5 5.5V4a1.5 1.5 0 013 0v1.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Account &amp; Security</div><a class="other-link" href="/password-generator/">Password Generator</a><a class="other-link" href="/passphrase-generator/">Passphrase Generator</a><a class="other-link" href="/username-generator/">Username Generator</a><a class="other-link" href="/random-pin-generator/">Random PIN Generator</a><a class="other-link" href="/account-tools/">All Account Tools →</a><a class="other-link other-link--view-all" href="/account-tools/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="1" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="1" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/></svg>Games &amp; fun</div><a class="other-link" href="/random-number-generator/">Number Generator</a><a class="other-link" href="/coin-flip/">Flip a Coin</a><a class="other-link" href="/name-picker-wheel/">Name Picker Wheel</a><a class="other-link" href="/dice-roller/">Dice Roller</a><a class="other-link other-link--view-all" href="/number-chance/">View all →</a></div>
+    </div>
+  </div>
+
+  <div class="ad-rect">
+    <span class="ad-tag">Advertisement · 336×280</span>
+    <div class="ad-rect-img"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4C10.3 4 4 10.3 4 18s6.3 14 14 14 14-6.3 14-14S25.7 4 18 4z" fill="white" opacity=".2"/><path d="M12 18c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="18" r="2.5" fill="white"/></svg></div>
+    <div class="ad-rect-content">
+      <div class="ad-rect-title">Grammarly — write with confidence</div>
+      <div class="ad-rect-body">Instantly improve grammar, spelling, clarity, and tone. Works everywhere you write online.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
+    </div>
+  </div>
+  <div class="divider"></div>
+
+<div class="explainer">
+  <h2>What is a random noun generator?</h2>
+  <p>A random noun generator pulls nouns at random from a curated list of English vocabulary. Unlike a generic word generator that returns any part of speech, this tool is noun-only — so every result is immediately usable as a person, place, thing, or idea. There is no need to discard verbs or adjectives from your results.</p>
+  <p>The noun-type filter is the standout feature. You can narrow results to abstract nouns for theme and concept brainstorming, concrete nouns for physical scene-building, proper nouns for character and place name research, or collective nouns when you need precise group language. Each filter changes the character of your results entirely, giving you a different tool for each creative challenge.</p>
+
+  <h2>Why use a random noun generator?</h2>
+
+  <h3>For writers and creatives</h3>
+  <p>Creative blocks usually happen when the mind circles the same familiar territory. A random noun interrupts that loop. Set the tool to abstract nouns and generate 10 — the results give you raw material for themes, internal conflict, and emotional texture. Switch to concrete nouns and you have a set of images to anchor a scene. The randomness is the point: it surfaces combinations and associations your trained instincts would skip over.</p>
+
+  <h3>For vocabulary building</h3>
+  <p>Toggle definitions on, set the difficulty filter to Medium or Hard, and work through the list one noun at a time. Every generated noun comes with its definition built in, so you can learn meaning and usage without leaving the page. Save the words you want to return to by clicking the heart icon, then copy your saved list when you're ready to study.</p>
+
+  <h3>For word games</h3>
+  <p>Pictionary, charades, and word association games all benefit from a noun-only list — every result is something drawable, actable, or describable. No rogue verbs or abstract modifiers to trip up the group. For a dedicated Pictionary experience with category-based difficulty filters, try the <a href="/pictionary-word-generator/">Pictionary word generator</a> instead.</p>
+
+  <h3>For classrooms and teachers</h3>
+  <p>Generate a noun vocabulary list in seconds. Filter by difficulty to match the level of your class — easy nouns for younger learners, hard or advanced nouns for upper secondary and university students. Mix noun types to create a complete exercise that covers the full taxonomy: common, proper, abstract, concrete, and collective.</p>
+
+  <h2>Types of nouns explained</h2>
+  <p>Understanding the noun-type filters makes the tool significantly more useful. Here is what each type means and when to use it.</p>
+
+  <h3>Abstract nouns</h3>
+  <p>Abstract nouns name ideas, concepts, qualities, and states that exist in the mind rather than in the physical world. Examples: freedom, grief, ambition, velocity, justice, nostalgia, courage. They are the language of theme and interiority. Use the abstract filter when you are brainstorming what your story is really about — the 10 nouns you generate might include the exact word that names the central conflict you've been circling. Abstract nouns are also useful for essays, philosophical writing, and any prose that needs to move between the particular and the universal.</p>
+
+  <h3>Concrete nouns</h3>
+  <p>Concrete nouns name physical things that can be perceived by the senses — seen, heard, touched, tasted, or smelled. Examples: hammer, cathedral, river, ember, cobblestone, lantern. They are the building blocks of vivid, sensory prose. Use the concrete filter when a scene feels too vague or too abstract — dropping in two or three specific concrete nouns will ground the reader in a physical reality and make the writing feel real. Fiction writers use concrete nouns to make metaphors land; poets use them to create imagery that sticks.</p>
+
+  <h3>Proper nouns</h3>
+  <p>Proper nouns are the specific names of particular people, places, organisations, days, and events. They are always capitalised. Examples: London, Monday, Everest, Amazon, Beethoven, Renaissance. Use the proper filter for character name research, historical fiction location scouting, or when you need a place name that carries cultural resonance. A character named after a real place — or a place that echoes a historical name — carries meaning without explanation.</p>
+
+  <h3>Common nouns</h3>
+  <p>Common nouns are the general, everyday words that name categories of people, places, and things rather than specific individuals. Examples: dog, garden, cloud, stone, teacher, river. They are the backbone of plain, accessible prose. Use the common filter for classroom vocabulary exercises, accessible writing, or when you want results that feel grounded and universal rather than exotic or specialised.</p>
+
+  <h3>Collective nouns</h3>
+  <p>Collective nouns name groups of people, animals, or things as a single unit. Examples: flock, parliament, murder, pod, colony, gaggle, phalanx. A "murder of crows" is more alive than "a group of crows" — collective nouns carry specificity and often a kind of poetry. They are underused in everyday writing, and a list of 10 gives you instantly quotable, vivid language. Use the collective filter when your prose needs a dose of precision and surprise.</p>
+
+  <h2>How to use this tool</h2>
+  <ol>
+    <li><strong>Choose your noun type and difficulty level</strong> in the left panel. Start with All types and All levels if you want broad results, or narrow down immediately for targeted output.</li>
+    <li><strong>Set how many nouns you want</strong> (up to 50) and optionally filter by first letter to constrain the alphabet if you're playing a letter-based game or need alliteration.</li>
+    <li><strong>Hit Generate</strong> (or press Space) — copy individual nouns with the copy icon, save favourites with the heart icon, or use Copy All to grab the full list at once.</li>
+  </ol>
+
+  <h2>Best practices for writers</h2>
+  <p>The tool gives you raw material. Here is how to get the most from it.</p>
+  <p>Use abstract nouns when exploring your story's themes. Generate 10 and read them slowly. Circle the two that resonate most strongly — they may name what you are actually writing about, even if you haven't consciously identified it yet.</p>
+  <p>Use concrete nouns to add physical texture to a scene that feels too vague or too interior. A single concrete noun — the right one — can transform a paragraph from abstract to vivid.</p>
+  <p>Mix easy and hard difficulty settings to vary your register. Everyday words alongside surprising or rare ones create writing that feels both accessible and alive. If everything is common, prose goes flat; if everything is rare, it becomes airless.</p>
+  <p>Generate 15, read through without judging, then save the ones that spark something. Discard the rest without guilt. The goal is not to use every word — it is to find the one that unlocks a thought you didn't know you were having.</p>
+  <p>Collective nouns are particularly underused. Even one list of 10 collective nouns will give you language precise and vivid enough to elevate any paragraph that involves groups, crowds, or animals. Try generating a list exclusively from the collective filter and reading it aloud — the specificity is striking.</p>
+</div>
+  <div class="divider"></div>
+
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">What is a noun?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">A noun is a word that names a person, place, thing, or idea. Nouns come in several types: concrete nouns name physical things you can sense (river, hammer), abstract nouns name ideas and feelings (freedom, grief), proper nouns name specific individuals or places (London, Everest), common nouns are everyday general words (dog, garden), and collective nouns name groups as a unit (flock, parliament, murder).</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What's the difference between abstract and concrete nouns?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Concrete nouns refer to things that exist in the physical world and can be perceived by the senses — hammer, cathedral, river, ember. Abstract nouns refer to concepts, emotions, or qualities that exist in the mind — freedom, grief, ambition, velocity. Both are useful for writers: concrete nouns anchor a scene in physical reality; abstract nouns convey theme and emotional depth.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What is a collective noun?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">A collective noun names a group of people, animals, or things as a single unit. Examples: a flock of birds, a parliament of owls, a murder of crows, a pod of whales, a pride of lions. Collective nouns are more vivid and precise than generic group words like "a group of" or "a bunch of" — and they often carry a poetic quality that makes prose more memorable.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I filter nouns by type?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes — the Noun type dropdown lets you filter by Abstract, Concrete, Proper, Common, or Collective. Select any type and hit Generate. You can also combine this with the Difficulty filter and First letter filter for more precise results.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Is this tool free?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Completely free, forever. No account required, no limits, no paywalls.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">How do I save nouns I like?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Click the heart icon on any noun to save it to the Saved section at the bottom of the tool. When you're done, click "Copy saved" to copy your entire saved list to the clipboard in one go.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What is a proper noun?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">A proper noun is the specific name of a particular person, place, organisation, or thing. Proper nouns are always capitalised. Examples: London, Monday, Everest, Amazon, Shakespeare. Use the Proper filter to generate proper nouns for character names, place names in fiction, or historical research.</div>
+  </div>
+</div>
+  <div class="divider"></div>
+
+<div>
+  <h2 class="section-title" style="margin-bottom:14px">Who uses this tool</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">Fiction Writers</div><div class="uc-body">Generate abstract nouns for themes, concrete nouns for setting detail, proper nouns for character names. One tool, every layer of your story.</div></div>
+    <div class="uc"><div class="uc-title">Students</div><div class="uc-body">Filter by difficulty to target your level. Every noun comes with its definition — vocabulary practice built right in.</div></div>
+    <div class="uc"><div class="uc-title">Game Nights</div><div class="uc-body">Instant Pictionary and charades words. Every result is drawable or actable — no rogue verbs or adverbs.</div></div>
+    <div class="uc"><div class="uc-title">Educators</div><div class="uc-body">Generate a noun list in seconds. Mix types and difficulties for a complete vocabulary exercise.</div></div>
+  </div>
+</div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="ad-footer-strip" style="margin-bottom:24px">
+      <span class="ad-tag">Advertisement · 468×60</span>
+      <div class="ad-fs-text"><strong>Grammarly Premium</strong> — Vocabulary suggestions, tone detector, full-sentence rewrites.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-footer-strip-cta">Try free</a>
+    </div>
+    <div class="footer-grid">
+      <div><div class="footer-col-title">Writing &amp; Vocabulary</div><a class="footer-link" href="/">Random Word Generator</a><a class="footer-link" href="/random-noun-generator/">Random Noun Generator</a><a class="footer-link" href="/random-sentence-generator/">Random Sentence Generator</a><a class="footer-link" href="/random-paragraph-generator/">Random Paragraph Generator</a><a class="footer-link" href="/word-counter/">Word Counter</a><a class="footer-link footer-link--view-all" href="/word-tools/">View all →</a></div>
+      <div><div class="footer-col-title">Browse by Letter</div><a class="footer-link" href="/words-that-start-with/">Words by Letter (A–Z)</a><a class="footer-link" href="/words-that-start-with/a/">Words Starting with A</a><a class="footer-link" href="/words-that-start-with/s/">Words Starting with S</a><a class="footer-link" href="/words-that-start-with/q/">Words Starting with Q</a><a class="footer-link footer-link--view-all" href="/words-that-start-with/">View all →</a></div>
+      <div><div class="footer-col-title">Names by Origin</div><a class="footer-link" href="/random-spanish-name-generator/">Spanish Name Generator</a><a class="footer-link" href="/random-italian-name-generator/">Italian Name Generator</a><a class="footer-link" href="/random-japanese-name-generator/">Japanese Name Generator</a><a class="footer-link" href="/random-american-name-generator/">American Name Generator</a><a class="footer-link footer-link--view-all" href="/name-generators/">View all →</a></div>
+      <div><div class="footer-col-title">Other Name Generators</div><a class="footer-link" href="/character-name-generator/">Character Name Generator</a><a class="footer-link" href="/fantasy-name-generator/">Fantasy Name Generator</a><a class="footer-link" href="/business-name-generator/">Business Name Generator</a><a class="footer-link" href="/band-name-generator/">Band Name Generator</a><a class="footer-link footer-link--view-all" href="/other-generators/">View all →</a></div>
+      <div><div class="footer-col-title">Account &amp; Security</div><a class="footer-link" href="/password-generator/">Password Generator</a><a class="footer-link" href="/passphrase-generator/">Passphrase Generator</a><a class="footer-link" href="/username-generator/">Username Generator</a><a class="footer-link" href="/random-pin-generator/">Random PIN Generator</a><a class="footer-link" href="/account-tools/">All Account Tools</a><a class="footer-link footer-link--view-all" href="/account-tools/">View all →</a></div>
+      <div><div class="footer-col-title">Games &amp; fun</div><a class="footer-link" href="/random-number-generator/">Number Generator</a><a class="footer-link" href="/coin-flip/">Flip a Coin</a><a class="footer-link" href="/name-picker-wheel/">Name Picker Wheel</a><a class="footer-link" href="/dice-roller/">Dice Roller</a><a class="footer-link footer-link--view-all" href="/number-chance/">View all →</a></div>
+    </div>
+    <div class="footer-bottom">
+      <div style="display:flex;align-items:center;gap:7px">
+        <div class="nav-logo-icon" style="width:22px;height:22px;border-radius:5px"><svg viewBox="0 0 15 15" fill="none" style="width:12px;height:12px"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <span style="font-size:14px;font-weight:600;color:var(--text)">Wordineer</span>
+      </div>
+      <span class="footer-copy">© 2026 Wordineer · Free word tools for everyone</span>
+      <div class="footer-meta"><a href="/about/">About</a><a href="/blog/">Blog</a><a href="/affiliate-disclosure/">Affiliate disclosure</a><a href="/privacy/">Privacy</a></div>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="/scripts/tool-engine.js?v=11"></script>
+<script>
+(function bindSharedWordineerMenu() {
+  const mega = document.getElementById('mega');
+  const hbg = document.querySelector('.hamburger');
+  if (!mega || !hbg) return;
+  if (hbg.dataset.menuBound === '1') return;
+  hbg.dataset.menuBound = '1';
+  hbg.onclick = null;
+  if (hbg.getAttribute('onclick')) hbg.removeAttribute('onclick');
+
+  function setMenu(open) {
+    mega.classList.toggle('open', open);
+    hbg.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+
+  setMenu(mega.classList.contains('open'));
+
+  hbg.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+    setMenu(!mega.classList.contains('open'));
+  }, true);
+
+  hbg.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+      setMenu(!mega.classList.contains('open'));
+    }
+  }, true);
+
+  document.addEventListener('click', function(e) {
+    if (mega.classList.contains('open') && !mega.contains(e.target) && !hbg.contains(e.target)) {
+      setMenu(false);
+    }
+  }, true);
+})();
+</script>
+
+<script>
+WORDINEER.init({
+  listId:         'word-list',
+  countId:        'ctrl-count',
+  countDisplayId: 'word-count',
+  typeId:         'ctrl-type',
+  nounTypeId:     'ctrl-noun-type',
+  diffId:         'ctrl-diff',
+  firstId:        'ctrl-first',
+  defsId:         'ctrl-defs',
+  dataUrl:        '/data/nouns.json',
+  apiKeys: {
+    wordnik: 'vzxbo7m8vl91xgsicsuk79k0pd2w1z3k4z7xl2sv9sje9akxh',
+    merriam: 'Y1c8533d7-23e6-4c3b-9c48-854066e8caff',
+  }
+});
+
+(function(){
+  const count = document.getElementById('ctrl-count');
+  const toggle = document.getElementById('mobile-more-toggle');
+  const advanced = document.getElementById('advanced-options');
+
+  function setCountError(show) {
+    const err = document.getElementById('count-error');
+    if (err) err.classList.toggle('show', show);
+    if (count) count.classList.toggle('input-error', show);
+  }
+
+  function validateAndGenerate() {
+    const raw = parseInt(count?.value, 10);
+    if (isNaN(raw) || raw < 1 || raw > 50) { setCountError(true); return; }
+    setCountError(false);
+    WORDINEER.generate();
+  }
+
+  document.getElementById('word-gen-btn')?.addEventListener('click', validateAndGenerate);
+  document.getElementById('word-regen-btn')?.addEventListener('click', validateAndGenerate);
+
+  if (count) {
+    count.addEventListener('input', validateAndGenerate);
+    count.addEventListener('change', validateAndGenerate);
+  }
+
+  ['ctrl-noun-type', 'ctrl-diff', 'ctrl-first', 'ctrl-defs'].forEach(function(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.addEventListener('change', validateAndGenerate);
+    el.addEventListener('input', validateAndGenerate);
+  });
+
+  if (toggle && advanced) {
+    toggle.addEventListener('click', function(){
+      const isOpen = advanced.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      toggle.textContent = isOpen ? 'Hide More Options' : 'Toggle More Options';
+    });
+  }
+})();
+</script>
+</body>
+</html>
