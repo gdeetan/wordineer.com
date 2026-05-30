@@ -234,6 +234,7 @@ fullLoadScheduled = true;
 const run = () => {
 loadWords().then(() => {
 if (currentIsSeedOnly() && !userGenerated) render();
+else if (current.length === 0) render();
 }).catch(() => {});
 };
 setTimeout(() => {
@@ -648,7 +649,11 @@ if (cfg.apiKeys) {
   API_KEYS.merriam  = cfg.apiKeys.merriam  || '';
 }
 render();
-scheduleFullDictionaryAfterFirstLoad();
+if (config.dataUrl) {
+  scheduleFullDictionary(0);
+} else {
+  scheduleFullDictionaryAfterFirstLoad();
+}
 scheduleLiveAugment('all', 12000);
 initFaq();
 initMega();
