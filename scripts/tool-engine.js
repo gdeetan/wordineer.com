@@ -273,6 +273,7 @@ const useSize  = sizeCond !== 'Any length' && sizeVal > 0;
 const nounType = config.nounTypeId ? (document.getElementById(config.nounTypeId)?.value || 'all') : null;
 const verbType = config.verbTypeId ? (document.getElementById(config.verbTypeId)?.value || 'all') : null;
 const adjType  = config.adjTypeId  ? (document.getElementById(config.adjTypeId)?.value  || 'all') : null;
+const advType  = config.advTypeId  ? (document.getElementById(config.advTypeId)?.value  || 'all') : null;
 let pool = WORDS.filter(w => {
 if (type === 'noun'      && w.t !== 'noun')      return false;
 if (type === 'adjective' && w.t !== 'adjective') return false;
@@ -283,6 +284,7 @@ if (type === 'nonenglish'&& !w.borrowed)         return false;
 if (nounType && nounType !== 'all' && w.nt !== nounType) return false;
 if (verbType && verbType !== 'all' && w.vt !== verbType) return false;
 if (adjType  && adjType  !== 'all' && w.at !== adjType)  return false;
+if (advType  && advType  !== 'all' && w.advType !== advType)  return false;
 if (diff !== 'all'       && w.diff !== diff)     return false;
 if (first && !w.w.toUpperCase().startsWith(first)) return false;
 if (last  && !w.w.toUpperCase().endsWith(last))    return false;
@@ -296,7 +298,10 @@ if (sizeCond === 'At most'  && measure >  sizeVal)  return false;
 }
 return true;
 });
-const shuffled = [...pool].sort(() => Math.random() - 0.5);
+const sortEl = config.sortId ? document.getElementById(config.sortId) : null;
+const shuffled = (sortEl?.checked)
+  ? [...pool].sort((a, b) => a.w.localeCompare(b.w))
+  : [...pool].sort(() => Math.random() - 0.5);
 return shuffled.slice(0, Math.min(count, shuffled.length, MAX_WORDS));
 }
 function renderList() {
@@ -646,6 +651,8 @@ sizeValId:      cfg.sizeValId      || 'ctrl-size-val',
 nounTypeId:     cfg.nounTypeId     || null,
 verbTypeId:     cfg.verbTypeId     || null,
 adjTypeId:      cfg.adjTypeId      || null,
+advTypeId:      cfg.advTypeId      || null,
+sortId:         cfg.sortId         || null,
 dataUrl:        cfg.dataUrl        || null,
 };
 if (cfg.apiKeys) {
