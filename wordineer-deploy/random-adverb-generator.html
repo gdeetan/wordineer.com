@@ -93,76 +93,32 @@
   ]
 }
 </script>
-<title>Word Unscramble — Find Every Word from Your Letters | Wordineer</title>
-<meta name="description" content="Enter up to 15 letters and instantly find every real word you can make. Use ? for blank tiles. Filter by length, starts with, ends with. Free Scrabble &amp; word game solver.">
-<link rel="canonical" href="https://wordineer.com/word-unscramble/">
+<title>Random Adverb Generator — Free Online Tool | Wordineer</title>
+<meta name="description" content="Generate random English adverbs instantly. Filter by type (manner, time, place, degree, frequency), difficulty, and starting letter. Definitions included — free, no sign-up.">
+<link rel="canonical" href="https://wordineer.com/random-adverb-generator/">
 <meta property="og:type"        content="website">
 <meta property="og:site_name"   content="Wordineer">
-<meta property="og:title"       content="Word Unscramble — Find Every Word from Your Letters | Wordineer">
-<meta property="og:description" content="Enter up to 15 letters and instantly find every real word you can make. Use ? for blank tiles. Free Scrabble and word game solver.">
-<meta property="og:url"         content="https://wordineer.com/word-unscramble/">
+<meta property="og:title"       content="Random Adverb Generator">
+<meta property="og:description" content="Generate random English adverbs with filters for type, difficulty, and starting letter. Definitions included.">
+<meta property="og:url"         content="https://wordineer.com/random-adverb-generator/">
 <meta property="og:image"       content="https://wordineer.com/og-image.png">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How do I unscramble letters into words?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Type your scrambled letters into the input box and click Find Words (or press Enter). The tool searches through tens of thousands of English words and returns every valid word that can be formed from your letters, grouped by word length from longest to shortest. You can enter up to 15 letters at once and use ? as a wildcard for blank tiles." }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I use this to solve Scrabble or Words With Friends?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Enter the letters on your rack — up to 15 at once. Add ? for each blank tile you have. The tool finds every valid word that can be formed from your letters and sorts results from longest to shortest. Toggle on Show Scrabble points to see tile values. Use Starts with and Ends with if you need to fit the word into a specific board position. You can switch between US English (NWL), UK English (SOWPODS), and the ENABLE word list to match the rules of your game." }
-    },
-    {
-      "@type": "Question",
-      "name": "What does the ? wildcard do?",
-      "acceptedAnswer": { "@type": "Answer", "text": "A ? acts as a blank tile — it can stand in for any letter. So entering aeirnt? will find all words that can be made from those six letters plus one wildcard. Each ? counts as one character toward the 15-letter limit. Using wildcards is especially useful for Scrabble and Words With Friends where blank tiles are common." }
-    },
-    {
-      "@type": "Question",
-      "name": "Which dictionary does the unscrambler use?",
-      "acceptedAnswer": { "@type": "Answer", "text": "You can choose from three dictionaries: US English (NWL), used in North American tournament Scrabble; UK English (SOWPODS), used in international Scrabble; and the ENABLE common-word list, which is a good middle ground for casual games and Words With Friends. Select your dictionary using the dropdown in the options panel." }
-    },
-    {
-      "@type": "Question",
-      "name": "How many letters can I unscramble at once?",
-      "acceptedAnswer": { "@type": "Answer", "text": "You can enter up to 15 letters at once. You can also mix in ? wildcard characters — each ? counts as one letter slot but can stand in for any letter of the alphabet. Results are grouped by length, longest first, so the most useful words for games like Scrabble surface at the top." }
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "Word Unscrambler",
-  "url": "https://wordineer.com/word-unscramble/",
-  "description": "Enter up to 15 letters and instantly find every real word you can make. Use ? for blank tiles. Filter by length, starts with, ends with. Free Scrabble & word game solver.",
-  "applicationCategory": "UtilityApplication",
-  "operatingSystem": "Web",
+  "name": "Random Adverb Generator",
+  "url": "https://wordineer.com/random-adverb-generator/",
+  "description": "Generate random English adverbs. Filter by adverb type, difficulty level, and starting letter. Definitions included.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
   "publisher": { "@id": "https://wordineer.com/#organization" }
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
-    { "@type": "ListItem", "position": 2, "name": "Word Tools", "item": "https://wordineer.com/word-tools/" },
-    { "@type": "ListItem", "position": 3, "name": "Word Unscrambler", "item": "https://wordineer.com/word-unscramble/" }
-  ]
 }
 </script>
 
 <link rel="stylesheet" href="/styles/global.css?v=8">
 <style>
-/* ── Shared tool layout ── */
+/* ── Word Generator Tool Styles ── */
 .tool-wrap  { max-width:960px; margin:0 auto; padding:24px 24px 0; }
 .tool-card  { border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg); box-shadow:var(--shadow); }
 .tool-split { display:flex; }
@@ -172,7 +128,18 @@
 .ctrl-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; display:block; margin-bottom:5px; }
 .ctrl-row input, .ctrl-row select { width:100%; padding:7px 10px; font-size:13px; font-family:inherit; border:1px solid var(--border); border-radius:7px; background:var(--bg); color:var(--text); appearance:none; outline:none; transition:border-color .15s; }
 .ctrl-row input:focus, .ctrl-row select:focus { border-color:var(--brand); }
-.def-row    { display:flex; align-items:center; gap:8px; margin-bottom:10px; }
+.count-error { display:none; font-size:11px; color:#E24B4A; margin-top:4px; }
+.count-error.show { display:block; }
+.ctrl-row input.input-error { border-color:#E24B4A !important; }
+.letter-row { display:flex; gap:6px; }
+.letter-row input { text-transform:uppercase; text-align:center; }
+.size-opts  { display:flex; gap:10px; margin-bottom:6px; }
+.size-opt   { display:flex; align-items:center; gap:4px; font-size:12px; color:var(--text-2); cursor:pointer; }
+.size-opt input { accent-color:var(--brand); cursor:pointer; }
+.size-ctrls { display:flex; gap:5px; }
+.size-ctrls select { flex:0 0 60%; font-size:12px; padding:6px 8px; min-width:0; }
+.size-ctrls input  { flex:0 0 calc(40% - 5px); font-size:12px; padding:6px 8px; text-align:center; min-width:0; width:auto; }
+.def-row    { display:flex; align-items:center; gap:8px; margin-bottom:14px; }
 .def-row label { font-size:12px; color:var(--text-2); cursor:pointer; }
 .toggle     { position:relative; width:32px; height:18px; flex-shrink:0; }
 .toggle input { opacity:0; width:0; height:0; }
@@ -183,48 +150,70 @@
 .gen-btn    { width:100%; padding:10px 14px; background:var(--brand); color:white; border:none; border-radius:8px; font-size:14px; font-weight:600; font-family:inherit; cursor:pointer; transition:background .15s,transform .1s; letter-spacing:-.01em; }
 .gen-btn:hover { background:var(--brand-dark); }
 .gen-btn:active { transform:scale(.98); }
-.gen-btn:disabled { opacity:.45; cursor:not-allowed; }
 .reset-btn  { display:block; width:100%; text-align:center; font-size:11px; color:var(--text-3); margin-top:8px; cursor:pointer; text-decoration:underline; text-underline-offset:2px; border:none; background:none; font-family:inherit; }
 .kbd        { text-align:center; font-size:10px; color:var(--text-3); margin-top:6px; }
 .kbd kbd    { background:var(--bg-3); border:1px solid var(--border); border-radius:3px; padding:1px 5px; font-size:10px; font-family:inherit; }
 
-.words-panel { flex:1; display:flex; flex-direction:column; overflow:hidden; }
+.words-panel { flex:1; display:flex; flex-direction:column; overflow:hidden; min-height:320px; }
 .words-top  { display:flex; align-items:center; justify-content:space-between; padding:12px 16px; border-bottom:1px solid var(--border-2); }
 .words-count { font-size:12px; color:var(--text-3); }
 .words-actions { display:flex; gap:6px; }
 .act-btn    { font-size:12px; padding:5px 11px; border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:background .12s; }
 .act-btn:hover { background:var(--bg-2); }
-.act-btn:disabled { opacity:.4; cursor:not-allowed; }
-
-/* ── Mobile advanced toggle ── */
-.ws-mobile-toggle   { display:none; width:100%; margin:-2px 0 14px; padding:9px 12px; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--brand); font-size:13px; font-weight:600; font-family:inherit; cursor:pointer; }
-.ws-advanced        { display:block; }
-.un-adv-top         { margin-top:10px; }
-
-/* ── Results ── */
-.ws-results-area    { flex:1; overflow-y:auto; padding:12px 16px; }
-.ws-results-status  { font-size:13px; color:var(--text-3); font-style:italic; padding:20px 0; text-align:center; }
-.ws-length-group    { margin-bottom:16px; animation:fadeIn .2s ease; }
-.ws-group-hdr       { font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:.06em; color:var(--text-3); margin-bottom:7px; }
-.ws-chips           { display:flex; flex-wrap:wrap; gap:5px; }
-.ws-chip            { font-size:13px; padding:4px 10px; background:var(--bg-2); border:1px solid var(--border); border-radius:20px; color:var(--text); display:flex; align-items:center; gap:5px; transition:background .12s; }
-.ws-chip:hover      { background:var(--bg-3); }
-.ws-pts             { font-size:10px; font-weight:700; background:var(--brand-light); color:var(--brand-dark); border-radius:9px; padding:1px 5px; }
-
+.word-list  { flex:1; overflow-y:auto; list-style:none; padding:0 16px; }
+.word-item  { display:flex; align-items:flex-start; justify-content:space-between; padding:10px 0; border-bottom:1px solid var(--border-2); gap:10px; animation:fadeIn .2s ease; }
 @keyframes fadeIn { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:none} }
+.word-item:last-child { border-bottom:none; }
+.word-left  { flex:1; }
+.word-text  { font-size:20px; font-weight:500; color:var(--text); line-height:1.2; letter-spacing:-.02em; }
+.word-pos   { font-size:11px; color:var(--text-3); margin-top:1px; font-style:italic; }
+.word-def   { font-size:12px; color:var(--text-2); margin-top:3px; line-height:1.4; }
+.word-grammarly { font-size:11px; margin-top:3px; }
+.word-grammarly a { color:var(--brand); text-decoration:underline; text-underline-offset:2px; }
+.word-right { display:flex; align-items:center; gap:4px; padding-top:3px; flex-shrink:0; }
+.icon-btn   { width:28px; height:28px; display:flex; align-items:center; justify-content:center; background:transparent; border:none; cursor:pointer; border-radius:5px; color:var(--text-3); transition:background .12s, color .12s; }
+.icon-btn:hover { background:var(--bg-2); color:var(--text); }
+.icon-btn svg { width:14px; height:14px; }
+.icon-btn.saved { color:#E24B4A; }
+.icon-btn.saved svg path { fill:#E24B4A; }
 
-/* ── explainer h3 ── */
-.explainer h3 { font-family:'DM Serif Display',serif; font-size:17px; font-weight:400; margin-bottom:6px; margin-top:18px; color:var(--text); }
+.saved-section { border-top:1px solid var(--border); padding:12px 14px; background:var(--bg); }
+.saved-top { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:8px; }
+.saved-label { font-size:12px; font-weight:700; color:var(--text); }
+.saved-copy { border:1px solid var(--border); background:var(--bg); color:var(--brand); border-radius:7px; padding:5px 9px; font-size:11px; font-weight:600; cursor:pointer; }
+.saved-tags { display:flex; gap:5px; flex-wrap:wrap; min-height:22px; }
+.saved-tag { display:inline-flex; align-items:center; gap:4px; background:#F0F2FF; color:var(--brand); border-radius:999px; padding:4px 8px; font-size:11px; font-weight:600; }
+.saved-tag-remove { cursor:pointer; opacity:.65; }
+.saved-tag-remove:hover { opacity:1; }
+.saved-empty { color:var(--text-3); font-size:12px; }
 
-/* ── Mobile ── */
-@media(max-width:640px){
+.mobile-more-toggle { display:none; width:100%; margin:-2px 0 14px; padding:9px 12px; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--brand); font-size:13px; font-weight:600; font-family:inherit; cursor:pointer; }
+.advanced-options { display:block; }
+.size-opt { position:relative; gap:7px; }
+.size-opt input { position:absolute; opacity:0; pointer-events:none; }
+.size-tick { width:18px; height:18px; border:1px solid var(--border); border-radius:5px; background:var(--bg); display:inline-flex; align-items:center; justify-content:center; transition:background .15s, border-color .15s; flex-shrink:0; }
+.size-tick::after { content:'✓'; font-size:13px; font-weight:700; color:white; line-height:1; opacity:0; transform:scale(.7); transition:opacity .15s, transform .15s; }
+.size-opt input:checked + .size-tick { background:var(--brand); border-color:var(--brand); }
+.size-opt input:checked + .size-tick::after { opacity:1; transform:scale(1); }
+.size-opt:hover .size-tick { border-color:var(--brand); }
+
+@media(max-width:700px){
   .tool-wrap { padding:14px 16px 0; }
+  .tool-card { border-radius:12px; }
+  .ctrl { padding:16px; }
+  .mobile-more-toggle { display:block; }
+  .advanced-options { display:none; }
+  .advanced-options.is-open { display:block; }
+  .ctrl-row:first-child { margin-bottom:12px; }
+  .gen-btn { margin-top:0; }
+  .reset-btn, .kbd { display:none; }
+  .words-top { padding:10px 16px; }
+  .word-list { max-height:420px; overflow-y:auto; }
+  .word-text { font-size:19px; }
   .tool-split { flex-direction:column; }
   .ctrl { width:100%; border-right:none; border-bottom:1px solid var(--border-2); }
-  .reset-btn, .kbd { display:none; }
-  .ws-mobile-toggle { display:block; margin-top:16px; }
-  .ws-advanced { display:none; }
-  .ws-advanced.is-open { display:block; }
+  .size-ctrls select { flex:0 0 50%; }
+  .size-ctrls input  { flex:0 0 calc(50% - 5px); }
   .hero { padding:12px 16px 12px; }
   .hero-badge { margin-bottom:6px; }
   .hero h1 { font-size:24px; }
@@ -256,7 +245,7 @@
       <div class="mega-cat">Writing &amp; Vocabulary</div>
       <a class="mega-link" href="/">Random Word Generator</a>
       <a class="mega-link" href="/random-sentence-generator/">Random Sentence Generator</a>
-      <a class="mega-link" href="/random-adverb-generator/">Random Adverb Generator</a>
+      <a class="mega-link active" href="/random-adverb-generator/">Random Adverb Generator</a>
       <a class="mega-link" href="/random-paragraph-generator/">Random Paragraph Generator</a>
       <a class="mega-link" href="/word-counter/">Word Counter</a>
       <a class="mega-link mega-link--view-all" href="/word-tools/">View all →</a>
@@ -311,71 +300,66 @@
     <span class="breadcrumb-sep">›</span>
     <a href="/word-tools/">Word Tools</a>
     <span class="breadcrumb-sep">›</span>
-    <span aria-current="page">Word Unscrambler</span>
+    <span aria-current="page">Random Adverb Generator</span>
   </div>
 </div>
 <div class="hero">
   <div class="hero-badge">
     <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
-    Free Word Tool
+    Free · No sign-up · Definitions included
   </div>
-  <h1>Word Unscramble</h1>
-  <p>Enter up to 15 letters and instantly find every real word hiding inside them. Use ? for blank tiles. Filter by length, starting letter, or ending. Works for Scrabble, Words With Friends, and classroom word jumbles.</p>
+  <h1>Random adverb generator</h1>
+  <p>Generate random English adverbs instantly — filter by adverb type, difficulty, and starting letter. The only adverb generator with manner, time, place, degree, and frequency filters built in.</p>
 </div>
 <div class="tool-wrap">
   <div class="tool-card">
     <div class="tool-split">
 
-      <!-- Left: controls -->
       <div class="ctrl">
+        <select id="ctrl-type" style="display:none"><option value="adverb">adverb</option></select>
         <div class="ctrl-row">
-          <label class="ctrl-label" for="un-input">Enter letters</label>
-          <input type="text" id="un-input" placeholder="Enter letters (? for blank)..." maxlength="15" autocomplete="off" autocorrect="off" spellcheck="false" style="text-transform:uppercase">
+          <label class="ctrl-label" for="ctrl-count">Number of adverbs</label>
+          <input type="number" id="ctrl-count" value="10" min="1" max="50" inputmode="numeric" aria-describedby="count-error">
+          <span class="count-error" id="count-error">Enter a number from 1 to 50</span>
         </div>
-        <button class="gen-btn" id="un-find-btn">Find words</button>
-        <button class="reset-btn" id="un-clear-btn">Clear</button>
-        <div class="kbd">Press <kbd>Enter</kbd> to search</div>
-
-        <button type="button" class="ws-mobile-toggle" id="un-mobile-toggle" aria-expanded="false" aria-controls="un-advanced">More options</button>
-        <div class="ws-advanced un-adv-top" id="un-advanced">
+        <button type="button" class="mobile-more-toggle" id="mobile-more-toggle" aria-expanded="false" aria-controls="advanced-options">Toggle More Options</button>
+        <div class="advanced-options" id="advanced-options">
           <div class="ctrl-row">
-            <label class="ctrl-label" for="un-dict">Dictionary</label>
-            <select id="un-dict">
-              <option value="nwl">US English (NWL)</option>
-              <option value="sowpods">UK English (SOWPODS)</option>
-              <option value="enable">Common Words (ENABLE)</option>
+            <label class="ctrl-label" for="ctrl-adverb-type">Adverb type</label>
+            <select id="ctrl-adverb-type">
+              <option value="all">All types</option>
+              <option value="manner">Manner</option>
+              <option value="time">Time</option>
+              <option value="place">Place</option>
+              <option value="degree">Degree</option>
+              <option value="frequency">Frequency</option>
             </select>
           </div>
           <div class="ctrl-row">
-            <label class="ctrl-label" for="un-starts">Starts with</label>
-            <input type="text" id="un-starts" maxlength="3" placeholder="e.g. re" autocomplete="off" autocorrect="off">
-          </div>
-          <div class="ctrl-row">
-            <label class="ctrl-label" for="un-ends">Ends with</label>
-            <input type="text" id="un-ends" maxlength="3" placeholder="e.g. ing" autocomplete="off" autocorrect="off">
-          </div>
-          <div class="ctrl-row">
-            <label class="ctrl-label" for="un-must">Must include</label>
-            <input type="text" id="un-must" maxlength="3" placeholder="e.g. a" autocomplete="off" autocorrect="off">
-          </div>
-          <div class="ctrl-row">
-            <label class="ctrl-label" for="un-length">Word length</label>
-            <select id="un-length">
-              <option value="0">Any length</option>
-              <option value="2">2 letters</option>
-              <option value="3">3 letters</option>
-              <option value="4">4 letters</option>
-              <option value="5">5 letters</option>
-              <option value="6">6 letters</option>
-              <option value="7">7+ letters</option>
+            <label class="ctrl-label" for="ctrl-diff">Difficulty</label>
+            <select id="ctrl-diff">
+              <option value="all">All levels</option>
+              <option value="easy">Easy (common)</option>
+              <option value="medium">Medium</option>
+              <option value="hard">Advanced / rare</option>
             </select>
+          </div>
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="ctrl-first">First letter</label>
+            <input type="text" id="ctrl-first" maxlength="1" placeholder="A" aria-label="First letter" style="text-transform:uppercase;text-align:center;">
           </div>
           <div class="def-row">
-            <label class="toggle"><input type="checkbox" id="un-scrabble-pts"><span class="toggle-sl"></span></label>
-            <label for="un-scrabble-pts">Show Scrabble points</label>
+            <label class="toggle" aria-label="Show definitions"><input type="checkbox" id="ctrl-defs" checked><span class="toggle-sl"></span></label>
+            <label for="ctrl-defs">Show definitions</label>
+          </div>
+          <div class="def-row">
+            <label class="toggle" aria-label="Sort A–Z"><input type="checkbox" id="ctrl-sort"><span class="toggle-sl"></span></label>
+            <label for="ctrl-sort">Sort A–Z</label>
           </div>
         </div>
-
+        <button class="gen-btn" id="word-gen-btn">Generate adverbs</button>
+        <button class="reset-btn" onclick="WORDINEER.reset()">Reset options</button>
+        <div class="kbd">Press <kbd>Space</kbd> to regenerate</div>
         <div class="ad-sidebar">
           <span class="ad-sidebar-tag">Ad</span>
           <div class="ad-sidebar-logo">
@@ -389,18 +373,15 @@
         </div>
       </div>
 
-      <!-- Right: results -->
       <div class="words-panel">
         <div class="words-top">
-          <span class="words-count" id="un-count-display">Enter letters and click Find words</span>
+          <span class="words-count" id="word-count">Generating…</span>
           <div class="words-actions">
-            <button class="act-btn" id="un-copy-all-btn">Copy all</button>
-            <button type="button" class="act-btn" id="un-regen-btn" onclick="document.getElementById('un-find-btn')?.click()">Regenerate</button>
+            <button class="act-btn" onclick="WORDINEER.copyAll()">Copy all</button>
+            <button class="act-btn" id="word-regen-btn">Regenerate</button>
           </div>
         </div>
-        <div class="ws-results-area" id="un-results">
-          <div class="ws-results-status">Enter up to 15 letters — use ? for blank tiles</div>
-        </div>
+        <ul class="word-list" id="word-list"></ul>
       </div>
 
     </div>
@@ -425,8 +406,8 @@
       <a class="tool-item" href="/random-noun-generator/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h9M2 7h6M2 10h8" stroke="#534AB7" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="tool-name">Random Noun Generator</div><div class="tool-desc">Generate random nouns — filter by type (abstract, concrete, proper, collective) and difficulty.</div></a>
       <a class="tool-item" href="/random-verb-generator/"><div class="tool-icon" style="background:#EEF6FE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h9M2 7h7M2 10h5" stroke="#2B6CB0" stroke-width="1.3" stroke-linecap="round"/><path d="M10 9l2 1.5-2 1.5" stroke="#2B6CB0" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="tool-name">Random Verb Generator</div><div class="tool-desc">Generate random verbs — filter by type (action, linking, auxiliary, modal) and difficulty.</div></a>
       <a class="tool-item" href="/random-adjective-generator/"><div class="tool-icon" style="background:#FEF3EE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h9M2 7h6M2 10h8" stroke="#C05621" stroke-width="1.3" stroke-linecap="round"/><path d="M11 9.5l1.5 1-1.5 1" stroke="#C05621" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="tool-name">Random Adjective Generator</div><div class="tool-desc">Generate random adjectives — filter by sentiment (positive, negative, neutral), difficulty, and starting letter. Definitions and comparative forms included.</div></a>
-      <a class="tool-item" href="/random-adverb-generator/"><div class="tool-icon" style="background:#E1F5EE"><svg viewBox="0 0 13 13" fill="none"><path d="M2.5 5.5h6M2.5 7.5h5" stroke="#1D9E75" stroke-width=".9" stroke-linecap="round"/><path d="M8 4l3 2.5-3 2.5" stroke="#1D9E75" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="tool-name">Random Adverb Generator</div><div class="tool-desc">Generate random adverbs — filter by type (manner, time, place, degree, frequency), difficulty, and starting letter. Definitions included.</div></a>
       <a class="tool-item" href="/random-6-letter-word-generator/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h9M2 7h7M2 10h5" stroke="#534AB7" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="tool-name">6 Letter Word Generator</div><div class="tool-desc">Random 6-letter words with Scrabble scores and crossword helper.</div></a>
+      <a class="tool-item" href="/random-7-letter-word-generator/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h9M2 7h8M2 10h6" stroke="#534AB7" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="tool-name">7 Letter Word Generator</div><div class="tool-desc">Random 7-letter words — Scrabble bingos, crossword helper, and Scrabble scores.</div></a>
     </div>
   </div>
   <div class="divider"></div>
@@ -455,27 +436,46 @@
   <div class="divider"></div>
 
 <div class="explainer">
-  <h2>How to unscramble letters into words</h2>
-  <p>Type your scrambled letters into the input box — up to 15 at once — and press Enter or click <strong>Find Words</strong>. The tool searches through tens of thousands of English words and returns every valid word that can be formed from your letters, grouped by word length from longest to shortest. The longest words appear at the top because they're typically the most valuable in word games.</p>
-  <p>Use <strong>?</strong> for a blank tile or wildcard. A single ? can stand in for any letter, so entering <em>aeirnt?</em> will surface words that need one extra letter beyond what you have. This makes the tool practical for real Scrabble and Words With Friends rack situations where blank tiles are common.</p>
+  <h2>What is a Random Adverb Generator?</h2>
+  <p>A random adverb generator pulls English adverbs at random from a curated dataset and presents them with optional definitions. Unlike a generic word generator that returns any part of speech, every result here is an adverb — no sorting through nouns or verbs. Five filters let you target exactly the kind of adverb you need: Adverb type (manner, time, place, degree, or frequency), Difficulty (easy, medium, hard), First letter, Sort A–Z, and a definitions toggle. Hit Generate or press Space to get a new batch instantly.</p>
 
-  <div class="aff-writing">
-    <div class="aff-sponsored">✦ Sponsored <span class="ad-pill">Ad</span></div>
-    <div class="aff-writing-body">Once you have your words, Grammarly makes sure your writing is clear, mistake-free, and compelling — right inside Google Docs, Word, or your browser.</div>
-    <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Write better with Grammarly — free to start <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
-  </div>
+  <h2>Why Use a Random Adverb Generator?</h2>
+  <p>Adverbs are one of the most underused — and most misused — word classes in English. A targeted generator helps you find the right one quickly, study them systematically, or use them as prompts for games and exercises.</p>
+  <ul>
+    <li><strong>ESL learners</strong> can filter by Easy difficulty and toggle definitions on to study common adverbs in context. Generating 10 at a time, reading the definitions, and using each in a sentence is a fast and measurable vocabulary exercise.</li>
+    <li><strong>Teachers</strong> can build focused grammar worksheets in seconds. Set the type filter to Manner for a list of manner adverbs, switch to Frequency for a second set, and use both to create a categorisation exercise that covers the full adverb taxonomy.</li>
+    <li><strong>Game players</strong> get instant prompts for charades, Pictionary, or word games that call for a specific part of speech. Filter by Manner for acting games where the adverb describes how an action is performed.</li>
+    <li><strong>Students</strong> writing essays or reports can use the Medium and Hard difficulty filters to find precise adverbs — "intermittently" instead of "sometimes," "profoundly" instead of "very much" — that elevate academic register.</li>
+    <li><strong>Editors</strong> reviewing repetitive prose can use the generator to find alternatives when a manuscript overuses a single adverb. Generate 20 manner adverbs and scan for candidates that carry the same meaning without the repetition.</li>
+  </ul>
 
-  <h2>Filters: starts with, ends with, must include</h2>
-  <p>The Starts with, Ends with, and Must include filters are especially useful for crossword solving. If you know a word ends in <em>-ing</em> and starts with <em>r</em>, set both filters and cut your results to just the relevant words. The Must include filter ensures every result contains a specific letter or short sequence — handy when you need a word with a high-value letter like Q or Z.</p>
-  <p>The word length dropdown lets you narrow results to a specific length. The "7+ letters" option shows only longer words, which is ideal when you need a high-scoring Scrabble play or want to fill a long crossword slot.</p>
+  <h2>The 5 Types of Adverbs Explained</h2>
+  <p>English adverbs divide into five functional categories. Understanding them makes both the filters and your own writing more precise.</p>
+  <ol>
+    <li><strong>Manner</strong> — Manner adverbs describe how an action is performed. Examples: gracefully, boldly. They answer the question "how?" and are the most common adverb type in fiction and everyday prose. "She moved gracefully through the crowd" tells the reader far more than "she moved through the crowd."</li>
+    <li><strong>Time</strong> — Time adverbs say when something happens. Examples: immediately, recently. They anchor events on a timeline and control pacing in narrative. "He had recently returned from the coast" creates backstory in five words; "he returned immediately" drives urgency.</li>
+    <li><strong>Place</strong> — Place adverbs indicate where an action occurs. Examples: nearby, elsewhere. They orient the reader spatially without requiring a full prepositional phrase. "She looked elsewhere" is tighter than "she looked in another direction."</li>
+    <li><strong>Degree</strong> — Degree adverbs modify adjectives, verbs, or other adverbs to indicate intensity or extent. Examples: extremely, barely. They are among the most powerful tools for precision: "barely audible" and "extremely audible" describe opposite ends of the same spectrum using one word each.</li>
+    <li><strong>Frequency</strong> — Frequency adverbs express how often something happens. Examples: rarely, always. They establish patterns and habits in prose and conversation. "She rarely spoke in meetings" tells the reader something about character without a longer character description.</li>
+  </ol>
+  <p>The Adverb type filter maps directly to these five categories. Select one to constrain your results — useful when you know what grammatical role you need to fill, or when a game or exercise specifies a particular type.</p>
 
-  <h3>Choosing the right dictionary</h3>
-  <p>The dictionary selector lets you switch between three word lists. <strong>US English (NWL)</strong> is used in North American tournament Scrabble and is the strictest list. <strong>UK English (SOWPODS)</strong> is used in international Scrabble and includes more words. <strong>Common Words (ENABLE)</strong> is a broader everyday list that works well for casual games and Words With Friends. When in doubt, ENABLE gives the most results.</p>
+  <h2>How It Works</h2>
+  <p>Open the left panel and choose your settings: pick an Adverb type if you want to narrow by category, set a Difficulty level, and optionally enter a First letter to constrain the alphabet. Adjust the count to anywhere between 1 and 50. Click Generate adverbs (or press Space) and your results appear immediately in the right panel. Toggle Show definitions on to see a short meaning for each adverb. Enable Sort A–Z to put the list in alphabetical order. When you have the results you want, click Copy all to send the full list to your clipboard in one step.</p>
 
-  <h3>Scrabble points</h3>
-  <p>Toggle on <strong>Show Scrabble points</strong> to see the tile value of every result — useful when you want the highest-scoring play, not just the longest word. A short word with a Q or Z can outscore a much longer word made of low-value tiles. Points are calculated using standard North American Scrabble tile values.</p>
+  <h2>Best Practices for Using Adverbs in Writing</h2>
+  <p>Adverbs are versatile but easy to overuse. These four practices help you get the most from them without letting them weigh down your prose.</p>
+  <ul>
+    <li><strong>Choose specific over generic</strong> — "She spoke hesitantly" is more vivid than "she spoke in a nervous way." The manner adverb does the work of a phrase in a single word. Use the Manner filter to find precise candidates when a sentence feels vague.</li>
+    <li><strong>Vary by type</strong> — A paragraph that relies only on manner adverbs can feel monotonous. Mix in a time adverb ("subsequently") or a degree adverb ("barely") to give the language texture. Generating from different type filters in sequence gives you a balanced palette.</li>
+    <li><strong>Place matters</strong> — Adverb position changes meaning. "Only she knew" (no one else knew) differs from "she only knew" (she merely knew, did not act). When you find a good adverb, try it in two or three positions in the sentence before settling on the most precise placement.</li>
+    <li><strong>Use difficulty levels intentionally</strong> — Easy adverbs (quickly, never, here) belong in dialogue and accessible prose. Hard adverbs (pellucidly, stertorously, assuredly) belong in literary fiction or academic writing where a more educated register is expected. Matching difficulty to context prevents prose that feels either too plain or artificially elevated.</li>
+  </ul>
 
-  <p>Also see our <a href="/word-scramble/"><strong>Word Scramble</strong></a> tool if you want to scramble a word for puzzle-making or generate printable worksheets for a classroom.</p>
+  <h2>How to Avoid Adverb Overuse</h2>
+  <p>The most common writing advice about adverbs is "use them sparingly" — but that rule needs context. The problem is not adverbs themselves; it is adverbs propping up weak verbs. "She walked quickly" can almost always be replaced by "she hurried" or "she strode." When an adverb is doing structural repair on a weak verb, replace both with a stronger verb instead.</p>
+  <p>The cases where adverbs are the right choice: when the manner genuinely adds information that the verb alone cannot carry ("she smiled sadly" — a smile that is also sad is a specific emotional register); when modifying an adjective or another adverb ("barely visible," "surprisingly quickly"); and in dialogue, where frequency and time adverbs reflect natural speech patterns ("I never said that," "I'll do it immediately").</p>
+  <p>Use this generator to find alternatives when a manuscript overuses one adverb. Generate 20 manner adverbs, scan for synonyms or near-synonyms, and rotate through them across a longer piece. The variety will make the writing feel more alive without requiring you to cut adverbs entirely.</p>
 </div>
   <div class="divider"></div>
 
@@ -483,39 +483,44 @@
   <h2 class="faq-title">Frequently asked questions</h2>
 
   <div class="faq-item open">
-    <div class="faq-q"><span class="faq-q-text">How do I unscramble letters into words?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Type your letters into the input box and press Enter or click <strong>Find Words</strong>. The tool searches through tens of thousands of English words and returns every valid word that can be formed from your letters, grouped by length from longest to shortest. You can enter up to 15 letters and use ? as a wildcard for any blank tile.</div>
+    <div class="faq-q"><span class="faq-q-text">What's the difference between an adverb and an adjective?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Adjectives modify nouns ("a <em>quick</em> response"). Adverbs modify verbs, adjectives, or other adverbs ("she responded <em>quickly</em>"). The same root word often appears in both forms — "quick" (adjective) becomes "quickly" (adverb). A reliable test: if the word answers "how?", "when?", "where?", or "how often?" it's an adverb.</div>
   </div>
 
   <div class="faq-item">
-    <div class="faq-q"><span class="faq-q-text">Can I use this to solve Scrabble or Words With Friends?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Yes. Enter the letters on your rack — up to 15 at once. Add <strong>?</strong> for each blank tile you have. The tool finds every valid word that can be formed from your letters and sorts results from longest to shortest. Toggle on <strong>Show Scrabble points</strong> to see tile values. Use Starts with and Ends with if you need to fit the word into a specific board position. You can switch between US English (NWL), UK English (SOWPODS), and the ENABLE word list to match the rules of your game.</div>
+    <div class="faq-q"><span class="faq-q-text">Can adverbs modify other adverbs?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes. Degree adverbs like "very," "quite," and "barely" commonly stack on other adverbs: "She runs <em>incredibly</em> quickly." "He arrived <em>almost</em> immediately." This is grammatically correct and often more precise than a single word, but use it sparingly — stacking multiple adverbs in one sentence usually signals a verb that needs replacing.</div>
   </div>
 
   <div class="faq-item">
-    <div class="faq-q"><span class="faq-q-text">What does the ? wildcard do?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">A ? acts as a blank tile — it can stand in for any letter of the alphabet. So entering <em>aeirnt?</em> will find all words that can be made from those six letters plus one wildcard. Each ? counts as one character toward the 15-letter limit. Blank-tile support makes the tool practical for real Scrabble situations where blanks are common.</div>
+    <div class="faq-q"><span class="faq-q-text">Why should I vary the adverbs I use?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Repetition is the most common cause of dull prose. If every action in your writing happens "quickly" or "suddenly," the reader stops registering those words. Varying across manner, degree, and frequency adverbs keeps readers engaged and gives your language texture.</div>
   </div>
 
   <div class="faq-item">
-    <div class="faq-q"><span class="faq-q-text">Which dictionary does the unscrambler use?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">You can choose from three dictionaries using the dropdown in the options panel: <strong>US English (NWL)</strong>, used in North American tournament Scrabble; <strong>UK English (SOWPODS)</strong>, used in international Scrabble; and the <strong>ENABLE</strong> common-word list, a good middle ground for casual games and Words With Friends.</div>
+    <div class="faq-q"><span class="faq-q-text">How does the difficulty filter work?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><strong>Easy</strong> words are common, high-frequency adverbs that most native speakers recognize immediately (quickly, never, here). <strong>Medium</strong> words are less common but widely understood (tenaciously, intermittently, profoundly). <strong>Hard</strong> words are rare, literary, or technical — useful for academic writing or vocabulary building but likely to puzzle a general audience.</div>
   </div>
 
   <div class="faq-item">
-    <div class="faq-q"><span class="faq-q-text">How many letters can I unscramble at once?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Up to 15 letters at once. You can also mix in <strong>?</strong> wildcard characters — each ? counts as one letter slot but can stand in for any letter. So entering 10 regular letters plus 2 wildcards (12 characters total) will find words up to 12 letters long. Results are grouped by length, longest first, so the most useful words surface at the top.</div>
+    <div class="faq-q"><span class="faq-q-text">What does the adverb type filter do?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">It restricts results to one grammatical category. Select <strong>Manner</strong> to get words like "gracefully" and "boldly" (how). Select <strong>Frequency</strong> for words like "rarely" and "always" (how often). This is useful when you know what kind of modifier you need — for example, a game that asks for a manner adverb specifically.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Is this tool free to use?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes, completely free. No sign-up, no account, no usage limits. The tool runs entirely in your browser — nothing is sent to a server.</div>
   </div>
 </div>
   <div class="divider"></div>
 
-<div>
-  <h2 class="section-title" style="margin-bottom:14px">Who uses Wordineer</h2>
+<div class="who">
+  <h2>Who uses this tool?</h2>
   <div class="uc-grid">
-    <div class="uc"><div class="uc-title">Scrabble &amp; word game players</div><div class="uc-body">Find every word hiding in your rack letters. Filter by length, starting letter, or switch on Scrabble points to find the highest-scoring play.</div></div>
-    <div class="uc"><div class="uc-title">Crossword solvers</div><div class="uc-body">Know the length and a few letters? Use Starts with, Ends with, and Must include to narrow results to exactly what fits your grid.</div></div>
-    <div class="uc"><div class="uc-title">Students</div><div class="uc-body">Stuck on a word jumble or classroom puzzle? Enter your scrambled letters and see every possible word, sorted from longest to shortest.</div></div>
-    <div class="uc"><div class="uc-title">Puzzle makers</div><div class="uc-body">Verify that a scrambled set of letters actually contains the words you intend before handing out a puzzle to players or students.</div></div>
+    <div class="uc"><div class="uc-title">Fiction Writers</div><div class="uc-body">Generate manner and degree adverbs to vary sentence rhythm. Filter by difficulty to match your prose register — casual for dialogue, advanced for literary fiction.</div></div>
+    <div class="uc"><div class="uc-title">Students &amp; ESL Learners</div><div class="uc-body">Filter by difficulty to target your level. Every adverb comes with a definition — vocabulary practice and grammar study in one tool.</div></div>
+    <div class="uc"><div class="uc-title">Teachers</div><div class="uc-body">Build vocabulary lists and grammar exercises in seconds. Use the type filter to create worksheets focused on a single adverb category.</div></div>
+    <div class="uc"><div class="uc-title">Game Players</div><div class="uc-body">Instant prompts for word games, Pictionary, and charades. Generate a batch, copy all, and you're ready.</div></div>
   </div>
 </div>
 </div>
@@ -591,277 +596,65 @@
 </script>
 
 <script>
-const WORD_UNSCRAMBLER = (() => {
+WORDINEER.init({
+  listId:         'word-list',
+  countId:        'ctrl-count',
+  countDisplayId: 'word-count',
+  typeId:         'ctrl-type',
+  advTypeId:      'ctrl-adverb-type',
+  diffId:         'ctrl-diff',
+  firstId:        'ctrl-first',
+  defsId:         'ctrl-defs',
+  sortId:         'ctrl-sort',
+  dataUrl:        '/data/adverbs.json',
+  apiKeys: {
+    wordnik: 'vzxbo7m8vl91xgsicsuk79k0pd2w1z3k4z7xl2sv9sje9akxh',
+    merriam: 'Y1c8533d7-23e6-4c3b-9c48-854066e8caff',
+  }
+});
 
-  /* ── Dictionary state ── */
-  let DICT = [];
-  let dictLoaded = false;
-  let dictLoadPromise = null;
-  let dictLoadScheduled = false;
-  let dictLoadTimer = null;
+(function(){
+  const count = document.getElementById('ctrl-count');
+  const toggle = document.getElementById('mobile-more-toggle');
+  const advanced = document.getElementById('advanced-options');
 
-  /* ── Scrabble tile values ── */
-  const TILE = {a:1,b:3,c:3,d:2,e:1,f:4,g:2,h:4,i:1,j:8,k:5,l:1,m:3,n:1,o:1,p:3,q:10,r:1,s:1,t:1,u:1,v:4,w:4,x:8,y:4,z:10};
-
-  function scrabbleScore(word) {
-    return word.split('').reduce((s, c) => s + (TILE[c] || 0), 0);
+  function setCountError(show) {
+    const err = document.getElementById('count-error');
+    if (err) err.classList.toggle('show', show);
+    if (count) count.classList.toggle('input-error', show);
   }
 
-  function esc(s) {
-    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  function validateAndGenerate() {
+    const raw = parseInt(count?.value, 10);
+    if (isNaN(raw) || raw < 1 || raw > 50) { setCountError(true); return; }
+    setCountError(false);
+    WORDINEER.generate();
   }
 
-  function showToast(msg) {
-    const t = document.getElementById('toast');
-    if (!t) return;
-    t.textContent = msg;
-    t.classList.add('show');
-    setTimeout(() => t.classList.remove('show'), 2000);
+  document.getElementById('word-gen-btn')?.addEventListener('click', validateAndGenerate);
+  document.getElementById('word-regen-btn')?.addEventListener('click', validateAndGenerate);
+
+  if (count) {
+    count.addEventListener('input', validateAndGenerate);
   }
 
-  function copyText(text) {
-    navigator.clipboard?.writeText(text);
-    showToast('Copied!');
-  }
+  ['ctrl-adverb-type', 'ctrl-diff', 'ctrl-sort'].forEach(function(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.addEventListener('change', validateAndGenerate);
+  });
 
-  async function loadDictionary() {
-    if (dictLoaded) return dictLoadPromise || Promise.resolve();
-    if (dictLoadPromise) return dictLoadPromise;
-    dictLoadPromise = (async function() {
-      try {
-        const res = await fetch('/data/dictionary.json');
-        if (!res.ok) throw 0;
-        DICT = await res.json();
-        dictLoaded = true;
-      } catch {
-        try {
-          const res = await fetch('/data/words.json');
-          if (!res.ok) throw 0;
-          const raw = await res.json();
-          DICT = Array.isArray(raw)
-            ? raw.map(e => (typeof e === 'string' ? e : (Array.isArray(e) ? e[0] : (e.w || ''))).toLowerCase()).filter(w => w.length >= 2)
-            : [];
-          dictLoaded = true;
-        } catch {
-          dictLoadPromise = null;
-          dictLoadScheduled = false;
-        }
-      }
-    })();
-    return dictLoadPromise;
-  }
+  const firstEl = document.getElementById('ctrl-first');
+  if (firstEl) firstEl.addEventListener('input', validateAndGenerate);
 
-  function scheduleDictionaryLoad(delay) {
-    const wait = delay || 0;
-    if (dictLoaded) return;
-    if (dictLoadScheduled) {
-      if (wait > 0 || !dictLoadTimer) return;
-      clearTimeout(dictLoadTimer);
-    }
-    dictLoadScheduled = true;
-    dictLoadTimer = setTimeout(function() {
-      dictLoadTimer = null;
-      const run = function() { loadDictionary().catch(function() {}); };
-      if ('requestIdleCallback' in window) {
-        window.requestIdleCallback(run, { timeout: 5000 });
-      } else {
-        run();
-      }
-    }, wait);
-  }
-
-  function scheduleDictionaryLoadAfterFirstLoad() {
-    const schedule = function() { scheduleDictionaryLoad(3500); };
-    if (document.readyState === 'complete') {
-      schedule();
-    } else {
-      window.addEventListener('load', schedule, { once: true });
-    }
-  }
-
-  function canFormWord(word, inputCounts, wildcards) {
-    const needed = {};
-    for (const ch of word) needed[ch] = (needed[ch] || 0) + 1;
-    let extra = 0;
-    for (const ch in needed) {
-      const have = inputCounts[ch] || 0;
-      if (have < needed[ch]) extra += needed[ch] - have;
-    }
-    return extra <= wildcards;
-  }
-
-  let unscrambleResults = [];
-
-  async function doFindWords() {
-    const rawInput = (document.getElementById('un-input')?.value || '').toLowerCase().replace(/[^a-z?]/g, '');
-    if (!rawInput) {
-      document.getElementById('un-count-display').textContent = 'Enter letters and click Find words';
-      document.getElementById('un-results').innerHTML = '<div class="ws-results-status">Enter up to 15 letters — use ? for blank tiles</div>';
-      unscrambleResults = [];
-      return;
-    }
-
-    const countEl = document.getElementById('un-count-display');
-    if (countEl) countEl.textContent = dictLoaded ? 'Searching…' : 'Loading dictionary...';
-
-    if (!dictLoaded) await loadDictionary();
-
-    if (!DICT.length) {
-      document.getElementById('un-results').innerHTML = '<div class="ws-results-status">Dictionary unavailable — please try again shortly</div>';
-      if (countEl) countEl.textContent = 'Dictionary not loaded';
-      return;
-    }
-
-    const wildcards = (rawInput.match(/\?/g) || []).length;
-    const letters = rawInput.replace(/\?/g, '');
-    const maxLen = rawInput.length;
-
-    const inputCounts = {};
-    for (const ch of letters) inputCounts[ch] = (inputCounts[ch] || 0) + 1;
-
-    const lenFilter = parseInt(document.getElementById('un-length')?.value || '0', 10);
-    const startsWith = (document.getElementById('un-starts')?.value || '').toLowerCase().replace(/[^a-z]/g, '');
-    const endsWith   = (document.getElementById('un-ends')?.value || '').toLowerCase().replace(/[^a-z]/g, '');
-    const mustIncl   = (document.getElementById('un-must')?.value || '').toLowerCase().replace(/[^a-z]/g, '');
-    const showPts    = document.getElementById('un-scrabble-pts')?.checked;
-
-    const found = [];
-    for (const word of DICT) {
-      const wl = word.length;
-      if (wl < 2 || wl > maxLen) continue;
-      if (lenFilter === 7 && wl < 7) continue;
-      if (lenFilter > 0 && lenFilter < 7 && wl !== lenFilter) continue;
-      if (startsWith && !word.startsWith(startsWith)) continue;
-      if (endsWith   && !word.endsWith(endsWith)) continue;
-      if (mustIncl   && !word.includes(mustIncl)) continue;
-      if (!canFormWord(word, inputCounts, wildcards)) continue;
-      found.push(word);
-    }
-
-    unscrambleResults = found;
-    renderResults(found, showPts);
-  }
-
-  function renderResults(words, showPts) {
-    const resultsEl = document.getElementById('un-results');
-    const countEl   = document.getElementById('un-count-display');
-
-    if (!words.length) {
-      resultsEl.innerHTML = '<div class="ws-results-status">No words found — try removing a filter or adding a ? for a blank tile</div>';
-      if (countEl) countEl.textContent = '0 words found';
-      return;
-    }
-
-    if (countEl) countEl.textContent = words.length + ' word' + (words.length !== 1 ? 's' : '') + ' found';
-
-    const groups = {};
-    for (const w of words) {
-      const l = w.length;
-      if (!groups[l]) groups[l] = [];
-      groups[l].push(w);
-    }
-
-    const lengths = Object.keys(groups).map(Number).sort((a, b) => b - a);
-    let html = '';
-    for (const len of lengths) {
-      const gw = groups[len].slice().sort();
-      html += '<div class="ws-length-group">';
-      html += '<div class="ws-group-hdr">' + len + ' letter' + (len !== 1 ? 's' : '') + ' <span style="font-weight:400;opacity:.7">(' + gw.length + ')</span></div>';
-      html += '<div class="ws-chips">';
-      for (const w of gw) {
-        html += '<span class="ws-chip">' + esc(w);
-        if (showPts) html += '<span class="ws-pts">' + scrabbleScore(w) + '</span>';
-        html += '</span>';
-      }
-      html += '</div></div>';
-    }
-    resultsEl.innerHTML = html;
-  }
-
-  function clearAll() {
-    const inp = document.getElementById('un-input');
-    if (inp) { inp.value = ''; inp.focus(); }
-    unscrambleResults = [];
-    document.getElementById('un-count-display').textContent = 'Enter letters and click Find words';
-    document.getElementById('un-results').innerHTML = '<div class="ws-results-status">Enter up to 15 letters — use ? for blank tiles</div>';
-  }
-
-  function runUnscrambleSearch() {
-    scheduleDictionaryLoad(0);
-    doFindWords();
-  }
-
-  function init() {
-    scheduleDictionaryLoadAfterFirstLoad();
-
-    const unInput = document.getElementById('un-input');
-    unInput?.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); runUnscrambleSearch(); } });
-    unInput?.addEventListener('input', function() {
-      const pos = this.selectionStart;
-      const cleaned = this.value.replace(/[^a-zA-Z?]/g, '').slice(0, 15);
-      if (this.value !== cleaned) {
-        this.value = cleaned;
-        this.setSelectionRange(Math.min(pos, cleaned.length), Math.min(pos, cleaned.length));
-      }
-    });
-
-    const liveFilterIds = ['un-starts', 'un-ends', 'un-must'];
-    liveFilterIds.forEach(id => {
-      const input = document.getElementById(id);
-      input?.addEventListener('input', function() {
-        const pos = this.selectionStart;
-        const cleaned = this.value.replace(/[^a-zA-Z]/g, '').slice(0, 3);
-        if (this.value !== cleaned) {
-          this.value = cleaned;
-          this.setSelectionRange(Math.min(pos, cleaned.length), Math.min(pos, cleaned.length));
-        }
-        runUnscrambleSearch();
-      });
-    });
-
-    ['un-dict', 'un-length'].forEach(id => {
-      document.getElementById(id)?.addEventListener('change', runUnscrambleSearch);
-    });
-
-    document.getElementById('un-find-btn')?.addEventListener('click', runUnscrambleSearch);
-    document.getElementById('un-clear-btn')?.addEventListener('click', clearAll);
-    document.getElementById('un-copy-all-btn')?.addEventListener('click', () => {
-      if (unscrambleResults.length) copyText(unscrambleResults.join(', '));
-    });
-    document.getElementById('un-scrabble-pts')?.addEventListener('change', function() {
-      if (unscrambleResults.length) renderResults(unscrambleResults, this.checked);
-    });
-
-    const unToggle = document.getElementById('un-mobile-toggle');
-    const unAdv    = document.getElementById('un-advanced');
-    if (unToggle && unAdv) {
-      unToggle.addEventListener('click', () => {
-        const open = unAdv.classList.toggle('is-open');
-        unToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-        unToggle.textContent = open ? 'Hide options' : 'More options';
-      });
-    }
-
-    /* FAQ accordion */
-    document.querySelectorAll('.faq-q').forEach(q => {
-      q.addEventListener('click', () => q.closest('.faq-item').classList.toggle('open'));
-    });
-
-    /* Mega menu close on outside click */
-    document.addEventListener('click', e => {
-      const mega = document.getElementById('mega');
-      const hbg  = document.querySelector('.hamburger');
-      if (!mega || !hbg) return;
-      if (mega.classList.contains('open') && !mega.contains(e.target) && !hbg.contains(e.target))
-        mega.classList.remove('open');
+  if (toggle && advanced) {
+    toggle.addEventListener('click', function(){
+      const isOpen = advanced.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      toggle.textContent = isOpen ? 'Hide More Options' : 'Toggle More Options';
     });
   }
-
-  return { init };
 })();
-
-WORD_UNSCRAMBLER.init();
-
 </script>
 </body>
 </html>
