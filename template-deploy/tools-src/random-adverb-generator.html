@@ -1,0 +1,398 @@
+<!-- CONFIG
+{ "url": "/random-adverb-generator/", "output": "random-adverb-generator.html", "type": "tool" }
+-->
+
+<!-- SLOT:meta -->
+<title>Random Adverb Generator — Free Online Tool | Wordineer</title>
+<meta name="description" content="Generate random English adverbs instantly. Filter by type (manner, time, place, degree, frequency), difficulty, and starting letter. Definitions included — free, no sign-up.">
+<link rel="canonical" href="https://wordineer.com/random-adverb-generator/">
+<meta property="og:type"        content="website">
+<meta property="og:site_name"   content="Wordineer">
+<meta property="og:title"       content="Random Adverb Generator">
+<meta property="og:description" content="Generate random English adverbs with filters for type, difficulty, and starting letter. Definitions included.">
+<meta property="og:url"         content="https://wordineer.com/random-adverb-generator/">
+<meta property="og:image"       content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Random Adverb Generator",
+  "url": "https://wordineer.com/random-adverb-generator/",
+  "description": "Generate random English adverbs. Filter by adverb type, difficulty level, and starting letter. Definitions included.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@id": "https://wordineer.com/#organization" }
+}
+</script>
+<!-- /SLOT:meta -->
+
+<!-- SLOT:style -->
+<style>
+/* ── Word Generator Tool Styles ── */
+.tool-wrap  { max-width:960px; margin:0 auto; padding:24px 24px 0; }
+.tool-card  { border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg); box-shadow:var(--shadow); }
+.tool-split { display:flex; }
+
+.ctrl       { width:220px; flex-shrink:0; padding:18px; border-right:1px solid var(--border-2); background:var(--bg-2); }
+.ctrl-row   { margin-bottom:14px; }
+.ctrl-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; display:block; margin-bottom:5px; }
+.ctrl-row input, .ctrl-row select { width:100%; padding:7px 10px; font-size:13px; font-family:inherit; border:1px solid var(--border); border-radius:7px; background:var(--bg); color:var(--text); appearance:none; outline:none; transition:border-color .15s; }
+.ctrl-row input:focus, .ctrl-row select:focus { border-color:var(--brand); }
+.count-error { display:none; font-size:11px; color:#E24B4A; margin-top:4px; }
+.count-error.show { display:block; }
+.ctrl-row input.input-error { border-color:#E24B4A !important; }
+.letter-row { display:flex; gap:6px; }
+.letter-row input { text-transform:uppercase; text-align:center; }
+.size-opts  { display:flex; gap:10px; margin-bottom:6px; }
+.size-opt   { display:flex; align-items:center; gap:4px; font-size:12px; color:var(--text-2); cursor:pointer; }
+.size-opt input { accent-color:var(--brand); cursor:pointer; }
+.size-ctrls { display:flex; gap:5px; }
+.size-ctrls select { flex:0 0 60%; font-size:12px; padding:6px 8px; min-width:0; }
+.size-ctrls input  { flex:0 0 calc(40% - 5px); font-size:12px; padding:6px 8px; text-align:center; min-width:0; width:auto; }
+.def-row    { display:flex; align-items:center; gap:8px; margin-bottom:14px; }
+.def-row label { font-size:12px; color:var(--text-2); cursor:pointer; }
+.toggle     { position:relative; width:32px; height:18px; flex-shrink:0; }
+.toggle input { opacity:0; width:0; height:0; }
+.toggle-sl  { position:absolute; cursor:pointer; inset:0; background:var(--border); border-radius:9px; transition:.2s; }
+.toggle input:checked + .toggle-sl { background:var(--brand); }
+.toggle-sl::before { content:''; position:absolute; width:14px; height:14px; left:2px; top:2px; background:white; border-radius:50%; transition:.2s; }
+.toggle input:checked + .toggle-sl::before { transform:translateX(14px); }
+.gen-btn    { width:100%; padding:10px 14px; background:var(--brand); color:white; border:none; border-radius:8px; font-size:14px; font-weight:600; font-family:inherit; cursor:pointer; transition:background .15s,transform .1s; letter-spacing:-.01em; }
+.gen-btn:hover { background:var(--brand-dark); }
+.gen-btn:active { transform:scale(.98); }
+.reset-btn  { display:block; width:100%; text-align:center; font-size:11px; color:var(--text-3); margin-top:8px; cursor:pointer; text-decoration:underline; text-underline-offset:2px; border:none; background:none; font-family:inherit; }
+.kbd        { text-align:center; font-size:10px; color:var(--text-3); margin-top:6px; }
+.kbd kbd    { background:var(--bg-3); border:1px solid var(--border); border-radius:3px; padding:1px 5px; font-size:10px; font-family:inherit; }
+
+.words-panel { flex:1; display:flex; flex-direction:column; overflow:hidden; min-height:320px; }
+.words-top  { display:flex; align-items:center; justify-content:space-between; padding:12px 16px; border-bottom:1px solid var(--border-2); }
+.words-count { font-size:12px; color:var(--text-3); }
+.words-actions { display:flex; gap:6px; }
+.act-btn    { font-size:12px; padding:5px 11px; border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:background .12s; }
+.act-btn:hover { background:var(--bg-2); }
+.word-list  { flex:1; overflow-y:auto; list-style:none; padding:0 16px; }
+.word-item  { display:flex; align-items:flex-start; justify-content:space-between; padding:10px 0; border-bottom:1px solid var(--border-2); gap:10px; animation:fadeIn .2s ease; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:none} }
+.word-item:last-child { border-bottom:none; }
+.word-left  { flex:1; }
+.word-text  { font-size:20px; font-weight:500; color:var(--text); line-height:1.2; letter-spacing:-.02em; }
+.word-pos   { font-size:11px; color:var(--text-3); margin-top:1px; font-style:italic; }
+.word-def   { font-size:12px; color:var(--text-2); margin-top:3px; line-height:1.4; }
+.word-grammarly { font-size:11px; margin-top:3px; }
+.word-grammarly a { color:var(--brand); text-decoration:underline; text-underline-offset:2px; }
+.word-right { display:flex; align-items:center; gap:4px; padding-top:3px; flex-shrink:0; }
+.icon-btn   { width:28px; height:28px; display:flex; align-items:center; justify-content:center; background:transparent; border:none; cursor:pointer; border-radius:5px; color:var(--text-3); transition:background .12s, color .12s; }
+.icon-btn:hover { background:var(--bg-2); color:var(--text); }
+.icon-btn svg { width:14px; height:14px; }
+.icon-btn.saved { color:#E24B4A; }
+.icon-btn.saved svg path { fill:#E24B4A; }
+
+.saved-section { border-top:1px solid var(--border); padding:12px 14px; background:var(--bg); }
+.saved-top { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:8px; }
+.saved-label { font-size:12px; font-weight:700; color:var(--text); }
+.saved-copy { border:1px solid var(--border); background:var(--bg); color:var(--brand); border-radius:7px; padding:5px 9px; font-size:11px; font-weight:600; cursor:pointer; }
+.saved-tags { display:flex; gap:5px; flex-wrap:wrap; min-height:22px; }
+.saved-tag { display:inline-flex; align-items:center; gap:4px; background:#F0F2FF; color:var(--brand); border-radius:999px; padding:4px 8px; font-size:11px; font-weight:600; }
+.saved-tag-remove { cursor:pointer; opacity:.65; }
+.saved-tag-remove:hover { opacity:1; }
+.saved-empty { color:var(--text-3); font-size:12px; }
+
+.mobile-more-toggle { display:none; width:100%; margin:-2px 0 14px; padding:9px 12px; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--brand); font-size:13px; font-weight:600; font-family:inherit; cursor:pointer; }
+.advanced-options { display:block; }
+.size-opt { position:relative; gap:7px; }
+.size-opt input { position:absolute; opacity:0; pointer-events:none; }
+.size-tick { width:18px; height:18px; border:1px solid var(--border); border-radius:5px; background:var(--bg); display:inline-flex; align-items:center; justify-content:center; transition:background .15s, border-color .15s; flex-shrink:0; }
+.size-tick::after { content:'✓'; font-size:13px; font-weight:700; color:white; line-height:1; opacity:0; transform:scale(.7); transition:opacity .15s, transform .15s; }
+.size-opt input:checked + .size-tick { background:var(--brand); border-color:var(--brand); }
+.size-opt input:checked + .size-tick::after { opacity:1; transform:scale(1); }
+.size-opt:hover .size-tick { border-color:var(--brand); }
+
+@media(max-width:700px){
+  .tool-wrap { padding:14px 16px 0; }
+  .tool-card { border-radius:12px; }
+  .ctrl { padding:16px; }
+  .mobile-more-toggle { display:block; }
+  .advanced-options { display:none; }
+  .advanced-options.is-open { display:block; }
+  .ctrl-row:first-child { margin-bottom:12px; }
+  .gen-btn { margin-top:0; }
+  .reset-btn, .kbd { display:none; }
+  .words-top { padding:10px 16px; }
+  .word-list { max-height:420px; overflow-y:auto; }
+  .word-text { font-size:19px; }
+  .tool-split { flex-direction:column; }
+  .ctrl { width:100%; border-right:none; border-bottom:1px solid var(--border-2); }
+  .size-ctrls select { flex:0 0 50%; }
+  .size-ctrls input  { flex:0 0 calc(50% - 5px); }
+  .hero { padding:12px 16px 12px; }
+  .hero-badge { margin-bottom:6px; }
+  .hero h1 { font-size:24px; }
+}
+</style>
+<!-- /SLOT:style -->
+
+<!-- SLOT:hero -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/word-tools/">Word Tools</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Random Adverb Generator</span>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free · No sign-up · Instant
+  </div>
+  <h1>Random adverb generator</h1>
+  <p>Generate random English adverbs instantly — filter by adverb type, difficulty, and starting letter. The only adverb generator with manner, time, place, degree, and frequency filters built in.</p>
+</div>
+<!-- /SLOT:hero -->
+
+<!-- SLOT:tool -->
+<div class="tool-wrap">
+  <div class="tool-card">
+    <div class="tool-split">
+
+      <div class="ctrl">
+        <select id="ctrl-type" style="display:none"><option value="adverb">adverb</option></select>
+        <div class="ctrl-row">
+          <label class="ctrl-label" for="ctrl-count">Number of adverbs</label>
+          <input type="number" id="ctrl-count" value="10" min="1" max="50" inputmode="numeric" aria-describedby="count-error">
+          <span class="count-error" id="count-error">Enter a number from 1 to 50</span>
+        </div>
+        <button type="button" class="mobile-more-toggle" id="mobile-more-toggle" aria-expanded="false" aria-controls="advanced-options">Toggle More Options</button>
+        <div class="advanced-options" id="advanced-options">
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="ctrl-adverb-type">Adverb type</label>
+            <select id="ctrl-adverb-type">
+              <option value="all">All types</option>
+              <option value="manner">Manner</option>
+              <option value="time">Time</option>
+              <option value="place">Place</option>
+              <option value="degree">Degree</option>
+              <option value="frequency">Frequency</option>
+            </select>
+          </div>
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="ctrl-diff">Difficulty</label>
+            <select id="ctrl-diff">
+              <option value="all">All levels</option>
+              <option value="easy">Easy (common)</option>
+              <option value="medium">Medium</option>
+              <option value="hard">Advanced / rare</option>
+            </select>
+          </div>
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="ctrl-first">First letter</label>
+            <input type="text" id="ctrl-first" maxlength="1" placeholder="A" aria-label="First letter" style="text-transform:uppercase;text-align:center;">
+          </div>
+          <div class="def-row">
+            <label class="toggle" aria-label="Show definitions"><input type="checkbox" id="ctrl-defs" checked><span class="toggle-sl"></span></label>
+            <label for="ctrl-defs">Show definitions</label>
+          </div>
+          <div class="def-row">
+            <label class="toggle" aria-label="Sort A–Z"><input type="checkbox" id="ctrl-sort"><span class="toggle-sl"></span></label>
+            <label for="ctrl-sort">Sort A–Z</label>
+          </div>
+        </div>
+        <button class="gen-btn" id="word-gen-btn">Generate adverbs</button>
+        <button class="reset-btn" onclick="WORDINEER.reset()">Reset options</button>
+        <div class="kbd">Press <kbd>Space</kbd> to regenerate</div>
+        <div class="ad-sidebar">
+          <span class="ad-sidebar-tag">Ad</span>
+          <div class="ad-sidebar-logo">
+            <svg viewBox="0 0 32 32" fill="none" width="32" height="32"><circle cx="16" cy="16" r="14" fill="#15a249"/><path d="M10 16c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="16" r="2.5" fill="white"/></svg>
+            <span class="ad-sidebar-brand">Grammarly</span>
+          </div>
+          <div class="ad-sidebar-headline">Write with confidence</div>
+          <div class="ad-sidebar-body">Fix grammar, improve clarity, and choose the right words — everywhere you write.</div>
+          <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-sidebar-cta">Try free →</a>
+          <div class="ad-sidebar-sub">Free plan · No credit card</div>
+        </div>
+      </div>
+
+      <div class="words-panel">
+        <div class="words-top">
+          <span class="words-count" id="word-count">Generating…</span>
+          <div class="words-actions">
+            <button class="act-btn" onclick="WORDINEER.copyAll()">Copy all</button>
+            <button class="act-btn" id="word-regen-btn">Regenerate</button>
+          </div>
+        </div>
+        <ul class="word-list" id="word-list"></ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- /SLOT:tool -->
+
+<!-- SLOT:ad_b -->
+<div class="ad-leaderboard">
+  <div class="ad-leaderboard-inner">
+    <span class="ad-tag">Advertisement · 728×90</span>
+    <div class="ad-mock-content">
+      <div class="ad-title">Grammarly — write with confidence. Grammar, tone &amp; clarity.</div>
+      <div class="ad-sub">Used by 30 million people. Works in Google Docs, Gmail, Word and more.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-mock-cta">Try Grammarly free</a>
+    </div>
+  </div>
+</div>
+<!-- /SLOT:ad_b -->
+
+<!-- SLOT:explainer -->
+<div class="explainer">
+  <h2>What is a Random Adverb Generator?</h2>
+  <p>A random adverb generator pulls English adverbs at random from a curated dataset and presents them with optional definitions. Unlike a generic word generator that returns any part of speech, every result here is an adverb — no sorting through nouns or verbs. Five filters let you target exactly the kind of adverb you need: Adverb type (manner, time, place, degree, or frequency), Difficulty (easy, medium, hard), First letter, Sort A–Z, and a definitions toggle. Hit Generate or press Space to get a new batch instantly.</p>
+
+  <h2>Why Use a Random Adverb Generator?</h2>
+  <p>Adverbs are one of the most underused — and most misused — word classes in English. A targeted generator helps you find the right one quickly, study them systematically, or use them as prompts for games and exercises.</p>
+  <ul>
+    <li><strong>ESL learners</strong> can filter by Easy difficulty and toggle definitions on to study common adverbs in context. Generating 10 at a time, reading the definitions, and using each in a sentence is a fast and measurable vocabulary exercise.</li>
+    <li><strong>Teachers</strong> can build focused grammar worksheets in seconds. Set the type filter to Manner for a list of manner adverbs, switch to Frequency for a second set, and use both to create a categorisation exercise that covers the full adverb taxonomy.</li>
+    <li><strong>Game players</strong> get instant prompts for charades, Pictionary, or word games that call for a specific part of speech. Filter by Manner for acting games where the adverb describes how an action is performed.</li>
+    <li><strong>Students</strong> writing essays or reports can use the Medium and Hard difficulty filters to find precise adverbs — "intermittently" instead of "sometimes," "profoundly" instead of "very much" — that elevate academic register.</li>
+    <li><strong>Editors</strong> reviewing repetitive prose can use the generator to find alternatives when a manuscript overuses a single adverb. Generate 20 manner adverbs and scan for candidates that carry the same meaning without the repetition.</li>
+  </ul>
+
+  <h2>The 5 Types of Adverbs Explained</h2>
+  <p>English adverbs divide into five functional categories. Understanding them makes both the filters and your own writing more precise.</p>
+  <ol>
+    <li><strong>Manner</strong> — Manner adverbs describe how an action is performed. Examples: gracefully, boldly. They answer the question "how?" and are the most common adverb type in fiction and everyday prose. "She moved gracefully through the crowd" tells the reader far more than "she moved through the crowd."</li>
+    <li><strong>Time</strong> — Time adverbs say when something happens. Examples: immediately, recently. They anchor events on a timeline and control pacing in narrative. "He had recently returned from the coast" creates backstory in five words; "he returned immediately" drives urgency.</li>
+    <li><strong>Place</strong> — Place adverbs indicate where an action occurs. Examples: nearby, elsewhere. They orient the reader spatially without requiring a full prepositional phrase. "She looked elsewhere" is tighter than "she looked in another direction."</li>
+    <li><strong>Degree</strong> — Degree adverbs modify adjectives, verbs, or other adverbs to indicate intensity or extent. Examples: extremely, barely. They are among the most powerful tools for precision: "barely audible" and "extremely audible" describe opposite ends of the same spectrum using one word each.</li>
+    <li><strong>Frequency</strong> — Frequency adverbs express how often something happens. Examples: rarely, always. They establish patterns and habits in prose and conversation. "She rarely spoke in meetings" tells the reader something about character without a longer character description.</li>
+  </ol>
+  <p>The Adverb type filter maps directly to these five categories. Select one to constrain your results — useful when you know what grammatical role you need to fill, or when a game or exercise specifies a particular type.</p>
+
+  <h2>How It Works</h2>
+  <p>Open the left panel and choose your settings: pick an Adverb type if you want to narrow by category, set a Difficulty level, and optionally enter a First letter to constrain the alphabet. Adjust the count to anywhere between 1 and 50. Click Generate adverbs (or press Space) and your results appear immediately in the right panel. Toggle Show definitions on to see a short meaning for each adverb. Enable Sort A–Z to put the list in alphabetical order. When you have the results you want, click Copy all to send the full list to your clipboard in one step.</p>
+
+  <h2>Best Practices for Using Adverbs in Writing</h2>
+  <p>Adverbs are versatile but easy to overuse. These four practices help you get the most from them without letting them weigh down your prose.</p>
+  <ul>
+    <li><strong>Choose specific over generic</strong> — "She spoke hesitantly" is more vivid than "she spoke in a nervous way." The manner adverb does the work of a phrase in a single word. Use the Manner filter to find precise candidates when a sentence feels vague.</li>
+    <li><strong>Vary by type</strong> — A paragraph that relies only on manner adverbs can feel monotonous. Mix in a time adverb ("subsequently") or a degree adverb ("barely") to give the language texture. Generating from different type filters in sequence gives you a balanced palette.</li>
+    <li><strong>Place matters</strong> — Adverb position changes meaning. "Only she knew" (no one else knew) differs from "she only knew" (she merely knew, did not act). When you find a good adverb, try it in two or three positions in the sentence before settling on the most precise placement.</li>
+    <li><strong>Use difficulty levels intentionally</strong> — Easy adverbs (quickly, never, here) belong in dialogue and accessible prose. Hard adverbs (pellucidly, stertorously, assuredly) belong in literary fiction or academic writing where a more educated register is expected. Matching difficulty to context prevents prose that feels either too plain or artificially elevated.</li>
+  </ul>
+
+  <h2>How to Avoid Adverb Overuse</h2>
+  <p>The most common writing advice about adverbs is "use them sparingly" — but that rule needs context. The problem is not adverbs themselves; it is adverbs propping up weak verbs. "She walked quickly" can almost always be replaced by "she hurried" or "she strode." When an adverb is doing structural repair on a weak verb, replace both with a stronger verb instead.</p>
+  <p>The cases where adverbs are the right choice: when the manner genuinely adds information that the verb alone cannot carry ("she smiled sadly" — a smile that is also sad is a specific emotional register); when modifying an adjective or another adverb ("barely visible," "surprisingly quickly"); and in dialogue, where frequency and time adverbs reflect natural speech patterns ("I never said that," "I'll do it immediately").</p>
+  <p>Use this generator to find alternatives when a manuscript overuses one adverb. Generate 20 manner adverbs, scan for synonyms or near-synonyms, and rotate through them across a longer piece. The variety will make the writing feel more alive without requiring you to cut adverbs entirely.</p>
+</div>
+<!-- /SLOT:explainer -->
+
+<!-- SLOT:faq -->
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">What's the difference between an adverb and an adjective?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Adjectives modify nouns ("a <em>quick</em> response"). Adverbs modify verbs, adjectives, or other adverbs ("she responded <em>quickly</em>"). The same root word often appears in both forms — "quick" (adjective) becomes "quickly" (adverb). A reliable test: if the word answers "how?", "when?", "where?", or "how often?" it's an adverb.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can adverbs modify other adverbs?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes. Degree adverbs like "very," "quite," and "barely" commonly stack on other adverbs: "She runs <em>incredibly</em> quickly." "He arrived <em>almost</em> immediately." This is grammatically correct and often more precise than a single word, but use it sparingly — stacking multiple adverbs in one sentence usually signals a verb that needs replacing.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Why should I vary the adverbs I use?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Repetition is the most common cause of dull prose. If every action in your writing happens "quickly" or "suddenly," the reader stops registering those words. Varying across manner, degree, and frequency adverbs keeps readers engaged and gives your language texture.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">How does the difficulty filter work?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><strong>Easy</strong> words are common, high-frequency adverbs that most native speakers recognize immediately (quickly, never, here). <strong>Medium</strong> words are less common but widely understood (tenaciously, intermittently, profoundly). <strong>Hard</strong> words are rare, literary, or technical — useful for academic writing or vocabulary building but likely to puzzle a general audience.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What does the adverb type filter do?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">It restricts results to one grammatical category. Select <strong>Manner</strong> to get words like "gracefully" and "boldly" (how). Select <strong>Frequency</strong> for words like "rarely" and "always" (how often). This is useful when you know what kind of modifier you need — for example, a game that asks for a manner adverb specifically.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Is this tool free to use?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes, completely free. No sign-up, no account, no usage limits. The tool runs entirely in your browser — nothing is sent to a server.</div>
+  </div>
+</div>
+<!-- /SLOT:faq -->
+
+<!-- SLOT:who -->
+<div class="who">
+  <h2>Who uses this tool?</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">Fiction Writers</div><div class="uc-body">Generate manner and degree adverbs to vary sentence rhythm. Filter by difficulty to match your prose register — casual for dialogue, advanced for literary fiction.</div></div>
+    <div class="uc"><div class="uc-title">Students &amp; ESL Learners</div><div class="uc-body">Filter by difficulty to target your level. Every adverb comes with a definition — vocabulary practice and grammar study in one tool.</div></div>
+    <div class="uc"><div class="uc-title">Teachers</div><div class="uc-body">Build vocabulary lists and grammar exercises in seconds. Use the type filter to create worksheets focused on a single adverb category.</div></div>
+    <div class="uc"><div class="uc-title">Game Players</div><div class="uc-body">Instant prompts for word games, Pictionary, and charades. Generate a batch, copy all, and you're ready.</div></div>
+  </div>
+</div>
+<!-- /SLOT:who -->
+
+<!-- SLOT:init -->
+<script>
+WORDINEER.init({
+  listId:         'word-list',
+  countId:        'ctrl-count',
+  countDisplayId: 'word-count',
+  typeId:         'ctrl-type',
+  advTypeId:      'ctrl-adverb-type',
+  diffId:         'ctrl-diff',
+  firstId:        'ctrl-first',
+  defsId:         'ctrl-defs',
+  sortId:         'ctrl-sort',
+  dataUrl:        '/data/adverbs.json',
+});
+
+(function(){
+  const count = document.getElementById('ctrl-count');
+  const toggle = document.getElementById('mobile-more-toggle');
+  const advanced = document.getElementById('advanced-options');
+
+  function setCountError(show) {
+    const err = document.getElementById('count-error');
+    if (err) err.classList.toggle('show', show);
+    if (count) count.classList.toggle('input-error', show);
+  }
+
+  function validateAndGenerate() {
+    const raw = parseInt(count?.value, 10);
+    if (isNaN(raw) || raw < 1 || raw > 50) { setCountError(true); return; }
+    setCountError(false);
+    WORDINEER.generate();
+  }
+
+  document.getElementById('word-gen-btn')?.addEventListener('click', validateAndGenerate);
+  document.getElementById('word-regen-btn')?.addEventListener('click', validateAndGenerate);
+
+  if (count) {
+    count.addEventListener('input', validateAndGenerate);
+  }
+
+  ['ctrl-adverb-type', 'ctrl-diff', 'ctrl-sort'].forEach(function(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.addEventListener('change', validateAndGenerate);
+  });
+
+  const firstEl = document.getElementById('ctrl-first');
+  if (firstEl) firstEl.addEventListener('input', validateAndGenerate);
+
+  if (toggle && advanced) {
+    toggle.addEventListener('click', function(){
+      const isOpen = advanced.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      toggle.textContent = isOpen ? 'Hide More Options' : 'Toggle More Options';
+    });
+  }
+})();
+</script>
+<!-- /SLOT:init -->
