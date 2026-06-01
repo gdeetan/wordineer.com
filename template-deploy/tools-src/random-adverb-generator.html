@@ -145,7 +145,7 @@
 <div class="hero">
   <div class="hero-badge">
     <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
-    Free · No sign-up · Instant
+    Free · No sign-up · Definitions included
   </div>
   <h1>Random adverb generator</h1>
   <p>Generate random English adverbs instantly — filter by adverb type, difficulty, and starting letter. The only adverb generator with manner, time, place, degree, and frequency filters built in.</p>
@@ -350,6 +350,10 @@ WORDINEER.init({
   defsId:         'ctrl-defs',
   sortId:         'ctrl-sort',
   dataUrl:        '/data/adverbs.json',
+  apiKeys: {
+    wordnik: 'vzxbo7m8vl91xgsicsuk79k0pd2w1z3k4z7xl2sv9sje9akxh',
+    merriam: 'Y1c8533d7-23e6-4c3b-9c48-854066e8caff',
+  }
 });
 
 (function(){
