@@ -318,8 +318,8 @@
       <aside class="pic-controls">
         <div class="control-group">
           <label class="control-label" for="count-input">Number of phrases</label>
-          <input class="count-input" id="count-input" type="number" min="1" max="10" step="1" value="5" inputmode="numeric">
-          <span id="pic-count-error" style="display:none;font-size:11px;color:#E24B4A;margin-top:4px;">Enter a number from 1 to 10</span>
+          <input class="count-input" id="count-input" type="number" min="1" max="50" step="1" value="5" inputmode="numeric">
+          <span id="pic-count-error" style="display:none;font-size:11px;color:#E24B4A;margin-top:4px;">Enter a number from 1 to 50</span>
           <button class="small-btn mobile-more-btn" type="button" id="more-options-btn" aria-expanded="false" aria-controls="more-options-panel">More options</button>
         </div>
         <div class="options-panel" id="more-options-panel">
@@ -692,7 +692,7 @@
   const picCountInput=$('count-input'),picCountError=$('pic-count-error');
   function showToast(text){toast.textContent=text;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),1600)}
   function setSeg(control,value){document.querySelectorAll(`[data-control="${control}"] button`).forEach(btn=>btn.classList.toggle('active',btn.dataset.value===String(value)));if(control==='count')picCountInput.value=value}
-  function setCount(value){const next=Math.max(1,Math.min(10,Number(value)||1));state.count=next;picCountInput.style.borderColor='';picCountError.style.display='none';setSeg('count',next)}
+  function setCount(value){const next=Math.max(1,Math.min(50,Number(value)||1));state.count=next;picCountInput.style.borderColor='';picCountError.style.display='none';setSeg('count',next)}
   function filtered(){if(state.difficulty==='all'&&state.category==='all')return phrases;if(state.difficulty==='all')return phrases.filter(item=>item.c.includes(state.category));if(state.category==='all')return phrases.filter(item=>item.d===state.difficulty);return phrases.filter(item=>item.d===state.difficulty&&item.c.includes(state.category))}
   function generate(){let pool=filtered().filter(item=>!state.seen.has(item.w));if(!pool.length&&state.seen.size){state.seen.clear();pool=filtered()}if(!pool.length){state.current=[];renderWords();return}const chosen=[];while(chosen.length<state.count&&pool.length){const idx=Math.floor(Math.random()*pool.length);const item=pool.splice(idx,1)[0];chosen.push(item);state.seen.add(item.w)}state.current=chosen;renderWords()}
   function renderWords(){if(!state.current.length){grid.innerHTML='';status.textContent='No phrases found — try a different filter';return}grid.innerHTML=state.current.map(item=>{const isSaved=state.saved.includes(item.w);return `<li class="word-card${state.hidden?' hidden':''}"><div><div class="word-text">${item.w}</div><div class="word-meta">${item.d} · ${item.c[0]}</div></div><button class="save-btn${isSaved?' saved':''}" type="button" data-save="${item.w}" aria-label="Save ${item.w}">♥</button></li>`}).join('');const catLabel=state.category==='all'?'all categories':state.category;const diffLabel=state.difficulty==='all'?'mixed':state.difficulty;status.textContent=`${state.current.length} ${diffLabel} ${catLabel} phrase${state.current.length!==1?'s':''} generated`}
@@ -709,7 +709,7 @@
     const remove=e.target.closest('[data-remove]');if(remove){state.saved=state.saved.filter(item=>item!==remove.dataset.remove);renderSaved();renderWords();return}
     const faq=e.target.closest('.faq-q');if(faq)faq.closest('.faq-item').classList.toggle('open');
   });
-  picCountInput.addEventListener('input',e=>{const v=parseInt(e.target.value);const invalid=isNaN(v)||v<1||v>10;picCountError.style.display=invalid?'block':'none';picCountInput.style.borderColor=invalid?'#E24B4A':'';if(!invalid){state.count=v;generate()}});
+  picCountInput.addEventListener('input',e=>{const v=parseInt(e.target.value);const invalid=isNaN(v)||v<1||v>50;picCountError.style.display=invalid?'block':'none';picCountInput.style.borderColor=invalid?'#E24B4A':'';if(!invalid){state.count=v;generate()}});
   picCountInput.addEventListener('change',()=>{const v=parseInt(picCountInput.value);picCountError.style.display=(isNaN(v)||v<1||v>10)?'block':'none'});
   $('more-options-btn').addEventListener('click',e=>{const panel=$('more-options-panel');const open=panel.classList.toggle('open');e.target.setAttribute('aria-expanded',open?'true':'false');e.target.textContent=open?'Fewer options':'More options'});
   $('pic-category').addEventListener('change',e=>{state.category=e.target.value;state.seen.clear();generate()});
