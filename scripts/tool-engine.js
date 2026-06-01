@@ -59,7 +59,7 @@ try { sessionStorage.setItem(key, JSON.stringify(val)); } catch {}
 async function loadWords() {
 if (fullLoadPromise) return fullLoadPromise;
 const url  = config.dataUrl || '/data/words.json';
-const cKey = config.dataUrl ? 'wnr_custom_' + url.replace(/\W/g,'').slice(-12) : SC_WORDS_KEY;
+const cKey = config.dataUrl ? 'wnr_custom2_' + url.replace(/\W/g,'').slice(-12) : SC_WORDS_KEY;
 fullLoadPromise = (async () => {
 const cached = scGet(cKey);
 if (Array.isArray(cached) && cached.length > 10) {
