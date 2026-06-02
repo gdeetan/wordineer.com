@@ -167,7 +167,6 @@
             <div class="seg three" data-control="ageGroup">
               <button type="button" class="active" data-value="all">All Ages</button>
               <button type="button" data-value="kids">Kids</button>
-              <button type="button" data-value="adults">Adults</button>
             </div>
           </div>
           <div class="control-group">
@@ -358,7 +357,19 @@
     {w:'Sneezing',c:['funny'],d:'easy'},{w:'Belly flop',c:['funny'],d:'easy'},{w:'Hiccupping',c:['funny'],d:'easy'},{w:'Brain freeze',c:['funny'],d:'easy'},{w:'Slipping on banana peel',c:['funny'],d:'easy'},
     {w:'Santa Claus',c:['christmas'],d:'easy'},{w:'Snowman',c:['christmas'],d:'easy'},{w:'Rudolph',c:['christmas'],d:'easy'},{w:'Candy Cane',c:['christmas'],d:'easy'},{w:'Christmas Tree',c:['christmas'],d:'easy'}
   ];
-  const SEED_COPY=[...SEED];
+  const KIDS_SEED=[
+    {w:'Cat',c:['animals'],d:'easy'},{w:'Dog',c:['animals'],d:'easy'},{w:'Elephant',c:['animals'],d:'easy'},{w:'Penguin',c:['animals'],d:'easy'},{w:'Shark',c:['animals'],d:'easy'},
+    {w:'Frozen',c:['movies'],d:'easy'},{w:'Toy Story',c:['movies'],d:'easy'},{w:'Shrek',c:['movies'],d:'easy'},{w:'Moana',c:['movies'],d:'easy'},{w:'Lilo and Stitch',c:['movies'],d:'easy'},
+    {w:'The Simpsons',c:['tv'],d:'easy'},{w:'Scooby-Doo',c:['tv'],d:'easy'},{w:'The Muppets',c:['tv'],d:'easy'},{w:'Sesame Street',c:['tv'],d:'easy'},{w:'SpongeBob SquarePants',c:['tv'],d:'easy'},
+    {w:'Harry Potter',c:['books'],d:'easy'},{w:'Alice in Wonderland',c:['books'],d:'easy'},{w:'Matilda',c:['books'],d:'easy'},{w:'Peter Pan',c:['books'],d:'easy'},{w:'Winnie the Pooh',c:['books'],d:'easy'},
+    {w:'Swimming',c:['sports'],d:'easy'},{w:'Soccer',c:['sports'],d:'easy'},{w:'Basketball',c:['sports'],d:'easy'},{w:'Gymnastics',c:['sports'],d:'easy'},{w:'Skiing',c:['sports'],d:'easy'},
+    {w:'Pizza',c:['food'],d:'easy'},{w:'Ice Cream',c:['food'],d:'easy'},{w:'Pancake',c:['food'],d:'easy'},{w:'Donut',c:['food'],d:'easy'},{w:'Cookie',c:['food'],d:'easy'},
+    {w:'Beach',c:['places'],d:'easy'},{w:'Zoo',c:['places'],d:'easy'},{w:'Castle',c:['places'],d:'easy'},{w:'Park',c:['places'],d:'easy'},{w:'Forest',c:['places'],d:'easy'},
+    {w:'Running',c:['actions'],d:'easy'},{w:'Jumping',c:['actions'],d:'easy'},{w:'Dancing',c:['actions'],d:'easy'},{w:'Singing',c:['actions'],d:'easy'},{w:'Drawing',c:['actions'],d:'easy'},
+    {w:'Chair',c:['objects'],d:'easy'},{w:'Umbrella',c:['objects'],d:'easy'},{w:'Balloon',c:['objects'],d:'easy'},{w:'Kite',c:['objects'],d:'easy'},{w:'Clock',c:['objects'],d:'easy'},
+    {w:'Sneezing',c:['funny'],d:'easy'},{w:'Belly flop',c:['funny'],d:'easy'},{w:'Hiccupping',c:['funny'],d:'easy'},{w:'Yawning',c:['funny'],d:'easy'},{w:'Brain freeze',c:['funny'],d:'easy'},
+    {w:'Santa Claus',c:['christmas'],d:'easy'},{w:'Snowman',c:['christmas'],d:'easy'},{w:'Rudolph',c:['christmas'],d:'easy'},{w:'Candy Cane',c:['christmas'],d:'easy'},{w:'Christmas Tree',c:['christmas'],d:'easy'}
+  ];
   let words=[...SEED],kidsWords=[],charFullLoaded=false,charLoadPromise=null,kidsFullLoaded=false,kidsLoadPromise=null;
   function charNormalizeWords(raw){
     if(Array.isArray(raw))return raw.map(([w,c,d])=>({w,c,d}));
@@ -390,7 +401,7 @@
   function setSeg(control,value){document.querySelectorAll(`[data-control="${control}"] button`).forEach(btn=>btn.classList.toggle('active',btn.dataset.value===String(value)));if(control==='count')picCountInput.value=value}
   function picValidateCount(){const v=parseInt(picCountInput.value);const invalid=isNaN(v)||v<1||v>50;picCountError.style.display=invalid?'block':'none';picCountInput.style.borderColor=invalid?'#E24B4A':'';return !invalid}
   function setCount(value){const next=Math.max(1,Math.min(50,Number(value)||1));state.count=next;picCountInput.style.borderColor='';picCountError.style.display='none';setSeg('count',next)}
-  function activePool(){if(state.ageGroup==='kids')return kidsFullLoaded?kidsWords:SEED_COPY;return words;}
+  function activePool(){if(state.ageGroup==='kids')return kidsFullLoaded?kidsWords:KIDS_SEED;return words;}
   function filtered(){const pool=activePool();if(state.category==='all')return pool.filter(item=>item.d===state.difficulty);return pool.filter(item=>item.d===state.difficulty&&item.c.includes(state.category))}
   function generate(){let pool=filtered().filter(item=>!state.seen.has(item.w));if(!pool.length&&state.seen.size){state.seen.clear();pool=filtered()}if(!pool.length){state.current=[];renderWords();return}const chosen=[];while(chosen.length<state.count&&pool.length){const idx=Math.floor(Math.random()*pool.length);const item=pool.splice(idx,1)[0];chosen.push(item);state.seen.add(item.w)}state.current=chosen;renderWords()}
   function renderWords(){if(!state.current.length){grid.innerHTML='<li style="grid-column:1/-1;padding:24px;text-align:center;color:var(--text-3)">No words found — try a different filter or click Generate</li>';const catLabel=state.category==='all'?'all categories':(CAT_LABELS[state.category]||state.category);status.textContent=`No ${state.difficulty} ${catLabel} words found`;return}grid.innerHTML=state.current.map(item=>{const saved=state.saved.includes(item.w);const catLabel=CAT_LABELS[item.c[0]]||item.c[0];return `<li class="word-card${state.hidden?' hidden':''}"><div><div class="word-cat-badge">${catLabel}</div><div class="word-text">${item.w}</div><div class="word-meta">${item.d}</div></div><button class="save-btn${saved?' saved':''}" type="button" data-save="${item.w}" aria-label="Save ${item.w}">♥</button></li>`}).join('');const catLabel=state.category==='all'?'all categories':(CAT_LABELS[state.category]||state.category);status.textContent=`${state.current.length} ${state.difficulty} ${catLabel} word${state.current.length!==1?'s':''} generated`}
