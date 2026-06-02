@@ -507,6 +507,35 @@
     return Promise.reject(new Error('Clipboard unavailable'));
   }
 
+  function bindFaqAccordion(root) {
+    const scope = root || (typeof document !== 'undefined' ? document : null);
+    if (!scope || typeof scope.querySelectorAll !== 'function') return;
+
+    const items = Array.from(scope.querySelectorAll('.faq-item'));
+    const questions = Array.from(scope.querySelectorAll('.faq-q'));
+
+    questions.forEach(function(question) {
+      if (typeof question.addEventListener !== 'function') return;
+      question.addEventListener('click', function() {
+        const item = typeof question.closest === 'function' ? question.closest('.faq-item') : null;
+        if (!item || !item.classList) return;
+
+        const isOpen = typeof item.classList.contains === 'function' && item.classList.contains('open');
+        items.forEach(function(other) {
+          if (other !== item && other.classList && typeof other.classList.remove === 'function') {
+            other.classList.remove('open');
+          }
+        });
+
+        if (isOpen) {
+          if (typeof item.classList.remove === 'function') item.classList.remove('open');
+        } else if (typeof item.classList.add === 'function') {
+          item.classList.add('open');
+        }
+      });
+    });
+  }
+
   function initAcronymMakerPage() {
     if (typeof document === 'undefined') return;
 
@@ -515,6 +544,7 @@
     const styleSelect = document.getElementById('am-style');
     const generateButton = document.getElementById('am-generate');
     const regenerateButton = document.getElementById('am-regenerate');
+    const regeneratePanelButton = document.getElementById('am-regenerate-panel');
     const copyAllButton = document.getElementById('am-copy-all');
     const resultList = document.getElementById('am-results');
     const status = document.getElementById('am-status');
@@ -540,28 +570,29 @@
       resultList.innerHTML = '';
 
       if (!results.length) {
-        setStatus('No results yet. Enter 2 to 8 letters and generate ideas.');
+        setStatus('No ideas yet. Enter 2 to 8 letters.');
+        const empty = document.createElement('li');
+        empty.className = 'am-empty';
+        empty.textContent = 'No ideas yet. Enter 2 to 8 letters.';
+        resultList.appendChild(empty);
         return;
       }
 
       const fragment = document.createDocumentFragment();
 
       results.forEach(function(result) {
-        const item = document.createElement('article');
-        item.className = 'am-result';
+        const item = document.createElement('li');
+        item.className = 'word-item';
 
-        const top = document.createElement('div');
-        top.className = 'am-result-top';
-
-        const titleWrap = document.createElement('div');
-        titleWrap.className = 'am-result-head';
+        const left = document.createElement('div');
+        left.className = 'word-left';
 
         const acronym = document.createElement('div');
-        acronym.className = 'am-result-acronym';
+        acronym.className = 'word-pos';
         acronym.textContent = result.acronym;
 
         const phrase = document.createElement('div');
-        phrase.className = 'am-result-phrase';
+        phrase.className = 'word-text';
         phrase.textContent = result.phrase;
 
         const badgeRow = document.createElement('div');
@@ -573,9 +604,17 @@
           badgeRow.appendChild(chip);
         });
 
-        titleWrap.appendChild(acronym);
-        titleWrap.appendChild(phrase);
-        titleWrap.appendChild(badgeRow);
+        const why = document.createElement('div');
+        why.className = 'word-def';
+        why.textContent = result.why;
+
+        left.appendChild(acronym);
+        left.appendChild(phrase);
+        left.appendChild(badgeRow);
+        left.appendChild(why);
+
+        const right = document.createElement('div');
+        right.className = 'word-right';
 
         const copyButton = document.createElement('button');
         copyButton.type = 'button';
@@ -592,28 +631,22 @@
           });
         });
 
-        top.appendChild(titleWrap);
-        top.appendChild(copyButton);
-
-        const why = document.createElement('p');
-        why.className = 'am-why';
-        why.textContent = result.why;
-
-        item.appendChild(top);
-        item.appendChild(why);
+        right.appendChild(copyButton);
+        item.appendChild(left);
+        item.appendChild(right);
         fragment.appendChild(item);
       });
 
       resultList.appendChild(fragment);
-      setStatus(results.length + ' acronym ideas generated.');
+      setStatus(results.length + ' ideas generated.');
     }
 
     function runGeneration(useFreshSeed) {
       const target = normalizeAcronymTarget(targetInput.value);
       if (target.length < MIN_TARGET_LENGTH) {
-        setError('Enter 2 to 8 letters using A-Z only.');
+        setError('Enter 2 to 8 letters only.');
         resultList.innerHTML = '';
-        setStatus('Need a short acronym target before results can be generated.');
+        setStatus('Enter 2 to 8 letters.');
         return;
       }
 
@@ -638,6 +671,12 @@
 
     if (regenerateButton) {
       regenerateButton.addEventListener('click', function() {
+        runGeneration(true);
+      });
+    }
+
+    if (regeneratePanelButton) {
+      regeneratePanelButton.addEventListener('click', function() {
         runGeneration(true);
       });
     }
@@ -678,10 +717,12 @@
       });
     });
 
+    bindFaqAccordion(document);
     runGeneration(false);
   }
 
   return {
+    bindFaqAccordion: bindFaqAccordion,
     generateAcronymResults: generateAcronymResults,
     initAcronymMakerPage: initAcronymMakerPage,
     normalizeAcronymTarget: normalizeAcronymTarget
