@@ -40,6 +40,23 @@
 
 <!-- SLOT:style -->
 <style>
+/* ── Tool layout ── */
+.tool-wrap  { max-width:960px; margin:0 auto; padding:24px 24px 0; }
+.tool-card  { border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg); box-shadow:var(--shadow); }
+.tool-split { display:flex; }
+.ctrl       { width:260px; flex-shrink:0; padding:18px; border-right:1px solid var(--border-2); background:var(--bg-2); }
+.ctrl-row   { margin-bottom:14px; }
+.ctrl-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; display:block; margin-bottom:5px; }
+.ctrl-row input, .ctrl-row select { width:100%; padding:7px 10px; font-size:13px; font-family:inherit; border:1px solid var(--border); border-radius:7px; background:var(--bg); color:var(--text); appearance:none; outline:none; transition:border-color .15s; }
+.ctrl-row input:focus, .ctrl-row select:focus { border-color:var(--brand); }
+.gen-btn    { width:100%; padding:10px 14px; background:var(--brand); color:white; border:none; border-radius:8px; font-size:14px; font-weight:600; font-family:inherit; cursor:pointer; transition:background .15s,transform .1s; letter-spacing:-.01em; }
+.gen-btn:hover { background:var(--brand-dark); }
+.gen-btn:active { transform:scale(.98); }
+.act-btn    { font-size:12px; padding:5px 11px; border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:background .12s; white-space:nowrap; }
+.act-btn:hover { background:var(--bg-2); }
+.results-col { flex:1; display:flex; flex-direction:column; overflow:hidden; min-height:420px; padding:14px 16px; overflow-y:auto; }
+
+/* ── Breadcrumb ── */
 .breadcrumb { padding: 10px 0 0; }
 .breadcrumb-inner { display: flex; align-items: center; gap: 6px; font-size: 0.82rem; color: var(--text-muted, #6b7280); flex-wrap: wrap; }
 .breadcrumb-inner a { color: var(--text-muted, #6b7280); text-decoration: none; }
@@ -88,6 +105,13 @@
 
 .def-toggle-row { display: flex; align-items: center; gap: 8px; margin-top: 12px; }
 .def-toggle-row label { font-size: 0.85rem; color: var(--text, #111); cursor: pointer; }
+
+@media (max-width:640px) {
+  .tool-wrap { padding:14px 16px 0; }
+  .tool-split { flex-direction:column; }
+  .ctrl { width:100%; border-right:none; border-bottom:1px solid var(--border-2); }
+  .results-col { min-height:300px; }
+}
 
 @media print {
   header, nav, .breadcrumb, .ctrl, .sb-top-bar, .saved-section, footer, .ad, [class*="ad-"] { display: none !important; }
