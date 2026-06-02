@@ -369,11 +369,11 @@
     <div class="tool-split">
       <div class="ctrl">
         <div class="ctrl-row">
-          <label class="ctrl-label" for="am-target">Target acronym</label>
+          <label class="ctrl-label" for="am-target">Acronym letters</label>
           <input id="am-target" type="text" value="GROW" maxlength="8" inputmode="latin" autocomplete="off" spellcheck="false">
         </div>
         <div class="ctrl-row">
-          <label class="ctrl-label" for="am-keywords">Purpose or keywords</label>
+          <label class="ctrl-label" for="am-keywords">Project notes</label>
           <textarea id="am-keywords" placeholder="Example: sustainable business expansion and team momentum"></textarea>
         </div>
         <div class="ctrl-row">
@@ -385,15 +385,15 @@
             <option value="friendly">Friendly</option>
           </select>
         </div>
-        <p class="ctrl-help">Best for names that already have a target letter set, such as product codenames, campaigns, frameworks, clubs, training programs, and branded initiatives.</p>
+        <p class="ctrl-help">Use this when you already know the letters you want and need a strong full name around them.</p>
         <div class="am-actions">
-          <button type="button" class="am-btn am-btn--primary" id="am-generate">Generate</button>
-          <button type="button" class="am-btn am-btn--secondary" id="am-regenerate">Regenerate</button>
+          <button type="button" class="am-btn am-btn--primary" id="am-generate">Generate ideas</button>
+          <button type="button" class="am-btn am-btn--secondary" id="am-regenerate">Shuffle</button>
         </div>
         <div class="am-error" id="am-error"></div>
 
         <div class="am-examples">
-          <span class="am-example-label">Quick examples</span>
+          <span class="am-example-label">Try an example</span>
           <div class="am-example-grid">
             <button type="button" class="am-example" data-am-example data-target="GROW" data-keywords="sustainable business expansion and team momentum" data-style="professional">GROW for business</button>
             <button type="button" class="am-example" data-am-example data-target="CARE" data-keywords="community health and support program" data-style="friendly">CARE for health</button>
@@ -405,7 +405,7 @@
 
       <div class="words-panel">
         <div class="words-top">
-          <span class="words-count" id="am-status">Enter 2 to 8 letters and generate ideas.</span>
+          <span class="words-count" id="am-status">Generating…</span>
           <div class="words-actions">
             <button type="button" class="act-btn" id="am-copy-all">Copy all</button>
             <button type="button" class="act-btn" id="am-regenerate-panel">Regenerate</button>
@@ -491,26 +491,41 @@
 
 <div class="faq">
   <h2 class="faq-title">Frequently asked questions</h2>
-  <details class="faq-item" open>
-    <summary>What is Acronym Maker best used for?</summary>
-    <p>It is best for projects where you already know the letters you want and need good full expansions for them. That includes teams, campaigns, product names, school programs, clubs, internal frameworks, and community initiatives.</p>
-  </details>
-  <details class="faq-item">
-    <summary>Why use Acronym Maker instead of a general AI writer?</summary>
-    <p>General AI tools often produce bloated, repetitive results because they are not focused on the structure of acronym naming. Acronym Maker is narrower: it starts with your target letters, keeps the wording aligned to them, and returns several short options you can actually compare.</p>
-  </details>
-  <details class="faq-item">
-    <summary>How many letters should an acronym have?</summary>
-    <p>Shorter is usually stronger. Three to five letters is often the easiest range for memory and pronunciation, though six can still work for frameworks or internal initiatives. This tool accepts two to eight letters so you can test both compact and longer ideas.</p>
-  </details>
-  <details class="faq-item">
-    <summary>What if the generated phrase feels forced?</summary>
-    <p>Change either the letters or the purpose line. Acronym naming gets weak when you try to force the wrong letters to carry the wrong meaning. If the wording keeps sounding unnatural, the target acronym may be the real problem.</p>
-  </details>
-  <details class="faq-item">
-    <summary>Can I use these results commercially?</summary>
-    <p>You can use them as naming ideas, shortlists, and internal drafts. For customer-facing or legal brand decisions, do the normal checks afterward: trademark review, domain review, search visibility, and audience testing.</p>
-  </details>
+  <div class="faq-item open">
+    <div class="faq-q">
+      <span class="faq-q-text">What is Acronym Maker best used for?</span>
+      <svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </div>
+    <div class="faq-a">It is best for projects where you already know the letters you want and need good full expansions for them. That includes teams, campaigns, product names, school programs, clubs, internal frameworks, and community initiatives.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">
+      <span class="faq-q-text">Why use Acronym Maker instead of a general AI writer?</span>
+      <svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </div>
+    <div class="faq-a">General AI tools often produce bloated, repetitive results because they are not focused on the structure of acronym naming. Acronym Maker is narrower: it starts with your target letters, keeps the wording aligned to them, and returns several short options you can actually compare.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">
+      <span class="faq-q-text">How many letters should an acronym have?</span>
+      <svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </div>
+    <div class="faq-a">Shorter is usually stronger. Three to five letters is often the easiest range for memory and pronunciation, though six can still work for frameworks or internal initiatives. This tool accepts two to eight letters so you can test both compact and longer ideas.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">
+      <span class="faq-q-text">What if the generated phrase feels forced?</span>
+      <svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </div>
+    <div class="faq-a">Change either the letters or the project notes. Acronym naming gets weak when you try to force the wrong letters to carry the wrong meaning. If the wording keeps sounding unnatural, the target acronym may be the real problem.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">
+      <span class="faq-q-text">Can I use these results commercially?</span>
+      <svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </div>
+    <div class="faq-a">You can use them as naming ideas, shortlists, and internal drafts. For customer-facing or legal brand decisions, do the normal checks afterward: trademark review, domain review, search visibility, and audience testing.</div>
+  </div>
 </div>
   <div class="divider"></div>
 
