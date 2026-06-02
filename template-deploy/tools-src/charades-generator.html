@@ -1,4 +1,4 @@
-<!-- CONFIG { "url": "/charades-generator/", "output": "charades-generator.html" } -->
+<!-- CONFIG { "url": "/charades-generator/", "output": "charades-generator.html", "type": "tool" } -->
 
 <!-- SLOT:meta -->
 <title>Charades Generator — Free Random Words & Phrases | Wordineer</title>
@@ -164,7 +164,7 @@
         <div class="options-panel" id="more-options-panel">
           <div class="control-group">
             <span class="control-label">Age Group</span>
-            <div class="seg three" data-control="ageGroup">
+            <div class="seg" style="grid-template-columns:repeat(2,1fr)" data-control="ageGroup">
               <button type="button" class="active" data-value="all">All Ages</button>
               <button type="button" data-value="kids">Kids</button>
             </div>
@@ -413,7 +413,7 @@
   function startTimer(){if(state.running){stopTimer();return}state.running=true;$('timer-toggle').textContent='Pause';state.interval=setInterval(()=>{state.remaining-=1;updateTimer();if(state.remaining<=0){stopTimer();showToast('Time is up')}},1000)}
   document.addEventListener('click',e=>{
     const segBtn=e.target.closest('[data-control] button');
-    if(segBtn){const control=segBtn.closest('[data-control]').dataset.control,value=segBtn.dataset.value;if(control==='count')setCount(value);if(control==='difficulty'){state.difficulty=value;state.seen.clear();}if(control==='ageGroup'){state.ageGroup=value;state.seen.clear();if(value==='kids')charLoadKidsWords();else charLoadFullWords();setSeg(control,value);generate();return}if(control==='timer')setTimer(Number(value));if(control!=='count')setSeg(control,value);if(control!=='timer')generate();return}
+    if(segBtn){const control=segBtn.closest('[data-control]').dataset.control,value=segBtn.dataset.value;if(control==='count')setCount(value);if(control==='difficulty'){state.difficulty=value;state.seen.clear();}if(control==='ageGroup'){state.ageGroup=value;state.seen.clear();const celOpt=$('pic-category').querySelector('option[value="celebrities"]');if(celOpt)celOpt.hidden=value==='kids';if(state.category==='celebrities'&&value==='kids'){state.category='all';$('pic-category').value='all'}if(value==='kids')charLoadKidsWords();else charLoadFullWords();setSeg(control,value);generate();return}if(control==='timer')setTimer(Number(value));if(control!=='count')setSeg(control,value);if(control!=='timer')generate();return}
     const save=e.target.closest('[data-save]');if(save){const word=save.dataset.save;if(state.saved.includes(word))state.saved=state.saved.filter(item=>item!==word);else state.saved.push(word);renderSaved();renderWords();return}
     const remove=e.target.closest('[data-remove]');if(remove){state.saved=state.saved.filter(item=>item!==remove.dataset.remove);renderSaved();renderWords();return}
     const faq=e.target.closest('.faq-q');if(faq)faq.closest('.faq-item').classList.toggle('open');
