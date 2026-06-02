@@ -182,16 +182,16 @@
 .tool-split { display: flex; }
 .ctrl { width: 290px; flex-shrink: 0; padding: 18px; border-right: 1px solid var(--border-2); background: var(--bg-2); }
 .ctrl-row { margin-bottom: 14px; }
-.ctrl-label { display: block; margin-bottom: 6px; font-size: 10px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--text-3); }
+.ctrl-label { display: block; margin-bottom: 5px; font-size: 10px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--text-3); }
 .ctrl-row input,
 .ctrl-row textarea,
 .ctrl-row select {
   width: 100%;
-  padding: 10px 11px;
+  padding: 8px 10px;
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 7px;
   font: inherit;
-  font-size: 14px;
+  font-size: 13px;
   background: var(--bg);
   color: var(--text);
 }
@@ -203,10 +203,10 @@
 .am-actions { display: flex; gap: 8px; margin-top: 18px; }
 .am-btn {
   flex: 1;
-  min-height: 42px;
+  min-height: 40px;
   padding: 0 14px;
   border: none;
-  border-radius: 9px;
+  border-radius: 8px;
   font: inherit;
   font-size: 14px;
   font-weight: 600;
@@ -229,7 +229,7 @@
   line-height: 1.5;
 }
 .am-examples { margin-top: 18px; }
-.am-example-label { display: block; margin-bottom: 8px; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--text-3); }
+.am-example-label { display: block; margin-bottom: 8px; font-size: 10px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--text-3); }
 .am-example-grid { display: flex; flex-wrap: wrap; gap: 8px; }
 .am-example {
   padding: 8px 10px;
@@ -248,34 +248,34 @@
   justify-content: space-between;
   align-items: center;
   gap: 14px;
-  padding: 16px 18px;
+  padding: 14px 18px;
   border-bottom: 1px solid var(--border-2);
   background: linear-gradient(180deg, rgba(76, 63, 212, .04), transparent);
 }
-.am-results-title { margin: 0; font-size: 18px; font-weight: 700; color: var(--text); }
-.am-results-sub { margin: 4px 0 0; font-size: 13px; line-height: 1.55; color: var(--text-2); }
+.am-results-title { margin: 0; font-size: 15px; font-weight: 700; color: var(--text); letter-spacing: -.01em; }
+.am-results-sub { margin: 4px 0 0; font-size: 12px; line-height: 1.55; color: var(--text-2); }
 .am-status { font-size: 12px; color: var(--text-3); text-align: right; }
-.am-results { padding: 16px 18px 20px; display: grid; gap: 12px; }
+.am-results { padding: 14px 18px 18px; display: grid; gap: 12px; }
 .am-result {
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 10px;
   padding: 14px;
   background: var(--bg);
 }
 .am-result-top { display: flex; justify-content: space-between; gap: 10px; align-items: flex-start; }
 .am-result-head { min-width: 0; }
 .am-result-acronym { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--brand); margin-bottom: 6px; }
-.am-result-phrase { font-size: 18px; line-height: 1.35; font-weight: 600; color: var(--text); }
+.am-result-phrase { font-size: 19px; line-height: 1.35; font-weight: 500; color: var(--text); letter-spacing: -.01em; }
 .am-badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
 .am-badge {
   display: inline-flex;
   align-items: center;
-  min-height: 24px;
+  min-height: 22px;
   padding: 0 8px;
   border-radius: 999px;
   background: var(--bg-2);
   color: var(--text-2);
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 600;
 }
 .am-copy {
@@ -293,7 +293,7 @@
   cursor: pointer;
 }
 .am-copy:hover { border-color: var(--brand); color: var(--brand); }
-.am-why { margin: 10px 0 0; font-size: 13px; line-height: 1.6; color: var(--text-2); }
+.am-why { margin: 10px 0 0; font-size: 12px; line-height: 1.6; color: var(--text-2); }
 .am-mini-notes {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -306,7 +306,7 @@
   padding: 12px;
   background: var(--bg);
 }
-.am-note h3 { margin: 0 0 4px; font-size: 13px; font-weight: 700; color: var(--text-1); }
+.am-note h3 { margin: 0 0 4px; font-size: 12px; font-weight: 700; color: var(--text-1); }
 .am-note p { margin: 0; font-size: 12px; line-height: 1.55; color: var(--text-2); }
 @media (max-width: 820px) {
   .tool-wrap { padding: 16px 16px 0; }
@@ -482,13 +482,7 @@
     </div>
   </div>
 </div>
-<div class="section" style="margin-top:26px">
-  <div class="affiliate-placeholder">
-    <div class="affiliate-tag">Placeholder</div>
-    <div class="affiliate-title">Sponsored slot</div>
-    <div class="affiliate-body">This space can be used later for a relevant writing, branding, or productivity recommendation.</div>
-  </div>
-</div>
+
 <div class="content-wrap">
   <div class="section">
     <h2 class="section-title">More word tools</h2>
@@ -527,7 +521,7 @@
   </div>
   <div class="divider"></div>
 
-<div class="section">
+<div class="explainer">
   <h2>What is Acronym Maker?</h2>
   <p>Acronym Maker is a focused naming tool for a very specific job: taking a short set of letters and turning it into several full phrases that could work as a real name. That sounds simple, but it is one of those tasks that becomes unexpectedly slow the moment you try to do it seriously. You might already know you want your initiative to be called GROW, CARE, LIFT, or PACE. The hard part is finding words that match each letter without sounding forced, vague, or childish. Most people can make one or two rough versions by hand. The trouble starts when they need ten good ones, and need them fast enough to compare.</p>
   <p>This tool is built for that comparison stage. It lets you enter the acronym you want, add a short note about what the project actually does, and then generate a batch of expansions with a defined style. Instead of pretending to be an all-purpose AI writing tool, Acronym Maker stays narrow on purpose. It is built for naming, positioning, and internal decision-making. That focus matters because the best acronym tool is not the one with the most controls. It is the one that helps you reach a shortlist quickly, see why one option is stronger than another, and avoid wasting time on weak phrasing that would never survive a real naming discussion.</p>
