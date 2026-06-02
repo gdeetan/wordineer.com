@@ -124,7 +124,7 @@
       <div class="ctrl">
         <div class="ctrl-row">
           <label class="ctrl-label">Grade Level</label>
-          <div class="sb-seg" id="seg-grade">
+          <div class="sb-seg" id="seg-grade" role="group" aria-label="Grade Level">
             <button class="active" data-val="all">All</button>
             <button data-val="k-2">K-2</button>
             <button data-val="3-4">3-4</button>
@@ -137,7 +137,7 @@
 
         <div class="ctrl-row">
           <label class="ctrl-label">Difficulty</label>
-          <div class="sb-seg" id="seg-diff">
+          <div class="sb-seg" id="seg-diff" role="group" aria-label="Difficulty">
             <button class="active" data-val="all">All</button>
             <button data-val="easy">Easy</button>
             <button data-val="medium">Medium</button>
@@ -332,6 +332,8 @@
 <!-- SLOT:init -->
 <script>
 (function () {
+  function he(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
   var SBT = {
     data: null,
     saved: JSON.parse(localStorage.getItem('sb-saved') || '[]'),
@@ -365,6 +367,9 @@
       var self = this;
       self.load().then(function (words) {
         self.render(self.filter(words));
+      }).catch(function () {
+        var list = document.getElementById('sb-list');
+        if (list) list.innerHTML = '<li class="sb-empty">Could not load word list. Please refresh and try again.</li>';
       });
     },
 
@@ -384,16 +389,16 @@
       list.innerHTML = words.map(function (w) {
         var isSaved = saved.indexOf(w.w) !== -1;
         var esc = w.w.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
-        return '<li class="sb-item" data-word="' + w.w + '">' +
+        return '<li class="sb-item" data-word="' + he(w.w) + '">' +
           '<div class="sb-word-row">' +
-          '<span class="sb-word">' + w.w + '</span>' +
-          '<span class="sb-origin" data-o="' + w.origin + '">' + w.origin + '</span>' +
-          '<span class="sb-syl">' + w.syl + ' syl</span>' +
-          '<span class="sb-pos">' + w.pos + '</span>' +
+          '<span class="sb-word">' + he(w.w) + '</span>' +
+          '<span class="sb-origin" data-o="' + he(w.origin) + '">' + he(w.origin) + '</span>' +
+          '<span class="sb-syl">' + he(w.syl) + ' syl</span>' +
+          '<span class="sb-pos">' + he(w.pos) + '</span>' +
           '<button class="sb-save' + (isSaved ? ' saved' : '') + '" onclick="SBT.toggleSave(\'' + esc + '\')" title="Save word">&#9829;</button>' +
           '<button class="sb-copy-word" onclick="SBT.copyWord(\'' + esc + '\')" title="Copy word">&#10064;</button>' +
           '</div>' +
-          '<div class="sb-def' + (showDef ? '' : ' hidden') + '">' + w.d + '</div>' +
+          '<div class="sb-def' + (showDef ? '' : ' hidden') + '">' + he(w.d) + '</div>' +
           '</li>';
       }).join('');
     },
@@ -404,7 +409,14 @@
       else this.saved.splice(idx, 1);
       localStorage.setItem('sb-saved', JSON.stringify(this.saved));
       this.renderSaved();
-      var btn = document.querySelector('.sb-item[data-word="' + word + '"] .sb-save');
+      var items = document.querySelectorAll('.sb-item');
+      var btn = null;
+      for (var k = 0; k < items.length; k++) {
+        if (items[k].dataset.word === word) {
+          btn = items[k].querySelector('.sb-save');
+          break;
+        }
+      }
       if (btn) btn.classList.toggle('saved', this.saved.indexOf(word) !== -1);
     },
 
@@ -414,7 +426,7 @@
       count.textContent = '(' + this.saved.length + ')';
       container.innerHTML = this.saved.map(function (w) {
         var esc = w.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
-        return '<span class="saved-tag">' + w +
+        return '<span class="saved-tag">' + he(w) +
           '<button onclick="SBT.toggleSave(\'' + esc + '\')">&#215;</button></span>';
       }).join('');
     },
