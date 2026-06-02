@@ -242,79 +242,32 @@
   cursor: pointer;
 }
 .am-example:hover { border-color: var(--brand); color: var(--brand); }
-.am-results-panel { flex: 1; min-width: 0; }
-.am-results-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 14px;
-  padding: 14px 18px;
-  border-bottom: 1px solid var(--border-2);
-  background: linear-gradient(180deg, rgba(76, 63, 212, .04), transparent);
-}
-.am-results-title { margin: 0; font-size: 15px; font-weight: 700; color: var(--text); letter-spacing: -.01em; }
-.am-results-sub { margin: 4px 0 0; font-size: 12px; line-height: 1.55; color: var(--text-2); }
-.am-status { font-size: 12px; color: var(--text-3); text-align: right; }
-.am-results { padding: 14px 18px 18px; display: grid; gap: 12px; }
-.am-result {
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 14px;
-  background: var(--bg);
-}
-.am-result-top { display: flex; justify-content: space-between; gap: 10px; align-items: flex-start; }
-.am-result-head { min-width: 0; }
-.am-result-acronym { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--brand); margin-bottom: 6px; }
-.am-result-phrase { font-size: 19px; line-height: 1.35; font-weight: 500; color: var(--text); letter-spacing: -.01em; }
-.am-badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
-.am-badge {
-  display: inline-flex;
-  align-items: center;
-  min-height: 22px;
-  padding: 0 8px;
-  border-radius: 999px;
-  background: var(--bg-2);
-  color: var(--text-2);
-  font-size: 10px;
-  font-weight: 600;
-}
-.am-copy {
-  flex-shrink: 0;
-  min-width: 64px;
-  min-height: 34px;
-  padding: 0 10px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background: var(--bg);
-  color: var(--text);
-  font: inherit;
-  font-size: 12px;
-  font-weight: 600;
-  cursor: pointer;
-}
-.am-copy:hover { border-color: var(--brand); color: var(--brand); }
-.am-why { margin: 10px 0 0; font-size: 12px; line-height: 1.6; color: var(--text-2); }
-.am-mini-notes {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
-  padding: 0 18px 18px;
-}
-.am-note {
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 12px;
-  background: var(--bg);
-}
-.am-note h3 { margin: 0 0 4px; font-size: 12px; font-weight: 700; color: var(--text-1); }
-.am-note p { margin: 0; font-size: 12px; line-height: 1.55; color: var(--text-2); }
+.words-panel { flex:1; display:flex; flex-direction:column; overflow:hidden; min-height:320px; }
+.words-top  { display:flex; align-items:center; justify-content:space-between; gap:10px; padding:12px 16px; border-bottom:1px solid var(--border-2); }
+.words-count { font-size:12px; color:var(--text-3); }
+.words-actions { display:flex; gap:6px; }
+.act-btn { font-size:12px; padding:5px 11px; border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:background .12s; }
+.act-btn:hover { background:var(--bg-2); }
+.word-list { flex:1; overflow-y:auto; list-style:none; padding:0 16px; margin:0; }
+.word-item { display:flex; align-items:flex-start; justify-content:space-between; padding:10px 0; border-bottom:1px solid var(--border-2); gap:10px; animation:fadeIn .2s ease; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:none} }
+.word-item:last-child { border-bottom:none; }
+.word-left { flex:1; min-width:0; }
+.word-text { font-size:20px; font-weight:500; color:var(--text); line-height:1.2; letter-spacing:-.02em; }
+.word-pos { font-size:11px; color:var(--text-3); margin-top:2px; text-transform:uppercase; letter-spacing:.06em; }
+.word-def { font-size:12px; color:var(--text-2); margin-top:4px; line-height:1.45; }
+.am-badges { display:flex; flex-wrap:wrap; gap:6px; margin-top:8px; }
+.am-badge { display:inline-flex; align-items:center; min-height:22px; padding:0 8px; border-radius:999px; background:var(--bg-2); color:var(--text-2); font-size:10px; font-weight:600; }
+.word-right { display:flex; align-items:center; gap:6px; padding-top:2px; flex-shrink:0; }
+.am-copy { font-size:12px; padding:5px 11px; border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:background .12s; }
+.am-copy:hover { background:var(--bg-2); }
+.am-empty { padding:14px 0; font-size:12px; color:var(--text-3); }
 @media (max-width: 820px) {
   .tool-wrap { padding: 16px 16px 0; }
   .tool-split { flex-direction: column; }
   .ctrl { width: 100%; border-right: none; border-bottom: 1px solid var(--border-2); }
-  .am-results-top { flex-direction: column; align-items: flex-start; }
-  .am-status { text-align: left; }
-  .am-mini-notes { grid-template-columns: 1fr; }
+  .words-top { flex-direction: column; align-items: flex-start; }
+  .word-text { font-size:19px; }
 }
 </style>
 </head>
@@ -450,34 +403,15 @@
         </div>
       </div>
 
-      <div class="am-results-panel">
-        <div class="am-results-top">
-          <div>
-            <h2 class="am-results-title">Generated acronym ideas</h2>
-            <p class="am-results-sub">Each result is scored for fit, then labeled with quick quality cues so you can shortlist faster.</p>
-          </div>
-          <div>
-            <div class="am-status" id="am-status">Enter 2 to 8 letters and generate ideas.</div>
-            <button type="button" class="am-btn am-btn--secondary" id="am-copy-all" style="margin-top:8px; min-width:120px;">Copy all</button>
+      <div class="words-panel">
+        <div class="words-top">
+          <span class="words-count" id="am-status">Enter 2 to 8 letters and generate ideas.</span>
+          <div class="words-actions">
+            <button type="button" class="act-btn" id="am-copy-all">Copy all</button>
+            <button type="button" class="act-btn" id="am-regenerate-panel">Regenerate</button>
           </div>
         </div>
-
-        <div class="am-results" id="am-results"></div>
-
-        <div class="am-mini-notes">
-          <div class="am-note">
-            <h3>Pronounceable</h3>
-            <p>Useful when you want a name people can say out loud in meetings, pitches, and presentations.</p>
-          </div>
-          <div class="am-note">
-            <h3>Clear</h3>
-            <p>Signals that the wording stays close to your topic instead of drifting into filler language.</p>
-          </div>
-          <div class="am-note">
-            <h3>Brandable</h3>
-            <p>Favors phrases that are easier to remember, reuse, and defend in a naming shortlist.</p>
-          </div>
-        </div>
+        <ul class="word-list" id="am-results"></ul>
       </div>
     </div>
   </div>
