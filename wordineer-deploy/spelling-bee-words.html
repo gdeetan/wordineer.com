@@ -157,27 +157,29 @@
 .sb-seg button.active { background: var(--brand, #6c63ff); color: #fff; border-color: var(--brand, #6c63ff); }
 .sb-seg button:hover:not(.active) { background: #f3f4f6; }
 
-#sb-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
-.sb-item { padding: 10px 12px; border: 1px solid var(--border, #e5e7eb); border-radius: 8px; background: #fff; }
-.sb-word-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-.sb-word { font-size: 1.05rem; font-weight: 600; color: var(--text, #111); flex: 1 1 auto; }
-.sb-origin { font-size: 0.72rem; padding: 2px 7px; border-radius: 99px; font-weight: 500; white-space: nowrap; }
-.sb-origin[data-o="Latin"]       { background: #eef2ff; color: #3730a3; }
-.sb-origin[data-o="Greek"]       { background: #f5f3ff; color: #6d28d9; }
-.sb-origin[data-o="French"]      { background: #fff0f3; color: #9d174d; }
-.sb-origin[data-o="Germanic"]    { background: #f0fdf4; color: #166534; }
-.sb-origin[data-o="Anglo-Saxon"] { background: #ecfdf5; color: #065f46; }
-.sb-origin[data-o="Spanish"]     { background: #fff7ed; color: #9a3412; }
-.sb-origin[data-o="Other"]       { background: #f3f4f6; color: #374151; }
-.sb-syl { font-size: 0.72rem; color: var(--text-muted, #6b7280); white-space: nowrap; }
-.sb-pos { font-size: 0.72rem; color: var(--text-muted, #6b7280); font-style: italic; white-space: nowrap; }
-.sb-save, .sb-copy-word { background: none; border: none; cursor: pointer; font-size: 1rem; padding: 2px 4px; color: var(--text-muted, #9ca3af); transition: color 0.15s; }
-.sb-save:hover { color: #ef4444; }
-.sb-save.saved { color: #ef4444; }
-.sb-copy-word:hover { color: var(--brand, #6c63ff); }
-.sb-def { font-size: 0.85rem; color: var(--text-muted, #6b7280); margin-top: 4px; line-height: 1.4; }
-.sb-def.hidden { display: none; }
-.sb-empty { color: var(--text-muted, #6b7280); font-size: 0.9rem; padding: 16px 0; text-align: center; }
+.word-list  { list-style:none; padding:0; margin:0; }
+.word-item  { display:flex; align-items:flex-start; justify-content:space-between; padding:10px 0; border-bottom:1px solid var(--border-2); gap:10px; animation:fadeIn .2s ease; }
+.word-item:last-child { border-bottom:none; }
+.word-left  { flex:1; }
+.word-text  { font-size:20px; font-weight:500; color:var(--text); line-height:1.2; letter-spacing:-.02em; }
+.word-badges { display:flex; gap:5px; margin-top:4px; flex-wrap:wrap; }
+.badge      { font-size:10px; font-weight:600; padding:2px 7px; border-radius:999px; }
+.badge-meta { background:var(--bg-2); color:var(--text-3); font-style:italic; }
+.word-def   { font-size:12px; color:var(--text-2); margin-top:3px; line-height:1.4; }
+.word-def.hidden { display:none; }
+.word-right { display:flex; align-items:center; gap:4px; padding-top:3px; flex-shrink:0; }
+.icon-btn   { width:28px; height:28px; display:flex; align-items:center; justify-content:center; border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text-3); cursor:pointer; font-size:14px; transition:color .12s,background .12s; }
+.icon-btn:hover { background:var(--bg-2); }
+.icon-btn.saved { color:#ef4444; border-color:#ef4444; }
+.sb-origin { font-size:10px; font-weight:600; padding:2px 7px; border-radius:999px; }
+.sb-origin[data-o="Latin"]       { background:#eef2ff; color:#3730a3; }
+.sb-origin[data-o="Greek"]       { background:#f5f3ff; color:#6d28d9; }
+.sb-origin[data-o="French"]      { background:#fff0f3; color:#9d174d; }
+.sb-origin[data-o="Germanic"]    { background:#f0fdf4; color:#166534; }
+.sb-origin[data-o="Anglo-Saxon"] { background:#ecfdf5; color:#065f46; }
+.sb-origin[data-o="Spanish"]     { background:#fff7ed; color:#9a3412; }
+.sb-origin[data-o="Other"]       { background:#f3f4f6; color:#374151; }
+.sb-empty { color:var(--text-2); font-size:0.9rem; padding:16px 0; text-align:center; }
 
 .sb-top-bar { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
 .sb-count-label { font-size: 0.85rem; color: var(--text-muted, #6b7280); flex: 1; }
@@ -204,11 +206,10 @@
 
 @media print {
   header, nav, .breadcrumb, .ctrl, .sb-top-bar, .saved-section, footer, .ad, [class*="ad-"] { display: none !important; }
-  .sb-item { border: none; border-bottom: 1px solid #e5e7eb; border-radius: 0; padding: 8px 0; break-inside: avoid; }
-  .sb-word { font-size: 1.1rem; }
-  .sb-word-row { gap: 12px; }
-  .sb-def, .sb-def.hidden { display: block !important; }
-  .sb-save, .sb-copy-word { display: none !important; }
+  .word-item { border-top: none; border-bottom: 1px solid #e5e7eb; padding: 8px 0; break-inside: avoid; }
+  .word-text { font-size: 1.1rem; }
+  .word-def, .word-def.hidden { display: block !important; }
+  .word-right { display: none !important; }
   @page { margin: 1.5cm; }
 }
 </style>
@@ -299,9 +300,11 @@
     <span aria-current="page">Spelling Bee Words</span>
   </div>
 </div>
-<div class="hero-badge">1,000+ Words</div>
-<h1>Spelling Bee Words Generator</h1>
-<p>Filter over 1,000 spelling bee words by grade level, difficulty, and word origin. Save your practice list or print it for classroom use — no login required.</p>
+<div class="hero">
+  <div class="hero-badge">1,000+ Words</div>
+  <h1>Spelling Bee Words Generator</h1>
+  <p>Filter over 1,000 spelling bee words by grade level, difficulty, and word origin. Save your practice list or print it for classroom use — no login required.</p>
+</div>
 <div class="tool-wrap">
   <div class="tool-card">
     <div class="tool-split">
@@ -674,16 +677,20 @@
       list.innerHTML = words.map(function (w) {
         var isSaved = saved.indexOf(w.w) !== -1;
         var esc = w.w.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
-        return '<li class="sb-item" data-word="' + he(w.w) + '">' +
-          '<div class="sb-word-row">' +
-          '<span class="sb-word">' + he(w.w) + '</span>' +
+        return '<li class="word-item" data-word="' + he(w.w) + '">' +
+          '<div class="word-left">' +
+          '<div class="word-text">' + he(w.w) + '</div>' +
+          '<div class="word-badges">' +
           '<span class="sb-origin" data-o="' + he(w.origin) + '">' + he(w.origin) + '</span>' +
-          '<span class="sb-syl">' + he(w.syl) + ' syl</span>' +
-          '<span class="sb-pos">' + he(w.pos) + '</span>' +
-          '<button class="sb-save' + (isSaved ? ' saved' : '') + '" onclick="SBT.toggleSave(\'' + esc + '\')" title="Save word">&#9829;</button>' +
-          '<button class="sb-copy-word" onclick="SBT.copyWord(\'' + esc + '\')" title="Copy word">&#10064;</button>' +
+          '<span class="badge badge-meta">' + he(w.syl) + ' syl</span>' +
+          '<span class="badge badge-meta">' + he(w.pos) + '</span>' +
           '</div>' +
-          '<div class="sb-def' + (showDef ? '' : ' hidden') + '">' + he(w.d) + '</div>' +
+          '<div class="word-def' + (showDef ? '' : ' hidden') + '">' + he(w.d) + '</div>' +
+          '</div>' +
+          '<div class="word-right">' +
+          '<button class="icon-btn sb-save' + (isSaved ? ' saved' : '') + '" onclick="SBT.toggleSave(\'' + esc + '\')" title="Save word">&#9829;</button>' +
+          '<button class="icon-btn sb-copy-word" onclick="SBT.copyWord(\'' + esc + '\')" title="Copy word">&#10064;</button>' +
+          '</div>' +
           '</li>';
       }).join('');
     },
@@ -694,7 +701,7 @@
       else this.saved.splice(idx, 1);
       localStorage.setItem('sb-saved', JSON.stringify(this.saved));
       this.renderSaved();
-      var items = document.querySelectorAll('.sb-item');
+      var items = document.querySelectorAll('.word-item');
       var btn = null;
       for (var k = 0; k < items.length; k++) {
         if (items[k].dataset.word === word) {
@@ -717,7 +724,7 @@
     },
 
     copyAll: function () {
-      var words = [].slice.call(document.querySelectorAll('#sb-list .sb-word')).map(function (el) { return el.textContent; });
+      var words = [].slice.call(document.querySelectorAll('#sb-list .word-text')).map(function (el) { return el.textContent; });
       if (navigator.clipboard) navigator.clipboard.writeText(words.join('\n'));
     },
 
@@ -731,7 +738,7 @@
 
     toggleDefs: function () {
       var show = document.getElementById('ctrl-defs').checked;
-      [].slice.call(document.querySelectorAll('.sb-def')).forEach(function (el) {
+      [].slice.call(document.querySelectorAll('.word-def')).forEach(function (el) {
         el.classList.toggle('hidden', !show);
       });
     },
