@@ -342,8 +342,8 @@
       <div class="ctrl">
         <div class="ctrl-row">
           <label class="ctrl-label" for="ctrl-count">Number of words</label>
-          <input type="number" id="ctrl-count" value="15" min="1" max="25" inputmode="numeric" aria-describedby="count-error">
-          <span class="count-error" id="count-error">Enter a number from 1 to 25</span>
+          <input type="number" id="ctrl-count" value="15" min="1" max="50" inputmode="numeric" aria-describedby="count-error">
+          <span class="count-error" id="count-error">Enter a number from 1 to 50</span>
         </div>
 
         <button type="button" class="mobile-more-toggle" id="mobile-more-toggle" aria-expanded="false" aria-controls="advanced-options">Toggle More Options</button>
@@ -669,7 +669,7 @@
     filter: function (words) {
       var d      = document.getElementById('ctrl-diff').value;
       var o      = document.getElementById('ctrl-origin').value;
-      var count  = Math.min(25, Math.max(1, parseInt(document.getElementById('ctrl-count').value, 10) || 15));
+      var count  = Math.min(50, Math.max(1, parseInt(document.getElementById('ctrl-count').value, 10) || 15));
       var result = words.slice();
       if (d !== 'all') result = result.filter(function (w) { return w.diff === d; });
       if (o !== 'all') result = result.filter(function (w) { return w.origin === o; });
@@ -864,7 +864,7 @@
       var countEl = document.getElementById('ctrl-count');
       if (countEl) countEl.addEventListener('input', function () {
         var raw = parseInt(countEl.value, 10);
-        var valid = !isNaN(raw) && raw >= 1 && raw <= 25;
+        var valid = !isNaN(raw) && raw >= 1 && raw <= 50;
         var err = document.getElementById('count-error');
         if (err) err.classList.toggle('show', !valid);
         countEl.classList.toggle('input-error', !valid);
