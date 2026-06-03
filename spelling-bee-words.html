@@ -138,6 +138,9 @@
 .ctrl-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; display:block; margin-bottom:5px; }
 .ctrl-row input, .ctrl-row select { width:100%; padding:7px 10px; font-size:13px; font-family:inherit; border:1px solid var(--border); border-radius:7px; background:var(--bg); color:var(--text); appearance:none; outline:none; transition:border-color .15s; }
 .ctrl-row input:focus, .ctrl-row select:focus { border-color:var(--brand); }
+.count-error { display:none; font-size:11px; color:#E24B4A; margin-top:4px; }
+.count-error.show { display:block; }
+.input-error { border-color:#E24B4A !important; }
 .gen-btn    { width:100%; padding:10px 14px; background:var(--brand); color:white; border:none; border-radius:8px; font-size:14px; font-weight:600; font-family:inherit; cursor:pointer; transition:background .15s,transform .1s; letter-spacing:-.01em; }
 .gen-btn:hover { background:var(--brand-dark); }
 .gen-btn:active { transform:scale(.98); }
@@ -316,8 +319,8 @@
   </div>
 </div>
 <div class="hero">
-  <div class="hero-badge">1,000+ Words</div>
-  <h1>1,000+ Spelling Bee Words — Filter by Grade, Print &amp; Practice Free</h1>
+  <div class="hero-badge">1,000+ Words · Filter by Grade · Practice Free</div>
+  <h1>1,000+ Spelling Bee Words</h1>
   <p>Filter over 1,000 spelling bee words by grade level, difficulty, and word origin. Save your practice list or print it for classroom use — no login required.</p>
 </div>
 <div class="tool-wrap">
@@ -327,7 +330,8 @@
       <div class="ctrl">
         <div class="ctrl-row">
           <label class="ctrl-label" for="ctrl-count">Number of words</label>
-          <input type="number" id="ctrl-count" value="20" min="5" max="50">
+          <input type="number" id="ctrl-count" value="20" min="1" max="50" inputmode="numeric" aria-describedby="count-error">
+          <span class="count-error" id="count-error">Enter a number from 1 to 50</span>
         </div>
 
         <button type="button" class="mobile-more-toggle" id="mobile-more-toggle" aria-expanded="false" aria-controls="advanced-options">Toggle More Options</button>
@@ -658,7 +662,7 @@
       var g      = document.getElementById('ctrl-grade').value;
       var d      = document.getElementById('ctrl-diff').value;
       var origin = document.getElementById('ctrl-origin').value;
-      var count  = parseInt(document.getElementById('ctrl-count').value, 10) || 20;
+      var count  = Math.min(50, Math.max(1, parseInt(document.getElementById('ctrl-count').value, 10) || 20));
       var result = words.slice();
       if (g !== 'all')      result = result.filter(function (w) { return w.grade === g; });
       if (d !== 'all')      result = result.filter(function (w) { return w.diff === d; });
@@ -780,7 +784,14 @@
         if (el) el.addEventListener('change', function () { self.generate(); });
       });
       var countEl = document.getElementById('ctrl-count');
-      if (countEl) countEl.addEventListener('change', function () { self.generate(); });
+      if (countEl) countEl.addEventListener('input', function () {
+        var raw = parseInt(countEl.value, 10);
+        var valid = !isNaN(raw) && raw >= 1 && raw <= 50;
+        var err = document.getElementById('count-error');
+        if (err) err.classList.toggle('show', !valid);
+        countEl.classList.toggle('input-error', !valid);
+        if (valid) self.generate();
+      });
 
       if (typeof requestIdleCallback !== 'undefined') {
         requestIdleCallback(function () { self.generate(); });
