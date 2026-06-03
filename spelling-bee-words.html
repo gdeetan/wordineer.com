@@ -152,6 +152,10 @@
 .breadcrumb-inner a:hover { text-decoration: underline; }
 .breadcrumb-sep { color: var(--text-muted, #6b7280); }
 
+/* ── Mobile more-options toggle ── */
+.mobile-more-toggle { display:none; width:100%; margin:-2px 0 14px; padding:9px 12px; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--brand); font-size:13px; font-weight:600; font-family:inherit; cursor:pointer; }
+.advanced-options { display:block; }
+
 /* ── Toggle (show definitions) ── */
 .def-row    { display:flex; align-items:center; gap:8px; margin-bottom:14px; }
 .def-row label { font-size:12px; color:var(--text-2); cursor:pointer; }
@@ -209,6 +213,10 @@
   .tool-split { flex-direction:column; }
   .ctrl { width:100%; border-right:none; border-bottom:1px solid var(--border-2); }
   .results-col { min-height:300px; }
+  .mobile-more-toggle { display:block; }
+  .advanced-options { display:none; }
+  .advanced-options.is-open { display:block; }
+  .gen-btn { margin-top:0; }
 }
 
 @media print {
@@ -322,47 +330,50 @@
           <input type="number" id="ctrl-count" value="20" min="5" max="50">
         </div>
 
-        <div class="ctrl-row">
-          <label class="ctrl-label" for="ctrl-grade">Grade Level</label>
-          <select id="ctrl-grade">
-            <option value="all">All grades</option>
-            <option value="k-2">K–2</option>
-            <option value="3-4">Grades 3–4</option>
-            <option value="5-6">Grades 5–6</option>
-            <option value="7-8">Grades 7–8</option>
-            <option value="9-12">Grades 9–12</option>
-            <option value="adult">Adult</option>
-          </select>
-        </div>
+        <button type="button" class="mobile-more-toggle" id="mobile-more-toggle" aria-expanded="false" aria-controls="advanced-options">Toggle More Options</button>
+        <div class="advanced-options" id="advanced-options">
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="ctrl-grade">Grade Level</label>
+            <select id="ctrl-grade">
+              <option value="all">All grades</option>
+              <option value="k-2">K–2</option>
+              <option value="3-4">Grades 3–4</option>
+              <option value="5-6">Grades 5–6</option>
+              <option value="7-8">Grades 7–8</option>
+              <option value="9-12">Grades 9–12</option>
+              <option value="adult">Adult</option>
+            </select>
+          </div>
 
-        <div class="ctrl-row">
-          <label class="ctrl-label" for="ctrl-diff">Difficulty</label>
-          <select id="ctrl-diff">
-            <option value="all">All levels</option>
-            <option value="easy">Easy</option>
-            <option value="medium">Medium</option>
-            <option value="hard">Hard</option>
-            <option value="expert">Expert</option>
-          </select>
-        </div>
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="ctrl-diff">Difficulty</label>
+            <select id="ctrl-diff">
+              <option value="all">All levels</option>
+              <option value="easy">Easy</option>
+              <option value="medium">Medium</option>
+              <option value="hard">Hard</option>
+              <option value="expert">Expert</option>
+            </select>
+          </div>
 
-        <div class="ctrl-row">
-          <label class="ctrl-label" for="ctrl-origin">Word Origin</label>
-          <select id="ctrl-origin">
-            <option value="all">All origins</option>
-            <option value="Latin">Latin</option>
-            <option value="Greek">Greek</option>
-            <option value="French">French</option>
-            <option value="Germanic">Germanic</option>
-            <option value="Anglo-Saxon">Anglo-Saxon</option>
-            <option value="Spanish">Spanish</option>
-            <option value="Other">Other</option>
-          </select>
-        </div>
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="ctrl-origin">Word Origin</label>
+            <select id="ctrl-origin">
+              <option value="all">All origins</option>
+              <option value="Latin">Latin</option>
+              <option value="Greek">Greek</option>
+              <option value="French">French</option>
+              <option value="Germanic">Germanic</option>
+              <option value="Anglo-Saxon">Anglo-Saxon</option>
+              <option value="Spanish">Spanish</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
 
-        <div class="def-row">
-          <label class="toggle" aria-label="Show definitions"><input type="checkbox" id="ctrl-defs" checked><span class="toggle-sl"></span></label>
-          <label for="ctrl-defs">Show definitions</label>
+          <div class="def-row">
+            <label class="toggle" aria-label="Show definitions"><input type="checkbox" id="ctrl-defs" checked><span class="toggle-sl"></span></label>
+            <label for="ctrl-defs">Show definitions</label>
+          </div>
         </div>
 
         <button class="gen-btn" id="sb-gen-btn">Generate</button>
@@ -781,6 +792,17 @@
 
   window.SBT = SBT;
   SBT.init();
+
+  /* ── Mobile more-options toggle ── */
+  var moreToggle = document.getElementById('mobile-more-toggle');
+  var advancedOpts = document.getElementById('advanced-options');
+  if (moreToggle && advancedOpts) {
+    moreToggle.addEventListener('click', function () {
+      var isOpen = advancedOpts.classList.toggle('is-open');
+      moreToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      moreToggle.textContent = isOpen ? 'Hide More Options' : 'Toggle More Options';
+    });
+  }
 
   /* ── FAQ accordion ── */
   document.querySelectorAll('.faq-item').forEach(function (item) {
