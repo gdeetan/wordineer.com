@@ -339,7 +339,7 @@
   </div>
 </div>
 <div class="hero">
-  <div class="hero-badge">2nd Grade · 100+ Words · Practice Mode</div>
+  <div class="hero-badge">2nd Grade · 300+ Words · Practice Mode</div>
   <h1>Spelling Bee Words for 2nd Graders</h1>
   <p>Generate random 2nd-grade spelling bee words filtered by difficulty. Use Practice Mode for parent-led sessions — no login required.</p>
 </div>
@@ -362,6 +362,7 @@
               <option value="all">All levels</option>
               <option value="easy">Easy</option>
               <option value="medium">Medium</option>
+              <option value="hard">Hard</option>
             </select>
           </div>
 
@@ -533,7 +534,7 @@
 
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">What is the difference between Easy and Medium difficulty?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a"><strong>Easy</strong> words are short, highly phonetic, and common in everyday 2nd-grade reading — words like <em>cat</em>, <em>run</em>, <em>jump</em>, and <em>blue</em>. <strong>Medium</strong> words are slightly longer, may include consonant blends, digraphs, or common irregularities, and require more deliberate practice — words like <em>garden</em>, <em>perfect</em>, and <em>captain</em>. Start with Easy to build confidence, then work in Medium words as your child gets comfortable.</div>
+    <div class="faq-a"><strong>Easy</strong> words are short, highly phonetic, and common in everyday 2nd-grade reading — words like <em>cat</em>, <em>run</em>, <em>jump</em>, and <em>blue</em>. <strong>Medium</strong> words are slightly longer, may include consonant blends or common irregularities — words like <em>shadow</em>, <em>silver</em>, and <em>purple</em>. <strong>Hard</strong> words are the most challenging for 2nd graders, with tricky spellings or extra syllables — words like <em>captain</em>, <em>thunder</em>, <em>chimney</em>, and <em>neighbor</em>. Start with Easy to build confidence, then progress to Medium and Hard as the competition date approaches.</div>
   </div>
 
   <div class="faq-item">
@@ -643,7 +644,7 @@
     load: function () {
       var self = this;
       if (self.data) return Promise.resolve(self.data);
-      return fetch('/data/spelling-bee-words.json')
+      return fetch('/data/spelling-bee-2nd-grade.json')
         .then(function (r) { return r.json(); })
         .then(function (d) { self.data = d; return d; });
     },
@@ -651,7 +652,7 @@
     filter: function (words) {
       var d      = document.getElementById('ctrl-diff').value;
       var count  = Math.min(20, Math.max(1, parseInt(document.getElementById('ctrl-count').value, 10) || 10));
-      var result = words.filter(function (w) { return w.grade === 'k-2'; });
+      var result = words.slice();
       if (d !== 'all') result = result.filter(function (w) { return w.diff === d; });
       for (var i = result.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
