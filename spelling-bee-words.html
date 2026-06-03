@@ -127,13 +127,13 @@
 }
 </script>
 
-<link rel="stylesheet" href="/styles/global.css?v=8">
+<link rel="stylesheet" href="/styles/global.css?v=9">
 <style>
 /* ── Tool layout ── */
 .tool-wrap  { max-width:960px; margin:0 auto; padding:24px 24px 0; }
 .tool-card  { border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg); box-shadow:var(--shadow); }
 .tool-split { display:flex; }
-.ctrl       { width:260px; flex-shrink:0; padding:18px; border-right:1px solid var(--border-2); background:var(--bg-2); }
+.ctrl       { width:240px; flex-shrink:0; padding:18px; border-right:1px solid var(--border-2); background:var(--bg-2); }
 .ctrl-row   { margin-bottom:14px; }
 .ctrl-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; display:block; margin-bottom:5px; }
 .ctrl-row input, .ctrl-row select { width:100%; padding:7px 10px; font-size:13px; font-family:inherit; border:1px solid var(--border); border-radius:7px; background:var(--bg); color:var(--text); appearance:none; outline:none; transition:border-color .15s; }
@@ -152,10 +152,15 @@
 .breadcrumb-inner a:hover { text-decoration: underline; }
 .breadcrumb-sep { color: var(--text-muted, #6b7280); }
 
-.sb-seg { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
-.sb-seg button { padding: 5px 10px; border-radius: 6px; border: 1px solid var(--border, #e5e7eb); background: #fff; font-size: 0.8rem; cursor: pointer; color: var(--text, #111); transition: background 0.15s, border-color 0.15s; }
-.sb-seg button.active { background: var(--brand, #6c63ff); color: #fff; border-color: var(--brand, #6c63ff); }
-.sb-seg button:hover:not(.active) { background: #f3f4f6; }
+/* ── Toggle (show definitions) ── */
+.def-row    { display:flex; align-items:center; gap:8px; margin-bottom:14px; }
+.def-row label { font-size:12px; color:var(--text-2); cursor:pointer; }
+.toggle     { position:relative; width:32px; height:18px; flex-shrink:0; }
+.toggle input { opacity:0; width:0; height:0; }
+.toggle-sl  { position:absolute; cursor:pointer; inset:0; background:var(--border); border-radius:9px; transition:.2s; }
+.toggle input:checked + .toggle-sl { background:var(--brand); }
+.toggle-sl::before { content:''; position:absolute; width:14px; height:14px; left:2px; top:2px; background:white; border-radius:50%; transition:.2s; }
+.toggle input:checked + .toggle-sl::before { transform:translateX(14px); }
 
 .word-list  { list-style:none; padding:0; margin:0; }
 .word-item  { display:flex; align-items:flex-start; justify-content:space-between; padding:10px 0; border-bottom:1px solid var(--border-2); gap:10px; animation:fadeIn .2s ease; }
@@ -194,8 +199,8 @@
 .saved-tag button { background: none; border: none; cursor: pointer; color: #9ca3af; font-size: 0.9rem; padding: 0; line-height: 1; }
 .saved-tag button:hover { color: #ef4444; }
 
-.def-toggle-row { display: flex; align-items: center; gap: 8px; margin-top: 12px; }
-.def-toggle-row label { font-size: 0.85rem; color: var(--text, #111); cursor: pointer; }
+/* ── Explainer list alignment ── */
+.explainer ul, .explainer ol { padding-left: 1.5em; }
 
 @media (max-width:640px) {
   .tool-wrap { padding:14px 16px 0; }
@@ -311,33 +316,38 @@
 
       <div class="ctrl">
         <div class="ctrl-row">
-          <label class="ctrl-label">Grade Level</label>
-          <div class="sb-seg" id="seg-grade" role="group" aria-label="Grade Level">
-            <button class="active" data-val="all">All</button>
-            <button data-val="k-2">K-2</button>
-            <button data-val="3-4">3-4</button>
-            <button data-val="5-6">5-6</button>
-            <button data-val="7-8">7-8</button>
-            <button data-val="9-12">9-12</button>
-            <button data-val="adult">Adult</button>
-          </div>
+          <label class="ctrl-label" for="ctrl-count">Number of words</label>
+          <input type="number" id="ctrl-count" value="20" min="5" max="50">
         </div>
 
         <div class="ctrl-row">
-          <label class="ctrl-label">Difficulty</label>
-          <div class="sb-seg" id="seg-diff" role="group" aria-label="Difficulty">
-            <button class="active" data-val="all">All</button>
-            <button data-val="easy">Easy</button>
-            <button data-val="medium">Medium</button>
-            <button data-val="hard">Hard</button>
-            <button data-val="expert">Expert</button>
-          </div>
+          <label class="ctrl-label" for="ctrl-grade">Grade Level</label>
+          <select id="ctrl-grade">
+            <option value="all">All grades</option>
+            <option value="k-2">K–2</option>
+            <option value="3-4">Grades 3–4</option>
+            <option value="5-6">Grades 5–6</option>
+            <option value="7-8">Grades 7–8</option>
+            <option value="9-12">Grades 9–12</option>
+            <option value="adult">Adult</option>
+          </select>
+        </div>
+
+        <div class="ctrl-row">
+          <label class="ctrl-label" for="ctrl-diff">Difficulty</label>
+          <select id="ctrl-diff">
+            <option value="all">All levels</option>
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+            <option value="expert">Expert</option>
+          </select>
         </div>
 
         <div class="ctrl-row">
           <label class="ctrl-label" for="ctrl-origin">Word Origin</label>
-          <select id="ctrl-origin" class="ctrl-select">
-            <option value="all">All Origins</option>
+          <select id="ctrl-origin">
+            <option value="all">All origins</option>
             <option value="Latin">Latin</option>
             <option value="Greek">Greek</option>
             <option value="French">French</option>
@@ -348,13 +358,8 @@
           </select>
         </div>
 
-        <div class="ctrl-row">
-          <label class="ctrl-label" for="ctrl-count">Number of words</label>
-          <input type="number" id="ctrl-count" value="20" min="5" max="50" class="ctrl-input">
-        </div>
-
-        <div class="def-toggle-row">
-          <input type="checkbox" id="ctrl-defs" checked>
+        <div class="def-row">
+          <label class="toggle" aria-label="Show definitions"><input type="checkbox" id="ctrl-defs" checked><span class="toggle-sl"></span></label>
           <label for="ctrl-defs">Show definitions</label>
         </div>
 
@@ -494,58 +499,57 @@
 </section>
   <div class="divider"></div>
 
-<section class="faq">
-<h2>Frequently Asked Questions</h2>
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
 
-<details>
-  <summary>What grade levels does this spelling bee words tool cover?</summary>
-  <p>The tool covers K-2, grades 3-4, grades 5-6, grades 7-8, grades 9-12, and adult spelling bee levels. Each grade band reflects the vocabulary typically used at school, district, regional, and national competition levels for that age group.</p>
-</details>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">What grade levels does this spelling bee words tool cover?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">The tool covers K-2, grades 3-4, grades 5-6, grades 7-8, grades 9-12, and adult spelling bee levels. Each grade band reflects the vocabulary typically used at school, district, regional, and national competition levels for that age group.</div>
+  </div>
 
-<details>
-  <summary>How many spelling bee words are in the database?</summary>
-  <p>The database contains over 1,000 spelling bee words distributed across all grade levels and all four difficulty tiers — Easy, Medium, Hard, and Expert.</p>
-</details>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">How many spelling bee words are in the database?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">The database contains over 1,000 spelling bee words distributed across all grade levels and all four difficulty tiers — Easy, Medium, Hard, and Expert.</div>
+  </div>
 
-<details>
-  <summary>Can I print the spelling bee word list?</summary>
-  <p>Yes. After generating a word list, click <strong>Print List</strong>. This opens your browser's print dialog with a clean, numbered version of the word list — suitable for handing out in class or reading aloud in practice rounds.</p>
-</details>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I print the spelling bee word list?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes. After generating a word list, click <strong>Print List</strong>. This opens your browser's print dialog with a clean, numbered version of the word list — suitable for handing out in class or reading aloud in practice rounds.</div>
+  </div>
 
-<details>
-  <summary>What does word origin mean, and why does it matter?</summary>
-  <p>Word origin (etymology) tells you which language a word came from — Latin, Greek, French, Germanic, etc. Words from the same origin family tend to share spelling patterns. Recognizing origin patterns lets you make educated guesses about spellings you haven't memorized.</p>
-</details>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What does word origin mean, and why does it matter?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Word origin (etymology) tells you which language a word came from — Latin, Greek, French, Germanic, etc. Words from the same origin family tend to share spelling patterns. Recognizing origin patterns lets you make educated guesses about spellings you haven't memorized.</div>
+  </div>
 
-<details>
-  <summary>How do I save words for focused practice?</summary>
-  <p>Click the heart (♥) icon on any word to save it to your session list. Saved words appear below the word list and persist until you remove them. Use <strong>Copy saved</strong> to copy your saved list to the clipboard.</p>
-</details>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">How do I save words for focused practice?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Click the heart (♥) icon on any word to save it to your session list. Saved words appear below the word list and persist until you remove them. Use <strong>Copy saved</strong> to copy your saved list to the clipboard.</div>
+  </div>
 
-<details>
-  <summary>What is the difference between Easy, Medium, Hard, and Expert difficulty?</summary>
-  <p>Easy words reflect school-level spelling bee vocabulary. Medium maps to district bee difficulty. Hard reflects regional and state bee competition. Expert covers words at the national and championship level — rare vocabulary from specialized fields and unusual spelling patterns.</p>
-</details>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What is the difference between Easy, Medium, Hard, and Expert difficulty?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><strong>Easy</strong> words reflect school-level spelling bee vocabulary. <strong>Medium</strong> maps to district bee difficulty. <strong>Hard</strong> reflects regional and state bee competition. <strong>Expert</strong> covers words at the national and championship level — rare vocabulary from specialized fields and unusual spelling patterns.</div>
+  </div>
 
-<details>
-  <summary>Are these official Scripps National Spelling Bee words?</summary>
-  <p>This tool is designed for spelling bee practice and preparation. The words reflect the style, difficulty, and vocabulary scope of competition spelling bees at each grade level, but this is not the official Scripps word list. For official competition preparation, consult the Scripps National Spelling Bee's published study resources.</p>
-</details>
-
-</section>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Are these official Scripps National Spelling Bee words?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">This tool is designed for spelling bee practice and preparation. The words reflect the style, difficulty, and vocabulary scope of competition spelling bees at each grade level, but this is not the official Scripps word list. For official competition preparation, consult the Scripps National Spelling Bee's published study resources.</div>
+  </div>
+</div>
   <div class="divider"></div>
 
-<section class="who">
-<h2>Who Uses This Tool?</h2>
-<ul>
-  <li><strong>Students</strong> preparing for school, district, regional, and national spelling bee competitions</li>
-  <li><strong>Parents</strong> running practice rounds at home with their children</li>
-  <li><strong>Teachers</strong> building custom word lists and printable practice sheets for classroom bees</li>
-  <li><strong>Spelling bee coaches</strong> who need fresh, level-appropriate lists for structured practice sessions</li>
-  <li><strong>Homeschool educators</strong> covering spelling bee preparation without a pre-built curriculum</li>
-  <li><strong>Adults</strong> competing in adult spelling bee events or building vocabulary for personal enrichment</li>
-</ul>
-</section>
+<div class="who">
+  <h2>Who uses this tool?</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">Students</div><div class="uc-body">Prepare for school, district, regional, and national competitions. Filter by grade and difficulty to match exactly where you are in the bracket.</div></div>
+    <div class="uc"><div class="uc-title">Parents</div><div class="uc-body">Run practice rounds at home without hunting for a word list. Generate a fresh set every session so your child doesn't memorize the order instead of the words.</div></div>
+    <div class="uc"><div class="uc-title">Teachers</div><div class="uc-body">Build custom word lists and printable practice sheets for classroom bees in seconds. Print multiple difficulty tiers separately to run elimination rounds.</div></div>
+    <div class="uc"><div class="uc-title">Spelling Bee Coaches</div><div class="uc-body">Get fresh, level-appropriate lists for every structured practice session. Use the origin filter to run themed etymology drills focused on Latin or Greek roots.</div></div>
+    <div class="uc"><div class="uc-title">Homeschool Educators</div><div class="uc-body">Cover spelling bee preparation without a pre-built curriculum. Adjust grade level and count to fit your student's pace and available practice time.</div></div>
+    <div class="uc"><div class="uc-title">Adults</div><div class="uc-body">Compete in adult spelling bee events or build vocabulary for personal enrichment. The Adult and Expert tiers cover rare, challenging words from specialized fields.</div></div>
+  </div>
+</div>
 </div>
 
 <footer class="footer">
@@ -625,8 +629,6 @@
   var SBT = {
     data: null,
     saved: JSON.parse(localStorage.getItem('sb-saved') || '[]'),
-    grade: 'all',
-    diff: 'all',
 
     load: function () {
       var self = this;
@@ -637,12 +639,13 @@
     },
 
     filter: function (words) {
-      var g = this.grade, d = this.diff;
+      var g      = document.getElementById('ctrl-grade').value;
+      var d      = document.getElementById('ctrl-diff').value;
       var origin = document.getElementById('ctrl-origin').value;
-      var count = parseInt(document.getElementById('ctrl-count').value, 10) || 20;
+      var count  = parseInt(document.getElementById('ctrl-count').value, 10) || 20;
       var result = words.slice();
-      if (g !== 'all') result = result.filter(function (w) { return w.grade === g; });
-      if (d !== 'all') result = result.filter(function (w) { return w.diff === d; });
+      if (g !== 'all')      result = result.filter(function (w) { return w.grade === g; });
+      if (d !== 'all')      result = result.filter(function (w) { return w.diff === d; });
       if (origin !== 'all') result = result.filter(function (w) { return w.origin === origin; });
       for (var i = result.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
@@ -662,10 +665,10 @@
     },
 
     render: function (words) {
-      var list = document.getElementById('sb-list');
+      var list    = document.getElementById('sb-list');
       var countEl = document.getElementById('sb-count');
       var showDef = document.getElementById('ctrl-defs').checked;
-      var saved = this.saved;
+      var saved   = this.saved;
 
       if (!words.length) {
         list.innerHTML = '<li class="sb-empty">No words match your filters. Try adjusting grade or difficulty.</li>';
@@ -702,14 +705,13 @@
       localStorage.setItem('sb-saved', JSON.stringify(this.saved));
       this.renderSaved();
       var items = document.querySelectorAll('.word-item');
-      var btn = null;
       for (var k = 0; k < items.length; k++) {
         if (items[k].dataset.word === word) {
-          btn = items[k].querySelector('.sb-save');
+          var btn = items[k].querySelector('.sb-save');
+          if (btn) btn.classList.toggle('saved', this.saved.indexOf(word) !== -1);
           break;
         }
       }
-      if (btn) btn.classList.toggle('saved', this.saved.indexOf(word) !== -1);
     },
 
     renderSaved: function () {
@@ -743,29 +745,23 @@
       });
     },
 
-    initSeg: function (id, key) {
-      var self = this;
-      var seg = document.getElementById(id);
-      if (!seg) return;
-      seg.addEventListener('click', function (e) {
-        var btn = e.target.closest('button');
-        if (!btn) return;
-        [].slice.call(seg.querySelectorAll('button')).forEach(function (b) { b.classList.remove('active'); });
-        btn.classList.add('active');
-        self[key] = btn.dataset.val;
-      });
-    },
-
     init: function () {
       var self = this;
       self.renderSaved();
-      self.initSeg('seg-grade', 'grade');
-      self.initSeg('seg-diff', 'diff');
+
       document.getElementById('sb-gen-btn').addEventListener('click', function () { self.generate(); });
       document.getElementById('sb-copy-all').addEventListener('click', function () { self.copyAll(); });
       document.getElementById('sb-print-btn').addEventListener('click', function () { window.print(); });
       document.getElementById('sb-copy-saved').addEventListener('click', function () { self.copySaved(); });
       document.getElementById('ctrl-defs').addEventListener('change', function () { self.toggleDefs(); });
+
+      ['ctrl-grade', 'ctrl-diff', 'ctrl-origin'].forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.addEventListener('change', function () { self.generate(); });
+      });
+      var countEl = document.getElementById('ctrl-count');
+      if (countEl) countEl.addEventListener('change', function () { self.generate(); });
+
       if (typeof requestIdleCallback !== 'undefined') {
         requestIdleCallback(function () { self.generate(); });
       } else {
@@ -776,6 +772,15 @@
 
   window.SBT = SBT;
   SBT.init();
+
+  /* ── FAQ accordion ── */
+  document.querySelectorAll('.faq-item').forEach(function (item) {
+    var q = item.querySelector('.faq-q');
+    if (!q) return;
+    q.addEventListener('click', function () {
+      item.classList.toggle('open');
+    });
+  });
 }());
 </script>
 </body>
