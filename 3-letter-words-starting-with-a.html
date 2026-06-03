@@ -863,11 +863,14 @@
   function render() {
     applyFilters();
     loading.classList.remove('is-visible');
-    count.textContent = filtered.length + (filtered.length === 1 ? ' word' : ' words');
+    var total = filtered.length;
+    var shown = Math.min(visibleCount, total);
+    count.textContent = 'Showing ' + shown + ' of ' + total + ' words';
     noResults.classList.toggle('is-visible', filtered.length === 0);
     moreWrap.hidden = filtered.length <= visibleCount;
     if (!filtered.length) {
       grid.innerHTML = '';
+      count.textContent = 'Showing 0 of 0 words';
       return;
     }
     grid.innerHTML = filtered.slice(0, Math.min(visibleCount, filtered.length)).map(function (w) {
