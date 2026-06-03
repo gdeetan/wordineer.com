@@ -144,6 +144,9 @@
 .gen-btn    { width:100%; padding:10px 14px; background:var(--brand); color:white; border:none; border-radius:8px; font-size:14px; font-weight:600; font-family:inherit; cursor:pointer; transition:background .15s,transform .1s; letter-spacing:-.01em; }
 .gen-btn:hover { background:var(--brand-dark); }
 .gen-btn:active { transform:scale(.98); }
+.reset-btn  { display:block; width:100%; text-align:center; font-size:11px; color:var(--text-3); margin-top:8px; cursor:pointer; text-decoration:underline; text-underline-offset:2px; border:none; background:none; font-family:inherit; }
+.kbd        { text-align:center; font-size:10px; color:var(--text-3); margin-top:6px; }
+.kbd kbd    { background:var(--bg-3); border:1px solid var(--border); border-radius:3px; padding:1px 5px; font-size:10px; font-family:inherit; }
 .act-btn    { font-size:12px; padding:5px 11px; border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:background .12s; white-space:nowrap; }
 .act-btn:hover { background:var(--bg-2); }
 .results-col { flex:1; display:flex; flex-direction:column; overflow:hidden; min-height:420px; padding:14px 16px; overflow-y:auto; }
@@ -220,6 +223,7 @@
   .advanced-options { display:none; }
   .advanced-options.is-open { display:block; }
   .gen-btn { margin-top:0; }
+  .reset-btn, .kbd { display:none; }
 }
 
 @media print {
@@ -382,6 +386,8 @@
         </div>
 
         <button class="gen-btn" id="sb-gen-btn">Generate</button>
+        <button class="reset-btn" id="sb-reset-btn">Reset options</button>
+        <div class="kbd">Press <kbd>Space</kbd> to regenerate</div>
       </div>
 
       <div class="results-col">
@@ -774,15 +780,37 @@
       });
     },
 
+    reset: function () {
+      document.getElementById('ctrl-count').value  = '20';
+      document.getElementById('ctrl-grade').value  = 'all';
+      document.getElementById('ctrl-diff').value   = 'all';
+      document.getElementById('ctrl-origin').value = 'all';
+      document.getElementById('ctrl-defs').checked = true;
+      [].slice.call(document.querySelectorAll('.word-def')).forEach(function (el) { el.classList.remove('hidden'); });
+      var err = document.getElementById('count-error');
+      if (err) err.classList.remove('show');
+      document.getElementById('ctrl-count').classList.remove('input-error');
+      this.generate();
+    },
+
     init: function () {
       var self = this;
       self.renderSaved();
 
       document.getElementById('sb-gen-btn').addEventListener('click', function () { self.generate(); });
+      document.getElementById('sb-reset-btn').addEventListener('click', function () { self.reset(); });
       document.getElementById('sb-copy-all').addEventListener('click', function () { self.copyAll(); });
       document.getElementById('sb-print-btn').addEventListener('click', function () { window.print(); });
       document.getElementById('sb-copy-saved').addEventListener('click', function () { self.copySaved(); });
       document.getElementById('ctrl-defs').addEventListener('change', function () { self.toggleDefs(); });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.code !== 'Space') return;
+        var tag = document.activeElement && document.activeElement.tagName;
+        if (tag === 'INPUT' || tag === 'SELECT' || tag === 'BUTTON' || tag === 'TEXTAREA') return;
+        e.preventDefault();
+        self.generate();
+      });
 
       ['ctrl-grade', 'ctrl-diff', 'ctrl-origin'].forEach(function (id) {
         var el = document.getElementById(id);
