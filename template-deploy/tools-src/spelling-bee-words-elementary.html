@@ -409,7 +409,7 @@
 (function () {
   function he(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 
-  var SBT = {
+  var SBET = {
     data: null,
     saved: JSON.parse(localStorage.getItem('sbe-saved') || '[]'),
     practiceWords: [],
@@ -476,8 +476,8 @@
           '<div class="word-def' + (showDef ? '' : ' hidden') + '">' + he(w.d) + '</div>' +
           '</div>' +
           '<div class="word-right">' +
-          '<button class="icon-btn sb-copy-word" onclick="SBT.copyWord(\'' + esc + '\')" title="Copy word"><svg viewBox="0 0 14 14" fill="none"><rect x="1" y="4" width="9" height="9.5" rx="1.5" stroke="currentColor" stroke-width="1.1"/><path d="M4.5 4V2.5A1.5 1.5 0 016 1h5.5A1.5 1.5 0 0113 2.5v7a1.5 1.5 0 01-1.5 1.5H10" stroke="currentColor" stroke-width="1.1"/></svg></button>' +
-          '<button class="icon-btn sb-save' + (isSaved ? ' saved' : '') + '" onclick="SBT.toggleSave(\'' + esc + '\')" title="Save word"><svg viewBox="0 0 16 16" fill="none"><path d="M8 13.5S2 9.5 2 5.5A3 3 0 018 4a3 3 0 016 1.5c0 4-6 8-6 8z" stroke="currentColor" stroke-width="1.3" fill="' + (isSaved ? '#E24B4A' : 'none') + '" stroke-linecap="round"/></svg></button>' +
+          '<button class="icon-btn sb-copy-word" onclick="SBET.copyWord(\'' + esc + '\')" title="Copy word"><svg viewBox="0 0 14 14" fill="none"><rect x="1" y="4" width="9" height="9.5" rx="1.5" stroke="currentColor" stroke-width="1.1"/><path d="M4.5 4V2.5A1.5 1.5 0 016 1h5.5A1.5 1.5 0 0113 2.5v7a1.5 1.5 0 01-1.5 1.5H10" stroke="currentColor" stroke-width="1.1"/></svg></button>' +
+          '<button class="icon-btn sb-save' + (isSaved ? ' saved' : '') + '" onclick="SBET.toggleSave(\'' + esc + '\')" title="Save word"><svg viewBox="0 0 16 16" fill="none"><path d="M8 13.5S2 9.5 2 5.5A3 3 0 018 4a3 3 0 016 1.5c0 4-6 8-6 8z" stroke="currentColor" stroke-width="1.3" fill="' + (isSaved ? '#E24B4A' : 'none') + '" stroke-linecap="round"/></svg></button>' +
           '</div>' +
           '</li>';
       }).join('');
@@ -550,7 +550,7 @@
       container.innerHTML = this.saved.map(function (w) {
         var esc = w.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
         return '<span class="saved-tag">' + he(w) +
-          '<span class="saved-tag-remove" onclick="SBT.toggleSave(\'' + esc + '\')">&#215;</span></span>';
+          '<span class="saved-tag-remove" onclick="SBET.toggleSave(\'' + esc + '\')">&#215;</span></span>';
       }).join('');
     },
 
@@ -639,8 +639,8 @@
     }
   };
 
-  window.SBT = SBT;
-  SBT.init();
+  window.SBET = SBET;
+  SBET.init();
 
   /* ── Mobile more-options toggle ── */
   var moreToggle = document.getElementById('mobile-more-toggle');
