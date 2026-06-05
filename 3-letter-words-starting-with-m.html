@@ -192,9 +192,12 @@
 }
 .lp-filter-group { display: flex; align-items: center; gap: 8px; }
 .lp-filter-label {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--text-2);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--text-3);
+  white-space: nowrap;
 }
 .lp-select {
   appearance: none;
@@ -204,7 +207,7 @@
   border-radius: 10px;
   padding: 9px 34px 9px 12px;
   font: inherit;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.2;
 }
 
@@ -221,11 +224,11 @@
   appearance: none;
   border: 1px solid var(--border);
   background: var(--bg);
-  color: var(--text);
+  color: var(--text-2);
   border-radius: 10px;
   padding: 9px 12px;
   font: inherit;
-  font-size: 13px;
+  font-size: 12px;
   cursor: pointer;
 }
 .lp-btn:hover { background: var(--bg-2); }
@@ -291,13 +294,15 @@
   display: inline-flex;
   align-items: center;
   border-radius: 999px;
-  padding: 4px 8px;
-  font-size: 12px;
+  padding: 2px 7px;
+  font-size: 10px;
   line-height: 1;
   font-weight: 600;
+  text-transform: capitalize;
+  letter-spacing: .03em;
 }
 .badge-type { background: var(--bg-2); color: var(--text-2); }
-.badge-easy { background: rgba(25, 135, 84, .12); color: #157347; }
+.badge-easy { background: rgba(28, 163, 94, .12); color: #157347; }
 .badge-medium { background: rgba(214, 140, 0, .14); color: #a16500; }
 .badge-hard { background: rgba(165, 54, 54, .12); color: #933434; }
 .lp-card-def {
@@ -337,7 +342,7 @@
 }
 .lp-loading.is-visible,
 .lp-no-results.is-visible { display: block; }
-.lp-more-wrap { margin-top: 18px; text-align: center; }
+.lp-more-wrap { margin-top: 14px; text-align: center; }
 
 .az-nav {
   margin-top: 26px;
@@ -465,7 +470,7 @@
 @media (max-width: 600px) {
   .letter-page-wrap { padding: 0 16px; }
   .lp-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
-  .lp-card-word { font-size: 18px; }
+  .lp-card-word { font-size: 20px; }
   .lp-filters { gap: 8px; padding: 12px; }
   .az-link { width: 32px; height: 32px; font-size: 13px; }
   .copy-menu { right: auto; left: 0; }
