@@ -148,53 +148,38 @@
 
 <link rel="stylesheet" href="/styles/global.css?v=9">
 <style>
-.letter-page-wrap {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 20px 40px;
-}
+.letter-page-wrap { max-width: 960px; margin: 0 auto; padding: 0; }
 
 .lp-filters {
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
   gap: 10px;
-  align-items: end;
-  margin: 0 0 18px;
-  padding: 14px;
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  background: var(--bg);
-  box-shadow: 0 1px 0 rgba(16, 24, 40, .03);
-}
-
-.lp-filter-group {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  min-width: 160px;
-}
-
-.lp-filter-label {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: .04em;
-  text-transform: uppercase;
-  color: var(--text-3);
-}
-
-.lp-filters select {
-  appearance: none;
-  min-width: 160px;
-  height: 42px;
-  padding: 0 38px 0 12px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+  padding: 14px 16px;
+  background: var(--bg-2);
   border: 1px solid var(--border);
   border-radius: 10px;
-  background:
-    linear-gradient(45deg, transparent 50%, var(--text-3) 50%) calc(100% - 18px) calc(50% - 2px) / 6px 6px no-repeat,
-    linear-gradient(135deg, var(--text-3) 50%, transparent 50%) calc(100% - 13px) calc(50% - 2px) / 6px 6px no-repeat,
-    var(--bg);
+}
+
+.lp-filter-group { display: flex; align-items: center; gap: 8px; }
+
+.lp-filter-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-2);
+}
+
+.lp-select {
+  appearance: none;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  border-radius: 10px;
+  padding: 9px 34px 9px 12px;
   font: inherit;
-  color: var(--text-1);
+  font-size: 14px;
+  line-height: 1.2;
 }
 
 .lp-results-bar {
@@ -205,10 +190,7 @@
   margin: 0 0 14px;
 }
 
-.lp-count {
-  font-size: 14px;
-  color: var(--text-2);
-}
+.lp-count { font-size: 13px; color: var(--text-3); }
 
 .lp-actions {
   display: flex;
@@ -217,24 +199,18 @@
 }
 
 .lp-btn {
-  height: 38px;
-  padding: 0 14px;
+  appearance: none;
   border: 1px solid var(--border);
-  border-radius: 10px;
   background: var(--bg);
-  color: var(--text-1);
+  color: var(--text);
+  border-radius: 10px;
+  padding: 9px 12px;
   font: inherit;
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 13px;
   cursor: pointer;
-  transition: border-color .12s, background .12s, color .12s;
 }
 
-.lp-btn:hover {
-  border-color: var(--brand);
-  background: var(--bg-2);
-  color: var(--brand);
-}
+.lp-btn:hover { background: var(--bg-2); }
 
 .copy-dropdown {
   position: relative;
@@ -245,127 +221,105 @@
   position: absolute;
   right: 0;
   top: calc(100% + 6px);
-  min-width: 170px;
+  min-width: 160px;
+  padding: 6px;
   overflow: hidden;
   border: 1px solid var(--border);
   border-radius: 10px;
   background: var(--bg);
-  box-shadow: 0 10px 30px rgba(15, 23, 42, .08);
+  box-shadow: var(--shadow);
   z-index: 20;
 }
 
-.copy-menu.open {
-  display: block;
-}
+.copy-menu.open { display: block; }
 
 .copy-menu button {
   display: block;
   width: 100%;
-  padding: 10px 14px;
+  padding: 8px 10px;
   border: 0;
+  border-radius: 8px;
   background: transparent;
-  color: var(--text-2);
+  color: var(--text);
   text-align: left;
   font: inherit;
   font-size: 13px;
   cursor: pointer;
 }
 
-.copy-menu button:hover {
-  background: var(--bg-2);
-  color: var(--text-1);
-}
+.copy-menu button:hover { background: var(--bg-2); }
 
 .lp-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(195px, 1fr));
-  gap: 10px;
-  margin-bottom: 40px;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
 }
 
 .lp-card {
   position: relative;
-  min-height: 148px;
-  padding: 14px 14px 38px;
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: 12px;
   background: var(--bg);
-  box-shadow: 0 1px 0 rgba(16, 24, 40, .03);
+  padding: 16px 16px 14px;
+  box-shadow: var(--shadow-sm, none);
 }
 
 .lp-card-word {
-  margin: 0 0 10px;
-  font-family: 'DM Serif Display', serif;
-  font-size: 22px;
-  line-height: 1.1;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -.02em;
+  line-height: 1.2;
   color: var(--text-1);
+  margin: 0;
 }
 
 .lp-card-badges {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
-  margin: 0 0 10px;
+  margin-top: 10px;
 }
 
 .badge {
   display: inline-flex;
   align-items: center;
-  height: 22px;
-  padding: 0 8px;
   border-radius: 999px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: .02em;
-  text-transform: capitalize;
+  padding: 4px 8px;
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 600;
 }
 
-.badge-type {
-  background: var(--bg-2);
-  color: var(--text-2);
-}
-
-.badge-easy {
-  background: #e9f8ef;
-  color: #157347;
-}
-
-.badge-medium {
-  background: #fff3d8;
-  color: #9a6700;
-}
-
-.badge-hard {
-  background: #fdeaea;
-  color: #b42318;
-}
+.badge-type { background: var(--bg-2); color: var(--text-2); }
+.badge-easy { background: rgba(25, 135, 84, .12); color: #157347; }
+.badge-medium { background: rgba(214, 140, 0, .14); color: #a16500; }
+.badge-hard { background: rgba(165, 54, 54, .12); color: #933434; }
 
 .lp-card-def {
   font-size: 13px;
-  line-height: 1.6;
+  line-height: 1.55;
   color: var(--text-2);
+  margin-top: 10px;
+  padding-right: 26px;
 }
 
 .lp-copy-word {
   position: absolute;
-  right: 10px;
-  bottom: 10px;
+  top: 12px;
+  right: 12px;
+  width: 26px;
+  height: 26px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-3);
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background: var(--bg);
-  color: var(--text-3);
-  cursor: pointer;
 }
 
-.lp-copy-word:hover {
-  border-color: var(--brand);
-  color: var(--brand);
-}
+.lp-copy-word:hover { background: var(--bg-2); color: var(--text); }
 
 .lp-copy-word svg {
   width: 14px;
@@ -375,12 +329,12 @@
 .lp-loading,
 .lp-no-results {
   display: none;
-  padding: 18px;
+  grid-column: 1 / -1;
   border: 1px dashed var(--border);
   border-radius: 12px;
-  font-size: 14px;
-  color: var(--text-2);
-  background: var(--bg);
+  padding: 18px;
+  text-align: center;
+  color: var(--text-3);
 }
 
 .lp-loading.is-visible,
@@ -685,19 +639,19 @@
       <div class="lp-filters">
         <div class="lp-filter-group">
           <span class="lp-filter-label">Type</span>
-          <select id="lp-type">
+          <select class="lp-select" id="lp-type">
             <option value="all">All types</option>
-            <option value="noun">Noun</option>
-            <option value="verb">Verb</option>
-            <option value="adjective">Adjective</option>
-            <option value="adverb">Adverb</option>
+            <option value="noun">Nouns</option>
+            <option value="verb">Verbs</option>
+            <option value="adjective">Adjectives</option>
+            <option value="adverb">Adverbs</option>
             <option value="other">Other</option>
           </select>
         </div>
         <div class="lp-filter-group">
           <span class="lp-filter-label">Difficulty</span>
-          <select id="lp-diff">
-            <option value="all">All difficulties</option>
+          <select class="lp-select" id="lp-diff">
+            <option value="all">All levels</option>
             <option value="easy">Easy</option>
             <option value="medium">Medium</option>
             <option value="hard">Hard</option>
