@@ -498,7 +498,7 @@
     fetch('/data/five-letter-words.json')
       .then(function (r) { return r.json(); })
       .then(function (data) { allWords = data; renderList(); })
-      .catch(function () {});
+      .catch(function () { fullLoaded = false; });
   }
 
   function validateAndGenerate() {
