@@ -1,0 +1,232 @@
+<!-- CONFIG
+{
+  "url": "/random-wordle-generator/",
+  "output": "random-wordle-generator.html"
+}
+-->
+
+<!-- SLOT:meta -->
+<title>Random Wordle Word Generator — 5-Letter Words | Wordineer</title>
+<meta name="description" content="Generate random 5-letter words for Wordle. Filter by difficulty and starting letter. Free, instant, no sign-up.">
+<link rel="canonical" href="https://wordineer.com/random-wordle-generator/">
+<meta property="og:type"        content="website">
+<meta property="og:site_name"   content="Wordineer">
+<meta property="og:title"       content="Random Wordle Word Generator | Wordineer">
+<meta property="og:description" content="Generate random 5-letter words for Wordle practice. Filter by difficulty and starting letter. Free, instant.">
+<meta property="og:url"         content="https://wordineer.com/random-wordle-generator/">
+<meta property="og:image"       content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What makes a good Wordle word?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A good Wordle word covers high-frequency letters — E, T, A, R, I, O, N, S, L, C — without repeating letters. Words like CRANE, SLATE, TRACE, and STARE are popular starting words because they hit multiple vowels and common consonants in one guess. Avoid words with rare letters (Q, X, Z, J) or repeated letters for your first guess." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use any 5-letter word in Wordle?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No — Wordle uses a specific word list. Not every 5-letter English word is a valid guess. This generator draws from a broad curated dataset of common and uncommon English words. Most results will be valid Wordle guesses, but obscure or archaic words may not appear in Wordle's accepted list." }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between easy and hard words in this tool?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Easy words are common everyday vocabulary most people know — CRANE, BEACH, LIGHT. Medium words are less frequent but widely understood. Hard words are rare, technical, or archaic — PSALM, FJORD, THYME. For Wordle practice, use Easy to build fluency. Use Hard if you want words that are more likely to stump an opponent." }
+    },
+    {
+      "@type": "Question",
+      "name": "How many 5-letter words are in this generator?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The generator draws from thousands of curated 5-letter English words across three difficulty levels. The standard Wordle answer list has around 2,300 words; the valid-guess list has over 10,000. This tool covers a broad cross-section of both common and rare 5-letter words." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the best Wordle starting strategy?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Cover as many of the 12 most common English letters as possible in your first two guesses. Pairing CRANE + TOILS, for example, covers 10 of those 12 letters. Use this generator to rotate your starting word — using the same word every day trains you to pattern-match to that word's positions rather than the actual puzzle." }
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Word Tools", "item": "https://wordineer.com/word-tools/" },
+    { "@type": "ListItem", "position": 3, "name": "Random Wordle Generator", "item": "https://wordineer.com/random-wordle-generator/" }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Random Wordle Word Generator",
+  "url": "https://wordineer.com/random-wordle-generator/",
+  "description": "Generate random 5-letter words for Wordle practice. Filter by difficulty and starting letter.",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@id": "https://wordineer.com/#organization" }
+}
+</script>
+<!-- /SLOT:meta -->
+
+<!-- SLOT:style -->
+<style>
+.tool-wrap  { max-width:960px; margin:0 auto; padding:24px 24px 0; }
+.tool-card  { border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg); box-shadow:var(--shadow); }
+.tool-split { display:flex; }
+
+/* Control panel */
+.ctrl       { width:230px; flex-shrink:0; padding:18px; border-right:1px solid var(--border-2); background:var(--bg-2); }
+.ctrl-row   { margin-bottom:14px; }
+.ctrl-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; display:block; margin-bottom:5px; }
+.ctrl-row input, .ctrl-row select { width:100%; padding:7px 10px; font-size:13px; font-family:inherit; border:1px solid var(--border); border-radius:7px; background:var(--bg); color:var(--text); appearance:none; outline:none; transition:border-color .15s; }
+.ctrl-row input:focus, .ctrl-row select:focus { border-color:var(--brand); }
+.letter-row { display:flex; gap:6px; }
+.letter-row input { text-transform:uppercase; text-align:center; }
+.def-row    { display:flex; align-items:center; gap:8px; margin-bottom:14px; }
+.def-row label { font-size:12px; color:var(--text-2); cursor:pointer; }
+.toggle     { position:relative; width:32px; height:18px; flex-shrink:0; }
+.toggle input { opacity:0; width:0; height:0; }
+.toggle-sl  { position:absolute; cursor:pointer; inset:0; background:var(--border); border-radius:9px; transition:.2s; }
+.toggle input:checked + .toggle-sl { background:var(--brand); }
+.toggle-sl::before { content:''; position:absolute; width:14px; height:14px; left:2px; top:2px; background:white; border-radius:50%; transition:.2s; }
+.toggle input:checked + .toggle-sl::before { transform:translateX(14px); }
+.gen-btn    { width:100%; padding:10px 14px; background:var(--brand); color:white; border:none; border-radius:8px; font-size:14px; font-weight:600; font-family:inherit; cursor:pointer; transition:background .15s,transform .1s; letter-spacing:-.01em; }
+.gen-btn:hover { background:var(--brand-dark); }
+.gen-btn:active { transform:scale(.98); }
+.reset-btn  { display:block; width:100%; text-align:center; font-size:11px; color:var(--text-3); margin-top:8px; cursor:pointer; text-decoration:underline; text-underline-offset:2px; border:none; background:none; font-family:inherit; }
+.kbd        { text-align:center; font-size:10px; color:var(--text-3); margin-top:6px; }
+.kbd kbd    { background:var(--bg-3); border:1px solid var(--border); border-radius:3px; padding:1px 5px; font-size:10px; font-family:inherit; }
+
+/* Wordle Helper */
+.wordle-toggle { width:100%; display:flex; align-items:center; justify-content:space-between; padding:8px 10px; margin-bottom:10px; background:var(--bg); border:1px solid var(--border); border-radius:7px; font-size:12px; font-weight:600; color:var(--text-2); cursor:pointer; font-family:inherit; transition:border-color .15s; }
+.wordle-toggle:hover { border-color:var(--brand); color:var(--brand); }
+.wordle-toggle.active { border-color:var(--brand); color:var(--brand); background:#F4F3FF; }
+.wordle-helper { display:none; padding:10px; background:var(--bg); border:1px solid var(--border); border-radius:7px; margin-bottom:14px; }
+.wordle-helper.open { display:block; }
+.wordle-helper .ctrl-row { margin-bottom:8px; }
+.wordle-helper .ctrl-row:last-child { margin-bottom:0; }
+
+/* Count error */
+.count-error { display:none; font-size:11px; color:#E24B4A; margin-top:4px; }
+.count-error.show { display:block; }
+.ctrl-row input.input-error { border-color:#E24B4A !important; }
+
+/* Mobile */
+.mobile-more-toggle { display:none; width:100%; margin:-2px 0 14px; padding:9px 12px; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--brand); font-size:13px; font-weight:600; font-family:inherit; cursor:pointer; }
+.advanced-options { display:block; }
+
+/* Words panel */
+.words-panel { flex:1; display:flex; flex-direction:column; overflow:hidden; min-height:360px; }
+.words-top  { display:flex; align-items:center; justify-content:space-between; padding:12px 16px; border-bottom:1px solid var(--border-2); gap:10px; flex-wrap:wrap; }
+.words-count { font-size:12px; color:var(--text-3); }
+.words-actions { display:flex; gap:6px; align-items:center; }
+.act-btn    { font-size:12px; padding:5px 11px; border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:background .12s; white-space:nowrap; }
+.act-btn:hover { background:var(--bg-2); }
+
+/* Copy dropdown */
+.copy-dropdown { position:relative; }
+.copy-menu { display:none; position:absolute; right:0; top:calc(100% + 4px); background:var(--bg); border:1px solid var(--border); border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,.1); z-index:10; min-width:170px; overflow:hidden; }
+.copy-menu.open { display:block; }
+.copy-menu button { display:block; width:100%; text-align:left; padding:9px 14px; font-size:13px; font-family:inherit; background:none; border:none; color:var(--text-2); cursor:pointer; }
+.copy-menu button:hover { background:var(--bg-2); color:var(--text); }
+
+/* Word list */
+.word-list  { flex:1; overflow-y:auto; list-style:none; padding:0 16px; margin:0; }
+.word-item  { display:flex; align-items:flex-start; justify-content:space-between; padding:10px 0; border-bottom:1px solid var(--border-2); gap:10px; animation:fadeIn .2s ease; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:none} }
+.word-item:last-child { border-bottom:none; }
+.word-left  { flex:1; }
+.word-text  { font-size:20px; font-weight:500; color:var(--text); line-height:1.2; letter-spacing:-.02em; }
+.word-badges { display:flex; gap:5px; margin-top:4px; flex-wrap:wrap; }
+.badge      { font-size:10px; font-weight:600; padding:2px 7px; border-radius:999px; text-transform:capitalize; }
+.badge-type { background:#EEEDFE; color:#534AB7; }
+.badge-easy { background:#E1F5EE; color:#1D7A5A; }
+.badge-medium { background:#FEF3E8; color:#A0522D; }
+.badge-hard { background:#FDE8E8; color:#C0392B; }
+.word-def   { font-size:12px; color:var(--text-2); margin-top:3px; line-height:1.4; }
+.word-right { display:flex; align-items:center; gap:4px; padding-top:3px; flex-shrink:0; }
+.icon-btn   { width:28px; height:28px; display:flex; align-items:center; justify-content:center; background:transparent; border:none; cursor:pointer; border-radius:5px; color:var(--text-3); transition:background .12s, color .12s; }
+.icon-btn:hover { background:var(--bg-2); color:var(--text); }
+.icon-btn svg { width:14px; height:14px; }
+.icon-btn.saved { color:#E24B4A; }
+
+/* Saved section */
+.saved-section { border-top:1px solid var(--border); padding:12px 14px; background:var(--bg); }
+.saved-top { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:8px; }
+.saved-label { font-size:12px; font-weight:700; color:var(--text); }
+.saved-copy { border:1px solid var(--border); background:var(--bg); color:var(--brand); border-radius:7px; padding:5px 9px; font-size:11px; font-weight:600; cursor:pointer; }
+.saved-tags { display:flex; gap:5px; flex-wrap:wrap; min-height:22px; }
+.saved-tag  { display:inline-flex; align-items:center; gap:4px; background:#F0F2FF; color:var(--brand); border-radius:999px; padding:4px 8px; font-size:11px; font-weight:600; }
+.saved-tag-remove { cursor:pointer; opacity:.65; }
+.saved-tag-remove:hover { opacity:1; }
+.saved-empty { color:var(--text-3); font-size:12px; }
+
+/* A-Z browse */
+.az-section { margin-top:48px; }
+.az-section h2 { font-family:'DM Serif Display', serif; font-size:20px; font-weight:400; margin:0 0 8px; color:var(--text); }
+.az-section p  { font-size:14px; color:var(--text-2); margin:0 0 14px; line-height:1.6; }
+.az-links   { display:flex; flex-wrap:wrap; gap:6px; }
+.az-link    { display:inline-flex; align-items:center; justify-content:center; width:38px; height:38px; border:1px solid var(--border); border-radius:8px; font-size:14px; font-weight:600; color:var(--text-2); text-decoration:none; transition:background .12s, border-color .12s, color .12s; background:var(--bg); }
+.az-link:hover { background:var(--bg-2); border-color:var(--brand); color:var(--brand); }
+
+/* Ad sidebar */
+.ad-sidebar { margin-top:18px; border:1px solid var(--border); border-radius:10px; padding:14px; background:var(--bg); }
+.ad-sidebar-tag { font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--text-3); display:block; margin-bottom:8px; }
+.ad-sidebar-logo { display:flex; align-items:center; gap:6px; margin-bottom:6px; }
+.ad-sidebar-brand { font-size:13px; font-weight:700; color:var(--text); }
+.ad-sidebar-headline { font-size:13px; font-weight:600; color:var(--text); margin-bottom:4px; }
+.ad-sidebar-body { font-size:12px; color:var(--text-2); line-height:1.5; margin-bottom:10px; }
+.ad-sidebar-cta { display:block; background:var(--brand); color:white; text-align:center; padding:8px; border-radius:7px; font-size:12px; font-weight:600; text-decoration:none; }
+.ad-sidebar-cta:hover { background:var(--brand-dark); }
+.ad-sidebar-sub { font-size:10px; color:var(--text-3); text-align:center; margin-top:5px; }
+
+@media(max-width:700px){
+  .tool-wrap { padding:14px 16px 0; }
+  .tool-card { border-radius:12px; }
+  .ctrl { padding:16px; }
+  .mobile-more-toggle { display:block; }
+  .advanced-options { display:none; }
+  .advanced-options.is-open { display:block; }
+  .gen-btn { margin-top:0; }
+  .reset-btn, .kbd { display:none; }
+  .words-top { padding:10px 16px; }
+  .word-list { max-height:420px; overflow-y:auto; }
+  .word-text { font-size:19px; }
+  .tool-split { flex-direction:column; }
+  .ctrl { width:100%; border-right:none; border-bottom:1px solid var(--border-2); }
+  .hero { padding:12px 16px 12px; }
+  .hero-badge { margin-bottom:6px; }
+  .hero h1 { font-size:24px; }
+  .copy-menu { right:auto; left:0; }
+  .az-link { width:34px; height:34px; font-size:13px; }
+}
+</style>
+<!-- /SLOT:style -->
+
+<!-- SLOT:hero -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/word-tools/">Word Tools</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Random Wordle Generator</span>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free · No sign-up · Instant results
+  </div>
+  <h1>Random Wordle Word Generator</h1>
+  <p>Generate random 5-letter words for Wordle practice. Filter by difficulty and starting letter to find exactly the kind of word you need.</p>
+</div>
+<!-- /SLOT:hero -->
