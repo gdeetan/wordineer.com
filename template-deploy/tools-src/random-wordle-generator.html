@@ -179,6 +179,16 @@
 .az-link    { display:inline-flex; align-items:center; justify-content:center; width:38px; height:38px; border:1px solid var(--border); border-radius:8px; font-size:14px; font-weight:600; color:var(--text-2); text-decoration:none; transition:background .12s, border-color .12s, color .12s; background:var(--bg); }
 .az-link:hover { background:var(--bg-2); border-color:var(--brand); color:var(--brand); }
 
+/* Play icon tooltip */
+.play-icon-wrap { position: relative; display: inline-flex; }
+.play-icon-wrap .play-tip {
+  display: none; position: absolute; bottom: calc(100% + 6px); left: 50%;
+  transform: translateX(-50%); white-space: nowrap; background: var(--text);
+  color: var(--bg); font-size: 11px; font-weight: 500; padding: 4px 8px;
+  border-radius: 5px; pointer-events: none; z-index: 10;
+}
+.play-icon-wrap:hover .play-tip { display: block; }
+
 /* Ad sidebar */
 .ad-sidebar { margin-top:18px; border:1px solid var(--border); border-radius:10px; padding:14px; background:var(--bg); }
 .ad-sidebar-tag { font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--text-3); display:block; margin-bottom:8px; }
@@ -425,6 +435,7 @@
   var COPY_SVG  = '<svg viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="8" height="8" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M2 10V2h8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>';
   var HEART_SVG = '<svg viewBox="0 0 16 16" fill="none"><path d="M8 13.5S2 9.5 2 5.5A3 3 0 018 4a3 3 0 016 1.5c0 4-6 8-6 8z" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>';
   var HEART_SVG_FILLED = '<svg viewBox="0 0 16 16" fill="none"><path d="M8 13.5S2 9.5 2 5.5A3 3 0 018 4a3 3 0 016 1.5c0 4-6 8-6 8z" stroke="currentColor" stroke-width="1.3" fill="#E24B4A" stroke-linecap="round"/></svg>';
+  var PLAY_SVG = '<svg viewBox="0 0 14 14" fill="none"><polygon points="3.5,2 3.5,12 12,7" fill="currentColor"/></svg>';
 
   var allWords    = SEED.slice();
   var currentWords = [];
@@ -449,6 +460,10 @@
       '<div class="word-right">' +
         '<button class="icon-btn' + (isSaved ? ' saved' : '') + '" onclick="toggleSaveWord(this,\'' + w.w + '\',\'' + (w.t || '') + '\',\'' + safeD + '\')" aria-label="Save ' + w.w + '">' + (isSaved ? HEART_SVG_FILLED : HEART_SVG) + '</button>' +
         '<button class="icon-btn" onclick="copyWord(this,\'' + w.w + '\')" aria-label="Copy ' + w.w + '">' + COPY_SVG + '</button>' +
+        '<div class="play-icon-wrap">' +
+          '<button class="icon-btn" onclick="playWordle(\'' + w.w + '\')" aria-label="Play Wordle with ' + w.w + '">' + PLAY_SVG + '</button>' +
+          '<span class="play-tip">Play Wordle with ' + w.w.toUpperCase() + '</span>' +
+        '</div>' +
       '</div>' +
     '</li>';
   }
@@ -458,6 +473,10 @@
       btn.innerHTML = '✓';
       setTimeout(function () { btn.innerHTML = COPY_SVG; }, 1000);
     });
+  };
+
+  window.playWordle = function (word) {
+    location.href = '/wordle-game/#' + btoa(word.toUpperCase());
   };
 
   function renderSaved() {
