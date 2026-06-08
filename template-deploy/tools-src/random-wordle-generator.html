@@ -158,6 +158,7 @@
 .icon-btn:hover { background:var(--bg-2); color:var(--text); }
 .icon-btn svg { width:14px; height:14px; }
 .icon-btn.saved { color:#E24B4A; }
+.icon-btn.saved svg path { fill:#E24B4A; }
 
 /* Saved section */
 .saved-section { border-top:1px solid var(--border); padding:12px 14px; background:var(--bg); }
@@ -240,8 +241,8 @@
       <div class="ctrl">
         <div class="ctrl-row">
           <label class="ctrl-label" for="ctrl-count">Number of words</label>
-          <input type="number" id="ctrl-count" value="5" min="1" max="10" inputmode="numeric" aria-describedby="count-error">
-          <span class="count-error" id="count-error">Enter a number from 1 to 10</span>
+          <input type="number" id="ctrl-count" value="10" min="1" max="50" inputmode="numeric" aria-describedby="count-error">
+          <span class="count-error" id="count-error">Enter a number from 1 to 50</span>
         </div>
 
         <button type="button" class="mobile-more-toggle" id="mobile-more-toggle" aria-expanded="false" aria-controls="advanced-options">More options</button>
@@ -297,6 +298,15 @@
         <ul class="word-list" id="word-list"></ul>
       </div>
 
+    </div>
+    <div class="saved-section">
+      <div class="saved-top">
+        <span class="saved-label">Saved words <span id="saved-count" style="font-weight:400;opacity:.7">(0)</span></span>
+        <button class="saved-copy" id="saved-copy-btn">Copy saved</button>
+      </div>
+      <div class="saved-tags" id="saved-tags">
+        <span class="saved-empty">Click the heart on any word to save it here</span>
+      </div>
     </div>
   </div>
 </div>
@@ -424,10 +434,13 @@
     {w:"Fjord",t:"noun",d:"a long narrow sea inlet between high cliffs",diff:"hard"}
   ];
 
-  var COPY_SVG = '<svg viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="8" height="8" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M2 10V2h8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>';
+  var COPY_SVG  = '<svg viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="8" height="8" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M2 10V2h8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>';
+  var HEART_SVG = '<svg viewBox="0 0 16 16" fill="none"><path d="M8 13.5S2 9.5 2 5.5A3 3 0 018 4a3 3 0 016 1.5c0 4-6 8-6 8z" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>';
+  var HEART_SVG_FILLED = '<svg viewBox="0 0 16 16" fill="none"><path d="M8 13.5S2 9.5 2 5.5A3 3 0 018 4a3 3 0 016 1.5c0 4-6 8-6 8z" stroke="currentColor" stroke-width="1.3" fill="#E24B4A" stroke-linecap="round"/></svg>';
 
   var allWords    = SEED.slice();
   var currentWords = [];
+  var savedWords  = [];
   var fullLoaded  = false;
 
   function diffBadge(d) {
@@ -435,6 +448,8 @@
   }
 
   function buildWordItem(w) {
+    var isSaved = savedWords.some(function (s) { return s.w === w.w; });
+    var safeD   = (w.d || '').replace(/'/g, "\\'");
     return '<li class="word-item">' +
       '<div class="word-left">' +
         '<div class="word-text">' + w.w + '</div>' +
@@ -444,6 +459,7 @@
         (w.d ? '<div class="word-def">' + w.d + '</div>' : '') +
       '</div>' +
       '<div class="word-right">' +
+        '<button class="icon-btn' + (isSaved ? ' saved' : '') + '" onclick="toggleSaveWord(this,\'' + w.w + '\',\'' + (w.t || '') + '\',\'' + safeD + '\')" aria-label="Save ' + w.w + '">' + (isSaved ? HEART_SVG_FILLED : HEART_SVG) + '</button>' +
         '<button class="icon-btn" onclick="copyWord(this,\'' + w.w + '\')" aria-label="Copy ' + w.w + '">' + COPY_SVG + '</button>' +
       '</div>' +
     '</li>';
@@ -454,6 +470,44 @@
       btn.innerHTML = '✓';
       setTimeout(function () { btn.innerHTML = COPY_SVG; }, 1000);
     });
+  };
+
+  function renderSaved() {
+    var el  = document.getElementById('saved-tags');
+    var cnt = document.getElementById('saved-count');
+    if (cnt) cnt.textContent = '(' + savedWords.length + ')';
+    if (!savedWords.length) {
+      el.innerHTML = '<span class="saved-empty">Click the heart on any word to save it here</span>';
+      return;
+    }
+    el.innerHTML = savedWords.map(function (s) {
+      return '<span class="saved-tag">' + s.w + ' <span class="saved-tag-remove" onclick="removeSavedWord(\'' + s.w + '\')">×</span></span>';
+    }).join('');
+  }
+
+  window.removeSavedWord = function (word) {
+    savedWords = savedWords.filter(function (s) { return s.w !== word; });
+    renderSaved();
+    document.querySelectorAll('.icon-btn.saved').forEach(function (btn) {
+      if (btn.getAttribute('aria-label') === 'Save ' + word) {
+        btn.classList.remove('saved');
+        btn.innerHTML = HEART_SVG;
+      }
+    });
+  };
+
+  window.toggleSaveWord = function (btn, word, type, def) {
+    var idx = savedWords.findIndex(function (s) { return s.w === word; });
+    if (idx !== -1) {
+      savedWords.splice(idx, 1);
+      btn.classList.remove('saved');
+      btn.innerHTML = HEART_SVG;
+    } else {
+      savedWords.push({ w: word, t: type, d: def });
+      btn.classList.add('saved');
+      btn.innerHTML = HEART_SVG_FILLED;
+    }
+    renderSaved();
   };
 
   function pickRandom(pool, n) {
@@ -478,7 +532,7 @@
 
   function renderList() {
     var raw = parseInt(document.getElementById('ctrl-count').value, 10);
-    var n   = (isNaN(raw) || raw < 1 || raw > 10) ? 5 : raw;
+    var n   = (isNaN(raw) || raw < 1 || raw > 50) ? 10 : raw;
     var pool = filterWords();
     currentWords = pickRandom(pool, n);
     var list = document.getElementById('word-list');
@@ -505,7 +559,7 @@
     var raw = parseInt(document.getElementById('ctrl-count').value, 10);
     var err = document.getElementById('count-error');
     var inp = document.getElementById('ctrl-count');
-    if (isNaN(raw) || raw < 1 || raw > 10) {
+    if (isNaN(raw) || raw < 1 || raw > 50) {
       err.classList.add('show'); inp.classList.add('input-error'); return;
     }
     err.classList.remove('show'); inp.classList.remove('input-error');
@@ -515,6 +569,9 @@
   // Generate / regenerate buttons
   document.getElementById('word-gen-btn').addEventListener('click', function () { loadFull(); validateAndGenerate(); });
   document.getElementById('word-regen-btn').addEventListener('click', function () { loadFull(); validateAndGenerate(); });
+
+  // Real-time count updates as user types
+  document.getElementById('ctrl-count').addEventListener('input', function () { loadFull(); validateAndGenerate(); });
 
   // Real-time filter updates on select change
   document.getElementById('ctrl-diff').addEventListener('change', function () { loadFull(); renderList(); });
@@ -542,10 +599,21 @@
   document.getElementById('word-reset-btn').addEventListener('click', function () {
     document.getElementById('ctrl-diff').value  = 'all';
     document.getElementById('ctrl-first').value = '';
-    document.getElementById('ctrl-count').value = 5;
+    document.getElementById('ctrl-count').value = 10;
     document.getElementById('count-error').classList.remove('show');
     document.getElementById('ctrl-count').classList.remove('input-error');
     renderList();
+  });
+
+  // Saved copy button
+  document.getElementById('saved-copy-btn').addEventListener('click', function () {
+    if (!savedWords.length) return;
+    var text = savedWords.map(function (s) { return s.w; }).join(', ');
+    navigator.clipboard.writeText(text).then(function () {
+      var btn = document.getElementById('saved-copy-btn');
+      btn.textContent = 'Copied! ✓';
+      setTimeout(function () { btn.textContent = 'Copy saved'; }, 1500);
+    });
   });
 
   // Space to regenerate
