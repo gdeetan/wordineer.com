@@ -132,7 +132,9 @@ https://www.wordineer.com/*    https://wordineer.com/:splat         301
 /random-verb-generator   /random-verb-generator/   301
 /random-verb-generator/    /random-verb-generator.html    200
 /random-weird-words.html    /random-weird-words/    301
+/random-wordle-generator.html    /random-wordle-generator/    301
 /random-weird-words/    /random-weird-words.html    200
+/random-wordle-generator/    /random-wordle-generator.html    200
 /other-generators/    /other-generators.html    200
 /5-letter-words-starting-with-b.html    /5-letter-words-starting-with-b/    301
 /5-letter-words-starting-with-b/    /5-letter-words-starting-with-b.html    200
@@ -193,3 +195,123 @@ https://www.wordineer.com/*    https://wordineer.com/:splat         301
 /spelling-bee-words-7th-grade.html    /spelling-bee-words-7th-grade/    301
 /spelling-bee-words-7th-grade/    /spelling-bee-words-7th-grade.html    200
 /spelling-bee-words-7th-grade    /spelling-bee-words-7th-grade/    301
+/3-letter-words-starting-with-w.html    /3-letter-words-starting-with-w/    301
+/3-letter-words-starting-with-w/    /3-letter-words-starting-with-w.html    200
+
+# Fix missing 200 fallbacks
+/christmas-charades-generator/    /christmas-charades-generator.html    200
+/word-scramble/    /word-scramble.html    200
+/random-dominican-name-generator/    /random-dominican-name-generator.html    200
+
+# Name generators — new additions
+/random-danish-name-generator.html    /random-danish-name-generator/    301
+/random-danish-name-generator/    /random-danish-name-generator.html    200
+/random-english-name-generator.html    /random-english-name-generator/    301
+/random-english-name-generator/    /random-english-name-generator.html    200
+/random-french-name-generator.html    /random-french-name-generator/    301
+/random-french-name-generator/    /random-french-name-generator.html    200
+/random-german-name-generator.html    /random-german-name-generator/    301
+/random-german-name-generator/    /random-german-name-generator.html    200
+/random-mexican-name-generator.html    /random-mexican-name-generator/    301
+/random-mexican-name-generator/    /random-mexican-name-generator.html    200
+/random-norwegian-name-generator.html    /random-norwegian-name-generator/    301
+/random-norwegian-name-generator/    /random-norwegian-name-generator.html    200
+/random-spanish-name-generator.html    /random-spanish-name-generator/    301
+/random-spanish-name-generator/    /random-spanish-name-generator.html    200
+/random-turkish-name-generator.html    /random-turkish-name-generator/    301
+/random-turkish-name-generator/    /random-turkish-name-generator.html    200
+
+# Core tools — missing redirects
+/random-5-letter-word-generator.html    /random-5-letter-word-generator/    301
+/random-5-letter-word-generator/    /random-5-letter-word-generator.html    200
+/word-unscramble.html    /word-unscramble/    301
+/word-unscramble/    /word-unscramble.html    200
+/word-of-the-day.html    /word-of-the-day/    301
+/word-of-the-day/    /word-of-the-day.html    200
+/random-letter-generator.html    /random-letter-generator/    301
+/random-letter-generator/    /random-letter-generator.html    200
+/random-name-generator.html    /random-name-generator/    301
+/random-name-generator/    /random-name-generator.html    200
+/random-sentence-generator.html    /random-sentence-generator/    301
+/random-sentence-generator/    /random-sentence-generator.html    200
+
+# Spelling bee — missing .html redirect and grades
+/spelling-bee-words.html    /spelling-bee-words/    301
+/spelling-bee-words-3rd-grade.html    /spelling-bee-words-3rd-grade/    301
+/spelling-bee-words-3rd-grade/    /spelling-bee-words-3rd-grade.html    200
+/spelling-bee-words-3rd-grade    /spelling-bee-words-3rd-grade/    301
+/spelling-bee-words-4th-grade.html    /spelling-bee-words-4th-grade/    301
+/spelling-bee-words-4th-grade/    /spelling-bee-words-4th-grade.html    200
+/spelling-bee-words-4th-grade    /spelling-bee-words-4th-grade/    301
+/spelling-bee-words-5th-grade.html    /spelling-bee-words-5th-grade/    301
+/spelling-bee-words-5th-grade/    /spelling-bee-words-5th-grade.html    200
+/spelling-bee-words-5th-grade    /spelling-bee-words-5th-grade/    301
+/spelling-bee-words-kindergarten.html    /spelling-bee-words-kindergarten/    301
+/spelling-bee-words-kindergarten/    /spelling-bee-words-kindergarten.html    200
+/spelling-bee-words-kindergarten    /spelling-bee-words-kindergarten/    301
+
+# 3-letter-words-starting-with — missing letters
+/3-letter-words-starting-with-a.html    /3-letter-words-starting-with-a/    301
+/3-letter-words-starting-with-a/    /3-letter-words-starting-with-a.html    200
+/3-letter-words-starting-with-b.html    /3-letter-words-starting-with-b/    301
+/3-letter-words-starting-with-b/    /3-letter-words-starting-with-b.html    200
+/3-letter-words-starting-with-c.html    /3-letter-words-starting-with-c/    301
+/3-letter-words-starting-with-c/    /3-letter-words-starting-with-c.html    200
+/3-letter-words-starting-with-d.html    /3-letter-words-starting-with-d/    301
+/3-letter-words-starting-with-d/    /3-letter-words-starting-with-d.html    200
+/3-letter-words-starting-with-e.html    /3-letter-words-starting-with-e/    301
+/3-letter-words-starting-with-e/    /3-letter-words-starting-with-e.html    200
+/3-letter-words-starting-with-f.html    /3-letter-words-starting-with-f/    301
+/3-letter-words-starting-with-f/    /3-letter-words-starting-with-f.html    200
+/3-letter-words-starting-with-g.html    /3-letter-words-starting-with-g/    301
+/3-letter-words-starting-with-g/    /3-letter-words-starting-with-g.html    200
+/3-letter-words-starting-with-i.html    /3-letter-words-starting-with-i/    301
+/3-letter-words-starting-with-i/    /3-letter-words-starting-with-i.html    200
+/3-letter-words-starting-with-j.html    /3-letter-words-starting-with-j/    301
+/3-letter-words-starting-with-j/    /3-letter-words-starting-with-j.html    200
+/3-letter-words-starting-with-k.html    /3-letter-words-starting-with-k/    301
+/3-letter-words-starting-with-k/    /3-letter-words-starting-with-k.html    200
+/3-letter-words-starting-with-l.html    /3-letter-words-starting-with-l/    301
+/3-letter-words-starting-with-l/    /3-letter-words-starting-with-l.html    200
+/3-letter-words-starting-with-n.html    /3-letter-words-starting-with-n/    301
+/3-letter-words-starting-with-n/    /3-letter-words-starting-with-n.html    200
+/3-letter-words-starting-with-q.html    /3-letter-words-starting-with-q/    301
+/3-letter-words-starting-with-q/    /3-letter-words-starting-with-q.html    200
+
+# 5-letter-words-starting-with — missing letters
+/5-letter-words-starting-with-a.html    /5-letter-words-starting-with-a/    301
+/5-letter-words-starting-with-a/    /5-letter-words-starting-with-a.html    200
+/6-letter-words-starting-with-a.html    /6-letter-words-starting-with-a/    301
+/6-letter-words-starting-with-a/    /6-letter-words-starting-with-a.html    200
+/5-letter-words-starting-with-k.html    /5-letter-words-starting-with-k/    301
+/5-letter-words-starting-with-k/    /5-letter-words-starting-with-k.html    200
+/5-letter-words-starting-with-l.html    /5-letter-words-starting-with-l/    301
+/5-letter-words-starting-with-l/    /5-letter-words-starting-with-l.html    200
+/5-letter-words-starting-with-m.html    /5-letter-words-starting-with-m/    301
+/5-letter-words-starting-with-m/    /5-letter-words-starting-with-m.html    200
+/5-letter-words-starting-with-n.html    /5-letter-words-starting-with-n/    301
+/5-letter-words-starting-with-n/    /5-letter-words-starting-with-n.html    200
+/5-letter-words-starting-with-o.html    /5-letter-words-starting-with-o/    301
+/5-letter-words-starting-with-o/    /5-letter-words-starting-with-o.html    200
+/5-letter-words-starting-with-p.html    /5-letter-words-starting-with-p/    301
+/5-letter-words-starting-with-p/    /5-letter-words-starting-with-p.html    200
+/5-letter-words-starting-with-q.html    /5-letter-words-starting-with-q/    301
+/5-letter-words-starting-with-q/    /5-letter-words-starting-with-q.html    200
+/5-letter-words-starting-with-r.html    /5-letter-words-starting-with-r/    301
+/5-letter-words-starting-with-r/    /5-letter-words-starting-with-r.html    200
+/5-letter-words-starting-with-s.html    /5-letter-words-starting-with-s/    301
+/5-letter-words-starting-with-s/    /5-letter-words-starting-with-s.html    200
+/5-letter-words-starting-with-t.html    /5-letter-words-starting-with-t/    301
+/5-letter-words-starting-with-t/    /5-letter-words-starting-with-t.html    200
+/5-letter-words-starting-with-u.html    /5-letter-words-starting-with-u/    301
+/5-letter-words-starting-with-u/    /5-letter-words-starting-with-u.html    200
+/5-letter-words-starting-with-v.html    /5-letter-words-starting-with-v/    301
+/5-letter-words-starting-with-v/    /5-letter-words-starting-with-v.html    200
+/5-letter-words-starting-with-w.html    /5-letter-words-starting-with-w/    301
+/5-letter-words-starting-with-w/    /5-letter-words-starting-with-w.html    200
+/5-letter-words-starting-with-x.html    /5-letter-words-starting-with-x/    301
+/5-letter-words-starting-with-x/    /5-letter-words-starting-with-x.html    200
+/5-letter-words-starting-with-y.html    /5-letter-words-starting-with-y/    301
+/5-letter-words-starting-with-y/    /5-letter-words-starting-with-y.html    200
+/5-letter-words-starting-with-z.html    /5-letter-words-starting-with-z/    301
+/5-letter-words-starting-with-z/    /5-letter-words-starting-with-z.html    200
