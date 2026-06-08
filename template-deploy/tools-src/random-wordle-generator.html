@@ -495,7 +495,7 @@
   function loadFull() {
     if (fullLoaded) return;
     fullLoaded = true;
-    fetch('/data/five-letter-words.json')
+    fetch('/data/wordle-words.json')
       .then(function (r) { return r.json(); })
       .then(function (data) { allWords = data; renderList(); })
       .catch(function () { fullLoaded = false; });
