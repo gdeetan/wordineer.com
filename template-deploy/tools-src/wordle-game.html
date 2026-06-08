@@ -405,9 +405,9 @@
     }
     var result  = getResult(word, secretWord);
     var rowIdx  = guesses.length;
-    currentGuess = [];
     revealRow(rowIdx, word, result, function () {
       guesses.push({ word: word, result: result });
+      currentGuess = [];
       updateKeyboard(word, result);
       if (result.every(function (r) { return r === 'correct'; })) {
         gameOver = true;
