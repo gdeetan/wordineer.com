@@ -620,6 +620,8 @@
           btn.textContent = 'Copied! ✓';
           setTimeout(function () { btn.textContent = orig; }, 1500);
         });
+    }).catch(function () {
+      showToast('Copy failed — share: ' + url);
     });
   }
 
