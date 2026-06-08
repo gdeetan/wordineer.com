@@ -409,13 +409,61 @@
   </div>
   <div class="divider"></div>
 
+<div class="explainer">
 
+  <h2>How to Play Wordle</h2>
+  <p>Each game gives you a hidden 5-letter word and six attempts to guess it. Type a 5-letter word and press Enter. The tiles change colour after each guess: <strong>green</strong> means the letter is correct and in the right position; <strong>yellow</strong> means the letter is in the word but in the wrong position; <strong>grey</strong> means the letter is not in the word at all. Use the feedback to narrow down your next guess.</p>
+  <p>Every guess must be a real English word — the keyboard stays greyed out until you've typed five letters, and invalid words are rejected with a shake. The on-screen keyboard tracks which letters you've eliminated, confirmed, or misplaced, so you can see your information at a glance without scrolling back through your guesses.</p>
+
+  <h2>Challenge Mode</h2>
+  <p>The Share button generates a link that contains your current secret word encoded in the URL. Send that link to anyone — they'll land on the same puzzle and play it cold, without knowing the answer. You can share mid-game or after finishing. Because the word is hidden in the URL hash (the part after #), it's never sent to the server and can't be read at a glance in most URL bars.</p>
+  <p>You can also use the <a href="/random-wordle-generator/">random Wordle word generator</a> to find a good secret word, then click the Play icon on any result to start a game with that word. Copy the URL from the Share button and send it to your target.</p>
+
+  <h2>Difficulty Levels</h2>
+  <p>The difficulty dropdown controls how common the randomly selected word is. Easy words are everyday vocabulary — the kind most people know immediately. Medium words are less frequent but broadly understood. Hard words are uncommon, technical, or archaic — the type that occasionally appear in the official Wordle answer list and leave experienced players stumped. Changing the difficulty immediately resets the board with a new word at that level.</p>
+
+</div>
   <div class="divider"></div>
 
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
 
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">What do the tile colors mean?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Green means the letter is in the correct position. Yellow means the letter is in the word but in a different position. Grey means the letter does not appear in the word at all. The same logic applies to the on-screen keyboard — each key shows the best result it has earned across all your guesses.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">How do I challenge a friend?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Click the Share button at any point during or after your game. It copies a URL to your clipboard that encodes the secret word in the link. Send that URL to a friend — they'll play the same word without knowing the answer. The word is hidden in the URL hash so it's not visible at a glance. You can also create a challenge from the random Wordle word generator by clicking the Play icon on any word, then using the Share button on the game page.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I play unlimited games?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes. Click Play again after any game to start a fresh round with a new random word. There's no limit to how many games you can play. Use the difficulty selector to cycle through easy, medium, and hard words as you improve.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What's the best Wordle opening word?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">The most effective openers use common letters with no repeats: CRANE, SLATE, RAISE, and STARE are popular choices because they each hit multiple high-frequency letters — E, R, A, T, S, N — in one guess. The key insight is coverage: a word that tests five different common letters gives you more colour feedback than one with repeated letters or rare letters like Q, X, or Z.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Does this use the official Wordle word list?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">This game uses Wordineer's curated 5-letter word dataset, which covers a broad cross-section of common and uncommon English words across three difficulty levels. It is not the official New York Times Wordle list, so some words may differ. The gameplay rules — 6 guesses, colour feedback, valid-word-only guesses — are identical to the original.</div>
+  </div>
+</div>
   <div class="divider"></div>
 
-
+<div>
+  <h2 class="section-title" style="margin-bottom:14px">Who uses this</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">Daily Wordle players</div><div class="uc-body">Warm up before your daily puzzle, or keep playing after it's done. Unlimited rounds, no waiting for tomorrow's word.</div></div>
+    <div class="uc"><div class="uc-title">Friends and families</div><div class="uc-body">Use challenge mode to send a custom puzzle. Pick a tricky word, share the link, and see who cracks it fastest.</div></div>
+    <div class="uc"><div class="uc-title">Teachers</div><div class="uc-body">Run a vocabulary Wordle round in class — set the word to a term from the lesson, share the link, and play as a group activity.</div></div>
+    <div class="uc"><div class="uc-title">Word game enthusiasts</div><div class="uc-body">Practice the underlying skills — letter frequency reasoning, deduction from colour feedback — that carry over to Quordle, Dordle, and other Wordle variants.</div></div>
+  </div>
+</div>
 </div>
 
 <footer class="footer">
@@ -488,6 +536,384 @@
 })();
 </script>
 
+<script>
+(function () {
+  var ROWS = 6;
+  var COLS = 5;
 
+  // ---- State ----
+  var secretWord      = '';
+  var guesses         = [];
+  var currentGuess    = [];
+  var gameOver        = false;
+  var allWords        = [];
+  var wordsLoaded     = false;
+  var keyStates       = {};
+  var isChallengeMode = false;
+
+  // ---- DOM ----
+  var tileEls = [];   // tileEls[row][col] = element
+  var keyEls  = {};   // letter -> button element
+
+  // ---- Seed (instant first render before fetch) ----
+  var SEED = [
+    {w:"Crane",diff:"easy"},{w:"Slate",diff:"easy"},{w:"Trace",diff:"easy"},
+    {w:"Stare",diff:"easy"},{w:"Raise",diff:"easy"},{w:"Brave",diff:"easy"},
+    {w:"Flame",diff:"easy"},{w:"Groan",diff:"easy"},{w:"Plumb",diff:"medium"},
+    {w:"Crypt",diff:"medium"},{w:"Askew",diff:"medium"},{w:"Pivot",diff:"medium"},
+    {w:"Blunt",diff:"easy"},{w:"Quirk",diff:"medium"},{w:"Fjord",diff:"hard"}
+  ];
+
+  // ---- Build grid ----
+  function buildGrid() {
+    var grid = document.getElementById('wg-grid');
+    for (var r = 0; r < ROWS; r++) {
+      var rowEl = document.createElement('div');
+      rowEl.className = 'wg-row';
+      rowEl.id = 'wg-row-' + r;
+      tileEls[r] = [];
+      for (var c = 0; c < COLS; c++) {
+        var tile = document.createElement('div');
+        tile.className = 'wg-tile';
+        rowEl.appendChild(tile);
+        tileEls[r][c] = tile;
+      }
+      grid.appendChild(rowEl);
+    }
+  }
+
+  // ---- Build keyboard ----
+  var KB_LAYOUT = [
+    ['Q','W','E','R','T','Y','U','I','O','P'],
+    ['A','S','D','F','G','H','J','K','L'],
+    ['Enter','Z','X','C','V','B','N','M','⌫']
+  ];
+
+  function buildKeyboard() {
+    var kb = document.getElementById('wg-keyboard');
+    KB_LAYOUT.forEach(function (row) {
+      var rowEl = document.createElement('div');
+      rowEl.className = 'wg-kb-row';
+      row.forEach(function (key) {
+        var btn = document.createElement('button');
+        btn.className = 'wg-kb-key' + (key.length > 1 ? ' wide' : '');
+        btn.textContent = key;
+        btn.setAttribute('type', 'button');
+        btn.addEventListener('click', function () { handleKey(key); });
+        rowEl.appendChild(btn);
+        if (key.length === 1) keyEls[key] = btn;
+      });
+      kb.appendChild(rowEl);
+    });
+  }
+
+  // ---- Input ----
+  function handleKey(key) {
+    if (gameOver) return;
+    if (key === 'Enter') {
+      submitGuess();
+    } else if (key === '⌫' || key === 'Backspace') {
+      deleteLetter();
+    } else if (/^[A-Za-z]$/.test(key)) {
+      addLetter(key.toUpperCase());
+    }
+  }
+
+  function addLetter(letter) {
+    if (currentGuess.length >= COLS) return;
+    var col = currentGuess.length;
+    var row = guesses.length;
+    currentGuess.push(letter);
+    var tile = tileEls[row][col];
+    tile.textContent = letter;
+    tile.classList.remove('pop');
+    void tile.offsetWidth;
+    tile.classList.add('filled', 'pop');
+  }
+
+  function deleteLetter() {
+    if (!currentGuess.length) return;
+    currentGuess.pop();
+    var col = currentGuess.length;
+    var row = guesses.length;
+    tileEls[row][col].textContent = '';
+    tileEls[row][col].classList.remove('filled');
+  }
+
+  // ---- Validation ----
+  function isValidWord(word) {
+    return allWords.some(function (w) { return w.w.toUpperCase() === word; });
+  }
+
+  // ---- Submit ----
+  function submitGuess() {
+    if (currentGuess.length < COLS) {
+      shakeRow(guesses.length);
+      showToast('Not enough letters');
+      return;
+    }
+    var word = currentGuess.join('');
+    if (!isValidWord(word)) {
+      shakeRow(guesses.length);
+      showToast('Not in word list');
+      return;
+    }
+    var result  = getResult(word, secretWord);
+    var rowIdx  = guesses.length;
+    currentGuess = [];
+    revealRow(rowIdx, word, result, function () {
+      guesses.push({ word: word, result: result });
+      updateKeyboard(word, result);
+      if (result.every(function (r) { return r === 'correct'; })) {
+        gameOver = true;
+        bounceRow(rowIdx);
+        setTimeout(function () { showResult(true); }, 500);
+      } else if (guesses.length >= ROWS) {
+        gameOver = true;
+        setTimeout(function () { showResult(false); }, 300);
+      }
+    });
+  }
+
+  // ---- Color algorithm ----
+  function getResult(guess, secret) {
+    var result     = ['absent','absent','absent','absent','absent'];
+    var secretLeft = secret.split('');
+    var guessLeft  = guess.split('');
+    // Green pass: exact position matches
+    for (var i = 0; i < COLS; i++) {
+      if (guessLeft[i] === secretLeft[i]) {
+        result[i]     = 'correct';
+        secretLeft[i] = null;
+        guessLeft[i]  = null;
+      }
+    }
+    // Yellow pass: letter in word but wrong position
+    for (var i = 0; i < COLS; i++) {
+      if (guessLeft[i] === null) continue;
+      var idx = secretLeft.indexOf(guessLeft[i]);
+      if (idx !== -1) {
+        result[i]       = 'present';
+        secretLeft[idx] = null;
+      }
+    }
+    return result;
+  }
+
+  // ---- Animations ----
+  function revealRow(rowIdx, word, result, cb) {
+    var STAGGER  = 80;
+    var DURATION = 500;
+    for (var c = 0; c < COLS; c++) {
+      (function (col, state) {
+        setTimeout(function () {
+          var tile = tileEls[rowIdx][col];
+          tile.classList.add('flip');
+          setTimeout(function () {
+            tile.classList.remove('filled', 'flip');
+            tile.classList.add(state);
+          }, DURATION / 2);
+        }, col * STAGGER);
+      })(c, result[c]);
+    }
+    setTimeout(cb, COLS * STAGGER + DURATION);
+  }
+
+  function shakeRow(rowIdx) {
+    var row = document.getElementById('wg-row-' + rowIdx);
+    row.classList.remove('shake');
+    void row.offsetWidth;
+    row.classList.add('shake');
+    row.addEventListener('animationend', function () {
+      row.classList.remove('shake');
+    }, { once: true });
+  }
+
+  function bounceRow(rowIdx) {
+    tileEls[rowIdx].forEach(function (tile, i) {
+      setTimeout(function () {
+        tile.classList.add('bounce');
+        tile.addEventListener('animationend', function () {
+          tile.classList.remove('bounce');
+        }, { once: true });
+      }, i * 100);
+    });
+  }
+
+  // ---- Keyboard state ----
+  var STATE_RANK = { correct: 3, present: 2, absent: 1 };
+  function updateKeyboard(word, result) {
+    for (var i = 0; i < COLS; i++) {
+      var letter = word[i];
+      var state  = result[i];
+      if (!keyStates[letter] || STATE_RANK[state] > STATE_RANK[keyStates[letter]]) {
+        keyStates[letter] = state;
+        if (keyEls[letter]) {
+          keyEls[letter].className = 'wg-kb-key ' + state;
+        }
+      }
+    }
+  }
+
+  // ---- Toast ----
+  var toastTimer;
+  function showToast(msg) {
+    var el = document.getElementById('wg-toast');
+    if (!el) return;
+    el.textContent = msg;
+    el.classList.remove('show');
+    void el.offsetWidth;
+    el.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { el.classList.remove('show'); }, 1500);
+  }
+
+  // ---- Result banner ----
+  var WIN_MSGS = ['Genius!', 'Magnificent!', 'Impressive!', 'Splendid!', 'Great!', 'Phew!'];
+  function showResult(win) {
+    var banner = document.getElementById('wg-result');
+    var msg    = document.getElementById('wg-result-msg');
+    if (!banner || !msg) return;
+    msg.textContent = win
+      ? WIN_MSGS[Math.min(guesses.length - 1, 5)]
+      : 'The word was ' + secretWord + '.';
+    banner.classList.add('show');
+  }
+
+  // ---- Reset ----
+  function resetGame(word) {
+    secretWord      = word.toUpperCase();
+    guesses         = [];
+    currentGuess    = [];
+    gameOver        = false;
+    keyStates       = {};
+    isChallengeMode = false;
+    tileEls.forEach(function (row) {
+      row.forEach(function (tile) {
+        tile.textContent = '';
+        tile.className   = 'wg-tile';
+      });
+    });
+    Object.keys(keyEls).forEach(function (letter) {
+      keyEls[letter].className = 'wg-kb-key';
+    });
+    var banner    = document.getElementById('wg-result');
+    var challenge = document.getElementById('wg-challenge-banner');
+    var diffWrap  = document.getElementById('wg-diff-wrap');
+    if (banner)    banner.classList.remove('show');
+    if (challenge) challenge.classList.remove('show');
+    if (diffWrap)  diffWrap.style.display = '';
+    history.replaceState(null, '', '/wordle-game/');
+  }
+
+  // ---- Word pool ----
+  function getDiff() {
+    var s = document.getElementById('wg-diff');
+    return s ? s.value : 'all';
+  }
+
+  function pickRandom() {
+    var diff = getDiff();
+    var pool = allWords.filter(function (w) {
+      return diff === 'all' || w.diff === diff;
+    });
+    if (!pool.length) pool = allWords;
+    return pool[Math.floor(Math.random() * pool.length)].w.toUpperCase();
+  }
+
+  // ---- Load words ----
+  function loadWords(cb) {
+    if (wordsLoaded) { cb(); return; }
+    fetch('/data/wordle-words.json')
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        allWords    = data.filter(function (w) { return w.w.length === 5; });
+        wordsLoaded = true;
+        cb();
+      })
+      .catch(function () {
+        allWords    = SEED;
+        wordsLoaded = true;
+        cb();
+      });
+  }
+
+  // ---- URL hash / mode ----
+  function resolveSecret(cb) {
+    var hash = location.hash.slice(1);
+    if (hash) {
+      try {
+        var decoded = atob(hash).toUpperCase().replace(/\s/g, '');
+        if (/^[A-Z]{5}$/.test(decoded)) {
+          loadWords(function () {
+            var valid = allWords.some(function (w) { return w.w.toUpperCase() === decoded; });
+            if (valid) {
+              isChallengeMode = true;
+              document.getElementById('wg-challenge-banner').classList.add('show');
+              var dw = document.getElementById('wg-diff-wrap');
+              if (dw) dw.style.display = 'none';
+              cb(decoded);
+            } else {
+              cb(pickRandom());
+            }
+          });
+          return;
+        }
+      } catch (e) {}
+    }
+    loadWords(function () { cb(pickRandom()); });
+  }
+
+  // ---- Share ----
+  function doShare() {
+    var url = location.origin + '/wordle-game/#' + btoa(secretWord);
+    navigator.clipboard.writeText(url).then(function () {
+      [document.getElementById('wg-share-btn'), document.getElementById('wg-share-result')]
+        .forEach(function (btn) {
+          if (!btn) return;
+          var orig = btn.textContent;
+          btn.textContent = 'Copied! ✓';
+          setTimeout(function () { btn.textContent = orig; }, 1500);
+        });
+    });
+  }
+
+  // ---- Physical keyboard ----
+  document.addEventListener('keydown', function (e) {
+    if (e.ctrlKey || e.metaKey || e.altKey) return;
+    if (e.target.tagName === 'SELECT' || e.target.tagName === 'INPUT') return;
+    handleKey(e.key === 'Backspace' ? '⌫' : e.key);
+  });
+
+  // ---- Wire up buttons ----
+  var shareBtn = document.getElementById('wg-share-btn');
+  if (shareBtn) shareBtn.addEventListener('click', doShare);
+
+  var playAgainBtn = document.getElementById('wg-play-again');
+  if (playAgainBtn) {
+    playAgainBtn.addEventListener('click', function () {
+      loadWords(function () { resetGame(pickRandom()); });
+    });
+  }
+
+  var shareResultBtn = document.getElementById('wg-share-result');
+  if (shareResultBtn) shareResultBtn.addEventListener('click', doShare);
+
+  var diffSel = document.getElementById('wg-diff');
+  if (diffSel) {
+    diffSel.addEventListener('change', function () {
+      loadWords(function () { resetGame(pickRandom()); });
+    });
+  }
+
+  // ---- Start ----
+  buildGrid();
+  buildKeyboard();
+  resolveSecret(function (word) {
+    secretWord = word;
+  });
+
+})();
+</script>
 </body>
 </html>
