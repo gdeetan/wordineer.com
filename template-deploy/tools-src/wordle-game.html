@@ -519,9 +519,13 @@
     var banner = document.getElementById('wg-result');
     var msg    = document.getElementById('wg-result-msg');
     if (!banner || !msg) return;
-    msg.textContent = win
-      ? WIN_MSGS[Math.min(guesses.length - 1, 5)]
-      : 'The word was ' + secretWord + '.';
+    if (win) {
+      var count = guesses.length;
+      var label = count === 1 ? '1 try' : count + ' tries';
+      msg.textContent = WIN_MSGS[Math.min(count - 1, 5)] + ' Got it in ' + label + '.';
+    } else {
+      msg.textContent = 'The word was ' + secretWord + '.';
+    }
     banner.classList.add('show');
   }
 
