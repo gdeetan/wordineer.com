@@ -1,0 +1,221 @@
+<!-- CONFIG
+{
+  "url": "/wordle-game/",
+  "output": "wordle-game.html",
+  "type": "tool"
+}
+-->
+
+<!-- SLOT:meta -->
+<title>Play Wordle Free — Unlimited Wordle Game | Wordineer</title>
+<meta name="description" content="Play unlimited Wordle rounds for free. Guess any random 5-letter word in 6 tries, or challenge a friend with a custom word. No sign-up needed.">
+<link rel="canonical" href="https://wordineer.com/wordle-game/">
+<meta property="og:type"        content="website">
+<meta property="og:site_name"   content="Wordineer">
+<meta property="og:title"       content="Play Wordle Free — Unlimited Wordle Game | Wordineer">
+<meta property="og:description" content="Play unlimited Wordle rounds for free. Guess any random 5-letter word in 6 tries, or challenge a friend.">
+<meta property="og:url"         content="https://wordineer.com/wordle-game/">
+<meta property="og:image"       content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Play Wordle",
+  "url": "https://wordineer.com/wordle-game/",
+  "description": "Free unlimited Wordle game. Guess a random 5-letter word in 6 tries, or challenge a friend with a custom word.",
+  "applicationCategory": "GameApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@id": "https://wordineer.com/#organization" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What do the colors mean in Wordle?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Green means the letter is correct and in the right position. Yellow means the letter is in the word but in the wrong position. Grey means the letter is not in the word at all. Use the color feedback from each guess to narrow down the answer." }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I challenge a friend to a Wordle game?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Click the Share button during or after your game. It copies a link to your clipboard that contains the same secret word, encoded in the URL. Send that link to a friend — they'll play the same word without knowing what it is in advance." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I play unlimited Wordle games?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Click Play again after any game to start a fresh round with a new random word. You can also change the difficulty to Easy, Medium, or Hard to adjust how common the target words are." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the best strategy for Wordle?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Start with a word that covers multiple common letters — CRANE, SLATE, or RAISE are popular openers. For your second guess, use letters not yet tested. From guess three onward, use the color feedback: lock in green positions, try yellows in new spots, avoid greys entirely." }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Word Tools", "item": "https://wordineer.com/word-tools/" },
+    { "@type": "ListItem", "position": 3, "name": "Play Wordle", "item": "https://wordineer.com/wordle-game/" }
+  ]
+}
+</script>
+<!-- /SLOT:meta -->
+
+<!-- SLOT:style -->
+<style>
+.wg-card { max-width: 500px; margin: 0 auto; padding: 16px 16px 0; }
+
+/* Header */
+.wg-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; gap: 8px; flex-wrap: wrap; }
+.wg-title  { font-size: 20px; font-weight: 700; color: var(--text); letter-spacing: .06em; text-transform: uppercase; }
+.wg-header-right { display: flex; align-items: center; gap: 8px; }
+.wg-diff-select  { padding: 6px 10px; font-size: 13px; font-family: inherit; border: 1px solid var(--border); border-radius: 7px; background: var(--bg); color: var(--text); outline: none; cursor: pointer; appearance: none; -webkit-appearance: none; }
+.wg-diff-select:focus { border-color: var(--brand); }
+
+/* Challenge banner */
+.wg-challenge-banner { display: none; background: #F4F3FF; border: 1px solid #C5C0F0; border-radius: 8px; padding: 8px 12px; font-size: 13px; color: var(--brand); margin-bottom: 12px; text-align: center; font-weight: 500; }
+.wg-challenge-banner.show { display: block; }
+
+/* Toast */
+.wg-toast { position: fixed; top: 72px; left: 50%; transform: translateX(-50%); background: var(--text); color: var(--bg); padding: 8px 16px; border-radius: 6px; font-size: 14px; font-weight: 600; opacity: 0; pointer-events: none; z-index: 200; transition: opacity .15s; white-space: nowrap; }
+.wg-toast.show { opacity: 1; }
+
+/* Grid */
+.wg-grid { display: flex; flex-direction: column; align-items: center; gap: 5px; margin-bottom: 16px; }
+.wg-row  { display: flex; gap: 5px; }
+.wg-tile { width: 58px; height: 58px; display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 700; border: 2px solid var(--border); border-radius: 3px; color: var(--text); text-transform: uppercase; user-select: none; -webkit-user-select: none; }
+.wg-tile.filled  { border-color: #999; }
+.wg-tile.correct { background: #538D4E; border-color: #538D4E; color: white; }
+.wg-tile.present { background: #B59F3B; border-color: #B59F3B; color: white; }
+.wg-tile.absent  { background: #787C7E; border-color: #787C7E; color: white; }
+.wg-tile.flip    { animation: wg-flip .5s ease forwards; }
+.wg-tile.pop     { animation: wg-pop .08s ease; }
+.wg-tile.bounce  { animation: wg-bounce .5s ease; }
+.wg-row.shake    { animation: wg-shake .5s ease; }
+
+@keyframes wg-flip {
+  0%   { transform: rotateX(0deg); }
+  45%  { transform: rotateX(90deg); }
+  55%  { transform: rotateX(90deg); }
+  100% { transform: rotateX(0deg); }
+}
+@keyframes wg-pop {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.12); }
+  100% { transform: scale(1); }
+}
+@keyframes wg-shake {
+  0%, 100% { transform: translateX(0); }
+  16%  { transform: translateX(-5px); }
+  33%  { transform: translateX(5px); }
+  50%  { transform: translateX(-5px); }
+  66%  { transform: translateX(5px); }
+  83%  { transform: translateX(-3px); }
+}
+@keyframes wg-bounce {
+  0%, 100% { transform: translateY(0); }
+  40%  { transform: translateY(-14px); }
+  60%  { transform: translateY(-7px); }
+}
+
+/* Result */
+.wg-result { display: none; text-align: center; padding: 10px 0 14px; }
+.wg-result.show { display: block; }
+.wg-result-msg  { font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 10px; }
+.wg-result-actions { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; align-items: center; }
+
+/* Keyboard */
+.wg-keyboard { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 0 0 24px; }
+.wg-kb-row   { display: flex; gap: 5px; }
+.wg-kb-key   { height: 58px; min-width: 43px; padding: 0 4px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; font-family: inherit; border: none; border-radius: 4px; background: #D3D6DA; color: #1A1A1B; cursor: pointer; user-select: none; -webkit-user-select: none; transition: background .1s, color .1s; -webkit-tap-highlight-color: transparent; }
+.wg-kb-key.wide    { min-width: 65px; font-size: 12px; }
+.wg-kb-key:active  { opacity: .85; }
+.wg-kb-key.correct { background: #538D4E; color: white; }
+.wg-kb-key.present { background: #B59F3B; color: white; }
+.wg-kb-key.absent  { background: #787C7E; color: white; }
+
+@media(max-width:500px) {
+  .wg-tile { width: 50px; height: 50px; font-size: 24px; }
+  .wg-kb-key { height: 50px; min-width: 32px; font-size: 12px; }
+  .wg-kb-key.wide { min-width: 50px; font-size: 11px; }
+}
+@media(max-width:380px) {
+  .wg-tile { width: 44px; height: 44px; font-size: 20px; }
+  .wg-kb-key { height: 46px; min-width: 28px; font-size: 11px; }
+  .wg-kb-key.wide { min-width: 44px; }
+}
+</style>
+<!-- /SLOT:style -->
+
+<!-- SLOT:hero -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/word-tools/">Word Tools</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Play Wordle</span>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free · No sign-up · Unlimited rounds
+  </div>
+  <h1>Play Wordle</h1>
+  <p>Guess the 5-letter word in 6 tries. Green = right letter, right place. Yellow = right letter, wrong place. Challenge a friend by sharing your puzzle link.</p>
+</div>
+<!-- /SLOT:hero -->
+
+<!-- SLOT:tool -->
+<div class="tool-wrap">
+  <div class="wg-card">
+
+    <div class="wg-header">
+      <span class="wg-title">Wordle</span>
+      <div class="wg-header-right">
+        <div id="wg-diff-wrap">
+          <select id="wg-diff" class="wg-diff-select" aria-label="Word difficulty">
+            <option value="all">Any difficulty</option>
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+        </div>
+        <button id="wg-share-btn" class="act-btn">Share</button>
+      </div>
+    </div>
+
+    <div id="wg-challenge-banner" class="wg-challenge-banner">
+      Someone challenged you — guess the 5-letter word!
+    </div>
+
+    <div id="wg-toast" class="wg-toast" aria-live="assertive" aria-atomic="true"></div>
+
+    <div id="wg-grid" class="wg-grid"></div>
+
+    <div id="wg-result" class="wg-result" aria-live="polite">
+      <div id="wg-result-msg" class="wg-result-msg"></div>
+      <div class="wg-result-actions">
+        <button id="wg-play-again" class="gen-btn" style="width:auto;padding:9px 22px">Play again</button>
+        <button id="wg-share-result" class="act-btn">Share puzzle</button>
+      </div>
+    </div>
+
+    <div id="wg-keyboard" class="wg-keyboard"></div>
+
+  </div>
+</div>
+<!-- /SLOT:tool -->
+
+<!-- SLOT:ad_b -->
+<!-- /SLOT:ad_b -->
