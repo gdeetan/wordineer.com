@@ -881,8 +881,7 @@ details[open] summary::after { content: '−'; }
     btn.addEventListener('click', function () {
       var fmt = btn.getAttribute('data-fmt');
       var words = filtered.map(function (w) { return w.w; });
-      var text = fmt === 'comma' ? words.join(', ') : fmt === 'space' ? words.join(' ') : words.join('
-');
+      var text = fmt === 'comma' ? words.join(', ') : fmt === 'space' ? words.join(' ') : words.join('\n');
       navigator.clipboard.writeText(text).then(function () {
         copyBtn.textContent = 'Copied! ✓';
         setTimeout(function () { copyBtn.textContent = 'Copy list ▾'; }, 1500);
