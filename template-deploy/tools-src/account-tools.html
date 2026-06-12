@@ -1,98 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script>
-  window.dataLayer = window.dataLayer || [];
-  window.adsbygoogle = window.adsbygoogle || [];
-  function gtag(){dataLayer.push(arguments);}
-
-  (function(w, d) {
-    var loaded = false;
-    var cfg = {
-      analyticsId: 'G-7DWH3EGM3Z',
-      adsClient: 'ca-pub-7200956978416233',
-      delay: 10000
-    };
-
-    function loadScript(src, attrs) {
-      var s = d.createElement('script');
-      s.async = true;
-      s.src = src;
-      if (attrs) {
-        Object.keys(attrs).forEach(function(key) {
-          s.setAttribute(key, attrs[key]);
-        });
-      }
-      d.head.appendChild(s);
-    }
-
-    function loadMarketing() {
-      if (loaded) return;
-      loaded = true;
-      gtag('js', new Date());
-      gtag('config', cfg.analyticsId);
-      loadScript('https://www.googletagmanager.com/gtag/js?id=' + cfg.analyticsId);
-      loadScript(
-        'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + cfg.adsClient,
-        { crossorigin: 'anonymous' }
-      );
-    }
-
-    function idleLoad() {
-      if ('requestIdleCallback' in w) {
-        w.requestIdleCallback(loadMarketing, { timeout: 5000 });
-      } else {
-        w.setTimeout(loadMarketing, cfg.delay);
-      }
-    }
-
-    ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function(eventName) {
-      w.addEventListener(eventName, loadMarketing, { once: true, passive: true });
-    });
-    w.addEventListener('load', function() {
-      w.setTimeout(idleLoad, cfg.delay);
-    }, { once: true });
-  })(window, document);
-</script>
-<meta name='impact-site-verification' value='32715504-1cfb-4324-bfc7-ae4cfa1591ea'>
-<link rel="preload" href="/fonts/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/dm-sans-italic-400-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="shortcut icon" href="/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-<link rel="manifest" href="/site.webmanifest" />
-<script type="application/ld+json">
+<!-- CONFIG
 {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebSite",
-      "@id": "https://wordineer.com/#website",
-      "name": "Wordineer",
-      "url": "https://wordineer.com",
-      "description": "Free online word tools for writers, students, and word game players — random word generator, name generators, word scramble, sentence generator, and more.",
-      "publisher": { "@id": "https://wordineer.com/#organization" }
-    },
-    {
-      "@type": "Organization",
-      "@id": "https://wordineer.com/#organization",
-      "name": "Wordineer",
-      "url": "https://wordineer.com",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://wordineer.com/logo.png",
-        "width": 1254,
-        "height": 1254
-      },
-      "description": "Wordineer provides free online word tools for writers, students, and word game players."
-    }
-  ]
+  "type": "content",
+  "url": "/account-tools.html",
+  "output": "account-tools.html"
 }
-</script>
+-->
+
+<!-- SLOT:meta -->
 <title>Account Tools — Password, Passphrase &amp; Username Generators | Wordineer</title>
 <meta name="description" content="Free password generators, passphrase tools, and username generators for every platform and style. No sign-up required — everything runs instantly in your browser.">
 <link rel="canonical" href="https://wordineer.com/account-tools/">
@@ -102,8 +16,9 @@
 <meta property="og:description" content="Free password generators, passphrase tools, and username generators for every platform and style. No sign-up required — everything runs instantly in your browser.">
 <meta property="og:url" content="https://wordineer.com/account-tools/">
 <meta property="og:image" content="https://wordineer.com/og-image.png">
+<!-- /SLOT:meta -->
 
-<link rel="stylesheet" href="/styles/global.css?v=9">
+<!-- SLOT:style -->
 <style>
 .name-intro {
   font-size: 15px;
@@ -212,79 +127,9 @@
   margin: 0 0 14px;
 }
 </style>
-</head>
+<!-- /SLOT:style -->
 
-<body>
-<nav class="nav">
-  <a class="nav-logo" href="/">
-    <div class="nav-logo-icon">
-      <svg viewBox="0 0 15 15" fill="none"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>
-    </div>
-    Wordineer
-  </a>
-  <div class="nav-links">
-    <a href="/word-tools/">Tools</a>
-    <a href="/blog/">Blog</a>
-  </div>
-  <div>
-    <button class="hamburger" type="button" aria-label="All tools" aria-controls="mega" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
-<div class="mega" id="mega">
-  <div class="mega-inner">
-    <div class="mega-col">
-      <div class="mega-cat">Writing &amp; Vocabulary</div>
-      <a class="mega-link" href="/">Random Word Generator</a>
-      <a class="mega-link" href="/random-sentence-generator/">Random Sentence Generator</a>
-      <a class="mega-link" href="/random-paragraph-generator/">Random Paragraph Generator</a>
-      <a class="mega-link" href="/word-counter/">Word Counter</a>
-      <a class="mega-link mega-link--view-all" href="/word-tools/">View all →</a>
-    </div>
-    <div class="mega-col">
-      <div class="mega-cat">Browse by Letter</div>
-      <a class="mega-link" href="/random-words-starting-with/">Random Words Starting With (A–Z)</a>
-      <a class="mega-link" href="/random-words-starting-with/a">Random Words Starting with A</a>
-      <a class="mega-link" href="/random-words-starting-with/s">Random Words Starting with S</a>
-      <a class="mega-link" href="/random-words-starting-with/q">Random Words Starting with Q</a>
-      <a class="mega-link mega-link--view-all" href="/random-words-starting-with/">View all →</a>
-    </div>
-    <div class="mega-col">
-      <div class="mega-cat">Names by Origin</div>
-      <a class="mega-link" href="/random-spanish-name-generator/">Spanish Name Generator</a>
-      <a class="mega-link" href="/random-italian-name-generator/">Italian Name Generator</a>
-      <a class="mega-link" href="/random-japanese-name-generator/">Japanese Name Generator</a>
-      <a class="mega-link" href="/random-american-name-generator/">American Name Generator</a>
-      <a class="mega-link mega-link--view-all" href="/name-generators/">View all →</a>
-    </div>
-    <div class="mega-col">
-      <div class="mega-cat">Other Name Generators</div>
-      <a class="mega-link" href="/character-name-generator/">Character Name Generator</a>
-      <a class="mega-link" href="/fantasy-name-generator/">Fantasy Name Generator</a>
-      <a class="mega-link" href="/business-name-generator/">Business Name Generator</a>
-      <a class="mega-link" href="/band-name-generator/">Band Name Generator</a>
-      <a class="mega-link mega-link--view-all" href="/other-generators/">View all →</a>
-    </div>
-    <div class="mega-col">
-      <div class="mega-cat">Account &amp; Security</div>
-      <a class="mega-link" href="/username-generator/">Username Generator</a>
-      <a class="mega-link" href="/password-generator/">Password Generator</a>
-      <a class="mega-link" href="/passphrase-generator/">Passphrase Generator</a>
-      <a class="mega-link" href="/random-pin-generator/">Random PIN Generator</a>
-      <a class="mega-link mega-link--view-all" href="/account-tools/">View all →</a>
-    </div>
-    <div class="mega-col">
-      <div class="mega-cat">Games &amp; fun</div>
-      <a class="mega-link" href="/random-number-generator/">Number Generator</a>
-      <a class="mega-link" href="/coin-flip/">Flip a Coin</a>
-      <a class="mega-link" href="/pictionary-phrase-generator/">Pictionary Phrase Generator</a>
-      <a class="mega-link" href="/dice-roller/">Dice Roller</a>
-      <a class="mega-link mega-link--view-all" href="/number-chance/">View all →</a>
-    </div>
-  </div>
-</div>
-
+<!-- SLOT:hero -->
 <div class="breadcrumb">
   <div class="breadcrumb-inner">
     <a href="/">Wordineer</a>
@@ -300,6 +145,9 @@
   <h1>Account tools</h1>
   <p>Whether you're setting up a new social media profile, locking down an important account, or just tired of your current handle, the tools on this page cover all of it. Passwords in different lengths and styles. Passphrases made from real English words. Usernames for every major platform and aesthetic. Click any card to open the tool.</p>
 </div>
+<!-- /SLOT:hero -->
+
+<!-- SLOT:content -->
 <div class="content-wrap">
   <div class="section">
     <p class="name-intro">Everything is grouped below by type. Each card opens a tool that runs immediately in your browser — no account, no install, no limit on how many options you generate.</p>
@@ -625,75 +473,4 @@
   }, true);
 })();
 </script>
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="ad-footer-strip" style="margin-bottom:24px">
-      <span class="ad-tag">Advertisement · 468×60</span>
-      <div class="ad-fs-text"><strong>Grammarly Premium</strong> — Vocabulary suggestions, tone detector, full-sentence rewrites.</div>
-      <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-footer-strip-cta">Try free</a>
-    </div>
-    <div class="footer-grid">
-      <div><div class="footer-col-title">Writing &amp; Vocabulary</div><a class="footer-link" href="/">Random Word Generator</a><a class="footer-link" href="/random-sentence-generator/">Random Sentence Generator</a><a class="footer-link" href="/random-paragraph-generator/">Random Paragraph Generator</a><a class="footer-link" href="/word-counter/">Word Counter</a><a class="footer-link footer-link--view-all" href="/word-tools/">View all →</a></div>
-      <div><div class="footer-col-title">Browse by Letter</div><a class="footer-link" href="/random-words-starting-with/">Random Words Starting With (A–Z)</a><a class="footer-link" href="/random-words-starting-with/a">Random Words Starting with A</a><a class="footer-link" href="/random-words-starting-with/s">Random Words Starting with S</a><a class="footer-link" href="/random-words-starting-with/q">Random Words Starting with Q</a><a class="footer-link footer-link--view-all" href="/random-words-starting-with/">View all →</a></div>
-      <div><div class="footer-col-title">Names by Origin</div><a class="footer-link" href="/random-spanish-name-generator/">Spanish Name Generator</a><a class="footer-link" href="/random-italian-name-generator/">Italian Name Generator</a><a class="footer-link" href="/random-japanese-name-generator/">Japanese Name Generator</a><a class="footer-link" href="/random-american-name-generator/">American Name Generator</a><a class="footer-link footer-link--view-all" href="/name-generators/">View all →</a></div>
-      <div><div class="footer-col-title">Other Name Generators</div><a class="footer-link" href="/character-name-generator/">Character Name Generator</a><a class="footer-link" href="/fantasy-name-generator/">Fantasy Name Generator</a><a class="footer-link" href="/business-name-generator/">Business Name Generator</a><a class="footer-link" href="/band-name-generator/">Band Name Generator</a><a class="footer-link footer-link--view-all" href="/other-generators/">View all →</a></div>
-      <div><div class="footer-col-title">Account &amp; Security</div><a class="footer-link" href="/password-generator/">Password Generator</a><a class="footer-link" href="/passphrase-generator/">Passphrase Generator</a><a class="footer-link" href="/username-generator/">Username Generator</a><a class="footer-link" href="/random-pin-generator/">Random PIN Generator</a><a class="footer-link footer-link--view-all" href="/account-tools/">View all →</a></div>
-      <div><div class="footer-col-title">Games &amp; fun</div><a class="footer-link" href="/random-number-generator/">Number Generator</a><a class="footer-link" href="/coin-flip/">Flip a Coin</a><a class="footer-link" href="/pictionary-phrase-generator/">Pictionary Phrase Generator</a><a class="footer-link" href="/dice-roller/">Dice Roller</a><a class="footer-link footer-link--view-all" href="/number-chance/">View all →</a></div>
-    </div>
-    <div class="footer-bottom">
-      <div style="display:flex;align-items:center;gap:7px">
-        <div class="nav-logo-icon" style="width:22px;height:22px;border-radius:5px"><svg viewBox="0 0 15 15" fill="none" style="width:12px;height:12px"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
-        <span style="font-size:14px;font-weight:600;color:var(--text)">Wordineer</span>
-      </div>
-      <span class="footer-copy">© 2026 Wordineer · Free word tools for everyone</span>
-      <div class="footer-meta"><a href="/about/">About</a><a href="/blog/">Blog</a><a href="/affiliate-disclosure/">Affiliate disclosure</a><a href="/privacy/">Privacy</a></div>
-    </div>
-  </div>
-</footer>
-
-<div class="toast" id="toast"></div>
-
-<script src="/scripts/tool-engine.js?v=25"></script>
-<script>
-(function bindSharedWordineerMenu() {
-  const mega = document.getElementById('mega');
-  const hbg = document.querySelector('.hamburger');
-  if (!mega || !hbg) return;
-  if (hbg.dataset.menuBound === '1') return;
-  hbg.dataset.menuBound = '1';
-  hbg.onclick = null;
-  if (hbg.getAttribute('onclick')) hbg.removeAttribute('onclick');
-
-  function setMenu(open) {
-    mega.classList.toggle('open', open);
-    hbg.setAttribute('aria-expanded', open ? 'true' : 'false');
-  }
-
-  setMenu(mega.classList.contains('open'));
-
-  hbg.addEventListener('click', function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    e.stopImmediatePropagation();
-    setMenu(!mega.classList.contains('open'));
-  }, true);
-
-  hbg.addEventListener('keydown', function(e) {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      e.stopPropagation();
-      e.stopImmediatePropagation();
-      setMenu(!mega.classList.contains('open'));
-    }
-  }, true);
-
-  document.addEventListener('click', function(e) {
-    if (mega.classList.contains('open') && !mega.contains(e.target) && !hbg.contains(e.target)) {
-      setMenu(false);
-    }
-  }, true);
-})();
-</script>
-
-</body>
-</html>
+<!-- /SLOT:content -->
