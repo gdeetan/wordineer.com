@@ -742,36 +742,36 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="faq">
   <h2 class="faq-title">Frequently asked questions</h2>
   <div class="faq-item open">
-    <div class="faq-q"><span class="faq-q-text">How many words can I add to a crossword?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Up to 30 custom words. The layout tries to connect as many as possible through shared letters. 10–20 is the sweet spot. Words that share no letters with the rest of the grid are automatically skipped rather than placed as isolated islands.</div>
+    <button class="faq-q" type="button" aria-expanded="true"><span class="faq-q-text">How many words can I add to a crossword?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+    <div class="faq-a"><p>Up to 30 custom words. The layout tries to connect as many as possible through shared letters. 10–20 is the sweet spot. Words that share no letters with the rest of the grid are automatically skipped rather than placed as isolated islands.</p></div>
   </div>
   <div class="faq-item">
-    <div class="faq-q"><span class="faq-q-text">What happens if some of my words don't fit?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Words that can't be connected are silently skipped. The word count shown below the grid tells you exactly how many were placed. If fewer appear than you entered, add words that share common letters — E, A, R, S, and T are the most intersection-friendly letters in English.</div>
+    <button class="faq-q" type="button" aria-expanded="false"><span class="faq-q-text">What happens if some of my words don't fit?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+    <div class="faq-a"><p>Words that can't be connected are silently skipped. The word count shown below the grid tells you exactly how many were placed. If fewer appear than you entered, add words that share common letters — E, A, R, S, and T are the most intersection-friendly letters in English.</p></div>
   </div>
   <div class="faq-item">
-    <div class="faq-q"><span class="faq-q-text">What's the difference between Easy, Medium, and Hard?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Difficulty controls which curated word list is used in auto-generate mode. Easy: short, common 3–6 letter words. Medium: moderate vocabulary 5–9 letters. Hard: advanced/technical 7–12 letters. Difficulty has no effect in custom mode — your words determine the challenge.</div>
+    <button class="faq-q" type="button" aria-expanded="false"><span class="faq-q-text">What's the difference between Easy, Medium, and Hard?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+    <div class="faq-a"><p>Difficulty controls which curated word list is used in auto-generate mode. Easy: short, common 3–6 letter words. Medium: moderate vocabulary 5–9 letters. Hard: advanced/technical 7–12 letters. Difficulty has no effect in custom mode — your words determine the challenge.</p></div>
   </div>
   <div class="faq-item">
-    <div class="faq-q"><span class="faq-q-text">How do I share my puzzle with students or friends?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Click Share Link after generating. The tool encodes the entire puzzle — words, clues, and grid layout — into the URL itself. No account needed, nothing stored on a server. Anyone who opens the link sees your exact puzzle and can solve it in Solve in Browser mode.</div>
+    <button class="faq-q" type="button" aria-expanded="false"><span class="faq-q-text">How do I share my puzzle with students or friends?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+    <div class="faq-a"><p>Click Share Link after generating. The tool encodes the entire puzzle — words, clues, and grid layout — into the URL itself. No account needed, nothing stored on a server. Anyone who opens the link sees your exact puzzle and can solve it in Solve in Browser mode.</p></div>
   </div>
   <div class="faq-item">
-    <div class="faq-q"><span class="faq-q-text">Can I print a blank version without the answers showing?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Yes. Click Print Blank to open the print dialog with all letters hidden — students see only the empty grid and numbered clue list. Click Print Answers to print the filled-in solution grid, which you can keep as an answer key.</div>
+    <button class="faq-q" type="button" aria-expanded="false"><span class="faq-q-text">Can I print a blank version without the answers showing?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+    <div class="faq-a"><p>Yes. Click Print Blank to open the print dialog with all letters hidden — students see only the empty grid and numbered clue list. Click Print Answers to print the filled-in solution grid, which you can keep as an answer key.</p></div>
   </div>
   <div class="faq-item">
-    <div class="faq-q"><span class="faq-q-text">Does my puzzle get saved anywhere?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">No. The generator runs entirely in your browser. Nothing is transmitted to any server and no puzzle data is stored in any database. The only persistence is the Share Link, which encodes the puzzle into the URL. If you close the tab without sharing or printing, the puzzle is gone.</div>
+    <button class="faq-q" type="button" aria-expanded="false"><span class="faq-q-text">Does my puzzle get saved anywhere?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+    <div class="faq-a"><p>No. The generator runs entirely in your browser. Nothing is transmitted to any server and no puzzle data is stored in any database. The only persistence is the Share Link, which encodes the puzzle into the URL. If you close the tab without sharing or printing, the puzzle is gone.</p></div>
   </div>
   <div class="faq-item">
-    <div class="faq-q"><span class="faq-q-text">Can I use proper nouns or multi-word phrases?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Proper nouns work fine (PARIS, Capital of France). Multi-word phrases are not supported in the grid since each word must be a single unbroken string. If you want to include a phrase like WHITE HOUSE, enter it as WHITEHOUSE or pick one meaningful word from the phrase. Non-letter characters (spaces, hyphens) are automatically stripped from the word field.</div>
+    <button class="faq-q" type="button" aria-expanded="false"><span class="faq-q-text">Can I use proper nouns or multi-word phrases?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+    <div class="faq-a"><p>Proper nouns work fine (PARIS, Capital of France). Multi-word phrases are not supported in the grid since each word must be a single unbroken string. If you want to include a phrase like WHITE HOUSE, enter it as WHITEHOUSE or pick one meaningful word from the phrase. Non-letter characters (spaces, hyphens) are automatically stripped from the word field.</p></div>
   </div>
   <div class="faq-item">
-    <div class="faq-q"><span class="faq-q-text">What's the ideal grid size for a classroom puzzle?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">The grid resizes automatically based on your words — there's no manual size control. For a 20–30 minute classroom activity, 12–15 words typically produces a grid that fills a single sheet when printed, with enough white space to write comfortably, and takes students the right amount of time to complete.</div>
+    <button class="faq-q" type="button" aria-expanded="false"><span class="faq-q-text">What's the ideal grid size for a classroom puzzle?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+    <div class="faq-a"><p>The grid resizes automatically based on your words — there's no manual size control. For a 20–30 minute classroom activity, 12–15 words typically produces a grid that fills a single sheet when printed, with enough white space to write comfortably, and takes students the right amount of time to complete.</p></div>
   </div>
 </div>
 <!-- /SLOT:faq -->
