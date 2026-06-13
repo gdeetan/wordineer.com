@@ -139,8 +139,18 @@
 
 <link rel="stylesheet" href="/styles/global.css?v=9">
 <style>
+/* Layout */
+.tool-wrap{max-width:960px;margin:0 auto;padding:24px 20px 0}
+.cw-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;box-shadow:var(--shadow)}
+
+/* Generate button */
+.gen-btn{display:block;width:100%;padding:10px 14px;background:var(--brand);color:#fff;border:none;border-radius:8px;font-size:.9rem;font-weight:600;font-family:inherit;cursor:pointer;transition:background .15s,transform .1s;letter-spacing:-.01em}
+.gen-btn:hover{background:var(--brand-dark)}
+.gen-btn:active{transform:scale(.98)}
+.cw-panel .gen-btn{margin-top:12px}
+
 /* Tabs */
-.cw-tabs{display:flex;gap:8px;margin-bottom:16px}
+.cw-tabs{display:flex;gap:8px;margin-bottom:20px}
 .cw-tab{padding:8px 20px;border:1.5px solid #D1D9E0;border-radius:20px;background:#fff;cursor:pointer;font-size:.875rem;color:#555;transition:background .15s,color .15s,border-color .15s;line-height:1.4}
 .cw-tab.active{background:#3C3489;color:#fff;border-color:#3C3489}
 .cw-tab:hover:not(.active){border-color:#3C3489;color:#3C3489}
@@ -155,7 +165,6 @@
 .cw-textarea{width:100%;padding:12px;border:1.5px solid #D1D9E0;border-radius:8px;font-family:ui-monospace,monospace;font-size:.875rem;resize:vertical;box-sizing:border-box;min-height:160px;line-height:1.6}
 .cw-textarea:focus{outline:none;border-color:#3C3489}
 .cw-error{color:#E24B4A;font-size:.85rem;margin-top:6px}
-.cw-panel .gen-btn{margin-top:12px}
 
 /* Grid output */
 .cw-output{display:flex;gap:28px;margin-top:24px;flex-wrap:wrap;align-items:flex-start}
@@ -299,6 +308,7 @@
   <p>Make a custom crossword in seconds — enter your own words and clues, or auto-generate from 400+ curated words by topic and difficulty. Print blank for students or share a link anyone can solve.</p>
 </div>
 <div class="tool-wrap">
+<div class="cw-card">
 
   <!-- Tab buttons -->
   <div class="cw-tabs">
@@ -376,7 +386,8 @@
   </div>
 
   <div id="cw-toast" class="cw-toast" role="status" aria-live="polite"></div>
-</div>
+</div><!-- /.cw-card -->
+</div><!-- /.tool-wrap -->
 
 <div class="content-wrap">
   <div class="section">
