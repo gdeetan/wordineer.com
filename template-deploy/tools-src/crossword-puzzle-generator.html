@@ -226,3 +226,143 @@
   <div id="cw-toast" class="cw-toast" role="status" aria-live="polite"></div>
 </div>
 <!-- /SLOT:tool -->
+
+<!-- SLOT:init -->
+<script>
+(function () {
+'use strict';
+
+var DATA_URL = '/data/crossword-words.json';
+var cwData = null;
+var currentResult = null;
+var solveMode = false;
+var currentTab = 'auto';
+
+/* ── Grid Layout Algorithm ──────────────────────────────────────── */
+
+function placeWord(grid, word, x, y, dir) {
+  var dx = dir === 'across' ? 1 : 0, dy = dir === 'down' ? 1 : 0;
+  for (var i = 0; i < word.length; i++) {
+    grid[(x + i * dx) + ',' + (y + i * dy)] = word[i];
+  }
+}
+
+function canPlace(grid, word, x, y, dir) {
+  var dx = dir === 'across' ? 1 : 0, dy = dir === 'down' ? 1 : 0;
+  var px = dir === 'across' ? 0 : 1, py = dir === 'across' ? 1 : 0;
+
+  /* Cell immediately before and after the word must be empty */
+  if (grid[(x - dx) + ',' + (y - dy)]) return false;
+  if (grid[(x + word.length * dx) + ',' + (y + word.length * dy)]) return false;
+
+  var intersections = 0;
+  for (var i = 0; i < word.length; i++) {
+    var cx = x + i * dx, cy = y + i * dy;
+    var key = cx + ',' + cy;
+    if (grid[key]) {
+      if (grid[key] !== word[i]) return false;
+      intersections++;
+    } else {
+      /* Empty cell: perpendicular neighbors must be empty */
+      if (grid[(cx - px) + ',' + (cy - py)]) return false;
+      if (grid[(cx + px) + ',' + (cy + py)]) return false;
+    }
+  }
+  return intersections > 0;
+}
+
+function scorePlacement(grid, word, x, y, dir) {
+  var dx = dir === 'across' ? 1 : 0, dy = dir === 'down' ? 1 : 0;
+  var intersections = 0;
+  for (var i = 0; i < word.length; i++) {
+    if (grid[(x + i * dx) + ',' + (y + i * dy)]) intersections++;
+  }
+  return intersections * 20 - Math.abs(x) - Math.abs(y);
+}
+
+function findBestPlacement(grid, word) {
+  var best = null, bestScore = -Infinity;
+  var keys = Object.keys(grid);
+  for (var ki = 0; ki < keys.length; ki++) {
+    var parts = keys[ki].split(',');
+    var gx = parseInt(parts[0]), gy = parseInt(parts[1]);
+    var letter = grid[keys[ki]];
+    for (var li = 0; li < word.length; li++) {
+      if (word[li] !== letter) continue;
+      var ax = gx - li, ay = gy;
+      if (canPlace(grid, word, ax, ay, 'across')) {
+        var s = scorePlacement(grid, word, ax, ay, 'across');
+        if (s > bestScore) { bestScore = s; best = {x: ax, y: ay, dir: 'across'}; }
+      }
+      var dx2 = gx, dy2 = gy - li;
+      if (canPlace(grid, word, dx2, dy2, 'down')) {
+        var s2 = scorePlacement(grid, word, dx2, dy2, 'down');
+        if (s2 > bestScore) { bestScore = s2; best = {x: dx2, y: dy2, dir: 'down'}; }
+      }
+    }
+  }
+  return best;
+}
+
+function normalize(result) {
+  var minX = Infinity, minY = Infinity;
+  Object.keys(result.grid).forEach(function(k) {
+    var p = k.split(',');
+    minX = Math.min(minX, parseInt(p[0]));
+    minY = Math.min(minY, parseInt(p[1]));
+  });
+  var newGrid = {};
+  Object.keys(result.grid).forEach(function(k) {
+    var p = k.split(',');
+    newGrid[(parseInt(p[0]) - minX) + ',' + (parseInt(p[1]) - minY)] = result.grid[k];
+  });
+  return {
+    placed: result.placed.map(function(p) {
+      return {word: p.word, clue: p.clue, x: p.x - minX, y: p.y - minY, dir: p.dir};
+    }),
+    grid: newGrid
+  };
+}
+
+function renumber(result) {
+  var maxX = 0, maxY = 0;
+  Object.keys(result.grid).forEach(function(k) {
+    var p = k.split(',');
+    maxX = Math.max(maxX, parseInt(p[0]));
+    maxY = Math.max(maxY, parseInt(p[1]));
+  });
+  var cellNum = {}, n = 1;
+  for (var row = 0; row <= maxY; row++) {
+    for (var col = 0; col <= maxX; col++) {
+      var k = col + ',' + row;
+      if (!result.grid[k]) continue;
+      var sa = !result.grid[(col - 1) + ',' + row] && result.grid[(col + 1) + ',' + row];
+      var sd = !result.grid[col + ',' + (row - 1)] && result.grid[col + ',' + (row + 1)];
+      if (sa || sd) cellNum[k] = n++;
+    }
+  }
+  return {
+    placed: result.placed.map(function(p) {
+      return {word: p.word, clue: p.clue, x: p.x, y: p.y, dir: p.dir, num: cellNum[p.x + ',' + p.y]};
+    }),
+    grid: result.grid, cellNum: cellNum, maxX: maxX, maxY: maxY
+  };
+}
+
+function buildCrossword(entries) {
+  var words = entries.filter(function(e) { return e.w && e.w.length >= 2; })
+    .slice().sort(function(a, b) { return b.w.length - a.w.length; });
+  if (!words.length) return null;
+  var grid = {}, placed = [];
+  placeWord(grid, words[0].w, 0, 0, 'across');
+  placed.push({word: words[0].w, clue: words[0].c, x: 0, y: 0, dir: 'across'});
+  for (var wi = 1; wi < words.length; wi++) {
+    var bp = findBestPlacement(grid, words[wi].w);
+    if (bp) {
+      placeWord(grid, words[wi].w, bp.x, bp.y, bp.dir);
+      placed.push({word: words[wi].w, clue: words[wi].c, x: bp.x, y: bp.y, dir: bp.dir});
+    }
+  }
+  if (placed.length < 2) return null;
+  return renumber(normalize({placed: placed, grid: grid}));
+}
