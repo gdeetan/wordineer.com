@@ -715,3 +715,75 @@ document.addEventListener('DOMContentLoaded', function() {
 }());
 </script>
 <!-- /SLOT:init -->
+
+<!-- SLOT:explainer -->
+<div class="explainer">
+  <h2>What Is a Crossword Puzzle Generator?</h2>
+  <p>A crossword puzzle generator arranges a set of words into an interlocking grid where each word crosses at least one other through a shared letter. The result is a solvable puzzle: a blank grid with numbered clues that players use to fill in the correct words. Traditionally, making a crossword by hand takes hours — graph paper, careful planning, and a lot of erasing. A generator does all that layout work instantly, leaving you free to focus on the vocabulary and clues.</p>
+  <p>This tool serves two audiences: teachers and curriculum designers who want custom vocabulary puzzles with their own word lists, and casual players who want a fresh crossword on a specific topic without typing anything. Both modes produce the same output: a printable grid, a numbered clue list, and a shareable link that anyone can open and solve in their browser.</p>
+
+  <h2>Why Use a Crossword Puzzle Generator?</h2>
+  <p>Crossword puzzles are one of the most effective vocabulary reinforcement tools available. Research in language acquisition consistently shows that encountering a word in a retrieval context — where you have to produce it from memory rather than simply recognize it — strengthens long-term retention far better than flashcard-style review. A crossword forces exactly that: given a definition, produce the word. Given the first letter, complete the spelling. The grid structure also makes spelling errors immediately visible, giving students feedback they can act on.</p>
+  <p>Beyond the classroom, crosswords work for any group that learns together: family game nights, office trivia sessions, pub quizzes. Making a custom crossword with your own topic used to require specialized software or hours of hand-crafting. Now it takes thirty seconds: type your words and clues, click Generate, and you have a puzzle ready to print or share.</p>
+
+  <h2>How It Works</h2>
+  <p>The generator runs entirely in your browser — no data is sent to any server. When you click Generate, the layout algorithm sorts your words by length (longest first), places the longest word horizontally at the center of the grid, then scans each subsequent word for letters it shares with already-placed words. Every shared letter is a candidate intersection. The algorithm scores each candidate by how many letters it connects and how compact the resulting grid is, then places the word at the best-scoring spot. Words that share no letters with the rest of the grid are skipped.</p>
+  <p>The auto-generate mode draws from a curated set of 400+ words organized by difficulty and category. Custom mode parses your textarea line by line — one <code>WORD, Clue text</code> pair per line — and feeds the entries into the same layout engine.</p>
+
+  <h2>Best Practices for Better Crosswords</h2>
+  <p>Words between 4 and 10 letters work best. Very short words (2–3 letters) are hard to clue interestingly and rarely intersect cleanly. Very long words (12+ letters) can push the grid into an awkward shape. A mix of medium-length words — five 5-letter words, five 7-letter words, and a few 9-letter words — produces a dense, satisfying grid.</p>
+  <p>Write clues that match your audience. For younger students or beginners, use direct definitions: OCEAN, The largest body of water on Earth. For more advanced players, indirect clues work better: OCEAN, Titanic's final resting place. Avoid clues that are too similar to each other — if two clues both say "A type of tree," students will guess randomly rather than think.</p>
+  <p>Aim for 10–20 words. Fewer than 8 and the grid feels sparse. More than 25 and some words will inevitably fail to connect. The sweet spot is 12–18 words for a classroom-sized puzzle.</p>
+  <p>Vary word length deliberately. If all your words are the same length, the algorithm has fewer intersection options and words are more likely to be dropped. Include a few short words to create more shared-letter opportunities for longer ones.</p>
+</div>
+<!-- /SLOT:explainer -->
+
+<!-- SLOT:faq -->
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">How many words can I add to a crossword?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Up to 30 custom words. The layout tries to connect as many as possible through shared letters. 10–20 is the sweet spot. Words that share no letters with the rest of the grid are automatically skipped rather than placed as isolated islands.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What happens if some of my words don't fit?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Words that can't be connected are silently skipped. The word count shown below the grid tells you exactly how many were placed. If fewer appear than you entered, add words that share common letters — E, A, R, S, and T are the most intersection-friendly letters in English.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What's the difference between Easy, Medium, and Hard?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Difficulty controls which curated word list is used in auto-generate mode. Easy: short, common 3–6 letter words. Medium: moderate vocabulary 5–9 letters. Hard: advanced/technical 7–12 letters. Difficulty has no effect in custom mode — your words determine the challenge.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">How do I share my puzzle with students or friends?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Click Share Link after generating. The tool encodes the entire puzzle — words, clues, and grid layout — into the URL itself. No account needed, nothing stored on a server. Anyone who opens the link sees your exact puzzle and can solve it in Solve in Browser mode.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I print a blank version without the answers showing?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes. Click Print Blank to open the print dialog with all letters hidden — students see only the empty grid and numbered clue list. Click Print Answers to print the filled-in solution grid, which you can keep as an answer key.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Does my puzzle get saved anywhere?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">No. The generator runs entirely in your browser. Nothing is transmitted to any server and no puzzle data is stored in any database. The only persistence is the Share Link, which encodes the puzzle into the URL. If you close the tab without sharing or printing, the puzzle is gone.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I use proper nouns or multi-word phrases?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Proper nouns work fine (PARIS, Capital of France). Multi-word phrases are not supported in the grid since each word must be a single unbroken string. If you want to include a phrase like WHITE HOUSE, enter it as WHITEHOUSE or pick one meaningful word from the phrase. Non-letter characters (spaces, hyphens) are automatically stripped from the word field.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What's the ideal grid size for a classroom puzzle?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">The grid resizes automatically based on your words — there's no manual size control. For a 20–30 minute classroom activity, 12–15 words typically produces a grid that fills a single sheet when printed, with enough white space to write comfortably, and takes students the right amount of time to complete.</div>
+  </div>
+</div>
+<!-- /SLOT:faq -->
+
+<!-- SLOT:who -->
+<div>
+  <h2 class="section-title" style="margin-bottom:14px">Who uses a crossword puzzle generator?</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">Teachers</div><div class="uc-body">Build vocabulary review puzzles, test-prep activities, and end-of-unit assessments using your exact word list. Print blank copies for the class and keep the answer version for yourself.</div></div>
+    <div class="uc"><div class="uc-title">Students</div><div class="uc-body">Challenge yourself with a custom topic crossword or make one for a friend. Share the link so they can solve it in their browser without printing anything.</div></div>
+    <div class="uc"><div class="uc-title">Parents &amp; Homeschoolers</div><div class="uc-body">Supplement any lesson with a printable crossword in seconds. Pick a topic from the curated library or type in your own words to match exactly what you're teaching this week.</div></div>
+    <div class="uc"><div class="uc-title">Game Night Hosts</div><div class="uc-body">Create a custom crossword around a shared interest — a TV show, a decade, a city — and share the link before the event. No printing required.</div></div>
+  </div>
+</div>
+<!-- /SLOT:who -->
