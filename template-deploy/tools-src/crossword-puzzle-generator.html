@@ -1,0 +1,146 @@
+<!-- CONFIG
+{
+  "url": "/crossword-puzzle-generator/",
+  "output": "crossword-puzzle-generator.html",
+  "type": "tool",
+  "more_tools_key": "more_word_tools",
+  "more_tools_title": "More word tools",
+  "more_tools_subtitle": "Word generators, games, and puzzle tools — all free"
+}
+-->
+
+<!-- SLOT:meta -->
+<title>Crossword Puzzle Generator — Free, Printable &amp; Shareable | Wordineer</title>
+<meta name="description" content="Free crossword puzzle generator. Enter your own words and clues or auto-generate from 400+ curated words. Print blank puzzles, share a link, or solve in your browser — no sign-up needed.">
+<link rel="canonical" href="https://wordineer.com/crossword-puzzle-generator/">
+<meta property="og:type"        content="website">
+<meta property="og:site_name"   content="Wordineer">
+<meta property="og:title"       content="Crossword Puzzle Generator — Free, Printable &amp; Shareable | Wordineer">
+<meta property="og:description" content="Free crossword puzzle generator. Enter your own words and clues or auto-generate from 400+ curated words. Print blank puzzles, share a link, or solve in your browser — no sign-up needed.">
+<meta property="og:url"         content="https://wordineer.com/crossword-puzzle-generator/">
+<meta property="og:image"       content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many words can I add to a crossword?",
+      "acceptedAnswer": { "@type": "Answer", "text": "You can add up to 30 custom words and clues. The sweet spot is 10–20 words — enough to make an interesting puzzle without crowding the grid. Words that share no letters with any placed word are automatically skipped, since they cannot intersect with the existing puzzle." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I print a blank version for students?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Click Print Blank and the page sends a version to your printer with all letters hidden — students see an empty grid with clue numbers and the full clue list. Click Print Answers to print the completed solution grid instead." }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I share my puzzle?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Click Share and the puzzle is encoded directly into the URL — no account or server storage needed. Anyone who opens the link will see the same puzzle and can solve it in their browser." }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Word Tools", "item": "https://wordineer.com/word-tools/" },
+    { "@type": "ListItem", "position": 3, "name": "Crossword Puzzle Generator", "item": "https://wordineer.com/crossword-puzzle-generator/" }
+  ]
+}
+</script>
+<!-- /SLOT:meta -->
+
+<!-- SLOT:style -->
+<style>
+/* Tabs */
+.cw-tabs{display:flex;gap:8px;margin-bottom:16px}
+.cw-tab{padding:8px 20px;border:1.5px solid #D1D9E0;border-radius:20px;background:#fff;cursor:pointer;font-size:.875rem;color:#555;transition:background .15s,color .15s,border-color .15s;line-height:1.4}
+.cw-tab.active{background:#3C3489;color:#fff;border-color:#3C3489}
+.cw-tab:hover:not(.active){border-color:#3C3489;color:#3C3489}
+
+/* Controls */
+.cw-controls{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:16px;align-items:flex-end}
+.cw-ctrl{display:flex;flex-direction:column;gap:5px}
+.cw-ctrl label{font-size:.75rem;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:.05em}
+.cw-select{padding:8px 32px 8px 12px;border:1.5px solid #D1D9E0;border-radius:8px;font-size:.9rem;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23888'/%3E%3C/svg%3E") no-repeat right 10px center;-webkit-appearance:none;appearance:none;cursor:pointer}
+
+/* Textarea */
+.cw-textarea{width:100%;padding:12px;border:1.5px solid #D1D9E0;border-radius:8px;font-family:ui-monospace,monospace;font-size:.875rem;resize:vertical;box-sizing:border-box;min-height:160px;line-height:1.6}
+.cw-textarea:focus{outline:none;border-color:#3C3489}
+.cw-error{color:#E24B4A;font-size:.85rem;margin-top:6px}
+.cw-panel .gen-btn{margin-top:12px}
+
+/* Grid output */
+.cw-output{display:flex;gap:28px;margin-top:24px;flex-wrap:wrap;align-items:flex-start}
+.cw-grid-wrap{flex:0 0 auto;overflow-x:auto;max-width:100%}
+.cw-table{border-collapse:collapse;table-layout:fixed}
+.cw-table td{width:32px;height:32px;padding:0;box-sizing:border-box}
+.cw-black{background:#222}
+.cw-cell{border:1.5px solid #aaa;background:#fff;position:relative;vertical-align:middle;text-align:center;cursor:default;overflow:hidden}
+.cw-num{position:absolute;top:1px;left:2px;font-size:9px;line-height:1;color:#333;pointer-events:none;user-select:none}
+.cw-letter{font-size:.95rem;font-weight:700;color:#1a1a2e;display:block;line-height:32px;user-select:none}
+
+/* Solve mode */
+.cw-input{width:100%;height:100%;border:none;background:transparent;text-align:center;font-size:.95rem;font-weight:700;text-transform:uppercase;padding:0;cursor:text;outline:none;color:#1a1a2e;caret-color:#3C3489;position:absolute;top:0;left:0}
+.cw-cell.cw-correct{background:#D1FAE5}
+.cw-cell.cw-wrong{background:#FEE2E2}
+.cw-cell.cw-selected{background:#EEF0FB}
+
+/* Clues */
+.cw-clues-wrap{flex:1;min-width:200px;max-width:380px}
+.cw-clues-section{margin-bottom:20px}
+.cw-clues-title{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#888;margin:0 0 8px}
+.cw-clue-list{padding:0;margin:0;list-style:none}
+.cw-clue-list li{font-size:.875rem;color:#444;line-height:1.5;margin-bottom:5px;display:flex;gap:6px}
+.cw-clue-list li b{flex:0 0 auto;min-width:24px;color:#3C3489}
+
+/* Actions */
+.cw-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:16px;padding-top:16px;border-top:1px solid #EEF0F3}
+.cw-word-count{font-size:.8rem;color:#888;margin-right:auto}
+.cw-btn{padding:8px 14px;border:1.5px solid #D1D9E0;border-radius:8px;background:#fff;cursor:pointer;font-size:.8rem;color:#444;transition:all .15s;white-space:nowrap}
+.cw-btn:hover{border-color:#3C3489;color:#3C3489}
+.cw-btn:disabled{opacity:.4;cursor:not-allowed;pointer-events:none}
+.cw-btn--primary{background:#3C3489;color:#fff;border-color:#3C3489}
+.cw-btn--primary:hover{background:#2a246b;border-color:#2a246b}
+
+/* Empty state */
+.cw-empty{color:#bbb;font-size:.9rem;padding:32px 0;text-align:center}
+
+/* Toast */
+.cw-toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(10px);background:#1a1a2e;color:#fff;padding:10px 20px;border-radius:10px;font-size:.875rem;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:999;white-space:nowrap}
+.cw-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* Print */
+@media print{
+  nav,.breadcrumb,.cw-tabs,.cw-panel,.gen-btn,.cw-actions,.cw-toast,
+  footer,.ad,[class*="ad-"],[class*="more-tools"]{display:none!important}
+  .cw-output{display:flex!important}
+  .cw-clue-list li{break-inside:avoid}
+}
+</style>
+<!-- /SLOT:style -->
+
+<!-- SLOT:hero -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/word-tools/">Word Tools</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Crossword Puzzle Generator</span>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><rect x="1" y="1" width="3.5" height="3.5" rx=".6" stroke="#3C3489" stroke-width="1"/><rect x="6.5" y="1" width="3.5" height="3.5" rx=".6" stroke="#3C3489" stroke-width="1"/><rect x="1" y="6.5" width="3.5" height="3.5" rx=".6" stroke="#3C3489" stroke-width="1"/><rect x="6.5" y="6.5" width="3.5" height="3.5" rx=".6" stroke="#3C3489" stroke-width="1"/></svg>
+    Free · No sign-up · Print or solve in browser
+  </div>
+  <h1>Crossword Puzzle Generator</h1>
+  <p>Make a custom crossword in seconds — enter your own words and clues, or auto-generate from 400+ curated words by topic and difficulty. Print blank for students or share a link anyone can solve.</p>
+</div>
+<!-- /SLOT:hero -->
