@@ -144,3 +144,85 @@
   <p>Make a custom crossword in seconds — enter your own words and clues, or auto-generate from 400+ curated words by topic and difficulty. Print blank for students or share a link anyone can solve.</p>
 </div>
 <!-- /SLOT:hero -->
+
+<!-- SLOT:tool -->
+<div class="tool-wrap">
+
+  <!-- Tab buttons -->
+  <div class="cw-tabs">
+    <button id="cw-tab-auto" class="cw-tab active" type="button">Auto-Generate</button>
+    <button id="cw-tab-custom" class="cw-tab" type="button">Custom Puzzle</button>
+  </div>
+
+  <!-- Auto-generate panel -->
+  <div id="cw-auto-panel" class="cw-panel">
+    <div class="cw-controls">
+      <div class="cw-ctrl">
+        <label for="cw-difficulty">Difficulty</label>
+        <select id="cw-difficulty" class="cw-select">
+          <option value="easy">Easy</option>
+          <option value="medium" selected>Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+      </div>
+      <div class="cw-ctrl">
+        <label for="cw-category">Category</label>
+        <select id="cw-category" class="cw-select">
+          <option value="all">All Categories</option>
+          <option value="animals">Animals</option>
+          <option value="science">Science</option>
+          <option value="geography">Geography</option>
+          <option value="food">Food</option>
+          <option value="sports">Sports</option>
+          <option value="school">School</option>
+          <option value="nature">Nature</option>
+          <option value="technology">Technology</option>
+        </select>
+      </div>
+    </div>
+    <button id="cw-generate-btn" class="gen-btn" type="button">Generate Crossword</button>
+  </div>
+
+  <!-- Custom puzzle panel -->
+  <div id="cw-custom-panel" class="cw-panel" style="display:none">
+    <label class="cw-ctrl" for="cw-custom-input" style="display:block;margin-bottom:8px">
+      Enter one word and clue per line: <code>WORD, Your clue here</code>
+    </label>
+    <textarea id="cw-custom-input" class="cw-textarea"
+      placeholder="OCEAN, The largest body of water&#10;TIDE, The rise and fall of the sea&#10;WAVE, A moving ridge of water&#10;CORAL, A reef-building marine organism&#10;SHARK, An apex ocean predator"></textarea>
+    <div id="cw-custom-error" class="cw-error" style="display:none" role="alert"></div>
+    <button id="cw-generate-custom-btn" class="gen-btn" type="button">Generate Crossword</button>
+  </div>
+
+  <!-- Grid output -->
+  <div class="cw-output" id="cw-output">
+    <div class="cw-grid-wrap" id="cw-grid">
+      <div class="cw-empty">Choose a difficulty and category, then click Generate Crossword.</div>
+    </div>
+    <div class="cw-clues-wrap" id="cw-clues-wrap" style="display:none">
+      <div class="cw-clues-section">
+        <h3 class="cw-clues-title">Across</h3>
+        <ol id="cw-across" class="cw-clue-list"></ol>
+      </div>
+      <div class="cw-clues-section">
+        <h3 class="cw-clues-title">Down</h3>
+        <ol id="cw-down" class="cw-clue-list"></ol>
+      </div>
+    </div>
+  </div>
+
+  <!-- Action buttons (hidden until first generate) -->
+  <div id="cw-actions" class="cw-actions" style="display:none">
+    <span id="cw-word-count" class="cw-word-count"></span>
+    <button id="cw-print-blank-btn" class="cw-btn" type="button">Print Blank</button>
+    <button id="cw-print-ans-btn" class="cw-btn" type="button">Print Answers</button>
+    <button id="cw-solve-btn" class="cw-btn cw-btn--primary" type="button">Solve in Browser</button>
+    <button id="cw-check-btn" class="cw-btn cw-btn--primary" type="button" style="display:none">Check Answers</button>
+    <button id="cw-reveal-btn" class="cw-btn" type="button" style="display:none">Reveal All</button>
+    <button id="cw-exit-solve-btn" class="cw-btn" type="button" style="display:none">Exit Solve</button>
+    <button id="cw-share-btn" class="cw-btn" type="button">Share Link</button>
+  </div>
+
+  <div id="cw-toast" class="cw-toast" role="status" aria-live="polite"></div>
+</div>
+<!-- /SLOT:tool -->
