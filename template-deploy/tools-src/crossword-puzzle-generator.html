@@ -366,3 +366,141 @@ function buildCrossword(entries) {
   if (placed.length < 2) return null;
   return renumber(normalize({placed: placed, grid: grid}));
 }
+
+/* ── Renderer ────────────────────────────────────────────────────── */
+
+function esc(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function renderGrid(result) {
+  var gridEl    = document.getElementById('cw-grid');
+  var cluesWrap = document.getElementById('cw-clues-wrap');
+  var actionsEl = document.getElementById('cw-actions');
+
+  if (!result || !result.placed.length) {
+    gridEl.innerHTML = '<div class="cw-empty">Could not place any words. Try fewer words or ensure words share common letters.</div>';
+    cluesWrap.style.display = 'none';
+    actionsEl.style.display = 'none';
+    return;
+  }
+
+  var rows = [];
+  for (var row = 0; row <= result.maxY; row++) {
+    var cells = [];
+    for (var col = 0; col <= result.maxX; col++) {
+      var key = col + ',' + row;
+      var letter = result.grid[key];
+      if (letter) {
+        var numSpan = result.cellNum[key] ? '<span class="cw-num">' + result.cellNum[key] + '</span>' : '';
+        cells.push('<td class="cw-cell" data-key="' + key + '" data-letter="' + letter + '">'
+          + numSpan + '<span class="cw-letter">' + letter + '</span></td>');
+      } else {
+        cells.push('<td class="cw-black"></td>');
+      }
+    }
+    rows.push('<tr>' + cells.join('') + '</tr>');
+  }
+  gridEl.innerHTML = '<table class="cw-table">' + rows.join('') + '</table>';
+
+  var across = result.placed.filter(function(p) { return p.dir === 'across'; })
+    .sort(function(a, b) { return a.num - b.num; });
+  var down = result.placed.filter(function(p) { return p.dir === 'down'; })
+    .sort(function(a, b) { return a.num - b.num; });
+
+  document.getElementById('cw-across').innerHTML = across.map(function(p) {
+    return '<li><b>' + p.num + '.</b> ' + esc(p.clue) + '</li>';
+  }).join('');
+  document.getElementById('cw-down').innerHTML = down.map(function(p) {
+    return '<li><b>' + p.num + '.</b> ' + esc(p.clue) + '</li>';
+  }).join('');
+
+  cluesWrap.style.display = '';
+  actionsEl.style.display = '';
+  document.getElementById('cw-word-count').textContent = result.placed.length + ' words placed';
+}
+
+/* ── Auto-generate ───────────────────────────────────────────────── */
+
+function autoGenerate() {
+  if (!cwData) { fetchData(autoGenerate); return; }
+  var difficulty = document.getElementById('cw-difficulty').value;
+  var category   = document.getElementById('cw-category').value;
+  var pool = [];
+  if (category === 'all') {
+    Object.keys(cwData[difficulty]).forEach(function(cat) {
+      pool = pool.concat(cwData[difficulty][cat]);
+    });
+  } else {
+    pool = (cwData[difficulty][category] || []).slice();
+  }
+  shuffle(pool);
+  currentResult = buildCrossword(pool.slice(0, 20));
+  renderGrid(currentResult);
+  exitSolveMode(false);
+}
+
+function fetchData(cb) {
+  var btn = document.getElementById('cw-generate-btn');
+  btn.disabled = true;
+  btn.textContent = 'Loading…';
+  fetch(DATA_URL).then(function(r) { return r.json(); }).then(function(data) {
+    cwData = data;
+    btn.disabled = false;
+    btn.textContent = 'Generate Crossword';
+    cb();
+  }).catch(function() {
+    btn.disabled = false;
+    btn.textContent = 'Generate Crossword';
+    showToast('Failed to load word data. Please try again.');
+  });
+}
+
+function shuffle(arr) {
+  for (var i = arr.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var t = arr[i]; arr[i] = arr[j]; arr[j] = t;
+  }
+}
+
+/* ── Custom generate ─────────────────────────────────────────────── */
+
+function customGenerate() {
+  var val = document.getElementById('cw-custom-input').value.trim();
+  var errEl = document.getElementById('cw-custom-error');
+  errEl.style.display = 'none';
+  if (!val) { showToast('Enter at least one word and clue.'); return; }
+
+  var entries = [], errors = [];
+  val.split('\n').forEach(function(line, i) {
+    line = line.trim();
+    if (!line) return;
+    var comma = line.indexOf(',');
+    if (comma === -1) {
+      errors.push('Line ' + (i + 1) + ': missing comma between word and clue.');
+      return;
+    }
+    var word = line.slice(0, comma).trim().toUpperCase().replace(/[^A-Z]/g, '');
+    var clue = line.slice(comma + 1).trim();
+    if (word.length < 2) {
+      errors.push('Line ' + (i + 1) + ': word must be at least 2 letters.');
+      return;
+    }
+    if (!clue) {
+      errors.push('Line ' + (i + 1) + ': clue is empty.');
+      return;
+    }
+    entries.push({w: word, c: clue});
+  });
+
+  if (errors.length) {
+    errEl.textContent = errors[0];
+    errEl.style.display = '';
+    return;
+  }
+  if (!entries.length) { showToast('No valid entries found.'); return; }
+
+  currentResult = buildCrossword(entries);
+  renderGrid(currentResult);
+  exitSolveMode(false);
+}
