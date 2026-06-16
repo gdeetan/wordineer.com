@@ -352,13 +352,20 @@
   right: 10px;
   width: 24px;
   height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
   border: none;
-  background: none;
-  color: var(--text-3);
-  padding: 0;
   cursor: pointer;
+  border-radius: 5px;
+  color: var(--text-3);
+  opacity: 0;
+  transition: opacity .12s, background .12s;
 }
-.lp-copy-word:hover { color: var(--brand); }
+.lp-card:hover .lp-copy-word { opacity: 1; }
+.lp-copy-word:hover { background: var(--bg-2); color: var(--text); }
+.lp-copy-word svg { width: 13px; height: 13px; }
 
 .lp-loading,
 .lp-no-results {
@@ -605,15 +612,14 @@ details[open] summary::after { content: '−'; }
       </div>
 
       <div class="lp-results-bar">
-        <div class="lp-count" id="lp-count">Showing 16 of 16 words</div>
+        <span class="lp-count" id="lp-count">Loading…</span>
         <div class="lp-actions">
-          <button class="lp-btn" id="lp-reset" type="button">Reset filters</button>
           <div class="copy-dropdown">
-            <button class="lp-btn primary" id="lp-copy-btn" type="button">Copy list ▾</button>
-            <div class="copy-menu" id="lp-copy-menu">
-              <button type="button" data-fmt="comma">Copy comma list</button>
-              <button type="button" data-fmt="line">Copy line list</button>
-              <button type="button" data-fmt="json">Copy JSON words</button>
+            <button class="lp-btn" id="lp-copy-btn">Copy list ▾</button>
+            <div class="copy-menu" id="copy-menu">
+              <button data-fmt="line">One per line</button>
+              <button data-fmt="comma">Comma-separated</button>
+              <button data-fmt="space">Space-separated</button>
             </div>
           </div>
         </div>
@@ -751,9 +757,8 @@ details[open] summary::after { content: '−'; }
   var diffFilter = document.getElementById('lp-diff');
   var moreBtn = document.getElementById('lp-more-btn');
   var moreWrap = document.getElementById('lp-more-wrap');
-  var resetBtn = document.getElementById('lp-reset');
   var copyBtn = document.getElementById('lp-copy-btn');
-  var copyMenu = document.getElementById('lp-copy-menu');
+  var copyMenu = document.getElementById('copy-menu');
 
   function applyFilters() {
     var type = typeFilter.value;
@@ -845,13 +850,6 @@ details[open] summary::after { content: '−'; }
     render();
   });
 
-  resetBtn.addEventListener('click', function () {
-    typeFilter.value = 'all';
-    diffFilter.value = 'all';
-    resetVisibleCount();
-    render();
-  });
-
   moreBtn.addEventListener('click', function () {
     visibleCount += BATCH_SIZE;
     render();
@@ -872,9 +870,9 @@ details[open] summary::after { content: '−'; }
     if (!fmt) return;
     var words = filtered.slice(0, Math.min(visibleCount, filtered.length)).map(function (w) { return w.w; });
     var text = '';
-    if (fmt === 'comma') text = words.join(', ');
     if (fmt === 'line') text = words.join('\n');
-    if (fmt === 'json') text = JSON.stringify(words, null, 2);
+    if (fmt === 'comma') text = words.join(', ');
+    if (fmt === 'space') text = words.join(' ');
     navigator.clipboard.writeText(text).then(function () {
       copyBtn.textContent = 'Copied! ✓';
       setTimeout(function () { copyBtn.textContent = 'Copy list ▾'; }, 1500);
@@ -886,9 +884,10 @@ details[open] summary::after { content: '−'; }
     var btn = e.target.closest('.lp-copy-word');
     if (!btn) return;
     var word = btn.getAttribute('data-word');
+    if (!word) return;
     navigator.clipboard.writeText(word).then(function () {
-      btn.style.color = 'var(--brand)';
-      setTimeout(function () { btn.style.color = ''; }, 900);
+      btn.innerHTML = '✓';
+      setTimeout(function () { btn.innerHTML = COPY_SVG; }, 1000);
     });
   });
 
