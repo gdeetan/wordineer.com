@@ -296,8 +296,14 @@
 
 .lp-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(195px, 1fr));
   gap: 10px;
+  margin-bottom: 40px;
+}
+.lp-more-wrap {
+  display: flex;
+  justify-content: center;
+  margin: -20px 0 40px;
 }
 .lp-card {
   border: 1px solid var(--border);
@@ -312,39 +318,35 @@
   box-shadow: 0 2px 8px rgba(60, 52, 137, .07);
 }
 .lp-card-word {
-  font-size: 19px;
-  line-height: 1.2;
-  font-weight: 700;
+  font-size: 20px;
+  font-weight: 500;
   color: var(--text);
+  letter-spacing: -.02em;
+  line-height: 1.2;
 }
-.lp-card-meta {
-  margin-top: 8px;
+.lp-card-badges {
   display: flex;
+  gap: 5px;
+  margin-top: 5px;
   flex-wrap: wrap;
-  gap: 6px;
 }
-.lp-card-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 3px 8px;
+.badge {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 7px;
   border-radius: 999px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: .02em;
+  text-transform: capitalize;
+  letter-spacing: .03em;
 }
-.badge-noun      { background: #E8F0FE; color: #2454B8; }
-.badge-verb      { background: #EEEDFE; color: #534AB7; }
-.badge-adjective { background: #FFF2DE; color: #A35A00; }
-.badge-adverb    { background: #E8FBF3; color: #146C4C; }
-.badge-easy      { background: #E1F5EE; color: #1D7A5A; }
-.badge-medium    { background: #FEF3E8; color: #A0522D; }
-.badge-hard      { background: #FDE8E8; color: #C0392B; }
+.badge-type   { background: #EEEDFE; color: #534AB7; }
+.badge-easy   { background: #E1F5EE; color: #1D7A5A; }
+.badge-medium { background: #FEF3E8; color: #A0522D; }
+.badge-hard   { background: #FDE8E8; color: #C0392B; }
 .lp-card-def {
-  margin-top: 8px;
   font-size: 12px;
-  line-height: 1.45;
   color: var(--text-2);
+  margin-top: 5px;
+  line-height: 1.4;
 }
 .lp-copy-word {
   position: absolute;
@@ -376,8 +378,6 @@
   font-size: 14px;
 }
 .lp-loading { display: block; }
-.lp-more-wrap { display: flex; justify-content: center; margin-top: 16px; }
-
 .az-nav { margin: 48px 0 32px; }
 .az-nav-title {
   font-size: 12px;
@@ -750,49 +750,49 @@
     { "w": "Handler", "t": "noun", "d": "a person who manages, controls, or deals with something", "diff": "easy" }
   ];
 
-  var typeSelect = document.getElementById('lp-type');
-  var diffSelect = document.getElementById('lp-diff');
-  var count = document.getElementById('lp-count');
-  var grid = document.getElementById('lp-grid');
-  var loading = document.getElementById('lp-loading');
-  var noResults = document.getElementById('lp-no-results');
-  var moreWrap = document.getElementById('lp-more-wrap');
-  var moreBtn = document.getElementById('lp-more-btn');
+  var BATCH_SIZE = 60;
+  var typeFilter = document.getElementById('lp-type');
+  var diffFilter = document.getElementById('lp-diff');
   var copyBtn = document.getElementById('lp-copy-btn');
   var copyMenu = document.getElementById('copy-menu');
-
+  var visibleCount = BATCH_SIZE;
+  var fullLoaded = false;
+  var grid = document.getElementById('lp-grid');
+  var noResults = document.getElementById('lp-no-results');
+  var loading = document.getElementById('lp-loading');
+  var count = document.getElementById('lp-count');
+  var moreWrap = document.getElementById('lp-more-wrap');
+  var moreBtn = document.getElementById('lp-more-btn');
   var allWords = SEED.slice();
   var filtered = [];
-  var visibleCount = 60;
-  var batchSize = 60;
 
   var COPY_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>';
 
-  function escapeHtml(text) {
-    return String(text)
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
-  }
-
-  function typeBadge(wordType) {
-    return '<span class="lp-card-badge badge-' + wordType + '">' + wordType + '</span>';
-  }
-
-  function diffBadge(diff) {
-    return '<span class="lp-card-badge badge-' + diff + '">' + diff + '</span>';
+  function diffClass(d) {
+    return d === 'easy' ? 'badge-easy' : d === 'medium' ? 'badge-medium' : 'badge-hard';
   }
 
   function applyFilters() {
-    var type = typeSelect.value;
-    var diff = diffSelect.value;
-    filtered = allWords.filter(function (item) {
-      var typeMatch = type === 'all' || item.t === type;
-      var diffMatch = diff === 'all' || item.diff === diff;
-      return typeMatch && diffMatch;
+    var type = typeFilter.value;
+    var diff = diffFilter.value;
+    filtered = allWords.filter(function (w) {
+      if (type !== 'all' && w.t !== type) return false;
+      if (diff !== 'all' && w.diff !== diff) return false;
+      return true;
     });
+  }
+
+  function resetVisibleCount() {
+    visibleCount = BATCH_SIZE;
+  }
+
+  function renderCount(total) {
+    var shown = Math.min(visibleCount, total);
+    count.textContent = 'Showing ' + shown + ' of ' + total + ' words';
+  }
+
+  function renderMoreButton(total) {
+    moreWrap.hidden = total <= visibleCount;
   }
 
   function render() {
@@ -803,47 +803,37 @@
     if (filtered.length === 0) {
       grid.innerHTML = '';
       noResults.style.display = 'block';
-      moreWrap.hidden = true;
       count.textContent = 'Showing 0 of 0 words';
+      moreWrap.hidden = true;
       return;
     }
 
     noResults.style.display = 'none';
+    visibleCount = Math.min(visibleCount, filtered.length);
+    renderCount(filtered.length);
+    renderMoreButton(filtered.length);
 
-    var shown = Math.min(visibleCount, filtered.length);
-    var total = filtered.length;
-    count.textContent = 'Showing ' + shown + ' of ' + total + ' words';
-
-    grid.innerHTML = filtered.slice(0, shown).map(function (item) {
+    grid.innerHTML = filtered.slice(0, Math.min(visibleCount, filtered.length)).map(function (w) {
       return '' +
         '<div class="lp-card">' +
-          '<div class="lp-card-word">' + escapeHtml(item.w) + '</div>' +
-          '<div class="lp-card-meta">' +
-            typeBadge(item.t) +
-            diffBadge(item.diff) +
+          '<div class="lp-card-word">' + w.w + '</div>' +
+          '<div class="lp-card-badges">' +
+            '<span class="badge badge-type">' + w.t + '</span>' +
+            '<span class="badge ' + diffClass(w.diff) + '">' + w.diff + '</span>' +
           '</div>' +
-          '<div class="lp-card-def">' + escapeHtml(item.d) + '</div>' +
-          '<button class="lp-copy-word" data-word="' + escapeHtml(item.w) + '" aria-label="Copy ' + escapeHtml(item.w) + '">' + COPY_SVG + '</button>' +
+          '<div class="lp-card-def">' + w.d + '</div>' +
+          '<button class="lp-copy-word" data-word="' + w.w + '" aria-label="Copy ' + w.w + '">' + COPY_SVG + '</button>' +
         '</div>';
     }).join('');
-
-    moreWrap.hidden = shown >= total;
-  }
-
-  function copyText(text) {
-    navigator.clipboard.writeText(text).then(function () {
-      copyBtn.textContent = 'Copied! ✓';
-      setTimeout(function () {
-        copyBtn.textContent = 'Copy list ▾';
-      }, 1500);
-    });
   }
 
   function loadFull() {
+    if (fullLoaded) return;
+    fullLoaded = true;
     fetch('/data/seven-letter-words-h.json')
-      .then(function (response) { return response.json(); })
+      .then(function (r) { return r.json(); })
       .then(function (data) {
-        allWords = Array.isArray(data) ? data : SEED.slice();
+        allWords = data;
         render();
       })
       .catch(function () {
@@ -852,23 +842,32 @@
       });
   }
 
-  typeSelect.addEventListener('change', function () {
-    visibleCount = batchSize;
+  function copyText(text) {
+    navigator.clipboard.writeText(text).then(function () {
+      copyBtn.textContent = 'Copied! ✓';
+      setTimeout(function () { copyBtn.textContent = 'Copy list ▾'; }, 1500);
+    });
+  }
+
+  typeFilter.addEventListener('change', function () {
+    resetVisibleCount();
     render();
+    loadFull();
   });
 
-  diffSelect.addEventListener('change', function () {
-    visibleCount = batchSize;
+  diffFilter.addEventListener('change', function () {
+    resetVisibleCount();
     render();
+    loadFull();
   });
 
   moreBtn.addEventListener('click', function () {
-    visibleCount += batchSize;
+    visibleCount = Math.min(visibleCount + BATCH_SIZE, filtered.length);
     render();
   });
 
-  grid.addEventListener('click', function (event) {
-    var btn = event.target.closest('.lp-copy-word');
+  grid.addEventListener('click', function (e) {
+    var btn = e.target.closest('.lp-copy-word');
     if (!btn) return;
     copyText(btn.getAttribute('data-word'));
   });
@@ -877,24 +876,28 @@
     copyMenu.classList.toggle('open');
   });
 
-  copyMenu.addEventListener('click', function (event) {
-    var btn = event.target.closest('button[data-fmt]');
+  copyMenu.addEventListener('click', function (e) {
+    var btn = e.target.closest('button[data-fmt]');
     if (!btn) return;
     var fmt = btn.getAttribute('data-fmt');
-    var words = filtered.map(function (item) { return item.w; });
+    var words = filtered.map(function (w) { return w.w; });
     var text = fmt === 'comma' ? words.join(', ') : fmt === 'space' ? words.join(' ') : words.join('\n');
     copyText(text);
     copyMenu.classList.remove('open');
   });
 
-  document.addEventListener('click', function (event) {
-    if (!copyMenu.contains(event.target) && event.target !== copyBtn) {
+  document.addEventListener('click', function (e) {
+    if (!copyMenu.contains(e.target) && e.target !== copyBtn) {
       copyMenu.classList.remove('open');
     }
   });
 
   render();
-  loadFull();
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(loadFull);
+  } else {
+    setTimeout(loadFull, 800);
+  }
 })();
 </script>
 <footer class="footer">
