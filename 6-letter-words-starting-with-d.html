@@ -332,21 +332,24 @@
 }
 .lp-copy-word {
   position: absolute;
-  top: 12px;
-  right: 12px;
-  width: 26px;
-  height: 26px;
-  border: 0;
+  top: 10px;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: transparent;
-  color: var(--text-3);
+  border: none;
   cursor: pointer;
-  border-radius: 6px;
+  border-radius: 5px;
+  color: var(--text-3);
   opacity: 0;
-  transition: opacity .12s, background .12s, color .12s;
+  transition: opacity .12s, background .12s;
 }
 .lp-card:hover .lp-copy-word { opacity: 1; }
 .lp-copy-word:hover { background: var(--bg-2); color: var(--text); }
-.lp-copy-word svg { width: 14px; height: 14px; }
+.lp-copy-word svg { width: 13px; height: 13px; }
 
 .lp-loading,
 .lp-no-results {
@@ -509,15 +512,13 @@
       <a class="mega-link" href="/username-generator/">Username Generator</a>
       <a class="mega-link" href="/password-generator/">Password Generator</a>
       <a class="mega-link" href="/passphrase-generator/">Passphrase Generator</a>
-      <a class="mega-link" href="/random-pin-generator/">Random PIN Generator</a>
+      <a class="mega-link" href="/memorable-password-generator/">Memorable Password Generator</a>
       <a class="mega-link mega-link--view-all" href="/account-tools/">View all →</a>
     </div>
     <div class="mega-col">
       <div class="mega-cat">Games &amp; fun</div>
-      <a class="mega-link" href="/random-number-generator/">Number Generator</a>
-      <a class="mega-link" href="/coin-flip/">Flip a Coin</a>
       <a class="mega-link" href="/pictionary-phrase-generator/">Pictionary Phrase Generator</a>
-      <a class="mega-link" href="/dice-roller/">Dice Roller</a>
+      <a class="mega-link" href="/crossword-puzzle-generator/">Crossword Puzzle Generator</a>
       <a class="mega-link mega-link--view-all" href="/number-chance/">View all →</a>
     </div>
   </div>
@@ -572,18 +573,18 @@
         <span class="lp-count" id="lp-count">Loading…</span>
         <div class="lp-actions">
           <div class="copy-dropdown">
-            <button class="lp-btn" id="lp-copy-btn" type="button">Copy list ▾</button>
+            <button class="lp-btn" id="lp-copy-btn">Copy list ▾</button>
             <div class="copy-menu" id="copy-menu">
-              <button type="button" data-fmt="line">One per line</button>
-              <button type="button" data-fmt="comma">Comma-separated</button>
-              <button type="button" data-fmt="space">Space-separated</button>
+              <button data-fmt="line">One per line</button>
+              <button data-fmt="comma">Comma-separated</button>
+              <button data-fmt="space">Space-separated</button>
             </div>
           </div>
         </div>
       </div>
 
       <div class="lp-grid" id="lp-grid">
-        <div class="lp-loading is-visible" id="lp-loading">Loading words…</div>
+        <div class="lp-loading" id="lp-loading">Loading words…</div>
       </div>
       <div class="lp-no-results" id="lp-no-results">No words match your filters. Try broadening your selection.</div>
       <div class="lp-more-wrap" id="lp-more-wrap" hidden>
@@ -712,8 +713,6 @@
   var diffFilter = document.getElementById('lp-diff');
   var moreWrap = document.getElementById('lp-more-wrap');
   var moreBtn = document.getElementById('lp-more-btn');
-  var copyBtn = document.getElementById('lp-copy-btn');
-  var copyMenu = document.getElementById('copy-menu');
 
   function diffClass(diff) {
     return diff === 'easy' ? 'badge-easy' : diff === 'medium' ? 'badge-medium' : 'badge-hard';
@@ -724,38 +723,54 @@
   function applyFilters() {
     var type = typeFilter.value;
     var diff = diffFilter.value;
-    filtered = allWords.filter(function (word) {
-      if (type !== 'all' && word.t !== type) return false;
-      if (diff !== 'all' && word.diff !== diff) return false;
+    filtered = allWords.filter(function (w) {
+      if (type !== 'all' && w.t !== type) return false;
+      if (diff !== 'all' && w.diff !== diff) return false;
       return true;
     });
+  }
+
+  function resetVisibleCount() {
     visibleCount = BATCH_SIZE;
-    render();
+  }
+
+  function renderCount(total) {
+    var shown = Math.min(visibleCount, total);
+    count.textContent = 'Showing ' + shown + ' of ' + total + ' words';
+  }
+
+  function renderMoreButton(total) {
+    moreWrap.hidden = total <= visibleCount;
   }
 
   function render() {
-    var shown = filtered.slice(0, visibleCount);
-    count.textContent = filtered.length + ' word' + (filtered.length === 1 ? '' : 's');
-    loading.classList.remove('is-visible');
-    noResults.classList.toggle('is-visible', filtered.length === 0);
-    moreWrap.hidden = filtered.length <= visibleCount;
+    applyFilters();
 
-    if (!shown.length) {
+    if (loading) loading.style.display = 'none';
+
+    if (filtered.length === 0) {
       grid.innerHTML = '';
+      noResults.style.display = 'block';
+      count.textContent = 'Showing 0 of 0 words';
+      moreWrap.hidden = true;
       return;
     }
 
-    grid.innerHTML = shown.map(function (word) {
-      return '' +
-        '<div class="lp-card">' +
-          '<div class="lp-card-word">' + word.w + '</div>' +
+    noResults.style.display = 'none';
+    visibleCount = Math.min(visibleCount, filtered.length);
+    renderCount(filtered.length);
+    renderMoreButton(filtered.length);
+
+    grid.innerHTML = filtered.slice(0, Math.min(visibleCount, filtered.length)).map(function (w) {
+      return '<div class="lp-card">' +
+          '<div class="lp-card-word">' + w.w + '</div>' +
           '<div class="lp-card-badges">' +
-            '<span class="badge badge-type">' + word.t + '</span>' +
-            '<span class="badge ' + diffClass(word.diff) + '">' + word.diff + '</span>' +
+            '<span class="badge badge-type">' + w.t + '</span>' +
+            '<span class="badge ' + diffClass(w.diff) + '">' + w.diff + '</span>' +
           '</div>' +
-          '<div class="lp-card-def">' + word.d + '</div>' +
-          '<button class="lp-copy-word" data-word="' + word.w + '" aria-label="Copy ' + word.w + '">' + COPY_SVG + '</button>' +
-        '</div>';
+          '<div class="lp-card-def">' + w.d + '</div>' +
+          '<button class="lp-copy-word" data-word="' + w.w + '" aria-label="Copy ' + w.w + '">' + COPY_SVG + '</button>' +
+      '</div>';
     }).join('');
   }
 
@@ -766,51 +781,68 @@
       .then(function (response) { return response.json(); })
       .then(function (data) {
         allWords = data;
-        applyFilters();
+        render();
       })
       .catch(function () {
+        allWords = SEED.slice();
         render();
       });
   }
 
-  function copyFiltered(format) {
-    var list = filtered.map(function (word) { return word.w; });
-    var text = format === 'comma' ? list.join(', ') : format === 'space' ? list.join(' ') : list.join('\n');
-    navigator.clipboard.writeText(text).catch(function () {});
-  }
-
-  grid.addEventListener('click', function (event) {
-    var button = event.target.closest('.lp-copy-word');
-    if (!button) return;
-    navigator.clipboard.writeText(button.getAttribute('data-word')).catch(function () {});
+  grid.addEventListener('click', function (e) {
+    var btn = e.target.closest('.lp-copy-word');
+    if (!btn) return;
+    var word = btn.getAttribute('data-word');
+    if (!word) return;
+    navigator.clipboard.writeText(word).then(function () {
+      btn.innerHTML = '✓';
+      setTimeout(function () { btn.innerHTML = COPY_SVG; }, 1000);
+    });
   });
 
-  copyBtn.addEventListener('click', function () {
-    copyMenu.classList.toggle('open');
+  typeFilter.addEventListener('change', function () {
+    loadFull();
+    resetVisibleCount();
+    render();
   });
-
-  copyMenu.addEventListener('click', function (event) {
-    var button = event.target.closest('button[data-fmt]');
-    if (!button) return;
-    copyFiltered(button.getAttribute('data-fmt'));
-    copyMenu.classList.remove('open');
+  diffFilter.addEventListener('change', function () {
+    loadFull();
+    resetVisibleCount();
+    render();
   });
-
-  document.addEventListener('click', function (event) {
-    if (!copyMenu.contains(event.target) && event.target !== copyBtn) {
-      copyMenu.classList.remove('open');
-    }
-  });
-
-  typeFilter.addEventListener('change', applyFilters);
-  diffFilter.addEventListener('change', applyFilters);
   moreBtn.addEventListener('click', function () {
     visibleCount = Math.min(visibleCount + BATCH_SIZE, filtered.length);
     render();
   });
 
+  var copyBtn = document.getElementById('lp-copy-btn');
+  var copyMenu = document.getElementById('copy-menu');
+
+  copyBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    copyMenu.classList.toggle('open');
+  });
+  document.addEventListener('click', function () { copyMenu.classList.remove('open'); });
+
+  copyMenu.querySelectorAll('button').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var fmt = btn.getAttribute('data-fmt');
+      var words = filtered.map(function (w) { return w.w; });
+      var text = fmt === 'comma' ? words.join(', ') : fmt === 'space' ? words.join(' ') : words.join('\n');
+      navigator.clipboard.writeText(text).then(function () {
+        copyBtn.textContent = 'Copied! ✓';
+        setTimeout(function () { copyBtn.textContent = 'Copy list ▾'; }, 1500);
+      });
+      copyMenu.classList.remove('open');
+    });
+  });
+
   render();
-  loadFull();
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(loadFull);
+  } else {
+    setTimeout(loadFull, 800);
+  }
 })();
 </script>
 <footer class="footer">
@@ -825,8 +857,8 @@
       <div><div class="footer-col-title">Browse by Letter</div><a class="footer-link" href="/random-words-starting-with/">Random Words Starting With (A–Z)</a><a class="footer-link" href="/random-words-starting-with/a">Random Words Starting with A</a><a class="footer-link" href="/random-words-starting-with/s">Random Words Starting with S</a><a class="footer-link" href="/random-words-starting-with/q">Random Words Starting with Q</a><a class="footer-link footer-link--view-all" href="/random-words-starting-with/">View all →</a></div>
       <div><div class="footer-col-title">Names by Origin</div><a class="footer-link" href="/random-spanish-name-generator/">Spanish Name Generator</a><a class="footer-link" href="/random-italian-name-generator/">Italian Name Generator</a><a class="footer-link" href="/random-japanese-name-generator/">Japanese Name Generator</a><a class="footer-link" href="/random-american-name-generator/">American Name Generator</a><a class="footer-link footer-link--view-all" href="/name-generators/">View all →</a></div>
       <div><div class="footer-col-title">Other Name Generators</div><a class="footer-link" href="/character-name-generator/">Character Name Generator</a><a class="footer-link" href="/fantasy-name-generator/">Fantasy Name Generator</a><a class="footer-link" href="/business-name-generator/">Business Name Generator</a><a class="footer-link" href="/band-name-generator/">Band Name Generator</a><a class="footer-link footer-link--view-all" href="/other-generators/">View all →</a></div>
-      <div><div class="footer-col-title">Account &amp; Security</div><a class="footer-link" href="/password-generator/">Password Generator</a><a class="footer-link" href="/passphrase-generator/">Passphrase Generator</a><a class="footer-link" href="/username-generator/">Username Generator</a><a class="footer-link" href="/random-pin-generator/">Random PIN Generator</a><a class="footer-link footer-link--view-all" href="/account-tools/">View all →</a></div>
-      <div><div class="footer-col-title">Games &amp; fun</div><a class="footer-link" href="/random-number-generator/">Number Generator</a><a class="footer-link" href="/coin-flip/">Flip a Coin</a><a class="footer-link" href="/pictionary-phrase-generator/">Pictionary Phrase Generator</a><a class="footer-link" href="/dice-roller/">Dice Roller</a><a class="footer-link footer-link--view-all" href="/number-chance/">View all →</a></div>
+      <div><div class="footer-col-title">Account &amp; Security</div><a class="footer-link" href="/password-generator/">Password Generator</a><a class="footer-link" href="/passphrase-generator/">Passphrase Generator</a><a class="footer-link" href="/memorable-password-generator/">Memorable Password Generator</a><a class="footer-link" href="/username-generator/">Username Generator</a><a class="footer-link footer-link--view-all" href="/account-tools/">View all →</a></div>
+      <div><div class="footer-col-title">Games &amp; fun</div><a class="footer-link" href="/pictionary-phrase-generator/">Pictionary Phrase Generator</a><a class="footer-link" href="/crossword-puzzle-generator/">Crossword Puzzle Generator</a><a class="footer-link footer-link--view-all" href="/number-chance/">View all →</a></div>
     </div>
     <div class="footer-bottom">
       <div style="display:flex;align-items:center;gap:7px">
