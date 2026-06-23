@@ -213,27 +213,30 @@
 .lp-filter-group {
   display: flex;
   align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
+  gap: 6px;
 }
 .lp-filter-label {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
-  color: var(--text-3);
-  letter-spacing: .04em;
   text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--text-3);
+  white-space: nowrap;
 }
-.lp-filters select {
-  min-width: 136px;
-  height: 36px;
-  padding: 0 12px;
+.lp-filter-group select {
+  padding: 6px 10px;
+  font-size: 13px;
+  font-family: inherit;
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 7px;
   background: var(--bg);
   color: var(--text);
-  font: inherit;
-  font-size: 14px;
+  appearance: none;
+  outline: none;
+  transition: border-color .15s;
+  cursor: pointer;
 }
+.lp-filter-group select:focus { border-color: var(--brand); }
 
 .lp-results-bar {
   display: flex;
