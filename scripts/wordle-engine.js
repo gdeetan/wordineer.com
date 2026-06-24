@@ -1,9 +1,10 @@
 // WORDLE_HELPER — Wordle solver engine
-// Session 2 hook: rankCandidates(remaining, fullDict) — fullDict param reserved for full-dictionary entropy
 const WORDLE_HELPER = (() => {
-  let _guesses = [];
-  let _common  = [];
-  let _loadPromise = null;
+  let _guesses       = [];
+  let _common        = [];
+  let _openers       = [];
+  let _loadPromise   = null;
+  let _openersPromise = null;
 
   // Independent state per tab; switching tabs never bleeds state between them
   const STATE = {
@@ -85,27 +86,42 @@ const WORDLE_HELPER = (() => {
   }
 
   /**
-   * Rank remaining candidates by Shannon entropy.
-   * Session 1: tests only words within remainingPool as hypothetical guesses.
-   * Session 2 hook: fullDict parameter available for full-dictionary probe words.
-   * Returns [{word, score}] sorted descending by score (higher = more informative).
+   * Rank candidate guesses by Shannon entropy against the remaining answer pool.
+   *
+   * When the remaining pool is large (> PROBE_THRESHOLD), probe words drawn from
+   * the broader common-word pool can be more informative than any remaining candidate,
+   * because they may partition the pool into more even buckets even though they can't
+   * themselves be the answer. Below the threshold, the probe advantage shrinks and the
+   * cheaper within-pool ranking is fast enough per keystroke.
+   * PROBE_THRESHOLD=150 was chosen so that worst-case JS work (~1000 probes × 150 targets
+   * = 150k pattern calls) is imperceptible in the browser; above it the gain is largest.
+   *
+   * Returns [{word, score, isCandidate}] sorted descending by score.
    */
   function rankCandidates(remainingPool, fullDict) {
     if (!remainingPool.length) return [];
-    if (remainingPool.length === 1) return [{ word: remainingPool[0], score: Infinity }];
+    if (remainingPool.length === 1) return [{ word: remainingPool[0], score: Infinity, isCandidate: true }];
 
-    return remainingPool.map(guess => {
+    const PROBE_THRESHOLD = 150;
+    const guessSet = (fullDict && fullDict.length && remainingPool.length > PROBE_THRESHOLD)
+      ? fullDict
+      : remainingPool;
+
+    const remainingSet = new Set(remainingPool);
+
+    return guessSet.map(guess => {
       const buckets = {};
       for (const target of remainingPool) {
         const key = computePattern(guess, target).join('');
         buckets[key] = (buckets[key] || 0) + 1;
       }
       let score = 0;
+      const n = remainingPool.length;
       for (const count of Object.values(buckets)) {
-        const p = count / remainingPool.length;
+        const p = count / n;
         score -= p * Math.log2(p);
       }
-      return { word: guess, score };
+      return { word: guess, score, isCandidate: remainingSet.has(guess) };
     }).sort((a, b) => b.score - a.score);
   }
 
@@ -128,6 +144,15 @@ const WORDLE_HELPER = (() => {
     return _loadPromise;
   }
 
+  function loadOpeners() {
+    if (_openersPromise) return _openersPromise;
+    _openersPromise = fetch('/data/wordle-openers.json')
+      .then(r => r.json())
+      .then(data => { _openers = data; })
+      .catch(() => { /* fall back to starters from cfg */ });
+    return _openersPromise;
+  }
+
   // ── DOM helpers ───────────────────────────────────────────────────────────
 
   function $(id) { return document.getElementById(id); }
@@ -145,10 +170,12 @@ const WORDLE_HELPER = (() => {
     const container = $(_cfg.chipsId);
     if (!container) return;
     container.innerHTML = '';
-    (_cfg.starters || []).forEach(word => {
+    const source = _openers.length ? _openers : (_cfg.starters || []).map(w => ({ word: w, note: '' }));
+    source.forEach(({ word, note }) => {
       const btn = document.createElement('button');
       btn.className = 'wh-chip';
-      btn.textContent = word;
+      btn.textContent = word.toUpperCase();
+      if (note) btn.title = note;
       btn.addEventListener('click', () => prefillFirstRow(word.toLowerCase()));
       container.appendChild(btn);
     });
@@ -331,7 +358,10 @@ const WORDLE_HELPER = (() => {
       const bw = $(_cfg.bestWordId);
       const bb = $(_cfg.bestBitsId);
       if (bw) bw.textContent = best.word.toUpperCase();
-      if (bb) bb.textContent = `${best.score.toFixed(2)} bits of information · narrows the field most`;
+      if (bb) {
+        const probeNote = best.isCandidate === false ? ' · probe word (not a possible answer)' : '';
+        bb.textContent = `${best.score.toFixed(2)} bits of information · narrows the field most${probeNote}`;
+      }
 
       updateCandidateList(remaining, ranked);
     }).catch(err => {
@@ -488,9 +518,12 @@ const WORDLE_HELPER = (() => {
       const bitsEl    = $(_cfg.pracBitsId);
       if (suggestEl) suggestEl.style.display = '';
       if (bestEl)    bestEl.textContent = ranked[0].word.toUpperCase();
-      if (bitsEl)    bitsEl.textContent = remaining.length > 1
-        ? `${ranked[0].score.toFixed(2)} bits · ${remaining.length} words remain`
-        : '';
+      if (bitsEl && remaining.length > 1) {
+        const probeNote = ranked[0].isCandidate === false ? ' · probe word' : '';
+        bitsEl.textContent = `${ranked[0].score.toFixed(2)} bits · ${remaining.length} words remain${probeNote}`;
+      } else if (bitsEl) {
+        bitsEl.textContent = '';
+      }
     }
   }
 
@@ -526,7 +559,9 @@ const WORDLE_HELPER = (() => {
   function init(cfg) {
     _cfg = cfg || {};
 
+    // Build chips from hardcoded starters immediately, then replace with openers once loaded
     buildChips();
+    loadOpeners().then(buildChips);
     addGuessRow();
 
     // Solve tab wiring
