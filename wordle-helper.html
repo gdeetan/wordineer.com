@@ -243,6 +243,25 @@
 /* Disclaimer */
 .wh-disclaimer { font-size:11px; color:var(--text-3); text-align:center; padding:10px 0 0; }
 
+/* Buttons — match site-wide tool button style */
+.gen-btn {
+  display:block; width:100%; padding:12px 18px;
+  background:var(--brand); color:#fff; border:none;
+  border-radius:var(--radius); font-size:15px; font-weight:700;
+  font-family:inherit; cursor:pointer; text-align:center;
+  transition:background .15s;
+}
+.gen-btn:hover { background:var(--brand-dark); }
+.gen-btn:active { background:var(--brand-dark); }
+.reset-btn {
+  display:block; width:100%; padding:9px 18px;
+  background:none; color:var(--text-3); border:1px solid var(--border-2);
+  border-radius:var(--radius); font-size:13px; font-weight:600;
+  font-family:inherit; cursor:pointer; text-align:center;
+  transition:background .15s, color .15s;
+}
+.reset-btn:hover { background:var(--bg-2); color:var(--text); }
+
 @media(max-width:540px) {
   .wh-how { flex-direction:column; gap:10px; }
   .wh-how-step { display:flex; align-items:flex-start; gap:10px; text-align:left; }
@@ -349,14 +368,6 @@
       <div class="wh-how-label">Click each tile here to set those colours, then Analyse</div>
     </div>
   </div>
-  <p class="wh-nyt-note">
-    Don't have a Wordle open?
-    <a href="https://www.nytimes.com/games/wordle/index.html" target="_blank" rel="noopener nofollow">
-      Play today's puzzle on NYT ↗
-    </a>
-    — or use Practice Mode below.
-  </p>
-
   <!-- Tab bar -->
   <div class="wh-tabs" role="tablist">
     <button class="wh-tab active" id="wh-tab-solve" role="tab"
