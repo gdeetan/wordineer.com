@@ -180,14 +180,28 @@
 .az-link:hover { background:var(--bg-2); border-color:var(--brand); color:var(--brand); }
 
 /* Play icon tooltip */
-.play-icon-wrap { position: relative; display: inline-flex; }
-.play-icon-wrap .play-tip {
-  display: none; position: absolute; bottom: calc(100% + 6px); left: 50%;
-  transform: translateX(-50%); white-space: nowrap; background: var(--text);
-  color: var(--bg); font-size: 11px; font-weight: 500; padding: 4px 8px;
-  border-radius: 5px; pointer-events: none; z-index: 10;
+.play-icon-wrap { display: inline-flex; }
+.play-tooltip-floating {
+  position: fixed;
+  left: 0;
+  top: 0;
+  white-space: nowrap;
+  background: var(--text);
+  color: var(--bg);
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 8px;
+  border-radius: 5px;
+  pointer-events: none;
+  z-index: 1100;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .12s ease;
 }
-.play-icon-wrap:hover .play-tip { display: block; }
+.play-tooltip-floating.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
 
 /* Ad sidebar */
 .ad-sidebar { margin-top:18px; border:1px solid var(--border); border-radius:10px; padding:14px; background:var(--bg); }
@@ -441,9 +455,51 @@
   var currentWords = [];
   var savedWords  = [];
   var fullLoaded  = false;
+  var playTooltip = null;
+  var activePlayBtn = null;
 
   function diffBadge(d) {
     return d === 'easy' ? 'badge-easy' : d === 'medium' ? 'badge-medium' : 'badge-hard';
+  }
+
+  function ensurePlayTooltip() {
+    if (playTooltip) return playTooltip;
+    playTooltip = document.createElement('div');
+    playTooltip.className = 'play-tooltip-floating';
+    playTooltip.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(playTooltip);
+    return playTooltip;
+  }
+
+  function hidePlayTooltip() {
+    if (!playTooltip) return;
+    playTooltip.classList.remove('is-visible');
+    activePlayBtn = null;
+  }
+
+  function positionPlayTooltip(btn) {
+    if (!playTooltip || !btn) return;
+    var rect = btn.getBoundingClientRect();
+    var gap = 6;
+    var margin = 8;
+    playTooltip.style.left = '0px';
+    playTooltip.style.top = '0px';
+    playTooltip.classList.add('is-visible');
+    var tipRect = playTooltip.getBoundingClientRect();
+    var left = rect.left + (rect.width / 2) - (tipRect.width / 2);
+    left = Math.max(margin, Math.min(left, window.innerWidth - tipRect.width - margin));
+    var top = rect.top - tipRect.height - gap;
+    if (top < margin) top = rect.bottom + gap;
+    playTooltip.style.left = Math.round(left) + 'px';
+    playTooltip.style.top = Math.round(top) + 'px';
+  }
+
+  function showPlayTooltip(btn) {
+    if (!btn) return;
+    var tip = ensurePlayTooltip();
+    tip.textContent = btn.getAttribute('data-play-tip') || btn.getAttribute('aria-label') || '';
+    activePlayBtn = btn;
+    positionPlayTooltip(btn);
   }
 
   function buildWordItem(w) {
@@ -461,8 +517,7 @@
         '<button class="icon-btn' + (isSaved ? ' saved' : '') + '" onclick="toggleSaveWord(this,\'' + w.w + '\',\'' + (w.t || '') + '\',\'' + safeD + '\')" aria-label="Save ' + w.w + '">' + (isSaved ? HEART_SVG_FILLED : HEART_SVG) + '</button>' +
         '<button class="icon-btn" onclick="copyWord(this,\'' + w.w + '\')" aria-label="Copy ' + w.w + '">' + COPY_SVG + '</button>' +
         '<div class="play-icon-wrap">' +
-          '<button class="icon-btn" onclick="playWordle(\'' + w.w + '\')" aria-label="Play Wordle with ' + w.w + '">' + PLAY_SVG + '</button>' +
-          '<span class="play-tip">Play Wordle with ' + w.w.toUpperCase() + '</span>' +
+          '<button class="icon-btn play-wordle-btn" onclick="playWordle(\'' + w.w + '\')" aria-label="Play Wordle with ' + w.w + '" data-play-tip="Play Wordle with ' + w.w.toUpperCase() + '">' + PLAY_SVG + '</button>' +
         '</div>' +
       '</div>' +
     '</li>';
@@ -640,6 +695,36 @@
       mobileToggle.textContent = open ? 'Hide options' : 'More options';
     });
   }
+
+  document.addEventListener('pointerover', function (e) {
+    var btn = e.target.closest('.play-wordle-btn');
+    if (!btn || !window.matchMedia('(hover: hover)').matches) return;
+    if (btn !== activePlayBtn) showPlayTooltip(btn);
+  });
+
+  document.addEventListener('pointerout', function (e) {
+    var btn = e.target.closest('.play-wordle-btn');
+    if (!btn || btn !== activePlayBtn) return;
+    var next = e.relatedTarget && e.relatedTarget.closest ? e.relatedTarget.closest('.play-wordle-btn') : null;
+    if (next !== btn) hidePlayTooltip();
+  });
+
+  document.addEventListener('focusin', function (e) {
+    var btn = e.target.closest('.play-wordle-btn');
+    if (btn) showPlayTooltip(btn);
+  });
+
+  document.addEventListener('focusout', function (e) {
+    var btn = e.target.closest('.play-wordle-btn');
+    if (!btn || btn !== activePlayBtn) return;
+    var next = e.relatedTarget && e.relatedTarget.closest ? e.relatedTarget.closest('.play-wordle-btn') : null;
+    if (next !== btn) hidePlayTooltip();
+  });
+
+  window.addEventListener('scroll', hidePlayTooltip, true);
+  window.addEventListener('resize', function () {
+    if (activePlayBtn) positionPlayTooltip(activePlayBtn);
+  });
 
   // Initial render then load full at idle
   renderList();

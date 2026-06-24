@@ -29,7 +29,15 @@
       "mcp__plugin_context-mode_context-mode__ctx_execute_file",
       "Bash(node *)",
       "Bash(cat package.json)",
-      "Bash(ls *.test.* tests/ spec/)"
+      "Bash(ls *.test.* tests/ spec/)",
+      "Bash(git *)",
+      "mcp__plugin_context-mode_context-mode__ctx_search",
+      "Bash(echo \"exit: $?\")",
+      "mcp__plugin_context-mode_context-mode__ctx_fetch_and_index",
+      "Bash(python3 /tmp/gen_spelling_bee.py)",
+      "Bash(python3 /tmp/gen_spelling_bee2.py)",
+      "Bash(python3 -c \"import json; json.load\\(open\\('template-deploy/tools.json'\\)\\); print\\('tools.json OK'\\)\")",
+      "Bash(python3 -c \"import json; json.load\\(open\\('template-deploy/tools.json'\\)\\); print\\('OK'\\)\")"
     ]
   }
 }

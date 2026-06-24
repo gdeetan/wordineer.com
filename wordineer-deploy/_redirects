@@ -10,6 +10,9 @@ https://www.wordineer.com/*    https://wordineer.com/:splat         301
 
 # Clean URLs — .html to trailing-slash canonical
 /word-scramble.html    /word-scramble/    301
+/never-have-i-ever-generator.html    /never-have-i-ever-generator/    301
+/would-you-rather-generator.html    /would-you-rather-generator/    301
+/truth-or-dare-generator.html    /truth-or-dare-generator/    301
 /charades-generator.html    /charades-generator/    301
 /christmas-charades-generator.html    /christmas-charades-generator/    301
 /pictionary-word-generator.html    /pictionary-word-generator/    301
@@ -33,6 +36,7 @@ https://www.wordineer.com/*    https://wordineer.com/:splat         301
 /random-dominican-name-generator.html    /random-dominican-name-generator/    301
 /passphrase-generator.html    /passphrase-generator/    301
 /password-generator.html    /password-generator/    301
+/random-pin-generator.html    /random-pin-generator/    301
 /memorable-password-generator.html    /memorable-password-generator/    301
 /random-4-letter-word-generator.html    /random-4-letter-word-generator/    301
 /words-that-start-with.html    /random-words-starting-with/    301
@@ -65,6 +69,9 @@ https://www.wordineer.com/*    https://wordineer.com/:splat         301
 /other-generators.html    /other-generators/    301
 
 # Pretty URL fallbacks
+/never-have-i-ever-generator/    /never-have-i-ever-generator.html    200
+/would-you-rather-generator/    /would-you-rather-generator.html    200
+/truth-or-dare-generator/    /truth-or-dare-generator.html    200
 /charades-generator/    /charades-generator.html    200
 /pictionary-word-generator/    /pictionary-word-generator.html    200
 /random-american-name-generator/    /random-american-name-generator.html    200
@@ -327,3 +334,14 @@ https://www.wordineer.com/*    https://wordineer.com/:splat         301
 /5-letter-words-starting-with-z/    /5-letter-words-starting-with-z.html    200
 /crossword-puzzle-generator.html    /crossword-puzzle-generator/    301
 /crossword-puzzle-generator/        /crossword-puzzle-generator.html    200
+
+# number-chance — redirect unmapped tool URLs to hub until pages are built
+/coin-flip                          /number-chance/   301
+/coin-flip/                         /number-chance/   301
+/coin-flip.html                     /number-chance/   301
+/random-number-generator            /number-chance/   301
+/random-number-generator/           /number-chance/   301
+/random-number-generator.html       /number-chance/   301
+/dice-roller                        /number-chance/   301
+/dice-roller/                       /number-chance/   301
+/dice-roller.html                   /number-chance/   301

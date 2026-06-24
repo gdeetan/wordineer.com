@@ -612,6 +612,33 @@
     return words;
   }
 
+  function buildWordItem(w) {
+    var isSaved = savedWords.indexOf(w.w) !== -1;
+    var pts = scoreWord(w.w);
+    return '<li class="word-item">' +
+      '<div class="word-left">' +
+        '<div class="word-text">' + w.w + '</div>' +
+        '<div class="word-badges">' +
+          '<span class="badge badge-type">' + w.t + '</span>' +
+          '<span class="badge ' + diffBadge(w.diff) + '">' + w.diff + '</span>' +
+          '<span class="badge badge-score">' + pts + ' pts</span>' +
+        '</div>' +
+        (showDefs && w.d ? '<div class="word-def">' + w.d + '</div>' : '') +
+      '</div>' +
+      '<div class="word-right">' +
+        '<button class="icon-btn' + (isSaved ? ' saved' : '') + '" data-word="' + w.w + '" aria-label="Save ' + w.w + '" onclick="toggleSave(this)">' + HEART_SVG + '</button>' +
+        '<button class="icon-btn" data-word="' + w.w + '" aria-label="Copy ' + w.w + '" onclick="copyWord(this)">' + COPY_SVG + '</button>' +
+      '</div>' +
+    '</li>';
+  }
+
+  function redrawList() {
+    showDefs = document.getElementById('ctrl-defs').checked;
+    var list = document.getElementById('word-list');
+    if (!list || currentWords.length === 0) return;
+    list.innerHTML = currentWords.map(buildWordItem).join('');
+  }
+
   function renderList() {
     var n = parseInt(document.getElementById('ctrl-count').value, 10);
     if (isNaN(n) || n < 1 || n > 50) return;
@@ -630,25 +657,7 @@
       return;
     }
 
-    list.innerHTML = currentWords.map(function (w) {
-      var isSaved = savedWords.indexOf(w.w) !== -1;
-      var pts = scoreWord(w.w);
-      return '<li class="word-item">' +
-        '<div class="word-left">' +
-          '<div class="word-text">' + w.w + '</div>' +
-          '<div class="word-badges">' +
-            '<span class="badge badge-type">' + w.t + '</span>' +
-            '<span class="badge ' + diffBadge(w.diff) + '">' + w.diff + '</span>' +
-            '<span class="badge badge-score">' + pts + ' pts</span>' +
-          '</div>' +
-          (showDefs && w.d ? '<div class="word-def">' + w.d + '</div>' : '') +
-        '</div>' +
-        '<div class="word-right">' +
-          '<button class="icon-btn' + (isSaved ? ' saved' : '') + '" data-word="' + w.w + '" aria-label="Save ' + w.w + '" onclick="toggleSave(this)">' + HEART_SVG + '</button>' +
-          '<button class="icon-btn" data-word="' + w.w + '" aria-label="Copy ' + w.w + '" onclick="copyWord(this)">' + COPY_SVG + '</button>' +
-        '</div>' +
-      '</li>';
-    }).join('');
+    list.innerHTML = currentWords.map(buildWordItem).join('');
   }
 
   window.toggleSave = function (btn) {
@@ -713,15 +722,22 @@
   document.getElementById('word-regen-btn').addEventListener('click', function () { loadFull(); validateAndGenerate(); });
 
   // Real-time filter updates
-  ['ctrl-type','ctrl-diff','ctrl-first','ctrl-last','ctrl-contains','ctrl-excludes','ctrl-defs','ctrl-sort'].forEach(function (id) {
+  ['ctrl-type','ctrl-diff','ctrl-sort'].forEach(function (id) {
     var el = document.getElementById(id);
     if (!el) return;
     el.addEventListener('change', function () { loadFull(); validateAndGenerate(); });
-    el.addEventListener('input',  function () { loadFull(); validateAndGenerate(); });
   });
 
-  document.getElementById('ctrl-count').addEventListener('input',  validateAndGenerate);
-  document.getElementById('ctrl-count').addEventListener('change', validateAndGenerate);
+  ['ctrl-first','ctrl-last','ctrl-contains','ctrl-excludes'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.addEventListener('input', function () { loadFull(); validateAndGenerate(); });
+  });
+
+  var defsEl = document.getElementById('ctrl-defs');
+  if (defsEl) defsEl.addEventListener('change', redrawList);
+
+  document.getElementById('ctrl-count').addEventListener('input', validateAndGenerate);
 
   // Game Helper toggle
   document.getElementById('wordle-toggle').addEventListener('click', function () {

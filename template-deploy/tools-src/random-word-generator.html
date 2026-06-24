@@ -88,7 +88,7 @@
       { "@type": "ListItem", "position": 7,  "name": "Word of the Day",               "url": "https://wordineer.com/word-of-the-day/" },
       { "@type": "ListItem", "position": 8,  "name": "Passphrase Generator",          "url": "https://wordineer.com/passphrase-generator/" },
       { "@type": "ListItem", "position": 9,  "name": "Random Letter Generator",       "url": "https://wordineer.com/random-letter-generator/" },
-      { "@type": "ListItem", "position": 10, "name": "Words That Start With",         "url": "https://wordineer.com/words-that-start-with/" },
+      { "@type": "ListItem", "position": 10, "name": "Random Words Starting With",    "url": "https://wordineer.com/random-words-starting-with/" },
       { "@type": "ListItem", "position": 11, "name": "Random 5 Letter Word Generator","url": "https://wordineer.com/random-5-letter-word-generator/" },
       { "@type": "ListItem", "position": 12, "name": "Word Tools Hub",                "url": "https://wordineer.com/word-tools/" },
       { "@type": "ListItem", "position": 13, "name": "Name Generators Hub",           "url": "https://wordineer.com/name-generators/" }
@@ -361,7 +361,7 @@
   <p>Use the difficulty filter to target easy, medium, or advanced words depending on what you're studying. Every word includes its definition and part of speech, so you can study meaning and usage at the same time. Save words you want to revisit by clicking the heart — they'll stay in the saved section until you're done.</p>
 
   <h3>For games and Pictionary</h3>
-  <p>Pictionary, charades, and Scrabble practice all work better with words no one picked themselves. Set the word type to "nouns" for Pictionary so every word is something drawable. For a more focused experience, the dedicated <a href="/pictionary-word-generator/">Pictionary word generator</a> has category filters built in.</p>
+  <p>Pictionary, charades, and Scrabble practice all work better with words no one picked themselves. Set the word type to "nouns" for Pictionary so every word is something drawable. For a more focused experience, the dedicated <a href="/pictionary-word-generator/">Pictionary word generator</a> has category filters built in. Stuck on today's Wordle? The free <a href="/wordle-helper/">Wordle Helper</a> ranks every remaining candidate by entropy and recommends the single best next guess.</p>
 
   <h3>Filtering by length</h3>
   <p>Use the "word size" control to target words by letter count or syllable count. Short words work well for younger players and word games with strict letter limits; longer words are better for advanced vocabulary practice or spelling bee prep. The "at least / at most / equals" options let you dial it in precisely.</p>
@@ -438,7 +438,7 @@
   <div class="uc-grid">
     <div class="uc"><div class="uc-title">Writers</div><div class="uc-body">Generate 5 random words and challenge yourself to weave all of them into one paragraph. It's the fastest cure for a blank page.</div></div>
     <div class="uc"><div class="uc-title">Students</div><div class="uc-body">Build vocabulary, prep for spelling bees, or study for the SAT. Filter by difficulty so the words actually match your level.</div></div>
-    <div class="uc"><div class="uc-title">Game nights</div><div class="uc-body">Fair, instant prompts for Pictionary, charades, or any word game. No one can accuse you of picking easy ones.</div></div>
+    <div class="uc"><div class="uc-title">Game nights</div><div class="uc-body">Fair, instant prompts for Pictionary, charades, or any word game. No one can accuse you of picking easy ones. For Wordle streaks, the <a href="/wordle-helper/">Wordle Helper</a> finds the best next guess.</div></div>
     <div class="uc"><div class="uc-title">Teachers</div><div class="uc-body">Generate a vocabulary list in seconds. Adjust difficulty to match your class level and hand it straight out.</div></div>
   </div>
 </div>
@@ -486,13 +486,17 @@ WORDINEER.init({
 
   if (count) {
     count.addEventListener('input', validateAndGenerate);
-    count.addEventListener('change', validateAndGenerate);
   }
 
-  ['ctrl-type', 'ctrl-diff', 'ctrl-first', 'ctrl-last', 'ctrl-size-cond', 'ctrl-size-val', 'ctrl-defs'].forEach(function(id) {
+  ['ctrl-type', 'ctrl-diff', 'ctrl-size-cond'].forEach(function(id) {
     const el = document.getElementById(id);
     if (!el) return;
     el.addEventListener('change', validateAndGenerate);
+  });
+
+  ['ctrl-first', 'ctrl-last', 'ctrl-size-val'].forEach(function(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
     el.addEventListener('input', validateAndGenerate);
   });
 

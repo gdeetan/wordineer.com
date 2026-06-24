@@ -86,7 +86,7 @@ WIN/LOSE BANNER (shown after game ends, above keyboard)
 
 ### Difficulty selector (solo mode)
 
-Dropdown in the header: **Any / Easy / Medium / Hard**. Changing difficulty + clicking "New word" (or "Play again" after a game) resets the board with a fresh word at that difficulty. Hidden when playing a challenge link.
+Dropdown in the header: **Any / Easy / Medium / Hard**. Changing difficulty immediately resets the board with a fresh word at that difficulty. "Play again" after a game also resets with a new random word. Hidden when playing a challenge link.
 
 ### Share button behavior
 
