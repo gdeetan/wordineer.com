@@ -207,8 +207,11 @@
 .wh-chip  { padding:5px 11px; border:1px solid var(--border); border-radius:999px;
             font-size:12px; font-weight:600; cursor:pointer; background:var(--bg);
             color:var(--text-2); text-transform:uppercase; font-family:inherit;
-            transition:background .12s, border-color .12s, color .12s; }
+            transition:background .12s, border-color .12s, color .12s;
+            display:flex; flex-direction:column; align-items:center; line-height:1.2; }
 .wh-chip:hover { background:var(--brand-light); border-color:var(--brand); color:var(--brand); }
+.wh-chip-note { font-size:0.6rem; color:var(--text-3); text-transform:none; font-weight:400;
+                white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:140px; }
 
 /* Candidate list */
 .wh-cands-hdr  { display:flex; justify-content:space-between; align-items:center;
@@ -651,7 +654,7 @@
 })();
 </script>
 
-<script src="/scripts/wordle-engine.js"></script>
+<script src="/scripts/wordle-engine.js?v=2"></script>
 <script>
 WORDLE_HELPER.init({
   tabSolveId:      'wh-tab-solve',
@@ -682,9 +685,6 @@ WORDLE_HELPER.init({
   pracResultMsgId: 'wh-prac-result-msg',
   pracNewId:       'wh-prac-new',
   pracInputRowId:  'wh-prac-input-row',
-  starters: ['CRANE','SLATE','RAISE','STARE','AUDIO','ARISE','ADIEU',
-             'TEARS','SANER','LATER','IRATE','AROSE','TRACE','CRATE',
-             'SNARE','LEAST','CLOSE','ROATE'],
   collapseThreshold: 30,
 });
 document.querySelectorAll('.faq-q').forEach(q => {
