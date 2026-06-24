@@ -93,10 +93,10 @@
   ]
 }
 </script>
-<title>SAT Vocabulary Words — 300+ With Definitions, Audio &amp; Practice Mode | Wordineer</title>
-<meta name="description" content="300+ curated SAT vocabulary words with definitions, audio pronunciation, etymology, and SAT-style example sentences. Filter by difficulty and root language. Practice mode included — no login required.">
-<meta property="og:title" content="SAT Vocabulary Words — 300+ With Definitions, Audio &amp; Practice Mode | Wordineer">
-<meta property="og:description" content="300+ curated SAT words with audio pronunciation, root etymology, difficulty filters, and practice mode. No account required.">
+<title>SAT Vocabulary Words — 500+ With Definitions, Audio &amp; Practice Mode | Wordineer</title>
+<meta name="description" content="500+ curated SAT vocabulary words with definitions, audio pronunciation, etymology, and SAT-style example sentences. Filter by difficulty and root language. Practice, quiz, and mastery tracking — no login required.">
+<meta property="og:title" content="SAT Vocabulary Words — 500+ With Definitions, Audio &amp; Practice Mode | Wordineer">
+<meta property="og:description" content="500+ curated SAT words with audio pronunciation, root etymology, difficulty filters, quiz mode, mastery tracking, and practice mode. No account required.">
 <meta property="og:url" content="https://wordineer.com/sat-vocabulary-words/">
 <link rel="canonical" href="https://wordineer.com/sat-vocabulary-words/">
 <script type="application/ld+json">
@@ -105,7 +105,7 @@
   "@type": "WebApplication",
   "name": "SAT Vocabulary Words",
   "url": "https://wordineer.com/sat-vocabulary-words/",
-  "description": "Generate and filter 155+ curated SAT vocabulary words by difficulty and root language. Includes audio pronunciation, practice mode, etymology badges, and SAT-style example sentences.",
+  "description": "Generate and filter 500+ curated SAT vocabulary words by difficulty and root language. Includes audio pronunciation, quiz mode, mastery tracking, practice mode, etymology badges, and SAT-style example sentences.",
   "applicationCategory": "EducationApplication",
   "operatingSystem": "Any",
   "offers": { "@type": "Offer", "price": "0" }
@@ -117,7 +117,7 @@
   "@type": "FAQPage",
   "mainEntity": [
     { "@type": "Question", "name": "Is this tool updated for the digital SAT?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The digital SAT (launched in 2024) still tests vocabulary through 'Words in Context' questions on the Reading and Writing section. The shift from the old SAT's fill-in-the-blank format to context-based questions makes knowing nuanced definitions more important than ever — exactly what this tool teaches." } },
-    { "@type": "Question", "name": "How many SAT vocabulary words should I study?", "acceptedAnswer": { "@type": "Answer", "text": "Quality over quantity. Learning 300 words thoroughly — knowing the definition, connotation, part of speech, and a root — is far more useful than skimming 1,000 words. The 155 words in this tool cover the core of what appears in SAT reading passages and context questions. Start here, then extend with harder words as you approach your test date." } },
+    { "@type": "Question", "name": "How many SAT vocabulary words should I study?", "acceptedAnswer": { "@type": "Answer", "text": "Quality over quantity. Learning 300 words thoroughly — knowing the definition, connotation, part of speech, and a root — is far more useful than skimming 1,000 words. The 500+ words in this tool cover the core of what appears in SAT reading passages and context questions. Start here, then extend with harder words as you approach your test date." } },
     { "@type": "Question", "name": "Should I start with easy or hard words?", "acceptedAnswer": { "@type": "Answer", "text": "Start with Easy words to build momentum. Many SAT passages use sophisticated vocabulary at the Medium level — understanding those words well gives you a larger payoff than partially knowing Hard words. Add Medium words by week three, and focus Hard words in the final month before your test." } },
     { "@type": "Question", "name": "How do I use Practice Mode?", "acceptedAnswer": { "@type": "Answer", "text": "Click Practice Mode to enter a focused session. Each word appears on screen one at a time. Try to recall the definition mentally, then click Show Definition to check yourself. Click Hear Word to hear the pronunciation if you're unsure. Use Next and Prev to navigate. Exit Practice returns you to the full list. Save words you struggle with using the heart icon before entering practice." } },
     { "@type": "Question", "name": "Can I hear the words pronounced without creating an account?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Click the speaker icon next to any word to hear it pronounced using your browser's built-in text-to-speech. No account, no download, no subscription. Works in Chrome, Safari, Firefox, and Edge. This is especially useful for words borrowed from Latin or French whose pronunciation is not obvious from spelling alone." } },
@@ -225,6 +225,28 @@
 .practice-reveal-btn.revealed { background:var(--bg-2); color:var(--text-2); cursor:default; }
 .practice-nav { display:flex; gap:10px; justify-content:center; padding-top:16px; border-top:1px solid var(--border-2); margin-top:auto; }
 .practice-nav .act-btn { padding:7px 18px; }
+
+/* ── Quiz Mode ── */
+.quiz-panel { display:none; flex-direction:column; height:100%; }
+.quiz-word-area { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:10px; padding:20px 0; }
+.quiz-options { display:grid; grid-template-columns:1fr 1fr; gap:8px; width:100%; max-width:400px; margin-top:8px; }
+.quiz-option { padding:10px 12px; border:1.5px solid var(--border); border-radius:8px; background:var(--bg); color:var(--text-2); font-size:12px; line-height:1.4; font-family:inherit; cursor:pointer; text-align:left; transition:border-color .15s,background .15s; }
+.quiz-option:hover:not(:disabled) { border-color:var(--brand); background:var(--bg-2); }
+.quiz-option.correct { border-color:#16a34a; background:#f0fdf4; color:#15803d; font-weight:600; }
+.quiz-option.wrong   { border-color:#dc2626; background:#fef2f2; color:#dc2626; }
+.quiz-option:disabled { cursor:default; }
+.quiz-feedback { font-size:13px; font-weight:600; min-height:20px; }
+.quiz-feedback.correct { color:#16a34a; }
+.quiz-feedback.wrong   { color:#dc2626; }
+.quiz-result { display:none; flex-direction:column; align-items:center; justify-content:center; flex:1; gap:10px; text-align:center; padding:20px; }
+.quiz-result-score { font-size:48px; font-weight:700; color:var(--text); letter-spacing:-.03em; }
+.quiz-result-label { font-size:14px; color:var(--text-2); }
+.quiz-result-stats { font-size:12px; color:var(--text-3); }
+
+/* ── Mastery ── */
+.mastery-badge { display:inline-block; width:8px; height:8px; border-radius:50%; background:#16a34a; margin-left:5px; vertical-align:middle; title:"Mastered"; }
+.mastery-stat  { font-size:11px; color:var(--text-3); padding:2px 8px; border:1px solid var(--border); border-radius:999px; }
+.mastery-stat.has-progress { color:#16a34a; border-color:#bbf7d0; background:#f0fdf4; }
 
 /* ── Explainer list alignment ── */
 .explainer ul, .explainer ol { padding-left:1.5em; }
@@ -335,9 +357,9 @@
   </div>
 </div>
 <div class="hero">
-  <div class="hero-badge">300+ Words · Audio · Practice Mode · Free</div>
+  <div class="hero-badge">500+ Words · Audio · Quiz Mode · Mastery Tracking · Free</div>
   <h1>SAT Vocabulary Words</h1>
-  <p>300+ curated SAT-level words with definitions, etymology, audio pronunciation, and SAT-style example sentences. Filter by difficulty and root language to study systematically. Practice mode runs without any account or app.</p>
+  <p>500+ curated SAT-level words with definitions, etymology, audio pronunciation, and SAT-style example sentences. Filter by difficulty and root language to study systematically. Quiz mode, mastery tracking, and practice mode — no account required.</p>
 </div>
 <div class="tool-wrap">
   <div class="tool-card">
@@ -393,10 +415,18 @@
             <label class="toggle" aria-label="Show examples"><input type="checkbox" id="ctrl-examples" checked><span class="toggle-sl"></span></label>
             <label for="ctrl-examples">Show examples</label>
           </div>
+
+          <div class="def-row">
+            <label class="toggle" aria-label="Unmastered words only"><input type="checkbox" id="ctrl-unmastered"><span class="toggle-sl"></span></label>
+            <label for="ctrl-unmastered">Unmastered only</label>
+          </div>
         </div>
 
         <button class="gen-btn" id="satv-gen-btn">Generate</button>
-        <button class="reset-btn" id="satv-reset-btn">Reset options</button>
+        <div style="display:flex;gap:6px;margin-top:8px">
+          <button class="reset-btn" id="satv-reset-btn" style="flex:1;margin-top:0">Reset options</button>
+          <button class="reset-btn" id="satv-reset-mastery" style="flex:1;margin-top:0;color:#dc2626">Reset mastery</button>
+        </div>
         <div class="kbd">Press <kbd>Space</kbd> to regenerate</div>
       </div>
 
@@ -406,6 +436,8 @@
         <div id="sb-list-view">
           <div class="sb-top-bar">
             <span class="sb-count-label" id="sb-count">20 words</span>
+            <span class="mastery-stat" id="satv-mastery-stat">0 mastered</span>
+            <button class="act-btn" id="satv-quiz-btn">Quiz Mode</button>
             <button class="act-btn" id="satv-practice-btn">Practice Mode</button>
             <button class="act-btn" id="satv-copy-all">Copy all</button>
             <button class="act-btn" id="satv-print-btn">Print list</button>
@@ -434,6 +466,35 @@
           <div class="practice-nav">
             <button class="act-btn" id="practice-prev" disabled>← Prev</button>
             <button class="act-btn" id="practice-next">Next →</button>
+          </div>
+        </div>
+
+        <!-- Quiz Mode panel -->
+        <div class="quiz-panel" id="sb-quiz-panel">
+          <div class="practice-header">
+            <button class="act-btn" id="satv-exit-quiz">← Exit Quiz</button>
+            <span class="practice-progress" id="quiz-progress">1 of 20</span>
+          </div>
+          <div class="quiz-word-area" id="quiz-question-area">
+            <div class="practice-word-display" id="quiz-word"></div>
+            <div class="practice-hear-row">
+              <button class="practice-hear-btn" id="quiz-hear-btn" title="Hear word">
+                <svg viewBox="0 0 14 14" fill="none"><path d="M2 5H4L7 2.5v9L4 9H2V5z" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/><path d="M9.5 3.5a3.8 3.8 0 010 7" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg>
+                Hear word
+              </button>
+            </div>
+            <div class="quiz-options" id="quiz-options"></div>
+            <div class="quiz-feedback" id="quiz-feedback"></div>
+            <button class="act-btn" id="quiz-next-btn" style="display:none;margin-top:12px">Next →</button>
+          </div>
+          <div class="quiz-result" id="quiz-result">
+            <div class="quiz-result-score" id="quiz-result-score"></div>
+            <div class="quiz-result-label" id="quiz-result-label"></div>
+            <div class="quiz-result-stats" id="quiz-result-stats"></div>
+            <div style="display:flex;gap:10px;justify-content:center;margin-top:16px">
+              <button class="act-btn" id="quiz-retry-btn">Try again</button>
+              <button class="act-btn" id="satv-exit-quiz-2">Back to list</button>
+            </div>
           </div>
         </div>
 
@@ -494,7 +555,7 @@
 <h2>What Are SAT Vocabulary Words?</h2>
 <p>SAT vocabulary words are the sophisticated, academic English words that appear in the passages and questions of the SAT Reading and Writing section. The College Board redesigned the SAT in 2016 and again for the digital format in 2024, but vocabulary remains central — not as isolated fill-in-the-blank questions, but embedded in context. The exam tests whether you understand words as they function in real passages, including their connotations, nuances, and how they interact with surrounding sentences.</p>
 <p>The types of words that appear on the SAT fall into recognizable categories: Latin-rooted academic vocabulary (<em>ambiguous</em>, <em>empirical</em>, <em>prevalent</em>), Greek-rooted scientific and philosophical terms (<em>hypothesis</em>, <em>paradox</em>, <em>pragmatic</em>), and French-influenced words of tone and judgment (<em>nuance</em>, <em>platitude</em>, <em>malfeasance</em>). Understanding these root systems is not just helpful — it is the single most efficient study strategy available for the vocabulary portion of the exam.</p>
-<p>This tool offers 155+ curated SAT-level words, each with a plain-English definition, SAT-style example sentence, etymology badge, syllable breakdown, and audio pronunciation. Filter by difficulty and root language to study systematically rather than randomly.</p>
+<p>This tool offers 500+ curated SAT-level words, each with a plain-English definition, SAT-style example sentence, etymology badge, syllable breakdown, and audio pronunciation. Filter by difficulty and root language to study systematically rather than randomly.</p>
 
 <h2>Why Root Words Matter on the SAT</h2>
 <p>Approximately 60% of English academic vocabulary descends from Latin, and another 20–25% from Greek. This means that a student who learns the core Latin and Greek roots can decode hundreds of words they have never encountered before — including words that appear on the SAT.</p>
@@ -559,7 +620,7 @@
 
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">How many SAT vocabulary words should I study?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Quality over quantity. Knowing 300 words thoroughly — definition, connotation, part of speech, and root — is far more useful than having a vague impression of 1,000 words. The 155 words in this tool cover the core vocabulary that appears in SAT reading passages and context questions. Start here and master this set before expanding to additional word lists.</div>
+    <div class="faq-a">Quality over quantity. Knowing 300 words thoroughly — definition, connotation, part of speech, and root — is far more useful than having a vague impression of 1,000 words. The 500+ words in this tool cover the core vocabulary that appears in SAT reading passages and context questions. Start here and master this set before expanding to additional word lists.</div>
   </div>
 
   <div class="faq-item">
@@ -681,8 +742,14 @@
   var SATV = {
     data: null,
     saved: JSON.parse(localStorage.getItem('satv-saved') || '[]'),
+    mastery: JSON.parse(localStorage.getItem('satv-mastery') || '{}'),
+    masteryThreshold: 3,
     practiceWords: [],
     practiceIdx: 0,
+    quizWords: [],
+    quizIdx: 0,
+    quizScore: 0,
+    quizAnswered: false,
 
     load: function () {
       var self = this;
@@ -692,15 +759,43 @@
         .then(function (d) { self.data = d; return d; });
     },
 
+    isMastered: function (word) {
+      return (this.mastery[word] || 0) >= this.masteryThreshold;
+    },
+
+    incrementMastery: function (word) {
+      this.mastery[word] = (this.mastery[word] || 0) + 1;
+      localStorage.setItem('satv-mastery', JSON.stringify(this.mastery));
+      this.renderMasteryStat();
+    },
+
+    masteredCount: function () {
+      var self = this;
+      if (!self.data) return 0;
+      return self.data.filter(function (w) { return self.isMastered(w.w); }).length;
+    },
+
+    renderMasteryStat: function () {
+      var el = document.getElementById('satv-mastery-stat');
+      if (!el) return;
+      var total = this.data ? this.data.length : 501;
+      var count = this.masteredCount();
+      el.textContent = count + '/' + total + ' mastered';
+      el.classList.toggle('has-progress', count > 0);
+    },
+
     filter: function (words) {
-      var d      = document.getElementById('ctrl-diff').value;
-      var o      = document.getElementById('ctrl-origin').value;
-      var p      = document.getElementById('ctrl-pos').value;
-      var count  = Math.min(50, Math.max(1, parseInt(document.getElementById('ctrl-count').value, 10) || 20));
-      var result = words.slice();
+      var d          = document.getElementById('ctrl-diff').value;
+      var o          = document.getElementById('ctrl-origin').value;
+      var p          = document.getElementById('ctrl-pos').value;
+      var unmastered = document.getElementById('ctrl-unmastered').checked;
+      var count      = Math.min(50, Math.max(1, parseInt(document.getElementById('ctrl-count').value, 10) || 20));
+      var self       = this;
+      var result     = words.slice();
       if (d !== 'all') result = result.filter(function (w) { return w.diff === d; });
       if (o !== 'all') result = result.filter(function (w) { return w.origin === o; });
       if (p !== 'all') result = result.filter(function (w) { return w.pos === p; });
+      if (unmastered)  result = result.filter(function (w) { return !self.isMastered(w.w); });
       for (var i = result.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
         var tmp = result[i]; result[i] = result[j]; result[j] = tmp;
@@ -711,7 +806,9 @@
     generate: function () {
       var self = this;
       self.load().then(function (words) {
-        self.render(self.filter(words));
+        var filtered = self.filter(words);
+        self.render(filtered);
+        self.renderMasteryStat();
       }).catch(function () {
         var list = document.getElementById('sb-list');
         if (list) list.innerHTML = '<li class="sb-empty">Could not load word list. Please refresh and try again.</li>';
@@ -724,6 +821,7 @@
       var showDef   = document.getElementById('ctrl-defs').checked;
       var showEx    = document.getElementById('ctrl-examples').checked;
       var saved     = this.saved;
+      var self      = this;
 
       if (!words.length) {
         list.innerHTML = '<li class="sb-empty">No words match your filters. Try broadening the difficulty or root selection.</li>';
@@ -733,11 +831,12 @@
 
       countEl.textContent = words.length + ' word' + (words.length !== 1 ? 's' : '');
       list.innerHTML = words.map(function (w) {
-        var isSaved = saved.indexOf(w.w) !== -1;
+        var isSaved    = saved.indexOf(w.w) !== -1;
+        var isMastered = self.isMastered(w.w);
         var esc = w.w.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
         return '<li class="word-item" data-word="' + he(w.w) + '" data-def="' + he(w.d) + '" data-ex="' + he(w.example || '') + '">' +
           '<div class="word-left">' +
-          '<div class="word-text">' + he(w.w) + '</div>' +
+          '<div class="word-text">' + he(w.w) + (isMastered ? '<span class="mastery-badge" title="Mastered"></span>' : '') + '</div>' +
           '<div class="word-badges">' +
           '<span class="badge badge-meta">' + he(w.pos) + '</span>' +
           '<span class="sb-origin" data-o="' + he(w.origin) + '">' + he(w.origin) + '</span>' +
@@ -760,6 +859,7 @@
       speakWord(word);
     },
 
+    /* ── Practice Mode ── */
     enterPractice: function () {
       var items = document.querySelectorAll('#sb-list .word-item');
       if (!items.length) return;
@@ -805,6 +905,129 @@
       document.getElementById('sb-list-view').style.display = 'block';
     },
 
+    /* ── Quiz Mode ── */
+    enterQuiz: function () {
+      var self = this;
+      var items = document.querySelectorAll('#sb-list .word-item');
+      if (!items.length) return;
+      self.quizWords = [].slice.call(items).map(function (el) {
+        return { word: el.dataset.word, def: el.dataset.def || '', ex: el.dataset.ex || '' };
+      });
+      self.quizIdx = 0;
+      self.quizScore = 0;
+      self.quizAnswered = false;
+      document.getElementById('sb-list-view').style.display = 'none';
+      var panel = document.getElementById('sb-quiz-panel');
+      panel.style.display = 'flex';
+      document.getElementById('quiz-question-area').style.display = 'flex';
+      document.getElementById('quiz-result').style.display = 'none';
+      self.renderQuiz();
+    },
+
+    getDistractors: function (correctDef, count) {
+      if (!this.data) return [];
+      var pool = this.data.filter(function (w) { return w.d !== correctDef; });
+      for (var i = pool.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var t = pool[i]; pool[i] = pool[j]; pool[j] = t;
+      }
+      return pool.slice(0, count).map(function (w) { return w.d; });
+    },
+
+    renderQuiz: function () {
+      var self = this;
+      var qw   = self.quizWords[self.quizIdx];
+      self.quizAnswered = false;
+
+      document.getElementById('quiz-word').textContent = qw.word;
+      document.getElementById('quiz-progress').textContent = (self.quizIdx + 1) + ' of ' + self.quizWords.length;
+      document.getElementById('quiz-feedback').textContent = '';
+      document.getElementById('quiz-feedback').className = 'quiz-feedback';
+      document.getElementById('quiz-next-btn').style.display = 'none';
+
+      var distractors = self.getDistractors(qw.def, 3);
+      var options = [qw.def].concat(distractors);
+      for (var i = options.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var t = options[i]; options[i] = options[j]; options[j] = t;
+      }
+
+      var optionsEl = document.getElementById('quiz-options');
+      optionsEl.innerHTML = options.map(function (def, idx) {
+        var esc = he(def);
+        return '<button class="quiz-option" data-idx="' + idx + '" onclick="SATV.answerQuiz(this,' + JSON.stringify(def === qw.def) + ')">' + esc + '</button>';
+      }).join('');
+    },
+
+    answerQuiz: function (btn, isCorrect) {
+      if (this.quizAnswered) return;
+      this.quizAnswered = true;
+
+      var optionsEl = document.getElementById('quiz-options');
+      [].slice.call(optionsEl.querySelectorAll('.quiz-option')).forEach(function (b) {
+        b.disabled = true;
+      });
+
+      var feedEl = document.getElementById('quiz-feedback');
+      if (isCorrect) {
+        btn.classList.add('correct');
+        feedEl.textContent = 'Correct!';
+        feedEl.className = 'quiz-feedback correct';
+        this.quizScore++;
+        this.incrementMastery(this.quizWords[this.quizIdx].word);
+      } else {
+        btn.classList.add('wrong');
+        feedEl.textContent = 'Incorrect — correct answer highlighted below';
+        feedEl.className = 'quiz-feedback wrong';
+        var correctDef = this.quizWords[this.quizIdx].def;
+        [].slice.call(optionsEl.querySelectorAll('.quiz-option')).forEach(function (b) {
+          if (b.textContent === correctDef) b.classList.add('correct');
+        });
+      }
+
+      var nextBtn = document.getElementById('quiz-next-btn');
+      if (this.quizIdx < this.quizWords.length - 1) {
+        nextBtn.textContent = 'Next →';
+        nextBtn.style.display = 'inline-block';
+      } else {
+        nextBtn.textContent = 'See Results';
+        nextBtn.style.display = 'inline-block';
+      }
+    },
+
+    nextQuiz: function () {
+      if (!this.quizAnswered) return;
+      if (this.quizIdx < this.quizWords.length - 1) {
+        this.quizIdx++;
+        this.renderQuiz();
+      } else {
+        this.showQuizResult();
+      }
+    },
+
+    showQuizResult: function () {
+      var total    = this.quizWords.length;
+      var score    = this.quizScore;
+      var pct      = Math.round(score / total * 100);
+      var label    = pct >= 90 ? 'Excellent!' : pct >= 70 ? 'Good work!' : pct >= 50 ? 'Keep practicing.' : 'Keep studying — you\'ll get there.';
+      var newMast  = this.masteredCount();
+
+      document.getElementById('quiz-question-area').style.display = 'none';
+      var resultEl = document.getElementById('quiz-result');
+      resultEl.style.display = 'flex';
+      document.getElementById('quiz-result-score').textContent = score + '/' + total;
+      document.getElementById('quiz-result-label').textContent = label;
+      document.getElementById('quiz-result-stats').textContent = pct + '% correct · ' + newMast + ' words mastered total';
+      this.renderMasteryStat();
+    },
+
+    exitQuiz: function () {
+      document.getElementById('sb-quiz-panel').style.display = 'none';
+      document.getElementById('sb-list-view').style.display = 'block';
+      this.generate();
+    },
+
+    /* ── Saved words ── */
     toggleSave: function (word) {
       var idx = this.saved.indexOf(word);
       if (idx === -1) this.saved.push(word);
@@ -837,7 +1060,7 @@
     },
 
     copyAll: function () {
-      var words = [].slice.call(document.querySelectorAll('#sb-list .word-text')).map(function (el) { return el.textContent; });
+      var words = [].slice.call(document.querySelectorAll('#sb-list .word-text')).map(function (el) { return el.textContent.replace(/\s*●\s*$/, '').trim(); });
       if (navigator.clipboard) navigator.clipboard.writeText(words.join('\n'));
     },
 
@@ -863,13 +1086,22 @@
       });
     },
 
+    resetMastery: function () {
+      if (!confirm('Reset all mastery progress? This cannot be undone.')) return;
+      this.mastery = {};
+      localStorage.removeItem('satv-mastery');
+      this.renderMasteryStat();
+      this.generate();
+    },
+
     reset: function () {
-      document.getElementById('ctrl-count').value   = '20';
-      document.getElementById('ctrl-diff').value    = 'all';
-      document.getElementById('ctrl-origin').value  = 'all';
-      document.getElementById('ctrl-pos').value     = 'all';
+      document.getElementById('ctrl-count').value      = '20';
+      document.getElementById('ctrl-diff').value       = 'all';
+      document.getElementById('ctrl-origin').value     = 'all';
+      document.getElementById('ctrl-pos').value        = 'all';
       document.getElementById('ctrl-defs').checked     = true;
       document.getElementById('ctrl-examples').checked = true;
+      document.getElementById('ctrl-unmastered').checked = false;
       [].slice.call(document.querySelectorAll('.word-def')).forEach(function (el) { el.classList.remove('hidden'); });
       [].slice.call(document.querySelectorAll('.word-example')).forEach(function (el) { el.classList.remove('hidden'); });
       var err = document.getElementById('count-error');
@@ -884,11 +1116,13 @@
 
       document.getElementById('satv-gen-btn').addEventListener('click', function () { self.generate(); });
       document.getElementById('satv-reset-btn').addEventListener('click', function () { self.reset(); });
+      document.getElementById('satv-reset-mastery').addEventListener('click', function () { self.resetMastery(); });
       document.getElementById('satv-copy-all').addEventListener('click', function () { self.copyAll(); });
       document.getElementById('satv-print-btn').addEventListener('click', function () { window.print(); });
       document.getElementById('satv-copy-saved').addEventListener('click', function () { self.copySaved(); });
       document.getElementById('ctrl-defs').addEventListener('change', function () { self.toggleDefs(); });
       document.getElementById('ctrl-examples').addEventListener('change', function () { self.toggleExamples(); });
+      document.getElementById('ctrl-unmastered').addEventListener('change', function () { self.generate(); });
 
       document.getElementById('satv-practice-btn').addEventListener('click', function () { self.enterPractice(); });
       document.getElementById('satv-exit-practice').addEventListener('click', function () { self.exitPractice(); });
@@ -903,6 +1137,16 @@
       document.getElementById('practice-next').addEventListener('click', function () {
         if (self.practiceIdx < self.practiceWords.length - 1) { self.practiceIdx++; self.renderPractice(); }
       });
+
+      document.getElementById('satv-quiz-btn').addEventListener('click', function () { self.enterQuiz(); });
+      document.getElementById('satv-exit-quiz').addEventListener('click', function () { self.exitQuiz(); });
+      document.getElementById('satv-exit-quiz-2').addEventListener('click', function () { self.exitQuiz(); });
+      document.getElementById('quiz-next-btn').addEventListener('click', function () { self.nextQuiz(); });
+      document.getElementById('quiz-hear-btn').addEventListener('click', function () {
+        var wordEl = document.getElementById('quiz-word');
+        if (wordEl) speakWord(wordEl.textContent);
+      });
+      document.getElementById('quiz-retry-btn').addEventListener('click', function () { self.enterQuiz(); });
 
       document.addEventListener('keydown', function (e) {
         if (e.code !== 'Space') return;
