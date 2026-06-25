@@ -165,12 +165,12 @@
 <link rel="stylesheet" href="/styles/global.css?v=9">
 <style>
 /* ── Tool layout ── */
-.tool-wrap  { padding:20px 24px 0; }
-.tool-card  { background:var(--bg-2); border:1px solid var(--border); border-radius:14px; overflow:hidden; }
+.tool-wrap  { max-width:960px; margin:0 auto; padding:20px 24px 0; }
+.tool-card  { background:var(--bg); border:1px solid var(--border); border-radius:14px; overflow:hidden; box-shadow:var(--shadow); }
 .tool-split { display:flex; min-height:480px; }
 
 /* ── Controls ── */
-.ctrl { width:220px; min-width:180px; padding:20px 18px; border-right:1px solid var(--border-2); display:flex; flex-direction:column; gap:14px; }
+.ctrl { width:220px; min-width:180px; padding:20px 18px; border-right:1px solid var(--border-2); background:var(--bg-2); display:flex; flex-direction:column; gap:14px; }
 .ctrl-label { font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:var(--text-3); display:block; margin-bottom:4px; }
 .ctrl-row   { display:flex; flex-direction:column; }
 .ctrl select, .ctrl input[type="number"] {
@@ -231,6 +231,9 @@
 .practice-badge { font-size:12px; padding:3px 10px; border-radius:99px; }
 .practice-actions { display:flex; gap:8px; }
 .practice-nav { display:flex; gap:10px; justify-content:center; padding:16px; border-top:1px solid var(--border-2); margin-top:auto; }
+
+/* ── FAQ button reset ── */
+button.faq-q { appearance:none; -webkit-appearance:none; background:none; border:none; padding:0; width:100%; text-align:left; cursor:pointer; font:inherit; color:inherit; }
 
 /* ── Explainer ── */
 .explainer ul, .explainer ol { padding-left:1.5em; }
