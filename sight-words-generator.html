@@ -183,6 +183,12 @@
 .ctrl input[type="number"] { background-image:none; }
 .ctrl input[type="checkbox"] { width:auto; }
 .toggle-row { display:flex; align-items:center; gap:8px; font-size:13px; color:var(--text-2); }
+.toggle     { position:relative; width:32px; height:18px; flex-shrink:0; }
+.toggle input { opacity:0; width:0; height:0; }
+.toggle-sl  { position:absolute; cursor:pointer; inset:0; background:var(--border); border-radius:9px; transition:.2s; }
+.toggle input:checked + .toggle-sl { background:var(--brand); }
+.toggle-sl::before { content:''; position:absolute; width:14px; height:14px; left:2px; top:2px; background:white; border-radius:50%; transition:.2s; }
+.toggle input:checked + .toggle-sl::before { transform:translateX(14px); }
 .gen-btn  { padding:10px 16px; background:var(--brand); color:#fff; border:none; border-radius:9px; font-size:14px; font-weight:600; font-family:inherit; cursor:pointer; transition:background .15s; }
 .gen-btn:hover { background:var(--brand-dark); }
 .reset-btn { padding:7px 12px; background:var(--bg-3,#f3f4f6); color:var(--text-2); border:1px solid var(--border); border-radius:8px; font-size:12px; font-family:inherit; cursor:pointer; }
@@ -390,7 +396,7 @@ button.faq-q { appearance:none; -webkit-appearance:none; background:none; border
 
           <div class="ctrl-row">
             <div class="toggle-row">
-              <input type="checkbox" id="ctrl-badge" checked>
+              <label class="toggle" aria-label="Show list label"><input type="checkbox" id="ctrl-badge" checked><span class="toggle-sl"></span></label>
               <label for="ctrl-badge">Show list label</label>
             </div>
           </div>
@@ -951,6 +957,10 @@ button.faq-q { appearance:none; -webkit-appearance:none; background:none; border
       });
       document.getElementById('ctrl-group').addEventListener('change', function () { self.generate(); });
       document.getElementById('ctrl-badge').addEventListener('change', function () { self.generate(); });
+      document.getElementById('ctrl-count').addEventListener('input', function () {
+        clearTimeout(self._countTimer);
+        self._countTimer = setTimeout(function () { self.generate(); }, 350);
+      });
 
       document.addEventListener('keydown', function (e) {
         if (e.code !== 'Space') return;
