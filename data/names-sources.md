@@ -4,6 +4,18 @@
 
 `american-names-core.json` and `american-names-full.json` power the Random American name generator. The core file is a small first-load dataset. The full file expands variety to 1,500 total entries and is loaded after user interaction. `american-names.json` is kept as a compact compatibility copy of the core dataset.
 
+`american-name-meanings.json` powers the meaning line in the Random American name generator. It stores vetted meaning strings for names where the repo already has a reliable gloss; the page falls back to shared name data or the existing note only when a meaning lookup is missing.
+
+`british-name-meanings.json` powers the meaning line in the Random British name generator. It now includes a meaning or etymology note for every unique British first name, plus the existing surname and surname-part notes. Keep the entries compact, sourced, and readable in a result card.
+
+`indian-names.json` powers the Random Indian Name Generator. It is a dedicated pan-Indian dataset with separate `givenNames` and `surnames` arrays so the page can support region or language tradition filters, surname-only mode, and full-name generation without relying on the small generic origin list in `names.json`.
+
+`arabic-names.json` powers the Random Arabic Name Generator. It is a dedicated Arabic dataset with separate `givenNames` and `surnames` arrays, Arabic-script forms, region tags, meaning-theme tags, and common Latin transliteration variants so the page can support script display and practical writer-focused filters without pretending one English spelling is always the only correct form.
+
+`turkish-names.json` powers the Random Turkish Name Generator. It uses a dedicated Turkish dataset with separate `givenNames` and `surnames` arrays, authentic Turkish spellings, meaning-theme tags for given names, and practical surname notes. Keep real Turkish characters in the public data, keep meaning notes short, and avoid padding the file with low-confidence entries just to inflate the count.
+
+`german-names.json` powers the Random German Name Generator. The expanded v1 dataset is generated from public German-speaking usage pages on Behind the Name and surnames.behindthename.com, then normalized into compact tuples with short meaning or origin notes plus Wordineer-specific style, region, and surname-category tags. Treat the note field as a reader-friendly gloss, not a scholarly etymology citation.
+
 Preferred source types:
 
 - Behind the Name for given-name usage, gender, surname language, and etymology checks. Downloads are CC BY-SA 4.0 and require attribution if used directly.
