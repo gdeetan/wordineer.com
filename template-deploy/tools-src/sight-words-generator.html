@@ -1,0 +1,193 @@
+<!-- CONFIG
+{
+  "type": "tool",
+  "url": "/sight-words-generator.html",
+  "output": "sight-words-generator.html"
+}
+-->
+
+<!-- SLOT:meta -->
+<title>Sight Words Generator — Dolch &amp; Fry Lists with Audio &amp; Practice Mode | Wordineer</title>
+<meta name="description" content="Free sight words generator with Dolch and Fry lists. Filter by grade level, hear every word read aloud, and drill with Practice Mode. No login required.">
+<meta property="og:title" content="Sight Words Generator — Dolch &amp; Fry Lists with Audio &amp; Practice Mode | Wordineer">
+<meta property="og:description" content="Free sight words generator with Dolch and Fry lists. Filter by grade level, hear every word read aloud, and drill with Practice Mode. No login required.">
+<meta property="og:url" content="https://wordineer.com/sight-words-generator/">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://wordineer.com/sight-words-generator/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Sight Words Generator",
+  "url": "https://wordineer.com/sight-words-generator/",
+  "description": "Generate Dolch and Fry sight word lists with audio pronunciation and Practice Mode. Filter by grade level. Free, no login required.",
+  "applicationCategory": "EducationApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Word Tools", "item": "https://wordineer.com/word-tools/" },
+    { "@type": "ListItem", "position": 3, "name": "Sight Words Generator", "item": "https://wordineer.com/sight-words-generator/" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the difference between Dolch and Fry sight words?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The Dolch list (315 words) was developed in the 1930s–40s and is organized by grade level from Pre-K through 3rd grade. The Fry list (1,000 words) was developed in the 1950s and updated in 1980; it orders words purely by frequency. Dolch is the standard for K-3 classrooms; Fry is useful for tracking progress through Grade 9." }
+    },
+    {
+      "@type": "Question",
+      "name": "How many sight words should a kindergartner know?",
+      "acceptedAnswer": { "@type": "Answer", "text": "By the end of kindergarten, most children should know all 40 Dolch Pre-K words and be working through the 52 Kindergarten words — roughly 60 to 70 Dolch words total. Development varies, so treat these as guidelines rather than hard benchmarks." }
+    },
+    {
+      "@type": "Question",
+      "name": "What order should I teach sight words?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Start with the Dolch Pre-K list (40 words) since these are the most frequent in early children's books. Once those are solid, move to the Kindergarten list, then 1st grade. For Fry, start with the first 100 words — they cover roughly 50% of everything written in English." }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does it take to learn all the Dolch words?",
+      "acceptedAnswer": { "@type": "Answer", "text": "With consistent daily practice of 5–10 minutes, most children can learn all 220 Dolch service words between ages 4 and 9 (Pre-K through 3rd grade). The key is frequency and repetition — short daily sessions beat occasional long study sessions." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I print the sight word list?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Click the Print button in the results bar and your browser's print dialog will open. The controls, navigation, and ads are hidden automatically so only the word list prints." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this sight words generator free?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes, completely free. No account, no signup, no download required. Generate as many lists as you want directly in your browser." }
+    }
+  ]
+}
+</script>
+<!-- /SLOT:meta -->
+
+<!-- SLOT:style -->
+<style>
+/* ── Tool layout ── */
+.tool-wrap  { padding:20px 24px 0; }
+.tool-card  { background:var(--bg-2); border:1px solid var(--border); border-radius:14px; overflow:hidden; }
+.tool-split { display:flex; min-height:480px; }
+
+/* ── Controls ── */
+.ctrl { width:220px; min-width:180px; padding:20px 18px; border-right:1px solid var(--border-2); display:flex; flex-direction:column; gap:14px; }
+.ctrl-label { font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:var(--text-3); display:block; margin-bottom:4px; }
+.ctrl-row   { display:flex; flex-direction:column; }
+.ctrl select, .ctrl input[type="number"] {
+  width:100%; padding:8px 10px; border:1px solid var(--border); border-radius:8px;
+  background:var(--bg); color:var(--text); font-size:13px; font-family:inherit;
+  appearance:none; -webkit-appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 6l4 4 4-4' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat; background-position:right 8px center; background-size:16px;
+}
+.ctrl input[type="number"] { background-image:none; }
+.ctrl input[type="checkbox"] { width:auto; }
+.toggle-row { display:flex; align-items:center; gap:8px; font-size:13px; color:var(--text-2); }
+.gen-btn  { padding:10px 16px; background:var(--brand); color:#fff; border:none; border-radius:9px; font-size:14px; font-weight:600; font-family:inherit; cursor:pointer; transition:background .15s; }
+.gen-btn:hover { background:var(--brand-dark); }
+.reset-btn { padding:7px 12px; background:var(--bg-3,#f3f4f6); color:var(--text-2); border:1px solid var(--border); border-radius:8px; font-size:12px; font-family:inherit; cursor:pointer; }
+.kbd  { font-size:11px; color:var(--text-3); margin-top:2px; }
+.kbd kbd { background:var(--bg-3,#eee); border:1px solid var(--border); border-radius:4px; padding:1px 5px; font-family:inherit; }
+.mobile-more-toggle { display:none; width:100%; padding:8px; font-size:12px; background:none; border:1px solid var(--border); border-radius:8px; cursor:pointer; color:var(--text-2); font-family:inherit; margin-bottom:4px; }
+
+/* ── Results ── */
+.results-col { flex:1; display:flex; flex-direction:column; }
+.sw-top-bar  { display:flex; align-items:center; gap:8px; padding:12px 16px; border-bottom:1px solid var(--border-2); flex-wrap:wrap; }
+.sw-count    { font-size:12px; color:var(--text-3); font-weight:600; margin-right:auto; }
+.act-btn     { padding:6px 14px; background:var(--bg-3,#f3f4f6); border:1px solid var(--border); border-radius:8px; font-size:12px; font-family:inherit; cursor:pointer; color:var(--text-2); transition:background .15s; }
+.act-btn:hover { background:var(--bg-2); }
+.act-btn.primary { background:var(--brand); color:#fff; border-color:var(--brand); }
+.act-btn.primary:hover { background:var(--brand-dark); }
+
+.sw-list     { list-style:none; margin:0; padding:0; overflow-y:auto; flex:1; }
+.sw-list .sw-empty { padding:40px 20px; color:var(--text-3); font-size:13px; text-align:center; }
+.word-item   { display:flex; align-items:center; padding:11px 16px; border-bottom:1px solid var(--border-2); gap:10px; }
+.word-item:last-child { border-bottom:none; }
+.word-left   { display:flex; align-items:center; gap:10px; flex:1; min-width:0; }
+.word-text   { font-size:1.15rem; font-weight:600; color:var(--text); }
+.word-badge  { font-size:10px; font-weight:600; padding:2px 7px; border-radius:99px; white-space:nowrap; flex-shrink:0; }
+.badge-dolch { background:#ede9fe; color:#5b21b6; }
+.badge-fry   { background:#ccfbf1; color:#0f766e; }
+.word-right  { display:flex; gap:6px; align-items:center; flex-shrink:0; }
+.icon-btn    { background:none; border:none; cursor:pointer; padding:5px; border-radius:7px; color:var(--text-3); font-size:16px; line-height:1; transition:background .12s,color .12s; }
+.icon-btn:hover { background:var(--bg-3,#f3f4f6); color:var(--text); }
+.icon-btn.saved { color:#e11d48; }
+
+/* ── Saved words section ── */
+.saved-section { border-top:1px solid var(--border); padding:14px 16px; }
+.saved-section.hidden { display:none; }
+.saved-title  { font-size:12px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.05em; margin-bottom:10px; display:flex; align-items:center; gap:8px; }
+.saved-chips  { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:10px; }
+.saved-chip   { background:var(--bg-3,#f3f4f6); border:1px solid var(--border); border-radius:99px; padding:3px 10px; font-size:12px; display:flex; align-items:center; gap:4px; }
+.saved-chip button { background:none; border:none; cursor:pointer; color:var(--text-3); font-size:14px; line-height:1; padding:0; }
+.saved-actions { display:flex; gap:6px; }
+
+/* ── Practice Mode ── */
+.practice-panel { display:none; flex-direction:column; height:100%; }
+.practice-header { display:flex; align-items:center; justify-content:space-between; padding:12px 16px; border-bottom:1px solid var(--border-2); }
+.practice-progress { font-size:12px; color:var(--text-3); font-weight:600; }
+.practice-word-area { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:16px; padding:30px 20px; }
+.practice-word-display { font-size:52px; font-weight:700; color:var(--text); letter-spacing:-.03em; line-height:1.1; }
+.practice-badge { font-size:12px; padding:3px 10px; border-radius:99px; }
+.practice-actions { display:flex; gap:8px; }
+.practice-nav { display:flex; gap:10px; justify-content:center; padding:16px; border-top:1px solid var(--border-2); margin-top:auto; }
+
+/* ── Explainer ── */
+.explainer ul, .explainer ol { padding-left:1.5em; }
+
+/* ── Responsive ── */
+@media (max-width:640px) {
+  .tool-wrap { padding:14px 16px 0; }
+  .tool-split { flex-direction:column; }
+  .ctrl { width:100%; border-right:none; border-bottom:1px solid var(--border-2); }
+  .results-col { min-height:300px; }
+  .mobile-more-toggle { display:block; }
+  .advanced-options { display:none; }
+  .advanced-options.is-open { display:block; }
+  .gen-btn { margin-top:0; }
+  .reset-btn, .kbd { display:none; }
+  .practice-word-display { font-size:38px; }
+}
+
+@media print {
+  header,nav,.breadcrumb,.hero,.ctrl,.sw-top-bar,.saved-section,.practice-panel,
+  .explainer,.faq,.who,footer,.ad,[class*="ad-"],.more-tools,.content-wrap { display:none !important; }
+  .word-item { border-top:none; border-bottom:1px solid #e5e7eb; padding:8px 0; break-inside:avoid; }
+  .word-text { font-size:1.1rem; }
+  .word-right { display:none !important; }
+  @page { margin:1.5cm; }
+}
+</style>
+<!-- /SLOT:style -->
+
+<!-- SLOT:hero -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/word-tools/">Word Tools</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Sight Words Generator</span>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-badge">Dolch + Fry · Audio · Practice Mode · Free</div>
+  <h1>Sight Words Generator</h1>
+  <p>Generate sight word lists from the Dolch and Fry collections. Filter by grade level, hear every word read aloud, and drill with Practice Mode — no account, no download, no cost.</p>
+</div>
+<!-- /SLOT:hero -->
