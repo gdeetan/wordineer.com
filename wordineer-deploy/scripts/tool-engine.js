@@ -35,6 +35,7 @@ let fullLoadPromise = null;
 let fullLoadScheduled = false;
 let userGenerated = false;
 let API_KEYS   = { wordnik: '', merriam: '' };
+let PROXY_URL  = '';
 const SC_WORDS_KEY = 'wnr_words_v3';
 function countSyllables(word) {
 word = word.toLowerCase().replace(/[^a-z]/g,'');
@@ -134,17 +135,17 @@ scSet(cKey, null);
 return null;
 }
 async function fetchWordnikWords(type) {
-if (!API_KEYS.wordnik) return [];
+if (!API_KEYS.wordnik && !PROXY_URL) return [];
 const posParam = (type !== 'all' && type !== 'extended' && type !== 'nonenglish' && POS_MAP[type])
   ? `&includePartOfSpeech=${type}` : '';
 const cKey = `wnr_wn_${type}`;
 const hit  = scGet(cKey);
 if (hit) return hit;
 try {
-  const res = await fetch(
-    `https://api.wordnik.com/v4/words.json/randomWords?hasDictionaryDef=true${posParam}&minCorpusCount=5000&limit=20&api_key=${API_KEYS.wordnik}`,
-    { signal: AbortSignal.timeout(5000) }
-  );
+  const url = PROXY_URL
+    ? `${PROXY_URL}?service=wordnik&action=randomWords${posParam}`
+    : `https://api.wordnik.com/v4/words.json/randomWords?hasDictionaryDef=true${posParam}&minCorpusCount=5000&limit=20&api_key=${API_KEYS.wordnik}`;
+  const res = await fetch(url, { signal: AbortSignal.timeout(5000) });
   if (!res.ok) return [];
   const data  = await res.json();
   const words = data.map(d => d.word).filter(w => w && /^[a-z]{3,}$/.test(w));
@@ -153,28 +154,30 @@ try {
 } catch { return []; }
 }
 async function fetchWordnikDef(word) {
-if (!API_KEYS.wordnik) return null;
+if (!API_KEYS.wordnik && !PROXY_URL) return null;
 try {
-  const res = await fetch(
-    `https://api.wordnik.com/v4/word.json/${encodeURIComponent(word)}/definitions?limit=3&sourceDictionaries=all&useCanonical=false&api_key=${API_KEYS.wordnik}`,
-    { signal: AbortSignal.timeout(4000) }
-  );
+  const url = PROXY_URL
+    ? `${PROXY_URL}?service=wordnik&action=define&word=${encodeURIComponent(word)}`
+    : `https://api.wordnik.com/v4/word.json/${encodeURIComponent(word)}/definitions?limit=3&sourceDictionaries=all&useCanonical=false&api_key=${API_KEYS.wordnik}`;
+  const res = await fetch(url, { signal: AbortSignal.timeout(4000) });
   if (!res.ok) return null;
   const data = await res.json();
+  if (PROXY_URL) return data;
   const entry = data?.[0];
   if (!entry?.text) return null;
   return { def: entry.text.replace(/<[^>]+>/g, '').slice(0, 100), pos: entry.partOfSpeech || null };
 } catch { return null; }
 }
 async function fetchMerriamDef(word) {
-if (!API_KEYS.merriam) return null;
+if (!API_KEYS.merriam && !PROXY_URL) return null;
 try {
-  const res = await fetch(
-    `https://www.dictionaryapi.com/api/v3/references/collegiate/json/${encodeURIComponent(word)}?key=${API_KEYS.merriam}`,
-    { signal: AbortSignal.timeout(4000) }
-  );
+  const url = PROXY_URL
+    ? `${PROXY_URL}?service=merriam&action=define&word=${encodeURIComponent(word)}`
+    : `https://www.dictionaryapi.com/api/v3/references/collegiate/json/${encodeURIComponent(word)}?key=${API_KEYS.merriam}`;
+  const res = await fetch(url, { signal: AbortSignal.timeout(4000) });
   if (!res.ok) return null;
   const data = await res.json();
+  if (PROXY_URL) return data;
   const entry = data?.[0];
   if (!entry || typeof entry !== 'object' || !entry.shortdef?.length) return null;
   return { def: entry.shortdef[0].slice(0, 100), pos: entry.fl || null };
@@ -658,6 +661,9 @@ dataUrl:        cfg.dataUrl        || null,
 if (cfg.apiKeys) {
   API_KEYS.wordnik  = cfg.apiKeys.wordnik  || '';
   API_KEYS.merriam  = cfg.apiKeys.merriam  || '';
+}
+if (cfg.dictionaryProxyUrl) {
+  PROXY_URL = cfg.dictionaryProxyUrl;
 }
 render();
 if (config.dataUrl) {
