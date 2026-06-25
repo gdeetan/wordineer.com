@@ -92,7 +92,7 @@ FRY = {
         "sometimes","song","soon","start","state","stop","story","talk","those","thought",
         "together","took","tree","under","until","upon","walk","watch","while","white",
         "without","young","above","across","along","began","being","beside","black","built",
-        "during","early","five","girl","hands","hear","list","map","road"
+        "during","early","five","girl","hands","hear","list","map","road","school"
     ]
 }
 
@@ -121,16 +121,6 @@ entries = []
 
 def add(word, dolch_group, fry_group, fry_rank):
     key = word.lower()
-    if key in seen:
-        e = seen[key]
-        if dolch_group and not e.get("dolch_group"):
-            e["dolch_group"] = dolch_group
-            e["list"] = "both"
-        if fry_group and not e.get("fry_group"):
-            e["fry_group"]  = fry_group
-            e["fry_rank"]   = fry_rank
-            e["list"] = "both"
-        return
     e = {
         "word":        word,
         "list":        "both" if (dolch_group and fry_group) else ("dolch" if dolch_group else "fry"),
@@ -161,6 +151,12 @@ for grp, words in FRY.items():
                 e["fry_group"] = fd["fry_group"]
                 e["fry_rank"]  = fd["fry_rank"]
                 e["list"] = "both" if e.get("dolch_group") else "fry"
+
+# Sanity-check source list sizes
+dolch_total = sum(len(v) for v in DOLCH.values())
+fry_total   = sum(len(v) for v in FRY.values())
+assert fry_total == 300, f"Expected 300 Fry words, got {fry_total}"
+print(f"Source counts — Dolch: {dolch_total}, Fry: {fry_total}")
 
 out_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../wordineer-deploy/data/sight-words-data.json")
 with open(out_path, "w") as f:
