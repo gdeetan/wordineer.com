@@ -394,7 +394,7 @@ button.faq-q { appearance:none; -webkit-appearance:none; background:none; border
             <input type="number" id="ctrl-count" value="15" min="5" max="50">
           </div>
 
-          <div class="ctrl-row">
+          <div class="ctrl-row" style="margin-top:10px;">
             <div class="toggle-row">
               <label class="toggle" aria-label="Show list label"><input type="checkbox" id="ctrl-badge" checked><span class="toggle-sl"></span></label>
               <label for="ctrl-badge">Show list label</label>
@@ -956,7 +956,12 @@ button.faq-q { appearance:none; -webkit-appearance:none; background:none; border
         self.generate();
       });
       document.getElementById('ctrl-group').addEventListener('change', function () { self.generate(); });
-      document.getElementById('ctrl-badge').addEventListener('change', function () { self.generate(); });
+      document.getElementById('ctrl-badge').addEventListener('change', function () {
+        var show = this.checked;
+        document.querySelectorAll('#sw-list .word-badge').forEach(function (el) {
+          el.style.display = show ? '' : 'none';
+        });
+      });
       document.getElementById('ctrl-count').addEventListener('input', function () {
         clearTimeout(self._countTimer);
         self._countTimer = setTimeout(function () { self.generate(); }, 350);
