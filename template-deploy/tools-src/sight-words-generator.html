@@ -191,3 +191,109 @@
   <p>Generate sight word lists from the Dolch and Fry collections. Filter by grade level, hear every word read aloud, and drill with Practice Mode — no account, no download, no cost.</p>
 </div>
 <!-- /SLOT:hero -->
+
+<!-- SLOT:tool -->
+<div class="tool-wrap">
+  <div class="tool-card">
+    <div class="tool-split">
+
+      <!-- Controls -->
+      <div class="ctrl">
+        <div class="ctrl-row">
+          <label class="ctrl-label" for="ctrl-list">Word List</label>
+          <select id="ctrl-list">
+            <option value="all">All Lists</option>
+            <option value="dolch">Dolch</option>
+            <option value="fry">Fry</option>
+          </select>
+        </div>
+
+        <div class="ctrl-row">
+          <label class="ctrl-label" for="ctrl-group">Grade / Group</label>
+          <select id="ctrl-group">
+            <option value="all">All Grades &amp; Groups</option>
+            <option value="pre-k">Dolch Pre-K</option>
+            <option value="kindergarten">Dolch Kindergarten</option>
+            <option value="1st">Dolch 1st Grade</option>
+            <option value="2nd">Dolch 2nd Grade</option>
+            <option value="3rd">Dolch 3rd Grade</option>
+            <option value="nouns">Dolch Nouns</option>
+            <option value="1-100">Fry Words 1–100</option>
+            <option value="101-200">Fry Words 101–200</option>
+            <option value="201-300">Fry Words 201–300</option>
+          </select>
+        </div>
+
+        <button class="mobile-more-toggle" id="mobile-more-toggle" aria-expanded="false">More Options</button>
+
+        <div class="advanced-options" id="advanced-options">
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="ctrl-count">Number of words</label>
+            <input type="number" id="ctrl-count" value="15" min="5" max="50">
+          </div>
+
+          <div class="ctrl-row">
+            <div class="toggle-row">
+              <input type="checkbox" id="ctrl-badge" checked>
+              <label for="ctrl-badge">Show list label</label>
+            </div>
+          </div>
+        </div>
+
+        <button class="gen-btn" id="sw-gen-btn">Generate</button>
+        <button class="reset-btn" id="sw-reset-btn">Reset</button>
+        <div class="kbd">Press <kbd>Space</kbd> to regenerate</div>
+      </div>
+
+      <!-- Results -->
+      <div class="results-col">
+        <!-- Normal list view -->
+        <div id="sw-list-view">
+          <div class="sw-top-bar">
+            <span class="sw-count" id="sw-count">15 words</span>
+            <button class="act-btn primary" id="sw-practice-btn">Practice Mode</button>
+            <button class="act-btn" id="sw-copy-all">Copy All</button>
+            <button class="act-btn" id="sw-print-btn">Print</button>
+          </div>
+          <ul class="sw-list" id="sw-list" aria-live="polite"></ul>
+        </div>
+
+        <!-- Practice Mode -->
+        <div class="practice-panel" id="sw-practice-panel" style="display:none;">
+          <div class="practice-header">
+            <button class="act-btn" id="sw-exit-practice">← Exit Practice</button>
+            <span class="practice-progress" id="practice-progress">1 of 15</span>
+          </div>
+          <div class="practice-word-area">
+            <div class="practice-word-display" id="practice-word-display"></div>
+            <div class="practice-badge word-badge" id="practice-badge" style="display:none;"></div>
+            <div class="practice-actions">
+              <button class="act-btn" id="practice-hear">Hear Word</button>
+            </div>
+          </div>
+          <div class="practice-nav">
+            <button class="act-btn" id="practice-prev">← Prev</button>
+            <button class="act-btn" id="practice-next">Next →</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Saved words section -->
+    <div class="saved-section hidden" id="saved-section">
+      <div class="saved-title">
+        Saved words <span id="saved-count">(0)</span>
+      </div>
+      <div class="saved-chips" id="saved-chips"></div>
+      <div class="saved-actions">
+        <button class="act-btn" id="sw-copy-saved">Copy Saved</button>
+        <button class="act-btn" id="sw-clear-saved">Clear All</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /SLOT:tool -->
+
+<!-- SLOT:ad_b -->
+<!-- /SLOT:ad_b -->
