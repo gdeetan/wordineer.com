@@ -165,12 +165,12 @@
 <link rel="stylesheet" href="/styles/global.css?v=9">
 <style>
 /* ── Tool layout ── */
-.tool-wrap  { padding:20px 24px 0; }
-.tool-card  { background:var(--bg-2); border:1px solid var(--border); border-radius:14px; overflow:hidden; }
+.tool-wrap  { max-width:960px; margin:0 auto; padding:20px 24px 0; }
+.tool-card  { background:var(--bg); border:1px solid var(--border); border-radius:14px; overflow:hidden; box-shadow:var(--shadow); }
 .tool-split { display:flex; min-height:480px; }
 
 /* ── Controls ── */
-.ctrl { width:220px; min-width:180px; padding:20px 18px; border-right:1px solid var(--border-2); display:flex; flex-direction:column; gap:14px; }
+.ctrl { width:220px; min-width:180px; padding:20px 18px; border-right:1px solid var(--border-2); background:var(--bg-2); display:flex; flex-direction:column; gap:14px; }
 .ctrl-label { font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:var(--text-3); display:block; margin-bottom:4px; }
 .ctrl-row   { display:flex; flex-direction:column; }
 .ctrl select, .ctrl input[type="number"] {
@@ -183,6 +183,12 @@
 .ctrl input[type="number"] { background-image:none; }
 .ctrl input[type="checkbox"] { width:auto; }
 .toggle-row { display:flex; align-items:center; gap:8px; font-size:13px; color:var(--text-2); }
+.toggle     { position:relative; width:32px; height:18px; flex-shrink:0; }
+.toggle input { opacity:0; width:0; height:0; }
+.toggle-sl  { position:absolute; cursor:pointer; inset:0; background:var(--border); border-radius:9px; transition:.2s; }
+.toggle input:checked + .toggle-sl { background:var(--brand); }
+.toggle-sl::before { content:''; position:absolute; width:14px; height:14px; left:2px; top:2px; background:white; border-radius:50%; transition:.2s; }
+.toggle input:checked + .toggle-sl::before { transform:translateX(14px); }
 .gen-btn  { padding:10px 16px; background:var(--brand); color:#fff; border:none; border-radius:9px; font-size:14px; font-weight:600; font-family:inherit; cursor:pointer; transition:background .15s; }
 .gen-btn:hover { background:var(--brand-dark); }
 .reset-btn { padding:7px 12px; background:var(--bg-3,#f3f4f6); color:var(--text-2); border:1px solid var(--border); border-radius:8px; font-size:12px; font-family:inherit; cursor:pointer; }
@@ -231,6 +237,9 @@
 .practice-badge { font-size:12px; padding:3px 10px; border-radius:99px; }
 .practice-actions { display:flex; gap:8px; }
 .practice-nav { display:flex; gap:10px; justify-content:center; padding:16px; border-top:1px solid var(--border-2); margin-top:auto; }
+
+/* ── FAQ button reset ── */
+button.faq-q { appearance:none; -webkit-appearance:none; background:none; border:none; padding:0; width:100%; text-align:left; cursor:pointer; font:inherit; color:inherit; }
 
 /* ── Explainer ── */
 .explainer ul, .explainer ol { padding-left:1.5em; }
@@ -385,9 +394,9 @@
             <input type="number" id="ctrl-count" value="15" min="5" max="50">
           </div>
 
-          <div class="ctrl-row">
+          <div class="ctrl-row" style="margin-top:10px;">
             <div class="toggle-row">
-              <input type="checkbox" id="ctrl-badge" checked>
+              <label class="toggle" aria-label="Show list label"><input type="checkbox" id="ctrl-badge" checked><span class="toggle-sl"></span></label>
               <label for="ctrl-badge">Show list label</label>
             </div>
           </div>
@@ -607,7 +616,7 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="/scripts/tool-engine.js?v=25"></script>
+<script src="/scripts/tool-engine.js?v=26"></script>
 <script>
 (function bindSharedWordineerMenu() {
   const mega = document.getElementById('mega');
@@ -947,7 +956,16 @@
         self.generate();
       });
       document.getElementById('ctrl-group').addEventListener('change', function () { self.generate(); });
-      document.getElementById('ctrl-badge').addEventListener('change', function () { self.generate(); });
+      document.getElementById('ctrl-badge').addEventListener('change', function () {
+        var show = this.checked;
+        document.querySelectorAll('#sw-list .word-badge').forEach(function (el) {
+          el.style.display = show ? '' : 'none';
+        });
+      });
+      document.getElementById('ctrl-count').addEventListener('input', function () {
+        clearTimeout(self._countTimer);
+        self._countTimer = setTimeout(function () { self.generate(); }, 350);
+      });
 
       document.addEventListener('keydown', function (e) {
         if (e.code !== 'Space') return;
