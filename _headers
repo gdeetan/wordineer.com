@@ -1,4 +1,4 @@
-# Netlify _headers — controls caching and compression
+# Cloudflare Pages _headers — controls caching and compression
 
 # Fonts: cache for 1 year (content-hashed filenames never change)
 /fonts/*
@@ -11,13 +11,19 @@
   Content-Type: application/json; charset=utf-8
   Vary: Accept-Encoding
 
-# tool-engine.js: cache for 1 day
-/scripts/tool-engine.js
-  Cache-Control: public, max-age=86400, stale-while-revalidate=3600
+# names.json: cache for 7 days, serve stale for 1 day while revalidating
+/data/names.json
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+  Content-Type: application/json; charset=utf-8
+  Vary: Accept-Encoding
 
-# CSS: cache for 1 day
+# Scripts: cache for 1 year — bump ?v= param in HTML when files change
+/scripts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# CSS: cache for 1 year — bump ?v= param in HTML when file changes
 /styles/*
-  Cache-Control: public, max-age=86400, stale-while-revalidate=3600
+  Cache-Control: public, max-age=31536000, immutable
 
 # HTML pages: short cache so updates land quickly
 /*.html
