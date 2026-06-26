@@ -258,7 +258,30 @@
 
 @media print {
   header,nav,.breadcrumb,.hero,.ctrl,.sw-top-bar,.saved-section,.practice-panel,
-  .explainer,.faq,.who,footer,.ad,[class*="ad-"],.more-tools,.content-wrap { display:none !important; }
+  .explainer,.faq,.who,footer,.ad,[class*="ad-"],.more-tools,.content-wrap,.grade-nav { display:none !important; }
+
+  .print-header { display:flex !important; flex-direction:column; align-items:center; text-align:center; margin-bottom:20px; padding-bottom:14px; border-bottom:2px solid #3C3489; }
+  .print-logo-wrap { display:flex; align-items:center; gap:9px; margin-bottom:4px; }
+  .print-logo-icon { width:34px; height:34px; background:#3C3489; border-radius:9px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .print-logo-icon svg { width:18px; height:18px; }
+  .print-logo-name { font-size:22px; font-weight:700; color:#3C3489; letter-spacing:-.02em; }
+  .print-page-title { font-size:13px; color:#888; margin-top:2px; }
+
+  .tool-wrap { padding:0 !important; }
+  .tool-card { border:none !important; box-shadow:none !important; }
+  .tool-split { display:block !important; }
+  .sw-list { display:grid !important; grid-template-columns:repeat(4,1fr); gap:10px; padding:0 !important; overflow:visible !important; }
+  .word-item { display:flex !important; align-items:center; justify-content:center; text-align:center; border:none !important; border-radius:12px; padding:18px 8px !important; break-inside:avoid; }
+  .word-item:nth-child(5n+1) { background:#ede9fe; }
+  .word-item:nth-child(5n+2) { background:#dbeafe; }
+  .word-item:nth-child(5n+3) { background:#fce7f3; }
+  .word-item:nth-child(5n+4) { background:#d1fae5; }
+  .word-item:nth-child(5n+5) { background:#fef3c7; }
+  .word-left { justify-content:center; }
+  .word-text { font-size:22pt !important; font-weight:700 !important; color:#1a1a2e !important; }
+  .word-badge,.word-right { display:none !important; }
+  @page { margin:1.5cm; }
+}
   .word-item { border-top:none; border-bottom:1px solid #e5e7eb; padding:8px 0; break-inside:avoid; }
   .word-text { font-size:1.1rem; }
   .word-right { display:none !important; }
@@ -673,6 +696,10 @@
 
 <script>
 (function () {
+  // Set print page title from document title
+  var _pt = document.getElementById('print-page-title');
+  if (_pt) { _pt.textContent = document.title.replace(/\s*[\u2014\u2013-].*$/, '').trim(); }
+
   function he(s) { return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 
   var DOLCH_GROUPS = ['pre-k','kindergarten','1st','2nd','3rd','nouns'];
