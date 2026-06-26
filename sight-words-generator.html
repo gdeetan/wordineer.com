@@ -387,7 +387,7 @@
           </select>
         </div>
 
-        <button class="mobile-more-toggle" id="mobile-more-toggle" aria-expanded="false">More Options</div>
+        <button class="mobile-more-toggle" id="mobile-more-toggle" aria-expanded="false">More Options</button>
 
         <div class="advanced-options" id="advanced-options">
           <div class="ctrl-row">
@@ -403,8 +403,8 @@
           </div>
         </div>
 
-        <button class="gen-btn" id="sw-gen-btn">Generate</div>
-        <button class="reset-btn" id="sw-reset-btn">Reset</div>
+        <button class="gen-btn" id="sw-gen-btn">Generate</button>
+        <button class="reset-btn" id="sw-reset-btn">Reset</button>
         <div class="kbd">Press <kbd>Space</kbd> to regenerate</div>
       </div>
 
@@ -414,9 +414,9 @@
         <div id="sw-list-view">
           <div class="sw-top-bar">
             <span class="sw-count" id="sw-count">15 words</span>
-            <button class="act-btn primary" id="sw-practice-btn">Practice Mode</div>
-            <button class="act-btn" id="sw-copy-all">Copy All</div>
-            <button class="act-btn" id="sw-print-btn">Print</div>
+            <button class="act-btn primary" id="sw-practice-btn">Practice Mode</button>
+            <button class="act-btn" id="sw-copy-all">Copy All</button>
+            <button class="act-btn" id="sw-print-btn">Print</button>
           </div>
           <ul class="sw-list" id="sw-list" aria-live="polite"></ul>
         </div>
@@ -424,19 +424,19 @@
         <!-- Practice Mode -->
         <div class="practice-panel" id="sw-practice-panel" style="display:none;">
           <div class="practice-header">
-            <button class="act-btn" id="sw-exit-practice">← Exit Practice</div>
+            <button class="act-btn" id="sw-exit-practice">← Exit Practice</button>
             <span class="practice-progress" id="practice-progress">1 of 15</span>
           </div>
           <div class="practice-word-area">
             <div class="practice-word-display" id="practice-word-display"></div>
             <div class="practice-badge word-badge" id="practice-badge" style="display:none;"></div>
             <div class="practice-actions">
-              <button class="act-btn" id="practice-hear">Hear Word</div>
+              <button class="act-btn" id="practice-hear">Hear Word</button>
             </div>
           </div>
           <div class="practice-nav">
-            <button class="act-btn" id="practice-prev">← Prev</div>
-            <button class="act-btn" id="practice-next">Next →</div>
+            <button class="act-btn" id="practice-prev">← Prev</button>
+            <button class="act-btn" id="practice-next">Next →</button>
           </div>
         </div>
       </div>
@@ -450,8 +450,8 @@
       </div>
       <div class="saved-chips" id="saved-chips"></div>
       <div class="saved-actions">
-        <button class="act-btn" id="sw-copy-saved">Copy Saved</div>
-        <button class="act-btn" id="sw-clear-saved">Clear All</div>
+        <button class="act-btn" id="sw-copy-saved">Copy Saved</button>
+        <button class="act-btn" id="sw-clear-saved">Clear All</button>
       </div>
     </div>
   </div>
@@ -885,7 +885,7 @@
       section.classList.remove('hidden');
       countEl.textContent = '(' + this.saved.length + ')';
       chips.innerHTML = this.saved.map(function (w) {
-        return '<span class="saved-chip">' + he(w) + '<button aria-label="Remove ' + he(w) + '" data-word="' + he(w) + '">×</div></span>';
+        return '<span class="saved-chip">' + he(w) + '<button aria-label="Remove ' + he(w) + '" data-word="' + he(w) + '">×</button></span>';
       }).join('');
       [].slice.call(chips.querySelectorAll('button')).forEach(function (btn) {
         btn.addEventListener('click', function () { self.toggleSave(this.dataset.word, null); });
