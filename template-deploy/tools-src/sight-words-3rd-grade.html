@@ -1,0 +1,735 @@
+<!-- CONFIG
+{
+  "url": "/sight-words-3rd-grade/",
+  "output": "sight-words-3rd-grade.html",
+  "type": "tool",
+  "more_tools_key": "sight_words_tools",
+  "more_tools_title": "More sight words tools",
+  "more_tools_subtitle": "Grade-by-grade Dolch and Fry practice"
+}
+-->
+
+<!-- SLOT:meta -->
+<title>Third Grade Sight Words — Dolch List with Audio &amp; Practice Mode | Wordineer</title>
+<meta name="description" content="All 41 Dolch Third Grade sight words with audio pronunciation and Practice Mode. The final Dolch grade band — drill, save, and print. Free, no login.">
+<meta property="og:title" content="Third Grade Sight Words — Dolch List with Audio &amp; Practice Mode | Wordineer">
+<meta property="og:description" content="All 41 Dolch Third Grade sight words with audio and Practice Mode. Free, no login required.">
+<meta property="og:url" content="https://wordineer.com/sight-words-3rd-grade/">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://wordineer.com/sight-words-3rd-grade/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Third Grade Sight Words",
+  "url": "https://wordineer.com/sight-words-3rd-grade/",
+  "description": "Practice all 41 Dolch Third Grade sight words with audio pronunciation and Practice Mode. Free, no login required.",
+  "applicationCategory": "EducationApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Word Tools", "item": "https://wordineer.com/word-tools/" },
+    { "@type": "ListItem", "position": 3, "name": "Sight Words Generator", "item": "https://wordineer.com/sight-words-generator/" },
+    { "@type": "ListItem", "position": 4, "name": "Third Grade", "item": "https://wordineer.com/sight-words-3rd-grade/" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do 3rd graders still need to practice sight words?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes — the 3rd grade Dolch list has 41 words including some with irregular pronunciations ('laugh,' 'eight,' 'shall') that trip kids up even at this level. It's also worth checking for gaps in earlier lists. A full Dolch diagnostic at the start of 3rd grade often reveals a handful of words from kindergarten or 1st grade that were never fully automated." }
+    },
+    {
+      "@type": "Question",
+      "name": "How many Dolch words should a 3rd grader know total?",
+      "acceptedAnswer": { "@type": "Answer", "text": "All 220 Dolch service words — the complete Pre-K through 3rd Grade set. That's 40 + 52 + 41 + 46 + 41. After 3rd grade, most programs shift to the Fry list for continued vocabulary development." }
+    },
+    {
+      "@type": "Question",
+      "name": "What comes after the Dolch 3rd grade list?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The Fry list. Change the List filter in this generator to 'Fry' and start with the 1–100 group. The first 300 Fry words overlap significantly with Dolch, so the transition is gradual. Fry continues to 1,000 words and covers academic vocabulary useful through 9th grade." }
+    },
+    {
+      "@type": "Question",
+      "name": "My 3rd grader reads fine but misspells sight words. Is that normal?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes, it's common. Reading recognition and spelling are separate skills. By 3rd grade, spelling sight words correctly in writing is a reasonable expectation — practice both reading with this tool and writing words by hand separately. If 'laugh' is spelled 'laf' or 'together' is spelled 'togeather,' those words need spelling-specific practice, not just reading drill." }
+    },
+    {
+      "@type": "Question",
+      "name": "How do sight words connect to reading fluency in 3rd grade?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Third grade is when phrase-level reading typically develops — when kids stop reading word by word and start reading in chunks. Sight word automaticity is a prerequisite for that shift. Any word that still causes hesitation acts as a speed bump in every sentence it appears in, preventing the fluent phrasing that makes comprehension easier." }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I move my 3rd grader to the Fry list?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Once all 220 Dolch words are solid, yes. Run a quick diagnostic across all five Dolch grade groups first — any hesitation is worth addressing before moving on. When everything looks automatic, switch the List filter to 'Fry' and start with 1–100." }
+    }
+  ]
+}
+</script>
+<!-- /SLOT:meta -->
+
+<!-- SLOT:style -->
+<style>
+.word-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0 28px;
+}
+.word-chip {
+  background: var(--surface-2, #f0f0f8);
+  border: 1px solid var(--border, #e5e5ea);
+  border-radius: 6px;
+  padding: 5px 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-1);
+  letter-spacing: .01em;
+}
+.grade-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin: 0 0 36px;
+  font-size: 13px;
+}
+.grade-nav-label {
+  color: var(--text-3, #aaa);
+  margin-right: 2px;
+}
+.grade-nav a {
+  padding: 4px 12px;
+  border-radius: 20px;
+  text-decoration: none;
+  background: var(--surface-2, #f0f0f8);
+  color: var(--text-2);
+  border: 1px solid var(--border, #e5e5ea);
+  transition: background .15s;
+}
+.grade-nav a:hover { background: var(--surface-3, #e8e8f0); }
+.grade-nav-current {
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: #3C3489;
+  color: #fff;
+  font-weight: 600;
+  font-size: 13px;
+}
+.explainer h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 22px;
+  font-weight: 400;
+  margin: 36px 0 10px;
+  color: var(--text);
+}
+.explainer p, .explainer li {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--text-2);
+  margin: 0 0 14px;
+}
+.explainer ul, .explainer ol {
+  padding-left: 20px;
+  margin: 0 0 16px;
+}
+.explainer li { margin: 0 0 8px; }
+.explainer strong { color: var(--text-1); }
+@media (max-width: 600px) {
+  .results-col { min-height: 300px; }
+  .mobile-more-toggle { display: block; }
+  .advanced-options { display: none; }
+  .advanced-options.is-open { display: block; }
+  .gen-btn { margin-top: 0; }
+  .reset-btn, .kbd { display: none; }
+  .practice-word-display { font-size: 36px; }
+}
+@media print {
+  header, nav, .breadcrumb, .hero, .ctrl, .sw-top-bar, .saved-section, .practice-panel, .explainer, .faq, .who, footer, .ad, [class*="ad-"], .more-tools, .grade-nav { display: none !important; }
+  .word-item { border-top: none; border-bottom: 1px solid #e5e7eb; padding: 8px 0; break-inside: avoid; }
+  .word-text { font-size: 1.1rem; }
+  @page { margin: 1.5cm; }
+}
+</style>
+<!-- /SLOT:style -->
+
+<!-- SLOT:hero -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/word-tools/">Word Tools</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/sight-words-generator/">Sight Words Generator</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">3rd Grade</span>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-badge">41 Words · Audio · Practice Mode · Free</div>
+  <h1>Third Grade Sight Words</h1>
+  <p>The final Dolch grade band — 41 words that complete the 220-word service vocabulary every fluent reader should have automatic. Drill with audio and Practice Mode, check for gaps in earlier grades, and build toward independent reading. No account needed.</p>
+</div>
+<!-- /SLOT:hero -->
+
+<!-- SLOT:tool -->
+<div class="tool-wrap">
+  <div class="tool-card">
+    <div class="tool-split">
+
+      <!-- Controls -->
+      <div class="ctrl">
+        <div class="ctrl-row">
+          <label class="ctrl-label" for="ctrl-list">Word List</label>
+          <select id="ctrl-list">
+            <option value="all">All Lists</option>
+            <option value="dolch">Dolch</option>
+            <option value="fry">Fry</option>
+          </select>
+        </div>
+
+        <div class="ctrl-row">
+          <label class="ctrl-label" for="ctrl-group">Grade / Group</label>
+          <select id="ctrl-group">
+            <option value="all">All Grades &amp; Groups</option>
+            <option value="pre-k">Dolch Pre-K</option>
+            <option value="kindergarten">Dolch Kindergarten</option>
+            <option value="1st">Dolch 1st Grade</option>
+            <option value="2nd">Dolch 2nd Grade</option>
+            <option value="3rd">Dolch 3rd Grade</option>
+            <option value="nouns">Dolch Nouns</option>
+            <option value="1-100">Fry Words 1–100</option>
+            <option value="101-200">Fry Words 101–200</option>
+            <option value="201-300">Fry Words 201–300</option>
+          </select>
+        </div>
+
+        <button class="mobile-more-toggle" id="mobile-more-toggle" aria-expanded="false">More Options</button>
+
+        <div class="advanced-options" id="advanced-options">
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="ctrl-count">Number of words</label>
+            <input type="number" id="ctrl-count" value="15" min="5" max="50">
+          </div>
+
+          <div class="ctrl-row" style="margin-top:10px;">
+            <div class="toggle-row">
+              <label class="toggle" aria-label="Show list label"><input type="checkbox" id="ctrl-badge" checked><span class="toggle-sl"></span></label>
+              <label for="ctrl-badge">Show list label</label>
+            </div>
+          </div>
+        </div>
+
+        <button class="gen-btn" id="sw-gen-btn">Generate</button>
+        <button class="reset-btn" id="sw-reset-btn">Reset</button>
+        <div class="kbd">Press <kbd>Space</kbd> to regenerate</div>
+      </div>
+
+      <!-- Results -->
+      <div class="results-col">
+        <!-- Normal list view -->
+        <div id="sw-list-view">
+          <div class="sw-top-bar">
+            <span class="sw-count" id="sw-count">15 words</span>
+            <button class="act-btn primary" id="sw-practice-btn">Practice Mode</button>
+            <button class="act-btn" id="sw-copy-all">Copy All</button>
+            <button class="act-btn" id="sw-print-btn">Print</button>
+          </div>
+          <ul class="sw-list" id="sw-list" aria-live="polite"></ul>
+        </div>
+
+        <!-- Practice Mode -->
+        <div class="practice-panel" id="sw-practice-panel" style="display:none;">
+          <div class="practice-header">
+            <button class="act-btn" id="sw-exit-practice">← Exit Practice</button>
+            <span class="practice-progress" id="practice-progress">1 of 15</span>
+          </div>
+          <div class="practice-word-area">
+            <div class="practice-word-display" id="practice-word-display"></div>
+            <div class="practice-badge word-badge" id="practice-badge" style="display:none;"></div>
+            <div class="practice-actions">
+              <button class="act-btn" id="practice-hear">Hear Word</button>
+            </div>
+          </div>
+          <div class="practice-nav">
+            <button class="act-btn" id="practice-prev">← Prev</button>
+            <button class="act-btn" id="practice-next">Next →</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Saved words section -->
+    <div class="saved-section hidden" id="saved-section">
+      <div class="saved-title">
+        Saved words <span id="saved-count">(0)</span>
+      </div>
+      <div class="saved-chips" id="saved-chips"></div>
+      <div class="saved-actions">
+        <button class="act-btn" id="sw-copy-saved">Copy Saved</button>
+        <button class="act-btn" id="sw-clear-saved">Clear All</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /SLOT:tool -->
+
+<!-- SLOT:ad_b -->
+<!-- /SLOT:ad_b -->
+
+<!-- SLOT:explainer -->
+<div class="explainer">
+
+  <div class="grade-nav">
+    <span class="grade-nav-label">Grade:</span>
+    <a href="/sight-words-generator/">All Grades</a>
+    <a href="/sight-words-kindergarten/">Kindergarten</a>
+    <a href="/sight-words-1st-grade/">1st Grade</a>
+    <a href="/sight-words-2nd-grade/">2nd Grade</a>
+    <span class="grade-nav-current">3rd Grade</span>
+  </div>
+
+  <h2>All 41 Dolch Third Grade Sight Words</h2>
+  <div class="word-chips">
+    <span class="word-chip">about</span><span class="word-chip">better</span><span class="word-chip">bring</span><span class="word-chip">carry</span><span class="word-chip">clean</span><span class="word-chip">cut</span><span class="word-chip">done</span><span class="word-chip">draw</span><span class="word-chip">drink</span><span class="word-chip">eight</span><span class="word-chip">fall</span><span class="word-chip">far</span><span class="word-chip">full</span><span class="word-chip">got</span><span class="word-chip">grow</span><span class="word-chip">hold</span><span class="word-chip">hot</span><span class="word-chip">hurt</span><span class="word-chip">if</span><span class="word-chip">keep</span><span class="word-chip">kind</span><span class="word-chip">laugh</span><span class="word-chip">light</span><span class="word-chip">long</span><span class="word-chip">much</span><span class="word-chip">myself</span><span class="word-chip">never</span><span class="word-chip">only</span><span class="word-chip">own</span><span class="word-chip">pick</span><span class="word-chip">seven</span><span class="word-chip">shall</span><span class="word-chip">show</span><span class="word-chip">six</span><span class="word-chip">small</span><span class="word-chip">start</span><span class="word-chip">ten</span><span class="word-chip">today</span><span class="word-chip">together</span><span class="word-chip">try</span><span class="word-chip">warm</span>
+  </div>
+
+  <h2>Third grade sight words: the final Dolch group</h2>
+  <p>The Dolch 3rd Grade list is the last grade band in the Dolch system. After these 41 words, most reading programs shift to the Fry list or to subject-area vocabulary. Completing all 220 Dolch service words means a child has automatic recognition of the most common words in the English language — the words that make up the backbone of nearly everything they'll read through elementary school and beyond.</p>
+  <p>Some of these words have irregular pronunciations that trip kids up even in 3rd grade: "laugh" sounds nothing like it looks; "eight" has a silent combination that defies phonics rules; "shall" is uncommon enough in spoken language that many kids haven't heard it often. These aren't words to gloss over because they seem basic — a 3rd grader who hesitates on "laugh" mid-sentence is still not automatic on that word.</p>
+  <p>Third grade is also the year when most kids hit a critical inflection point in reading. They start reading in phrases rather than word by word, and comprehension deepens as a result. Sight word automaticity is a prerequisite for that shift — if any of the 220 Dolch words are still causing hesitation, they act as speed bumps in every page of text.</p>
+
+  <h2>How many sight words should a 3rd grader know?</h2>
+  <p>By June of 3rd grade: all 220 Dolch service words — the complete cumulative set from Pre-K through 3rd Grade. These 41 words plus all 179 from earlier grades. Every one of them should be automatic: under two seconds, no sounding out, no visible effort in continuous text.</p>
+  <p>Before drilling 3rd grade words, it's worth running a diagnostic across all earlier Dolch groups. Use the grade filter in this generator to check Pre-K, Kindergarten, 1st, and 2nd grade words one group at a time. Save any word that produces hesitation, regardless of the grade it came from. A gap in the kindergarten list is just as worth fixing in 3rd grade as a gap in the 3rd grade list.</p>
+  <p>After the 220 Dolch words are solid, the Fry list is the natural next step. The first 300 Fry words overlap heavily with Dolch, but Fry continues to 1,000 words and covers more academic vocabulary. Change the List filter in this generator to "Fry" to begin that progression.</p>
+
+  <h2>Teaching 3rd grade sight words</h2>
+  <p>By 3rd grade, the methods matter less than the consistency. Kids this age can practice more independently — Practice Mode works well as a self-directed drill. The main shifts at this level:</p>
+  <ul>
+    <li><strong>Transfer to writing.</strong> Can they spell these words correctly in their own writing? By 3rd grade, that's a fair expectation. If a child writes "laff" for "laugh" or "togeather" for "together," the word isn't fully integrated. Practice spelling them by hand, not just reading recognition.</li>
+    <li><strong>Reading in longer text.</strong> By 3rd grade, kids should be reading chapter books. The test is in that context: do sight words flow by invisibly, or do they slow the reading? A child who reads fluently in a chapter book has these words automatic. One who still sounds out "because" or "together" doesn't, regardless of how they perform on isolated drills.</li>
+    <li><strong>Watch for cumulative gaps.</strong> Run a full Dolch diagnostic periodically — all five grade groups. Gaps from kindergarten or 1st grade can still be present in 3rd grade, especially for kids who moved schools or had inconsistent instruction. They're worth finding and fixing.</li>
+    <li><strong>Irregular pronunciations explicitly.</strong> "Laugh," "eight," "shall," "light" — go over these deliberately, because phonics won't get a child there. Name the irregularity: "this one breaks the rules — 'laugh' sounds like 'laff.'" Naming it makes it easier to remember.</li>
+  </ul>
+
+  <h2>A 4-week plan for 3rd graders</h2>
+  <p><strong>Week 1:</strong> Full Dolch diagnostic. All 220 words, all five grade groups, one at a time. Save every hesitation. The work list you build here is more valuable than the 3rd grade list alone.</p>
+  <p><strong>Week 2:</strong> Drill all saved words with a mix of generator sessions and Practice Mode. Include words from all grades — don't only work on 3rd grade words if earlier ones came up in the diagnostic.</p>
+  <p><strong>Week 3:</strong> Reading in context. Pick a chapter book your child is currently in and track fluency. Are sight words stopping them? Which ones? Add those to the saved list if they aren't already there.</p>
+  <p><strong>Week 4:</strong> Final speed run. Go through all 220 Dolch words in the generator on random shuffle across all grades. Any remaining hesitations become the targeted list for the next month. Begin introducing Fry words 1–100 for any student who's fully solid on all Dolch groups.</p>
+
+  <h2>How to use this generator</h2>
+  <p>This tool is pre-set to Dolch 3rd Grade. Change the grade filter anytime — checking earlier Dolch groups is worth doing regularly at this level. Generate a random set and hear words aloud with the speaker icon. Save trouble words with the heart; they persist between sessions. Practice Mode is useful for independent drilling once your child is comfortable running it themselves. Print any list directly from the browser for a take-home sheet or classroom reference.</p>
+
+</div>
+<!-- /SLOT:explainer -->
+
+<!-- SLOT:faq -->
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+
+  <div class="faq-item open">
+    <button class="faq-q"><span class="faq-q-text">Do 3rd graders still need to practice sight words?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+    <div class="faq-a">Yes — the 3rd grade Dolch list has 41 words including some with irregular pronunciations ("laugh," "eight," "shall") that trip kids up even at this level. It's also worth checking for gaps in earlier lists. A full Dolch diagnostic at the start of 3rd grade often reveals a handful of words from kindergarten or 1st grade that were never fully automated.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q"><span class="faq-q-text">How many Dolch words should a 3rd grader know total?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+    <div class="faq-a">All 220 Dolch service words — the complete Pre-K through 3rd Grade set. That's 40 + 52 + 41 + 46 + 41. After 3rd grade, most programs shift to the Fry list for continued vocabulary development.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q"><span class="faq-q-text">What comes after the Dolch 3rd grade list?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+    <div class="faq-a">The Fry list. Change the List filter in this generator to "Fry" and start with the 1–100 group. The first 300 Fry words overlap significantly with Dolch, so the transition is gradual. Fry continues to 1,000 words and covers academic vocabulary useful through 9th grade.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q"><span class="faq-q-text">My 3rd grader reads fine but misspells sight words. Is that normal?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+    <div class="faq-a">Yes, it's common. Reading recognition and spelling are separate skills. By 3rd grade, spelling sight words correctly in writing is a reasonable expectation — practice both reading with this tool and writing words by hand separately. If "laugh" is spelled "laf" or "together" is spelled "togeather," those words need spelling-specific practice, not just reading drill.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q"><span class="faq-q-text">How do sight words connect to reading fluency in 3rd grade?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+    <div class="faq-a">Third grade is when phrase-level reading typically develops — when kids stop reading word by word and start reading in chunks. Sight word automaticity is a prerequisite for that shift. Any word that still causes hesitation acts as a speed bump in every sentence it appears in, preventing the fluent phrasing that makes comprehension easier.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q"><span class="faq-q-text">Should I move my 3rd grader to the Fry list?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+    <div class="faq-a">Once all 220 Dolch words are solid, yes. Run a quick diagnostic across all five Dolch grade groups first — any hesitation is worth addressing before moving on. When everything looks automatic, switch the List filter to "Fry" and start with 1–100.</div>
+  </div>
+</div>
+<!-- /SLOT:faq -->
+
+<!-- SLOT:who -->
+<div class="who">
+  <h2>Who uses this tool?</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">Parents of 3rd Graders</div><div class="uc-body">Supporting a child making the transition to independent reading and chapter books. Run a full Dolch diagnostic at the start of the year, drill any gaps, and use Practice Mode as a quick daily check-in — five minutes, consistent.</div></div>
+    <div class="uc"><div class="uc-title">3rd Grade Teachers</div><div class="uc-body">Run grade-group diagnostics to identify which Dolch words still need work across the class. Generate targeted practice lists for small groups and print take-home sheets directly from the browser — no separate software required.</div></div>
+    <div class="uc"><div class="uc-title">Reading Specialists</div><div class="uc-body">The grade filter makes it easy to identify exactly where gaps sit across the full Dolch sequence. Save all hesitation words from a diagnostic session and use Practice Mode for targeted intervention — all without any setup or account.</div></div>
+    <div class="uc"><div class="uc-title">Homeschool Educators</div><div class="uc-body">Completing the Dolch sequence and preparing for the Fry word progression. The generator handles both Dolch and Fry lists in one tool — finish the 3rd grade band, then switch the List filter to Fry to continue building vocabulary beyond the basic service words.</div></div>
+  </div>
+</div>
+<!-- /SLOT:who -->
+
+<!-- SLOT:init -->
+<script>
+(function () {
+  function he(s) { return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+  var DOLCH_GROUPS = ['pre-k','kindergarten','1st','2nd','3rd','nouns'];
+  var FRY_GROUPS   = ['1-100','101-200','201-300'];
+
+  var GROUP_OPTS = {
+    all: [
+      {v:'all',   l:'All Grades &amp; Groups'},
+      {v:'pre-k', l:'Dolch Pre-K'},
+      {v:'kindergarten',l:'Dolch Kindergarten'},
+      {v:'1st',   l:'Dolch 1st Grade'},
+      {v:'2nd',   l:'Dolch 2nd Grade'},
+      {v:'3rd',   l:'Dolch 3rd Grade'},
+      {v:'nouns', l:'Dolch Nouns'},
+      {v:'1-100', l:'Fry Words 1–100'},
+      {v:'101-200',l:'Fry Words 101–200'},
+      {v:'201-300',l:'Fry Words 201–300'}
+    ],
+    dolch: [
+      {v:'all',   l:'All Grades'},
+      {v:'pre-k', l:'Pre-K'},
+      {v:'kindergarten',l:'Kindergarten'},
+      {v:'1st',   l:'1st Grade'},
+      {v:'2nd',   l:'2nd Grade'},
+      {v:'3rd',   l:'3rd Grade'},
+      {v:'nouns', l:'Nouns'}
+    ],
+    fry: [
+      {v:'all',    l:'All Groups'},
+      {v:'1-100',  l:'Words 1–100'},
+      {v:'101-200',l:'Words 101–200'},
+      {v:'201-300',l:'Words 201–300'}
+    ]
+  };
+
+  var BADGE_LABEL = {
+    'pre-k':       'Dolch Pre-K',
+    'kindergarten':'Dolch Kindergarten',
+    '1st':         'Dolch 1st Grade',
+    '2nd':         'Dolch 2nd Grade',
+    '3rd':         'Dolch 3rd Grade',
+    'nouns':       'Dolch Nouns',
+    '1-100':       'Fry 1–100',
+    '101-200':     'Fry 101–200',
+    '201-300':     'Fry 201–300'
+  };
+
+  var SW = {
+    data:          null,
+    saved:         JSON.parse(localStorage.getItem('sw-saved') || '[]'),
+    practiceWords: [],
+    practiceIdx:   0,
+
+    load: function () {
+      var self = this;
+      if (self.data) return Promise.resolve(self.data);
+      return fetch('/data/sight-words-data.json')
+        .then(function (r) { return r.json(); })
+        .then(function (d) { self.data = Array.isArray(d) ? d : (d.words || d.data || []); return self.data; });
+    },
+
+    rebuildGroupSelect: function () {
+      var list = document.getElementById('ctrl-list').value;
+      var opts = GROUP_OPTS[list] || GROUP_OPTS.all;
+      var sel  = document.getElementById('ctrl-group');
+      var prev = sel.value;
+      sel.innerHTML = opts.map(function (o) {
+        return '<option value="' + o.v + '">' + o.l + '</option>';
+      }).join('');
+      var still = opts.some(function (o) { return o.v === prev; });
+      if (still) sel.value = prev; else sel.value = 'all';
+    },
+
+    badgeFor: function (word, listFilter) {
+      var showBadge = document.getElementById('ctrl-badge').checked;
+      if (!showBadge) return '';
+      var label = '', cls = '';
+      if (word.list === 'both') {
+        if (listFilter === 'fry') {
+          label = BADGE_LABEL[word.fry_group] || 'Fry';
+          cls   = 'badge-fry';
+        } else {
+          label = BADGE_LABEL[word.dolch_group] || 'Dolch';
+          cls   = 'badge-dolch';
+        }
+      } else if (word.list === 'dolch') {
+        label = BADGE_LABEL[word.dolch_group] || 'Dolch';
+        cls   = 'badge-dolch';
+      } else {
+        label = BADGE_LABEL[word.fry_group] || 'Fry';
+        cls   = 'badge-fry';
+      }
+      return '<span class="word-badge ' + cls + '">' + he(label) + '</span>';
+    },
+
+    filter: function (words) {
+      var list  = document.getElementById('ctrl-list').value;
+      var group = document.getElementById('ctrl-group').value;
+      var count = Math.min(50, Math.max(5, parseInt(document.getElementById('ctrl-count').value, 10) || 15));
+      var result = words.slice();
+
+      if (list === 'dolch') {
+        result = result.filter(function (w) { return w.list === 'dolch' || w.list === 'both'; });
+      } else if (list === 'fry') {
+        result = result.filter(function (w) { return w.list === 'fry' || w.list === 'both'; });
+      }
+
+      if (group !== 'all') {
+        var isDolch = DOLCH_GROUPS.indexOf(group) !== -1;
+        var isFry   = FRY_GROUPS.indexOf(group)   !== -1;
+        result = result.filter(function (w) {
+          if (isDolch) return w.dolch_group === group;
+          if (isFry)   return w.fry_group   === group;
+          return true;
+        });
+      }
+
+      for (var i = result.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = result[i]; result[i] = result[j]; result[j] = tmp;
+      }
+      return result.slice(0, count);
+    },
+
+    generate: function () {
+      var self = this;
+      var list  = document.getElementById('sw-list');
+      var listFilter = document.getElementById('ctrl-list').value;
+      self.load()
+        .then(function (words) {
+          var filtered = self.filter(words);
+          self.render(filtered, listFilter);
+        })
+        .catch(function () {
+          list.innerHTML = '<li class="sw-empty">Could not load word list. Please refresh and try again.</li>';
+        });
+    },
+
+    render: function (words, listFilter) {
+      var list    = document.getElementById('sw-list');
+      var countEl = document.getElementById('sw-count');
+      var saved   = this.saved;
+
+      if (!words.length) {
+        list.innerHTML = '<li class="sw-empty">No words match your filters. Try a different grade or list.</li>';
+        countEl.textContent = '0 words';
+        return;
+      }
+
+      countEl.textContent = words.length + ' word' + (words.length !== 1 ? 's' : '');
+      var self = this;
+      list.innerHTML = words.map(function (w) {
+        var isSaved  = saved.indexOf(w.word) !== -1;
+        var badge    = self.badgeFor(w, listFilter);
+        return [
+          '<li class="word-item" data-word="' + he(w.word) + '">',
+          '  <div class="word-left">',
+          '    <span class="word-text">' + he(w.word) + '</span>',
+          badge,
+          '  </div>',
+          '  <div class="word-right">',
+          '    <button class="icon-btn speak-btn" aria-label="Hear ' + he(w.word) + '">',
+          '      <svg viewBox="0 0 20 20" width="18" height="18" fill="none"><path d="M3 7.5h3l4-3v11l-4-3H3V7.5z" stroke="currentColor" stroke-width="1.4"/><path d="M14 6.5c1.5 1 2.5 2.2 2.5 3.5s-1 2.5-2.5 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>',
+          '    </button>',
+          '    <button class="icon-btn save-btn' + (isSaved ? ' saved' : '') + '" aria-label="Save ' + he(w.word) + '" data-word="' + he(w.word) + '">',
+          '      <svg viewBox="0 0 20 20" width="18" height="18" fill="' + (isSaved ? '#e11d48' : 'none') + '"><path d="M10 16.5s-7-4.5-7-9a4 4 0 0 1 7-2.65A4 4 0 0 1 17 7.5c0 4.5-7 9-7 9z" stroke="' + (isSaved ? '#e11d48' : 'currentColor') + '" stroke-width="1.4"/></svg>',
+          '    </button>',
+          '  </div>',
+          '</li>'
+        ].join('\n');
+      }).join('\n');
+
+      [].slice.call(list.querySelectorAll('.speak-btn')).forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          self.speak(this.closest('.word-item').dataset.word);
+        });
+      });
+      [].slice.call(list.querySelectorAll('.save-btn')).forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          self.toggleSave(this.dataset.word, this);
+        });
+      });
+    },
+
+    speak: function (word) {
+      if (!window.speechSynthesis) return;
+      window.speechSynthesis.cancel();
+      var u = new SpeechSynthesisUtterance(word);
+      u.lang = 'en-US';
+      u.rate = 0.85;
+      window.speechSynthesis.speak(u);
+    },
+
+    toggleSave: function (word, btn) {
+      var idx = this.saved.indexOf(word);
+      if (idx !== -1) {
+        this.saved.splice(idx, 1);
+        if (btn) {
+          btn.classList.remove('saved');
+          btn.innerHTML = '<svg viewBox="0 0 20 20" width="18" height="18" fill="none"><path d="M10 16.5s-7-4.5-7-9a4 4 0 0 1 7-2.65A4 4 0 0 1 17 7.5c0 4.5-7 9-7 9z" stroke="currentColor" stroke-width="1.4"/></svg>';
+        }
+      } else {
+        this.saved.push(word);
+        if (btn) {
+          btn.classList.add('saved');
+          btn.innerHTML = '<svg viewBox="0 0 20 20" width="18" height="18" fill="#e11d48"><path d="M10 16.5s-7-4.5-7-9a4 4 0 0 1 7-2.65A4 4 0 0 1 17 7.5c0 4.5-7 9-7 9z" stroke="#e11d48" stroke-width="1.4"/></svg>';
+        }
+      }
+      localStorage.setItem('sw-saved', JSON.stringify(this.saved));
+      this.renderSaved();
+    },
+
+    renderSaved: function () {
+      var section = document.getElementById('saved-section');
+      var chips   = document.getElementById('saved-chips');
+      var countEl = document.getElementById('saved-count');
+      var self    = this;
+      if (!this.saved.length) {
+        section.classList.add('hidden');
+        return;
+      }
+      section.classList.remove('hidden');
+      countEl.textContent = '(' + this.saved.length + ')';
+      chips.innerHTML = this.saved.map(function (w) {
+        return '<span class="saved-chip">' + he(w) + '<button aria-label="Remove ' + he(w) + '" data-word="' + he(w) + '">×</button></span>';
+      }).join('');
+      [].slice.call(chips.querySelectorAll('button')).forEach(function (btn) {
+        btn.addEventListener('click', function () { self.toggleSave(this.dataset.word, null); });
+      });
+    },
+
+    copyAll: function () {
+      var items = [].slice.call(document.querySelectorAll('.word-item'));
+      var text  = items.map(function (li) { return li.dataset.word; }).join('\n');
+      if (navigator.clipboard) { navigator.clipboard.writeText(text); }
+      else { var ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); }
+    },
+
+    copySaved: function () {
+      var text = this.saved.join('\n');
+      if (navigator.clipboard) { navigator.clipboard.writeText(text); }
+      else { var ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); }
+    },
+
+    enterPractice: function () {
+      var items = [].slice.call(document.querySelectorAll('.word-item'));
+      this.practiceWords = items.map(function (li) { return li.dataset.word; });
+      if (!this.practiceWords.length) return;
+      this.practiceIdx = 0;
+      document.getElementById('sw-list-view').style.display    = 'none';
+      document.getElementById('sw-practice-panel').style.display = 'flex';
+      this.renderPractice();
+    },
+
+    exitPractice: function () {
+      document.getElementById('sw-practice-panel').style.display = 'none';
+      document.getElementById('sw-list-view').style.display      = '';
+    },
+
+    renderPractice: function () {
+      var w = this.practiceWords[this.practiceIdx];
+      document.getElementById('practice-word-display').textContent = w || '';
+      document.getElementById('practice-progress').textContent =
+        (this.practiceIdx + 1) + ' of ' + this.practiceWords.length;
+    },
+
+    reset: function () {
+      document.getElementById('ctrl-list').value  = 'all';
+      document.getElementById('ctrl-count').value = '15';
+      document.getElementById('ctrl-badge').checked = true;
+      this.rebuildGroupSelect();
+      this.generate();
+    },
+
+    init: function () {
+      var self = this;
+      self.renderSaved();
+
+      SW.load().then(function () {
+        document.getElementById('ctrl-list').value = 'dolch';
+        SW.rebuildGroupSelect();
+        document.getElementById('ctrl-group').value = '3rd';
+        SW.generate();
+      });
+
+      document.getElementById('sw-gen-btn').addEventListener('click',      function () { self.generate(); });
+      document.getElementById('sw-reset-btn').addEventListener('click',    function () { self.reset(); });
+      document.getElementById('sw-copy-all').addEventListener('click',     function () { self.copyAll(); });
+      document.getElementById('sw-print-btn').addEventListener('click',    function () { window.print(); });
+      document.getElementById('sw-copy-saved').addEventListener('click',   function () { self.copySaved(); });
+      document.getElementById('sw-clear-saved').addEventListener('click',  function () { self.saved = []; localStorage.removeItem('sw-saved'); self.renderSaved(); });
+      document.getElementById('sw-practice-btn').addEventListener('click', function () { self.enterPractice(); });
+      document.getElementById('sw-exit-practice').addEventListener('click',function () { self.exitPractice(); });
+      document.getElementById('practice-hear').addEventListener('click',   function () { self.speak(self.practiceWords[self.practiceIdx]); });
+      document.getElementById('practice-prev').addEventListener('click',   function () { if (self.practiceIdx > 0) { self.practiceIdx--; self.renderPractice(); } });
+      document.getElementById('practice-next').addEventListener('click',   function () { if (self.practiceIdx < self.practiceWords.length - 1) { self.practiceIdx++; self.renderPractice(); } });
+
+      document.getElementById('ctrl-list').addEventListener('change', function () {
+        self.rebuildGroupSelect();
+        self.generate();
+      });
+      document.getElementById('ctrl-group').addEventListener('change', function () { self.generate(); });
+      document.getElementById('ctrl-badge').addEventListener('change', function () {
+        var show = this.checked;
+        document.querySelectorAll('#sw-list .word-badge').forEach(function (el) {
+          el.style.display = show ? '' : 'none';
+        });
+      });
+      document.getElementById('ctrl-count').addEventListener('input', function () {
+        clearTimeout(self._countTimer);
+        self._countTimer = setTimeout(function () { self.generate(); }, 350);
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.code !== 'Space') return;
+        var tag = document.activeElement && document.activeElement.tagName;
+        if (tag === 'INPUT' || tag === 'SELECT' || tag === 'BUTTON' || tag === 'TEXTAREA') return;
+        e.preventDefault();
+        self.generate();
+      });
+
+      var moreToggle   = document.getElementById('mobile-more-toggle');
+      var advancedOpts = document.getElementById('advanced-options');
+      if (moreToggle && advancedOpts) {
+        moreToggle.addEventListener('click', function () {
+          var isOpen = advancedOpts.classList.toggle('is-open');
+          moreToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+          moreToggle.textContent = isOpen ? 'Hide Options' : 'More Options';
+        });
+      }
+
+      document.querySelectorAll('.faq-item').forEach(function (item) {
+        var q = item.querySelector('.faq-q');
+        if (!q) return;
+        q.addEventListener('click', function () { item.classList.toggle('open'); });
+      });
+    }
+  };
+
+  SW.init();
+}());
+</script>
+<!-- /SLOT:init -->
