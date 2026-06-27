@@ -190,6 +190,9 @@
 .words-panel { flex:1; display:flex; flex-direction:column; overflow:hidden; min-height:360px; }
 .words-top   { display:flex; align-items:center; justify-content:space-between; padding:10px 16px; border-bottom:1px solid var(--border-2); }
 .words-count { font-size:12px; color:var(--text-3); }
+.words-actions { display:flex; gap:6px; }
+.act-btn { font-size:11px; padding:4px 10px; border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; font-weight:500; transition:background .12s; }
+.act-btn:hover { background:var(--bg-2); }
 .word-list   { flex:1; list-style:none; padding:0; margin:0; }
 
 /* Result rows */
@@ -199,23 +202,23 @@
 .bn-num      { font-size:11px; color:var(--text-3); min-width:18px; text-align:right; flex-shrink:0; }
 .bn-name     { flex:1; font-size:15px; font-weight:500; color:var(--text); letter-spacing:-.01em; }
 .bn-btns     { display:flex; align-items:center; gap:4px; flex-shrink:0; }
-.bn-icon-btn { background:none; border:none; cursor:pointer; padding:4px 6px; border-radius:5px; line-height:1; color:var(--text-3); font-size:15px; transition:color .12s,background .12s; }
-.bn-icon-btn:hover { background:var(--bg-2); color:var(--text); }
-.bn-save-btn.saved { color:#e03a3a; }
 
-/* Saved panel */
-.bn-saved-wrap     { border-top:1px solid var(--border-2); background:var(--bg-2); display:none; }
-.bn-saved-wrap.visible { display:block; }
-.bn-saved-header   { display:flex; align-items:center; justify-content:space-between; padding:8px 16px; }
-.bn-saved-label    { font-size:11px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.05em; }
-.bn-copy-all-btn   { font-size:11px; padding:4px 10px; border:1px solid var(--border); border-radius:5px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:background .12s; }
-.bn-copy-all-btn:hover { background:var(--bg-3); }
-.bn-saved-list     { list-style:none; padding:0 16px 10px; margin:0; }
-.bn-saved-item     { display:flex; align-items:center; padding:5px 0; border-bottom:1px solid var(--border-2); gap:8px; font-size:13px; color:var(--text); }
-.bn-saved-item:last-child { border-bottom:none; }
-.bn-saved-name     { flex:1; }
-.bn-remove-btn     { background:none; border:none; cursor:pointer; color:var(--text-3); font-size:15px; line-height:1; padding:2px 5px; border-radius:4px; }
-.bn-remove-btn:hover { color:var(--text); background:var(--bg-3); }
+/* Icon buttons */
+.icon-btn { width:28px; height:28px; display:flex; align-items:center; justify-content:center; background:transparent; border:none; cursor:pointer; border-radius:5px; color:var(--text-3); transition:background .12s, color .12s; }
+.icon-btn:hover { background:var(--bg-2); color:var(--text); }
+.icon-btn svg { width:14px; height:14px; }
+.icon-btn.saved { color:#E24B4A; }
+.icon-btn.saved svg path { fill:#E24B4A; }
+
+/* Saved section */
+.saved-section { border-top:1px solid var(--border); padding:12px 14px; background:var(--bg); }
+.saved-top { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:8px; }
+.saved-label { font-size:12px; font-weight:700; color:var(--text); }
+.saved-copy { border:1px solid var(--border); background:var(--bg); color:var(--brand); border-radius:7px; padding:5px 9px; font-size:11px; font-weight:600; cursor:pointer; }
+.saved-tags { display:flex; gap:5px; flex-wrap:wrap; min-height:22px; }
+.saved-tag { display:inline-flex; align-items:center; gap:4px; background:#F0F2FF; color:var(--brand); border-radius:999px; padding:4px 8px; font-size:11px; font-weight:600; }
+.saved-tag-remove { cursor:pointer; opacity:.65; }
+.saved-empty { color:var(--text-3); font-size:12px; }
 
 /* Toast */
 .bn-toast { position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(10px); background:#1a1a1a; color:white; font-size:13px; font-weight:600; padding:10px 18px; border-radius:8px; opacity:0; transition:opacity .2s,transform .2s; pointer-events:none; z-index:999; }
@@ -354,19 +357,23 @@
       <div class="words-panel">
         <div class="words-top">
           <span class="words-count" id="bn-count">10 names</span>
+          <div class="words-actions">
+            <button class="act-btn" id="bn-copy-all-btn">Copy all</button>
+            <button class="act-btn" id="bn-regen-btn">Regenerate</button>
+          </div>
         </div>
         <ul class="word-list" id="bn-list" aria-label="Generated band names" aria-live="polite"></ul>
-
-        <!-- Saved names panel -->
-        <div class="bn-saved-wrap" id="bn-saved-wrap">
-          <div class="bn-saved-header">
-            <span class="bn-saved-label">Saved names</span>
-            <button class="bn-copy-all-btn" id="bn-copy-all-btn">Copy all</button>
-          </div>
-          <ul class="bn-saved-list" id="bn-saved-list"></ul>
-        </div>
       </div>
 
+    </div>
+
+    <!-- Saved names section -->
+    <div class="saved-section" id="bn-saved-section" style="display:none">
+      <div class="saved-top">
+        <span class="saved-label">Saved names <span id="bn-saved-count" style="font-weight:400;opacity:.7">(0)</span></span>
+        <span class="saved-copy" id="bn-saved-copy">Copy saved</span>
+      </div>
+      <div class="saved-tags" id="bn-saved-tags"></div>
     </div>
   </div>
 </div>
@@ -702,21 +709,22 @@
   }
 
   function renderSaved() {
-    var wrap = document.getElementById('bn-saved-wrap');
-    var list = document.getElementById('bn-saved-list');
+    var section = document.getElementById('bn-saved-section');
+    var tags = document.getElementById('bn-saved-tags');
+    var countEl = document.getElementById('bn-saved-count');
     var keys = Object.keys(saved);
     if (keys.length === 0) {
-      wrap.classList.remove('visible');
+      section.style.display = 'none';
       return;
     }
-    wrap.classList.add('visible');
-    list.innerHTML = '';
+    section.style.display = '';
+    if (countEl) countEl.textContent = '(' + keys.length + ')';
+    tags.innerHTML = '';
     keys.forEach(function (name) {
-      var li = document.createElement('li');
-      li.className = 'bn-saved-item';
-      li.innerHTML = '<span class="bn-saved-name">' + escH(name) + '</span>'
-        + '<button class="bn-remove-btn" data-remove="' + escH(name) + '" aria-label="Remove">×</button>';
-      list.appendChild(li);
+      var span = document.createElement('span');
+      span.className = 'saved-tag';
+      span.innerHTML = escH(name) + '<span class="saved-tag-remove" data-remove="' + escH(name) + '" aria-label="Remove">×</span>';
+      tags.appendChild(span);
     });
   }
 
@@ -748,8 +756,12 @@
         '<span class="bn-num">' + (i + 1) + '</span>'
         + '<span class="bn-name">' + escH(name) + '</span>'
         + '<div class="bn-btns">'
-        + '<button class="bn-icon-btn bn-save-btn' + (isSaved ? ' saved' : '') + '" data-name="' + escH(name) + '" title="' + (isSaved ? 'Unsave' : 'Save') + '" aria-label="Save ' + escH(name) + '">&#9825;</button>'
-        + '<button class="bn-icon-btn bn-copy-btn" data-name="' + escH(name) + '" title="Copy" aria-label="Copy ' + escH(name) + '">&#10063;</button>'
+        + '<button class="icon-btn bn-save-btn' + (isSaved ? ' saved' : '') + '" data-name="' + escH(name) + '" title="' + (isSaved ? 'Unsave' : 'Save') + '" aria-label="Save ' + escH(name) + '">'
+        + '<svg viewBox="0 0 16 16" fill="none"><path d="M8 13.5S2 9.5 2 5.5A3 3 0 018 4a3 3 0 016 1.5c0 4-6 8-6 8z" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/></svg>'
+        + '</button>'
+        + '<button class="icon-btn bn-copy-btn" data-name="' + escH(name) + '" title="Copy" aria-label="Copy ' + escH(name) + '">'
+        + '<svg viewBox="0 0 14 14" fill="none"><rect x="1" y="4" width="9" height="9.5" rx="1.5" stroke="currentColor" stroke-width="1.1"/><path d="M4.5 4V2.5A1.5 1.5 0 016 1h5.5A1.5 1.5 0 0113 2.5v7a1.5 1.5 0 01-1.5 1.5H10" stroke="currentColor" stroke-width="1.1"/></svg>'
+        + '</button>'
         + '</div>';
       list.appendChild(li);
     });
@@ -759,6 +771,9 @@
     render();
 
     document.getElementById('bn-gen-btn').addEventListener('click', render);
+    document.getElementById('bn-regen-btn').addEventListener('click', render);
+    document.getElementById('bn-genre').addEventListener('change', render);
+    document.getElementById('bn-keyword').addEventListener('input', render);
 
     document.addEventListener('keydown', function (e) {
       if (e.target === document.getElementById('bn-keyword')) {
@@ -775,8 +790,8 @@
       if (saveBtn) { toggleSave(saveBtn.dataset.name, saveBtn); }
     });
 
-    document.getElementById('bn-saved-list').addEventListener('click', function (e) {
-      var removeBtn = e.target.closest('.bn-remove-btn');
+    document.getElementById('bn-saved-tags').addEventListener('click', function (e) {
+      var removeBtn = e.target.closest('.saved-tag-remove');
       if (!removeBtn) return;
       var name = removeBtn.dataset.remove;
       delete saved[name];
@@ -787,6 +802,12 @@
     });
 
     document.getElementById('bn-copy-all-btn').addEventListener('click', function () {
+      var names = [];
+      document.querySelectorAll('.bn-name').forEach(function (el) { names.push(el.textContent); });
+      if (names.length) { copyText(names.join('\n')); }
+    });
+
+    document.getElementById('bn-saved-copy').addEventListener('click', function () {
       var names = Object.keys(saved);
       if (names.length) { copyText(names.join('\n')); }
     });
