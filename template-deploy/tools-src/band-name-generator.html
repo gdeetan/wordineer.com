@@ -527,8 +527,9 @@
       if (!removeBtn) return;
       var name = removeBtn.dataset.remove;
       delete saved[name];
-      var hearts = document.querySelectorAll('.bn-save-btn[data-name="' + name.replace(/\\/g, '\\\\').replace(/"/g, '\\"') + '"]');
-      hearts.forEach(function (btn) { btn.classList.remove('saved'); btn.title = 'Save'; });
+      document.querySelectorAll('.bn-save-btn').forEach(function (btn) {
+        if (btn.dataset.name === name) { btn.classList.remove('saved'); btn.title = 'Save'; }
+      });
       renderSaved();
     });
 
