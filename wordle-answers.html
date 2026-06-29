@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.adsbygoogle = window.adsbygoogle || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  (function(w, d) {
+    var loaded = false;
+    var cfg = {
+      analyticsId: 'G-7DWH3EGM3Z',
+      adsClient: 'ca-pub-7200956978416233',
+      delay: 10000
+    };
+
+    function loadScript(src, attrs) {
+      var s = d.createElement('script');
+      s.async = true;
+      s.src = src;
+      if (attrs) {
+        Object.keys(attrs).forEach(function(key) {
+          s.setAttribute(key, attrs[key]);
+        });
+      }
+      d.head.appendChild(s);
+    }
+
+    function loadMarketing() {
+      if (loaded) return;
+      loaded = true;
+      gtag('js', new Date());
+      gtag('config', cfg.analyticsId);
+      loadScript('https://www.googletagmanager.com/gtag/js?id=' + cfg.analyticsId);
+      loadScript(
+        'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + cfg.adsClient,
+        { crossorigin: 'anonymous' }
+      );
+    }
+
+    function idleLoad() {
+      if ('requestIdleCallback' in w) {
+        w.requestIdleCallback(loadMarketing, { timeout: 5000 });
+      } else {
+        w.setTimeout(loadMarketing, cfg.delay);
+      }
+    }
+
+    ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function(eventName) {
+      w.addEventListener(eventName, loadMarketing, { once: true, passive: true });
+    });
+    w.addEventListener('load', function() {
+      w.setTimeout(idleLoad, cfg.delay);
+    }, { once: true });
+  })(window, document);
+</script>
+<meta name='impact-site-verification' value='32715504-1cfb-4324-bfc7-ae4cfa1591ea'>
+<link rel="preload" href="/fonts/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-sans-italic-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://wordineer.com/#website",
+      "name": "Wordineer",
+      "url": "https://wordineer.com",
+      "description": "Free online word tools for writers, students, and word game players — random word generator, name generators, word scramble, sentence generator, and more.",
+      "publisher": { "@id": "https://wordineer.com/#organization" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://wordineer.com/#organization",
+      "name": "Wordineer",
+      "url": "https://wordineer.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://wordineer.com/logo.png",
+        "width": 1254,
+        "height": 1254
+      },
+      "description": "Wordineer provides free online word tools for writers, students, and word game players."
+    }
+  ]
+}
+</script>
+<title>Every Wordle Answer — Searchable Archive + Letter Solver | Wordineer</title>
+<meta name="description" content="Search the complete archive of past Wordle answers by date or word. Use the solver to find remaining possibilities from your known letters and positions.">
+<meta property="og:title" content="Wordle Answer Archive &amp; Solver | Wordineer">
+<meta property="og:description" content="Past Wordle answers searchable by date or word, plus a solver: enter known letters and positions to find all remaining possible answers.">
+<meta property="og:url" content="https://wordineer.com/wordle-answers/">
+<link rel="canonical" href="https://wordineer.com/wordle-answers/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Wordle Answer Archive and Solver",
+  "url": "https://wordineer.com/wordle-answers/",
+  "description": "Searchable archive of past Wordle answers and a solver for narrowing down possibilities by known letter positions.",
+  "applicationCategory": "GameApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0" }
+}
+</script>
+
+<link rel="stylesheet" href="/styles/global.css?v=9">
+<style>
+.wa-wrap { max-width: 900px; margin: 0 auto; padding: 0 20px 40px; }
+.wa-tabs { display: flex; border-bottom: 2px solid var(--border); margin-bottom: 24px; gap: 0; }
+.wa-tab { padding: 10px 22px; font-size: 14px; font-weight: 600; cursor: pointer; border: none; background: none; color: var(--text-3); font-family: inherit; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: color .15s; }
+.wa-tab.active { color: var(--brand); border-bottom-color: var(--brand); }
+.wa-panel { display: none; }
+.wa-panel.active { display: block; }
+.arch-search { width: 100%; max-width: 380px; padding: 9px 12px; font-size: 14px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg); color: var(--text); font-family: inherit; margin-bottom: 16px; }
+.arch-wrap { max-height: 480px; overflow-y: auto; border: 1px solid var(--border); border-radius: 8px; }
+.arch-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.arch-table th { position: sticky; top: 0; text-align: left; padding: 8px 12px; border-bottom: 2px solid var(--border); color: var(--text-3); font-size: 11px; text-transform: uppercase; letter-spacing: .05em; background: var(--bg); }
+.arch-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-2); }
+.arch-table tr:last-child td { border-bottom: none; }
+.arch-table tr:hover td { background: var(--bg-2); }
+.arch-word { font-weight: 700; letter-spacing: .08em; }
+.solver-intro { font-size: 13px; color: var(--text-2); margin-bottom: 22px; line-height: 1.6; }
+.solver-section { margin-bottom: 20px; }
+.solver-label { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--text-3); font-weight: 600; margin-bottom: 8px; display: block; }
+.pos-inputs { display: flex; gap: 8px; }
+.pos-input { width: 44px; height: 48px; text-align: center; font-size: 20px; font-weight: 700; text-transform: uppercase; border: 2px solid var(--border); border-radius: 8px; background: var(--bg); color: var(--text); font-family: inherit; transition: border-color .15s; }
+.pos-input:focus { border-color: var(--brand); outline: none; }
+.pos-input.filled { border-color: #22c55e; background: #22c55e18; }
+.letter-input { width: 100%; max-width: 300px; padding: 9px 12px; font-size: 15px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg); color: var(--text); font-family: inherit; text-transform: uppercase; }
+.solver-actions { display: flex; gap: 10px; margin-top: 20px; }
+.solve-btn { padding: 10px 24px; background: var(--brand); color: white; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: inherit; }
+.solve-btn:hover { background: var(--brand-dark); }
+.clear-btn { padding: 10px 14px; background: var(--bg-2); border: 1px solid var(--border); border-radius: 8px; font-size: 13px; cursor: pointer; font-family: inherit; color: var(--text-2); }
+.solver-results { margin-top: 22px; }
+.solver-count { font-size: 13px; color: var(--text-3); margin-bottom: 10px; }
+.solver-words { display: flex; flex-wrap: wrap; gap: 8px; }
+.solver-word { padding: 6px 12px; background: var(--bg-2); border: 1px solid var(--border); border-radius: 6px; font-size: 13px; font-weight: 700; letter-spacing: .06em; }
+</style>
+</head>
+
+<body>
+<nav class="nav">
+  <a class="nav-logo" href="/">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 15 15" fill="none"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </div>
+    Wordineer
+  </a>
+  <div class="nav-links">
+    <a href="/word-tools/">Tools</a>
+    <a href="/blog/">Blog</a>
+  </div>
+  <div>
+    <button class="hamburger" type="button" aria-label="All tools" aria-controls="mega" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mega" id="mega">
+  <div class="mega-inner">
+    <div class="mega-col">
+      <div class="mega-cat">Writing &amp; Vocabulary</div>
+      <a class="mega-link" href="/">Random Word Generator</a>
+      <a class="mega-link" href="/random-sentence-generator/">Random Sentence Generator</a>
+      <a class="mega-link" href="/random-paragraph-generator/">Random Paragraph Generator</a>
+      <a class="mega-link" href="/word-counter/">Word Counter</a>
+      <a class="mega-link" href="/common-5-letter-words/">Common 5-Letter Words</a>
+      <a class="mega-link" href="/etymology-100-common-words/">Word Origins & Etymology</a>
+      <a class="mega-link" href="/spelling-bee-words-printable/">Spelling Bee Words Printable</a>
+      <a class="mega-link" href="/esl-vocabulary-cefr/">ESL Vocabulary (CEFR)</a>
+      <a class="mega-link mega-link--view-all" href="/word-tools/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Browse by Letter</div>
+      <a class="mega-link" href="/random-words-starting-with/">Random Words Starting With (A–Z)</a>
+      <a class="mega-link" href="/random-words-starting-with/a">Random Words Starting with A</a>
+      <a class="mega-link" href="/random-words-starting-with/s">Random Words Starting with S</a>
+      <a class="mega-link" href="/random-words-starting-with/q">Random Words Starting with Q</a>
+      <a class="mega-link mega-link--view-all" href="/random-words-starting-with/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Names by Origin</div>
+      <a class="mega-link" href="/random-spanish-name-generator/">Spanish Name Generator</a>
+      <a class="mega-link" href="/random-italian-name-generator/">Italian Name Generator</a>
+      <a class="mega-link" href="/random-japanese-name-generator/">Japanese Name Generator</a>
+      <a class="mega-link" href="/random-american-name-generator/">American Name Generator</a>
+      <a class="mega-link mega-link--view-all" href="/name-generators/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Other Name Generators</div>
+      <a class="mega-link" href="/character-name-generator/">Character Name Generator</a>
+      <a class="mega-link" href="/fantasy-name-generator/">Fantasy Name Generator</a>
+      <a class="mega-link" href="/business-name-generator/">Business Name Generator</a>
+      <a class="mega-link" href="/band-name-generator/">Band Name Generator</a>
+      <a class="mega-link mega-link--view-all" href="/other-generators/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Account &amp; Security</div>
+      <a class="mega-link" href="/username-generator/">Username Generator</a>
+      <a class="mega-link" href="/password-generator/">Password Generator</a>
+      <a class="mega-link" href="/passphrase-generator/">Passphrase Generator</a>
+      <a class="mega-link" href="/memorable-password-generator/">Memorable Password Generator</a>
+      <a class="mega-link mega-link--view-all" href="/account-tools/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Games &amp; fun</div>
+      <a class="mega-link" href="/pictionary-phrase-generator/">Pictionary Phrase Generator</a>
+      <a class="mega-link" href="/crossword-puzzle-generator/">Crossword Puzzle Generator</a>
+      <a class="mega-link" href="/wordle-helper/">Wordle Helper</a>
+      <a class="mega-link active" href="/wordle-answers/">Wordle Answer Archive</a>
+      <a class="mega-link mega-link--view-all" href="/number-chance/">View all →</a>
+    </div>
+  </div>
+</div>
+
+
+<h1>Every Wordle Answer — Archive &amp; Solver</h1>
+<p>Search past Wordle answers by date or word. Use the Solver to narrow down remaining possibilities from your guesses.</p>
+<div class="wa-wrap">
+  <div class="wa-tabs">
+    <button class="wa-tab active" data-panel="archive">Past Answers</button>
+    <button class="wa-tab" data-panel="solver">Solver</button>
+  </div>
+
+  <div class="wa-panel active" id="panel-archive">
+    <input class="arch-search" id="arch-search" placeholder="Search by word or date (e.g. 2021-12 or PANIC)…">
+    <div class="arch-wrap">
+      <table class="arch-table">
+        <thead><tr><th>Date</th><th>Answer</th><th>Puzzle #</th></tr></thead>
+        <tbody id="arch-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="wa-panel" id="panel-solver">
+    <p class="solver-intro">Enter what you know from your guesses. Positions 1–5 left to right. Leave empty if unknown.</p>
+
+    <div class="solver-section">
+      <span class="solver-label">Correct position (green tiles) — one letter per box</span>
+      <div class="pos-inputs">
+        <input class="pos-input" id="p0" maxlength="1" placeholder="1">
+        <input class="pos-input" id="p1" maxlength="1" placeholder="2">
+        <input class="pos-input" id="p2" maxlength="1" placeholder="3">
+        <input class="pos-input" id="p3" maxlength="1" placeholder="4">
+        <input class="pos-input" id="p4" maxlength="1" placeholder="5">
+      </div>
+    </div>
+
+    <div class="solver-section">
+      <span class="solver-label">Letters in word but wrong position (yellow tiles)</span>
+      <input class="letter-input" id="yellow-letters" maxlength="10" placeholder="e.g. ART">
+    </div>
+
+    <div class="solver-section">
+      <span class="solver-label">Letters not in word (gray tiles)</span>
+      <input class="letter-input" id="gray-letters" maxlength="26" placeholder="e.g. ESOIN">
+    </div>
+
+    <div class="solver-actions">
+      <button class="solve-btn" id="solve-btn">Find Possibilities</button>
+      <button class="clear-btn" id="clear-btn">Clear All</button>
+    </div>
+
+    <div class="solver-results" id="solver-results"></div>
+  </div>
+</div>
+
+<div class="content-wrap">
+  <div class="section">
+    <h2 class="section-title">More word tools</h2>
+    <p class="section-sub">Free word generators, lists, and games</p>
+    <div class="tools-grid">
+      <a class="tool-item" href="/random-quote-generator/"><div class="tool-icon" style="background:#FBEAF0"><svg viewBox="0 0 13 13" fill="none"><path d="M3 4.5h3.5M3 8.5h4.5" stroke="#A13B63" stroke-width="1.1" stroke-linecap="round"/><path d="M8.2 3.5h1.4v2.1c0 .5.4.9.9.9H11v1.4H9.6c-1.2 0-2.1-.9-2.1-2.1z" fill="#A13B63"/><path d="M2.2 5.2h1.4V7c0 .5.4.9.9.9h.4v1.4h-.4C3.3 9.3 2.2 8.2 2.2 7z" fill="#A13B63"/></svg></div><div class="tool-name">Random Quote Generator</div><div class="tool-desc">Random quotes with filters for topic, author, tone, length, favorites, and image cards.</div></a>
+      <a class="tool-item" href="/random-wordle-generator/"><div class="tool-icon" style="background:#E8F4FE"><svg viewBox="0 0 13 13" fill="none"><rect x='2' y='2' width='3.5' height='3.5' rx='0.5' fill='#2B7FD4'/><rect x='7.5' y='2' width='3.5' height='3.5' rx='0.5' fill='#2B7FD4' opacity='.4'/><rect x='2' y='7.5' width='3.5' height='3.5' rx='0.5' fill='#2B7FD4' opacity='.4'/><rect x='7.5' y='7.5' width='3.5' height='3.5' rx='0.5' fill='#2B7FD4'/></svg></div><div class="tool-name">Random Wordle Generator</div><div class="tool-desc">Random 5-letter words for Wordle. Filter by difficulty and letter.</div></a>
+      <a class="tool-item" href="/wordle-helper/"><div class="tool-icon" style="background:#E1F5EE"><svg viewBox="0 0 13 13" fill="none"><rect x='2' y='2' width='3.5' height='3.5' rx='0.5' fill='#1D9E75'/><rect x='7.5' y='2' width='3.5' height='3.5' rx='0.5' fill='#BA7517'/><rect x='2' y='7.5' width='3.5' height='3.5' rx='0.5' fill='none' stroke='#9a9a94' stroke-width='1'/><rect x='7.5' y='7.5' width='3.5' height='3.5' rx='0.5' fill='#1D9E75'/></svg></div><div class="tool-name">Wordle Helper</div><div class="tool-desc">Entropy-ranked solver — enter your clues and get the single best next guess, not just a filtered list.</div></a>
+      <a class="tool-item" href="/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="#534AB7" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="tool-name">Random word</div><div class="tool-desc">Filter by type, difficulty, length</div></a>
+      <a class="tool-item" href="/random-noun-generator/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h9M2 7h6M2 10h8" stroke="#534AB7" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="tool-name">Random Noun Generator</div><div class="tool-desc">Generate random nouns — filter by type (abstract, concrete, proper, collective) and difficulty.</div></a>
+      <a class="tool-item" href="/random-verb-generator/"><div class="tool-icon" style="background:#EEF6FE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h9M2 7h7M2 10h5" stroke="#2B6CB0" stroke-width="1.3" stroke-linecap="round"/><path d="M10 9l2 1.5-2 1.5" stroke="#2B6CB0" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="tool-name">Random Verb Generator</div><div class="tool-desc">Generate random verbs — filter by type (action, linking, auxiliary, modal) and difficulty.</div></a>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div>
+    <h2 class="section-title">Other tools</h2>
+    <p class="section-sub">Numbers, names, games and more</p>
+    <div class="other-grid">
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3h9M2 6.5h7M2 10h5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Writing &amp; Vocabulary</div><a class="other-link" href="/">Random Word Generator</a><a class="other-link" href="/random-sentence-generator/">Random Sentence Generator</a><a class="other-link" href="/random-paragraph-generator/">Random Paragraph Generator</a><a class="other-link" href="/word-counter/">Word Counter</a><a class="other-link other-link--view-all" href="/word-tools/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h3.5M2 7h9M2 10h6" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Browse by Letter</div><a class="other-link" href="/random-words-starting-with/">Random Words Starting With (A–Z)</a><a class="other-link" href="/random-words-starting-with/a">Random Words Starting with A</a><a class="other-link" href="/random-words-starting-with/s">Random Words Starting with S</a><a class="other-link" href="/random-words-starting-with/q">Random Words Starting with Q</a><a class="other-link other-link--view-all" href="/random-words-starting-with/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4.5" r="2.5" stroke="currentColor" stroke-width="1"/><path d="M1.5 11.5c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Names by Origin</div><a class="other-link" href="/random-spanish-name-generator/">Spanish Name Generator</a><a class="other-link" href="/random-italian-name-generator/">Italian Name Generator</a><a class="other-link" href="/random-japanese-name-generator/">Japanese Name Generator</a><a class="other-link" href="/random-american-name-generator/">American Name Generator</a><a class="other-link other-link--view-all" href="/name-generators/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="1.5" width="9" height="10" rx="1" stroke="currentColor" stroke-width="1"/><path d="M4 4.5h5M4 6.5h5M4 8.5h3" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Other Name Generators</div><a class="other-link" href="/character-name-generator/">Character Name Generator</a><a class="other-link" href="/fantasy-name-generator/">Fantasy Name Generator</a><a class="other-link" href="/business-name-generator/">Business Name Generator</a><a class="other-link" href="/band-name-generator/">Band Name Generator</a><a class="other-link other-link--view-all" href="/other-generators/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="3.5" y="5.5" width="6" height="5" rx="1" stroke="currentColor" stroke-width="1"/><path d="M5 5.5V4a1.5 1.5 0 013 0v1.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Account &amp; Security</div><a class="other-link" href="/password-generator/">Password Generator</a><a class="other-link" href="/passphrase-generator/">Passphrase Generator</a><a class="other-link" href="/memorable-password-generator/">Memorable Password Generator</a><a class="other-link" href="/username-generator/">Username Generator</a><a class="other-link other-link--view-all" href="/account-tools/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="1" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="1" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/></svg>Games &amp; fun</div><a class="other-link" href="/pictionary-phrase-generator/">Pictionary Phrase Generator</a><a class="other-link" href="/wordle-helper/">Wordle Helper</a><a class="other-link other-link--view-all" href="/number-chance/">View all →</a></div>
+    </div>
+  </div>
+
+  <div class="ad-rect">
+    <span class="ad-tag">Advertisement · 336×280</span>
+    <div class="ad-rect-img"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4C10.3 4 4 10.3 4 18s6.3 14 14 14 14-6.3 14-14S25.7 4 18 4z" fill="white" opacity=".2"/><path d="M12 18c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="18" r="2.5" fill="white"/></svg></div>
+    <div class="ad-rect-content">
+      <div class="ad-rect-title">Grammarly — write with confidence</div>
+      <div class="ad-rect-body">Instantly improve grammar, spelling, clarity, and tone. Works everywhere you write online.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
+    </div>
+  </div>
+  <div class="divider"></div>
+
+<div style="max-width:800px;margin:32px auto;padding:0 20px">
+  <h2>How the solver works</h2>
+  <p>Enter green letters in the position boxes, yellow letters in "Letters in word," and gray letters in "Not in word." Click Find Possibilities to see all matching words from the full Wordle guess dictionary (~12,000 valid words). This includes both likely answers and valid tactical guesses.</p>
+  <p>The archive lists past Wordle answers only (the ~2,300 word answer pool). Today's answer is not shown — use the archive after you've played to check your result.</p>
+</div>
+  <div class="divider"></div>
+
+<section style="max-width:800px;margin:0 auto 40px;padding:0 20px">
+  <h2>Frequently asked questions</h2>
+  <details style="border-bottom:1px solid var(--border);padding:14px 0">
+    <summary style="cursor:pointer;font-weight:600;font-size:15px">Does this include today's Wordle answer?</summary>
+    <p style="margin:10px 0 0;color:var(--text-2);font-size:14px;line-height:1.7">No. The archive shows past answers only (yesterday and earlier). This lets you use the solver and look up puzzle history without accidentally seeing today's answer before you play.</p>
+  </details>
+  <details style="border-bottom:1px solid var(--border);padding:14px 0">
+    <summary style="cursor:pointer;font-weight:600;font-size:15px">Why does the solver show words not in the archive?</summary>
+    <p style="margin:10px 0 0;color:var(--text-2);font-size:14px;line-height:1.7">Wordle accepts about 12,000 valid English words as guesses, but only about 2,300 are in the answer pool. The solver searches all valid guesses — useful for tactical plays. Past Wordle answers all came from the smaller answer pool.</p>
+  </details>
+  <details style="border-bottom:1px solid var(--border);padding:14px 0">
+    <summary style="cursor:pointer;font-weight:600;font-size:15px">What is the puzzle number?</summary>
+    <p style="margin:10px 0 0;color:var(--text-2);font-size:14px;line-height:1.7">Wordle started on June 19, 2021 as Puzzle #1. Each day is a new consecutive number. The archive table shows the puzzle number for each past answer so you can find a specific game by date or number.</p>
+  </details>
+</section>
+  <div class="divider"></div>
+
+
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="ad-footer-strip" style="margin-bottom:24px">
+      <span class="ad-tag">Advertisement · 468×60</span>
+      <div class="ad-fs-text"><strong>Grammarly Premium</strong> — Vocabulary suggestions, tone detector, full-sentence rewrites.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-footer-strip-cta">Try free</a>
+    </div>
+    <div class="footer-grid">
+      <div><div class="footer-col-title">Writing &amp; Vocabulary</div><a class="footer-link" href="/">Random Word Generator</a><a class="footer-link" href="/random-sentence-generator/">Random Sentence Generator</a><a class="footer-link" href="/random-paragraph-generator/">Random Paragraph Generator</a><a class="footer-link" href="/word-counter/">Word Counter</a><a class="footer-link" href="/common-5-letter-words/">Common 5-Letter Words</a><a class="footer-link" href="/etymology-100-common-words/">Word Origins & Etymology</a><a class="footer-link" href="/spelling-bee-words-printable/">Spelling Bee Printable</a><a class="footer-link" href="/esl-vocabulary-cefr/">ESL Vocabulary (CEFR)</a><a class="footer-link footer-link--view-all" href="/word-tools/">View all →</a></div>
+      <div><div class="footer-col-title">Browse by Letter</div><a class="footer-link" href="/random-words-starting-with/">Random Words Starting With (A–Z)</a><a class="footer-link" href="/random-words-starting-with/a">Random Words Starting with A</a><a class="footer-link" href="/random-words-starting-with/s">Random Words Starting with S</a><a class="footer-link" href="/random-words-starting-with/q">Random Words Starting with Q</a><a class="footer-link footer-link--view-all" href="/random-words-starting-with/">View all →</a></div>
+      <div><div class="footer-col-title">Names by Origin</div><a class="footer-link" href="/random-spanish-name-generator/">Spanish Name Generator</a><a class="footer-link" href="/random-italian-name-generator/">Italian Name Generator</a><a class="footer-link" href="/random-japanese-name-generator/">Japanese Name Generator</a><a class="footer-link" href="/random-american-name-generator/">American Name Generator</a><a class="footer-link footer-link--view-all" href="/name-generators/">View all →</a></div>
+      <div><div class="footer-col-title">Other Name Generators</div><a class="footer-link" href="/character-name-generator/">Character Name Generator</a><a class="footer-link" href="/fantasy-name-generator/">Fantasy Name Generator</a><a class="footer-link" href="/business-name-generator/">Business Name Generator</a><a class="footer-link" href="/band-name-generator/">Band Name Generator</a><a class="footer-link footer-link--view-all" href="/other-generators/">View all →</a></div>
+      <div><div class="footer-col-title">Account &amp; Security</div><a class="footer-link" href="/password-generator/">Password Generator</a><a class="footer-link" href="/passphrase-generator/">Passphrase Generator</a><a class="footer-link" href="/memorable-password-generator/">Memorable Password Generator</a><a class="footer-link" href="/username-generator/">Username Generator</a><a class="footer-link footer-link--view-all" href="/account-tools/">View all →</a></div>
+      <div><div class="footer-col-title">Games &amp; fun</div><a class="footer-link" href="/pictionary-phrase-generator/">Pictionary Phrase Generator</a><a class="footer-link" href="/crossword-puzzle-generator/">Crossword Puzzle Generator</a><a class="footer-link" href="/wordle-helper/">Wordle Helper</a><a class="footer-link" href="/wordle-answers/">Wordle Answer Archive</a><a class="footer-link footer-link--view-all" href="/number-chance/">View all →</a></div>
+    </div>
+    <div class="footer-bottom">
+      <div style="display:flex;align-items:center;gap:7px">
+        <div class="nav-logo-icon" style="width:22px;height:22px;border-radius:5px"><svg viewBox="0 0 15 15" fill="none" style="width:12px;height:12px"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <span style="font-size:14px;font-weight:600;color:var(--text)">Wordineer</span>
+      </div>
+      <span class="footer-copy">© 2026 Wordineer · Free word tools for everyone</span>
+      <div class="footer-meta"><a href="/about/">About</a><a href="/blog/">Blog</a><a href="/affiliate-disclosure/">Affiliate disclosure</a><a href="/privacy/">Privacy</a></div>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="/scripts/tool-engine.js?v=26"></script>
+<script>
+(function bindSharedWordineerMenu() {
+  const mega = document.getElementById('mega');
+  const hbg = document.querySelector('.hamburger');
+  if (!mega || !hbg) return;
+  if (hbg.dataset.menuBound === '1') return;
+  hbg.dataset.menuBound = '1';
+  hbg.onclick = null;
+  if (hbg.getAttribute('onclick')) hbg.removeAttribute('onclick');
+
+  function setMenu(open) {
+    mega.classList.toggle('open', open);
+    hbg.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+
+  setMenu(mega.classList.contains('open'));
+
+  hbg.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+    setMenu(!mega.classList.contains('open'));
+  }, true);
+
+  hbg.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+      setMenu(!mega.classList.contains('open'));
+    }
+  }, true);
+
+  document.addEventListener('click', function(e) {
+    if (mega.classList.contains('open') && !mega.contains(e.target) && !hbg.contains(e.target)) {
+      setMenu(false);
+    }
+  }, true);
+})();
+</script>
+
+<script>
+(function(){
+  var ARCHIVE = [], GUESSES = [];
+  var START = new Date('2021-06-19');
+
+  function puzzleNum(dateStr) {
+    var d = new Date(dateStr);
+    return Math.round((d - START) / 86400000) + 1;
+  }
+
+  // Tabs
+  document.querySelectorAll('.wa-tab').forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      document.querySelectorAll('.wa-tab,.wa-panel').forEach(function(el) { el.classList.remove('active'); });
+      tab.classList.add('active');
+      document.getElementById('panel-' + tab.dataset.panel).classList.add('active');
+    });
+  });
+
+  // Archive
+  function renderArchive(rows) {
+    document.getElementById('arch-tbody').innerHTML = rows.map(function(r) {
+      return '<tr><td>' + r.date + '</td><td class="arch-word">' + r.word + '</td><td>#' + puzzleNum(r.date) + '</td></tr>';
+    }).join('');
+  }
+
+  document.getElementById('arch-search').addEventListener('input', function() {
+    var q = this.value.trim().toLowerCase();
+    renderArchive(ARCHIVE.filter(function(r) {
+      return !q || r.word.toLowerCase().indexOf(q) !== -1 || r.date.indexOf(q) !== -1;
+    }));
+  });
+
+  // Position inputs auto-advance
+  document.querySelectorAll('.pos-input').forEach(function(el, i, arr) {
+    el.addEventListener('input', function() {
+      el.value = el.value.slice(-1).toUpperCase();
+      el.classList.toggle('filled', el.value.length > 0);
+      if (el.value && arr[i+1]) arr[i+1].focus();
+    });
+  });
+
+  // Solver
+  function solve() {
+    var positions = [0,1,2,3,4].map(function(i) { return document.getElementById('p'+i).value.toLowerCase(); });
+    var yellow = document.getElementById('yellow-letters').value.toLowerCase().replace(/[^a-z]/g,'').split('').filter(Boolean);
+    var grayStr = document.getElementById('gray-letters').value.toLowerCase().replace(/[^a-z]/g,'');
+    var gray = new Set(grayStr.split('').filter(Boolean));
+
+    var results = GUESSES.filter(function(w) {
+      for (var i = 0; i < 5; i++) {
+        if (positions[i] && w[i] !== positions[i]) return false;
+      }
+      for (var j = 0; j < yellow.length; j++) {
+        if (w.indexOf(yellow[j]) === -1) return false;
+      }
+      for (var c of gray) {
+        var inGreen = positions.indexOf(c) !== -1;
+        var inYellow = yellow.indexOf(c) !== -1;
+        if (!inGreen && !inYellow && w.indexOf(c) !== -1) return false;
+      }
+      return true;
+    });
+
+    var el = document.getElementById('solver-results');
+    if (!results.length) {
+      el.innerHTML = '<p style="color:var(--text-3);font-size:13px">No matches. Check your inputs — letters in green positions should not also be in the gray list.</p>';
+      return;
+    }
+    el.innerHTML = '<div class="solver-count">' + results.length.toLocaleString() + ' possible word' + (results.length===1?'':'s') + '</div>' +
+      '<div class="solver-words">' +
+      results.slice(0,120).map(function(w) { return '<span class="solver-word">' + w.toUpperCase() + '</span>'; }).join('') +
+      (results.length > 120 ? '<span style="font-size:12px;color:var(--text-3);align-self:center">…and ' + (results.length-120) + ' more. Add more constraints to narrow down.</span>' : '') +
+      '</div>';
+  }
+
+  document.getElementById('solve-btn').addEventListener('click', solve);
+  document.getElementById('gray-letters').addEventListener('keydown', function(e) { if (e.key === 'Enter') solve(); });
+
+  document.getElementById('clear-btn').addEventListener('click', function() {
+    document.querySelectorAll('.pos-input').forEach(function(el) { el.value=''; el.classList.remove('filled'); });
+    document.getElementById('yellow-letters').value = '';
+    document.getElementById('gray-letters').value = '';
+    document.getElementById('solver-results').innerHTML = '';
+  });
+
+  // Load data
+  Promise.all([
+    fetch('/data/wordle-archive.json').then(function(r) { return r.json(); }),
+    fetch('/data/wordle-guesses.json').then(function(r) { return r.json(); })
+  ]).then(function(results) {
+    ARCHIVE = results[0];
+    var raw = results[1];
+    GUESSES = Array.isArray(raw) ? raw : Object.values(raw).reduce(function(a,b){ return a.concat(b); }, []);
+    renderArchive(ARCHIVE);
+  });
+})();
+</script>
+</body>
+</html>

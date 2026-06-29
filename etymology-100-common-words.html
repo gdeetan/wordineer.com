@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.adsbygoogle = window.adsbygoogle || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  (function(w, d) {
+    var loaded = false;
+    var cfg = {
+      analyticsId: 'G-7DWH3EGM3Z',
+      adsClient: 'ca-pub-7200956978416233',
+      delay: 10000
+    };
+
+    function loadScript(src, attrs) {
+      var s = d.createElement('script');
+      s.async = true;
+      s.src = src;
+      if (attrs) {
+        Object.keys(attrs).forEach(function(key) {
+          s.setAttribute(key, attrs[key]);
+        });
+      }
+      d.head.appendChild(s);
+    }
+
+    function loadMarketing() {
+      if (loaded) return;
+      loaded = true;
+      gtag('js', new Date());
+      gtag('config', cfg.analyticsId);
+      loadScript('https://www.googletagmanager.com/gtag/js?id=' + cfg.analyticsId);
+      loadScript(
+        'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + cfg.adsClient,
+        { crossorigin: 'anonymous' }
+      );
+    }
+
+    function idleLoad() {
+      if ('requestIdleCallback' in w) {
+        w.requestIdleCallback(loadMarketing, { timeout: 5000 });
+      } else {
+        w.setTimeout(loadMarketing, cfg.delay);
+      }
+    }
+
+    ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function(eventName) {
+      w.addEventListener(eventName, loadMarketing, { once: true, passive: true });
+    });
+    w.addEventListener('load', function() {
+      w.setTimeout(idleLoad, cfg.delay);
+    }, { once: true });
+  })(window, document);
+</script>
+<meta name='impact-site-verification' value='32715504-1cfb-4324-bfc7-ae4cfa1591ea'>
+<link rel="preload" href="/fonts/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-sans-italic-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://wordineer.com/#website",
+      "name": "Wordineer",
+      "url": "https://wordineer.com",
+      "description": "Free online word tools for writers, students, and word game players — random word generator, name generators, word scramble, sentence generator, and more.",
+      "publisher": { "@id": "https://wordineer.com/#organization" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://wordineer.com/#organization",
+      "name": "Wordineer",
+      "url": "https://wordineer.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://wordineer.com/logo.png",
+        "width": 1254,
+        "height": 1254
+      },
+      "description": "Wordineer provides free online word tools for writers, students, and word game players."
+    }
+  ]
+}
+</script>
+<title>The Etymology of 100 Common English Words — Word Origins | Wordineer</title>
+<meta name="description" content="Discover the surprising origins of 100 common English words. Why does 'salary' come from salt? Why does 'panic' come from a Greek god? Full etymology with root language, history, and modern relatives.">
+<meta property="og:title" content="Etymology of 100 Common English Words | Wordineer">
+<meta property="og:description" content="Surprising origins of 100 everyday English words — from Latin, Greek, Arabic, Old Norse, French, and more. Filter by language, search by word or meaning.">
+<meta property="og:url" content="https://wordineer.com/etymology-100-common-words/">
+<link rel="canonical" href="https://wordineer.com/etymology-100-common-words/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The Etymology of 100 Common English Words",
+  "description": "Surprising word origin histories for 100 everyday English words, organized by root language",
+  "url": "https://wordineer.com/etymology-100-common-words/",
+  "author": { "@type": "Organization", "name": "Wordineer" }
+}
+</script>
+
+<link rel="stylesheet" href="/styles/global.css?v=9">
+<style>
+.etym-wrap { max-width: 900px; margin: 0 auto; padding: 0 20px 60px; }
+.etym-controls { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 24px; align-items: center; }
+.lang-filter { display: flex; gap: 8px; flex-wrap: wrap; }
+.lang-btn { padding: 6px 14px; border: 2px solid var(--border); border-radius: 20px; font-size: 12px; font-weight: 600; cursor: pointer; background: var(--bg); color: var(--text-2); font-family: inherit; transition: all .15s; }
+.lang-btn.active { border-color: var(--brand); color: var(--brand); }
+.etym-search { padding: 7px 12px; font-size: 13px; border: 1px solid var(--border); border-radius: 7px; background: var(--bg); color: var(--text); font-family: inherit; }
+.result-count { font-size: 12px; color: var(--text-3); margin-bottom: 16px; }
+.etym-list { display: flex; flex-direction: column; gap: 20px; }
+.etym-card { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; transition: border-color .15s; }
+.etym-card:hover { border-color: var(--brand); }
+.etym-header { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 10px; }
+.etym-word { font-size: 22px; font-weight: 800; }
+.etym-badge { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; padding: 3px 10px; border-radius: 10px; color: white; white-space: nowrap; }
+.origin-Latin { background: #7c3aed; }
+.origin-Greek { background: #0284c7; }
+.origin-Arabic { background: #b45309; }
+.origin-French { background: #0f766e; }
+.origin-Old-Norse { background: #374151; }
+.origin-Old-English { background: #4b5563; }
+.origin-Other { background: #6b7280; }
+.etym-root { font-size: 13px; color: var(--text-3); font-style: italic; margin-bottom: 10px; }
+.etym-date { font-size: 11px; color: var(--text-3); }
+.etym-history { font-size: 14px; line-height: 1.8; color: var(--text); margin-bottom: 12px; }
+.etym-relatives-label { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--text-3); font-weight: 600; margin-bottom: 6px; }
+.etym-relatives { display: flex; gap: 6px; flex-wrap: wrap; }
+.rel-chip { font-size: 12px; padding: 3px 10px; background: var(--bg-2); border: 1px solid var(--border); border-radius: 8px; font-weight: 600; }
+.insight-banner { background: var(--bg-2); border: 1px solid var(--border); border-radius: 12px; padding: 24px 28px; margin-bottom: 32px; }
+.insight-banner h2 { margin: 0 0 12px; font-size: 18px; }
+.insight-banner p { margin: 0; font-size: 14px; line-height: 1.8; color: var(--text-2); }
+@media (max-width: 600px) {
+  .lang-filter { gap: 6px; }
+  .lang-btn { font-size: 11px; padding: 5px 10px; }
+  .etym-card { padding: 14px 16px; }
+  .etym-word { font-size: 18px; }
+}
+</style>
+</head>
+
+<body>
+<nav class="nav">
+  <a class="nav-logo" href="/">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 15 15" fill="none"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </div>
+    Wordineer
+  </a>
+  <div class="nav-links">
+    <a href="/word-tools/">Tools</a>
+    <a href="/blog/">Blog</a>
+  </div>
+  <div>
+    <button class="hamburger" type="button" aria-label="All tools" aria-controls="mega" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mega" id="mega">
+  <div class="mega-inner">
+    <div class="mega-col">
+      <div class="mega-cat">Writing &amp; Vocabulary</div>
+      <a class="mega-link" href="/">Random Word Generator</a>
+      <a class="mega-link" href="/random-sentence-generator/">Random Sentence Generator</a>
+      <a class="mega-link" href="/random-paragraph-generator/">Random Paragraph Generator</a>
+      <a class="mega-link" href="/word-counter/">Word Counter</a>
+      <a class="mega-link" href="/common-5-letter-words/">Common 5-Letter Words</a>
+      <a class="mega-link active" href="/etymology-100-common-words/">Word Origins & Etymology</a>
+      <a class="mega-link" href="/spelling-bee-words-printable/">Spelling Bee Words Printable</a>
+      <a class="mega-link" href="/esl-vocabulary-cefr/">ESL Vocabulary (CEFR)</a>
+      <a class="mega-link mega-link--view-all" href="/word-tools/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Browse by Letter</div>
+      <a class="mega-link" href="/random-words-starting-with/">Random Words Starting With (A–Z)</a>
+      <a class="mega-link" href="/random-words-starting-with/a">Random Words Starting with A</a>
+      <a class="mega-link" href="/random-words-starting-with/s">Random Words Starting with S</a>
+      <a class="mega-link" href="/random-words-starting-with/q">Random Words Starting with Q</a>
+      <a class="mega-link mega-link--view-all" href="/random-words-starting-with/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Names by Origin</div>
+      <a class="mega-link" href="/random-spanish-name-generator/">Spanish Name Generator</a>
+      <a class="mega-link" href="/random-italian-name-generator/">Italian Name Generator</a>
+      <a class="mega-link" href="/random-japanese-name-generator/">Japanese Name Generator</a>
+      <a class="mega-link" href="/random-american-name-generator/">American Name Generator</a>
+      <a class="mega-link mega-link--view-all" href="/name-generators/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Other Name Generators</div>
+      <a class="mega-link" href="/character-name-generator/">Character Name Generator</a>
+      <a class="mega-link" href="/fantasy-name-generator/">Fantasy Name Generator</a>
+      <a class="mega-link" href="/business-name-generator/">Business Name Generator</a>
+      <a class="mega-link" href="/band-name-generator/">Band Name Generator</a>
+      <a class="mega-link mega-link--view-all" href="/other-generators/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Account &amp; Security</div>
+      <a class="mega-link" href="/username-generator/">Username Generator</a>
+      <a class="mega-link" href="/password-generator/">Password Generator</a>
+      <a class="mega-link" href="/passphrase-generator/">Passphrase Generator</a>
+      <a class="mega-link" href="/memorable-password-generator/">Memorable Password Generator</a>
+      <a class="mega-link mega-link--view-all" href="/account-tools/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Games &amp; fun</div>
+      <a class="mega-link" href="/pictionary-phrase-generator/">Pictionary Phrase Generator</a>
+      <a class="mega-link" href="/crossword-puzzle-generator/">Crossword Puzzle Generator</a>
+      <a class="mega-link" href="/wordle-helper/">Wordle Helper</a>
+      <a class="mega-link" href="/wordle-answers/">Wordle Answer Archive</a>
+      <a class="mega-link mega-link--view-all" href="/number-chance/">View all →</a>
+    </div>
+  </div>
+</div>
+
+<h1>The Etymology of 100 Common English Words</h1>
+<p>Why does "salary" come from salt? Why does "panic" come from a Greek god, "assassin" from hashish, and "window" from a Norse word for wind-eye? English is a linguistic scrapbook — it borrowed from Latin, Greek, Arabic, Old Norse, French, and dozens of other languages over 1,500 years. These are the surprising true origins of 100 words you use every day.</p>
+<div class="etym-wrap">
+  <div class="insight-banner">
+    <h2>Why English has so many words for the same thing</h2>
+    <p>English has three words meaning roughly "kingly": <em>royal</em> (from French), <em>regal</em> (from Latin), and <em>kingly</em> (from Old English). All three entered English at different times through different conquerors. After the Norman Conquest of 1066, French became the language of the court and aristocracy, while Old English remained the language of common people, and Latin came through the Church. This three-layered history — Germanic base, French overlay, Latin prestige layer — is why English has so many near-synonyms and the largest lexicon of any language: roughly 170,000 words in current use.</p>
+  </div>
+
+  <div class="etym-controls">
+    <div class="lang-filter" id="lang-filter">
+      <button class="lang-btn active" data-lang="">All origins</button>
+      <button class="lang-btn" data-lang="Latin">Latin</button>
+      <button class="lang-btn" data-lang="Greek">Greek</button>
+      <button class="lang-btn" data-lang="Arabic">Arabic</button>
+      <button class="lang-btn" data-lang="French">French</button>
+      <button class="lang-btn" data-lang="Old Norse">Old Norse</button>
+      <button class="lang-btn" data-lang="Old English">Old English</button>
+      <button class="lang-btn" data-lang="Other">Other</button>
+    </div>
+    <input class="etym-search" id="etym-search" placeholder="Search word or meaning…">
+  </div>
+  <div class="result-count" id="result-count"></div>
+  <div class="etym-list" id="etym-list"></div>
+</div>
+
+<script>
+(function(){
+  var DATA = [], activeLang = '';
+
+  function catClass(cat) {
+    return 'origin-' + (cat || 'Other').replace(/\s+/g, '-');
+  }
+
+  function refresh() {
+    var q = document.getElementById('etym-search').value.trim().toLowerCase();
+    var rows = DATA.filter(function(r) {
+      return (!activeLang || r.category === activeLang) &&
+             (!q || r.w.toLowerCase().indexOf(q) !== -1 || (r.history||'').toLowerCase().indexOf(q) !== -1 || (r.root||'').toLowerCase().indexOf(q) !== -1);
+    });
+    document.getElementById('result-count').textContent = rows.length + ' words';
+    document.getElementById('etym-list').innerHTML = rows.map(function(r) {
+      var relatives = (r.modern_relatives||[]).length ?
+        '<div class="etym-relatives-label">Modern relatives</div><div class="etym-relatives">' +
+        r.modern_relatives.map(function(w){ return '<span class="rel-chip">'+w+'</span>'; }).join('') + '</div>' : '';
+      var displayWord = r.w ? (r.w.charAt(0).toUpperCase() + r.w.slice(1)) : '';
+      return '<div class="etym-card">' +
+        '<div class="etym-header">' +
+        '<span class="etym-word">' + displayWord + '</span>' +
+        '<span class="etym-badge ' + catClass(r.category) + '">' + (r.origin||r.category) + '</span>' +
+        '<span class="etym-date">' + (r.first_use||'') + '</span>' +
+        '</div>' +
+        '<div class="etym-root">Root: <strong>' + (r.root||'') + '</strong></div>' +
+        '<div class="etym-history">' + (r.history||'') + '</div>' +
+        relatives +
+        '</div>';
+    }).join('');
+  }
+
+  document.getElementById('lang-filter').addEventListener('click', function(e) {
+    var btn = e.target.closest('.lang-btn');
+    if (!btn) return;
+    document.querySelectorAll('.lang-btn').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    activeLang = btn.dataset.lang;
+    refresh();
+  });
+
+  document.getElementById('etym-search').addEventListener('input', refresh);
+
+  fetch('/data/etymology-100.json')
+    .then(function(r){ return r.json(); })
+    .then(function(d){ DATA = d; refresh(); });
+})();
+</script>
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="ad-footer-strip" style="margin-bottom:24px">
+      <span class="ad-tag">Advertisement · 468×60</span>
+      <div class="ad-fs-text"><strong>Grammarly Premium</strong> — Vocabulary suggestions, tone detector, full-sentence rewrites.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-footer-strip-cta">Try free</a>
+    </div>
+    <div class="footer-grid">
+      <div><div class="footer-col-title">Writing &amp; Vocabulary</div><a class="footer-link" href="/">Random Word Generator</a><a class="footer-link" href="/random-sentence-generator/">Random Sentence Generator</a><a class="footer-link" href="/random-paragraph-generator/">Random Paragraph Generator</a><a class="footer-link" href="/word-counter/">Word Counter</a><a class="footer-link" href="/common-5-letter-words/">Common 5-Letter Words</a><a class="footer-link" href="/etymology-100-common-words/">Word Origins & Etymology</a><a class="footer-link" href="/spelling-bee-words-printable/">Spelling Bee Printable</a><a class="footer-link" href="/esl-vocabulary-cefr/">ESL Vocabulary (CEFR)</a><a class="footer-link footer-link--view-all" href="/word-tools/">View all →</a></div>
+      <div><div class="footer-col-title">Browse by Letter</div><a class="footer-link" href="/random-words-starting-with/">Random Words Starting With (A–Z)</a><a class="footer-link" href="/random-words-starting-with/a">Random Words Starting with A</a><a class="footer-link" href="/random-words-starting-with/s">Random Words Starting with S</a><a class="footer-link" href="/random-words-starting-with/q">Random Words Starting with Q</a><a class="footer-link footer-link--view-all" href="/random-words-starting-with/">View all →</a></div>
+      <div><div class="footer-col-title">Names by Origin</div><a class="footer-link" href="/random-spanish-name-generator/">Spanish Name Generator</a><a class="footer-link" href="/random-italian-name-generator/">Italian Name Generator</a><a class="footer-link" href="/random-japanese-name-generator/">Japanese Name Generator</a><a class="footer-link" href="/random-american-name-generator/">American Name Generator</a><a class="footer-link footer-link--view-all" href="/name-generators/">View all →</a></div>
+      <div><div class="footer-col-title">Other Name Generators</div><a class="footer-link" href="/character-name-generator/">Character Name Generator</a><a class="footer-link" href="/fantasy-name-generator/">Fantasy Name Generator</a><a class="footer-link" href="/business-name-generator/">Business Name Generator</a><a class="footer-link" href="/band-name-generator/">Band Name Generator</a><a class="footer-link footer-link--view-all" href="/other-generators/">View all →</a></div>
+      <div><div class="footer-col-title">Account &amp; Security</div><a class="footer-link" href="/password-generator/">Password Generator</a><a class="footer-link" href="/passphrase-generator/">Passphrase Generator</a><a class="footer-link" href="/memorable-password-generator/">Memorable Password Generator</a><a class="footer-link" href="/username-generator/">Username Generator</a><a class="footer-link footer-link--view-all" href="/account-tools/">View all →</a></div>
+      <div><div class="footer-col-title">Games &amp; fun</div><a class="footer-link" href="/pictionary-phrase-generator/">Pictionary Phrase Generator</a><a class="footer-link" href="/crossword-puzzle-generator/">Crossword Puzzle Generator</a><a class="footer-link" href="/wordle-helper/">Wordle Helper</a><a class="footer-link" href="/wordle-answers/">Wordle Answer Archive</a><a class="footer-link footer-link--view-all" href="/number-chance/">View all →</a></div>
+    </div>
+    <div class="footer-bottom">
+      <div style="display:flex;align-items:center;gap:7px">
+        <div class="nav-logo-icon" style="width:22px;height:22px;border-radius:5px"><svg viewBox="0 0 15 15" fill="none" style="width:12px;height:12px"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <span style="font-size:14px;font-weight:600;color:var(--text)">Wordineer</span>
+      </div>
+      <span class="footer-copy">© 2026 Wordineer · Free word tools for everyone</span>
+      <div class="footer-meta"><a href="/about/">About</a><a href="/blog/">Blog</a><a href="/affiliate-disclosure/">Affiliate disclosure</a><a href="/privacy/">Privacy</a></div>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="/scripts/tool-engine.js?v=26"></script>
+<script>
+(function bindSharedWordineerMenu() {
+  const mega = document.getElementById('mega');
+  const hbg = document.querySelector('.hamburger');
+  if (!mega || !hbg) return;
+  if (hbg.dataset.menuBound === '1') return;
+  hbg.dataset.menuBound = '1';
+  hbg.onclick = null;
+  if (hbg.getAttribute('onclick')) hbg.removeAttribute('onclick');
+
+  function setMenu(open) {
+    mega.classList.toggle('open', open);
+    hbg.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+
+  setMenu(mega.classList.contains('open'));
+
+  hbg.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+    setMenu(!mega.classList.contains('open'));
+  }, true);
+
+  hbg.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+      setMenu(!mega.classList.contains('open'));
+    }
+  }, true);
+
+  document.addEventListener('click', function(e) {
+    if (mega.classList.contains('open') && !mega.contains(e.target) && !hbg.contains(e.target)) {
+      setMenu(false);
+    }
+  }, true);
+})();
+</script>
+
+</body>
+</html>
