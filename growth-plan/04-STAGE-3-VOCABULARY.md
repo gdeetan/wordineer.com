@@ -14,43 +14,55 @@
 
 ---
 
+## Progress tracker
+
+| Week | Cluster | Status |
+|---|---|---|
+| Week 1 | SAT vocabulary (3 pages) | ✅ Done — deployed 2026-06-29 |
+| Week 2 | Sight words (7 pages) | ✅ Done — deployed 2026-06-29 |
+| Week 3 | Cool/aesthetic/beautiful/unique words | ⬜ Not started |
+| Week 4 | Gen Z slang + ESL + writing tools | ⬜ Not started |
+
+---
+
 ## Keyword landscape
 
 ### Tier 1 — Build first (highest ROI for the effort)
 
-| Keyword | Est. Volume | Est. KD | Page |
-|---|---|---|---|
-| sat vocabulary words | 20,000–40,000 | 45–55 | `/sat-vocabulary-words/` |
-| sat words list | 8,000–15,000 | 40–55 | `/sat-words-list/` |
-| sight words | 100,000–200,000 | 55–70 | (head term) |
-| sight words generator | 4,000–8,000 | 25–35 | `/sight-words-generator/` |
-| sight words for kindergarten | 15,000–30,000 | 35–45 | `/sight-words-kindergarten/` |
-| sight words for 1st grade | 10,000–20,000 | 35–45 | `/sight-words-1st-grade/` |
-| dolch sight words | 15,000–30,000 | 40–50 | `/dolch-sight-words/` |
-| fry sight words | 10,000–20,000 | 40–50 | `/fry-sight-words/` |
-| cool words | 30,000–60,000 | 45–55 | `/cool-words/` |
-| weird words | 15,000–30,000 | 40–50 | (you have `/random-weird-words/`) |
-| aesthetic words | 8,000–15,000 | 35–45 | `/aesthetic-words/` |
-| beautiful words | 15,000–30,000 | 45–55 | `/beautiful-words/` |
-| gen z slang | 30,000–60,000 | 40–50 | `/gen-z-slang/` |
-| gen z words list | 8,000–15,000 | 30–40 | `/gen-z-words/` |
-| esl vocabulary | 6,000–12,000 | 35–45 | `/esl-vocabulary/` |
+| Keyword | Est. Volume | Est. KD | Page | Status |
+|---|---|---|---|---|
+| sat vocabulary words | 20,000–40,000 | 45–55 | `/sat-vocabulary-words/` | ✅ Live |
+| sat words list | 8,000–15,000 | 40–55 | `/sat-words-list/` | ✅ Live |
+| hardest sat words | 2,000–4,000 | 30–40 | `/hardest-sat-words/` | ✅ Live |
+| sight words | 100,000–200,000 | 55–70 | (head term) | ✅ Covered via generator |
+| sight words generator | 4,000–8,000 | 25–35 | `/sight-words-generator/` | ✅ Live |
+| sight words for kindergarten | 15,000–30,000 | 35–45 | `/sight-words-kindergarten/` | ✅ Live |
+| sight words for 1st grade | 10,000–20,000 | 35–45 | `/sight-words-1st-grade/` | ✅ Live |
+| dolch sight words | 15,000–30,000 | 40–50 | `/dolch-sight-words/` | ✅ Live |
+| fry sight words | 10,000–20,000 | 40–50 | `/fry-sight-words/` | ✅ Live |
+| cool words | 30,000–60,000 | 45–55 | `/cool-words/` | ⬜ Week 3 |
+| weird words | 15,000–30,000 | 40–50 | (you have `/random-weird-words/`) | ⬜ Week 3 |
+| aesthetic words | 8,000–15,000 | 35–45 | `/aesthetic-words/` | ⬜ Week 3 |
+| beautiful words | 15,000–30,000 | 45–55 | `/beautiful-words/` | ⬜ Week 3 |
+| gen z slang | 30,000–60,000 | 40–50 | `/gen-z-slang/` | ⬜ Week 4 |
+| gen z words list | 8,000–15,000 | 30–40 | `/gen-z-words/` | ⬜ Week 4 |
+| esl vocabulary | 6,000–12,000 | 35–45 | `/esl-vocabulary/` | ⬜ Week 4 |
 
 ### Tier 2 — Audience and topic variants
 
 | Keyword | Est. Volume | Est. KD |
 |---|---|---|
-| sat words with definitions | 3,000–6,000 | 35–45 |
-| hardest sat words | 2,000–4,000 | 30–40 |
-| sat vocabulary practice | 3,000–6,000 | 35–45 |
-| ged vocabulary words | 1,500–3,000 | 25–35 |
-| toefl vocabulary words | 4,000–8,000 | 35–45 |
-| ielts vocabulary words | 8,000–15,000 | 40–50 |
-| 100 most beautiful english words | 3,000–6,000 | 35–45 |
-| longest words in english | 8,000–15,000 | 45–55 |
-| unique words with deep meaning | 2,000–4,000 | 30–40 |
-| english words with greek roots | 1,500–3,000 | 30–40 |
-| english words with latin roots | 1,500–3,000 | 30–40 |
+| sat words with definitions | 3,000–6,000 | 35–45 | → captured by `/sat-words-list/` ✅ |
+| hardest sat words | 2,000–4,000 | 30–40 | → `/hardest-sat-words/` ✅ |
+| sat vocabulary practice | 3,000–6,000 | 35–45 | → captured by `/sat-vocabulary-words/` ✅ |
+| ged vocabulary words | 1,500–3,000 | 25–35 | ⬜ future |
+| toefl vocabulary words | 4,000–8,000 | 35–45 | ⬜ future |
+| ielts vocabulary words | 8,000–15,000 | 40–50 | ⬜ future |
+| 100 most beautiful english words | 3,000–6,000 | 35–45 | ⬜ Week 3 |
+| longest words in english | 8,000–15,000 | 45–55 | ⬜ future |
+| unique words with deep meaning | 2,000–4,000 | 30–40 | ⬜ Week 3 |
+| english words with greek roots | 1,500–3,000 | 30–40 | ⬜ future (SAT root filter covers this) |
+| english words with latin roots | 1,500–3,000 | 30–40 | ⬜ future (SAT root filter covers this) |
 
 ### Tier 3 — Long-tail seed list (for after Tier 1-2)
 
@@ -68,37 +80,37 @@
 
 ## Build order (week by week)
 
-### Week 1 — SAT vocabulary (highest single-page value)
+### ✅ Week 1 — SAT vocabulary (highest single-page value) — DONE
 
-1. **`/sat-vocabulary-words/`** — Main SAT vocab tool. Should have:
-   - 300+ curated SAT words (the actual SAT no longer has a dedicated vocab section but vocab questions still appear; the term has massive search demand)
-   - Each word with: definition, part of speech, example sentence in SAT-style context, etymology badge (Latin/Greek/etc.), difficulty tier
-   - Practice mode (similar to your spelling bee page)
-   - Audio pronunciation
-   - Filter by difficulty, root language
-   - Save trouble words, run mock quiz
+All three pages built, deployed to Cloudflare Pages, and added to sitemap.xml on 2026-06-29.
 
-2. **`/sat-words-with-definitions/`** — Same data, different UX angle (full list view with definitions visible by default; less of a tool, more of a study list)
+1. ✅ **`/sat-vocabulary-words/`** — Main SAT vocab tool (432 words, difficulty/root/POS filters, Practice Mode, audio, saved words)
+2. ✅ **`/sat-words-list/`** — List-view variant with definitions visible by default; H1 covers both "sat words list" and "sat words with definitions"
+3. ✅ **`/hardest-sat-words/`** — Filtered to hard-tier words only (~180 words)
 
-3. **`/hardest-sat-words/`** — Same data, filtered to top-100 hardest. Different page (different intent), serves a specific high-intent query.
+Data file: `wordineer-deploy/data/sat-vocab-data.json` — 432 entries, fields: `{w, pos, d, ex, syl, root, root_note, diff}`
 
-### Week 2 — Sight words (highest cumulative volume)
+### ✅ Week 2 — Sight words (highest cumulative volume) — DONE
 
-This is a teacher and parent goldmine — sight words are core early-elementary curriculum.
+All seven pages built, deployed to Cloudflare Pages, and added to sitemap.xml on 2026-06-29. All pages share `wordineer-deploy/data/sight-words-data.json`.
 
-1. **`/sight-words-generator/`** — Master tool with Dolch + Fry lists, filtered by grade.
-2. **`/sight-words-kindergarten/`** — Pre-filtered for kindergarten level
-3. **`/sight-words-1st-grade/`**
-4. **`/sight-words-2nd-grade/`**
-5. **`/sight-words-3rd-grade/`**
-6. **`/dolch-sight-words/`** — Full Dolch list, organized by Dolch's original groupings (Pre-K, Primer, Grade 1, Grade 2, Grade 3, Nouns)
-7. **`/fry-sight-words/`** — Fry's first 1000, organized by sets of 100
+1. ✅ **`/sight-words-generator/`** — Master tool with Dolch + Fry lists, filtered by list and grade
+2. ✅ **`/sight-words-kindergarten/`** — Pre-filtered for Dolch Kindergarten words
+3. ✅ **`/sight-words-1st-grade/`**
+4. ✅ **`/sight-words-2nd-grade/`**
+5. ✅ **`/sight-words-3rd-grade/`**
+6. ✅ **`/dolch-sight-words/`** — Full Dolch list organized by Pre-K, K, 1st, 2nd, 3rd, Nouns
+7. ✅ **`/fry-sight-words/`** — Fry words 1–300, organized by sets of 100
 
-These all draw from the same shared `sight-words-data.json` with each word tagged by Dolch grade, Fry grade, and standard K-3 grade level.
+All sight words pages have:
+- Grade-nav strip between tool and "Sight Word Tools" grid (links all 7 pages)
+- Practice Mode (one-word-at-a-time drill)
+- Audio pronunciation (Web Speech API)
+- Saved words with localStorage
+- Print view (colorful flashcard grid)
+- Copy All button
 
-**SEO note:** Sight words content is widely available, so your differentiator must be the tool — audio, practice mode, printable PDFs, progress tracking, parent guidance content. The 5th-grade spelling bee page is your model for what "differentiation through depth" looks like.
-
-### Week 3 — Cool words / weird words / aesthetic words
+### ⬜ Week 3 — Cool words / weird words / aesthetic words
 
 The "interesting English words" cluster. Lower intent but high social-share volume.
 
@@ -110,7 +122,7 @@ The "interesting English words" cluster. Lower intent but high social-share volu
 
 You already have `/random-weird-words/`. Cross-link these all together.
 
-### Week 4 — Gen Z slang + ESL + writing tools
+### ⬜ Week 4 — Gen Z slang + ESL + writing tools
 
 1. **`/gen-z-slang/`** — definitions of "rizz", "skibidi", "delulu", "no cap", etc. This page needs ongoing updates (slang changes constantly) — set a reminder to refresh quarterly. Massive traffic potential but volatility too.
 
@@ -123,6 +135,233 @@ You already have `/random-weird-words/`. Cross-link these all together.
 5. **`/transition-words/`** — list of transition words for essays, organized by function (addition, contrast, causation, sequence, etc.). Popular with K-12 and college students.
 
 6. **`/positive-words/`** — list of 200+ positive English words. Popular with copywriters, social media, mental health content.
+
+---
+
+## Future features & improvements
+
+Ideas for improving existing Stage 3 pages after they are indexed and getting traffic. Grouped by cluster.
+
+### Sight words pages (all 7)
+
+**High value — build when pages hit 500+ visits/month:**
+
+- **Spelling test mode** — hear the word, type it. Currently audio is listen-only; adding a text input + correct/incorrect feedback turns it into a full spelling drill. Technically: add `<input type="text">` in Practice Mode, compare against current word, show green/red feedback. No new data needed.
+
+- **Progress tracker** — remember which words a child has "mastered" (seen 3× without saving as a trouble word). Store as a per-grade JSON blob in `localStorage`. Show a "Mastery" bar: "32/52 Kindergarten words mastered". Reset button. This is the single highest-engagement feature for the parent/teacher audience.
+
+- **Printable PDF mode** — current Print view is a browser print stylesheet; a proper "flashcard sheet" layout (8 per page, cut lines, word on front / blank back) would be widely shared by teachers. Can be done with a print-specific CSS layout, no server needed.
+
+- **Word sentences mode** — in Practice Mode, show the word in a simple sentence instead of (or in addition to) isolated display. For kindergarten: "She **went** to the park." Requires adding `example_sentence` field to `sight-words-data.json` for each word.
+
+- **Weekly challenge mode** — "This week's 10 words" based on the child's grade, randomized fresh each Monday, stored in `localStorage`. Creates a habit loop for return visits.
+
+**Medium value — consider after Week 3-4:**
+
+- **2nd/3rd grade pages** — currently only Dolch. Add Fry group filters on these pages so a parent can see both lists side by side.
+- **Sight words for 4th/5th grade** — not a Dolch category but teachers frequently search for it. Source from Fry 301-500. Adds 2 more grade pages.
+- **Pre-K page** — separate `/sight-words-pre-k/` targeting Dolch Pre-K group directly (parents of 4-5 year olds search for this).
+
+---
+
+### SAT vocabulary pages
+
+**High value:**
+
+- **Mock quiz mode** — for `/sat-vocabulary-words/`: generate 10 words, show 4 answer choices (1 correct definition + 3 distractors pulled from other words). Show score at end. This is the most-requested feature on SAT prep tools and would drive repeat visits. Technically complex but high impact.
+
+- **Root word explorer** — click on a root badge (e.g. "Latin: `bene`") to see all other words in the data file that share that root. Currently the root filter shows words with the same root language but not the same root word. Adding a root-family grouping would be genuinely useful for systematic study.
+
+- **Expand word count to 1,000** — `sat-vocab-data.json` currently has 432 entries. Expanding to 800–1,000 significantly improves the "SAT vocabulary words" head term ranking. The data schema already supports it — just need more entries. Batch-add 200 words at a time in separate prompts.
+
+- **Sentence context questions** — for Practice Mode: show example sentence with the word blanked out, user picks which word fits. "The professor's ___ lecture baffled even his graduate students." (choices: perspicacious / verbose / laconic / benign). This is the actual SAT "Words in Context" format — matching it makes the page more directly useful for exam prep.
+
+**Medium value:**
+
+- **Study schedule generator** — user inputs their SAT date, tool generates a week-by-week plan (how many words per day, which difficulty tier to focus on each week). Stores in `localStorage`. Links back to tool for each day's session.
+- **Download as CSV/Anki deck** — power users (tutors especially) want to import word lists into their own apps. Add a Download button that exports the current filtered list as `word,definition,example` CSV.
+
+---
+
+### Cool/aesthetic/beautiful words (Week 3 — not built yet)
+
+**Build these features in from the start:**
+
+- **Category filter** — these pages live or die by filterable categories. For cool words: Sci-fi/space, Nature, Ancient/archaic, Melodic, Dark/gothic, Funny. Don't build without categories.
+- **Social share per word** — "Share this word" button that copies `"petrichor: the smell of rain on dry earth — wordineer.com/aesthetic-words/"` to clipboard, or opens a Twitter/X pre-filled tweet. These pages get shared widely if you make it easy.
+- **Word of the day integration** — cross-link cool/aesthetic words into `/word-of-the-day/`. If WOTD picks from this data, it creates a return-visit reason.
+- **Embed widget** — a 400×200 iframe embed for bloggers and teachers to display a random aesthetic/cool word on their site. Backlink magnet.
+
+---
+
+### Gen Z slang (Week 4 — not built yet)
+
+**Build these features in from the start:**
+
+- **"Old vs. current" freshness signal** — show when each term was added/updated. Gen Z slang has a half-life. Showing dates ("added Jan 2025") signals to Google and users that the content is maintained.
+- **Trend badge** — 🔥 Trending / ✅ Still used / 📦 Retired. Manual curation but extremely useful for users. Refreshed quarterly.
+- **Submit a term form** — simple form (word + definition + example) that goes to your email. Creates community engagement and surfaces new slang you haven't heard yet.
+- **Quarterly refresh reminder** — add a calendar reminder to review and update this page every 3 months (Jan, Apr, Jul, Oct). Gen Z slang decays fast.
+
+---
+
+## Claude Code prompt — Week 3: Build the cool words cluster
+
+```
+# Task: Build /cool-words/, /aesthetic-words/, /beautiful-english-words/ — Pattern B list pages
+
+You are building three list/reference pages for the "interesting English words" cluster. These are Pattern B pages (list-first, less tool-heavy) that target high-volume social-discovery queries.
+
+## Architecture
+
+All three pages share a new data file: `wordineer-deploy/data/interesting-words-data.json`
+
+Each entry:
+{
+  "word": "petrichor",
+  "pronunciation": "PET-ri-kor",
+  "type": "noun",
+  "definition": "The pleasant, earthy smell produced when rain falls on dry ground.",
+  "note": "Coined in 1964 by Australian scientists from Greek 'petra' (stone) + 'ichor' (the fluid in the veins of the gods).",
+  "categories": ["aesthetic", "nature", "beautiful"],
+  "origin": "Greek"
+}
+
+Categories: `cool`, `aesthetic`, `beautiful`, `unique`, `weird`, `funny`, `dark`, `nature`, `science`, `vintage`
+Target: 300 words minimum, each word can appear in multiple category arrays.
+
+## Pages to build
+
+### 1. /cool-words/
+- H1: "Cool Words" 
+- Target: 30,000–60,000/mo, KD 45–55
+- Filter by category, origin; search bar
+- Static HTML word list (for SEO) + JS filtering on top
+- CONFIG more_tools_key: "vocabulary_tools"
+
+### 2. /aesthetic-words/
+- H1: "Aesthetic Words"
+- Target: 8,000–15,000/mo, KD 35–45
+- Same tool, pre-filtered to `categories` includes "aesthetic"
+- Different intro/explainer angle: Instagram aesthetic culture, mood words, poetic words
+
+### 3. /beautiful-english-words/
+- H1: "Beautiful English Words"  
+- Target: 15,000–30,000/mo, KD 45–55
+- Pre-filtered to `categories` includes "beautiful"
+- Explainer: what makes a word sound beautiful (phonaesthetics, resonance, meaning)
+
+## Tool pattern (Pattern B)
+
+No "Generate" button — the full list is displayed by default, JS filtering on top:
+- Search bar (instant filter on word/definition)
+- Category pills (multi-select, default all)
+- Origin filter (All / Greek / Latin / French / Anglo-Saxon / etc.)
+- Count display: "Showing 287 words"
+- Copy Word button per word
+- Social share button per word (copies "word: definition — wordineer.com/url" to clipboard)
+- Print view (compact list, no sidebar)
+
+Static HTML fallback: render all words server-side in a `<dl>` list so Google sees them without JS.
+
+## Requirements
+
+Each page must have:
+- 300-word intro unique to the page angle
+- 1,500+ word explainer with multiple H2s
+- 6 FAQ questions
+- 4 "who uses this" cards
+- Internal links to: /dolch-sight-words/, /sat-vocabulary-words/, /word-of-the-day/, /random-weird-words/, sibling cluster pages
+- FAQPage + WebApplication + BreadcrumbList schema
+- Canonical, OG, Twitter Card meta
+
+Build /cool-words/ first. Once that is working, /aesthetic-words/ and /beautiful-english-words/ can reuse the same template with minimal changes (different H1, intro, pre-filter value, and explainer content).
+
+Do not deploy. Deliver: tools-src files, data JSON, and a summary of word count and any gaps.
+```
+
+---
+
+## Claude Code prompt — Week 4: Build the Gen Z slang + ESL + writing tools
+
+```
+# Task: Build /gen-z-slang/, /esl-vocabulary/, /words-to-replace-said/, /transition-words/
+
+Four pages. Build in this order: gen-z-slang first (highest traffic ceiling), then esl-vocabulary, then writing tools.
+
+## 1. /gen-z-slang/
+
+Data file: `wordineer-deploy/data/gen-z-slang-data.json`
+Entry format:
+{
+  "term": "rizz",
+  "definition": "Natural charm and charisma, especially the ability to attract romantic interest effortlessly.",
+  "example": "He walked in and the whole room noticed — that guy has serious rizz.",
+  "status": "current",
+  "added": "2024-01",
+  "categories": ["social", "appearance"]
+}
+
+Status: "trending" | "current" | "established" | "fading" | "retired"
+
+Include 100+ terms. Key ones to include: rizz, slay, no cap, fr fr, bussin, lowkey, highkey, hits different, understood the assignment, main character energy, delulu, era (as in "I'm in my healing era"), situationship, rent free, vibe check, it's giving, NPC, snatched, ate and left no crumbs, based, mid, sus, ratio, touch grass, go off, understood the assignment, unalive (content warning, define carefully), W/L (win/loss), deadass, cap/no cap.
+
+Page requirements:
+- Trend status badge on each term (🔥 Trending / ✅ Current / 📦 Fading)
+- Filter by status and category
+- "Last updated" date prominently displayed
+- H1: "Gen Z Slang — Complete Dictionary with Definitions and Examples"
+- Explainer covers: origin of Gen Z slang, how it spreads (TikTok), why it changes so fast, how older generations use it wrong, a brief history of youth slang
+
+## 2. /esl-vocabulary/
+
+Data file: `wordineer-deploy/data/esl-vocab-data.json`
+Entry format:
+{
+  "word": "apologize",
+  "cefr": "B1",
+  "definition": "To say sorry for something you did wrong.",
+  "example": "I apologize for being late to the meeting.",
+  "topic": "social",
+  "pos": "verb"
+}
+
+CEFR levels: A1, A2, B1, B2 (focus on A1–B2 for this page; C1–C2 is too academic for the tool audience)
+Include 400+ words across all levels.
+Filter by CEFR level, topic category (greetings/social, work, shopping, travel, time/dates, emotions, etc.)
+
+Page requirements:
+- CEFR level explainer (what each level means, how long to reach it)
+- Internal links to SAT vocabulary (for advanced learners)
+- "Who uses this" card for: international students, immigrants/newcomers, language teachers, business English learners
+
+## 3. /words-to-replace-said/
+
+Data file: inline in the HTML (only ~120 words, no need for JSON)
+Structure: words grouped by tone/intensity — neutral (replied, responded, stated), positive (exclaimed, cheered, enthused), questioning (asked, wondered, inquired), forceful (declared, insisted, demanded), quiet (whispered, murmured, breathed), etc.
+
+Page: Pattern B list page. Static HTML table or `<dl>`. Filter by tone. Print-friendly.
+Audience: K-12 students, creative writers, English teachers (huge link bait for teacher blogs)
+
+## 4. /transition-words/
+
+Data file: inline in HTML (~80 transition words/phrases)
+Structure: grouped by function — Addition (also, furthermore, moreover), Contrast (however, nevertheless, on the other hand), Causation (therefore, consequently, as a result), Sequence (first, then, finally, subsequently), Emphasis (indeed, in fact, above all), Example (for instance, such as, namely), Conclusion (in conclusion, to summarize, overall)
+
+Page: Pattern B. Static table. Filter by function. Extremely popular with students writing essays — high share/bookmark rate.
+
+## Requirements for all four pages
+
+- FAQPage + WebApplication + BreadcrumbList schema
+- Canonical, OG, Twitter Card
+- 300-word unique intro per page
+- 1,200+ word explainer per page
+- 6 FAQ questions per page
+- Internal links to sibling vocabulary pages
+- more_tools_key: "vocabulary_tools"
+
+Do not deploy. Deliver all tools-src files, data JSONs, and a word-count summary.
+```
 
 ---
 
@@ -172,8 +411,8 @@ This is the hardest part of Stage 3. You need:
 
 | Data | Source | Quality work needed |
 |---|---|---|
-| SAT words | Public list available on College Board (historical), Magoosh, etc. The actual "list" no longer officially exists — compile from contemporary SAT prep books and your own discretion | High — every word needs a real definition, example sentence, etymology, difficulty rating |
-| Sight words | Dolch (public domain) and Fry (public domain) lists are widely available and not copyrightable. Use them. | Low — well-defined sources |
+| SAT words ✅ | Public list available on College Board (historical), Magoosh, etc. The actual "list" no longer officially exists — compile from contemporary SAT prep books and your own discretion | High — every word needs a real definition, example sentence, etymology, difficulty rating |
+| Sight words ✅ | Dolch (public domain) and Fry (public domain) lists are widely available and not copyrightable. Use them. | Low — well-defined sources |
 | Cool/weird/aesthetic words | Original curation from your existing word database + research. Reddit r/etymology, r/words, r/etymologymaps for inspiration | High — each needs definition + usage note + why it's interesting |
 | Gen Z slang | Original research from social media, Urban Dictionary (use as reference only, don't copy), TikTok | High and ongoing — quarterly refresh required |
 | ESL vocabulary by CEFR | English Profile (free CEFR-tagged word lists from Cambridge) | Medium — re-write definitions in plain English |
@@ -182,7 +421,16 @@ This is the hardest part of Stage 3. You need:
 
 ---
 
-## Claude Code prompt — build the SAT Vocabulary Words tool
+## Claude Code prompt — build the SAT Vocabulary Words tool (COMPLETED ✅)
+
+This prompt was executed in full on 2026-06-29. Delivered:
+- `/sat-vocabulary-words/` — 432-word interactive tool
+- `/sat-words-list/` — list-view variant
+- `/hardest-sat-words/` — hard-tier filtered page
+- `sat-vocab-data.json` — 432 entries with `{w, pos, d, ex, syl, root, root_note, diff}`
+
+<details>
+<summary>Original build prompt (archived)</summary>
 
 ```
 # Task: Build /sat-vocabulary-words.html — modeled on the 5th-grade spelling bee page
@@ -308,8 +556,9 @@ Link in explainer body:
 ## Step 11: Deliverables
 
 1. /sat-vocabulary-words.html
-2. /sat-vocab-data.json (with at least 100 words, ideally 300)
-3. Any additions to tool-engine.js or new vocab-engine.js
+2. /sat-words-list.html (list view; H1/intro covers both "sat words list" and "sat words with definitions"; no separate /sat-words-with-definitions/ page)
+3. /sat-vocab-data.json (with at least 100 words, ideally 300)
+4. Any additions to tool-engine.js or new vocab-engine.js
 4. CSS additions (commented)
 5. Update /word-tools/ hub: mark SAT Vocabulary as live, link the card
 6. Add to sitemap.xml
@@ -318,15 +567,17 @@ Link in explainer body:
 Do not deploy.
 ```
 
+</details>
+
 ---
 
 ## Success metrics for Stage 3
 
-- [ ] 10+ pages live in the vocabulary cluster
-- [ ] All pages indexed within 2 weeks
-- [ ] First backlink from an education site within 60 days (these pages naturally attract teacher/parent links)
-- [ ] At least 1 page in top 20 for its target query within 90 days
-- [ ] Sight words pages collectively driving 1,000+ visits/month within 6 months (this is a teacher-heavy niche that compounds)
+- [x] **10+ pages live in the vocabulary cluster** — 10 live as of 2026-06-29 (3 SAT + 7 sight words)
+- [ ] All pages indexed within 2 weeks — *check Google Search Console by 2026-07-13*
+- [ ] First backlink from an education site within 60 days — *check by 2026-08-28*
+- [ ] At least 1 page in top 20 for its target query within 90 days — *check by 2026-09-27*
+- [ ] Sight words pages collectively driving 1,000+ visits/month within 6 months — *check by 2026-12-29*
 
 ---
 
