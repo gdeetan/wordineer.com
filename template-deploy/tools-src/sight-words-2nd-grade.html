@@ -205,6 +205,7 @@
 .word-chip  { background:var(--surface-2,#f0f0f8); border:1px solid var(--border,#e5e5ea); border-radius:6px; padding:5px 12px; font-size:14px; font-weight:600; color:var(--text-1); letter-spacing:.01em; }
 
 /* ── Cross-grade nav strip ── */
+.grade-nav-bar { max-width:960px; margin:0 auto; padding:16px 24px 0; }
 .grade-nav { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin:0 0 36px; font-size:13px; }
 .grade-nav-label { color:var(--text-3,#aaa); margin-right:2px; }
 .grade-nav a { padding:4px 12px; border-radius:20px; text-decoration:none; background:var(--surface-2,#f0f0f8); color:var(--text-2); border:1px solid var(--border,#e5e5ea); transition:background .15s; }
@@ -336,18 +337,32 @@
 <!-- /SLOT:tool -->
 
 <!-- SLOT:ad_b -->
+<div class="grade-nav-bar">
+  <nav class="grade-nav" aria-label="Sight words navigation">
+    <span class="grade-nav-label">Browse:</span>
+    <a href="/sight-words-generator/">All Grades</a>
+    <a href="/sight-words-kindergarten/">Kindergarten</a>
+    <a href="/sight-words-1st-grade/">1st Grade</a>
+    <span class="grade-nav-current">2nd Grade</span>
+    <a href="/sight-words-3rd-grade/">3rd Grade</a>
+    <a href="/dolch-sight-words/">Dolch List</a>
+    <a href="/fry-sight-words/">Fry List</a>
+  </nav>
+</div>
 <!-- /SLOT:ad_b -->
 
 <!-- SLOT:explainer -->
 <div class="explainer">
 
   <div class="grade-nav">
-    <span class="grade-nav-label">Grade:</span>
+    <span class="grade-nav-label">Browse:</span>
     <a href="/sight-words-generator/">All Grades</a>
     <a href="/sight-words-kindergarten/">Kindergarten</a>
     <a href="/sight-words-1st-grade/">1st Grade</a>
     <span class="grade-nav-current">2nd Grade</span>
     <a href="/sight-words-3rd-grade/">3rd Grade</a>
+    <a href="/dolch-sight-words/">Dolch List</a>
+    <a href="/fry-sight-words/">Fry List</a>
   </div>
 
   <h2>All 46 Dolch Second Grade Sight Words</h2>

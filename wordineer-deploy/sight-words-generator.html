@@ -238,6 +238,14 @@
 .practice-actions { display:flex; gap:8px; }
 .practice-nav { display:flex; gap:10px; justify-content:center; padding:16px; border-top:1px solid var(--border-2); margin-top:auto; }
 
+/* ── Grade nav bar ── */
+.grade-nav-bar { max-width:960px; margin:0 auto; padding:16px 24px 0; }
+.grade-nav { display:flex; flex-wrap:wrap; gap:8px; align-items:center; font-size:13px; }
+.grade-nav-label { color:var(--text-3,#aaa); margin-right:2px; }
+.grade-nav a { padding:4px 12px; border-radius:20px; text-decoration:none; background:var(--surface-2,#f0f0f8); color:var(--text-2); border:1px solid var(--border,#e5e5ea); transition:background .15s; }
+.grade-nav a:hover { background:var(--surface-3,#e8e8f0); }
+.grade-nav-current { padding:4px 12px; border-radius:20px; background:#3C3489; color:#fff; font-weight:600; font-size:13px; }
+
 /* ── Explainer ── */
 .explainer ul, .explainer ol { padding-left:1.5em; }
 
@@ -468,7 +476,18 @@
     </div>
   </div>
 </div>
-
+<div class="grade-nav-bar">
+  <nav class="grade-nav" aria-label="Sight words navigation">
+    <span class="grade-nav-label">Browse:</span>
+    <span class="grade-nav-current">All Grades</span>
+    <a href="/sight-words-kindergarten/">Kindergarten</a>
+    <a href="/sight-words-1st-grade/">1st Grade</a>
+    <a href="/sight-words-2nd-grade/">2nd Grade</a>
+    <a href="/sight-words-3rd-grade/">3rd Grade</a>
+    <a href="/dolch-sight-words/">Dolch List</a>
+    <a href="/fry-sight-words/">Fry List</a>
+  </nav>
+</div>
 <div class="content-wrap">
   <div class="section">
     <h2 class="section-title">More word tools</h2>
