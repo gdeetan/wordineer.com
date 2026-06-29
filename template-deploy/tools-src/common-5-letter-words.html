@@ -1,0 +1,254 @@
+<!-- CONFIG
+{ "url": "/common-5-letter-words/", "output": "common-5-letter-words.html", "type": "tool", "more_tools_key": "more_word_tools", "more_tools_title": "More word tools", "more_tools_subtitle": "Free word generators, lists, and games" }
+-->
+
+<!-- SLOT:meta -->
+<title>Common 5-Letter Words Analyzed by Vowel Pattern | Wordineer</title>
+<meta name="description" content="Browse 640+ common Wordle-valid 5-letter words sorted by vowel pattern, letter uniqueness, and information score. Filterable table with CSV download.">
+<meta property="og:title" content="Common 5-Letter Words Analyzed by Vowel Pattern | Wordineer">
+<meta property="og:description" content="640+ Wordle answer words analyzed by vowel pattern, unique-letter flag, and information score. Filter, sort, and download as CSV.">
+<meta property="og:url" content="https://wordineer.com/common-5-letter-words/">
+<link rel="canonical" href="https://wordineer.com/common-5-letter-words/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "Common 5-Letter Words by Vowel Pattern",
+  "description": "640+ common 5-letter English words analyzed for vowel pattern, letter uniqueness, and Wordle information score",
+  "url": "https://wordineer.com/common-5-letter-words/",
+  "creator": { "@type": "Organization", "name": "Wordineer" },
+  "license": "https://creativecommons.org/licenses/by/4.0/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the best 5-letter starting word for Wordle?",
+      "acceptedAnswer": { "@type": "Answer", "text": "By information theory, TRACE, CRANE, SLATE, and CRATE are among the top openers. They cover the most common letters (E, A, R, T, S, C) in the positions where those letters appear most often. TRACE scores 5.99 bits of information on average — eliminating the most possible words per guess." }
+    },
+    {
+      "@type": "Question",
+      "name": "What vowel pattern is most common in 5-letter words?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Words with exactly 2 unique vowels are the most common, making up roughly 50% of Wordle answer words. The AE vowel pattern (words containing A and E as their only vowels — like TRACE, CRANE, STARE) is the single most frequent two-vowel combination." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I download this word list?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes — click Download CSV above the table. The file includes all words with vowel pattern, vowel count, unique-letter flag, and information score. Free to use under CC BY 4.0." }
+    }
+  ]
+}
+</script>
+<!-- /SLOT:meta -->
+
+<!-- SLOT:style -->
+<style>
+.asset-wrap { max-width: 1000px; margin: 0 auto; padding: 0 20px 40px; }
+.filter-bar { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-bottom: 16px; }
+.filter-bar select, .filter-bar input[type=text] { padding: 7px 10px; font-size: 13px; border: 1px solid var(--border); border-radius: 7px; background: var(--bg); color: var(--text); font-family: inherit; }
+.filter-bar label { font-size: 12px; color: var(--text-2); display: flex; align-items: center; gap: 5px; cursor: pointer; }
+.dl-btn { padding: 7px 14px; font-size: 12px; font-weight: 600; background: var(--bg-2); border: 1px solid var(--border); border-radius: 7px; cursor: pointer; color: var(--text-2); font-family: inherit; }
+.dl-btn:hover { background: var(--bg-3); }
+.table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 10px; }
+.word-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.word-table th { text-align: left; padding: 8px 10px; border-bottom: 2px solid var(--border); color: var(--text-3); font-size: 11px; text-transform: uppercase; letter-spacing: .05em; cursor: pointer; user-select: none; white-space: nowrap; }
+.word-table th:hover { color: var(--brand); }
+.word-table td { padding: 7px 10px; border-bottom: 1px solid var(--border-2); }
+.word-table tr:last-child td { border-bottom: none; }
+.word-table tr:hover td { background: var(--bg-2); }
+.vowel-chip { display: inline-block; padding: 2px 7px; border-radius: 10px; font-size: 11px; font-weight: 600; background: var(--bg-3); color: var(--text-2); letter-spacing: .05em; }
+.badge-unique { color: var(--brand); font-weight: 700; }
+.result-count { font-size: 12px; color: var(--text-3); margin-bottom: 8px; }
+.analysis-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; margin: 32px 0; }
+.analysis-card { background: var(--bg-2); border: 1px solid var(--border); border-radius: 10px; padding: 18px; }
+.analysis-card h3 { margin: 0 0 10px; font-size: 15px; }
+.analysis-card p { margin: 0; font-size: 13px; color: var(--text-2); line-height: 1.6; }
+.insight-box { background: var(--bg-2); border-left: 3px solid var(--brand); border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 0 0 24px; font-size: 14px; line-height: 1.7; }
+@media print { .filter-bar, .dl-btn { display: none; } }
+@media (max-width: 600px) { .filter-bar { flex-direction: column; align-items: stretch; } }
+</style>
+<!-- /SLOT:style -->
+
+<!-- SLOT:hero -->
+<h1>Common 5-Letter Words — Analyzed by Vowel Pattern</h1>
+<p>640+ Wordle-valid 5-letter words with vowel patterns, letter uniqueness, and information-theory scores. Filter by vowel count or pattern, sort any column, or download as CSV.</p>
+<!-- /SLOT:hero -->
+
+<!-- SLOT:tool -->
+<div class="asset-wrap">
+  <div class="filter-bar">
+    <select id="vowel-count-filter">
+      <option value="">All vowel counts</option>
+      <option value="1">1 vowel</option>
+      <option value="2">2 vowels</option>
+      <option value="3">3 vowels</option>
+      <option value="4">4 vowels</option>
+      <option value="5">5 vowels</option>
+    </select>
+    <select id="vowel-pattern-filter">
+      <option value="">All patterns</option>
+    </select>
+    <label><input type="checkbox" id="unique-only"> Unique letters only</label>
+    <input type="text" id="word-search" placeholder="Search word…" style="width:130px">
+    <button class="dl-btn" id="dl-csv">↓ Download CSV</button>
+    <button class="dl-btn" onclick="window.print()">Print</button>
+  </div>
+  <div class="result-count" id="result-count"></div>
+  <div class="table-wrap">
+    <table class="word-table" id="word-table">
+      <thead>
+        <tr>
+          <th data-col="w">Word ↕</th>
+          <th data-col="vowels">Vowel Pattern ↕</th>
+          <th data-col="vowel_count">Vowels # ↕</th>
+          <th data-col="unique_letters">All Unique? ↕</th>
+          <th data-col="bits">Info Score ↕</th>
+        </tr>
+      </thead>
+      <tbody id="word-tbody"></tbody>
+    </table>
+  </div>
+</div>
+<!-- /SLOT:tool -->
+
+<!-- SLOT:explainer -->
+<div class="asset-wrap">
+  <div class="insight-box">
+    <strong>The optimal Wordle opener:</strong> TRACE scores 5.99 bits of information — it places E, T, A, R, C in the positions where those letters appear most frequently across all possible answers. After TRACE as your first guess, the ideal follow-up for uncovering remaining common letters is SOLID (S, O, L, I, D). Together these two guesses test 10 distinct, high-frequency letters.
+  </div>
+  <div class="analysis-grid">
+    <div class="analysis-card">
+      <h3>Most common vowel pattern</h3>
+      <p>Two-vowel words make up ~50% of common 5-letter words. The AE pattern — words with only A and E as vowels, like TRACE, CRANE, STARE — is the single most common two-vowel combination among Wordle answers.</p>
+    </div>
+    <div class="analysis-card">
+      <h3>Unique-letter advantage</h3>
+      <p>About 60% of Wordle words have 5 distinct letters. Opening with a unique-letter word always gives better information — you learn about 5 different letters rather than confirming a repeat you already know.</p>
+    </div>
+    <div class="analysis-card">
+      <h3>High-vowel strategy</h3>
+      <p>Words with 3+ vowels (AUDIO, OUIJA) eliminate many vowels in one guess but reveal fewer consonants. Best used as a second guess after a consonant-heavy opener narrows the field.</p>
+    </div>
+    <div class="analysis-card">
+      <h3>The S position</h3>
+      <p>S appears in ~37% of 5-letter Wordle words — more than any other consonant. However, S rarely appears in position 1. Positions 4 and 5 are the most productive places to test for S.</p>
+    </div>
+  </div>
+</div>
+<!-- /SLOT:explainer -->
+
+<!-- SLOT:faq -->
+<section style="max-width:800px;margin:0 auto 40px;padding:0 20px">
+  <h2>Frequently asked questions</h2>
+  <details style="border-bottom:1px solid var(--border);padding:14px 0">
+    <summary style="cursor:pointer;font-weight:600;font-size:15px">What is the best 5-letter starting word for Wordle?</summary>
+    <p style="margin:10px 0 0;color:var(--text-2);font-size:14px;line-height:1.7">By information theory, TRACE, CRANE, SLATE, and CRATE are top openers. TRACE scores 5.99 bits of information per guess — the highest in this dataset. It places E, T, A, R, C in their most-frequent positions across all possible Wordle answers.</p>
+  </details>
+  <details style="border-bottom:1px solid var(--border);padding:14px 0">
+    <summary style="cursor:pointer;font-weight:600;font-size:15px">What does "info score" (bits) mean?</summary>
+    <p style="margin:10px 0 0;color:var(--text-2);font-size:14px;line-height:1.7">The information score measures how much a guess narrows down the answer pool on average, measured in bits. A score of 6 bits means the guess eliminates about 64 of every 65 remaining possibilities on average. Higher is better. Words without a score are valid answers but weren't analyzed for opener efficiency.</p>
+  </details>
+  <details style="border-bottom:1px solid var(--border);padding:14px 0">
+    <summary style="cursor:pointer;font-weight:600;font-size:15px">Can I download the full word list?</summary>
+    <p style="margin:10px 0 0;color:var(--text-2);font-size:14px;line-height:1.7">Yes — click Download CSV above. The file includes all words with vowel pattern, vowel count, unique-letter flag, and information score. Licensed CC BY 4.0: free to use with attribution.</p>
+  </details>
+  <details style="border-bottom:1px solid var(--border);padding:14px 0">
+    <summary style="cursor:pointer;font-weight:600;font-size:15px">Why do some words have no info score?</summary>
+    <p style="margin:10px 0 0;color:var(--text-2);font-size:14px;line-height:1.7">The information score is calculated for a curated set of top strategic openers. Words in the full answer list but not analyzed for opener efficiency show a dash. All words without a score are still valid Wordle answers — they just haven't been scored for first-guess efficiency.</p>
+  </details>
+</section>
+<!-- /SLOT:faq -->
+
+<!-- SLOT:init -->
+<script>
+(function(){
+  var DATA = [], sortCol = 'bits', sortDir = -1;
+
+  function render(rows) {
+    document.getElementById('result-count').textContent = rows.length.toLocaleString() + ' words';
+    document.getElementById('word-tbody').innerHTML = rows.map(function(r) {
+      return '<tr>' +
+        '<td><strong>' + r.w.toUpperCase() + '</strong></td>' +
+        '<td><span class="vowel-chip">' + (r.vowels ? r.vowels.toUpperCase() : '—') + '</span></td>' +
+        '<td>' + r.vowel_count + '</td>' +
+        '<td>' + (r.unique_letters ? '<span class="badge-unique">✓</span>' : '') + '</td>' +
+        '<td>' + (r.bits != null ? r.bits.toFixed(2) : '—') + '</td>' +
+        '</tr>';
+    }).join('');
+  }
+
+  function populate(data) {
+    var patterns = [];
+    var seen = {};
+    data.forEach(function(r) { if (r.vowels && !seen[r.vowels]) { seen[r.vowels]=1; patterns.push(r.vowels); } });
+    patterns.sort();
+    var sel = document.getElementById('vowel-pattern-filter');
+    patterns.forEach(function(p) {
+      var opt = document.createElement('option');
+      opt.value = p; opt.textContent = p.toUpperCase();
+      sel.appendChild(opt);
+    });
+  }
+
+  function filtered() {
+    var vc = document.getElementById('vowel-count-filter').value;
+    var vp = document.getElementById('vowel-pattern-filter').value;
+    var uniq = document.getElementById('unique-only').checked;
+    var q = document.getElementById('word-search').value.trim().toLowerCase();
+    return DATA.filter(function(r) {
+      return (!vc || r.vowel_count == vc) &&
+             (!vp || r.vowels === vp) &&
+             (!uniq || r.unique_letters) &&
+             (!q || r.w.toLowerCase().indexOf(q) !== -1);
+    });
+  }
+
+  function sorted(rows) {
+    return rows.slice().sort(function(a, b) {
+      var av = a[sortCol], bv = b[sortCol];
+      if (av == null) av = sortDir > 0 ? Infinity : -Infinity;
+      if (bv == null) bv = sortDir > 0 ? Infinity : -Infinity;
+      if (typeof av === 'boolean') { av = av?1:0; bv = bv?1:0; }
+      if (typeof av === 'string') return sortDir * av.localeCompare(bv);
+      return sortDir * (av - bv);
+    });
+  }
+
+  function refresh() { render(sorted(filtered())); }
+
+  ['vowel-count-filter','vowel-pattern-filter'].forEach(function(id) {
+    document.getElementById(id).addEventListener('change', refresh);
+  });
+  document.getElementById('unique-only').addEventListener('change', refresh);
+  document.getElementById('word-search').addEventListener('input', refresh);
+
+  document.querySelectorAll('.word-table th[data-col]').forEach(function(th) {
+    th.addEventListener('click', function() {
+      var col = th.dataset.col;
+      if (sortCol === col) sortDir *= -1; else { sortCol = col; sortDir = 1; }
+      refresh();
+    });
+  });
+
+  document.getElementById('dl-csv').addEventListener('click', function() {
+    var rows = sorted(filtered());
+    var csv = 'word,vowel_pattern,vowel_count,unique_letters,info_score\n' +
+      rows.map(function(r) {
+        return r.w.toUpperCase() + ',' + (r.vowels||'').toUpperCase() + ',' + r.vowel_count + ',' + r.unique_letters + ',' + (r.bits!=null?r.bits.toFixed(2):'');
+      }).join('\n');
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([csv], {type:'text/csv'}));
+    a.download = 'common-5-letter-words.csv';
+    a.click();
+  });
+
+  fetch('/data/five-letter-words-analyzed.json')
+    .then(function(r) { return r.json(); })
+    .then(function(d) { DATA = d; populate(d); refresh(); });
+})();
+</script>
+<!-- /SLOT:init -->
