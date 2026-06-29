@@ -1,0 +1,506 @@
+<!-- CONFIG
+{
+  "type": "tool",
+  "url": "/fry-sight-words/",
+  "output": "fry-sight-words.html",
+  "more_tools_key": "sight_words_tools",
+  "more_tools_title": "More sight words tools",
+  "more_tools_subtitle": "Free practice tools for every grade level"
+}
+-->
+
+<!-- SLOT:meta -->
+<title>Fry Sight Words — First 300 Words in Frequency Order with Audio | Wordineer</title>
+<meta name="description" content="Fry's first 300 sight words organized by frequency sets of 100. Hear every word read aloud. Practice Mode, printable lists — free, no login required.">
+<meta property="og:title" content="Fry Sight Words — First 300 Words in Frequency Order with Audio | Wordineer">
+<meta property="og:description" content="Fry's first 300 sight words in frequency order. Audio pronunciation, Practice Mode, printable. Free.">
+<meta property="og:url" content="https://wordineer.com/fry-sight-words/">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://wordineer.com/fry-sight-words/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Fry Sight Words",
+  "url": "https://wordineer.com/fry-sight-words/",
+  "description": "Fry's first 300 sight words organized by frequency sets of 100. Audio pronunciation, Practice Mode, saved words, and printable lists. Free, no login required.",
+  "applicationCategory": "EducationApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Word Tools", "item": "https://wordineer.com/word-tools/" },
+    { "@type": "ListItem", "position": 3, "name": "Fry Sight Words", "item": "https://wordineer.com/fry-sight-words/" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "How many Fry sight words are there?", "acceptedAnswer": { "@type": "Answer", "text": "Dr. Edward Fry's complete list contains 1,000 words organized by frequency of use in written English. The first 300 words (covered on this page) are the most important for early readers. The Fry list extends through approximately 9th-grade reading level." } },
+    { "@type": "Question", "name": "What is the difference between the Fry list and Dolch list?", "acceptedAnswer": { "@type": "Answer", "text": "The Fry list (1,000 words, 1957–1980) is ordered purely by frequency — the most common words in print first — and extends through Grade 9. The Dolch list (315 words, 1936–1948) is organized by grade level and focuses on K-3. Both lists overlap significantly in their first 200 words." } },
+    { "@type": "Question", "name": "When should a child know all 300 Fry words?", "acceptedAnswer": { "@type": "Answer", "text": "Most reading curricula target the first 100 Fry words by the end of 1st grade, words 101–200 by the end of 2nd grade, and words 201–300 by the end of 3rd grade. The full 1,000-word list extends through middle school." } },
+    { "@type": "Question", "name": "How is the Fry list ordered?", "acceptedAnswer": { "@type": "Answer", "text": "By frequency of use in written English. The word 'the' is #1 — it is the most common word in English text. Words become progressively less frequent as you move through the list. This ordering means learning the first 100 Fry words gives you the highest immediate payoff for reading fluency." } },
+    { "@type": "Question", "name": "Can I print Fry word lists?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Filter to any set (Words 1–100, 101–200, or 201–300), generate your list, and click Print. The print view hides navigation and shows only the words. You can also click Copy List to paste into a flashcard app." } },
+    { "@type": "Question", "name": "What does Practice Mode do?", "acceptedAnswer": { "@type": "Answer", "text": "Practice Mode shows one word at a time with audio. Your child reads the word, clicks Hear Word to confirm pronunciation, then presses Next. Use it for daily 5–10 minute sessions. Exit Practice returns to the full list." } }
+  ]
+}
+</script>
+<!-- /SLOT:meta -->
+
+<!-- SLOT:style -->
+<style>
+.tool-wrap { display:flex; gap:1.5rem; align-items:flex-start; }
+.ctrl { width:240px; flex-shrink:0; background:#f8f9fa; border:1px solid #e5e7eb; border-radius:12px; padding:1.25rem; }
+.results-col { flex:1; min-width:0; }
+@media (max-width:700px) { .tool-wrap { flex-direction:column; } .ctrl { width:100%; } }
+
+.ctrl label { display:block; font-size:.8rem; font-weight:600; color:#374151; margin-bottom:.3rem; margin-top:.9rem; }
+.ctrl label:first-child { margin-top:0; }
+.ctrl select, .ctrl input[type="number"] { width:100%; padding:.45rem .6rem; border:1px solid #d1d5db; border-radius:8px; font-size:.9rem; background:#fff; }
+.ctrl-row { display:flex; gap:.5rem; align-items:center; margin-top:.9rem; }
+.ctrl-row label { margin:0; flex:1; }
+.ctrl-row input[type="checkbox"] { width:16px; height:16px; flex-shrink:0; }
+.generate-btn { width:100%; margin-top:1rem; padding:.65rem; background:#185FA5; color:#fff; border:none; border-radius:8px; font-size:.95rem; font-weight:600; cursor:pointer; }
+.generate-btn:hover { background:#134d8a; }
+.hint { font-size:.75rem; color:#6b7280; text-align:center; margin-top:.4rem; }
+
+.sw-list { list-style:none; padding:0; margin:0; }
+.sw-item { display:flex; align-items:center; gap:.6rem; padding:.55rem .5rem; border-bottom:1px solid #f3f4f6; }
+.sw-word { font-size:1.05rem; font-weight:600; flex:1; }
+.sw-rank { font-size:.75rem; color:#9ca3af; min-width:2rem; text-align:right; }
+.sw-group-badge { font-size:.7rem; padding:.15rem .5rem; border-radius:99px; background:#d1fae5; color:#065f46; font-weight:600; white-space:nowrap; }
+.speak-btn, .save-btn { background:none; border:none; cursor:pointer; padding:.2rem; color:#9ca3af; font-size:1.1rem; line-height:1; }
+.speak-btn:hover { color:#185FA5; }
+.save-btn.saved { color:#e11d48; }
+.sw-empty { color:#9ca3af; font-size:.9rem; padding:1.5rem 0; text-align:center; }
+
+.practice-panel { display:none; text-align:center; padding:2rem 1rem; }
+.practice-panel.active { display:block; }
+.practice-word { font-size:2.8rem; font-weight:700; margin-bottom:1rem; letter-spacing:.02em; }
+.practice-rank { font-size:.85rem; color:#9ca3af; margin-bottom:1rem; }
+.practice-controls { display:flex; gap:.75rem; justify-content:center; flex-wrap:wrap; }
+.practice-controls button { padding:.5rem 1.1rem; border-radius:8px; font-size:.9rem; font-weight:600; cursor:pointer; border:1px solid #d1d5db; background:#f9fafb; }
+.practice-controls .primary-btn { background:#185FA5; color:#fff; border-color:#185FA5; }
+.practice-exit { display:block; margin-top:1rem; font-size:.85rem; color:#6b7280; cursor:pointer; }
+.practice-exit:hover { color:#185FA5; }
+.practice-progress { font-size:.8rem; color:#9ca3af; margin-top:.75rem; }
+
+.saved-section { margin-top:1.5rem; border-top:1px solid #e5e7eb; padding-top:1rem; }
+.saved-title { font-size:.85rem; font-weight:700; color:#374151; margin-bottom:.5rem; }
+.saved-empty { font-size:.8rem; color:#9ca3af; }
+
+.results-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:.75rem; flex-wrap:wrap; gap:.5rem; }
+.results-count { font-size:.85rem; color:#6b7280; }
+.results-actions { display:flex; gap:.5rem; }
+.action-btn { padding:.3rem .75rem; border:1px solid #d1d5db; border-radius:6px; font-size:.8rem; cursor:pointer; background:#fff; }
+.action-btn:hover { background:#f3f4f6; }
+.practice-mode-btn { padding:.3rem .75rem; border:1px solid #185FA5; border-radius:6px; font-size:.8rem; cursor:pointer; background:#185FA5; color:#fff; font-weight:600; }
+
+.grade-nav { display:flex; flex-wrap:wrap; gap:.5rem; margin:1.5rem 0 1rem; }
+.grade-nav a { padding:.35rem .9rem; border-radius:99px; font-size:.82rem; font-weight:600; text-decoration:none; background:#f3f4f6; color:#374151; border:1px solid #e5e7eb; }
+.grade-nav a:hover { background:#d1fae5; color:#065f46; border-color:#a7f3d0; }
+.grade-nav a.current { background:#059669; color:#fff; border-color:#059669; }
+
+@media print {
+  .ctrl, .results-header, .speak-btn, .save-btn, nav, footer, .ad-wrap { display:none !important; }
+  .sw-item { border-bottom:1px solid #ccc; }
+}
+</style>
+<!-- /SLOT:style -->
+
+<!-- SLOT:hero -->
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <ol>
+    <li><a href="/">Wordineer</a></li>
+    <li><a href="/word-tools/">Word Tools</a></li>
+    <li>Fry Sight Words</li>
+  </ol>
+</nav>
+<div class="hero">
+  <p class="hero-badge">300 Words · Frequency-Ordered · Audio · Practice Mode · Free</p>
+  <h1>Fry Sight Words</h1>
+  <p>The first 300 Fry sight words organized by frequency sets of 100. Words are ordered from most to least common in written English — the 1st 100 appear in roughly 50% of all text. Filter by set, hear every word read aloud, and drill with Practice Mode.</p>
+</div>
+<!-- /SLOT:hero -->
+
+<!-- SLOT:tool -->
+<div class="tool-card">
+  <div class="tool-wrap">
+    <div class="ctrl">
+      <label for="ctrl-group">Word set</label>
+      <select id="ctrl-group">
+        <option value="all">All 300 Fry words</option>
+        <option value="1-100">Words 1–100 (most common)</option>
+        <option value="101-200">Words 101–200</option>
+        <option value="201-300">Words 201–300</option>
+      </select>
+
+      <label for="ctrl-count">Number of words</label>
+      <input type="number" id="ctrl-count" value="20" min="1" max="300">
+      <div id="count-error" class="hint" style="color:#dc2626;display:none">Enter 1–300</div>
+
+      <div class="ctrl-row">
+        <label for="ctrl-showrank">Show frequency rank</label>
+        <input type="checkbox" id="ctrl-showrank" checked>
+      </div>
+
+      <button class="generate-btn" id="generate-btn" type="button">Generate Words</button>
+      <p class="hint">Press <kbd>Space</kbd> to regenerate</p>
+    </div>
+
+    <div class="results-col">
+      <div id="list-view">
+        <div class="results-header">
+          <span class="results-count" id="results-count"></span>
+          <div class="results-actions">
+            <button class="action-btn" id="copy-btn" type="button">Copy List</button>
+            <button class="action-btn" id="print-btn" type="button">Print</button>
+            <button class="practice-mode-btn" id="practice-btn" type="button">Practice Mode</button>
+          </div>
+        </div>
+        <ul class="sw-list" id="sw-list" aria-label="Fry sight words list"></ul>
+        <p class="sw-empty" id="sw-empty" style="display:none">No words match your filters.</p>
+      </div>
+
+      <div class="practice-panel" id="practice-panel">
+        <div class="practice-word" id="practice-word"></div>
+        <div class="practice-rank" id="practice-rank"></div>
+        <div class="practice-controls">
+          <button class="primary-btn" id="practice-speak" type="button">🔊 Hear word</button>
+          <button id="practice-prev" type="button">← Prev</button>
+          <button id="practice-next" type="button">Next →</button>
+        </div>
+        <div class="practice-progress" id="practice-progress"></div>
+        <span class="practice-exit" id="practice-exit">← Exit Practice</span>
+      </div>
+
+      <div class="saved-section">
+        <div class="saved-title">Saved words (<span id="saved-count">0</span>)</div>
+        <ul class="sw-list" id="saved-list"></ul>
+        <p class="saved-empty" id="saved-empty">Heart any word to save it here.</p>
+        <div style="display:flex;gap:.5rem;margin-top:.5rem">
+          <button class="action-btn" id="copy-saved-btn" type="button">Copy Saved</button>
+          <button class="action-btn" id="clear-saved-btn" type="button">Clear Saved</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /SLOT:tool -->
+
+<!-- SLOT:ad_b -->
+<!-- /SLOT:ad_b -->
+
+<!-- SLOT:explainer -->
+<div class="explainer">
+  <nav class="grade-nav" aria-label="Sight words navigation">
+    <a href="/sight-words-generator/">All Grades</a>
+    <a href="/sight-words-kindergarten/">Kindergarten</a>
+    <a href="/sight-words-1st-grade/">1st Grade</a>
+    <a href="/sight-words-2nd-grade/">2nd Grade</a>
+    <a href="/sight-words-3rd-grade/">3rd Grade</a>
+    <a href="/dolch-sight-words/">Dolch List</a>
+    <a href="/fry-sight-words/" class="current">Fry List</a>
+  </nav>
+
+  <h2>What are Fry sight words?</h2>
+  <p>Fry sight words are a list of 1,000 English words compiled by Dr. Edward Fry, first published in 1957 and updated in 1980. Unlike the Dolch list, which organizes words by grade level, the Fry list orders words purely by frequency of use in written English — from most common (#1, "the") to least common (#1000). Dr. Fry based his list on an analysis of millions of words from a wide range of texts, making it a reliable measure of which words appear most often in print.</p>
+  <p>The first 100 Fry words alone account for approximately 50% of all words encountered in typical reading material. The first 300 words account for roughly 65%. This frequency weighting is the defining feature of the Fry list — learning the first 100 words gives a child a higher immediate boost to reading fluency than learning any other 100 words in the language.</p>
+
+  <h2>Fry vs. Dolch: key differences</h2>
+  <p>Both lists are widely used and both are public domain. Here is how they differ in practice:</p>
+  <ul>
+    <li><strong>Organization:</strong> Dolch organizes words by grade level (Pre-K, K, 1st, 2nd, 3rd). Fry organizes by frequency (1–100, 101–200, etc.). If your school uses Dolch-level groupings, use the <a href="/dolch-sight-words/">Dolch list</a>. If you want to prioritize by frequency regardless of grade, use Fry.</li>
+    <li><strong>Scope:</strong> Dolch has 315 words (through 3rd grade). Fry has 1,000 words (through approximately 9th grade). For readers above 3rd grade, Fry is the only list that continues to offer benchmarks.</li>
+    <li><strong>Overlap:</strong> The two lists share roughly 60% of their words in the K-3 range. A child who knows Dolch well will already know most of Fry 1–200.</li>
+    <li><strong>Practical choice:</strong> Many teachers use both. Dolch for K-2 structured reading instruction; Fry for measuring progress through upper elementary and middle school.</li>
+  </ul>
+
+  <h2>How to use this tool effectively</h2>
+  <ol>
+    <li><strong>Start with Words 1–100</strong> if your child is in K-1 or a beginning reader. These words are the most frequent and the highest-leverage for fluency.</li>
+    <li><strong>Move to 101–200</strong> once the first set is solid. Test mastery by running a 20-word Practice Mode session — if your child can read all 20 correctly on first sight, they're ready.</li>
+    <li><strong>Use the frequency rank badge</strong> (the number next to each word) to understand priority. Lower-numbered words appear more often in text and should be mastered first.</li>
+    <li><strong>Daily 5-minute practice</strong> beats weekly long sessions. Generate 10–20 words, run through Practice Mode once, save any missed words, done.</li>
+    <li><strong>Print take-home sheets</strong> for parents to use without a device. Click Print for a clean printable word list.</li>
+  </ol>
+
+  <h2>Why frequency ordering matters</h2>
+  <p>A child who can automatically recognize the top 100 Fry words will spend significantly less mental effort decoding text, freeing up working memory for comprehension. Reading research consistently shows that fluency — the ability to read accurately and automatically without labored decoding — is one of the strongest predictors of reading comprehension. Sight word mastery is the fastest path to fluency for early readers.</p>
+  <p>The frequency ordering also gives teachers and parents a clear progress metric. "My child knows Fry 1–150" is a more precise statement than "my child knows some sight words." Use the saved-words feature to track which words still need work and monitor progress toward the next 100-word benchmark.</p>
+</div>
+<!-- /SLOT:explainer -->
+
+<!-- SLOT:faq -->
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">How many Fry sight words are there?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Dr. Fry's complete list contains 1,000 words. This page covers the first 300 — the most important for early through mid-elementary readers. The first 100 Fry words alone appear in roughly 50% of all text.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What is the difference between the Fry list and Dolch list?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Fry orders 1,000 words by frequency (most common first) and extends through Grade 9. Dolch organizes 315 words by grade level (Pre-K through 3rd) with an emphasis on function words. The lists overlap heavily for the first 200 words. Most K-3 classrooms use Dolch; Fry is better for tracking progress beyond 3rd grade.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">When should a child know all 300 Fry words?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Most reading curricula target words 1–100 by end of 1st grade, words 101–200 by end of 2nd grade, and words 201–300 by end of 3rd grade. These are benchmarks, not strict deadlines — individual children vary widely.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">How is the Fry list ordered?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">By frequency in printed English — "the" is #1 because it is the most common word in text. Words become progressively less frequent as the rank increases. Learning the lowest-ranked words first gives the fastest improvement in reading fluency.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I print Fry word lists?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes. Select a word set, generate the list, and click Print. The print view hides all navigation and shows only the words. Use Copy List to paste into a flashcard app or word processor.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What does Practice Mode do?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Practice Mode shows one word at a time with its frequency rank. Your child reads the word, clicks Hear Word to confirm pronunciation, then presses Next. Exit Practice returns to the full list. Designed for daily 5–10 minute drills.</div>
+  </div>
+</div>
+<!-- /SLOT:faq -->
+
+<!-- SLOT:who -->
+<div class="who">
+  <h2>Who uses this tool?</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">K-3 Teachers</div><div class="uc-body">Tracking student progress against Fry benchmarks, generating take-home practice lists for each student's current set, and using Practice Mode for small-group fluency drills during reading center time.</div></div>
+    <div class="uc"><div class="uc-title">Parents</div><div class="uc-body">Running daily 5-minute sight word practice at home. The frequency rank badge helps parents understand which words matter most — start with #1–20 before worrying about #200.</div></div>
+    <div class="uc"><div class="uc-title">Reading Specialists and Interventionists</div><div class="uc-body">Identifying gaps in fluency by testing against specific Fry ranges, using saved-words to build a personalized review list for students who struggle with particular words across multiple sessions.</div></div>
+    <div class="uc"><div class="uc-title">Homeschool Educators</div><div class="uc-body">Following a structured reading progression that aligns with grade-level Fry benchmarks. The frequency ordering provides a natural scope-and-sequence without needing a pre-made curriculum.</div></div>
+  </div>
+</div>
+<!-- /SLOT:who -->
+
+<!-- SLOT:init -->
+<script>
+(function () {
+  'use strict';
+
+  function he(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  var FW = {
+    data: [],
+    saved: [],
+    current: [],
+    practiceWords: [],
+    practiceIdx: 0,
+
+    load: function () {
+      var self = this;
+      var saved = localStorage.getItem('fw-saved');
+      if (saved) { try { self.saved = JSON.parse(saved); } catch(e) { self.saved = []; } }
+      self.renderSaved();
+      fetch('/data/sight-words-data.json')
+        .then(function(r) { return r.json(); })
+        .then(function(words) {
+          var fry = words.filter(function(w) { return w.list === 'fry' || w.list === 'both'; });
+          fry.sort(function(a, b) { return (a.fry_rank || 9999) - (b.fry_rank || 9999); });
+          self.data = fry;
+          self.generate();
+        })
+        .catch(function() {
+          var empty = document.getElementById('sw-empty');
+          if (empty) { empty.style.display = ''; empty.textContent = 'Could not load word list. Please refresh.'; }
+        });
+    },
+
+    filter: function () {
+      var group = document.getElementById('ctrl-group').value;
+      if (group === 'all') return this.data;
+      return this.data.filter(function(w) { return w.fry_group === group; });
+    },
+
+    generate: function () {
+      var self = this;
+      var pool = self.filter();
+      var countEl = document.getElementById('ctrl-count');
+      var n = Math.min(parseInt(countEl ? countEl.value : 20, 10) || 20, pool.length);
+      var arr = pool.slice();
+      for (var i = arr.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = arr[i]; arr[i] = arr[j]; arr[j] = tmp;
+      }
+      self.current = arr.slice(0, n);
+      self.render();
+    },
+
+    render: function () {
+      var self = this;
+      var list = document.getElementById('sw-list');
+      var empty = document.getElementById('sw-empty');
+      var countEl = document.getElementById('results-count');
+      var showRank = document.getElementById('ctrl-showrank') && document.getElementById('ctrl-showrank').checked;
+      if (!list) return;
+      if (!self.current || self.current.length === 0) {
+        list.innerHTML = '';
+        if (empty) empty.style.display = '';
+        if (countEl) countEl.textContent = '0 words';
+        return;
+      }
+      if (empty) empty.style.display = 'none';
+      if (countEl) countEl.textContent = self.current.length + ' word' + (self.current.length !== 1 ? 's' : '');
+
+      list.innerHTML = self.current.map(function(w) {
+        var isSaved = self.saved.indexOf(w.word) !== -1;
+        var rankHtml = showRank && w.fry_rank ? '<span class="sw-rank">#' + w.fry_rank + '</span>' : '';
+        return '<li class="sw-item">' +
+          '<span class="sw-word">' + he(w.word) + '</span>' +
+          rankHtml +
+          '<button class="speak-btn" type="button" aria-label="Hear ' + he(w.word) + '" data-word="' + he(w.word) + '">🔊</button>' +
+          '<button class="save-btn' + (isSaved ? ' saved' : '') + '" type="button" aria-label="Save ' + he(w.word) + '" data-word="' + he(w.word) + '">' + (isSaved ? '❤️' : '🤍') + '</button>' +
+          '</li>';
+      }).join('');
+
+      list.querySelectorAll('.speak-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() { self.speak(btn.dataset.word); });
+      });
+      list.querySelectorAll('.save-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() { self.toggleSave(btn.dataset.word); });
+      });
+    },
+
+    speak: function (word) {
+      if (!window.speechSynthesis) return;
+      window.speechSynthesis.cancel();
+      var u = new SpeechSynthesisUtterance(word);
+      u.rate = 0.85; u.lang = 'en-US';
+      window.speechSynthesis.speak(u);
+    },
+
+    toggleSave: function (word) {
+      var idx = this.saved.indexOf(word);
+      if (idx === -1) { this.saved.push(word); } else { this.saved.splice(idx, 1); }
+      localStorage.setItem('fw-saved', JSON.stringify(this.saved));
+      this.render();
+      this.renderSaved();
+    },
+
+    renderSaved: function () {
+      var self = this;
+      var list = document.getElementById('saved-list');
+      var empty = document.getElementById('saved-empty');
+      var countEl = document.getElementById('saved-count');
+      if (!list) return;
+      if (countEl) countEl.textContent = self.saved.length;
+      if (self.saved.length === 0) {
+        list.innerHTML = '';
+        if (empty) empty.style.display = '';
+        return;
+      }
+      if (empty) empty.style.display = 'none';
+      list.innerHTML = self.saved.map(function(word) {
+        return '<li class="sw-item">' +
+          '<span class="sw-word">' + he(word) + '</span>' +
+          '<button class="speak-btn" type="button" data-word="' + he(word) + '">🔊</button>' +
+          '<button class="save-btn saved" type="button" data-word="' + he(word) + '">❤️</button>' +
+          '</li>';
+      }).join('');
+      list.querySelectorAll('.speak-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() { self.speak(btn.dataset.word); });
+      });
+      list.querySelectorAll('.save-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() { self.toggleSave(btn.dataset.word); });
+      });
+    },
+
+    copyAll: function () {
+      if (!this.current) return;
+      navigator.clipboard && navigator.clipboard.writeText(this.current.map(function(w) { return w.word; }).join('\n'));
+    },
+
+    copySaved: function () {
+      navigator.clipboard && navigator.clipboard.writeText(this.saved.join('\n'));
+    },
+
+    enterPractice: function () {
+      this.practiceWords = this.current ? this.current.slice() : [];
+      if (!this.practiceWords.length) return;
+      this.practiceIdx = 0;
+      document.getElementById('list-view').style.display = 'none';
+      document.getElementById('practice-panel').classList.add('active');
+      this.renderPractice();
+    },
+
+    exitPractice: function () {
+      document.getElementById('list-view').style.display = '';
+      document.getElementById('practice-panel').classList.remove('active');
+    },
+
+    renderPractice: function () {
+      var w = this.practiceWords[this.practiceIdx];
+      if (!w) return;
+      document.getElementById('practice-word').textContent = w.word;
+      document.getElementById('practice-rank').textContent = w.fry_rank ? 'Fry #' + w.fry_rank : '';
+      document.getElementById('practice-progress').textContent = (this.practiceIdx + 1) + ' / ' + this.practiceWords.length;
+    },
+
+    init: function () {
+      var self = this;
+
+      document.getElementById('generate-btn').addEventListener('click', function() { self.generate(); });
+      document.getElementById('copy-btn').addEventListener('click', function() { self.copyAll(); });
+      document.getElementById('print-btn').addEventListener('click', function() { window.print(); });
+      document.getElementById('practice-btn').addEventListener('click', function() { self.enterPractice(); });
+      document.getElementById('practice-exit').addEventListener('click', function() { self.exitPractice(); });
+      document.getElementById('practice-speak').addEventListener('click', function() {
+        var w = self.practiceWords[self.practiceIdx];
+        if (w) self.speak(w.word);
+      });
+      document.getElementById('practice-prev').addEventListener('click', function() {
+        if (self.practiceIdx > 0) { self.practiceIdx--; self.renderPractice(); }
+      });
+      document.getElementById('practice-next').addEventListener('click', function() {
+        if (self.practiceIdx < self.practiceWords.length - 1) { self.practiceIdx++; self.renderPractice(); }
+      });
+      document.getElementById('copy-saved-btn').addEventListener('click', function() { self.copySaved(); });
+      document.getElementById('clear-saved-btn').addEventListener('click', function() {
+        self.saved = []; localStorage.removeItem('fw-saved'); self.render(); self.renderSaved();
+      });
+
+      document.getElementById('ctrl-group').addEventListener('change', function() { self.generate(); });
+      document.getElementById('ctrl-showrank').addEventListener('change', function() { self.render(); });
+
+      var countEl = document.getElementById('ctrl-count');
+      countEl.addEventListener('input', function() {
+        var raw = parseInt(countEl.value, 10);
+        var valid = !isNaN(raw) && raw >= 1 && raw <= 300;
+        document.getElementById('count-error').style.display = valid ? 'none' : '';
+        if (valid) self.generate();
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.code === 'Space' && e.target === document.body) { e.preventDefault(); self.generate(); }
+      });
+
+      if (typeof requestIdleCallback !== 'undefined') {
+        requestIdleCallback(function() { self.load(); });
+      } else {
+        setTimeout(function() { self.load(); }, 100);
+      }
+    }
+  };
+
+  window.FW = FW;
+  FW.init();
+
+  document.querySelectorAll('.faq-item').forEach(function(item) {
+    var q = item.querySelector('.faq-q');
+    if (!q) return;
+    q.addEventListener('click', function() { item.classList.toggle('open'); });
+  });
+}());
+</script>
+<!-- /SLOT:init -->
