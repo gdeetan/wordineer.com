@@ -1,0 +1,153 @@
+<!-- CONFIG
+{ "url": "/spelling-bee-words-printable/", "output": "spelling-bee-words-printable.html", "type": "tool", "more_tools_key": "spelling_bee_tools", "more_tools_title": "More spelling &amp; vocabulary tools", "more_tools_subtitle": "Free practice tools for every grade level" }
+-->
+
+<!-- SLOT:meta -->
+<title>500 Hardest Spelling Bee Words by Grade Level (Free Printable) | Wordineer</title>
+<meta name="description" content="The 500 hardest spelling bee words for grades K–7, organized by grade. Filter by grade and difficulty, then print a clean PDF. Free for teachers and parents.">
+<meta property="og:title" content="500 Hardest Spelling Bee Words — Free Printable by Grade | Wordineer">
+<meta property="og:description" content="Filter and print the 500 hardest spelling bee competition words by grade K–7. Clean PDF printout with no login required.">
+<meta property="og:url" content="https://wordineer.com/spelling-bee-words-printable/">
+<link rel="canonical" href="https://wordineer.com/spelling-bee-words-printable/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Spelling Bee Words Printable",
+  "url": "https://wordineer.com/spelling-bee-words-printable/",
+  "description": "Filter and print the 500 hardest spelling bee words by grade K-7. Free for teachers and parents.",
+  "applicationCategory": "EducationApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0" }
+}
+</script>
+<!-- /SLOT:meta -->
+
+<!-- SLOT:style -->
+<style>
+.sb-wrap { max-width: 900px; margin: 0 auto; padding: 0 20px 40px; }
+.sb-controls { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; align-items: center; }
+.sb-controls select { padding: 7px 10px; font-size: 13px; border: 1px solid var(--border); border-radius: 7px; background: var(--bg); color: var(--text); font-family: inherit; }
+.print-btn { padding: 9px 18px; background: var(--brand); color: white; border: none; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; font-family: inherit; }
+.print-btn:hover { background: var(--brand-dark); }
+.result-count { font-size: 12px; color: var(--text-3); margin-bottom: 12px; }
+.word-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; }
+.word-card { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; }
+.word-card.diff-hard { border-left: 3px solid #ef4444; }
+.word-card.diff-medium { border-left: 3px solid #f59e0b; }
+.word-card.diff-easy { border-left: 3px solid #22c55e; }
+.word-card .word { font-size: 16px; font-weight: 700; margin-bottom: 3px; }
+.word-card .meta { font-size: 10px; text-transform: uppercase; letter-spacing: .06em; color: var(--text-3); font-weight: 600; }
+.legend { display: flex; gap: 16px; margin-bottom: 14px; flex-wrap: wrap; }
+.legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-2); }
+.legend-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+@media print {
+  .sb-controls, .legend, header, nav, footer, .more-tools, .ad, h1 + p { display: none !important; }
+  .sb-wrap { padding: 0; }
+  .word-grid { grid-template-columns: repeat(3, 1fr); gap: 5px; }
+  .word-card { break-inside: avoid; border-radius: 0; padding: 8px 10px; }
+  .word-card .word { font-size: 13px; }
+  .word-card .meta { font-size: 9px; }
+  body { font-size: 11px; }
+}
+@media (max-width: 600px) { .sb-controls { flex-direction: column; align-items: stretch; } }
+</style>
+<!-- /SLOT:style -->
+
+<!-- SLOT:hero -->
+<h1>500 Hardest Spelling Bee Words — Free Printable by Grade</h1>
+<p>The toughest spelling bee competition words for grades K–7, curated from competitive word lists. Filter by grade and difficulty, then print a clean word list for home practice or classroom use.</p>
+<!-- /SLOT:hero -->
+
+<!-- SLOT:tool -->
+<div class="sb-wrap">
+  <div class="sb-controls">
+    <select id="grade-filter">
+      <option value="">All grades (K–7)</option>
+      <option value="k">Kindergarten</option>
+      <option value="3rd">3rd grade</option>
+      <option value="5th">5th grade</option>
+      <option value="6th">6th grade</option>
+      <option value="7th">7th grade</option>
+    </select>
+    <select id="diff-filter">
+      <option value="">All difficulties</option>
+      <option value="hard">Hard only</option>
+      <option value="medium">Medium only</option>
+      <option value="easy">Easy only</option>
+    </select>
+    <button class="print-btn" onclick="window.print()">🖨 Print / Save as PDF</button>
+  </div>
+  <div class="legend">
+    <span class="legend-item"><span class="legend-dot" style="background:#ef4444"></span> Hard</span>
+    <span class="legend-item"><span class="legend-dot" style="background:#f59e0b"></span> Medium</span>
+    <span class="legend-item"><span class="legend-dot" style="background:#22c55e"></span> Easy</span>
+  </div>
+  <div class="result-count" id="result-count"></div>
+  <div class="word-grid" id="word-grid"></div>
+</div>
+<!-- /SLOT:tool -->
+
+<!-- SLOT:explainer -->
+<div style="max-width:800px;margin:32px auto;padding:0 20px">
+  <h2>How to use this list</h2>
+  <p>Filter to your child's or student's grade and difficulty level, then click <strong>Print / Save as PDF</strong>. In your browser's print dialog, choose "Save as PDF" for a clean printable file. No email or signup required.</p>
+  <p>For home practice: cover the word and read it aloud, asking the student to spell it. For classrooms: the 3-column print layout fits neatly on letter-size paper with 50–80 words per page.</p>
+  <h2>About these words</h2>
+  <p>These 500 words are selected from our grade-level spelling bee tools — drawn from competitive spelling bee word lists and school district vocabulary standards. Words marked Hard appear most often in actual competition rounds at that grade level and involve challenging letter combinations, Latin roots, or unusual patterns.</p>
+</div>
+<!-- /SLOT:explainer -->
+
+<!-- SLOT:faq -->
+<section style="max-width:800px;margin:0 auto 40px;padding:0 20px">
+  <h2>Frequently asked questions</h2>
+  <details style="border-bottom:1px solid var(--border);padding:14px 0">
+    <summary style="cursor:pointer;font-weight:600;font-size:15px">How do I save this as a PDF?</summary>
+    <p style="margin:10px 0 0;color:var(--text-2);font-size:14px;line-height:1.7">Click "Print / Save as PDF," then in your browser's print dialog change the destination from your printer to "Save as PDF." On Mac: File → Print → PDF dropdown in the lower left. On Windows: select "Microsoft Print to PDF" as the printer.</p>
+  </details>
+  <details style="border-bottom:1px solid var(--border);padding:14px 0">
+    <summary style="cursor:pointer;font-weight:600;font-size:15px">Are these the official Scripps National Spelling Bee words?</summary>
+    <p style="margin:10px 0 0;color:var(--text-2);font-size:14px;line-height:1.7">These words represent competitive spelling bee word lists at each grade level but are not the official Scripps list (which is not released publicly before the competition). They are curated from school district lists, past competition reports, and grade-level vocabulary standards.</p>
+  </details>
+  <details style="border-bottom:1px solid var(--border);padding:14px 0">
+    <summary style="cursor:pointer;font-weight:600;font-size:15px">How many words should a student practice per session?</summary>
+    <p style="margin:10px 0 0;color:var(--text-2);font-size:14px;line-height:1.7">15 words per 10–15 minute session is the sweet spot for most students. Daily short sessions beat long infrequent ones. In the final week before competition, increase to 25–30 words per session, focusing on the Hard words for the student's grade.</p>
+  </details>
+  <details style="border-bottom:1px solid var(--border);padding:14px 0">
+    <summary style="cursor:pointer;font-weight:600;font-size:15px">Can I use this in my classroom?</summary>
+    <p style="margin:10px 0 0;color:var(--text-2);font-size:14px;line-height:1.7">Yes — completely free for classroom use. Filter to your grade, print, and distribute. The print layout is designed for classroom handouts. If your school uses a specific district word list, use the difficulty filters to narrow to the words most likely to appear in your local competition.</p>
+  </details>
+</section>
+<!-- /SLOT:faq -->
+
+<!-- SLOT:init -->
+<script>
+(function(){
+  var DATA = [];
+  var GRADE_LABELS = {k:'Kindergarten','3rd':'3rd grade','5th':'5th grade','6th':'6th grade','7th':'7th grade'};
+
+  function refresh() {
+    var grade = document.getElementById('grade-filter').value;
+    var diff = document.getElementById('diff-filter').value;
+    var rows = DATA.filter(function(r) {
+      return (!grade || r.grade === grade) && (!diff || r.diff === diff);
+    });
+    document.getElementById('result-count').textContent = rows.length + ' words';
+    document.getElementById('word-grid').innerHTML = rows.map(function(r) {
+      var label = GRADE_LABELS[r.grade] || (r.grade + ' grade');
+      return '<div class="word-card diff-' + r.diff + '">' +
+        '<div class="word">' + r.w + '</div>' +
+        '<div class="meta">' + label + ' · ' + r.diff + '</div>' +
+        '</div>';
+    }).join('');
+  }
+
+  document.getElementById('grade-filter').addEventListener('change', refresh);
+  document.getElementById('diff-filter').addEventListener('change', refresh);
+
+  fetch('/data/spelling-bee-consolidated.json')
+    .then(function(r) { return r.json(); })
+    .then(function(d) { DATA = d; refresh(); });
+})();
+</script>
+<!-- /SLOT:init -->
