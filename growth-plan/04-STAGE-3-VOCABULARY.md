@@ -150,11 +150,406 @@ Ideas for improving existing Stage 3 pages after they are indexed and getting tr
 
 - **Progress tracker** — remember which words a child has "mastered" (seen 3× without saving as a trouble word). Store as a per-grade JSON blob in `localStorage`. Show a "Mastery" bar: "32/52 Kindergarten words mastered". Reset button. This is the single highest-engagement feature for the parent/teacher audience.
 
-- **Printable PDF mode** — current Print view is a browser print stylesheet; a proper "flashcard sheet" layout (8 per page, cut lines, word on front / blank back) would be widely shared by teachers. Can be done with a print-specific CSS layout, no server needed.
+- **Print layouts for kids** — the current print view is a plain colored-grid browser stylesheet. Parents searching for sight words are overwhelmingly intending to print something for offline use with their child. This is the highest-leverage improvement for the sight words cluster because a great printout gets shared, pinned on classroom walls, photographed and posted to Facebook parenting groups, and linked from teacher blogs — all without any outreach. See full design spec below.
 
 - **Word sentences mode** — in Practice Mode, show the word in a simple sentence instead of (or in addition to) isolated display. For kindergarten: "She **went** to the park." Requires adding `example_sentence` field to `sight-words-data.json` for each word.
 
 - **Weekly challenge mode** — "This week's 10 words" based on the child's grade, randomized fresh each Monday, stored in `localStorage`. Creates a habit loop for return visits.
+
+---
+
+#### Print design spec for sight words (kid-friendly printouts)
+
+The audience is parents printing at home on a standard inkjet, and teachers printing on a classroom laser printer. Both groups have zero tolerance for a printout that wastes paper, uses too much ink, or doesn't look intentional. The print layouts below are all pure CSS — no server, no PDF library needed.
+
+**How to implement:** Add a `<select id="print-layout">` dropdown next to the existing Print button with the layout options below. When the user clicks Print, set a `data-print-layout` attribute on `<body>`, then use `@media print` CSS to switch layouts. No JS needed for the actual printing — just toggling a body attribute.
+
+```html
+<!-- Add next to existing Print button -->
+<select id="print-layout" class="act-btn" style="padding:6px 10px;">
+  <option value="flashcards">Flashcards (cut-out)</option>
+  <option value="list">Word list (fridge)</option>
+  <option value="bingo">Bingo card</option>
+  <option value="trace">Handwriting practice</option>
+  <option value="checklist">Progress checklist</option>
+</select>
+<button class="act-btn" id="sw-print-btn">Print</button>
+```
+
+---
+
+**Layout 1: Flashcard sheet** (most requested by parents and teachers)
+
+8 cards per page (2×4 grid), landscape or portrait. Each card: word in large bold type (36–48pt), grade badge in corner (e.g. "Dolch K"), dashed cut border. On the back side (second page, same 2×4 grid), blank boxes — parent writes a drawing or definition. No background colors — saves ink.
+
+```css
+@media print {
+  body[data-print-layout="flashcards"] .sw-list {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    page-break-inside: avoid;
+  }
+  body[data-print-layout="flashcards"] .word-item {
+    height: 130px;
+    border: 2px dashed #aaa !important;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 6px;
+    break-inside: avoid;
+  }
+  body[data-print-layout="flashcards"] .word-text {
+    font-size: 36pt !important;
+    font-weight: 700;
+  }
+  body[data-print-layout="flashcards"] .word-badge {
+    font-size: 9pt;
+    border: 1px solid #ccc;
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+  /* Cut instructions at top */
+  body[data-print-layout="flashcards"]::before {
+    content: "✂ Cut along dashed lines. Fold in half for double-sided flashcards.";
+    display: block;
+    font-size: 9pt;
+    color: #777;
+    margin-bottom: 8px;
+  }
+}
+```
+
+---
+
+**Layout 2: Word list / fridge sheet**
+
+Single-column list, large font, designed to stick on the fridge or a child's bedroom door. Each word on its own line with a small checkbox on the left (child checks off words they can read). Good for a "10 words this week" takeaway.
+
+```css
+@media print {
+  body[data-print-layout="list"] .sw-list {
+    display: block !important;
+    columns: 2;
+    column-gap: 40px;
+  }
+  body[data-print-layout="list"] .word-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid #eee !important;
+    padding: 8px 0 !important;
+    break-inside: avoid;
+  }
+  /* Checkbox circle */
+  body[data-print-layout="list"] .word-item::before {
+    content: "";
+    width: 18px;
+    height: 18px;
+    border: 2px solid #999;
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: block;
+  }
+  body[data-print-layout="list"] .word-text {
+    font-size: 20pt !important;
+  }
+}
+```
+
+---
+
+**Layout 3: Bingo card**
+
+Randomly arrange 24 of the current words into a 5×5 bingo grid (center = FREE space). Parent calls words aloud, child marks them. Generate a different random card each time Print is clicked (JS randomizes before print, no state needed after).
+
+This is the highest-share print format — teachers photograph their class playing bingo and post to teacher Facebook groups and Pinterest. A single viral bingo card image has driven hundreds of backlinks for other ed sites.
+
+Implementation: on print-button click with bingo layout selected, run a Fisher-Yates shuffle of the current word list, take 24, render into a hidden `<table class="bingo-card">` (not inside `.sw-list`), then `window.print()`. The bingo table uses `display:none` normally and `display:table` in `@media print`.
+
+```css
+@media print {
+  body[data-print-layout="bingo"] .sw-list { display: none !important; }
+  body[data-print-layout="bingo"] .bingo-card {
+    display: table !important;
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
+  body[data-print-layout="bingo"] .bingo-card td {
+    border: 2px solid #333;
+    text-align: center;
+    vertical-align: middle;
+    height: 80px;
+    font-size: 18pt;
+    font-weight: 700;
+  }
+  body[data-print-layout="bingo"] .bingo-free {
+    background: #f0f0f0;
+    font-size: 12pt;
+    font-weight: 700;
+    color: #555;
+  }
+  /* Column headers B-I-N-G-O */
+  body[data-print-layout="bingo"] .bingo-header td {
+    background: #3C3489;
+    color: white;
+    font-size: 24pt;
+    font-weight: 900;
+    height: 60px;
+  }
+}
+```
+
+---
+
+**Layout 4: Handwriting practice sheet**
+
+Each word displayed at the top of a small box, then 3–4 ruled lines below it for the child to practice writing the word. Compact: 6 words per row, 3 rows per page = 18 words per sheet. Very popular with K-2 teachers — "trace and write" is a core classroom activity.
+
+```css
+@media print {
+  body[data-print-layout="trace"] .sw-list {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  body[data-print-layout="trace"] .word-item {
+    border: 1px solid #ccc !important;
+    border-radius: 6px;
+    padding: 8px !important;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    break-inside: avoid;
+    min-height: 120px;
+  }
+  body[data-print-layout="trace"] .word-text {
+    font-size: 18pt !important;
+    font-weight: 700;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 4px;
+    margin-bottom: 4px;
+  }
+  /* Practice lines */
+  body[data-print-layout="trace"] .word-item::after {
+    content: "";
+    flex: 1;
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent 22px,
+      #ccc 22px,
+      #ccc 23px
+    );
+    display: block;
+  }
+}
+```
+
+---
+
+**Layout 5: Progress checklist**
+
+All words in the selected group (not just the current randomly-generated set), sorted alphabetically. Two columns. Each word has three empty star/circle checkboxes beside it — representing 3 sessions of correct recognition before it's "mastered." Simple, printer-friendly, designed to live on the fridge for a week.
+
+```css
+@media print {
+  /* Render full word list (all in group, not just current) via a hidden #full-list element */
+  body[data-print-layout="checklist"] .sw-list { display: none !important; }
+  body[data-print-layout="checklist"] #print-checklist {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 24px;
+    font-size: 13pt;
+  }
+  body[data-print-layout="checklist"] #print-checklist li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid #eee;
+    padding: 5px 0;
+  }
+  /* Three practice checkboxes */
+  body[data-print-layout="checklist"] #print-checklist li::after {
+    content: "○ ○ ○";
+    font-size: 14pt;
+    color: #aaa;
+    margin-left: auto;
+    letter-spacing: 4px;
+  }
+}
+```
+
+---
+
+**General print rules for all layouts (add to existing `@media print`):**
+
+```css
+@media print {
+  /* Always hide these regardless of layout */
+  header, nav, .breadcrumb, .hero, .ctrl, .sw-top-bar, .saved-section,
+  .practice-panel, .explainer, .faq, .who, footer, .ad, [class*="ad-"],
+  .more-tools, .content-wrap, .grade-nav-bar, #print-layout,
+  #sw-print-btn, #sw-gen-btn, #sw-reset-btn { display: none !important; }
+
+  /* Print header — school-friendly branding, not a logo ad */
+  .print-header {
+    display: block !important;
+    font-size: 10pt;
+    color: #666;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 6px;
+    margin-bottom: 12px;
+  }
+  .print-header strong { color: #3C3489; }
+
+  @page {
+    margin: 1.2cm;
+    size: letter portrait; /* or landscape for flashcard layout */
+  }
+}
+```
+
+**Print header HTML** (add once to SLOT:tool, hidden normally, shown on print):
+```html
+<div class="print-header" style="display:none">
+  <strong>Wordineer.com</strong> · Free sight word tools for parents and teachers ·
+  <span id="print-label">Sight Words</span>
+</div>
+```
+
+---
+
+**Claude Code prompt — implement kid-friendly print layouts**
+
+```
+# Task: Add kid-friendly print layouts to all sight words pages
+
+Parent and teacher users of /sight-words-kindergarten/, /sight-words-1st-grade/,
+/sight-words-2nd-grade/, /sight-words-3rd-grade/, /dolch-sight-words/, /fry-sight-words/,
+and /sight-words-generator/ need printout-quality output. The current print stylesheet
+outputs a basic colored grid — replace it with a layout selector giving 5 options.
+
+## Files to modify
+
+All 7 tools-src sight words files:
+- template-deploy/tools-src/sight-words-generator.html
+- template-deploy/tools-src/sight-words-kindergarten.html
+- template-deploy/tools-src/sight-words-1st-grade.html
+- template-deploy/tools-src/sight-words-2nd-grade.html
+- template-deploy/tools-src/sight-words-3rd-grade.html
+- template-deploy/tools-src/dolch-sight-words.html
+- template-deploy/tools-src/fry-sight-words.html
+
+## What to build
+
+### 1. Print layout selector
+
+Replace the existing `<button id="sw-print-btn">Print</button>` with:
+
+```html
+<div class="print-row">
+  <select id="print-layout" class="act-btn">
+    <option value="flashcards">Flashcards</option>
+    <option value="list">Word list</option>
+    <option value="bingo">Bingo card</option>
+    <option value="trace">Handwriting practice</option>
+    <option value="checklist">Progress checklist</option>
+  </select>
+  <button class="act-btn" id="sw-print-btn">Print</button>
+</div>
+```
+
+JS: on print-button click, set `document.body.dataset.printLayout = document.getElementById('print-layout').value` then `window.print()`. For the bingo layout, also call `buildBingoCard()` first (see below).
+
+### 2. Five @media print CSS layouts
+
+Implement all 5 layouts as described in the growth plan print spec. Key requirements:
+- Flashcards: 2-column dashed-border grid, 36pt word, no fill color (ink-saving)
+- Word list: 2-column checklist with circle checkboxes, 20pt word
+- Bingo: 5×5 table with BINGO header row, center FREE space, 18pt words
+- Handwriting practice: 3-column grid, ruled lines below each word
+- Progress checklist: full-group word list (all words, not just current set), 3 circle checkboxes per word
+
+### 3. Bingo card JS
+
+```js
+buildBingoCard: function () {
+  var pool = /* all words in current filter group */;
+  // shuffle pool
+  for (var i = pool.length-1; i>0; i--) {
+    var j = Math.floor(Math.random()*(i+1));
+    var tmp = pool[i]; pool[i]=pool[j]; pool[j]=tmp;
+  }
+  var words = pool.slice(0, 24).map(function(w){ return w.word; });
+  // build 5x5 table, insert FREE at index 12 (center)
+  words.splice(12, 0, 'FREE');
+  var tbl = document.getElementById('sw-bingo-card');
+  if (!tbl) {
+    tbl = document.createElement('table');
+    tbl.id = 'sw-bingo-card';
+    tbl.className = 'bingo-card';
+    document.querySelector('.tool-card').appendChild(tbl);
+  }
+  var html = '<tr class="bingo-header"><td>B</td><td>I</td><td>N</td><td>G</td><td>O</td></tr>';
+  for (var r=0; r<5; r++) {
+    html += '<tr>';
+    for (var c=0; c<5; c++) {
+      var idx = r*5+c;
+      var cls = idx===12 ? ' class="bingo-free"' : '';
+      html += '<td'+cls+'>'+words[idx]+'</td>';
+    }
+    html += '</tr>';
+  }
+  tbl.innerHTML = html;
+}
+```
+
+### 4. Print header
+
+Add to SLOT:tool in each file (inside `.tool-card`, before `.tool-split`):
+```html
+<div class="print-header">
+  <strong>Wordineer.com</strong> · Free sight word tools for parents and teachers ·
+  <span id="print-label"><!-- set via JS based on grade/list --></span>
+</div>
+```
+
+JS sets `document.getElementById('print-label').textContent = 'Kindergarten Sight Words'` (or appropriate label) in `init()`.
+
+### 5. Ink-saving rule
+
+Add to the general `@media print` block:
+```css
+* { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body[data-print-layout="flashcards"] * { color: #000 !important; background: #fff !important; }
+body[data-print-layout="list"] * { color: #000 !important; background: #fff !important; }
+body[data-print-layout="trace"] * { color: #000 !important; background: #fff !important; }
+```
+Flashcards, lists, and trace sheets should use zero color ink. Bingo and checklist can keep minimal color on the header.
+
+## Testing checklist
+
+For each layout, open browser print preview and verify:
+- [ ] All navigation, hero, ads, footer hidden
+- [ ] Print header visible with correct grade label
+- [ ] Flashcards: 2 per row, dashed borders, no background fill
+- [ ] Word list: 2 columns, circle checkboxes visible, 20pt+ font
+- [ ] Bingo: 5×5 grid fills the page, FREE at center, BINGO header in brand color
+- [ ] Handwriting: 3 per row, ruled lines visible below each word
+- [ ] Checklist: full grade group (not just current 15), 3 circles per word
+
+## Build and deploy
+
+1. Edit all 7 tools-src files
+2. Run `cd template-deploy && python3 build.py`
+3. Copy all 7 output files to wordineer-deploy/
+4. Test print preview locally
+5. Commit: "feat: add kid-friendly print layouts to sight words pages (flashcards, bingo, handwriting, checklist)"
+```
 
 **Medium value — consider after Week 3-4:**
 
