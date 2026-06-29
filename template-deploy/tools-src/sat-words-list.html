@@ -1,98 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script>
-  window.dataLayer = window.dataLayer || [];
-  window.adsbygoogle = window.adsbygoogle || [];
-  function gtag(){dataLayer.push(arguments);}
+<!-- CONFIG
+{ "url": "/sat-words-list/", "output": "sat-words-list.html", "type": "tool", "more_tools_key": "vocabulary_tools", "more_tools_title": "More vocabulary tools", "more_tools_subtitle": "Free tools for English vocabulary and learning" }
+-->
 
-  (function(w, d) {
-    var loaded = false;
-    var cfg = {
-      analyticsId: 'G-7DWH3EGM3Z',
-      adsClient: 'ca-pub-7200956978416233',
-      delay: 10000
-    };
-
-    function loadScript(src, attrs) {
-      var s = d.createElement('script');
-      s.async = true;
-      s.src = src;
-      if (attrs) {
-        Object.keys(attrs).forEach(function(key) {
-          s.setAttribute(key, attrs[key]);
-        });
-      }
-      d.head.appendChild(s);
-    }
-
-    function loadMarketing() {
-      if (loaded) return;
-      loaded = true;
-      gtag('js', new Date());
-      gtag('config', cfg.analyticsId);
-      loadScript('https://www.googletagmanager.com/gtag/js?id=' + cfg.analyticsId);
-      loadScript(
-        'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + cfg.adsClient,
-        { crossorigin: 'anonymous' }
-      );
-    }
-
-    function idleLoad() {
-      if ('requestIdleCallback' in w) {
-        w.requestIdleCallback(loadMarketing, { timeout: 5000 });
-      } else {
-        w.setTimeout(loadMarketing, cfg.delay);
-      }
-    }
-
-    ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function(eventName) {
-      w.addEventListener(eventName, loadMarketing, { once: true, passive: true });
-    });
-    w.addEventListener('load', function() {
-      w.setTimeout(idleLoad, cfg.delay);
-    }, { once: true });
-  })(window, document);
-</script>
-<meta name='impact-site-verification' value='32715504-1cfb-4324-bfc7-ae4cfa1591ea'>
-<link rel="preload" href="/fonts/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/dm-sans-italic-400-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="shortcut icon" href="/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-<link rel="manifest" href="/site.webmanifest" />
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebSite",
-      "@id": "https://wordineer.com/#website",
-      "name": "Wordineer",
-      "url": "https://wordineer.com",
-      "description": "Free online word tools for writers, students, and word game players — random word generator, name generators, word scramble, sentence generator, and more.",
-      "publisher": { "@id": "https://wordineer.com/#organization" }
-    },
-    {
-      "@type": "Organization",
-      "@id": "https://wordineer.com/#organization",
-      "name": "Wordineer",
-      "url": "https://wordineer.com",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://wordineer.com/logo.png",
-        "width": 1254,
-        "height": 1254
-      },
-      "description": "Wordineer provides free online word tools for writers, students, and word game players."
-    }
-  ]
-}
-</script>
+<!-- SLOT:meta -->
 <title>SAT Words List — 400+ SAT Vocabulary Words With Definitions | Wordineer</title>
 <meta name="description" content="Complete SAT words list with 400+ vocabulary words, definitions, example sentences, and etymology. Filter by difficulty and root language — printable, no login required.">
 <meta property="og:title" content="SAT Words List — 400+ SAT Vocabulary Words With Definitions | Wordineer">
@@ -138,8 +48,9 @@
   ]
 }
 </script>
+<!-- /SLOT:meta -->
 
-<link rel="stylesheet" href="/styles/global.css?v=9">
+<!-- SLOT:style -->
 <style>
 /* ── Page layout ── */
 .tool-wrap   { max-width:960px; margin:0 auto; padding:24px 24px 0; }
@@ -213,79 +124,9 @@
   @page { margin:1.5cm; }
 }
 </style>
-</head>
+<!-- /SLOT:style -->
 
-<body>
-<nav class="nav">
-  <a class="nav-logo" href="/">
-    <div class="nav-logo-icon">
-      <svg viewBox="0 0 15 15" fill="none"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>
-    </div>
-    Wordineer
-  </a>
-  <div class="nav-links">
-    <a href="/word-tools/">Tools</a>
-    <a href="/blog/">Blog</a>
-  </div>
-  <div>
-    <button class="hamburger" type="button" aria-label="All tools" aria-controls="mega" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
-<div class="mega" id="mega">
-  <div class="mega-inner">
-    <div class="mega-col">
-      <div class="mega-cat">Writing &amp; Vocabulary</div>
-      <a class="mega-link" href="/">Random Word Generator</a>
-      <a class="mega-link" href="/random-sentence-generator/">Random Sentence Generator</a>
-      <a class="mega-link" href="/random-paragraph-generator/">Random Paragraph Generator</a>
-      <a class="mega-link" href="/word-counter/">Word Counter</a>
-      <a class="mega-link mega-link--view-all" href="/word-tools/">View all →</a>
-    </div>
-    <div class="mega-col">
-      <div class="mega-cat">Browse by Letter</div>
-      <a class="mega-link" href="/random-words-starting-with/">Random Words Starting With (A–Z)</a>
-      <a class="mega-link" href="/random-words-starting-with/a">Random Words Starting with A</a>
-      <a class="mega-link" href="/random-words-starting-with/s">Random Words Starting with S</a>
-      <a class="mega-link" href="/random-words-starting-with/q">Random Words Starting with Q</a>
-      <a class="mega-link mega-link--view-all" href="/random-words-starting-with/">View all →</a>
-    </div>
-    <div class="mega-col">
-      <div class="mega-cat">Names by Origin</div>
-      <a class="mega-link" href="/random-spanish-name-generator/">Spanish Name Generator</a>
-      <a class="mega-link" href="/random-italian-name-generator/">Italian Name Generator</a>
-      <a class="mega-link" href="/random-japanese-name-generator/">Japanese Name Generator</a>
-      <a class="mega-link" href="/random-american-name-generator/">American Name Generator</a>
-      <a class="mega-link mega-link--view-all" href="/name-generators/">View all →</a>
-    </div>
-    <div class="mega-col">
-      <div class="mega-cat">Other Name Generators</div>
-      <a class="mega-link" href="/character-name-generator/">Character Name Generator</a>
-      <a class="mega-link" href="/fantasy-name-generator/">Fantasy Name Generator</a>
-      <a class="mega-link" href="/business-name-generator/">Business Name Generator</a>
-      <a class="mega-link" href="/band-name-generator/">Band Name Generator</a>
-      <a class="mega-link mega-link--view-all" href="/other-generators/">View all →</a>
-    </div>
-    <div class="mega-col">
-      <div class="mega-cat">Account &amp; Security</div>
-      <a class="mega-link" href="/username-generator/">Username Generator</a>
-      <a class="mega-link" href="/password-generator/">Password Generator</a>
-      <a class="mega-link" href="/passphrase-generator/">Passphrase Generator</a>
-      <a class="mega-link" href="/memorable-password-generator/">Memorable Password Generator</a>
-      <a class="mega-link mega-link--view-all" href="/account-tools/">View all →</a>
-    </div>
-    <div class="mega-col">
-      <div class="mega-cat">Games &amp; fun</div>
-      <a class="mega-link" href="/pictionary-phrase-generator/">Pictionary Phrase Generator</a>
-      <a class="mega-link" href="/crossword-puzzle-generator/">Crossword Puzzle Generator</a>
-      <a class="mega-link" href="/wordle-helper/">Wordle Helper</a>
-      <a class="mega-link mega-link--view-all" href="/number-chance/">View all →</a>
-    </div>
-  </div>
-</div>
-
-
+<!-- SLOT:hero -->
 <div class="breadcrumb">
   <div class="breadcrumb-inner">
     <a href="/">Wordineer</a>
@@ -302,6 +143,9 @@
   <h1>SAT Words List</h1>
   <p>A complete SAT words list with definitions, example sentences, root etymology, and difficulty ratings. Filter by difficulty or root language, search by keyword, and print your study list — no login required.</p>
 </div>
+<!-- /SLOT:hero -->
+
+<!-- SLOT:tool -->
 <div class="tool-wrap">
   <div class="list-card">
 
@@ -367,44 +211,12 @@
 
   </div>
 </div>
+<!-- /SLOT:tool -->
 
-<div class="content-wrap">
-  <div class="section">
-    <h2 class="section-title">More vocabulary tools</h2>
-    <p class="section-sub">Free tools for English vocabulary and learning</p>
-    <div class="tools-grid">
-      <a class="tool-item" href="/sat-vocabulary-words/"><div class="tool-icon" style="background:#E6F1FB"><svg viewBox="0 0 13 13" fill="none"><path d="M6.5 3L12 5.5 6.5 8 1 5.5z" fill="#185FA5"/><path d="M3.5 6.5v2.5c1 .9 2 1.2 3 1.2s2-.3 3-1.2V6.5" stroke="#185FA5" stroke-width=".9" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 5.5v2.5" stroke="#185FA5" stroke-width=".9" stroke-linecap="round"/></svg></div><div class="tool-name">SAT Vocabulary Words</div><div class="tool-desc">400+ curated SAT words with definitions, audio pronunciation, etymology, and practice mode.</div></a>
-      <a class="tool-item" href="/hardest-sat-words/"><div class="tool-icon" style="background:#E6F1FB"><svg viewBox="0 0 13 13" fill="none"><path d="M6.5 2.5v7M3 6.5l3.5 3.5 3.5-3.5" stroke="#185FA5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="tool-name">Hardest SAT Words</div><div class="tool-desc">180+ of the most difficult SAT vocabulary words with definitions, root notes, and printable study list.</div></a>
-      <a class="tool-item" href="/spelling-bee-words/"><div class="tool-icon" style="background:#EEF4FE"><svg viewBox="0 0 13 13" fill="none"><path d="M6.5 2.5L10 4.5v4L6.5 10.5 3 8.5v-4z" stroke="#3B6FD4" stroke-width=".9" stroke-linejoin="round"/></svg></div><div class="tool-name">Spelling Bee Words</div><div class="tool-desc">Grade K–7 spelling bee word lists with audio pronunciation and practice mode.</div></a>
-      <a class="tool-item" href="/word-of-the-day/"><div class="tool-icon" style="background:#FAEEDA"><svg viewBox="0 0 13 13" fill="none"><rect x="2.5" y="4" width="8" height="6.5" rx="1" stroke="#BA7517" stroke-width=".9"/><path d="M5 4V2.5M8 4V2.5" stroke="#BA7517" stroke-width=".9" stroke-linecap="round"/><path d="M2.5 6h8" stroke="#BA7517" stroke-width=".7"/></svg></div><div class="tool-name">Word of the Day</div><div class="tool-desc">A new word every day with definition, part of speech, and example sentence.</div></a>
-      <a class="tool-item" href="/random-weird-words/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><path d="M5 4.2c0-1.1.9-1.7 1.5-1.7C7.6 2.5 8 3.3 8 4c0 .9-.6 1.3-1 1.8-.2.2-.3.5-.3.8" stroke="#4A3FD4" stroke-width="1" stroke-linecap="round"/><circle cx="6.5" cy="9.5" r=".75" fill="#4A3FD4"/></svg></div><div class="tool-name">Random Weird Words</div><div class="tool-desc">Strange, archaic, and unusual English words with definitions and origin notes.</div></a>
-    </div>
-  </div>
-  <div class="divider"></div>
-  <div>
-    <h2 class="section-title">Other tools</h2>
-    <p class="section-sub">Numbers, names, games and more</p>
-    <div class="other-grid">
-      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3h9M2 6.5h7M2 10h5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Writing &amp; Vocabulary</div><a class="other-link" href="/">Random Word Generator</a><a class="other-link" href="/random-sentence-generator/">Random Sentence Generator</a><a class="other-link" href="/random-paragraph-generator/">Random Paragraph Generator</a><a class="other-link" href="/word-counter/">Word Counter</a><a class="other-link other-link--view-all" href="/word-tools/">View all →</a></div>
-      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h3.5M2 7h9M2 10h6" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Browse by Letter</div><a class="other-link" href="/random-words-starting-with/">Random Words Starting With (A–Z)</a><a class="other-link" href="/random-words-starting-with/a">Random Words Starting with A</a><a class="other-link" href="/random-words-starting-with/s">Random Words Starting with S</a><a class="other-link" href="/random-words-starting-with/q">Random Words Starting with Q</a><a class="other-link other-link--view-all" href="/random-words-starting-with/">View all →</a></div>
-      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4.5" r="2.5" stroke="currentColor" stroke-width="1"/><path d="M1.5 11.5c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Names by Origin</div><a class="other-link" href="/random-spanish-name-generator/">Spanish Name Generator</a><a class="other-link" href="/random-italian-name-generator/">Italian Name Generator</a><a class="other-link" href="/random-japanese-name-generator/">Japanese Name Generator</a><a class="other-link" href="/random-american-name-generator/">American Name Generator</a><a class="other-link other-link--view-all" href="/name-generators/">View all →</a></div>
-      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="1.5" width="9" height="10" rx="1" stroke="currentColor" stroke-width="1"/><path d="M4 4.5h5M4 6.5h5M4 8.5h3" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Other Name Generators</div><a class="other-link" href="/character-name-generator/">Character Name Generator</a><a class="other-link" href="/fantasy-name-generator/">Fantasy Name Generator</a><a class="other-link" href="/business-name-generator/">Business Name Generator</a><a class="other-link" href="/band-name-generator/">Band Name Generator</a><a class="other-link other-link--view-all" href="/other-generators/">View all →</a></div>
-      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="3.5" y="5.5" width="6" height="5" rx="1" stroke="currentColor" stroke-width="1"/><path d="M5 5.5V4a1.5 1.5 0 013 0v1.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Account &amp; Security</div><a class="other-link" href="/password-generator/">Password Generator</a><a class="other-link" href="/passphrase-generator/">Passphrase Generator</a><a class="other-link" href="/memorable-password-generator/">Memorable Password Generator</a><a class="other-link" href="/username-generator/">Username Generator</a><a class="other-link other-link--view-all" href="/account-tools/">View all →</a></div>
-      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="1" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="1" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/></svg>Games &amp; fun</div><a class="other-link" href="/pictionary-phrase-generator/">Pictionary Phrase Generator</a><a class="other-link" href="/wordle-helper/">Wordle Helper</a><a class="other-link other-link--view-all" href="/number-chance/">View all →</a></div>
-    </div>
-  </div>
+<!-- SLOT:ad_b -->
+<!-- /SLOT:ad_b -->
 
-  <div class="ad-rect">
-    <span class="ad-tag">Advertisement · 336×280</span>
-    <div class="ad-rect-img"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4C10.3 4 4 10.3 4 18s6.3 14 14 14 14-6.3 14-14S25.7 4 18 4z" fill="white" opacity=".2"/><path d="M12 18c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="18" r="2.5" fill="white"/></svg></div>
-    <div class="ad-rect-content">
-      <div class="ad-rect-title">Grammarly — write with confidence</div>
-      <div class="ad-rect-body">Instantly improve grammar, spelling, clarity, and tone. Works everywhere you write online.</div>
-      <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
-    </div>
-  </div>
-  <div class="divider"></div>
-
+<!-- SLOT:explainer -->
 <section class="explainer">
 
 <h2>What Is an SAT Words List?</h2>
@@ -444,8 +256,9 @@
 <p>The sequence that works best is to start with this list. Skim it. Read it. Filter it. Print it. Get to the point where every word looks familiar even if you cannot yet define it. Then switch to the interactive tool, generate small batches of 10 to 15 words, and run Practice Mode to drill recall. Save the words you miss to your saved list, and revisit them in a few days. The full list here is the broad-base study material; the tool is the precision drill. Use them in that order and the words will stick.</p>
 
 </section>
-  <div class="divider"></div>
+<!-- /SLOT:explainer -->
 
+<!-- SLOT:faq -->
 <div class="faq">
   <h2 class="faq-title">Frequently asked questions</h2>
 
@@ -479,8 +292,9 @@
     <div class="faq-a">Not with standalone vocabulary questions. The digital SAT tests vocabulary inside <strong>Words in Context</strong> questions throughout the Reading and Writing sections. Those questions require knowing precise word meanings and connotations, not just dictionary definitions in isolation — which is why example sentences matter.</div>
   </div>
 </div>
-  <div class="divider"></div>
+<!-- /SLOT:faq -->
 
+<!-- SLOT:who -->
 <div class="who">
   <h2>Who uses this list?</h2>
   <div class="uc-grid">
@@ -490,78 +304,9 @@
     <div class="uc"><div class="uc-title">Teachers Building Vocabulary Lessons</div><div class="uc-body">English and prep teachers building vocabulary units around SAT-level academic words. Filter by root language to teach Latin or Greek word families, or by part of speech to align with grammar lessons.</div></div>
   </div>
 </div>
-</div>
+<!-- /SLOT:who -->
 
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="ad-footer-strip" style="margin-bottom:24px">
-      <span class="ad-tag">Advertisement · 468×60</span>
-      <div class="ad-fs-text"><strong>Grammarly Premium</strong> — Vocabulary suggestions, tone detector, full-sentence rewrites.</div>
-      <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-footer-strip-cta">Try free</a>
-    </div>
-    <div class="footer-grid">
-      <div><div class="footer-col-title">Writing &amp; Vocabulary</div><a class="footer-link" href="/">Random Word Generator</a><a class="footer-link" href="/random-sentence-generator/">Random Sentence Generator</a><a class="footer-link" href="/random-paragraph-generator/">Random Paragraph Generator</a><a class="footer-link" href="/word-counter/">Word Counter</a><a class="footer-link footer-link--view-all" href="/word-tools/">View all →</a></div>
-      <div><div class="footer-col-title">Browse by Letter</div><a class="footer-link" href="/random-words-starting-with/">Random Words Starting With (A–Z)</a><a class="footer-link" href="/random-words-starting-with/a">Random Words Starting with A</a><a class="footer-link" href="/random-words-starting-with/s">Random Words Starting with S</a><a class="footer-link" href="/random-words-starting-with/q">Random Words Starting with Q</a><a class="footer-link footer-link--view-all" href="/random-words-starting-with/">View all →</a></div>
-      <div><div class="footer-col-title">Names by Origin</div><a class="footer-link" href="/random-spanish-name-generator/">Spanish Name Generator</a><a class="footer-link" href="/random-italian-name-generator/">Italian Name Generator</a><a class="footer-link" href="/random-japanese-name-generator/">Japanese Name Generator</a><a class="footer-link" href="/random-american-name-generator/">American Name Generator</a><a class="footer-link footer-link--view-all" href="/name-generators/">View all →</a></div>
-      <div><div class="footer-col-title">Other Name Generators</div><a class="footer-link" href="/character-name-generator/">Character Name Generator</a><a class="footer-link" href="/fantasy-name-generator/">Fantasy Name Generator</a><a class="footer-link" href="/business-name-generator/">Business Name Generator</a><a class="footer-link" href="/band-name-generator/">Band Name Generator</a><a class="footer-link footer-link--view-all" href="/other-generators/">View all →</a></div>
-      <div><div class="footer-col-title">Account &amp; Security</div><a class="footer-link" href="/password-generator/">Password Generator</a><a class="footer-link" href="/passphrase-generator/">Passphrase Generator</a><a class="footer-link" href="/memorable-password-generator/">Memorable Password Generator</a><a class="footer-link" href="/username-generator/">Username Generator</a><a class="footer-link footer-link--view-all" href="/account-tools/">View all →</a></div>
-      <div><div class="footer-col-title">Games &amp; fun</div><a class="footer-link" href="/pictionary-phrase-generator/">Pictionary Phrase Generator</a><a class="footer-link" href="/crossword-puzzle-generator/">Crossword Puzzle Generator</a><a class="footer-link" href="/wordle-helper/">Wordle Helper</a><a class="footer-link footer-link--view-all" href="/number-chance/">View all →</a></div>
-    </div>
-    <div class="footer-bottom">
-      <div style="display:flex;align-items:center;gap:7px">
-        <div class="nav-logo-icon" style="width:22px;height:22px;border-radius:5px"><svg viewBox="0 0 15 15" fill="none" style="width:12px;height:12px"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
-        <span style="font-size:14px;font-weight:600;color:var(--text)">Wordineer</span>
-      </div>
-      <span class="footer-copy">© 2026 Wordineer · Free word tools for everyone</span>
-      <div class="footer-meta"><a href="/about/">About</a><a href="/blog/">Blog</a><a href="/affiliate-disclosure/">Affiliate disclosure</a><a href="/privacy/">Privacy</a></div>
-    </div>
-  </div>
-</footer>
-
-<div class="toast" id="toast"></div>
-
-<script src="/scripts/tool-engine.js?v=26"></script>
-<script>
-(function bindSharedWordineerMenu() {
-  const mega = document.getElementById('mega');
-  const hbg = document.querySelector('.hamburger');
-  if (!mega || !hbg) return;
-  if (hbg.dataset.menuBound === '1') return;
-  hbg.dataset.menuBound = '1';
-  hbg.onclick = null;
-  if (hbg.getAttribute('onclick')) hbg.removeAttribute('onclick');
-
-  function setMenu(open) {
-    mega.classList.toggle('open', open);
-    hbg.setAttribute('aria-expanded', open ? 'true' : 'false');
-  }
-
-  setMenu(mega.classList.contains('open'));
-
-  hbg.addEventListener('click', function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    e.stopImmediatePropagation();
-    setMenu(!mega.classList.contains('open'));
-  }, true);
-
-  hbg.addEventListener('keydown', function(e) {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      e.stopPropagation();
-      e.stopImmediatePropagation();
-      setMenu(!mega.classList.contains('open'));
-    }
-  }, true);
-
-  document.addEventListener('click', function(e) {
-    if (mega.classList.contains('open') && !mega.contains(e.target) && !hbg.contains(e.target)) {
-      setMenu(false);
-    }
-  }, true);
-})();
-</script>
-
+<!-- SLOT:init -->
 <script>
 (function () {
   function he(s) { return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
@@ -729,5 +474,4 @@
   });
 }());
 </script>
-</body>
-</html>
+<!-- /SLOT:init -->
