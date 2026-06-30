@@ -1,4 +1,10 @@
 import json
+import glob
+import os
+import tempfile
+
+BASE = os.path.dirname(os.path.abspath(__file__))
+DATA_DIR = os.path.join(BASE, '..', 'wordineer-deploy', 'data')
 
 VOWELS = set('aeiou')
 
@@ -13,13 +19,10 @@ def analyze(word):
         "bits": None
     }
 
-with open('../wordineer-deploy/data/five-letter-words-analyzed.json') as f:
+with open(os.path.join(DATA_DIR, 'five-letter-words-analyzed.json')) as f:
     analyzed = json.load(f)
 
-import glob
-import os
-
-with open('../wordineer-deploy/data/five-letter-words.json') as f:
+with open(os.path.join(DATA_DIR, 'five-letter-words.json')) as f:
     raw = json.load(f)
 
 # Pool is list of objects with "w" key
@@ -30,8 +33,7 @@ for e in raw:
         pool_words_set.add(w.lower())
 
 # Also load all alphabet-split files
-data_dir = '../wordineer-deploy/data'
-for fpath in sorted(glob.glob(os.path.join(data_dir, 'five-letter-words-[a-z].json'))):
+for fpath in sorted(glob.glob(os.path.join(DATA_DIR, 'five-letter-words-[a-z].json'))):
     with open(fpath) as f:
         alpha_data = json.load(f)
     if isinstance(alpha_data, list):
@@ -62,7 +64,9 @@ combined = ranked + unranked_existing + new_entries
 # Take top 1000 (or however many available)
 result = combined[:1000]
 
-with open('../wordineer-deploy/data/five-letter-words-analyzed.json', 'w') as f:
+tmp_path = os.path.join(DATA_DIR, 'five-letter-words-analyzed.json.tmp')
+with open(tmp_path, 'w') as f:
     json.dump(result, f, separators=(',', ':'))
+os.replace(tmp_path, os.path.join(DATA_DIR, 'five-letter-words-analyzed.json'))
 
 print(f"Done: {len(result)} words written ({len(new_entries)} new entries added)")
