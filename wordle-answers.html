@@ -146,6 +146,9 @@
 .solver-words { display: flex; flex-wrap: wrap; gap: 8px; }
 .solver-word { padding: 6px 12px; background: var(--bg-2); border: 1px solid var(--border); border-radius: 6px; font-size: 13px; font-weight: 700; letter-spacing: .06em; }
 .explainer h2, .explainer h3 { font-family: 'DM Serif Display', serif; font-weight: 400; }
+.hint-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .75rem; }
+.hint-list li { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: .75rem 1rem; font-size: 1rem; }
+.hint-list li strong { color: #1f2937; }
 </style>
 </head>
 
@@ -238,6 +241,7 @@
   <div class="wa-tabs">
     <button class="wa-tab active" data-panel="archive">Past Answers</button>
     <button class="wa-tab" data-panel="solver">Solver</button>
+    <button class="wa-tab" data-panel="hints">Today's Hints</button>
   </div>
 
   <div class="wa-panel active" id="panel-archive">
@@ -280,6 +284,18 @@
     </div>
 
     <div class="solver-results" id="solver-results"></div>
+  </div>
+
+  <div class="wa-panel" id="panel-hints">
+    <div id="hints-loading" style="color:#6b7280;padding:1rem 0">Loading today's hint…</div>
+    <div id="hints-content" style="display:none">
+      <p style="font-size:.85rem;color:#6b7280;margin-bottom:1rem">Puzzle <strong id="hint-num"></strong> · <span id="hint-date"></span></p>
+      <ul class="hint-list" id="hint-list"></ul>
+      <p style="font-size:.8rem;color:#9ca3af;margin-top:1.5rem">Hints don't reveal the answer — use the Solver tab to narrow it down.</p>
+    </div>
+    <div id="hints-unavailable" style="display:none;color:#6b7280;padding:1rem 0">
+      Today's puzzle isn't in our archive yet. Check back after the answer is released.
+    </div>
   </div>
 </div>
 
@@ -504,6 +520,38 @@
     document.getElementById('solver-results').innerHTML = '';
   });
 
+  // Hints
+  function initHints(archive) {
+    var todayStr = new Date().toISOString().slice(0, 10);
+    var entry = archive.find(function(e) { return e.date === todayStr; });
+    document.getElementById('hints-loading').style.display = 'none';
+    if (!entry) {
+      document.getElementById('hints-unavailable').style.display = '';
+      return;
+    }
+    var word = entry.word.toUpperCase();
+    var num = puzzleNum(entry.date);
+    var vowels = (word.match(/[AEIOU]/g) || []).length;
+    var letters = word.split('');
+    var hasDupe = letters.length !== new Set(letters).size;
+    var firstLetter = word[0];
+    var posHint = hasDupe
+      ? 'The last letter is <strong>' + word[4] + '</strong>'
+      : 'The 3rd letter is <strong>' + word[2] + '</strong>';
+    document.getElementById('hint-num').textContent = '#' + num;
+    document.getElementById('hint-date').textContent = new Date(todayStr + 'T00:00:00').toLocaleDateString('en-US', {month:'long', day:'numeric', year:'numeric'});
+    var hints = [
+      'The word has <strong>' + vowels + ' vowel' + (vowels === 1 ? '' : 's') + '</strong>.',
+      'The first letter is <strong>' + firstLetter + '</strong>.',
+      hasDupe ? 'The word has <strong>repeated letters</strong>.' : 'All 5 letters are <strong>unique</strong>.',
+      posHint + '.'
+    ];
+    document.getElementById('hint-list').innerHTML = hints.map(function(h) {
+      return '<li>' + h + '</li>';
+    }).join('');
+    document.getElementById('hints-content').style.display = '';
+  }
+
   // Load data
   Promise.all([
     fetch('/data/wordle-archive.json').then(function(r) { return r.json(); }),
@@ -513,6 +561,7 @@
     var raw = results[1];
     GUESSES = Array.isArray(raw) ? raw : Object.values(raw).reduce(function(a,b){ return a.concat(b); }, []);
     renderArchive(ARCHIVE);
+    initHints(ARCHIVE);
   });
 })();
 document.querySelectorAll('.faq-item').forEach(function(item){var q=item.querySelector('.faq-q');if(!q)return;q.addEventListener('click',function(){item.classList.toggle('open');});});
