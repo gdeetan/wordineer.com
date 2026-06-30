@@ -145,6 +145,7 @@
 .solver-count { font-size: 13px; color: var(--text-3); margin-bottom: 10px; }
 .solver-words { display: flex; flex-wrap: wrap; gap: 8px; }
 .solver-word { padding: 6px 12px; background: var(--bg-2); border: 1px solid var(--border); border-radius: 6px; font-size: 13px; font-weight: 700; letter-spacing: .06em; }
+.explainer h2, .explainer h3 { font-family: 'DM Serif Display', serif; font-weight: 400; }
 </style>
 </head>
 
@@ -324,28 +325,28 @@
   </div>
   <div class="divider"></div>
 
-<div style="max-width:800px;margin:32px auto;padding:0 20px">
+<section class="explainer">
   <h2>How the solver works</h2>
   <p>Enter green letters in the position boxes, yellow letters in "Letters in word," and gray letters in "Not in word." Click Find Possibilities to see all matching words from the full Wordle guess dictionary (~12,000 valid words). This includes both likely answers and valid tactical guesses.</p>
   <p>The archive lists past Wordle answers only (the ~2,300 word answer pool). Today's answer is not shown — use the archive after you've played to check your result.</p>
-</div>
+</section>
   <div class="divider"></div>
 
-<section style="max-width:800px;margin:0 auto 40px;padding:0 20px">
-  <h2>Frequently asked questions</h2>
-  <details style="border-bottom:1px solid var(--border);padding:14px 0">
-    <summary style="cursor:pointer;font-weight:600;font-size:15px">Does this include today's Wordle answer?</summary>
-    <p style="margin:10px 0 0;color:var(--text-2);font-size:14px;line-height:1.7">No. The archive shows past answers only (yesterday and earlier). This lets you use the solver and look up puzzle history without accidentally seeing today's answer before you play.</p>
-  </details>
-  <details style="border-bottom:1px solid var(--border);padding:14px 0">
-    <summary style="cursor:pointer;font-weight:600;font-size:15px">Why does the solver show words not in the archive?</summary>
-    <p style="margin:10px 0 0;color:var(--text-2);font-size:14px;line-height:1.7">Wordle accepts about 12,000 valid English words as guesses, but only about 2,300 are in the answer pool. The solver searches all valid guesses — useful for tactical plays. Past Wordle answers all came from the smaller answer pool.</p>
-  </details>
-  <details style="border-bottom:1px solid var(--border);padding:14px 0">
-    <summary style="cursor:pointer;font-weight:600;font-size:15px">What is the puzzle number?</summary>
-    <p style="margin:10px 0 0;color:var(--text-2);font-size:14px;line-height:1.7">Wordle started on June 19, 2021 as Puzzle #1. Each day is a new consecutive number. The archive table shows the puzzle number for each past answer so you can find a specific game by date or number.</p>
-  </details>
-</section>
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">Does this include today's Wordle answer?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">No. The archive shows past answers only (yesterday and earlier). This lets you use the solver and look up puzzle history without accidentally seeing today's answer before you play.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Why does the solver show words not in the archive?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Wordle accepts about 12,000 valid English words as guesses, but only about 2,300 are in the answer pool. The solver searches all valid guesses — useful for tactical plays. Past Wordle answers all came from the smaller answer pool.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What is the puzzle number?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Wordle started on June 19, 2021 as Puzzle #1. Each day is a new consecutive number. The archive table shows the puzzle number for each past answer so you can find a specific game by date or number.</div>
+  </div>
+</div>
   <div class="divider"></div>
 
 
@@ -518,6 +519,7 @@
     renderArchive(ARCHIVE);
   });
 })();
+document.querySelectorAll('.faq-item').forEach(function(item){var q=item.querySelector('.faq-q');if(!q)return;q.addEventListener('click',function(){item.classList.toggle('open');});});
 </script>
 </body>
 </html>

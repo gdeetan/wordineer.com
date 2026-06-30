@@ -141,6 +141,7 @@
   body { font-size: 11px; }
 }
 @media (max-width: 600px) { .sb-controls { flex-direction: column; align-items: stretch; } }
+.explainer h2, .explainer h3 { font-family: 'DM Serif Display', serif; font-weight: 400; }
 </style>
 </head>
 
@@ -298,34 +299,34 @@
   </div>
   <div class="divider"></div>
 
-<div style="max-width:800px;margin:32px auto;padding:0 20px">
+<section class="explainer">
   <h2>How to use this list</h2>
   <p>Filter to your child's or student's grade and difficulty level, then click <strong>Print / Save as PDF</strong>. In your browser's print dialog, choose "Save as PDF" for a clean printable file. No email or signup required.</p>
   <p>For home practice: cover the word and read it aloud, asking the student to spell it. For classrooms: the 3-column print layout fits neatly on letter-size paper with 50–80 words per page.</p>
   <h2>About these words</h2>
   <p>These 500 words are selected from our grade-level spelling bee tools — drawn from competitive spelling bee word lists and school district vocabulary standards. Words marked Hard appear most often in actual competition rounds at that grade level and involve challenging letter combinations, Latin roots, or unusual patterns.</p>
-</div>
+</section>
   <div class="divider"></div>
 
-<section style="max-width:800px;margin:0 auto 40px;padding:0 20px">
-  <h2>Frequently asked questions</h2>
-  <details style="border-bottom:1px solid var(--border);padding:14px 0">
-    <summary style="cursor:pointer;font-weight:600;font-size:15px">How do I save this as a PDF?</summary>
-    <p style="margin:10px 0 0;color:var(--text-2);font-size:14px;line-height:1.7">Click "Print / Save as PDF," then in your browser's print dialog change the destination from your printer to "Save as PDF." On Mac: File → Print → PDF dropdown in the lower left. On Windows: select "Microsoft Print to PDF" as the printer.</p>
-  </details>
-  <details style="border-bottom:1px solid var(--border);padding:14px 0">
-    <summary style="cursor:pointer;font-weight:600;font-size:15px">Are these the official Scripps National Spelling Bee words?</summary>
-    <p style="margin:10px 0 0;color:var(--text-2);font-size:14px;line-height:1.7">These words represent competitive spelling bee word lists at each grade level but are not the official Scripps list (which is not released publicly before the competition). They are curated from school district lists, past competition reports, and grade-level vocabulary standards.</p>
-  </details>
-  <details style="border-bottom:1px solid var(--border);padding:14px 0">
-    <summary style="cursor:pointer;font-weight:600;font-size:15px">How many words should a student practice per session?</summary>
-    <p style="margin:10px 0 0;color:var(--text-2);font-size:14px;line-height:1.7">15 words per 10–15 minute session is the sweet spot for most students. Daily short sessions beat long infrequent ones. In the final week before competition, increase to 25–30 words per session, focusing on the Hard words for the student's grade.</p>
-  </details>
-  <details style="border-bottom:1px solid var(--border);padding:14px 0">
-    <summary style="cursor:pointer;font-weight:600;font-size:15px">Can I use this in my classroom?</summary>
-    <p style="margin:10px 0 0;color:var(--text-2);font-size:14px;line-height:1.7">Yes — completely free for classroom use. Filter to your grade, print, and distribute. The print layout is designed for classroom handouts. If your school uses a specific district word list, use the difficulty filters to narrow to the words most likely to appear in your local competition.</p>
-  </details>
-</section>
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">How do I save this as a PDF?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Click "Print / Save as PDF," then in your browser's print dialog change the destination from your printer to "Save as PDF." On Mac: File → Print → PDF dropdown in the lower left. On Windows: select "Microsoft Print to PDF" as the printer.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Are these the official Scripps National Spelling Bee words?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">These words represent competitive spelling bee word lists at each grade level but are not the official Scripps list (which is not released publicly before the competition). They are curated from school district lists, past competition reports, and grade-level vocabulary standards.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">How many words should a student practice per session?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">15 words per 10–15 minute session is the sweet spot for most students. Daily short sessions beat long infrequent ones. In the final week before competition, increase to 25–30 words per session, focusing on the Hard words for the student's grade.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I use this in my classroom?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes — completely free for classroom use. Filter to your grade, print, and distribute. The print layout is designed for classroom handouts. If your school uses a specific district word list, use the difficulty filters to narrow to the words most likely to appear in your local competition.</div>
+  </div>
+</div>
   <div class="divider"></div>
 
 
@@ -429,6 +430,7 @@
     .then(function(r) { return r.json(); })
     .then(function(d) { DATA = d; refresh(); });
 })();
+document.querySelectorAll('.faq-item').forEach(function(item){var q=item.querySelector('.faq-q');if(!q)return;q.addEventListener('click',function(){item.classList.toggle('open');});});
 </script>
 </body>
 </html>

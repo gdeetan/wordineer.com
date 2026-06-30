@@ -160,6 +160,7 @@
 .insight-box { background: var(--bg-2); border-left: 3px solid var(--brand); border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 0 0 24px; font-size: 14px; line-height: 1.7; }
 @media print { .filter-bar, .dl-btn { display: none; } }
 @media (max-width: 600px) { .filter-bar { flex-direction: column; align-items: stretch; } }
+.explainer h2, .explainer h3 { font-family: 'DM Serif Display', serif; font-weight: 400; }
 </style>
 </head>
 
@@ -325,7 +326,7 @@
   </div>
   <div class="divider"></div>
 
-<div class="asset-wrap">
+<section class="explainer">
   <div class="insight-box">
     <strong>The optimal Wordle opener:</strong> TRACE scores 5.99 bits of information — it places E, T, A, R, C in the positions where those letters appear most frequently across all possible answers. After TRACE as your first guess, the ideal follow-up for uncovering remaining common letters is SOLID (S, O, L, I, D). Together these two guesses test 10 distinct, high-frequency letters.
   </div>
@@ -347,28 +348,28 @@
       <p>S appears in ~37% of 5-letter Wordle words — more than any other consonant. However, S rarely appears in position 1. Positions 4 and 5 are the most productive places to test for S.</p>
     </div>
   </div>
-</div>
+</section>
   <div class="divider"></div>
 
-<section style="max-width:800px;margin:0 auto 40px;padding:0 20px">
-  <h2>Frequently asked questions</h2>
-  <details style="border-bottom:1px solid var(--border);padding:14px 0">
-    <summary style="cursor:pointer;font-weight:600;font-size:15px">What is the best 5-letter starting word for Wordle?</summary>
-    <p style="margin:10px 0 0;color:var(--text-2);font-size:14px;line-height:1.7">By information theory, TRACE, CRANE, SLATE, and CRATE are top openers. TRACE scores 5.99 bits of information per guess — the highest in this dataset. It places E, T, A, R, C in their most-frequent positions across all possible Wordle answers.</p>
-  </details>
-  <details style="border-bottom:1px solid var(--border);padding:14px 0">
-    <summary style="cursor:pointer;font-weight:600;font-size:15px">What does "info score" (bits) mean?</summary>
-    <p style="margin:10px 0 0;color:var(--text-2);font-size:14px;line-height:1.7">The information score measures how much a guess narrows down the answer pool on average, measured in bits. A score of 6 bits means the guess eliminates about 64 of every 65 remaining possibilities on average. Higher is better. Words without a score are valid answers but weren't analyzed for opener efficiency.</p>
-  </details>
-  <details style="border-bottom:1px solid var(--border);padding:14px 0">
-    <summary style="cursor:pointer;font-weight:600;font-size:15px">Can I download the full word list?</summary>
-    <p style="margin:10px 0 0;color:var(--text-2);font-size:14px;line-height:1.7">Yes — click Download CSV above. The file includes all words with vowel pattern, vowel count, unique-letter flag, and information score. Licensed CC BY 4.0: free to use with attribution.</p>
-  </details>
-  <details style="border-bottom:1px solid var(--border);padding:14px 0">
-    <summary style="cursor:pointer;font-weight:600;font-size:15px">Why do some words have no info score?</summary>
-    <p style="margin:10px 0 0;color:var(--text-2);font-size:14px;line-height:1.7">The information score is calculated for a curated set of top strategic openers. Words in the full answer list but not analyzed for opener efficiency show a dash. All words without a score are still valid Wordle answers — they just haven't been scored for first-guess efficiency.</p>
-  </details>
-</section>
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">What is the best 5-letter starting word for Wordle?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">By information theory, TRACE, CRANE, SLATE, and CRATE are top openers. TRACE scores 5.99 bits of information per guess — the highest in this dataset. It places E, T, A, R, C in their most-frequent positions across all possible Wordle answers.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What does "info score" (bits) mean?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">The information score measures how much a guess narrows down the answer pool on average, measured in bits. A score of 6 bits means the guess eliminates about 64 of every 65 remaining possibilities on average. Higher is better. Words without a score are valid answers but weren't analyzed for opener efficiency.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I download the full word list?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes — click Download CSV above. The file includes all words with vowel pattern, vowel count, unique-letter flag, and information score. Licensed CC BY 4.0: free to use with attribution.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Why do some words have no info score?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">The information score is calculated for a curated set of top strategic openers. Words in the full answer list but not analyzed for opener efficiency show a dash. All words without a score are still valid Wordle answers — they just haven't been scored for first-guess efficiency.</div>
+  </div>
+</div>
   <div class="divider"></div>
 
 
@@ -530,6 +531,7 @@
     .then(function(r) { return r.json(); })
     .then(function(d) { DATA = d; populate(d); refresh(); });
 })();
+document.querySelectorAll('.faq-item').forEach(function(item){var q=item.querySelector('.faq-q');if(!q)return;q.addEventListener('click',function(){item.classList.toggle('open');});});
 </script>
 </body>
 </html>
