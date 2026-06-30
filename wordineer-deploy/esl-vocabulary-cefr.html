@@ -460,7 +460,7 @@ function speakWord(evt, word) {
     document.getElementById('esl-grid').innerHTML = rows.map(function(r) {
       return '<div class="esl-card">' +
         '<span class="cefr-badge cefr-' + r.cefr + '">' + r.cefr + '</span>' +
-        '<div class="eword">' + r.w + '<button class="speak-btn" onclick="speakWord(event,' + JSON.stringify(r.w) + ')" title="Hear pronunciation" aria-label="Speak word"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path d="M9.547 3.062A.75.75 0 0110 3.75v12.5a.75.75 0 01-1.21.59l-3.63-2.895H3.5A1.5 1.5 0 012 12.444V7.556A1.5 1.5 0 013.5 6.056h1.66l3.63-2.895a.75.75 0 01.757-.099zM13.78 6.22a.75.75 0 011.06 0A6.75 6.75 0 0116.5 10a6.75 6.75 0 01-1.66 4.5.75.75 0 01-1.14-.976A5.25 5.25 0 0015 10a5.25 5.25 0 00-1.3-3.524.75.75 0 010-1.256z"/></svg></button></div>' +
+        '<div class="eword">' + r.w + '<button class="speak-btn" data-word="' + r.w.replace(/"/g,'&quot;') + '" onclick="speakWord(event,this.dataset.word)" title="Hear pronunciation" aria-label="Speak word"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path d="M9.547 3.062A.75.75 0 0110 3.75v12.5a.75.75 0 01-1.21.59l-3.63-2.895H3.5A1.5 1.5 0 012 12.444V7.556A1.5 1.5 0 013.5 6.056h1.66l3.63-2.895a.75.75 0 01.757-.099zM13.78 6.22a.75.75 0 011.06 0A6.75 6.75 0 0116.5 10a6.75 6.75 0 01-1.66 4.5.75.75 0 01-1.14-.976A5.25 5.25 0 0015 10a5.25 5.25 0 00-1.3-3.524.75.75 0 010-1.256z"/></svg></button></div>' +
         '<div class="ipa">' + (r.ipa || '') + '</div>' +
         '<span class="pos">' + (r.pos || '') + '</span>' +
         '<div class="def">' + (r.def || '') + '</div>' +
