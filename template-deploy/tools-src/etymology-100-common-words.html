@@ -23,7 +23,8 @@
 
 <!-- SLOT:style -->
 <style>
-.etym-wrap { max-width: 900px; margin: 0 auto; padding: 0 20px 60px; }
+.etym-wrap { max-width: 960px; margin: 0 auto; padding: 24px 24px 60px; }
+.etym-wrap h2, .insight-banner h2 { font-family: 'DM Serif Display', serif; font-weight: 400; }
 .etym-controls { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 24px; align-items: center; }
 .lang-filter { display: flex; gap: 8px; flex-wrap: wrap; }
 .lang-btn { padding: 6px 14px; border: 2px solid var(--border); border-radius: 20px; font-size: 12px; font-weight: 600; cursor: pointer; background: var(--bg); color: var(--text-2); font-family: inherit; transition: all .15s; }
@@ -58,12 +59,28 @@
   .etym-card { padding: 14px 16px; }
   .etym-word { font-size: 18px; }
 }
+.etym-tree-toggle { background: none; border: 1px solid #e5e7eb; border-radius: 6px; padding: 3px 10px; font-size: .78rem; color: #6b7280; cursor: pointer; margin-top: .5rem; display: block; }
+.etym-tree-toggle:hover { border-color: #7c3aed; color: #7c3aed; }
+.etym-tree { display: none; margin-top: .75rem; overflow-x: auto; }
+.etym-tree.open { display: block; }
+.etym-tree svg { max-width: 100%; height: auto; }
 </style>
 <!-- /SLOT:style -->
 
 <!-- SLOT:hero -->
-<h1>The Etymology of 100 Common English Words</h1>
-<p>Why does "salary" come from salt? Why does "panic" come from a Greek god, "assassin" from hashish, and "window" from a Norse word for wind-eye? English is a linguistic scrapbook — it borrowed from Latin, Greek, Arabic, Old Norse, French, and dozens of other languages over 1,500 years. These are the surprising true origins of 100 words you use every day.</p>
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/word-tools/">Word Tools</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Word Origins &amp; Etymology</span>
+  </div>
+</div>
+<div class="hero">
+  <h1>The Etymology of 100 Common English Words</h1>
+  <p>Why does "salary" come from salt? Why does "panic" come from a Greek god, "assassin" from hashish, and "window" from a Norse word for wind-eye? English is a linguistic scrapbook — it borrowed from Latin, Greek, Arabic, Old Norse, French, and dozens of other languages over 1,500 years. These are the surprising true origins of 100 words you use every day.</p>
+</div>
 <!-- /SLOT:hero -->
 
 <!-- SLOT:content -->
@@ -91,6 +108,27 @@
 </div>
 
 <script>
+var ETYM_TREES = {
+  "SALARY": '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 110" font-family="system-ui,sans-serif" font-size="13"><rect x="10" y="10" width="120" height="36" rx="6" fill="#7c3aed"/><text x="70" y="25" fill="#fff" text-anchor="middle" font-size="11" font-weight="bold">Latin</text><text x="70" y="40" fill="#fff" text-anchor="middle">salarium</text><line x1="130" y1="28" x2="160" y2="28" stroke="#9ca3af" stroke-width="1.5" marker-end="url(#arr)"/><rect x="160" y="10" width="120" height="36" rx="6" fill="#6b7280"/><text x="220" y="25" fill="#fff" text-anchor="middle" font-size="11" font-weight="bold">Old French</text><text x="220" y="40" fill="#fff" text-anchor="middle">salaire</text><line x1="220" y1="46" x2="220" y2="70" stroke="#9ca3af" stroke-width="1.5" marker-end="url(#arr)"/><rect x="160" y="70" width="120" height="32" rx="6" fill="#1f2937"/><text x="220" y="88" fill="#fff" text-anchor="middle" font-weight="bold">salary</text><defs><marker id="arr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z" fill="#9ca3af"/></marker></defs><text x="70" y="90" fill="#9ca3af" font-size="11" text-anchor="middle">salt ration for soldiers</text></svg>',
+  "WINDOW": '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 110" font-family="system-ui,sans-serif" font-size="13"><rect x="10" y="10" width="120" height="36" rx="6" fill="#374151"/><text x="70" y="25" fill="#fff" text-anchor="middle" font-size="11" font-weight="bold">Old Norse</text><text x="70" y="40" fill="#fff" text-anchor="middle">vindauga</text><line x1="130" y1="28" x2="160" y2="28" stroke="#9ca3af" stroke-width="1.5" marker-end="url(#arr2)"/><rect x="160" y="10" width="120" height="36" rx="6" fill="#4b5563"/><text x="220" y="25" fill="#fff" text-anchor="middle" font-size="11" font-weight="bold">Middle English</text><text x="220" y="40" fill="#fff" text-anchor="middle">windowe</text><line x1="220" y1="46" x2="220" y2="70" stroke="#9ca3af" stroke-width="1.5" marker-end="url(#arr2)"/><rect x="160" y="70" width="120" height="32" rx="6" fill="#1f2937"/><text x="220" y="88" fill="#fff" text-anchor="middle" font-weight="bold">window</text><defs><marker id="arr2" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z" fill="#9ca3af"/></marker></defs><text x="70" y="90" fill="#9ca3af" font-size="11" text-anchor="middle">vindr (wind) + auga (eye)</text></svg>',
+  "MUSCLE": '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 110" font-family="system-ui,sans-serif" font-size="13"><rect x="10" y="10" width="120" height="36" rx="6" fill="#7c3aed"/><text x="70" y="25" fill="#fff" text-anchor="middle" font-size="11" font-weight="bold">Latin</text><text x="70" y="40" fill="#fff" text-anchor="middle">musculus</text><line x1="130" y1="28" x2="160" y2="28" stroke="#9ca3af" stroke-width="1.5" marker-end="url(#arr3)"/><rect x="160" y="10" width="120" height="36" rx="6" fill="#0f766e"/><text x="220" y="25" fill="#fff" text-anchor="middle" font-size="11" font-weight="bold">Old French</text><text x="220" y="40" fill="#fff" text-anchor="middle">muscle</text><line x1="220" y1="46" x2="220" y2="70" stroke="#9ca3af" stroke-width="1.5" marker-end="url(#arr3)"/><rect x="160" y="70" width="120" height="32" rx="6" fill="#1f2937"/><text x="220" y="88" fill="#fff" text-anchor="middle" font-weight="bold">muscle</text><defs><marker id="arr3" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z" fill="#9ca3af"/></marker></defs><text x="70" y="90" fill="#9ca3af" font-size="11" text-anchor="middle">little mouse (moving under skin)</text></svg>',
+  "ASSASSIN": '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 110" font-family="system-ui,sans-serif" font-size="13"><rect x="10" y="10" width="120" height="36" rx="6" fill="#b45309"/><text x="70" y="25" fill="#fff" text-anchor="middle" font-size="11" font-weight="bold">Arabic</text><text x="70" y="40" fill="#fff" text-anchor="middle">hashshashin</text><line x1="130" y1="28" x2="160" y2="28" stroke="#9ca3af" stroke-width="1.5" marker-end="url(#arr4)"/><rect x="160" y="10" width="120" height="36" rx="6" fill="#7c3aed"/><text x="220" y="25" fill="#fff" text-anchor="middle" font-size="11" font-weight="bold">Medieval Latin</text><text x="220" y="40" fill="#fff" text-anchor="middle">assassinus</text><line x1="220" y1="46" x2="220" y2="70" stroke="#9ca3af" stroke-width="1.5" marker-end="url(#arr4)"/><rect x="160" y="70" width="120" height="32" rx="6" fill="#1f2937"/><text x="220" y="88" fill="#fff" text-anchor="middle" font-weight="bold">assassin</text><defs><marker id="arr4" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z" fill="#9ca3af"/></marker></defs><text x="70" y="90" fill="#9ca3af" font-size="11" text-anchor="middle">hashish eaters (Crusader legend)</text></svg>',
+  "DISASTER": '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 110" font-family="system-ui,sans-serif" font-size="13"><rect x="10" y="10" width="120" height="36" rx="6" fill="#0284c7"/><text x="70" y="25" fill="#fff" text-anchor="middle" font-size="11" font-weight="bold">Greek</text><text x="70" y="40" fill="#fff" text-anchor="middle">dis + astron</text><line x1="130" y1="28" x2="160" y2="28" stroke="#9ca3af" stroke-width="1.5" marker-end="url(#arr5)"/><rect x="160" y="10" width="120" height="36" rx="6" fill="#7c3aed"/><text x="220" y="25" fill="#fff" text-anchor="middle" font-size="11" font-weight="bold">Italian</text><text x="220" y="40" fill="#fff" text-anchor="middle">disastro</text><line x1="220" y1="46" x2="220" y2="70" stroke="#9ca3af" stroke-width="1.5" marker-end="url(#arr5)"/><rect x="160" y="70" width="120" height="32" rx="6" fill="#1f2937"/><text x="220" y="88" fill="#fff" text-anchor="middle" font-weight="bold">disaster</text><defs><marker id="arr5" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z" fill="#9ca3af"/></marker></defs><text x="70" y="90" fill="#9ca3af" font-size="11" text-anchor="middle">bad star (ill-starred fate)</text></svg>',
+  "COFFEE": '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 110" font-family="system-ui,sans-serif" font-size="13"><rect x="10" y="10" width="100" height="36" rx="6" fill="#b45309"/><text x="60" y="25" fill="#fff" text-anchor="middle" font-size="11" font-weight="bold">Arabic</text><text x="60" y="40" fill="#fff" text-anchor="middle">qahwa</text><line x1="110" y1="28" x2="140" y2="28" stroke="#9ca3af" stroke-width="1.5" marker-end="url(#arr6)"/><rect x="140" y="10" width="90" height="36" rx="6" fill="#7c3aed"/><text x="185" y="25" fill="#fff" text-anchor="middle" font-size="11" font-weight="bold">Turkish</text><text x="185" y="40" fill="#fff" text-anchor="middle">kahve</text><line x1="230" y1="28" x2="255" y2="28" stroke="#9ca3af" stroke-width="1.5" marker-end="url(#arr6)"/><rect x="255" y="10" width="75" height="36" rx="6" fill="#0f766e"/><text x="292" y="25" fill="#fff" text-anchor="middle" font-size="11" font-weight="bold">Dutch</text><text x="292" y="40" fill="#fff" text-anchor="middle">koffie</text><line x1="292" y1="46" x2="292" y2="70" stroke="#9ca3af" stroke-width="1.5" marker-end="url(#arr6)"/><rect x="232" y="70" width="120" height="32" rx="6" fill="#1f2937"/><text x="292" y="88" fill="#fff" text-anchor="middle" font-weight="bold">coffee</text><defs><marker id="arr6" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z" fill="#9ca3af"/></marker></defs><text x="60" y="90" fill="#9ca3af" font-size="11" text-anchor="middle">wine of the bean</text></svg>',
+  "ADMIRAL": '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 110" font-family="system-ui,sans-serif" font-size="13"><rect x="10" y="10" width="120" height="36" rx="6" fill="#b45309"/><text x="70" y="25" fill="#fff" text-anchor="middle" font-size="11" font-weight="bold">Arabic</text><text x="70" y="40" fill="#fff" text-anchor="middle">amir al-bahr</text><line x1="130" y1="28" x2="160" y2="28" stroke="#9ca3af" stroke-width="1.5" marker-end="url(#arr7)"/><rect x="160" y="10" width="120" height="36" rx="6" fill="#7c3aed"/><text x="220" y="25" fill="#fff" text-anchor="middle" font-size="11" font-weight="bold">Medieval Latin</text><text x="220" y="40" fill="#fff" text-anchor="middle">admirallus</text><line x1="220" y1="46" x2="220" y2="70" stroke="#9ca3af" stroke-width="1.5" marker-end="url(#arr7)"/><rect x="160" y="70" width="120" height="32" rx="6" fill="#1f2937"/><text x="220" y="88" fill="#fff" text-anchor="middle" font-weight="bold">admiral</text><defs><marker id="arr7" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z" fill="#9ca3af"/></marker></defs><text x="70" y="90" fill="#9ca3af" font-size="11" text-anchor="middle">commander of the sea</text></svg>',
+  "ALGEBRA": '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 110" font-family="system-ui,sans-serif" font-size="13"><rect x="10" y="10" width="120" height="36" rx="6" fill="#b45309"/><text x="70" y="25" fill="#fff" text-anchor="middle" font-size="11" font-weight="bold">Arabic</text><text x="70" y="40" fill="#fff" text-anchor="middle">al-jabr</text><line x1="130" y1="28" x2="160" y2="28" stroke="#9ca3af" stroke-width="1.5" marker-end="url(#arr8)"/><rect x="160" y="10" width="120" height="36" rx="6" fill="#7c3aed"/><text x="220" y="25" fill="#fff" text-anchor="middle" font-size="11" font-weight="bold">Medieval Latin</text><text x="220" y="40" fill="#fff" text-anchor="middle">algebra</text><line x1="220" y1="46" x2="220" y2="70" stroke="#9ca3af" stroke-width="1.5" marker-end="url(#arr8)"/><rect x="160" y="70" width="120" height="32" rx="6" fill="#1f2937"/><text x="220" y="88" fill="#fff" text-anchor="middle" font-weight="bold">algebra</text><defs><marker id="arr8" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z" fill="#9ca3af"/></marker></defs><text x="70" y="90" fill="#9ca3af" font-size="11" text-anchor="middle">reunion of broken parts</text></svg>',
+  "JUNGLE": '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 110" font-family="system-ui,sans-serif" font-size="13"><rect x="10" y="10" width="120" height="36" rx="6" fill="#6b7280"/><text x="70" y="25" fill="#fff" text-anchor="middle" font-size="11" font-weight="bold">Sanskrit</text><text x="70" y="40" fill="#fff" text-anchor="middle">jangala</text><line x1="130" y1="28" x2="160" y2="28" stroke="#9ca3af" stroke-width="1.5" marker-end="url(#arr9)"/><rect x="160" y="10" width="120" height="36" rx="6" fill="#6b7280"/><text x="220" y="25" fill="#fff" text-anchor="middle" font-size="11" font-weight="bold">Hindi</text><text x="220" y="40" fill="#fff" text-anchor="middle">jangal</text><line x1="220" y1="46" x2="220" y2="70" stroke="#9ca3af" stroke-width="1.5" marker-end="url(#arr9)"/><rect x="160" y="70" width="120" height="32" rx="6" fill="#1f2937"/><text x="220" y="88" fill="#fff" text-anchor="middle" font-weight="bold">jungle</text><defs><marker id="arr9" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z" fill="#9ca3af"/></marker></defs><text x="70" y="90" fill="#9ca3af" font-size="11" text-anchor="middle">rough, arid land (not forest!)</text></svg>',
+  "ROBOT": '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 110" font-family="system-ui,sans-serif" font-size="13"><rect x="10" y="10" width="120" height="36" rx="6" fill="#6b7280"/><text x="70" y="25" fill="#fff" text-anchor="middle" font-size="11" font-weight="bold">Czech</text><text x="70" y="40" fill="#fff" text-anchor="middle">robota</text><line x1="130" y1="28" x2="160" y2="28" stroke="#9ca3af" stroke-width="1.5" marker-end="url(#arr10)"/><rect x="160" y="10" width="120" height="36" rx="6" fill="#6b7280"/><text x="220" y="25" fill="#fff" text-anchor="middle" font-size="11" font-weight="bold">Play (1920)</text><text x="220" y="40" fill="#fff" text-anchor="middle">robot (K. Čapek)</text><line x1="220" y1="46" x2="220" y2="70" stroke="#9ca3af" stroke-width="1.5" marker-end="url(#arr10)"/><rect x="160" y="70" width="120" height="32" rx="6" fill="#1f2937"/><text x="220" y="88" fill="#fff" text-anchor="middle" font-weight="bold">robot</text><defs><marker id="arr10" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z" fill="#9ca3af"/></marker></defs><text x="70" y="90" fill="#9ca3af" font-size="11" text-anchor="middle">forced labor / drudgery</text></svg>'
+};
+
+function toggleTree(btn) {
+  var tree = btn.nextElementSibling;
+  var open = tree.classList.toggle('open');
+  btn.textContent = open ? 'Hide etymology tree ▴' : 'Show etymology tree ▾';
+}
+</script>
+
+<script>
 (function(){
   var DATA = [], activeLang = '';
 
@@ -110,6 +148,11 @@
         '<div class="etym-relatives-label">Modern relatives</div><div class="etym-relatives">' +
         r.modern_relatives.map(function(w){ return '<span class="rel-chip">'+w+'</span>'; }).join('') + '</div>' : '';
       var displayWord = r.w ? (r.w.charAt(0).toUpperCase() + r.w.slice(1)) : '';
+      var wordKey = (r.w || '').toUpperCase();
+      var treeHtml = ETYM_TREES[wordKey]
+        ? '<button class="etym-tree-toggle" onclick="toggleTree(this)">Show etymology tree ▾</button>'
+          + '<div class="etym-tree">' + ETYM_TREES[wordKey] + '</div>'
+        : '';
       return '<div class="etym-card">' +
         '<div class="etym-header">' +
         '<span class="etym-word">' + displayWord + '</span>' +
@@ -119,6 +162,7 @@
         '<div class="etym-root">Root: <strong>' + (r.root||'') + '</strong></div>' +
         '<div class="etym-history">' + (r.history||'') + '</div>' +
         relatives +
+        treeHtml +
         '</div>';
     }).join('');
   }
