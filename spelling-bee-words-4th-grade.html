@@ -233,11 +233,17 @@
 
 @media print {
   header, nav, .breadcrumb, .hero, .ctrl, .sb-top-bar, .saved-section, .practice-panel, .explainer, .faq, .who, footer, .ad, [class*="ad-"], .more-tools, .content-wrap { display: none !important; }
-  .word-item { border-top: none; border-bottom: 1px solid #e5e7eb; padding: 8px 0; break-inside: avoid; }
+  .print-header { display: block !important; margin-bottom: 18px; border-bottom: 2px solid #111; padding-bottom: 10px; }
+  .print-header-title { font-size: 1.3rem; font-weight: 700; color: #111; margin: 0 0 2px; }
+  .print-header-meta { font-size: 0.78rem; color: #555; margin: 0; }
+  .word-list { counter-reset: word-counter; }
+  .word-item { counter-increment: word-counter; border-top: none; border-bottom: 1px solid #e5e7eb; padding: 7px 0 7px 28px; break-inside: avoid; position: relative; }
+  .word-item::before { content: counter(word-counter) "."; position: absolute; left: 0; top: 9px; font-size: 0.75rem; color: #888; font-weight: 600; width: 22px; }
   .word-text { font-size: 1.1rem; }
   .word-def { display: block !important; }
   .word-def.hidden { display: none !important; }
   .word-right { display: none !important; }
+  .word-badges { display: none !important; }
   @page { margin: 1.5cm; }
 }
 </style>
@@ -379,6 +385,10 @@
       </div>
 
       <div class="results-col">
+        <div class="print-header" style="display:none" aria-hidden="true">
+          <p class="print-header-title">4th Grade Spelling Bee Word List</p>
+          <p class="print-header-meta">Generated free at wordineer.com/spelling-bee-words-4th-grade/ &nbsp;|&nbsp; Filter by difficulty and word origin &nbsp;|&nbsp; Includes Practice Mode</p>
+        </div>
 
         <!-- List view -->
         <div id="sb-list-view">
