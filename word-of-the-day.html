@@ -832,6 +832,10 @@ const WORDINEER_WOTD = (() => {
       if (!saved.length) return;
       copyText(saved.map(item => item.word + ' - ' + item.definition).join('\n'));
     });
+
+    document.querySelectorAll('.faq-q').forEach(q => {
+      q.addEventListener('click', () => q.closest('.faq-item').classList.toggle('open'));
+    });
   }
 
   async function init() {
