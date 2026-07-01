@@ -109,13 +109,13 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What is a random word generator?",
-      "acceptedAnswer": { "@type": "Answer", "text": "A random word generator selects words at random from a database of English words. You can filter by word type, difficulty, and starting letter. Every word includes its definition." }
+      "name": "Which filters change the results the most?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Difficulty has the biggest impact. Easy pulls common everyday vocabulary; Hard pulls rare, technical, or literary words. Word type (noun, verb, adjective) shapes what you can do with the output: nouns work best for Pictionary, adjectives for writing prompts, verbs for action-based games. Combining all three filters gives you very specific results fast." }
     },
     {
       "@type": "Question",
-      "name": "How do I use new words correctly in my writing?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Write a sentence using the word immediately after finding it. A tool like Grammarly can confirm your usage is grammatically correct." }
+      "name": "How do I actually learn a word after generating it?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Read the definition shown under each word, then write one sentence using it before you move on. Research on vocabulary retention shows that active production beats passive review. Save words with the heart icon and copy your saved list at the end of a session to review later." }
     },
     {
       "@type": "Question",
@@ -449,6 +449,7 @@
           <span class="words-count" id="word-count">Generating…</span>
           <div class="words-actions">
             <button class="act-btn" onclick="WORDINEER.copyAll()">Copy all</button>
+            <button class="act-btn" onclick="WORDINEER.shareWords()">Share</button>
             <button class="act-btn" id="word-regen-btn">Regenerate</button>
           </div>
         </div>
@@ -529,11 +530,10 @@
   <div class="divider"></div>
 
 <div class="explainer">
-  <h2>What is a random word generator?</h2>
-  <p>A random word generator pulls words at random from a curated database of English vocabulary. This one lets you narrow results by word type (nouns, verbs, adjectives, adverbs), difficulty level, and starting letter — and every result comes with a definition so you know exactly what you're working with. No dictionary tab-switching required.</p>
-  <p>Whether you need a single word or a list of a hundred, it takes one click. The words show up instantly, ready to use.</p>
+  <h2>How to get the most out of it</h2>
+  <p>Every filter combination changes what you get. "Nouns only" + "Easy" gives you concrete, drawable objects — good for Pictionary or writing prompts for kids. "Adjectives only" + "Hard" gives you rare descriptors that push your vocabulary. "Verbs only" + a specific first letter is a useful constraint for writing exercises and word games where variety matters. Every word comes with its definition and part of speech, so you can actually learn what you're generating, not just collect it.</p>
 
-  <h2>Who uses it — and how</h2>
+  <h2>Uses — and how</h2>
   <h3>For writing</h3>
   <p>Set the count to 5–10, hit generate, and write a paragraph using every word in order. The constraint forces creative connections you wouldn't make on your own. Novelists, screenwriters, and content creators use this exact exercise to break out of predictable patterns. If you want a full sentence to start from, the <a href="/random-sentence-generator/">random sentence generator</a> pairs well with this.</p>
 
@@ -569,13 +569,13 @@
 <div class="faq">
   <h2 class="faq-title">Frequently asked questions</h2>
   <div class="faq-item open">
-    <div class="faq-q"><span class="faq-q-text">What is a random word generator?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">A random word generator selects words at random from a database of English words. You can filter by word type, difficulty, and starting letter. Every word includes its definition.</div>
+    <div class="faq-q"><span class="faq-q-text">Which filters actually change the results the most?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Difficulty has the biggest impact. Easy pulls from common everyday vocabulary — words most native speakers recognize instantly. Hard pulls rare, technical, or literary words that even strong readers may not know. Word type (noun, verb, adjective) shapes what you can do with the output: nouns work best for Pictionary, adjectives for writing prompts, verbs for action-based games. Combining all three filters together gives you very specific results fast.</div>
   </div>
   <div class="faq-item">
-    <div class="faq-q"><span class="faq-q-text">How do I use new words correctly in my writing?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-q"><span class="faq-q-text">How do I actually learn a word after generating it?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
     <div class="faq-a">
-      Write a sentence using the word immediately. A tool like <a href="https://grammarly.com" target="_blank" rel="noopener">Grammarly</a> can confirm your usage is grammatically correct before you publish.
+      The definition shows under each word — read it, then write one sentence using the word before you move on. That's it. Research on vocabulary retention consistently shows that active production (writing or saying the word in context) beats passive review. Save the word with the heart icon, then copy your saved list at the end of a session to review later. If you're unsure whether your sentence is grammatically correct, <a href="https://grammarly.com" target="_blank" rel="noopener">Grammarly</a> catches usage errors in real time.
       <div class="aff-faq">
         <div class="aff-faq-tag">Recommended tool</div>
         <div class="aff-faq-body">Grammarly's vocabulary suggestions and tone detector help you choose exactly the right word every time.</div>
@@ -656,7 +656,7 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="/scripts/tool-engine.js?v=26"></script>
+<script src="/scripts/tool-engine.js?v=27"></script>
 <script>
 (function bindSharedWordineerMenu() {
   const mega = document.getElementById('mega');
