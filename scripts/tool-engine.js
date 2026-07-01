@@ -256,6 +256,44 @@ schedule();
 window.addEventListener('load', schedule, { once: true });
 }
 }
+function repairSevenLetterNav() {
+const title = document.querySelector('.az-nav-title');
+const linksWrap = document.querySelector('.az-links');
+if (!title || !linksWrap) return;
+if (title.textContent.trim().toLowerCase() !== '7-letter words by first letter') return;
+const currentPath = window.location.pathname;
+const match = currentPath.match(/7-letter-words-starting-with-([a-z])(?:\.html|\/)?$/i);
+const currentLetter = match ? match[1].toUpperCase() : '';
+const items = new Map();
+linksWrap.querySelectorAll('.az-link').forEach(el => {
+const letter = (el.textContent || '').trim().toUpperCase();
+if (/^[A-Z]$/.test(letter) && !items.has(letter)) items.set(letter, el);
+});
+for (let code = 65; code <= 90; code++) {
+const letter = String.fromCharCode(code);
+const href = `/7-letter-words-starting-with-${letter.toLowerCase()}.html`;
+let el = items.get(letter);
+if (!el || el.tagName !== 'A') {
+el = document.createElement('a');
+el.className = 'az-link';
+el.textContent = letter;
+if (items.has(letter)) {
+items.get(letter).replaceWith(el);
+} else {
+linksWrap.appendChild(el);
+}
+items.set(letter, el);
+}
+el.setAttribute('href', href);
+if (letter === currentLetter) {
+el.classList.add('active');
+el.setAttribute('aria-current', 'page');
+} else {
+el.classList.remove('active');
+el.removeAttribute('aria-current');
+}
+}
+}
 const MAX_WORDS = 50;
 function setCountError(show) {
 const err = document.getElementById('count-error');
@@ -423,6 +461,14 @@ function copySaved() {
 if (!saved.length) return;
 navigator.clipboard?.writeText(saved.map(s => s.w).join(', '));
 showToast('Saved words copied!');
+}
+function shareWords() {
+if (!current.length) return;
+const words = current.map(w => w.w).join(', ');
+const url = window.location.hostname === 'localhost' ? 'wordineer.com' : window.location.hostname;
+const text = `${current.length} random words from Wordineer:\n\n${words}\n\n${url}`;
+navigator.clipboard?.writeText(text);
+showToast('Copied — paste anywhere to share!');
 }
 function showToast(msg) {
 const t = document.getElementById('toast');
@@ -691,5 +737,6 @@ document.querySelectorAll('input[name="sizeby"]').forEach(el => {
 el.addEventListener('change', () => scheduleFullDictionary(0));
 });
 }
-return { init, render, generate, reset, copyWord, copyAll, copySaved, toggleSave, removeSaved, showToast };
+repairSevenLetterNav();
+return { init, render, generate, reset, copyWord, copyAll, copySaved, shareWords, toggleSave, removeSaved, showToast };
 })();
