@@ -296,7 +296,12 @@
 @media(max-width:700px){
   .proof-strip{justify-content:flex-start;padding:16px 16px 0}
   .content-wrap--top{padding:0 16px;margin-top:-10px}
-  .home-lanes{grid-template-columns:1fr}
+  .home-lanes{grid-template-columns:repeat(3,72vw);overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:6px;margin-bottom:20px}
+  .home-lanes::-webkit-scrollbar{display:none}
+  .lane-card{padding:16px}
+  .lane-card p{display:none}
+  .lane-links{display:none}
+  .lane-card h2{font-size:19px;margin-bottom:12px}
   .tool-home-head{padding:0 16px 10px}
   .tool-home-head h2{max-width:none}
   .tool-wrap { padding:14px 16px 0; }
