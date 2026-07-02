@@ -184,8 +184,36 @@
 }
 </script>
 
-<link rel="stylesheet" href="/styles/global.css?v=9">
+<link rel="stylesheet" href="/styles/global.css?v=10">
 <style>
+/* ── Homepage Lane Fallback Styles ── */
+.content-wrap--top{position:relative;padding:0 24px;margin-top:-16px}
+.content-wrap--top::before{content:"";display:block;max-width:960px;height:0;margin:0 auto}
+.proof-strip,.home-lanes{max-width:960px;margin-left:auto;margin-right:auto}
+.proof-strip{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-start;margin-bottom:14px;padding:18px 18px 0;border:1px solid rgba(17,24,39,0.08);border-bottom:none;border-radius:18px 18px 0 0;background:linear-gradient(180deg,#fff,#fafafc);box-shadow:0 12px 30px rgba(17,24,39,0.04)}
+.proof-pill{display:inline-flex;align-items:center;min-height:30px;padding:0 11px;border-radius:8px;background:var(--bg-2);border:1px solid var(--border-2);font-size:12px;font-weight:700;color:var(--text-2)}
+.home-lanes{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:34px}
+.lane-card{position:relative;overflow:hidden;border:1px solid rgba(17,24,39,0.08);border-radius:18px;padding:22px;background:linear-gradient(180deg,var(--bg),var(--bg-2));box-shadow:0 18px 40px rgba(17,24,39,0.06);transition:transform .16s, box-shadow .16s, border-color .16s}
+.lane-card::before{content:"";position:absolute;inset:0 0 auto 0;height:5px}
+.lane-card:hover{transform:translateY(-3px);box-shadow:0 24px 54px rgba(17,24,39,0.1)}
+.lane-card--teacher{background:linear-gradient(180deg,#fffdf8,#fff6e7)}
+.lane-card--teacher::before{background:linear-gradient(90deg,#e4b35f,#c07b00)}
+.lane-card--game{background:linear-gradient(180deg,#fffaf9,#fff0ed)}
+.lane-card--game::before{background:linear-gradient(90deg,#ef8c72,#b83232)}
+.lane-card--writing{background:linear-gradient(180deg,#fbfbff,#f3f1ff)}
+.lane-card--writing::before{background:linear-gradient(90deg,#8b80e8,#534ab7)}
+.lane-label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-3);margin-bottom:8px}
+.lane-card h2{font-family:'DM Serif Display',serif;font-size:27px;font-weight:400;line-height:1.05;color:var(--text);margin-bottom:12px;letter-spacing:-.025em}
+.lane-card p{font-size:13px;line-height:1.65;color:var(--text-2);margin-bottom:16px}
+.lane-links{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+.lane-links a{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border-radius:8px;background:rgba(255,255,255,0.84);border:1px solid rgba(17,24,39,0.06);font-size:12px;font-weight:700;color:var(--text);text-decoration:none;transition:transform .12s,border-color .12s,color .12s,box-shadow .12s}
+.lane-links a::after{content:"→";color:var(--brand);font-size:13px}
+.lane-links a:hover{transform:translateX(2px);color:var(--brand);border-color:rgba(83,74,183,0.2);box-shadow:0 8px 18px rgba(83,74,183,0.06)}
+.lane-cta{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:0 16px;border-radius:8px;background:var(--text);color:#fff;font-size:12px;font-weight:700;text-decoration:none;box-shadow:0 12px 24px rgba(17,24,39,0.12)}
+.lane-cta:hover{background:var(--brand)}
+.tool-home-head{max-width:960px;margin:0 auto;padding:0 24px 10px}
+.tool-home-head h2{font-family:'DM Serif Display',serif;font-size:31px;font-weight:400;color:var(--text);margin-bottom:8px;letter-spacing:-.03em;max-width:16ch}
+.tool-home-head p{font-size:14px;color:var(--text-2);line-height:1.7;max-width:720px}
 /* ── Word Generator Tool Styles ── */
 .tool-wrap  { max-width:960px; margin:0 auto; padding:10px 24px 0; }
 .tool-card  { border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg); box-shadow:var(--shadow); }
@@ -266,6 +294,11 @@
 .size-opt:hover .size-tick { border-color:var(--brand); }
 
 @media(max-width:700px){
+  .proof-strip{justify-content:flex-start;padding:16px 16px 0}
+  .content-wrap--top{padding:0 16px;margin-top:-10px}
+  .home-lanes{grid-template-columns:1fr}
+  .tool-home-head{padding:0 16px 10px}
+  .tool-home-head h2{max-width:none}
   .tool-wrap { padding:14px 16px 0; }
   .tool-card { border-radius:12px; }
   .ctrl { padding:16px; }
@@ -480,6 +513,18 @@
         <button class="gen-btn" id="word-gen-btn">Generate words</button>
         <button class="reset-btn" onclick="WORDINEER.reset()">Reset options</button>
         <div class="kbd">Press <kbd>Space</kbd> to regenerate</div>
+
+        <div class="ad-sidebar">
+          <span class="ad-sidebar-tag">Ad</span>
+          <div class="ad-sidebar-logo">
+            <svg viewBox="0 0 32 32" fill="none" width="32" height="32"><circle cx="16" cy="16" r="14" fill="#15a249"/><path d="M10 16c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="16" r="2.5" fill="white"/></svg>
+            <span class="ad-sidebar-brand">Grammarly</span>
+          </div>
+          <div class="ad-sidebar-headline">Write with confidence</div>
+          <div class="ad-sidebar-body">Fix grammar, improve clarity, and choose the right words — everywhere you write.</div>
+          <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-sidebar-cta">Try free →</a>
+          <div class="ad-sidebar-sub">Free plan · No credit card</div>
+        </div>
       </div>
 
       <div class="words-panel">
@@ -519,45 +564,40 @@
 
   </div>
 </div>
-<div class="content-wrap">
-  <div class="section">
-    <h2 class="section-title">Best ways to use Wordineer</h2>
-    <p class="section-sub">Start with the use case, not the controls.</p>
-    <div class="use-grid">
-      <div class="use-card">
-        <h3>5-minute classroom warm-up</h3>
-        <p>Generate 8 medium words, project them, and ask students to use 3 in original sentences. Definitions are already included, so you do not need a second tab open.</p>
-      </div>
-      <div class="use-card">
-        <h3>Better Pictionary rounds</h3>
-        <p>Switch to nouns, keep difficulty on easy or medium, and jump to the dedicated <a href="/pictionary-word-generator/">Pictionary tool</a> when you want timer, reveal mode, and shareable rounds.</p>
-      </div>
-      <div class="use-card">
-        <h3>Break writer's block fast</h3>
-        <p>Generate 5 words, force yourself to use 2 in the same sentence, then expand that sentence into a paragraph. The constraint does the heavy lifting.</p>
-      </div>
+<div class="ad-leaderboard">
+  <div class="ad-leaderboard-inner">
+    <span class="ad-tag">Advertisement · 728×90</span>
+    <div class="ad-mock-content">
+      <div class="ad-title">Grammarly — write with confidence. Grammar, tone &amp; clarity.</div>
+      <div class="ad-sub">Used by 30 million people. Works in Google Docs, Gmail, Word and more.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-mock-cta">Try Grammarly free</a>
     </div>
   </div>
-  <div class="divider"></div>
+</div>
+<div class="content-wrap">
   <div class="section">
-    <h2 class="section-title">Start with the best tools</h2>
-    <p class="section-sub">These are the pages worth opening first.</p>
-    <div class="tools-grid tools-grid--featured">
-      <a class="tool-item" href="/spelling-bee-words/"><div class="tool-icon" style="background:#FFF3E0"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h9M2 7h7M2 10h5" stroke="#C07B00" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="tool-name">Spelling Bee Words</div><div class="tool-desc">Grade filters, classroom mode, printable worksheets, and practice lists that are ready to use.</div></a>
-      <a class="tool-item" href="/pictionary-word-generator/"><div class="tool-icon" style="background:#FDEDED"><svg viewBox="0 0 13 13" fill="none"><path d="M2 10.5h9M4 8V4.8a2.8 2.8 0 015.6 0V8" stroke="#B83232" stroke-width="1.2" stroke-linecap="round"/><path d="M6.5 2.5v6" stroke="#B83232" stroke-width="1.2" stroke-linecap="round"/></svg></div><div class="tool-name">Pictionary Word Generator</div><div class="tool-desc">Reveal mode, built-in timer, and shareable rounds for faster game nights.</div></a>
-      <a class="tool-item" href="/word-of-the-day/"><div class="tool-icon" style="background:#EEF6FE"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="#2B6CB0" stroke-width="1.1"/><path d="M6.5 4.2v2.6l1.7 1" stroke="#2B6CB0" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="tool-name">Word of the Day</div><div class="tool-desc">One useful word, plain-English meaning, and a quick practice prompt for daily vocabulary work.</div></a>
-      <a class="tool-item" href="/random-sentence-generator/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h9M2 6.5h6.5M2 9h8.5" stroke="#534AB7" stroke-width="1.2" stroke-linecap="round"/></svg></div><div class="tool-name">Random Sentence Generator</div><div class="tool-desc">Instant prompts when you need a starting point instead of another blank page.</div></a>
+    <h2 class="section-title">More word tools</h2>
+    <p class="section-sub">Every word generator you need, all free</p>
+    <div class="tools-grid">
+      <a class="tool-item" href="/random-quote-generator/"><div class="tool-icon" style="background:#FBEAF0"><svg viewBox="0 0 13 13" fill="none"><path d="M3 4.5h3.5M3 8.5h4.5" stroke="#A13B63" stroke-width="1.1" stroke-linecap="round"/><path d="M8.2 3.5h1.4v2.1c0 .5.4.9.9.9H11v1.4H9.6c-1.2 0-2.1-.9-2.1-2.1z" fill="#A13B63"/><path d="M2.2 5.2h1.4V7c0 .5.4.9.9.9h.4v1.4h-.4C3.3 9.3 2.2 8.2 2.2 7z" fill="#A13B63"/></svg></div><div class="tool-name">Random Quote Generator</div><div class="tool-desc">Random quotes with filters for topic, author, tone, length, favorites, and image cards.</div></a>
+      <a class="tool-item" href="/random-wordle-generator/"><div class="tool-icon" style="background:#E8F4FE"><svg viewBox="0 0 13 13" fill="none"><rect x='2' y='2' width='3.5' height='3.5' rx='0.5' fill='#2B7FD4'/><rect x='7.5' y='2' width='3.5' height='3.5' rx='0.5' fill='#2B7FD4' opacity='.4'/><rect x='2' y='7.5' width='3.5' height='3.5' rx='0.5' fill='#2B7FD4' opacity='.4'/><rect x='7.5' y='7.5' width='3.5' height='3.5' rx='0.5' fill='#2B7FD4'/></svg></div><div class="tool-name">Random Wordle Generator</div><div class="tool-desc">Random 5-letter words for Wordle. Filter by difficulty and letter.</div></a>
+      <a class="tool-item" href="/wordle-helper/"><div class="tool-icon" style="background:#E1F5EE"><svg viewBox="0 0 13 13" fill="none"><rect x='2' y='2' width='3.5' height='3.5' rx='0.5' fill='#1D9E75'/><rect x='7.5' y='2' width='3.5' height='3.5' rx='0.5' fill='#BA7517'/><rect x='2' y='7.5' width='3.5' height='3.5' rx='0.5' fill='none' stroke='#9a9a94' stroke-width='1'/><rect x='7.5' y='7.5' width='3.5' height='3.5' rx='0.5' fill='#1D9E75'/></svg></div><div class="tool-name">Wordle Helper</div><div class="tool-desc">Entropy-ranked solver — enter your clues and get the single best next guess, not just a filtered list.</div></a>
+      <a class="tool-item" href="/random-noun-generator/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h9M2 7h6M2 10h8" stroke="#534AB7" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="tool-name">Random Noun Generator</div><div class="tool-desc">Generate random nouns — filter by type (abstract, concrete, proper, collective) and difficulty.</div></a>
+      <a class="tool-item" href="/random-verb-generator/"><div class="tool-icon" style="background:#EEF6FE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h9M2 7h7M2 10h5" stroke="#2B6CB0" stroke-width="1.3" stroke-linecap="round"/><path d="M10 9l2 1.5-2 1.5" stroke="#2B6CB0" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="tool-name">Random Verb Generator</div><div class="tool-desc">Generate random verbs — filter by type (action, linking, auxiliary, modal) and difficulty.</div></a>
+      <a class="tool-item" href="/random-adjective-generator/"><div class="tool-icon" style="background:#FEF3EE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h9M2 7h6M2 10h8" stroke="#C05621" stroke-width="1.3" stroke-linecap="round"/><path d="M11 9.5l1.5 1-1.5 1" stroke="#C05621" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="tool-name">Random Adjective Generator</div><div class="tool-desc">Generate random adjectives — filter by sentiment (positive, negative, neutral), difficulty, and starting letter. Definitions and comparative forms included.</div></a>
     </div>
   </div>
   <div class="divider"></div>
   <div>
-    <h2 class="section-title">Browse by category</h2>
-    <p class="section-sub">Go wider once you know what kind of tool you need.</p>
+    <h2 class="section-title">Other tools</h2>
+    <p class="section-sub">Numbers, names, games and more</p>
     <div class="other-grid">
-      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3h9M2 6.5h7M2 10h5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Teacher Tools</div><a class="other-link" href="/spelling-bee-words/">Spelling Bee Words</a><a class="other-link" href="/spelling-bee-words-kindergarten/">Kindergarten Lists</a><a class="other-link" href="/spelling-bee-words-3rd-grade/">3rd Grade Lists</a><a class="other-link" href="/spelling-bee-words-printable/">Printable Spelling Lists</a><a class="other-link other-link--view-all" href="/word-tools/">View all →</a></div>
-      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="1" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="1" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/></svg>Game Night</div><a class="other-link" href="/pictionary-word-generator/">Pictionary Word Generator</a><a class="other-link" href="/charades-generator/">Charades Generator</a><a class="other-link" href="/christmas-charades-generator/">Christmas Charades</a><a class="other-link" href="/wordle-helper/">Wordle Helper</a><a class="other-link other-link--view-all" href="/number-chance/">View all →</a></div>
-      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h3.5M2 7h9M2 10h6" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Writing &amp; Prompts</div><a class="other-link" href="/">Random Word Generator</a><a class="other-link" href="/random-sentence-generator/">Random Sentence Generator</a><a class="other-link" href="/word-of-the-day/">Word of the Day</a><a class="other-link" href="/word-counter/">Word Counter</a><a class="other-link other-link--view-all" href="/word-tools/">View all →</a></div>
-      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4.5" r="2.5" stroke="currentColor" stroke-width="1"/><path d="M1.5 11.5c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Names &amp; Extras</div><a class="other-link" href="/random-name-generator/">Random Name Generator</a><a class="other-link" href="/random-spanish-name-generator/">Spanish Name Generator</a><a class="other-link" href="/passphrase-generator/">Passphrase Generator</a><a class="other-link" href="/password-generator/">Password Generator</a><a class="other-link other-link--view-all" href="/name-generators/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3h9M2 6.5h7M2 10h5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Writing &amp; Vocabulary</div><a class="other-link" href="/">Random Word Generator</a><a class="other-link" href="/random-sentence-generator/">Random Sentence Generator</a><a class="other-link" href="/random-paragraph-generator/">Random Paragraph Generator</a><a class="other-link" href="/word-counter/">Word Counter</a><a class="other-link other-link--view-all" href="/word-tools/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h3.5M2 7h9M2 10h6" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Browse by Letter</div><a class="other-link" href="/random-words-starting-with/">Random Words Starting With (A–Z)</a><a class="other-link" href="/random-words-starting-with/a">Random Words Starting with A</a><a class="other-link" href="/random-words-starting-with/s">Random Words Starting with S</a><a class="other-link" href="/random-words-starting-with/q">Random Words Starting with Q</a><a class="other-link other-link--view-all" href="/random-words-starting-with/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4.5" r="2.5" stroke="currentColor" stroke-width="1"/><path d="M1.5 11.5c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Names by Origin</div><a class="other-link" href="/random-spanish-name-generator/">Spanish Name Generator</a><a class="other-link" href="/random-italian-name-generator/">Italian Name Generator</a><a class="other-link" href="/random-japanese-name-generator/">Japanese Name Generator</a><a class="other-link" href="/random-american-name-generator/">American Name Generator</a><a class="other-link other-link--view-all" href="/name-generators/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="1.5" width="9" height="10" rx="1" stroke="currentColor" stroke-width="1"/><path d="M4 4.5h5M4 6.5h5M4 8.5h3" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Other Name Generators</div><a class="other-link" href="/character-name-generator/">Character Name Generator</a><a class="other-link" href="/fantasy-name-generator/">Fantasy Name Generator</a><a class="other-link" href="/business-name-generator/">Business Name Generator</a><a class="other-link" href="/band-name-generator/">Band Name Generator</a><a class="other-link other-link--view-all" href="/other-generators/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="3.5" y="5.5" width="6" height="5" rx="1" stroke="currentColor" stroke-width="1"/><path d="M5 5.5V4a1.5 1.5 0 013 0v1.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Account &amp; Security</div><a class="other-link" href="/password-generator/">Password Generator</a><a class="other-link" href="/passphrase-generator/">Passphrase Generator</a><a class="other-link" href="/memorable-password-generator/">Memorable Password Generator</a><a class="other-link" href="/username-generator/">Username Generator</a><a class="other-link other-link--view-all" href="/account-tools/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="1" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="1" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/></svg>Games &amp; fun</div><a class="other-link" href="/pictionary-phrase-generator/">Pictionary Phrase Generator</a><a class="other-link" href="/wordle-helper/">Wordle Helper</a><a class="other-link other-link--view-all" href="/number-chance/">View all →</a></div>
     </div>
   </div>
 
@@ -573,8 +613,12 @@
   <div class="divider"></div>
 
 <div class="explainer">
-  <h2>What makes this better than a generic word list?</h2>
-  <p>The filters are only useful if they change what you can do next. Nouns plus easy difficulty gives you fast, drawable prompts for games. Medium words give teachers a cleaner vocabulary warm-up. Hard words add enough friction to make writing practice more interesting. The point is not random output. The point is getting the right kind of prompt fast.</p>
+  <h2>How to get the most out of it</h2>
+  <p>Every filter combination changes what you get. "Nouns only" + "Easy" gives you concrete, drawable objects — good for Pictionary or writing prompts for kids. "Adjectives only" + "Hard" gives you rare descriptors that push your vocabulary. "Verbs only" + a specific first letter is a useful constraint for writing exercises and word games where variety matters. Every word comes with its definition and part of speech, so you can actually learn what you're generating, not just collect it.</p>
+
+  <h2>Uses — and how</h2>
+  <h3>For writing</h3>
+  <p>Set the count to 5–10, hit generate, and write a paragraph using every word in order. The constraint forces creative connections you wouldn't make on your own. Novelists, screenwriters, and content creators use this exact exercise to break out of predictable patterns. If you want a full sentence to start from, the <a href="/random-sentence-generator/">random sentence generator</a> pairs well with this.</p>
 
   <div class="aff-writing">
     <div class="aff-sponsored">✦ Sponsored <span class="ad-pill">Ad</span></div>
@@ -582,13 +626,31 @@
     <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Write better with Grammarly — free to start <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
   </div>
 
-  <h2>Definitions included, so the words are usable immediately</h2>
-  <p>Every result comes with a definition and part of speech. That matters more than it sounds. It means a teacher can project the list without opening a second tab, a student can practice meaning and usage at the same time, and a writer can tell in seconds whether a word is actually useful or just unusual.</p>
+  <h3>For students</h3>
+  <p>Use the difficulty filter to target easy, medium, or advanced words depending on what you're studying. Every word includes its definition and part of speech, so you can study meaning and usage at the same time. Save words you want to revisit by clicking the heart — they'll stay in the saved section until you're done.</p>
+
+  <h3>For games and Pictionary</h3>
+  <p>Pictionary, charades, and Scrabble practice all work better with words no one picked themselves. Set the word type to "nouns" for Pictionary so every word is something drawable. For a more focused experience, the dedicated <a href="/pictionary-word-generator/">Pictionary word generator</a> has category filters built in. Stuck on today's Wordle? The free <a href="/wordle-helper/">Wordle Helper</a> ranks every remaining candidate by entropy and recommends the single best next guess.</p>
+
+  <h3>Filtering by length</h3>
+  <p>Use the "word size" control to target words by letter count or syllable count. Short words work well for younger players and word games with strict letter limits; longer words are better for advanced vocabulary practice or spelling bee prep. The "at least / at most / equals" options let you dial it in precisely.</p>
+
+  <h3>Starting with a specific letter</h3>
+  <p>Type any letter into the "first letter" field and every result will start with it. Useful for alphabet-based vocabulary exercises, alliterative writing prompts, or when a game specifically needs words beginning with a certain letter. You can also filter by the last letter if you need words that share an ending.</p>
+
+  <h3>Avoiding repeated words</h3>
+  <p>The generator never shows the same word twice in a single batch — every result in a given run is unique. If you're building a longer list over multiple sessions, use the save feature and copy your saved words out before regenerating.</p>
+
+  <h3>Matching difficulty to your level</h3>
+  <p>The difficulty filter sorts words into three bands: easy (common everyday vocabulary), medium (less frequent but widely understood), and advanced (rare or technical). Easy works well for younger learners and casual games; advanced is useful for SAT prep, spelling competitions, or anyone trying to push the edges of their vocabulary.</p>
+
+  <h2>Definitions included — no separate dictionary needed</h2>
+  <p>Every word comes with its definition and part of speech shown right in the list. Most random word tools make you look up meanings separately — here it's built in, so you can actually learn the words you're generating, not just collect them. Save any word that catches your eye with the heart icon and copy the whole list at once when you're done.</p>
 </div>
   <div class="divider"></div>
 
 <div class="faq">
-  <h2 class="faq-title">Quick answers</h2>
+  <h2 class="faq-title">Frequently asked questions</h2>
   <div class="faq-item open">
     <div class="faq-q"><span class="faq-q-text">Which filters actually change the results the most?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
     <div class="faq-a">Difficulty has the biggest impact. Easy pulls from common everyday vocabulary — words most native speakers recognize instantly. Hard pulls rare, technical, or literary words that even strong readers may not know. Word type (noun, verb, adjective) shapes what you can do with the output: nouns work best for Pictionary, adjectives for writing prompts, verbs for action-based games. Combining all three filters together gives you very specific results fast.</div>
@@ -639,12 +701,12 @@
   <div class="divider"></div>
 
 <div>
-  <h2 class="section-title" style="margin-bottom:14px">Who comes back to Wordineer</h2>
+  <h2 class="section-title" style="margin-bottom:14px">Who uses Wordineer</h2>
   <div class="uc-grid">
-    <div class="uc"><div class="uc-title">Teachers</div><div class="uc-body">They need clean screens, printable material, and word lists they can use in front of a class without extra prep.</div></div>
-    <div class="uc"><div class="uc-title">Game hosts</div><div class="uc-body">They want fair prompts, timer-ready rounds, and reveal mode so the game runs itself instead of slowing down.</div></div>
-    <div class="uc"><div class="uc-title">Writers</div><div class="uc-body">They use short constraints to get moving fast, then switch to sentence and paragraph prompts when they need more structure.</div></div>
-    <div class="uc"><div class="uc-title">Students</div><div class="uc-body">They need definitions, not just random output, so the practice actually helps with vocabulary and spelling retention.</div></div>
+    <div class="uc"><div class="uc-title">Writers</div><div class="uc-body">Generate 5 random words and challenge yourself to weave all of them into one paragraph. It's the fastest cure for a blank page.</div></div>
+    <div class="uc"><div class="uc-title">Students</div><div class="uc-body">Build vocabulary, prep for spelling bees, or study for the SAT. Filter by difficulty so the words actually match your level.</div></div>
+    <div class="uc"><div class="uc-title">Game nights</div><div class="uc-body">Fair, instant prompts for Pictionary, charades, or any word game. No one can accuse you of picking easy ones. For Wordle streaks, the <a href="/wordle-helper/">Wordle Helper</a> finds the best next guess.</div></div>
+    <div class="uc"><div class="uc-title">Teachers</div><div class="uc-body">Generate a vocabulary list in seconds. Adjust difficulty to match your class level and hand it straight out.</div></div>
   </div>
 </div>
 </div>
