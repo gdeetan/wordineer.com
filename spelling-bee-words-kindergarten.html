@@ -339,7 +339,7 @@ body.is-classroom .results-col { min-height: 100vh; }
   </div>
 </div>
 <div class="hero">
-  <div class="hero-badge">500+ Words · Filter by Theme · Print &amp; Save</div>
+  <div class="hero-badge">Kindergarten · Dolch Sight Words · Practice Mode</div>
   <h1>Kindergarten Spelling Bee Words</h1>
   <p>Generate a custom word list for your kindergartner — filter by theme, see simple definitions and example sentences, then print or save in one click. No login required.</p>
 </div>
@@ -408,6 +408,7 @@ body.is-classroom .results-col { min-height: 100vh; }
           <span class="kb-count-label" id="kb-count">10 words</span>
           <button class="act-btn" id="kb-copy-all">Copy all</button>
           <button class="act-btn" id="kb-print-btn">Print list</button>
+          <button class="act-btn" id="kb-share-btn">Share List</button>
             <button class="classroom-btn" id="sb-classroom-btn">⊞ Classroom</button>
         </div>
         <ul class="word-list" id="kb-list"></ul>
@@ -745,6 +746,10 @@ body.is-classroom .results-col { min-height: 100vh; }
           '</div>' +
           '</li>';
       }).join('');
+      var wordNames = words.map(function (w) { return w.w; });
+      var shareUrl = new URL(window.location.href);
+      shareUrl.searchParams.set('words', wordNames.join(','));
+      history.replaceState(null, '', shareUrl.toString());
     },
 
     toggleSave: function (word) {
@@ -791,6 +796,20 @@ body.is-classroom .results-col { min-height: 100vh; }
       if (navigator.clipboard) navigator.clipboard.writeText(word);
     },
 
+    shareList: function () {
+      var url = window.location.href;
+      var btn = document.getElementById('kb-share-btn');
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(url).then(function () {
+          if (btn) { btn.textContent = '✓ Copied!'; setTimeout(function () { btn.textContent = 'Share List'; }, 2000); }
+        });
+      } else {
+        var ta = document.createElement('textarea');
+        ta.value = url; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta);
+        if (btn) { btn.textContent = '✓ Copied!'; setTimeout(function () { btn.textContent = 'Share List'; }, 2000); }
+      }
+    },
+
     toggleDefs: function () {
       var show = document.getElementById('ctrl-defs').checked;
       [].slice.call(document.querySelectorAll('.word-def')).forEach(function (el) {
@@ -827,6 +846,8 @@ body.is-classroom .results-col { min-height: 100vh; }
       document.getElementById('kb-reset-btn').addEventListener('click', function () { self.reset(); });
       document.getElementById('kb-copy-all').addEventListener('click', function () { self.copyAll(); });
       document.getElementById('kb-print-btn').addEventListener('click', function () { window.print(); });
+      var shareBtn = document.getElementById('kb-share-btn');
+      if (shareBtn) shareBtn.addEventListener('click', function () { self.shareList(); });
       document.getElementById('kb-copy-saved').addEventListener('click', function () { self.copySaved(); });
       document.getElementById('ctrl-defs').addEventListener('change', function () { self.toggleDefs(); });
       document.getElementById('ctrl-ex').addEventListener('change', function () { self.toggleEx(); });
@@ -854,7 +875,17 @@ body.is-classroom .results-col { min-height: 100vh; }
         if (valid) self.generate();
       });
 
-      if (typeof requestIdleCallback !== 'undefined') {
+      var urlWords = new URLSearchParams(window.location.search).get('words');
+      if (urlWords) {
+        self.load().then(function (allWords) {
+          var wanted = urlWords.split(',').map(function (s) { return s.trim().toLowerCase(); });
+          var wordMap = {};
+          allWords.forEach(function (w) { wordMap[w.w.toLowerCase()] = w; });
+          var filtered = wanted.map(function (name) { return wordMap[name]; }).filter(Boolean);
+          if (filtered.length) { self.render(filtered); return; }
+          self.generate();
+        }).catch(function () { self.generate(); });
+      } else if (typeof requestIdleCallback !== 'undefined') {
         requestIdleCallback(function () { self.generate(); });
       } else {
         setTimeout(function () { self.generate(); }, 100);

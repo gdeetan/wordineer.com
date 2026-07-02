@@ -322,7 +322,7 @@ body.is-classroom .results-col { min-height: 100vh; }
   </div>
 </div>
 <div class="hero">
-  <div class="hero-badge">1,000+ Words · Filter by Grade · Practice Free</div>
+  <div class="hero-badge">1,000+ Words · Common Core K–8 · Practice Free</div>
   <h1>1,000+ Spelling Bee Words</h1>
   <p>Filter over 1,000 spelling bee words by grade level, difficulty, and word origin. Save your practice list or print it for classroom use — no login required.</p>
 </div>
@@ -392,6 +392,7 @@ body.is-classroom .results-col { min-height: 100vh; }
         <div class="sb-top-bar">
           <span class="sb-count-label" id="sb-count">20 words</span>
           <button class="act-btn" id="sb-copy-all">Copy all</button>
+          <button class="act-btn" id="sb-share-btn">Share List</button>
           <button class="act-btn" id="sb-print-btn">Print list</button>
             <button class="classroom-btn" id="sb-classroom-btn">⊞ Classroom</button>
         </div>
@@ -710,7 +711,7 @@ body.is-classroom .results-col { min-height: 100vh; }
       list.innerHTML = words.map(function (w) {
         var isSaved = saved.indexOf(w.w) !== -1;
         var esc = w.w.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
-        return '<li class="word-item" data-word="' + he(w.w) + '">' +
+        return '<li class="word-item" data-word="' + he(w.w) + '" data-def="' + he(w.d) + '">' +
           '<div class="word-left">' +
           '<div class="word-text">' + he(w.w) + '</div>' +
           '<div class="word-badges">' +
@@ -726,6 +727,12 @@ body.is-classroom .results-col { min-height: 100vh; }
           '</div>' +
           '</li>';
       }).join('');
+
+      // Encode current list into URL for sharing
+      var wordNames = words.map(function (w) { return w.w; });
+      var shareUrl = new URL(window.location.href);
+      shareUrl.searchParams.set('words', wordNames.join(','));
+      history.replaceState(null, '', shareUrl.toString());
     },
 
     toggleSave: function (word) {
@@ -772,6 +779,20 @@ body.is-classroom .results-col { min-height: 100vh; }
       if (navigator.clipboard) navigator.clipboard.writeText(word);
     },
 
+    shareList: function () {
+      var url = window.location.href;
+      var btn = document.getElementById('sb-share-btn');
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(url).then(function () {
+          if (btn) { btn.textContent = '✓ Copied!'; setTimeout(function () { btn.textContent = 'Share List'; }, 2000); }
+        });
+      } else {
+        var ta = document.createElement('textarea');
+        ta.value = url; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta);
+        if (btn) { btn.textContent = '✓ Copied!'; setTimeout(function () { btn.textContent = 'Share List'; }, 2000); }
+      }
+    },
+
     toggleDefs: function () {
       var show = document.getElementById('ctrl-defs').checked;
       [].slice.call(document.querySelectorAll('.word-def')).forEach(function (el) {
@@ -800,6 +821,8 @@ body.is-classroom .results-col { min-height: 100vh; }
       document.getElementById('sb-reset-btn').addEventListener('click', function () { self.reset(); });
       document.getElementById('sb-copy-all').addEventListener('click', function () { self.copyAll(); });
       document.getElementById('sb-print-btn').addEventListener('click', function () { window.print(); });
+      var shareBtn = document.getElementById('sb-share-btn');
+      if (shareBtn) shareBtn.addEventListener('click', function () { self.shareList(); });
       document.getElementById('sb-copy-saved').addEventListener('click', function () { self.copySaved(); });
       document.getElementById('ctrl-defs').addEventListener('change', function () { self.toggleDefs(); });
 
@@ -825,7 +848,17 @@ body.is-classroom .results-col { min-height: 100vh; }
         if (valid) self.generate();
       });
 
-      if (typeof requestIdleCallback !== 'undefined') {
+      var urlWords = new URLSearchParams(window.location.search).get('words');
+      if (urlWords) {
+        self.load().then(function (allWords) {
+          var wanted = urlWords.split(',').map(function (s) { return s.trim().toLowerCase(); });
+          var wordMap = {};
+          allWords.forEach(function (w) { wordMap[w.w.toLowerCase()] = w; });
+          var filtered = wanted.map(function (name) { return wordMap[name]; }).filter(Boolean);
+          if (filtered.length) { self.render(filtered); return; }
+          self.generate();
+        }).catch(function () { self.generate(); });
+      } else if (typeof requestIdleCallback !== 'undefined') {
         requestIdleCallback(function () { self.generate(); });
       } else {
         setTimeout(function () { self.generate(); }, 100);
