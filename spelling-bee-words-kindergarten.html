@@ -243,6 +243,16 @@
   .word-ex.hidden { display: none !important; }
   .word-right { display: none !important; }
   @page { margin: 1.5cm; }
+
+  /* Worksheet mode */
+  body.is-worksheet .word-def { display: none !important; }
+  body.is-worksheet .word-badges { display: none !important; }
+  body.is-worksheet .word-right { display: none !important; }
+  body.is-worksheet .word-list { counter-reset: word-num; }
+  body.is-worksheet .word-item { counter-increment: word-num; padding: 14px 0 0; }
+  body.is-worksheet .word-text::before { content: counter(word-num) '. '; font-size: 0.9rem; color: #6b7280; font-weight: 700; }
+  body.is-worksheet .word-text { font-size: 1.3rem; }
+  body.is-worksheet .word-item::after { content: ''; display: block; border-bottom: 1px solid #9ca3af; margin-top: 18px; width: 70%; }
 }
 
 /* ── Classroom Mode ── */
@@ -408,6 +418,7 @@ body.is-classroom .results-col { min-height: 100vh; }
           <span class="kb-count-label" id="kb-count">10 words</span>
           <button class="act-btn" id="kb-copy-all">Copy all</button>
           <button class="act-btn" id="kb-print-btn">Print list</button>
+          <button class="act-btn" id="kb-worksheet-btn">Print Worksheet</button>
           <button class="act-btn" id="kb-share-btn">Share List</button>
             <button class="classroom-btn" id="sb-classroom-btn">⊞ Classroom</button>
         </div>
@@ -846,6 +857,12 @@ body.is-classroom .results-col { min-height: 100vh; }
       document.getElementById('kb-reset-btn').addEventListener('click', function () { self.reset(); });
       document.getElementById('kb-copy-all').addEventListener('click', function () { self.copyAll(); });
       document.getElementById('kb-print-btn').addEventListener('click', function () { window.print(); });
+      var worksheetBtn = document.getElementById('kb-worksheet-btn');
+      if (worksheetBtn) worksheetBtn.addEventListener('click', function () {
+        document.body.classList.add('is-worksheet');
+        window.print();
+        document.body.classList.remove('is-worksheet');
+      });
       var shareBtn = document.getElementById('kb-share-btn');
       if (shareBtn) shareBtn.addEventListener('click', function () { self.shareList(); });
       document.getElementById('kb-copy-saved').addEventListener('click', function () { self.copySaved(); });
