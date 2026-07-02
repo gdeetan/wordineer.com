@@ -178,10 +178,11 @@
 }
 .az-btn {
   display: inline-flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 34px;
-  height: 34px;
+  min-height: 40px;
   border: 1px solid var(--border);
   border-radius: 8px;
   font-size: 13px;
@@ -191,6 +192,8 @@
   cursor: pointer;
   transition: background .12s, border-color .12s, color .12s;
   line-height: 1;
+  gap: 2px;
+  padding: 4px 2px;
 }
 .az-btn:hover {
   background: var(--bg-2);
@@ -202,6 +205,73 @@
   border-color: var(--brand);
   color: #fff;
 }
+.az-btn-count {
+  font-size: 9px;
+  font-weight: 500;
+  opacity: .7;
+  line-height: 1;
+}
+
+.lp-search-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+.lp-search-wrap {
+  position: relative;
+  flex: 1;
+  min-width: 180px;
+}
+.lp-search-wrap svg {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 14px;
+  color: var(--text-3);
+  pointer-events: none;
+}
+.lp-search {
+  width: 100%;
+  padding: 8px 10px 8px 32px;
+  font-size: 13px;
+  font-family: inherit;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: var(--bg);
+  color: var(--text);
+  outline: none;
+  transition: border-color .15s;
+  box-sizing: border-box;
+}
+.lp-search:focus { border-color: var(--brand); }
+.lp-search-mode {
+  display: flex;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  overflow: hidden;
+  background: var(--bg);
+}
+.lp-mode-btn {
+  padding: 8px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: inherit;
+  border: 0;
+  background: transparent;
+  color: var(--text-2);
+  cursor: pointer;
+  transition: background .12s, color .12s;
+  white-space: nowrap;
+}
+.lp-mode-btn + .lp-mode-btn { border-left: 1px solid var(--border); }
+.lp-mode-btn.active {
+  background: var(--brand);
+  color: #fff;
+}
+.lp-mode-btn:hover:not(.active) { background: var(--bg-2); }
 
 .lp-letter-heading {
   font-family: 'DM Serif Display', serif;
@@ -537,35 +607,47 @@
     <div class="letter-page-wrap">
 
       <div class="az-selector" role="group" aria-label="Select starting letter">
-        <button class="az-btn active" data-letter="a" aria-pressed="true">A</button>
-        <button class="az-btn" data-letter="b" aria-pressed="false">B</button>
-        <button class="az-btn" data-letter="c" aria-pressed="false">C</button>
-        <button class="az-btn" data-letter="d" aria-pressed="false">D</button>
-        <button class="az-btn" data-letter="e" aria-pressed="false">E</button>
-        <button class="az-btn" data-letter="f" aria-pressed="false">F</button>
-        <button class="az-btn" data-letter="g" aria-pressed="false">G</button>
-        <button class="az-btn" data-letter="h" aria-pressed="false">H</button>
-        <button class="az-btn" data-letter="i" aria-pressed="false">I</button>
-        <button class="az-btn" data-letter="j" aria-pressed="false">J</button>
-        <button class="az-btn" data-letter="k" aria-pressed="false">K</button>
-        <button class="az-btn" data-letter="l" aria-pressed="false">L</button>
-        <button class="az-btn" data-letter="m" aria-pressed="false">M</button>
-        <button class="az-btn" data-letter="n" aria-pressed="false">N</button>
-        <button class="az-btn" data-letter="o" aria-pressed="false">O</button>
-        <button class="az-btn" data-letter="p" aria-pressed="false">P</button>
-        <button class="az-btn" data-letter="q" aria-pressed="false">Q</button>
-        <button class="az-btn" data-letter="r" aria-pressed="false">R</button>
-        <button class="az-btn" data-letter="s" aria-pressed="false">S</button>
-        <button class="az-btn" data-letter="t" aria-pressed="false">T</button>
-        <button class="az-btn" data-letter="u" aria-pressed="false">U</button>
-        <button class="az-btn" data-letter="v" aria-pressed="false">V</button>
-        <button class="az-btn" data-letter="w" aria-pressed="false">W</button>
-        <button class="az-btn" data-letter="x" aria-pressed="false">X</button>
-        <button class="az-btn" data-letter="y" aria-pressed="false">Y</button>
-        <button class="az-btn" data-letter="z" aria-pressed="false">Z</button>
+        <button class="az-btn active" data-letter="a" aria-pressed="true">A<span class="az-btn-count">120</span></button>
+        <button class="az-btn" data-letter="b" aria-pressed="false">B<span class="az-btn-count">129</span></button>
+        <button class="az-btn" data-letter="c" aria-pressed="false">C<span class="az-btn-count">145</span></button>
+        <button class="az-btn" data-letter="d" aria-pressed="false">D<span class="az-btn-count">123</span></button>
+        <button class="az-btn" data-letter="e" aria-pressed="false">E<span class="az-btn-count">132</span></button>
+        <button class="az-btn" data-letter="f" aria-pressed="false">F<span class="az-btn-count">121</span></button>
+        <button class="az-btn" data-letter="g" aria-pressed="false">G<span class="az-btn-count">123</span></button>
+        <button class="az-btn" data-letter="h" aria-pressed="false">H<span class="az-btn-count">126</span></button>
+        <button class="az-btn" data-letter="i" aria-pressed="false">I<span class="az-btn-count">140</span></button>
+        <button class="az-btn" data-letter="j" aria-pressed="false">J<span class="az-btn-count">132</span></button>
+        <button class="az-btn" data-letter="k" aria-pressed="false">K<span class="az-btn-count">126</span></button>
+        <button class="az-btn" data-letter="l" aria-pressed="false">L<span class="az-btn-count">63</span></button>
+        <button class="az-btn" data-letter="m" aria-pressed="false">M<span class="az-btn-count">124</span></button>
+        <button class="az-btn" data-letter="n" aria-pressed="false">N<span class="az-btn-count">123</span></button>
+        <button class="az-btn" data-letter="o" aria-pressed="false">O<span class="az-btn-count">128</span></button>
+        <button class="az-btn" data-letter="p" aria-pressed="false">P<span class="az-btn-count">128</span></button>
+        <button class="az-btn" data-letter="q" aria-pressed="false">Q<span class="az-btn-count">9</span></button>
+        <button class="az-btn" data-letter="r" aria-pressed="false">R<span class="az-btn-count">122</span></button>
+        <button class="az-btn" data-letter="s" aria-pressed="false">S<span class="az-btn-count">121</span></button>
+        <button class="az-btn" data-letter="t" aria-pressed="false">T<span class="az-btn-count">121</span></button>
+        <button class="az-btn" data-letter="u" aria-pressed="false">U<span class="az-btn-count">120</span></button>
+        <button class="az-btn" data-letter="v" aria-pressed="false">V<span class="az-btn-count">99</span></button>
+        <button class="az-btn" data-letter="w" aria-pressed="false">W<span class="az-btn-count">62</span></button>
+        <button class="az-btn" data-letter="x" aria-pressed="false">X<span class="az-btn-count">4</span></button>
+        <button class="az-btn" data-letter="y" aria-pressed="false">Y<span class="az-btn-count">26</span></button>
+        <button class="az-btn" data-letter="z" aria-pressed="false">Z<span class="az-btn-count">17</span></button>
       </div>
 
       <h2 class="lp-letter-heading" id="lp-heading">3-Letter Words Starting With A</h2>
+
+      <div class="lp-search-row">
+        <div class="lp-search-wrap">
+          <svg viewBox="0 0 14 14" fill="none"><circle cx="6" cy="6" r="4" stroke="currentColor" stroke-width="1.3"/><path d="M9.5 9.5L13 13" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+          <input class="lp-search" id="lp-search" type="search" placeholder="Search words…" autocomplete="off" spellcheck="false">
+        </div>
+        <div class="lp-search-mode" role="group" aria-label="Search mode">
+          <button class="lp-mode-btn active" data-mode="contains">Contains</button>
+          <button class="lp-mode-btn" data-mode="starts">Starts with</button>
+          <button class="lp-mode-btn" data-mode="ends">Ends with</button>
+        </div>
+      </div>
 
       <div class="lp-filters">
         <div class="lp-filter-group">
@@ -801,6 +883,8 @@
   var moreBtn = document.getElementById('lp-more-btn');
   var copyBtn = document.getElementById('lp-copy-btn');
   var copyMenu = document.getElementById('copy-menu');
+  var searchInput = document.getElementById('lp-search');
+  var searchMode = 'contains';
 
   var COPY_SVG = '<svg viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="8" height="8" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M2 10V2h8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>';
 
@@ -815,8 +899,17 @@
   function applyFilters() {
     var type = typeFilter.value;
     var diff = diffFilter.value;
+    var query = searchInput.value.trim().toLowerCase();
     filtered = allWords.filter(function (w) {
-      return (type === 'all' || w.t === type) && (diff === 'all' || w.diff === diff);
+      if (type !== 'all' && w.t !== type) return false;
+      if (diff !== 'all' && w.diff !== diff) return false;
+      if (query) {
+        var wl = w.w.toLowerCase();
+        if (searchMode === 'starts') return wl.indexOf(query) === 0;
+        if (searchMode === 'ends') return wl.slice(-query.length) === query;
+        return wl.indexOf(query) !== -1;
+      }
+      return true;
     });
   }
 
@@ -847,6 +940,7 @@
       heading.textContent = '3-Letter Words Starting With ' + letterName(letter);
       typeFilter.value = 'all';
       diffFilter.value = 'all';
+      searchInput.value = '';
       render();
       return;
     }
@@ -866,6 +960,7 @@
         visibleCount = BATCH_SIZE;
         typeFilter.value = 'all';
         diffFilter.value = 'all';
+        searchInput.value = '';
         render();
       })
       .catch(function () {
@@ -897,6 +992,27 @@
 
   typeFilter.addEventListener('change', function () { visibleCount = BATCH_SIZE; render(); });
   diffFilter.addEventListener('change', function () { visibleCount = BATCH_SIZE; render(); });
+
+  searchInput.addEventListener('input', function () { visibleCount = BATCH_SIZE; render(); });
+
+  document.querySelector('.lp-search-mode').addEventListener('click', function (e) {
+    var btn = e.target.closest('.lp-mode-btn');
+    if (!btn) return;
+    document.querySelectorAll('.lp-mode-btn').forEach(function (b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    searchMode = btn.getAttribute('data-mode');
+    visibleCount = BATCH_SIZE;
+    render();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT' || e.target.tagName === 'TEXTAREA') return;
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    var key = e.key.toLowerCase();
+    if (/^[a-z]$/.test(key)) {
+      setActiveLetter(key);
+    }
+  });
 
   moreBtn.addEventListener('click', function () { visibleCount += BATCH_SIZE; render(); });
 
