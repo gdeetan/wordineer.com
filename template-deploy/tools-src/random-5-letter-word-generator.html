@@ -1,0 +1,793 @@
+<!-- CONFIG
+{
+  "url": "/random-5-letter-word-generator/",
+  "output": "random-5-letter-word-generator.html"
+}
+-->
+
+<!-- SLOT:meta -->
+<title>Random 5 Letter Word Generator — Free, Instant | Wordineer</title>
+<meta name="description" content="Generate random 5-letter words instantly. Filter by difficulty, word type, starting and ending letters. Wordle Helper mode included. Free, no sign-up.">
+<link rel="canonical" href="https://wordineer.com/random-5-letter-word-generator/">
+<meta property="og:type"        content="website">
+<meta property="og:site_name"   content="Wordineer">
+<meta property="og:title"       content="Random 5 Letter Word Generator | Wordineer">
+<meta property="og:description" content="Generate random 5-letter words with filters for difficulty, type, and letter patterns. Wordle Helper mode included.">
+<meta property="og:url"         content="https://wordineer.com/random-5-letter-word-generator/">
+<meta property="og:image"       content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a 5 letter word generator?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A 5 letter word generator randomly selects English words that are exactly five characters long from a curated dataset. You can filter by word type, difficulty level, and letter patterns. This tool also includes a Wordle Helper mode that filters words by letters you've confirmed or eliminated." }
+    },
+    {
+      "@type": "Question",
+      "name": "Why use a 5 letter word generator?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Five-letter word generators are useful for Wordle practice, Scrabble strategy, vocabulary building, creative writing prompts, and classroom spelling exercises. The difficulty filter lets you target easy everyday words or advanced rare vocabulary depending on your purpose." }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the Wordle Helper mode work?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Enter a letter in the Contains field to show only words containing that letter. Enter a letter in the Does NOT Contain field to exclude words with that letter. Combine both fields to narrow down Wordle candidates after you've gathered information from earlier guesses." }
+    },
+    {
+      "@type": "Question",
+      "name": "What does the difficulty rating mean?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Easy words are common everyday vocabulary. Medium words are less frequent but widely understood. Hard words are uncommon, specialised, or archaic. Use Easy for Wordle practice or classroom exercises; use Hard for advanced vocabulary building or competitive Scrabble prep." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this tool free?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes — completely free, no account required, no limits." }
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Word Tools", "item": "https://wordineer.com/word-tools/" },
+    { "@type": "ListItem", "position": 3, "name": "5 Letter Word Generator", "item": "https://wordineer.com/random-5-letter-word-generator/" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Random 5-Letter Word Generator",
+  "url": "https://wordineer.com/random-5-letter-word-generator/",
+  "description": "Generate random 5-letter words instantly. Filter by difficulty, word type, starting and ending letters. Wordle Helper mode included. Free, no sign-up.",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@id": "https://wordineer.com/#organization" }
+}
+</script>
+<!-- /SLOT:meta -->
+
+<!-- SLOT:style -->
+<style>
+.tool-wrap  { max-width:960px; margin:0 auto; padding:24px 24px 0; }
+.tool-card  { border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg); box-shadow:var(--shadow); }
+.tool-split { display:flex; }
+
+/* Control panel */
+.ctrl       { width:230px; flex-shrink:0; padding:18px; border-right:1px solid var(--border-2); background:var(--bg-2); }
+.ctrl-row   { margin-bottom:14px; }
+.ctrl-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; display:block; margin-bottom:5px; }
+.ctrl-row input, .ctrl-row select { width:100%; padding:7px 10px; font-size:13px; font-family:inherit; border:1px solid var(--border); border-radius:7px; background:var(--bg); color:var(--text); appearance:none; outline:none; transition:border-color .15s; }
+.ctrl-row input:focus, .ctrl-row select:focus { border-color:var(--brand); }
+.letter-row { display:flex; gap:6px; }
+.letter-row input { text-transform:uppercase; text-align:center; }
+.def-row    { display:flex; align-items:center; gap:8px; margin-bottom:14px; }
+.def-row label { font-size:12px; color:var(--text-2); cursor:pointer; }
+.toggle     { position:relative; width:32px; height:18px; flex-shrink:0; }
+.toggle input { opacity:0; width:0; height:0; }
+.toggle-sl  { position:absolute; cursor:pointer; inset:0; background:var(--border); border-radius:9px; transition:.2s; }
+.toggle input:checked + .toggle-sl { background:var(--brand); }
+.toggle-sl::before { content:''; position:absolute; width:14px; height:14px; left:2px; top:2px; background:white; border-radius:50%; transition:.2s; }
+.toggle input:checked + .toggle-sl::before { transform:translateX(14px); }
+.gen-btn    { width:100%; padding:10px 14px; background:var(--brand); color:white; border:none; border-radius:8px; font-size:14px; font-weight:600; font-family:inherit; cursor:pointer; transition:background .15s,transform .1s; letter-spacing:-.01em; }
+.gen-btn:hover { background:var(--brand-dark); }
+.gen-btn:active { transform:scale(.98); }
+.reset-btn  { display:block; width:100%; text-align:center; font-size:11px; color:var(--text-3); margin-top:8px; cursor:pointer; text-decoration:underline; text-underline-offset:2px; border:none; background:none; font-family:inherit; }
+.kbd        { text-align:center; font-size:10px; color:var(--text-3); margin-top:6px; }
+.kbd kbd    { background:var(--bg-3); border:1px solid var(--border); border-radius:3px; padding:1px 5px; font-size:10px; font-family:inherit; }
+
+/* Wordle Helper */
+.wordle-toggle { width:100%; display:flex; align-items:center; justify-content:space-between; padding:8px 10px; margin-bottom:10px; background:var(--bg); border:1px solid var(--border); border-radius:7px; font-size:12px; font-weight:600; color:var(--text-2); cursor:pointer; font-family:inherit; transition:border-color .15s; }
+.wordle-toggle:hover { border-color:var(--brand); color:var(--brand); }
+.wordle-toggle.active { border-color:var(--brand); color:var(--brand); background:#F4F3FF; }
+.wordle-helper { display:none; padding:10px; background:var(--bg); border:1px solid var(--border); border-radius:7px; margin-bottom:14px; }
+.wordle-helper.open { display:block; }
+.wordle-helper .ctrl-row { margin-bottom:8px; }
+.wordle-helper .ctrl-row:last-child { margin-bottom:0; }
+
+/* Count error */
+.count-error { display:none; font-size:11px; color:#E24B4A; margin-top:4px; }
+.count-error.show { display:block; }
+.ctrl-row input.input-error { border-color:#E24B4A !important; }
+
+/* Mobile */
+.mobile-more-toggle { display:none; width:100%; margin:-2px 0 14px; padding:9px 12px; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--brand); font-size:13px; font-weight:600; font-family:inherit; cursor:pointer; }
+.advanced-options { display:block; }
+
+/* Words panel */
+.words-panel { flex:1; display:flex; flex-direction:column; overflow:hidden; min-height:360px; }
+.words-top  { display:flex; align-items:center; justify-content:space-between; padding:12px 16px; border-bottom:1px solid var(--border-2); gap:10px; flex-wrap:wrap; }
+.words-count { font-size:12px; color:var(--text-3); }
+.words-actions { display:flex; gap:6px; align-items:center; }
+.act-btn    { font-size:12px; padding:5px 11px; border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:background .12s; white-space:nowrap; }
+.act-btn:hover { background:var(--bg-2); }
+
+/* Copy dropdown */
+.copy-dropdown { position:relative; }
+.copy-menu { display:none; position:absolute; right:0; top:calc(100% + 4px); background:var(--bg); border:1px solid var(--border); border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,.1); z-index:10; min-width:170px; overflow:hidden; }
+.copy-menu.open { display:block; }
+.copy-menu button { display:block; width:100%; text-align:left; padding:9px 14px; font-size:13px; font-family:inherit; background:none; border:none; color:var(--text-2); cursor:pointer; }
+.copy-menu button:hover { background:var(--bg-2); color:var(--text); }
+
+/* Word list */
+.word-list  { flex:1; overflow-y:auto; list-style:none; padding:0 16px; margin:0; }
+.word-item  { display:flex; align-items:flex-start; justify-content:space-between; padding:10px 0; border-bottom:1px solid var(--border-2); gap:10px; animation:fadeIn .2s ease; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:none} }
+.word-item:last-child { border-bottom:none; }
+.word-left  { flex:1; }
+.word-text  { font-size:20px; font-weight:500; color:var(--text); line-height:1.2; letter-spacing:-.02em; }
+.word-badges { display:flex; gap:5px; margin-top:4px; flex-wrap:wrap; }
+.badge      { font-size:10px; font-weight:600; padding:2px 7px; border-radius:999px; text-transform:capitalize; }
+.badge-type { background:#EEEDFE; color:#534AB7; }
+.badge-easy { background:#E1F5EE; color:#1D7A5A; }
+.badge-medium { background:#FEF3E8; color:#A0522D; }
+.badge-hard { background:#FDE8E8; color:#C0392B; }
+.word-def   { font-size:12px; color:var(--text-2); margin-top:3px; line-height:1.4; }
+.word-right { display:flex; align-items:center; gap:4px; padding-top:3px; flex-shrink:0; }
+.icon-btn   { width:28px; height:28px; display:flex; align-items:center; justify-content:center; background:transparent; border:none; cursor:pointer; border-radius:5px; color:var(--text-3); transition:background .12s, color .12s; }
+.icon-btn:hover { background:var(--bg-2); color:var(--text); }
+.icon-btn svg { width:14px; height:14px; }
+.icon-btn.saved { color:#E24B4A; }
+
+/* Saved section */
+.saved-section { border-top:1px solid var(--border); padding:12px 14px; background:var(--bg); }
+.saved-top { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:8px; }
+.saved-label { font-size:12px; font-weight:700; color:var(--text); }
+.saved-copy { border:1px solid var(--border); background:var(--bg); color:var(--brand); border-radius:7px; padding:5px 9px; font-size:11px; font-weight:600; cursor:pointer; }
+.saved-tags { display:flex; gap:5px; flex-wrap:wrap; min-height:22px; }
+.saved-tag  { display:inline-flex; align-items:center; gap:4px; background:#F0F2FF; color:var(--brand); border-radius:999px; padding:4px 8px; font-size:11px; font-weight:600; }
+.saved-tag-remove { cursor:pointer; opacity:.65; }
+.saved-tag-remove:hover { opacity:1; }
+.saved-empty { color:var(--text-3); font-size:12px; }
+
+/* A-Z browse */
+.az-section { margin-top:48px; }
+.az-section h2 { font-family:'DM Serif Display', serif; font-size:20px; font-weight:400; margin:0 0 8px; color:var(--text); }
+.az-section p  { font-size:14px; color:var(--text-2); margin:0 0 14px; line-height:1.6; }
+.az-links   { display:flex; flex-wrap:wrap; gap:6px; }
+.az-link    { display:inline-flex; align-items:center; justify-content:center; width:38px; height:38px; border:1px solid var(--border); border-radius:8px; font-size:14px; font-weight:600; color:var(--text-2); text-decoration:none; transition:background .12s, border-color .12s, color .12s; background:var(--bg); }
+.az-link:hover { background:var(--bg-2); border-color:var(--brand); color:var(--brand); }
+
+
+@media(max-width:700px){
+  .tool-wrap { padding:14px 16px 0; }
+  .tool-card { border-radius:12px; }
+  .ctrl { padding:16px; }
+  .mobile-more-toggle { display:block; }
+  .advanced-options { display:none; }
+  .advanced-options.is-open { display:block; }
+  .gen-btn { margin-top:0; }
+  .reset-btn, .kbd { display:none; }
+  .words-top { padding:10px 16px; }
+  .word-list { max-height:420px; overflow-y:auto; }
+  .word-text { font-size:19px; }
+  .tool-split { flex-direction:column; }
+  .ctrl { width:100%; border-right:none; border-bottom:1px solid var(--border-2); }
+  .hero { padding:12px 16px 12px; }
+  .hero-badge { margin-bottom:6px; }
+  .hero h1 { font-size:24px; }
+  .copy-menu { right:auto; left:0; }
+  .az-link { width:34px; height:34px; font-size:13px; }
+}
+</style>
+<!-- /SLOT:style -->
+
+<!-- SLOT:hero -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/word-tools/">Word Tools</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">5 Letter Word Generator</span>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free · No sign-up · Instant results
+  </div>
+  <h1>Random 5 Letter Word Generator</h1>
+  <p>Generate random 5-letter words in one click. Filter by difficulty, word type, or letter pattern — or use Wordle Helper mode to narrow candidates by known and eliminated letters.</p>
+</div>
+<!-- /SLOT:hero -->
+
+<!-- SLOT:tool -->
+<div class="tool-wrap">
+  <div class="tool-card">
+    <div class="tool-split">
+
+      <div class="ctrl">
+        <div class="ctrl-row">
+          <label class="ctrl-label" for="ctrl-count">Number of words</label>
+          <input type="number" id="ctrl-count" value="20" min="1" max="50" inputmode="numeric" aria-describedby="count-error">
+          <span class="count-error" id="count-error">Enter a number from 1 to 50</span>
+        </div>
+
+        <button type="button" class="mobile-more-toggle" id="mobile-more-toggle" aria-expanded="false" aria-controls="advanced-options">More options</button>
+
+        <div class="advanced-options" id="advanced-options">
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="ctrl-type">Word type</label>
+            <select id="ctrl-type">
+              <option value="all">All types</option>
+              <option value="noun">Nouns only</option>
+              <option value="adjective">Adjectives only</option>
+              <option value="verb">Verbs only</option>
+              <option value="adverb">Adverbs only</option>
+            </select>
+          </div>
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="ctrl-diff">Difficulty</label>
+            <select id="ctrl-diff">
+              <option value="all">All levels</option>
+              <option value="easy">Easy (common)</option>
+              <option value="medium">Medium</option>
+              <option value="hard">Hard / rare</option>
+            </select>
+          </div>
+          <div class="ctrl-row">
+            <span class="ctrl-label">Starts &amp; ends with</span>
+            <div class="letter-row">
+              <input type="text" id="ctrl-first" maxlength="1" placeholder="A" aria-label="Starts with letter">
+              <input type="text" id="ctrl-last"  maxlength="1" placeholder="Z" aria-label="Ends with letter">
+            </div>
+          </div>
+          <div class="def-row">
+            <label class="toggle" aria-label="Show definitions"><input type="checkbox" id="ctrl-defs" checked><span class="toggle-sl"></span></label>
+            <label for="ctrl-defs">Show definitions</label>
+          </div>
+
+          <button type="button" class="wordle-toggle" id="wordle-toggle" aria-expanded="false">
+            <span>▼ Wordle Helper</span>
+            <span style="font-size:10px;font-weight:400;opacity:.7">optional</span>
+          </button>
+          <div class="wordle-helper" id="wordle-helper">
+            <div class="ctrl-row">
+              <label class="ctrl-label" for="ctrl-contains">Contains letter</label>
+              <input type="text" id="ctrl-contains" maxlength="1" placeholder="e.g. R" style="text-transform:uppercase;text-align:center;">
+            </div>
+            <div class="ctrl-row">
+              <label class="ctrl-label" for="ctrl-excludes">Does NOT contain</label>
+              <input type="text" id="ctrl-excludes" maxlength="1" placeholder="e.g. S" style="text-transform:uppercase;text-align:center;">
+            </div>
+          </div>
+        </div>
+
+        <button class="gen-btn" id="word-gen-btn">Generate words</button>
+        <button class="reset-btn" id="word-reset-btn">Reset options</button>
+        <div class="kbd">Press <kbd>Space</kbd> to regenerate</div>
+
+        <div class="ad-sidebar">
+          <span class="ad-sidebar-tag">Ad</span>
+          <div class="ad-sidebar-logo">
+            <svg viewBox="0 0 32 32" fill="none" width="32" height="32"><circle cx="16" cy="16" r="14" fill="#15a249"/><path d="M10 16c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="16" r="2.5" fill="white"/></svg>
+            <span class="ad-sidebar-brand">Grammarly</span>
+          </div>
+          <div class="ad-sidebar-headline">Write with confidence</div>
+          <div class="ad-sidebar-body">Fix grammar, improve clarity, and choose the right words — everywhere you write.</div>
+          <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-sidebar-cta">Try free →</a>
+          <div class="ad-sidebar-sub">Free plan · No credit card</div>
+        </div>
+      </div>
+
+      <div class="words-panel">
+        <div class="words-top">
+          <span class="words-count" id="word-count">Generating…</span>
+          <div class="words-actions">
+            <div class="copy-dropdown">
+              <button class="act-btn" id="copy-all-btn">Copy list ▾</button>
+              <div class="copy-menu" id="copy-menu">
+                <button data-fmt="line">One per line</button>
+                <button data-fmt="comma">Comma-separated</button>
+                <button data-fmt="space">Space-separated</button>
+              </div>
+            </div>
+            <button class="act-btn" id="word-regen-btn">Regenerate</button>
+          </div>
+        </div>
+        <ul class="word-list" id="word-list"></ul>
+      </div>
+
+    </div>
+
+    <div class="saved-section">
+      <div class="saved-top">
+        <span class="saved-label">Saved words <span id="saved-count" style="font-weight:400;opacity:.7">(0)</span></span>
+        <button class="saved-copy" id="saved-copy-btn">Copy saved</button>
+      </div>
+      <div class="saved-tags" id="saved-tags">
+        <span class="saved-empty">Click the heart on any word to save it here</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- A-Z browse section -->
+  <div class="az-section">
+    <h2>Browse 5-letter words by first letter</h2>
+    <p>Looking for all 5-letter words starting with a specific letter? Each page below shows a complete filterable list with definitions and difficulty ratings.</p>
+    <div class="az-links">
+      <a class="az-link" href="/5-letter-words-starting-with-a/">A</a>
+      <a class="az-link" href="/5-letter-words-starting-with-b/">B</a>
+      <a class="az-link" href="/5-letter-words-starting-with-c/">C</a>
+      <a class="az-link" href="/5-letter-words-starting-with-d/">D</a>
+      <a class="az-link" href="/5-letter-words-starting-with-e/">E</a>
+      <a class="az-link" href="/5-letter-words-starting-with-f/">F</a>
+      <a class="az-link" href="/5-letter-words-starting-with-g/">G</a>
+      <a class="az-link" href="/5-letter-words-starting-with-h/">H</a>
+      <a class="az-link" href="/5-letter-words-starting-with-i/">I</a>
+      <a class="az-link" href="/5-letter-words-starting-with-j/">J</a>
+      <a class="az-link" href="/5-letter-words-starting-with-k/">K</a>
+      <a class="az-link" href="/5-letter-words-starting-with-l/">L</a>
+      <a class="az-link" href="/5-letter-words-starting-with-m/">M</a>
+      <a class="az-link" href="/5-letter-words-starting-with-n/">N</a>
+      <a class="az-link" href="/5-letter-words-starting-with-o/">O</a>
+      <a class="az-link" href="/5-letter-words-starting-with-p/">P</a>
+      <a class="az-link" href="/5-letter-words-starting-with-q/">Q</a>
+      <a class="az-link" href="/5-letter-words-starting-with-r/">R</a>
+      <a class="az-link" href="/5-letter-words-starting-with-s/">S</a>
+      <a class="az-link" href="/5-letter-words-starting-with-t/">T</a>
+      <a class="az-link" href="/5-letter-words-starting-with-u/">U</a>
+      <a class="az-link" href="/5-letter-words-starting-with-v/">V</a>
+      <a class="az-link" href="/5-letter-words-starting-with-w/">W</a>
+      <a class="az-link" href="/5-letter-words-starting-with-x/">X</a>
+      <a class="az-link" href="/5-letter-words-starting-with-y/">Y</a>
+      <a class="az-link" href="/5-letter-words-starting-with-z/">Z</a>
+    </div>
+  </div>
+
+</div>
+<!-- /SLOT:tool -->
+
+<!-- SLOT:ad_b -->
+<div class="ad-leaderboard">
+  <div class="ad-leaderboard-inner">
+    <span class="ad-tag">Advertisement · 728×90</span>
+    <div class="ad-mock-content">
+      <div class="ad-title">Grammarly — write with confidence. Grammar, tone &amp; clarity.</div>
+      <div class="ad-sub">Used by 30 million people. Works in Google Docs, Gmail, Word and more.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-mock-cta">Try Grammarly free</a>
+    </div>
+  </div>
+</div>
+<!-- /SLOT:ad_b -->
+
+<!-- SLOT:explainer -->
+<div class="explainer">
+
+  <h2>What is a 5 letter word generator?</h2>
+  <p>A 5 letter word generator randomly selects English words that are exactly five characters long from a curated dataset. Unlike a dictionary search — where you already know what you're looking for — a generator surfaces words you might not have thought of, filtered to whatever constraints you set. This one lets you narrow results by word type (noun, verb, adjective, adverb), difficulty level (easy, medium, hard), and letter patterns. Every result includes a definition and a difficulty badge, so you can learn the words as you find them.</p>
+  <p>Five-letter words are a particularly rich category in English. They're long enough to be specific and meaningful, short enough to be memorable and pronounceable. They form the backbone of everyday vocabulary and the sweet spot of almost every popular word game.</p>
+
+  <h2>Why use a 5 letter word generator?</h2>
+
+  <h3>Word games</h3>
+  <p>Wordle, Scrabble, Words With Friends, Bananagrams, Boggle — all rely on five-letter words at some point. A generator helps you build pattern recognition before a game, practise common letter combinations, or (with Wordle Helper mode) work through a stuck guess without fully giving up. Set the difficulty to Easy for the words most likely to appear in Wordle answers; set it to Hard to drill the obscure vocabulary that separates competitive Scrabble players from casual ones.</p>
+
+  <h3>Vocabulary building</h3>
+  <p>Reading is the best way to encounter new words, but a generator is a fast supplement. Set the difficulty to Hard and generate 20 words you've never seen. Look up the ones that interest you. Adding even two or three words a week compounds over time — a year from now your vocabulary will be meaningfully larger. The definitions toggle means you can start learning right here without opening a dictionary tab.</p>
+
+  <h3>Writing and creative work</h3>
+  <p>Writers use random word generators to break creative blocks. A random 5-letter word dropped into a brainstorming session can spark a character name, a place name, a title, or a theme. The constraint of five letters keeps results tight and usable. Set the count to 5–10, generate a batch, and write a paragraph using every word in order — the constraint forces creative connections you wouldn't make on your own.</p>
+
+  <h3>Education</h3>
+  <p>Teachers use word lists for spelling tests, vocabulary drills, and reading exercises. Filter to Easy nouns for a primary school list; filter to Hard adjectives for an advanced class. The definitions toggle means you can use the output directly in a worksheet without looking up each word separately. Copy the list in one-per-line format and paste it straight into your document.</p>
+
+  <h3>Naming and branding</h3>
+  <p>Five-letter names are common in product and brand naming — short enough to be a domain, long enough to feel like a real word. Generating random 5-letter words is a useful starting point for naming exercises. The word type filter lets you focus on nouns or adjectives depending on the brand feeling you're after.</p>
+
+  <h2>How it works</h2>
+  <p>The generator pulls from a curated dataset of 5-letter English words, each tagged with its word type and difficulty level. When you click Generate, it randomly selects words matching your filters and displays the results instantly. Filters update the output in real time — change the difficulty or word type and the list refreshes without clicking Generate again.</p>
+  <p>On first load, a built-in seed of common words renders immediately. The full dataset loads in the background so that every subsequent generate draws from the complete word pool.</p>
+
+  <h2>Tips for getting the most out of this tool</h2>
+
+  <h3>For Wordle players</h3>
+  <p>Use Wordle Helper mode after your first two guesses — those guesses give you enough information to make the helper genuinely useful. Enter confirmed letters (green and yellow) in Contains and ruled-out letters in Does NOT Contain. The filtered list will be narrow enough to make a smart guess. Use Easy difficulty to stay within the vocabulary range Wordle typically draws from.</p>
+
+  <h3>For vocabulary building</h3>
+  <p>Set difficulty to Hard and definitions to On. Don't just scan the list — pick one word per session and try to use it in conversation or writing that day. The generator is a discovery tool; the retention work is up to you.</p>
+
+  <h3>For educators</h3>
+  <p>Filter by word type to build targeted lists. Adjective lists work well for descriptive writing exercises. Verb lists work well for action-sentence practice. Set difficulty to Easy for younger students, then use Copy List → One per line to paste directly into a document.</p>
+
+  <h3>For Scrabble and crosswords</h3>
+  <p>Use the Starts With and Ends With filters to find words that fit a specific board position. Q, X, and Z are high-value tiles worth drilling — combine Contains with those letters to find all 5-letter words that use them.</p>
+
+</div>
+<!-- /SLOT:explainer -->
+
+<!-- SLOT:faq -->
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">What is a 5 letter word generator?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">A 5 letter word generator randomly selects English words that are exactly five characters long. You can filter by word type, difficulty, and letter patterns. Every result includes a definition. This tool also includes a Wordle Helper mode for narrowing candidates by confirmed and eliminated letters.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">How does Wordle Helper mode work?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Open the Wordle Helper section in the filters. Enter a letter in Contains to show only words with that letter. Enter a letter in Does NOT Contain to exclude words with that letter. Combine both to narrow down candidates after gathering information from your guesses.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What does the difficulty rating mean?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Easy words are common everyday vocabulary. Medium words are less frequent but widely understood. Hard words are uncommon, specialised, or archaic — useful for advanced vocabulary study or competitive Scrabble.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">How many 5-letter words are in English?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Estimates vary depending on the dictionary, but most sources put it between 8,000 and 15,000 five-letter words in common use. This tool's dataset covers several hundred of the most useful ones, with more being added over time.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Is this tool free?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Completely free, forever. No account required, no limits, no paywalls.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">How do I copy the word list?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Click the Copy List button above the results and choose your format — one per line for documents, comma-separated for spreadsheets, or space-separated for other tools. To copy a single word, click the copy icon on its card.</div>
+  </div>
+</div>
+<!-- /SLOT:faq -->
+
+<!-- SLOT:who -->
+<div>
+  <h2 class="section-title" style="margin-bottom:14px">Who uses this tool</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">Wordle players</div><div class="uc-body">Use Wordle Helper mode after your first two guesses to narrow down candidates by confirmed and eliminated letters.</div></div>
+    <div class="uc"><div class="uc-title">Writers</div><div class="uc-body">Generate 5 words and write a paragraph using all of them. The constraint forces creative connections you wouldn't make unprompted.</div></div>
+    <div class="uc"><div class="uc-title">Students</div><div class="uc-body">Filter by difficulty to target the right vocabulary level. Definitions are built in, so you can study meaning and usage at the same time.</div></div>
+    <div class="uc"><div class="uc-title">Teachers</div><div class="uc-body">Generate a spelling or vocabulary list in seconds. Filter by word type and difficulty, then copy in one click.</div></div>
+  </div>
+</div>
+<!-- /SLOT:who -->
+
+<!-- SLOT:init -->
+<script>
+(function () {
+  var SEED = [
+    {w:"Adore",t:"verb",d:"to love and respect someone deeply",diff:"easy"},
+    {w:"After",t:"adverb",d:"following in time, place, or order",diff:"easy"},
+    {w:"Agile",t:"adjective",d:"able to move quickly and easily",diff:"easy"},
+    {w:"Alert",t:"adjective",d:"quick to notice potential danger; watchful",diff:"easy"},
+    {w:"Align",t:"verb",d:"to place in a straight line; to bring into agreement",diff:"easy"},
+    {w:"Alive",t:"adjective",d:"living; not dead; full of energy",diff:"easy"},
+    {w:"Amaze",t:"verb",d:"to surprise greatly; to fill with wonder",diff:"easy"},
+    {w:"Angel",t:"noun",d:"a spiritual being believed to act as a divine messenger",diff:"easy"},
+    {w:"Arise",t:"verb",d:"to come into being; to get up",diff:"easy"},
+    {w:"Beach",t:"noun",d:"a sandy or pebbly shore beside water",diff:"easy"},
+    {w:"Bliss",t:"noun",d:"perfect happiness; great joy",diff:"easy"},
+    {w:"Brave",t:"adjective",d:"ready to face danger without fear",diff:"easy"},
+    {w:"Charm",t:"noun",d:"the power to please or attract",diff:"easy"},
+    {w:"Clear",t:"adjective",d:"easy to perceive or understand; transparent",diff:"easy"},
+    {w:"Crown",t:"noun",d:"a circular ornament worn on the head by a monarch",diff:"easy"},
+    {w:"Dream",t:"noun",d:"a series of images during sleep; a cherished ambition",diff:"easy"},
+    {w:"Earth",t:"noun",d:"the planet we live on; soil or ground",diff:"easy"},
+    {w:"Elite",t:"noun",d:"a select group regarded as superior",diff:"easy"},
+    {w:"Flame",t:"noun",d:"a hot glowing body of burning gas",diff:"easy"},
+    {w:"Grace",t:"noun",d:"elegance of movement; kindness and goodwill",diff:"easy"},
+    {w:"Heart",t:"noun",d:"the organ pumping blood; the centre of emotions",diff:"easy"},
+    {w:"Light",t:"noun",d:"the natural agent that makes things visible",diff:"easy"},
+    {w:"Magic",t:"noun",d:"the power of apparently influencing events supernaturally",diff:"easy"},
+    {w:"Night",t:"noun",d:"the time between sunset and sunrise",diff:"easy"},
+    {w:"Ocean",t:"noun",d:"a vast expanse of salt water covering much of the earth",diff:"easy"},
+    {w:"Peace",t:"noun",d:"freedom from disturbance; a state of calm",diff:"easy"},
+    {w:"Pride",t:"noun",d:"a feeling of satisfaction from one's own achievements",diff:"easy"},
+    {w:"Queen",t:"noun",d:"the female ruler of a kingdom",diff:"easy"},
+    {w:"River",t:"noun",d:"a large natural stream of water",diff:"easy"},
+    {w:"Sharp",t:"adjective",d:"having a thin cutting edge; quick to understand",diff:"easy"},
+    {w:"Skill",t:"noun",d:"the ability to do something well",diff:"easy"},
+    {w:"Sleep",t:"verb",d:"to rest with eyes closed and consciousness suspended",diff:"easy"},
+    {w:"Smart",t:"adjective",d:"intelligent; clean and tidy in appearance",diff:"easy"},
+    {w:"Smile",t:"verb",d:"to form one's features into a pleased expression",diff:"easy"},
+    {w:"Storm",t:"noun",d:"a violent disturbance of the atmosphere",diff:"easy"},
+    {w:"Swift",t:"adjective",d:"moving or occurring quickly",diff:"easy"},
+    {w:"Tiger",t:"noun",d:"a large wild cat with black and orange stripes",diff:"easy"},
+    {w:"Trust",t:"noun",d:"firm belief in the reliability of someone",diff:"easy"},
+    {w:"Voice",t:"noun",d:"the sound produced when a person speaks",diff:"easy"},
+    {w:"World",t:"noun",d:"the earth with all its countries and peoples",diff:"easy"},
+    {w:"Abode",t:"noun",d:"a place of residence; a home",diff:"medium"},
+    {w:"Acute",t:"adjective",d:"present or experienced to a severe degree",diff:"medium"},
+    {w:"Angst",t:"noun",d:"a feeling of deep anxiety or dread",diff:"medium"},
+    {w:"Askew",t:"adjective",d:"not in a straight or level position; crooked",diff:"medium"},
+    {w:"Azure",t:"adjective",d:"bright blue in colour, like a clear cloudless sky",diff:"medium"},
+    {w:"Bleak",t:"adjective",d:"lacking warmth; offering little hope",diff:"medium"},
+    {w:"Ember",t:"noun",d:"a small piece of burning coal in a dying fire",diff:"medium"},
+    {w:"Forte",t:"noun",d:"a thing at which someone excels",diff:"medium"},
+    {w:"Gaunt",t:"adjective",d:"lean and haggard, especially through illness",diff:"medium"},
+    {w:"Gleam",t:"noun",d:"a faint or brief light; a small sign of a quality",diff:"medium"},
+    {w:"Hardy",t:"adjective",d:"capable of enduring difficult conditions",diff:"medium"},
+    {w:"Lunar",t:"adjective",d:"relating to the moon",diff:"medium"},
+    {w:"Lyric",t:"noun",d:"the words of a song; expressing personal emotion in poetry",diff:"medium"},
+    {w:"Niche",t:"noun",d:"a comfortable position; a shallow recess in a wall",diff:"medium"},
+    {w:"Prism",t:"noun",d:"a transparent solid that refracts and disperses light",diff:"medium"},
+    {w:"Savvy",t:"adjective",d:"having practical knowledge or understanding",diff:"medium"},
+    {w:"Stoic",t:"adjective",d:"enduring pain without complaint",diff:"medium"},
+    {w:"Terse",t:"adjective",d:"sparing in words; brief and direct",diff:"medium"},
+    {w:"Vigor",t:"noun",d:"physical strength and good health",diff:"medium"},
+    {w:"Aegis",t:"noun",d:"protection or support from a powerful source",diff:"hard"},
+    {w:"Amity",t:"noun",d:"a friendly, peaceful relationship between groups",diff:"hard"},
+    {w:"Augur",t:"verb",d:"to be a sign of a future outcome",diff:"hard"},
+    {w:"Guile",t:"noun",d:"sly or cunning intelligence",diff:"hard"},
+    {w:"Tryst",t:"noun",d:"a private romantic meeting",diff:"hard"}
+  ];
+
+  var allWords = SEED.slice();
+  var currentWords = [];
+  var savedWords = [];
+  var fullLoaded = false;
+  var showDefs = true;
+
+  function diffBadge(d) {
+    return d === 'easy' ? 'badge-easy' : d === 'medium' ? 'badge-medium' : 'badge-hard';
+  }
+
+  var HEART_SVG = '<svg viewBox="0 0 14 14" fill="none"><path d="M7 12s-5-3.5-5-7a3 3 0 016 0 3 3 0 016 0c0 3.5-5 7-5 7z" stroke="currentColor" stroke-width="1.3"/></svg>';
+  var COPY_SVG  = '<svg viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="8" height="8" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M2 10V2h8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>';
+
+  function getFiltered() {
+    var type     = document.getElementById('ctrl-type').value;
+    var diff     = document.getElementById('ctrl-diff').value;
+    var first    = (document.getElementById('ctrl-first').value || '').toUpperCase();
+    var last     = (document.getElementById('ctrl-last').value  || '').toUpperCase();
+    var contains = (document.getElementById('ctrl-contains').value || '').toUpperCase();
+    var excludes = (document.getElementById('ctrl-excludes').value || '').toUpperCase();
+
+    return allWords.filter(function (w) {
+      var wu = w.w.toUpperCase();
+      if (type !== 'all' && w.t !== type) return false;
+      if (diff !== 'all' && w.diff !== diff) return false;
+      if (first && wu[0] !== first) return false;
+      if (last  && wu[wu.length - 1] !== last) return false;
+      if (contains && wu.indexOf(contains) === -1) return false;
+      if (excludes && wu.indexOf(excludes) !== -1) return false;
+      return true;
+    });
+  }
+
+  function pickRandom(pool, n) {
+    var copy = pool.slice();
+    var result = [];
+    while (result.length < n && copy.length) {
+      var i = Math.floor(Math.random() * copy.length);
+      result.push(copy.splice(i, 1)[0]);
+    }
+    return result;
+  }
+
+  function buildWordItem(w) {
+    var isSaved = savedWords.indexOf(w.w) !== -1;
+    return '<li class="word-item">' +
+      '<div class="word-left">' +
+        '<div class="word-text">' + w.w + '</div>' +
+        '<div class="word-badges">' +
+          '<span class="badge badge-type">' + w.t + '</span>' +
+          '<span class="badge ' + diffBadge(w.diff) + '">' + w.diff + '</span>' +
+        '</div>' +
+        (showDefs && w.d ? '<div class="word-def">' + w.d + '</div>' : '') +
+      '</div>' +
+      '<div class="word-right">' +
+        '<button class="icon-btn' + (isSaved ? ' saved' : '') + '" data-word="' + w.w + '" aria-label="Save ' + w.w + '" onclick="toggleSave(this)">' + HEART_SVG + '</button>' +
+        '<button class="icon-btn" aria-label="Copy ' + w.w + '" onclick="copyWord(this,\'' + w.w + '\')">' + COPY_SVG + '</button>' +
+      '</div>' +
+    '</li>';
+  }
+
+  function redrawList() {
+    showDefs = document.getElementById('ctrl-defs').checked;
+    var list = document.getElementById('word-list');
+    if (!list || currentWords.length === 0) return;
+    list.innerHTML = currentWords.map(buildWordItem).join('');
+  }
+
+  function renderList() {
+    var n = parseInt(document.getElementById('ctrl-count').value, 10);
+    if (isNaN(n) || n < 1 || n > 50) return;
+
+    var pool = getFiltered();
+    var total = pool.length;
+    currentWords = pickRandom(pool, n);
+    showDefs = document.getElementById('ctrl-defs').checked;
+
+    document.getElementById('word-count').textContent =
+      'Showing ' + currentWords.length + ' of ' + total + ' matching words';
+
+    var list = document.getElementById('word-list');
+    if (currentWords.length === 0) {
+      list.innerHTML = '<li style="padding:20px 0;color:var(--text-3);font-size:13px">No words match your filters. Try broadening the selection.</li>';
+      return;
+    }
+
+    list.innerHTML = currentWords.map(buildWordItem).join('');
+  }
+
+  window.toggleSave = function (btn) {
+    var word = btn.getAttribute('data-word');
+    var idx = savedWords.indexOf(word);
+    if (idx === -1) { savedWords.push(word); btn.classList.add('saved'); }
+    else { savedWords.splice(idx, 1); btn.classList.remove('saved'); }
+    renderSaved();
+  };
+
+  window.copyWord = function (btn, word) {
+    navigator.clipboard.writeText(word).then(function () {
+      btn.innerHTML = '✓';
+      setTimeout(function () { btn.innerHTML = COPY_SVG; }, 1000);
+    });
+  };
+
+  function renderSaved() {
+    var container = document.getElementById('saved-tags');
+    var countEl   = document.getElementById('saved-count');
+    countEl.textContent = '(' + savedWords.length + ')';
+    if (savedWords.length === 0) {
+      container.innerHTML = '<span class="saved-empty">Click the heart on any word to save it here</span>';
+      return;
+    }
+    container.innerHTML = savedWords.map(function (w) {
+      return '<span class="saved-tag">' + w +
+        '<span class="saved-tag-remove" onclick="removeSaved(\'' + w + '\')" aria-label="Remove ' + w + '">×</span>' +
+      '</span>';
+    }).join('');
+  }
+
+  window.removeSaved = function (word) {
+    savedWords = savedWords.filter(function (w) { return w !== word; });
+    document.querySelectorAll('[data-word="' + word + '"]').forEach(function (b) { b.classList.remove('saved'); });
+    renderSaved();
+  };
+
+  function validateAndGenerate() {
+    var raw = parseInt(document.getElementById('ctrl-count').value, 10);
+    var err = document.getElementById('count-error');
+    var inp = document.getElementById('ctrl-count');
+    if (isNaN(raw) || raw < 1 || raw > 50) {
+      err.classList.add('show'); inp.classList.add('input-error'); return;
+    }
+    err.classList.remove('show'); inp.classList.remove('input-error');
+    renderList();
+  }
+
+  function loadFull() {
+    if (fullLoaded) return;
+    fullLoaded = true;
+    fetch('/data/five-letter-words.json')
+      .then(function (r) { return r.json(); })
+      .then(function (data) { allWords = data; renderList(); })
+      .catch(function () {});
+  }
+
+  // Wire up generate/regen buttons
+  document.getElementById('word-gen-btn').addEventListener('click', function () { loadFull(); validateAndGenerate(); });
+  document.getElementById('word-regen-btn').addEventListener('click', function () { loadFull(); validateAndGenerate(); });
+
+  // Real-time filter updates
+  ['ctrl-type','ctrl-diff'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.addEventListener('change', function () { loadFull(); validateAndGenerate(); });
+  });
+
+  ['ctrl-first','ctrl-last','ctrl-contains','ctrl-excludes'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.addEventListener('input', function () { loadFull(); validateAndGenerate(); });
+  });
+
+  var defsEl = document.getElementById('ctrl-defs');
+  if (defsEl) defsEl.addEventListener('change', redrawList);
+
+  document.getElementById('ctrl-count').addEventListener('input', validateAndGenerate);
+
+  // Wordle Helper toggle
+  document.getElementById('wordle-toggle').addEventListener('click', function () {
+    var helper = document.getElementById('wordle-helper');
+    var btn    = document.getElementById('wordle-toggle');
+    var open   = helper.classList.toggle('open');
+    btn.classList.toggle('active', open);
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+
+  // Copy All dropdown
+  var copyBtn  = document.getElementById('copy-all-btn');
+  var copyMenu = document.getElementById('copy-menu');
+  copyBtn.addEventListener('click', function (e) { e.stopPropagation(); copyMenu.classList.toggle('open'); });
+  document.addEventListener('click', function () { copyMenu.classList.remove('open'); });
+  copyMenu.querySelectorAll('button').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var fmt   = btn.getAttribute('data-fmt');
+      var words = currentWords.map(function (w) { return w.w; });
+      var text  = fmt === 'comma' ? words.join(', ') : fmt === 'space' ? words.join(' ') : words.join('\n');
+      navigator.clipboard.writeText(text).then(function () {
+        copyBtn.textContent = 'Copied! ✓';
+        setTimeout(function () { copyBtn.textContent = 'Copy list ▾'; }, 1500);
+      });
+      copyMenu.classList.remove('open');
+    });
+  });
+
+  // Copy saved
+  document.getElementById('saved-copy-btn').addEventListener('click', function () {
+    if (!savedWords.length) return;
+    navigator.clipboard.writeText(savedWords.join('\n'));
+  });
+
+  // Reset
+  document.getElementById('word-reset-btn').addEventListener('click', function () {
+    ['ctrl-type','ctrl-diff','ctrl-first','ctrl-last','ctrl-contains','ctrl-excludes'].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) el.value = el.tagName === 'SELECT' ? el.options[0].value : '';
+    });
+    document.getElementById('ctrl-count').value = 20;
+    document.getElementById('ctrl-defs').checked = true;
+    document.getElementById('wordle-helper').classList.remove('open');
+    document.getElementById('wordle-toggle').classList.remove('active');
+    validateAndGenerate();
+  });
+
+  // Space to regenerate
+  document.addEventListener('keydown', function (e) {
+    if (e.code === 'Space' && e.target === document.body) {
+      e.preventDefault(); loadFull(); validateAndGenerate();
+    }
+  });
+
+  // Mobile toggle
+  var mobileToggle = document.getElementById('mobile-more-toggle');
+  var advanced     = document.getElementById('advanced-options');
+  if (mobileToggle && advanced) {
+    mobileToggle.addEventListener('click', function () {
+      var open = advanced.classList.toggle('is-open');
+      mobileToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      mobileToggle.textContent = open ? 'Hide options' : 'More options';
+    });
+  }
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(function (item) {
+    var q = item.querySelector('.faq-q');
+    if (q) q.addEventListener('click', function () { item.classList.toggle('open'); });
+  });
+
+  // Initial render then load full at idle
+  renderList();
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(loadFull);
+  } else {
+    setTimeout(loadFull, 800);
+  }
+})();
+</script>
+<!-- /SLOT:init -->

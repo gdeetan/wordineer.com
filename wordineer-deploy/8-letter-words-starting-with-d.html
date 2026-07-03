@@ -195,7 +195,7 @@
 }
 </script>
 
-<link rel="stylesheet" href="/styles/global.css?v=9">
+<link rel="stylesheet" href="/styles/global.css?v=12">
 <style>
 .letter-page-wrap { max-width: 960px; margin: 0 auto; padding: 0; }
 
@@ -280,129 +280,115 @@
 }
 .lp-no-results { display: none; }
 
-.az-nav {
-  margin: 40px 0 34px;
-  padding: 18px 18px 14px;
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  background: linear-gradient(180deg, rgba(238,237,254,.6), rgba(255,255,255,0));
-}
+.az-nav { margin: 48px 0 32px; }
 .az-nav-title {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
-  margin-bottom: 12px;
-  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  color: var(--text-3);
+  margin-bottom: 10px;
 }
-.az-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
+.az-links { display: flex; flex-wrap: wrap; gap: 6px; }
 .az-link {
-  width: 34px;
-  height: 34px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 999px;
+  width: 36px;
+  height: 36px;
   border: 1px solid var(--border);
-  text-decoration: none;
-  color: var(--text-2);
+  border-radius: 8px;
   font-size: 14px;
   font-weight: 600;
+  color: var(--text-2);
+  text-decoration: none;
+  transition: background .12s, border-color .12s, color .12s;
   background: var(--bg);
-  transition: border-color .15s, color .15s, transform .15s;
 }
-.az-link:hover {
-  border-color: var(--brand);
-  color: var(--brand-dark);
-  transform: translateY(-1px);
-}
-.az-link.active {
-  background: var(--brand);
-  border-color: var(--brand);
-  color: #fff;
-}
+.az-link:hover { background: var(--bg-2); border-color: var(--brand); color: var(--brand); }
+.az-link.active { background: var(--brand); border-color: var(--brand); color: white; }
 .az-link.disabled {
-  color: var(--text-3);
-  background: var(--bg-2);
+  opacity: .55;
   cursor: default;
 }
 .az-link.disabled:hover {
+  background: var(--bg);
   border-color: var(--border);
-  color: var(--text-3);
-  transform: none;
+  color: var(--text-2);
 }
 
-.lp-prose { margin-top: 26px; }
+.lp-prose { margin-top: 48px; }
 .lp-prose h2 {
   font-family: 'DM Serif Display', serif;
   font-size: 22px;
   font-weight: 400;
-  line-height: 1.2;
-  margin: 0 0 12px;
+  margin: 32px 0 10px;
   color: var(--text);
 }
+.lp-prose h2:first-child { margin-top: 0; }
 .lp-prose h3 {
   font-size: 16px;
   font-weight: 600;
-  line-height: 1.35;
-  margin: 24px 0 10px;
-  color: var(--text);
+  margin: 20px 0 8px;
+  color: var(--text-1);
 }
 .lp-prose p {
   font-size: 15px;
   line-height: 1.75;
   color: var(--text-2);
-  margin: 0 0 14px;
+  margin: 0 0 16px;
 }
+.lp-prose a { color: var(--brand); text-decoration: underline; text-underline-offset: 2px; }
 .word-inline { font-style: italic; }
+
 .word-highlight-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin: 14px 0 16px;
+  gap: 6px;
+  margin: 0 0 16px;
 }
 .word-chip {
-  display: inline-flex;
-  align-items: center;
-  padding: 8px 12px;
-  border-radius: 999px;
-  background: #EEEDFE;
-  color: #534AB7;
+  display: inline-block;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 4px 10px;
   font-size: 13px;
   font-weight: 500;
+  color: var(--text);
 }
 
-.faq-section {
-  margin-top: 42px;
-  padding-top: 8px;
-}
-.faq-section h2 {
+.faq-section { margin-top: 48px; }
+.faq-section > h2 {
   font-family: 'DM Serif Display', serif;
   font-size: 22px;
   font-weight: 400;
-  margin: 0 0 16px;
-}
-.faq-item {
-  border-top: 1px solid var(--border);
-  padding: 14px 0;
-}
-.faq-item:last-child { border-bottom: 1px solid var(--border); }
-.faq-item summary {
-  list-style: none;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 600;
+  margin: 0 0 6px;
   color: var(--text);
 }
-.faq-item summary::-webkit-details-marker { display: none; }
-.faq-item p {
-  margin: 10px 0 0;
-  font-size: 14px;
-  line-height: 1.7;
-  color: var(--text-2);
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-item summary {
+  font-size: 15px;
+  font-weight: 600;
+  padding: 14px 0;
+  cursor: pointer;
+  list-style: none;
+  color: var(--text-1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
 }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+';
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--text-3);
+  flex-shrink: 0;
+}
+details[open] summary::after { content: '−'; }
+.faq-item p { font-size: 14px; line-height: 1.7; color: var(--text-2); margin: 0 0 14px; }
 
 .lp-copy-word {
   position: absolute;
@@ -560,10 +546,6 @@
       <a class="mega-link" href="/random-sentence-generator/">Random Sentence Generator</a>
       <a class="mega-link" href="/random-paragraph-generator/">Random Paragraph Generator</a>
       <a class="mega-link" href="/word-counter/">Word Counter</a>
-      <a class="mega-link" href="/common-5-letter-words/">Common 5-Letter Words</a>
-      <a class="mega-link" href="/etymology-100-common-words/">Word Origins & Etymology</a>
-      <a class="mega-link" href="/spelling-bee-words-printable/">Spelling Bee Words Printable</a>
-      <a class="mega-link" href="/esl-vocabulary-cefr/">ESL Vocabulary (CEFR)</a>
       <a class="mega-link mega-link--view-all" href="/word-tools/">View all →</a>
     </div>
     <div class="mega-col">
@@ -683,10 +665,10 @@
           <a class="az-link" href="/8-letter-words-starting-with-b/">B</a>
           <a class="az-link" href="/8-letter-words-starting-with-c/">C</a>
           <a class="az-link active" href="/8-letter-words-starting-with-d/" aria-current="page">D</a>
-          <span class="az-link disabled" aria-disabled="true">E</span>
-          <span class="az-link disabled" aria-disabled="true">F</span>
-          <span class="az-link disabled" aria-disabled="true">G</span>
-          <span class="az-link disabled" aria-disabled="true">H</span>
+          <a class="az-link" href="/8-letter-words-starting-with-e/">E</a>
+          <a class="az-link" href="/8-letter-words-starting-with-f/">F</a>
+          <a class="az-link" href="/8-letter-words-starting-with-g/">G</a>
+          <a class="az-link" href="/8-letter-words-starting-with-h/">H</a>
           <span class="az-link disabled" aria-disabled="true">I</span>
           <span class="az-link disabled" aria-disabled="true">J</span>
           <span class="az-link disabled" aria-disabled="true">K</span>
@@ -955,7 +937,7 @@
       <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-footer-strip-cta">Try free</a>
     </div>
     <div class="footer-grid">
-      <div><div class="footer-col-title">Writing &amp; Vocabulary</div><a class="footer-link" href="/">Random Word Generator</a><a class="footer-link" href="/random-sentence-generator/">Random Sentence Generator</a><a class="footer-link" href="/random-paragraph-generator/">Random Paragraph Generator</a><a class="footer-link" href="/word-counter/">Word Counter</a><a class="footer-link" href="/common-5-letter-words/">Common 5-Letter Words</a><a class="footer-link" href="/etymology-100-common-words/">Word Origins & Etymology</a><a class="footer-link" href="/spelling-bee-words-printable/">Spelling Bee Printable</a><a class="footer-link" href="/esl-vocabulary-cefr/">ESL Vocabulary (CEFR)</a><a class="footer-link footer-link--view-all" href="/word-tools/">View all →</a></div>
+      <div><div class="footer-col-title">Writing &amp; Vocabulary</div><a class="footer-link" href="/">Random Word Generator</a><a class="footer-link" href="/random-sentence-generator/">Random Sentence Generator</a><a class="footer-link" href="/random-paragraph-generator/">Random Paragraph Generator</a><a class="footer-link" href="/word-counter/">Word Counter</a><a class="footer-link footer-link--view-all" href="/word-tools/">View all →</a></div>
       <div><div class="footer-col-title">Browse by Letter</div><a class="footer-link" href="/random-words-starting-with/">Random Words Starting With (A–Z)</a><a class="footer-link" href="/random-words-starting-with/a">Random Words Starting with A</a><a class="footer-link" href="/random-words-starting-with/s">Random Words Starting with S</a><a class="footer-link" href="/random-words-starting-with/q">Random Words Starting with Q</a><a class="footer-link footer-link--view-all" href="/random-words-starting-with/">View all →</a></div>
       <div><div class="footer-col-title">Names by Origin</div><a class="footer-link" href="/random-spanish-name-generator/">Spanish Name Generator</a><a class="footer-link" href="/random-italian-name-generator/">Italian Name Generator</a><a class="footer-link" href="/random-japanese-name-generator/">Japanese Name Generator</a><a class="footer-link" href="/random-american-name-generator/">American Name Generator</a><a class="footer-link footer-link--view-all" href="/name-generators/">View all →</a></div>
       <div><div class="footer-col-title">Other Name Generators</div><a class="footer-link" href="/character-name-generator/">Character Name Generator</a><a class="footer-link" href="/fantasy-name-generator/">Fantasy Name Generator</a><a class="footer-link" href="/business-name-generator/">Business Name Generator</a><a class="footer-link" href="/band-name-generator/">Band Name Generator</a><a class="footer-link footer-link--view-all" href="/other-generators/">View all →</a></div>
@@ -975,7 +957,7 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="/scripts/tool-engine.js?v=26"></script>
+<script src="/scripts/tool-engine.js?v=27"></script>
 <script>
 (function bindSharedWordineerMenu() {
   const mega = document.getElementById('mega');

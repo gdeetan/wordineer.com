@@ -127,7 +127,7 @@
 }
 </script>
 
-<link rel="stylesheet" href="/styles/global.css?v=9">
+<link rel="stylesheet" href="/styles/global.css?v=12">
 <style>
 /* ── Tool layout ── */
 .tool-wrap  { max-width:960px; margin:0 auto; padding:24px 24px 0; }
@@ -243,7 +243,25 @@
   .word-ex.hidden { display: none !important; }
   .word-right { display: none !important; }
   @page { margin: 1.5cm; }
+
+  /* Worksheet mode */
+  body.is-worksheet .word-def { display: none !important; }
+  body.is-worksheet .word-badges { display: none !important; }
+  body.is-worksheet .word-right { display: none !important; }
+  body.is-worksheet .word-list { counter-reset: word-num; }
+  body.is-worksheet .word-item { counter-increment: word-num; padding: 14px 0 0; }
+  body.is-worksheet .word-text::before { content: counter(word-num) '. '; font-size: 0.9rem; color: #6b7280; font-weight: 700; }
+  body.is-worksheet .word-text { font-size: 1.3rem; }
+  body.is-worksheet .word-item::after { content: ''; display: block; border-bottom: 1px solid #9ca3af; margin-top: 18px; width: 70%; }
 }
+
+/* ── Classroom Mode ── */
+.classroom-btn { background: var(--bg-2); border: 1px solid var(--border); color: var(--text-2); border-radius: 7px; padding: 6px 12px; font-size: 12px; font-weight: 600; font-family: inherit; cursor: pointer; transition: background .15s, color .15s; }
+.classroom-btn:hover { border-color: var(--brand); color: var(--brand); }
+.classroom-btn.is-on { background: #1a1a2e; color: #fff; border-color: #1a1a2e; }
+body.is-classroom header, body.is-classroom nav, body.is-classroom .breadcrumb, body.is-classroom .hero, body.is-classroom .explainer, body.is-classroom .faq, body.is-classroom .who, body.is-classroom footer, body.is-classroom .ad, body.is-classroom [class*="ad-"], body.is-classroom .more-tools, body.is-classroom .saved-section { display: none !important; }
+body.is-classroom .tool-wrap { max-width: 100%; border-radius: 0; box-shadow: none; }
+body.is-classroom .results-col { min-height: 100vh; }
 </style>
 </head>
 
@@ -273,10 +291,6 @@
       <a class="mega-link" href="/random-sentence-generator/">Random Sentence Generator</a>
       <a class="mega-link" href="/random-paragraph-generator/">Random Paragraph Generator</a>
       <a class="mega-link" href="/word-counter/">Word Counter</a>
-      <a class="mega-link" href="/common-5-letter-words/">Common 5-Letter Words</a>
-      <a class="mega-link" href="/etymology-100-common-words/">Word Origins & Etymology</a>
-      <a class="mega-link" href="/spelling-bee-words-printable/">Spelling Bee Words Printable</a>
-      <a class="mega-link" href="/esl-vocabulary-cefr/">ESL Vocabulary (CEFR)</a>
       <a class="mega-link mega-link--view-all" href="/word-tools/">View all →</a>
     </div>
     <div class="mega-col">
@@ -335,7 +349,7 @@
   </div>
 </div>
 <div class="hero">
-  <div class="hero-badge">500+ Words · Filter by Theme · Print &amp; Save</div>
+  <div class="hero-badge">Kindergarten · Dolch Sight Words · Practice Mode</div>
   <h1>Kindergarten Spelling Bee Words</h1>
   <p>Generate a custom word list for your kindergartner — filter by theme, see simple definitions and example sentences, then print or save in one click. No login required.</p>
 </div>
@@ -404,6 +418,9 @@
           <span class="kb-count-label" id="kb-count">10 words</span>
           <button class="act-btn" id="kb-copy-all">Copy all</button>
           <button class="act-btn" id="kb-print-btn">Print list</button>
+          <button class="act-btn" id="kb-worksheet-btn">Print Worksheet</button>
+          <button class="act-btn" id="kb-share-btn">Share List</button>
+            <button class="classroom-btn" id="sb-classroom-btn">⊞ Classroom</button>
         </div>
         <ul class="word-list" id="kb-list"></ul>
       </div>
@@ -422,7 +439,7 @@
 
   </div>
 </div>
-
+<!-- Ad placeholder: reserved for future affiliate opportunity -->
 <div class="content-wrap">
   <div class="section">
     <h2 class="section-title">More spelling &amp; vocabulary tools</h2>
@@ -603,7 +620,7 @@
       <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-footer-strip-cta">Try free</a>
     </div>
     <div class="footer-grid">
-      <div><div class="footer-col-title">Writing &amp; Vocabulary</div><a class="footer-link" href="/">Random Word Generator</a><a class="footer-link" href="/random-sentence-generator/">Random Sentence Generator</a><a class="footer-link" href="/random-paragraph-generator/">Random Paragraph Generator</a><a class="footer-link" href="/word-counter/">Word Counter</a><a class="footer-link" href="/common-5-letter-words/">Common 5-Letter Words</a><a class="footer-link" href="/etymology-100-common-words/">Word Origins & Etymology</a><a class="footer-link" href="/spelling-bee-words-printable/">Spelling Bee Printable</a><a class="footer-link" href="/esl-vocabulary-cefr/">ESL Vocabulary (CEFR)</a><a class="footer-link footer-link--view-all" href="/word-tools/">View all →</a></div>
+      <div><div class="footer-col-title">Writing &amp; Vocabulary</div><a class="footer-link" href="/">Random Word Generator</a><a class="footer-link" href="/random-sentence-generator/">Random Sentence Generator</a><a class="footer-link" href="/random-paragraph-generator/">Random Paragraph Generator</a><a class="footer-link" href="/word-counter/">Word Counter</a><a class="footer-link footer-link--view-all" href="/word-tools/">View all →</a></div>
       <div><div class="footer-col-title">Browse by Letter</div><a class="footer-link" href="/random-words-starting-with/">Random Words Starting With (A–Z)</a><a class="footer-link" href="/random-words-starting-with/a">Random Words Starting with A</a><a class="footer-link" href="/random-words-starting-with/s">Random Words Starting with S</a><a class="footer-link" href="/random-words-starting-with/q">Random Words Starting with Q</a><a class="footer-link footer-link--view-all" href="/random-words-starting-with/">View all →</a></div>
       <div><div class="footer-col-title">Names by Origin</div><a class="footer-link" href="/random-spanish-name-generator/">Spanish Name Generator</a><a class="footer-link" href="/random-italian-name-generator/">Italian Name Generator</a><a class="footer-link" href="/random-japanese-name-generator/">Japanese Name Generator</a><a class="footer-link" href="/random-american-name-generator/">American Name Generator</a><a class="footer-link footer-link--view-all" href="/name-generators/">View all →</a></div>
       <div><div class="footer-col-title">Other Name Generators</div><a class="footer-link" href="/character-name-generator/">Character Name Generator</a><a class="footer-link" href="/fantasy-name-generator/">Fantasy Name Generator</a><a class="footer-link" href="/business-name-generator/">Business Name Generator</a><a class="footer-link" href="/band-name-generator/">Band Name Generator</a><a class="footer-link footer-link--view-all" href="/other-generators/">View all →</a></div>
@@ -623,7 +640,7 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="/scripts/tool-engine.js?v=26"></script>
+<script src="/scripts/tool-engine.js?v=27"></script>
 <script>
 (function bindSharedWordineerMenu() {
   const mega = document.getElementById('mega');
@@ -740,6 +757,10 @@
           '</div>' +
           '</li>';
       }).join('');
+      var wordNames = words.map(function (w) { return w.w; });
+      var shareUrl = new URL(window.location.href);
+      shareUrl.searchParams.set('words', wordNames.join(','));
+      history.replaceState(null, '', shareUrl.toString());
     },
 
     toggleSave: function (word) {
@@ -786,6 +807,20 @@
       if (navigator.clipboard) navigator.clipboard.writeText(word);
     },
 
+    shareList: function () {
+      var url = window.location.href;
+      var btn = document.getElementById('kb-share-btn');
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(url).then(function () {
+          if (btn) { btn.textContent = '✓ Copied!'; setTimeout(function () { btn.textContent = 'Share List'; }, 2000); }
+        });
+      } else {
+        var ta = document.createElement('textarea');
+        ta.value = url; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta);
+        if (btn) { btn.textContent = '✓ Copied!'; setTimeout(function () { btn.textContent = 'Share List'; }, 2000); }
+      }
+    },
+
     toggleDefs: function () {
       var show = document.getElementById('ctrl-defs').checked;
       [].slice.call(document.querySelectorAll('.word-def')).forEach(function (el) {
@@ -822,6 +857,14 @@
       document.getElementById('kb-reset-btn').addEventListener('click', function () { self.reset(); });
       document.getElementById('kb-copy-all').addEventListener('click', function () { self.copyAll(); });
       document.getElementById('kb-print-btn').addEventListener('click', function () { window.print(); });
+      var worksheetBtn = document.getElementById('kb-worksheet-btn');
+      if (worksheetBtn) worksheetBtn.addEventListener('click', function () {
+        document.body.classList.add('is-worksheet');
+        window.print();
+        document.body.classList.remove('is-worksheet');
+      });
+      var shareBtn = document.getElementById('kb-share-btn');
+      if (shareBtn) shareBtn.addEventListener('click', function () { self.shareList(); });
       document.getElementById('kb-copy-saved').addEventListener('click', function () { self.copySaved(); });
       document.getElementById('ctrl-defs').addEventListener('change', function () { self.toggleDefs(); });
       document.getElementById('ctrl-ex').addEventListener('change', function () { self.toggleEx(); });
@@ -849,7 +892,17 @@
         if (valid) self.generate();
       });
 
-      if (typeof requestIdleCallback !== 'undefined') {
+      var urlWords = new URLSearchParams(window.location.search).get('words');
+      if (urlWords) {
+        self.load().then(function (allWords) {
+          var wanted = urlWords.split(',').map(function (s) { return s.trim().toLowerCase(); });
+          var wordMap = {};
+          allWords.forEach(function (w) { wordMap[w.w.toLowerCase()] = w; });
+          var filtered = wanted.map(function (name) { return wordMap[name]; }).filter(Boolean);
+          if (filtered.length) { self.render(filtered); return; }
+          self.generate();
+        }).catch(function () { self.generate(); });
+      } else if (typeof requestIdleCallback !== 'undefined') {
         requestIdleCallback(function () { self.generate(); });
       } else {
         setTimeout(function () { self.generate(); }, 100);
@@ -879,6 +932,28 @@
       item.classList.toggle('open');
     });
   });
+
+  // Classroom mode
+  (function () {
+    var btn = document.getElementById('sb-classroom-btn');
+    function setClassroom(on) {
+      document.body.classList.toggle('is-classroom', on);
+      if (btn) {
+        btn.classList.toggle('is-on', on);
+        btn.textContent = on ? '✕ Exit Classroom' : '⊞ Classroom';
+      }
+      var url = new URL(window.location.href);
+      if (on) url.searchParams.set('mode', 'classroom');
+      else url.searchParams.delete('mode');
+      history.replaceState(null, '', url.toString());
+    }
+    if (btn) btn.addEventListener('click', function () {
+      setClassroom(!document.body.classList.contains('is-classroom'));
+    });
+    if (new URLSearchParams(window.location.search).get('mode') === 'classroom') {
+      setClassroom(true);
+    }
+  }());
 }());
 </script>
 </body>

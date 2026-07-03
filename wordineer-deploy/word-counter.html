@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.adsbygoogle = window.adsbygoogle || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  (function(w, d) {
+    var loaded = false;
+    var cfg = {
+      analyticsId: 'G-7DWH3EGM3Z',
+      adsClient: 'ca-pub-7200956978416233',
+      delay: 10000
+    };
+
+    function loadScript(src, attrs) {
+      var s = d.createElement('script');
+      s.async = true;
+      s.src = src;
+      if (attrs) {
+        Object.keys(attrs).forEach(function(key) {
+          s.setAttribute(key, attrs[key]);
+        });
+      }
+      d.head.appendChild(s);
+    }
+
+    function loadMarketing() {
+      if (loaded) return;
+      loaded = true;
+      gtag('js', new Date());
+      gtag('config', cfg.analyticsId);
+      loadScript('https://www.googletagmanager.com/gtag/js?id=' + cfg.analyticsId);
+      loadScript(
+        'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + cfg.adsClient,
+        { crossorigin: 'anonymous' }
+      );
+    }
+
+    function idleLoad() {
+      if ('requestIdleCallback' in w) {
+        w.requestIdleCallback(loadMarketing, { timeout: 5000 });
+      } else {
+        w.setTimeout(loadMarketing, cfg.delay);
+      }
+    }
+
+    ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function(eventName) {
+      w.addEventListener(eventName, loadMarketing, { once: true, passive: true });
+    });
+    w.addEventListener('load', function() {
+      w.setTimeout(idleLoad, cfg.delay);
+    }, { once: true });
+  })(window, document);
+</script>
+<meta name='impact-site-verification' value='32715504-1cfb-4324-bfc7-ae4cfa1591ea'>
+<link rel="preload" href="/fonts/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-sans-italic-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://wordineer.com/#website",
+      "name": "Wordineer",
+      "url": "https://wordineer.com",
+      "description": "Free online word tools for writers, students, and word game players — random word generator, name generators, word scramble, sentence generator, and more.",
+      "publisher": { "@id": "https://wordineer.com/#organization" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://wordineer.com/#organization",
+      "name": "Wordineer",
+      "url": "https://wordineer.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://wordineer.com/logo.png",
+        "width": 1254,
+        "height": 1254
+      },
+      "description": "Wordineer provides free online word tools for writers, students, and word game players."
+    }
+  ]
+}
+</script>
+<title>Free Word Counter — Words, Characters &amp; Readability | Wordineer</title>
+<meta name="description" content="Count words, characters, sentences, paragraphs, and readability in real time. Check social media character limits for Twitter, Instagram, LinkedIn, and more. Free, no sign-up.">
+<link rel="canonical" href="https://wordineer.com/word-counter/">
+<meta property="og:type"        content="website">
+<meta property="og:site_name"   content="Wordineer">
+<meta property="og:title"       content="Free Word Counter | Wordineer">
+<meta property="og:description" content="Instant word count, character count, readability scores, and social media character limits. Paste your text and get results immediately — runs entirely in your browser.">
+<meta property="og:url"         content="https://wordineer.com/word-counter/">
+<meta property="og:image"       content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How does the word counter work?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The word counter runs entirely in your browser using JavaScript. When you type or paste text into the input area, the tool splits the text on whitespace to count words, counts every character individually, splits on terminal punctuation for sentences, and splits on blank lines for paragraphs. All calculations happen on your device — nothing is sent to a server." }
+    },
+    {
+      "@type": "Question",
+      "name": "What counts as a word?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Any sequence of non-whitespace characters separated by spaces, tabs, or line breaks counts as one word. This is the same definition used by Microsoft Word, Google Docs, and most academic submission platforms. Hyphenated terms like 'well-known' count as one word; 'word counter' counts as two." }
+    },
+    {
+      "@type": "Question",
+      "name": "How is reading time calculated?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Reading time is calculated at 250 words per minute, which is the widely cited average silent reading speed for adults. Speaking time uses 130 words per minute, which is the typical pace of a clear conference talk or podcast. Both figures are approximations — fast readers and slow readers will differ, but these are useful planning estimates." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Flesch Reading Ease?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Flesch Reading Ease is a formula that scores text on a 0–100 scale based on average sentence length and average syllables per word. Higher scores are easier to read. A score of 60–70 is considered Standard — appropriate for newspapers and general web content. A score above 80 is Easy, suitable for casual blogs and FAQs. A score below 50 is Difficult, common in academic writing and legal documents." }
+    },
+    {
+      "@type": "Question",
+      "name": "What does grade level mean?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The Flesch-Kincaid Grade Level translates the readability formula into a U.S. school grade. A score of 8 means a typical eighth-grader could understand the text. Most popular fiction targets grade 6–8. Most marketing copy aims for grade 6 or lower. Academic papers routinely score grade 14–18. The grade level is not a measure of quality — it is a measure of accessibility." }
+    },
+    {
+      "@type": "Question",
+      "name": "How are keywords counted?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The top keywords section counts word frequency across your text after removing common stop words like 'the', 'a', 'and', 'in', 'is', and roughly 50 other filler words. The remaining words are ranked by how many times they appear. This gives you a rough sense of the dominant topics in your text, which is useful for checking keyword balance before publishing." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my text private?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every calculation happens locally in your browser tab. Your text is never sent to Wordineer's servers or any third-party service. There is no analytics on what you paste, no log files, and no database. Close the tab and the text is gone — nothing is retained." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the word counter work on mobile?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. The word counter is fully responsive and works on phones and tablets. The stat cards reflow into two columns on small screens. You can paste text from another app using your device's clipboard, and the counts update immediately." }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Free Word Counter",
+  "url": "https://wordineer.com/word-counter/",
+  "description": "Count words, characters, sentences, paragraphs, and readability in real time. Check social media character limits. Runs entirely in your browser — no sign-up required.",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@id": "https://wordineer.com/#organization" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Word Tools", "item": "https://wordineer.com/word-tools/" },
+    { "@type": "ListItem", "position": 3, "name": "Word Counter", "item": "https://wordineer.com/word-counter/" }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="/styles/global.css?v=12">
+<style>
+/* ── Tool wrapper ── */
+.tool-wrap { max-width:960px; margin:0 auto; padding:24px 24px 0; }
+.tool-card { border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg); box-shadow:var(--shadow); }
+
+/* ── Textarea area ── */
+.wc-input-wrap { padding:16px; border-bottom:1px solid var(--border-2); }
+.wc-textarea {
+  width:100%; min-height:200px; resize:vertical;
+  font-size:15px; line-height:1.65; color:var(--text);
+  background:var(--bg); border:1px solid var(--border-2);
+  border-radius:8px; padding:12px 14px; font-family:inherit;
+  box-sizing:border-box; outline:none;
+  transition:border-color .15s;
+}
+.wc-textarea:focus { border-color:var(--brand); }
+.wc-textarea::placeholder { color:var(--text-3); }
+
+/* ── Action bar ── */
+.wc-actions { display:flex; align-items:center; gap:8px; margin-top:10px; flex-wrap:wrap; }
+.wc-btn {
+  font-size:12px; padding:6px 13px; border:1px solid var(--border);
+  border-radius:6px; background:var(--bg); color:var(--text-2);
+  cursor:pointer; font-family:inherit; transition:background .12s, border-color .12s;
+  font-weight:500; letter-spacing:-.01em;
+}
+.wc-btn:hover { background:var(--bg-2); border-color:var(--brand); color:var(--text); }
+.wc-btn-primary { background:var(--brand); color:white; border-color:var(--brand); }
+.wc-btn-primary:hover { background:var(--brand-dark); border-color:var(--brand-dark); color:white; }
+.wc-case-wrap { position:relative; display:inline-block; }
+.wc-case-menu {
+  display:none; position:absolute; top:calc(100% + 4px); left:0;
+  background:var(--bg); border:1px solid var(--border); border-radius:8px;
+  box-shadow:0 4px 16px rgba(0,0,0,.1); min-width:140px; z-index:100; overflow:hidden;
+}
+.wc-case-menu.open { display:block; }
+.wc-case-opt {
+  display:block; width:100%; padding:9px 14px; text-align:left;
+  font-size:13px; color:var(--text); background:transparent;
+  border:none; cursor:pointer; font-family:inherit; transition:background .1s;
+}
+.wc-case-opt:hover { background:var(--bg-2); }
+.wc-char-hint { font-size:11px; color:var(--text-3); margin-left:auto; }
+
+/* ── Stat cards grid ── */
+.wc-stats { padding:16px; }
+.stat-section-label {
+  font-size:10px; font-weight:600; color:var(--text-3);
+  text-transform:uppercase; letter-spacing:.06em;
+  margin-bottom:8px; margin-top:4px;
+}
+.stat-grid {
+  display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:16px;
+}
+.stat-card {
+  background:var(--bg-2); border:1px solid var(--border-2);
+  border-radius:8px; padding:14px 12px;
+}
+.stat-val {
+  font-size:22px; font-weight:700; color:var(--text);
+  letter-spacing:-.03em; line-height:1.1;
+}
+.stat-lbl {
+  font-size:10px; color:var(--text-3); font-weight:600;
+  text-transform:uppercase; letter-spacing:.05em; margin-top:3px;
+}
+
+/* ── Time & Readability row ── */
+.wc-meta-row { display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:10px; margin-bottom:16px; }
+.meta-card {
+  background:var(--bg-2); border:1px solid var(--border-2);
+  border-radius:8px; padding:14px 12px;
+}
+.meta-val { font-size:18px; font-weight:700; color:var(--text); letter-spacing:-.02em; }
+.meta-lbl { font-size:10px; color:var(--text-3); font-weight:600; text-transform:uppercase; letter-spacing:.05em; margin-top:3px; }
+.read-chip {
+  display:inline-block; font-size:10px; font-weight:700;
+  padding:2px 7px; border-radius:10px; margin-top:4px;
+  letter-spacing:.02em;
+}
+
+/* ── Social limits panel ── */
+.wc-social {
+  border:1px solid var(--border-2); border-radius:8px;
+  overflow:hidden; margin-bottom:16px;
+}
+.wc-social-header {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:11px 14px; background:var(--bg-2);
+  border-bottom:1px solid var(--border-2); cursor:pointer;
+  user-select:none;
+}
+.wc-social-title {
+  font-size:11px; font-weight:700; color:var(--text-2);
+  text-transform:uppercase; letter-spacing:.06em;
+}
+.wc-social-toggle-icon { color:var(--text-3); font-size:12px; transition:transform .2s; }
+.wc-social-toggle-icon.open { transform:rotate(180deg); }
+.wc-social-body { display:none; padding:0 14px; }
+.wc-social-body.open { display:block; }
+.social-row { padding:10px 0; border-bottom:1px solid var(--border-2); }
+.social-row:last-child { border-bottom:none; }
+.social-row-top {
+  display:flex; align-items:center; justify-content:space-between;
+  margin-bottom:5px;
+}
+.social-name { font-size:12px; font-weight:600; color:var(--text); }
+.social-count { font-size:11px; color:var(--text-3); font-weight:500; }
+.social-count.warn { color:#f59e0b; }
+.social-count.over { color:#ef4444; }
+.social-track { height:3px; background:var(--border-2); border-radius:2px; overflow:hidden; }
+.social-fill { height:100%; border-radius:2px; background:var(--brand); transition:width .25s; max-width:100%; }
+.social-fill.warn { background:#f59e0b; }
+.social-fill.over { background:#ef4444; }
+
+/* ── Top keywords ── */
+.wc-keywords { border:1px solid var(--border-2); border-radius:8px; overflow:hidden; }
+.wc-kw-header {
+  padding:11px 14px; background:var(--bg-2);
+  border-bottom:1px solid var(--border-2);
+  font-size:11px; font-weight:700; color:var(--text-2);
+  text-transform:uppercase; letter-spacing:.06em;
+}
+.wc-kw-empty {
+  padding:20px 14px; font-size:13px; color:var(--text-3); text-align:center;
+}
+.kw-row {
+  display:flex; align-items:center; gap:10px;
+  padding:7px 14px; border-bottom:1px solid var(--border-2);
+}
+.kw-row:last-child { border-bottom:none; }
+.kw-rank { font-size:11px; color:var(--text-3); min-width:16px; text-align:right; }
+.kw-word { font-size:13px; font-weight:600; color:var(--text); flex:1; }
+.kw-bar-wrap { width:80px; }
+.kw-bar-track { height:3px; background:var(--border-2); border-radius:2px; }
+.kw-bar-fill { height:100%; border-radius:2px; background:var(--brand); }
+.kw-count { font-size:12px; color:var(--text-3); min-width:30px; text-align:right; }
+
+/* ── Toast ── */
+.wc-toast {
+  position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(10px);
+  background:#1a1a1a; color:white; font-size:13px; font-weight:600;
+  padding:10px 18px; border-radius:8px; opacity:0;
+  transition:opacity .2s, transform .2s; pointer-events:none; z-index:999;
+}
+.wc-toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+
+/* ── Mobile ── */
+@media (max-width:640px) {
+  .stat-grid { grid-template-columns:repeat(2,1fr); }
+  .wc-meta-row { grid-template-columns:repeat(2,1fr); }
+  .wc-char-hint { display:none; }
+}
+@media (max-width:400px) {
+  .stat-grid { grid-template-columns:repeat(2,1fr); }
+}
+</style>
+</head>
+
+<body>
+<nav class="nav">
+  <a class="nav-logo" href="/">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 15 15" fill="none"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </div>
+    Wordineer
+  </a>
+  <div class="nav-links">
+    <a href="/word-tools/">Tools</a>
+    <a href="/blog/">Blog</a>
+  </div>
+  <div>
+    <button class="hamburger" type="button" aria-label="All tools" aria-controls="mega" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mega" id="mega">
+  <div class="mega-inner">
+    <div class="mega-col">
+      <div class="mega-cat">Writing &amp; Vocabulary</div>
+      <a class="mega-link" href="/">Random Word Generator</a>
+      <a class="mega-link" href="/random-sentence-generator/">Random Sentence Generator</a>
+      <a class="mega-link" href="/random-paragraph-generator/">Random Paragraph Generator</a>
+      <a class="mega-link active" href="/word-counter/">Word Counter</a>
+      <a class="mega-link mega-link--view-all" href="/word-tools/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Browse by Letter</div>
+      <a class="mega-link" href="/random-words-starting-with/">Random Words Starting With (A–Z)</a>
+      <a class="mega-link" href="/random-words-starting-with/a">Random Words Starting with A</a>
+      <a class="mega-link" href="/random-words-starting-with/s">Random Words Starting with S</a>
+      <a class="mega-link" href="/random-words-starting-with/q">Random Words Starting with Q</a>
+      <a class="mega-link mega-link--view-all" href="/random-words-starting-with/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Names by Origin</div>
+      <a class="mega-link" href="/random-spanish-name-generator/">Spanish Name Generator</a>
+      <a class="mega-link" href="/random-italian-name-generator/">Italian Name Generator</a>
+      <a class="mega-link" href="/random-japanese-name-generator/">Japanese Name Generator</a>
+      <a class="mega-link" href="/random-american-name-generator/">American Name Generator</a>
+      <a class="mega-link mega-link--view-all" href="/name-generators/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Other Name Generators</div>
+      <a class="mega-link" href="/character-name-generator/">Character Name Generator</a>
+      <a class="mega-link" href="/fantasy-name-generator/">Fantasy Name Generator</a>
+      <a class="mega-link" href="/business-name-generator/">Business Name Generator</a>
+      <a class="mega-link" href="/band-name-generator/">Band Name Generator</a>
+      <a class="mega-link mega-link--view-all" href="/other-generators/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Account &amp; Security</div>
+      <a class="mega-link" href="/username-generator/">Username Generator</a>
+      <a class="mega-link" href="/password-generator/">Password Generator</a>
+      <a class="mega-link" href="/passphrase-generator/">Passphrase Generator</a>
+      <a class="mega-link" href="/memorable-password-generator/">Memorable Password Generator</a>
+      <a class="mega-link mega-link--view-all" href="/account-tools/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Games &amp; fun</div>
+      <a class="mega-link" href="/pictionary-phrase-generator/">Pictionary Phrase Generator</a>
+      <a class="mega-link" href="/crossword-puzzle-generator/">Crossword Puzzle Generator</a>
+      <a class="mega-link" href="/wordle-helper/">Wordle Helper</a>
+      <a class="mega-link" href="/wordle-answers/">Wordle Answer Archive</a>
+      <a class="mega-link mega-link--view-all" href="/number-chance/">View all →</a>
+    </div>
+  </div>
+</div>
+
+
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/word-tools/">Word Tools</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Word Counter</span>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free · No sign-up · Browser-only
+  </div>
+  <h1>Word Counter</h1>
+  <p>Paste or type your text below. Word count, character count, readability scores, and social media character limits all update instantly — everything runs in your browser and nothing is sent to any server.</p>
+</div>
+<div class="tool-wrap">
+  <div class="tool-card">
+
+    <!-- Textarea -->
+    <div class="wc-input-wrap">
+      <textarea
+        id="wc-input"
+        class="wc-textarea"
+        placeholder="Paste or type your text here…"
+        aria-label="Text to analyse"
+        spellcheck="true"
+      ></textarea>
+      <div class="wc-actions">
+        <button class="wc-btn wc-btn-primary" id="wc-copy-btn" type="button">Copy text</button>
+        <button class="wc-btn" id="wc-clear-btn" type="button">Clear</button>
+        <div class="wc-case-wrap">
+          <button class="wc-btn" id="wc-case-btn" type="button">Case ▾</button>
+          <div class="wc-case-menu" id="wc-case-menu">
+            <button class="wc-case-opt" data-case="upper">UPPERCASE</button>
+            <button class="wc-case-opt" data-case="lower">lowercase</button>
+            <button class="wc-case-opt" data-case="title">Title Case</button>
+            <button class="wc-case-opt" data-case="sentence">Sentence case</button>
+          </div>
+        </div>
+        <span class="wc-char-hint" id="wc-char-hint" aria-live="polite"></span>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="wc-stats">
+
+      <!-- Core stat cards -->
+      <div class="stat-section-label">Text statistics</div>
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-val" id="sc-words">0</div>
+          <div class="stat-lbl">Words</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val" id="sc-chars">0</div>
+          <div class="stat-lbl">Characters</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val" id="sc-chars-ns">0</div>
+          <div class="stat-lbl">Chars (no spaces)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val" id="sc-sents">0</div>
+          <div class="stat-lbl">Sentences</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val" id="sc-paras">0</div>
+          <div class="stat-lbl">Paragraphs</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val" id="sc-unique">0</div>
+          <div class="stat-lbl">Unique Words</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val" id="sc-avgwps">—</div>
+          <div class="stat-lbl">Avg Words/Sentence</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val" id="sc-pages">—</div>
+          <div class="stat-lbl">Est. Pages</div>
+        </div>
+      </div>
+
+      <!-- Time + Readability -->
+      <div class="stat-section-label">Time &amp; readability</div>
+      <div class="wc-meta-row">
+        <div class="meta-card">
+          <div class="meta-val" id="mc-read">—</div>
+          <div class="meta-lbl">Reading Time</div>
+        </div>
+        <div class="meta-card">
+          <div class="meta-val" id="mc-speak">—</div>
+          <div class="meta-lbl">Speaking Time</div>
+        </div>
+        <div class="meta-card">
+          <div class="meta-val" id="mc-flesch">—</div>
+          <div class="meta-lbl">Flesch Reading Ease</div>
+          <div id="mc-flesch-chip"></div>
+        </div>
+        <div class="meta-card">
+          <div class="meta-val" id="mc-grade">—</div>
+          <div class="meta-lbl">Grade Level</div>
+        </div>
+      </div>
+
+      <!-- Social limits panel -->
+      <div class="wc-social">
+        <div class="wc-social-header" id="wc-social-toggle">
+          <span class="wc-social-title">Social media character limits</span>
+          <span class="wc-social-toggle-icon open" id="wc-social-icon">▲</span>
+        </div>
+        <div class="wc-social-body open" id="wc-social-body">
+          <div class="social-row" id="sr-twitter">
+            <div class="social-row-top">
+              <span class="social-name">Twitter / X</span>
+              <span class="social-count" id="sc-twitter">0 / 280</span>
+            </div>
+            <div class="social-track"><div class="social-fill" id="sf-twitter" style="width:0%"></div></div>
+          </div>
+          <div class="social-row" id="sr-instagram">
+            <div class="social-row-top">
+              <span class="social-name">Instagram caption</span>
+              <span class="social-count" id="sc-instagram">0 / 2,200</span>
+            </div>
+            <div class="social-track"><div class="social-fill" id="sf-instagram" style="width:0%"></div></div>
+          </div>
+          <div class="social-row" id="sr-linkedin">
+            <div class="social-row-top">
+              <span class="social-name">LinkedIn post</span>
+              <span class="social-count" id="sc-linkedin">0 / 3,000</span>
+            </div>
+            <div class="social-track"><div class="social-fill" id="sf-linkedin" style="width:0%"></div></div>
+          </div>
+          <div class="social-row" id="sr-meta">
+            <div class="social-row-top">
+              <span class="social-name">Meta ad headline</span>
+              <span class="social-count" id="sc-meta">0 / 40</span>
+            </div>
+            <div class="social-track"><div class="social-fill" id="sf-meta" style="width:0%"></div></div>
+          </div>
+          <div class="social-row" id="sr-youtube">
+            <div class="social-row-top">
+              <span class="social-name">YouTube description</span>
+              <span class="social-count" id="sc-youtube">0 / 5,000</span>
+            </div>
+            <div class="social-track"><div class="social-fill" id="sf-youtube" style="width:0%"></div></div>
+          </div>
+          <div class="social-row" id="sr-sms">
+            <div class="social-row-top">
+              <span class="social-name">SMS (1 segment)</span>
+              <span class="social-count" id="sc-sms">0 / 160</span>
+            </div>
+            <div class="social-track"><div class="social-fill" id="sf-sms" style="width:0%"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Top keywords -->
+      <div class="wc-keywords">
+        <div class="wc-kw-header">Top keywords</div>
+        <div id="wc-kw-list">
+          <div class="wc-kw-empty">Paste text above to see keyword frequency.</div>
+        </div>
+      </div>
+
+    </div><!-- /.wc-stats -->
+  </div><!-- /.tool-card -->
+</div><!-- /.tool-wrap -->
+<div class="wc-toast" id="wc-toast">Copied!</div>
+
+<div class="content-wrap">
+  <div class="section">
+    <h2 class="section-title">More word tools</h2>
+    <p class="section-sub">Generators, games, and vocabulary tools — all free</p>
+    <div class="tools-grid">
+      <a class="tool-item" href="/random-quote-generator/"><div class="tool-icon" style="background:#FBEAF0"><svg viewBox="0 0 13 13" fill="none"><path d="M3 4.5h3.5M3 8.5h4.5" stroke="#A13B63" stroke-width="1.1" stroke-linecap="round"/><path d="M8.2 3.5h1.4v2.1c0 .5.4.9.9.9H11v1.4H9.6c-1.2 0-2.1-.9-2.1-2.1z" fill="#A13B63"/><path d="M2.2 5.2h1.4V7c0 .5.4.9.9.9h.4v1.4h-.4C3.3 9.3 2.2 8.2 2.2 7z" fill="#A13B63"/></svg></div><div class="tool-name">Random Quote Generator</div><div class="tool-desc">Random quotes with filters for topic, author, tone, length, favorites, and image cards.</div></a>
+      <a class="tool-item" href="/random-wordle-generator/"><div class="tool-icon" style="background:#E8F4FE"><svg viewBox="0 0 13 13" fill="none"><rect x='2' y='2' width='3.5' height='3.5' rx='0.5' fill='#2B7FD4'/><rect x='7.5' y='2' width='3.5' height='3.5' rx='0.5' fill='#2B7FD4' opacity='.4'/><rect x='2' y='7.5' width='3.5' height='3.5' rx='0.5' fill='#2B7FD4' opacity='.4'/><rect x='7.5' y='7.5' width='3.5' height='3.5' rx='0.5' fill='#2B7FD4'/></svg></div><div class="tool-name">Random Wordle Generator</div><div class="tool-desc">Random 5-letter words for Wordle. Filter by difficulty and letter.</div></a>
+      <a class="tool-item" href="/wordle-helper/"><div class="tool-icon" style="background:#E1F5EE"><svg viewBox="0 0 13 13" fill="none"><rect x='2' y='2' width='3.5' height='3.5' rx='0.5' fill='#1D9E75'/><rect x='7.5' y='2' width='3.5' height='3.5' rx='0.5' fill='#BA7517'/><rect x='2' y='7.5' width='3.5' height='3.5' rx='0.5' fill='none' stroke='#9a9a94' stroke-width='1'/><rect x='7.5' y='7.5' width='3.5' height='3.5' rx='0.5' fill='#1D9E75'/></svg></div><div class="tool-name">Wordle Helper</div><div class="tool-desc">Entropy-ranked solver — enter your clues and get the single best next guess, not just a filtered list.</div></a>
+      <a class="tool-item" href="/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="#534AB7" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="tool-name">Random word</div><div class="tool-desc">Filter by type, difficulty, length</div></a>
+      <a class="tool-item" href="/random-noun-generator/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h9M2 7h6M2 10h8" stroke="#534AB7" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="tool-name">Random Noun Generator</div><div class="tool-desc">Generate random nouns — filter by type (abstract, concrete, proper, collective) and difficulty.</div></a>
+      <a class="tool-item" href="/random-verb-generator/"><div class="tool-icon" style="background:#EEF6FE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h9M2 7h7M2 10h5" stroke="#2B6CB0" stroke-width="1.3" stroke-linecap="round"/><path d="M10 9l2 1.5-2 1.5" stroke="#2B6CB0" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="tool-name">Random Verb Generator</div><div class="tool-desc">Generate random verbs — filter by type (action, linking, auxiliary, modal) and difficulty.</div></a>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div>
+    <h2 class="section-title">Other tools</h2>
+    <p class="section-sub">Numbers, names, games and more</p>
+    <div class="other-grid">
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3h9M2 6.5h7M2 10h5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Writing &amp; Vocabulary</div><a class="other-link" href="/">Random Word Generator</a><a class="other-link" href="/random-sentence-generator/">Random Sentence Generator</a><a class="other-link" href="/random-paragraph-generator/">Random Paragraph Generator</a><a class="other-link" href="/word-counter/">Word Counter</a><a class="other-link other-link--view-all" href="/word-tools/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h3.5M2 7h9M2 10h6" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Browse by Letter</div><a class="other-link" href="/random-words-starting-with/">Random Words Starting With (A–Z)</a><a class="other-link" href="/random-words-starting-with/a">Random Words Starting with A</a><a class="other-link" href="/random-words-starting-with/s">Random Words Starting with S</a><a class="other-link" href="/random-words-starting-with/q">Random Words Starting with Q</a><a class="other-link other-link--view-all" href="/random-words-starting-with/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4.5" r="2.5" stroke="currentColor" stroke-width="1"/><path d="M1.5 11.5c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Names by Origin</div><a class="other-link" href="/random-spanish-name-generator/">Spanish Name Generator</a><a class="other-link" href="/random-italian-name-generator/">Italian Name Generator</a><a class="other-link" href="/random-japanese-name-generator/">Japanese Name Generator</a><a class="other-link" href="/random-american-name-generator/">American Name Generator</a><a class="other-link other-link--view-all" href="/name-generators/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="1.5" width="9" height="10" rx="1" stroke="currentColor" stroke-width="1"/><path d="M4 4.5h5M4 6.5h5M4 8.5h3" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Other Name Generators</div><a class="other-link" href="/character-name-generator/">Character Name Generator</a><a class="other-link" href="/fantasy-name-generator/">Fantasy Name Generator</a><a class="other-link" href="/business-name-generator/">Business Name Generator</a><a class="other-link" href="/band-name-generator/">Band Name Generator</a><a class="other-link other-link--view-all" href="/other-generators/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="3.5" y="5.5" width="6" height="5" rx="1" stroke="currentColor" stroke-width="1"/><path d="M5 5.5V4a1.5 1.5 0 013 0v1.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Account &amp; Security</div><a class="other-link" href="/password-generator/">Password Generator</a><a class="other-link" href="/passphrase-generator/">Passphrase Generator</a><a class="other-link" href="/memorable-password-generator/">Memorable Password Generator</a><a class="other-link" href="/username-generator/">Username Generator</a><a class="other-link other-link--view-all" href="/account-tools/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="1" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="1" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/></svg>Games &amp; fun</div><a class="other-link" href="/pictionary-phrase-generator/">Pictionary Phrase Generator</a><a class="other-link" href="/wordle-helper/">Wordle Helper</a><a class="other-link other-link--view-all" href="/number-chance/">View all →</a></div>
+    </div>
+  </div>
+
+  <div class="ad-rect">
+    <span class="ad-tag">Advertisement · 336×280</span>
+    <div class="ad-rect-img"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4C10.3 4 4 10.3 4 18s6.3 14 14 14 14-6.3 14-14S25.7 4 18 4z" fill="white" opacity=".2"/><path d="M12 18c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="18" r="2.5" fill="white"/></svg></div>
+    <div class="ad-rect-content">
+      <div class="ad-rect-title">Grammarly — write with confidence</div>
+      <div class="ad-rect-body">Instantly improve grammar, spelling, clarity, and tone. Works everywhere you write online.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
+    </div>
+  </div>
+  <div class="divider"></div>
+
+<div class="explainer">
+  <h2>What Is a Word Counter?</h2>
+  <p>A word counter is a simple but indispensable writing utility. You paste your text in, and the tool breaks it down into a set of metrics you'd otherwise have to calculate yourself: word count, character count, sentence count, paragraph count, reading time, and more. Writers have needed these numbers for as long as writing has had requirements attached to it — from essay word limits in school to character caps on social platforms to minimum length targets from editors and content managers.</p>
+  <p>This particular word counter goes beyond the basics. Instead of just handing you a word count, it shows you how your text performs: how long it takes to read aloud, how easy it is to understand, and whether it fits the character limits of every major social media platform. All of that happens instantly, in your browser, without an account or a loading screen.</p>
+
+  <h2>What This Tool Measures</h2>
+  <p>Here's what each metric means and why it's useful:</p>
+  <p><strong>Words</strong> — Every whitespace-separated token counts as one word. This matches how Microsoft Word, Google Docs, and most academic platforms count words. Hyphenated compounds like "well-known" count as one word. "Word counter" counts as two.</p>
+  <p><strong>Characters (with spaces)</strong> — The total length of your text, including every space. This is the number that matters for platforms that count all characters, not just letters.</p>
+  <p><strong>Characters (without spaces)</strong> — The pure content length with spaces stripped out. Used in translation pricing (translators are often paid per character, not per word), typesetting, and some ad specifications.</p>
+  <p><strong>Sentences</strong> — Split on terminal punctuation: periods, exclamation marks, and question marks. Useful for spotting monotony. If all your sentences are a similar length, the writing can feel robotic. A mix of short and long sentences is generally more engaging.</p>
+  <p><strong>Paragraphs</strong> — Split on blank lines. A high paragraph count alongside a low word count means short, punchy writing — fine for landing pages, not typical for essays. A low paragraph count with high word count means long blocks of text, which can be difficult to scan.</p>
+  <p><strong>Unique words</strong> — How many distinct words appear in your text, versus the total word count. A low unique-to-total ratio can signal repetitive writing. This isn't always bad — technical writing often repeats key terms deliberately — but for general prose, variety tends to be more engaging.</p>
+  <p><strong>Average words per sentence</strong> — Aim for 15–20 for general audiences. Academic writing typically runs higher. Conversational writing and blog posts usually run lower. If your average pushes above 25, scan for sentences that could reasonably split into two.</p>
+  <p><strong>Estimated pages</strong> — Calculated at 250 words per page, the standard assumption used by most publishers and academic institutions. This is double-spaced, 12pt font, standard margins. It's a planning number, not a guarantee.</p>
+  <p><strong>Reading time</strong> — Based on 250 words per minute, the widely cited average silent reading speed for adults. Useful for blog posts, article introductions, and anywhere you want to set reader expectations.</p>
+  <p><strong>Speaking time</strong> — Based on 130 words per minute, the typical pace of a clear conference presentation or podcast. Faster than this, and listeners start to struggle. Use this when preparing talks, pitches, or scripts.</p>
+
+  <h2>Understanding Readability Scores</h2>
+  <p>Readability scores try to predict how easy your text is to understand. This tool uses two of the most established formulas.</p>
+  <p><strong>Flesch Reading Ease</strong> runs from 0 to 100. Higher is easier to read. Here's what the ranges mean in practice:</p>
+  <p>90–100 is Very Easy — roughly a 5th-grade level. Think simple instructions, children's content, and some viral social posts. 70–80 is Fairly Easy — most people can read this comfortably. 60–70 is Standard — newspapers, general blog posts, and product descriptions typically land here. 50–60 is Fairly Difficult — more demanding, but still accessible to a general adult reader. Below 50 is Difficult — academic papers, legal documents, and technical writing routinely score here. Below 30 is Very Difficult — specialised professional content.</p>
+  <p><strong>Flesch-Kincaid Grade Level</strong> converts the same math into a U.S. school grade. A score of 8 means a typical eighth-grader could follow the text. Most bestselling novels aim for grade 6–8. Most marketing copy targets grade 6 or lower. Academic work routinely lands at grade 14–18. The grade level doesn't measure quality — it measures accessibility. Hemingway famously wrote at grade 4. Legal contracts routinely hit grade 18. The right grade level depends entirely on your audience.</p>
+  <p>Neither score is prescriptive. A high grade level isn't a failure; it might mean your audience is specialists who expect technical language. A low grade level isn't dumbing down; it often means your writing is direct and efficient.</p>
+
+  <h2>Social Media Character Limits</h2>
+  <p>Every major platform enforces its own limits, and they're quite different from each other. The social limits panel in this tool shows your live character count against each limit as you type:</p>
+  <p><strong>Twitter / X</strong> caps posts at 280 characters. This is the tightest limit for public text — every character counts. Spaces, punctuation, and even line breaks all count toward the limit.</p>
+  <p><strong>Instagram captions</strong> allow up to 2,200 characters, but only the first 125 characters show before the "more" truncation. Write your most important content first.</p>
+  <p><strong>LinkedIn posts</strong> allow up to 3,000 characters for standard posts. This is the most generous of the short-form platforms.</p>
+  <p><strong>Meta ad headlines</strong> are limited to 40 characters — the tightest constraint in paid advertising. Every word has to earn its place. Over-limit copy is rejected at submission time, so it's worth checking before you log in to Ads Manager.</p>
+  <p><strong>YouTube descriptions</strong> allow up to 5,000 characters, but search engines and the YouTube interface typically show only the first 100–150 characters before truncation. The first two sentences matter most for click-through.</p>
+  <p><strong>SMS</strong> segments are 160 characters for standard GSM messages. Go over, and your message splits into multiple segments — each billed separately on some carriers. If you're writing SMS marketing copy, staying under 160 is important for cost control.</p>
+  <p>The bar under each platform turns amber as you approach 80% of the limit and red when you exceed it. The character count shows how many characters you've used out of the maximum.</p>
+
+  <h2>Best Practices for Using Word Count Data</h2>
+  <p>A few principles for getting real value out of these metrics:</p>
+  <p><strong>Don't optimise for a target number — optimise for the reader.</strong> Word count matters because length affects reader behaviour, not because some number is inherently correct. A 1,500-word article that completely answers a question outperforms a padded 2,500-word article that buries the answer in filler. Use word count to check that you've said enough, not to hit a quota.</p>
+  <p><strong>Use reading time as a communication tool.</strong> Adding "4-minute read" to the top of a blog post sets expectations and has been shown to reduce bounce rates. This tool gives you that number automatically — round to the nearest minute and include it in your post introduction.</p>
+  <p><strong>Watch your average sentence length.</strong> If your average words-per-sentence is consistently above 25, look for run-on sentences that could split into two. Long sentences aren't wrong — some ideas require length — but a consistent pattern of long sentences fatigues readers without them realising why.</p>
+  <p><strong>Use keyword frequency as a sanity check, not a target.</strong> If your primary topic word appears only once in a 1,500-word article, you may have drifted off-topic. If it appears 40 times, you've over-optimised and the text will read awkwardly. The 1–2% range is a rough guide for your main keyword, with secondary terms appearing less frequently. Use this tool's keyword table to see what words are actually dominating your text — sometimes the answer is surprising.</p>
+  <p><strong>Check character counts before you publish, not after.</strong> Catching that your Meta ad headline is 43 characters here takes two seconds. Finding out after you've spent 20 minutes in Ads Manager setting up the campaign costs you time and frustration.</p>
+
+  <h2>How It Works</h2>
+  <p>This tool runs entirely in your browser using JavaScript. When you type or paste text, the tool processes it locally — no request goes to any server, no data leaves your tab. The word count, character count, readability scores, and keyword analysis all run on your device in real time. Close the tab and your text disappears; there is no database, no log file, and no stored content of any kind.</p>
+  <p>Readability scores use the Flesch and Flesch-Kincaid formulas, which calculate average sentence length (words per sentence) and average word complexity (syllables per word). Syllables are estimated using a standard English heuristic — counting vowel groups with adjustments for silent letters. The estimates are accurate enough for meaningful guidance but not clinically precise.</p>
+</div>
+  <div class="divider"></div>
+
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">How does the word counter work?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Everything runs in your browser using JavaScript. The moment you type or paste text, the tool splits it on whitespace for words, scans every character for the character counts, looks for terminal punctuation for sentence detection, and watches for blank lines for paragraph counting. There is no button to press and no server involved. Results appear in real time as you edit.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What counts as a word?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Any sequence of non-whitespace characters separated by a space, tab, or line break counts as one word. This is the same definition used by Microsoft Word, Google Docs, and most academic submission systems. "Well-known" is one word. "Word counter" is two. Numbers like "2024" count as one word.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">How is reading time calculated?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Reading time uses 250 words per minute, the widely cited average silent reading speed for adults reading standard prose. Speaking time uses 130 words per minute, the pace of a clear conference presentation or podcast. Fast readers will finish sooner; slow readers will take longer. Use these as planning estimates rather than exact predictions.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What is Flesch Reading Ease?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Flesch Reading Ease is a formula that scores text on a 0–100 scale. It looks at two things: average sentence length and average syllables per word. Higher scores mean easier reading. A score in the 60s is Standard — suitable for newspapers and general web content. A score in the 80s is Easy — right for FAQs, landing pages, and casual blogs. Below 50 is Difficult — typical of academic papers and legal writing.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What does grade level mean?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">The Flesch-Kincaid Grade Level converts the readability formula into a U.S. school grade. Grade 8 means a typical eighth-grader can follow the text. Grade 12 is high-school level. Grade 16+ is roughly college-graduate level. Most bestselling novels sit between grade 6 and 8. Most marketing copy targets grade 6 or lower. It's a measure of accessibility, not quality — Hemingway wrote at grade 4.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">How are keywords counted?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">The tool counts word frequency across your entire text after stripping punctuation and filtering out roughly 50 common stop words — words like "the", "a", "and", "in", "is", "it", and similar filler. The remaining words are ranked by frequency and the top 10 are shown. This gives you a quick picture of which topics and terms are actually driving your text.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Is my text private?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes, completely. Every calculation happens locally in your browser. Your text is never sent to Wordineer's servers or any third party. There are no analytics on what you paste, no log files, and no database on the back end. Close the tab and the content is gone — nothing is retained after the session ends.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Does it work on mobile?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes. The layout is fully responsive. On small screens, the stat cards reflow into two columns and the social limits panel stacks vertically. You can paste text from any other app using your device's clipboard, and the counts update the moment you paste. It works in any modern mobile browser including Safari on iOS and Chrome on Android.</div>
+  </div>
+</div>
+  <div class="divider"></div>
+
+<div>
+  <h2 class="section-title" style="margin-bottom:14px">Who uses a word counter?</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">Students &amp; academics</div><div class="uc-body">Checking essay word counts against assignment minimums and maximums, and using grade-level scores to calibrate writing for their target audience</div></div>
+    <div class="uc"><div class="uc-title">Bloggers &amp; content writers</div><div class="uc-body">Estimating reading time for article headers, checking keyword frequency for SEO balance, and hitting minimum word counts for content briefs</div></div>
+    <div class="uc"><div class="uc-title">Social media managers</div><div class="uc-body">Checking post copy against Twitter, Instagram, LinkedIn, and ad platform limits before publishing — catching overruns before they cause submission errors</div></div>
+    <div class="uc"><div class="uc-title">Editors &amp; proofreaders</div><div class="uc-body">Scanning average sentence length and unique word ratio as quick signals of writing quality before starting a detailed line edit</div></div>
+  </div>
+</div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="ad-footer-strip" style="margin-bottom:24px">
+      <span class="ad-tag">Advertisement · 468×60</span>
+      <div class="ad-fs-text"><strong>Grammarly Premium</strong> — Vocabulary suggestions, tone detector, full-sentence rewrites.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-footer-strip-cta">Try free</a>
+    </div>
+    <div class="footer-grid">
+      <div><div class="footer-col-title">Writing &amp; Vocabulary</div><a class="footer-link" href="/">Random Word Generator</a><a class="footer-link" href="/random-sentence-generator/">Random Sentence Generator</a><a class="footer-link" href="/random-paragraph-generator/">Random Paragraph Generator</a><a class="footer-link" href="/word-counter/">Word Counter</a><a class="footer-link footer-link--view-all" href="/word-tools/">View all →</a></div>
+      <div><div class="footer-col-title">Browse by Letter</div><a class="footer-link" href="/random-words-starting-with/">Random Words Starting With (A–Z)</a><a class="footer-link" href="/random-words-starting-with/a">Random Words Starting with A</a><a class="footer-link" href="/random-words-starting-with/s">Random Words Starting with S</a><a class="footer-link" href="/random-words-starting-with/q">Random Words Starting with Q</a><a class="footer-link footer-link--view-all" href="/random-words-starting-with/">View all →</a></div>
+      <div><div class="footer-col-title">Names by Origin</div><a class="footer-link" href="/random-spanish-name-generator/">Spanish Name Generator</a><a class="footer-link" href="/random-italian-name-generator/">Italian Name Generator</a><a class="footer-link" href="/random-japanese-name-generator/">Japanese Name Generator</a><a class="footer-link" href="/random-american-name-generator/">American Name Generator</a><a class="footer-link footer-link--view-all" href="/name-generators/">View all →</a></div>
+      <div><div class="footer-col-title">Other Name Generators</div><a class="footer-link" href="/character-name-generator/">Character Name Generator</a><a class="footer-link" href="/fantasy-name-generator/">Fantasy Name Generator</a><a class="footer-link" href="/business-name-generator/">Business Name Generator</a><a class="footer-link" href="/band-name-generator/">Band Name Generator</a><a class="footer-link footer-link--view-all" href="/other-generators/">View all →</a></div>
+      <div><div class="footer-col-title">Account &amp; Security</div><a class="footer-link" href="/password-generator/">Password Generator</a><a class="footer-link" href="/passphrase-generator/">Passphrase Generator</a><a class="footer-link" href="/memorable-password-generator/">Memorable Password Generator</a><a class="footer-link" href="/username-generator/">Username Generator</a><a class="footer-link footer-link--view-all" href="/account-tools/">View all →</a></div>
+      <div><div class="footer-col-title">Games &amp; fun</div><a class="footer-link" href="/pictionary-phrase-generator/">Pictionary Phrase Generator</a><a class="footer-link" href="/crossword-puzzle-generator/">Crossword Puzzle Generator</a><a class="footer-link" href="/wordle-helper/">Wordle Helper</a><a class="footer-link" href="/wordle-answers/">Wordle Answer Archive</a><a class="footer-link footer-link--view-all" href="/number-chance/">View all →</a></div>
+    </div>
+    <div class="footer-bottom">
+      <div style="display:flex;align-items:center;gap:7px">
+        <div class="nav-logo-icon" style="width:22px;height:22px;border-radius:5px"><svg viewBox="0 0 15 15" fill="none" style="width:12px;height:12px"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <span style="font-size:14px;font-weight:600;color:var(--text)">Wordineer</span>
+      </div>
+      <span class="footer-copy">© 2026 Wordineer · Free word tools for everyone</span>
+      <div class="footer-meta"><a href="/about/">About</a><a href="/blog/">Blog</a><a href="/affiliate-disclosure/">Affiliate disclosure</a><a href="/privacy/">Privacy</a></div>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="/scripts/tool-engine.js?v=27"></script>
+<script>
+(function bindSharedWordineerMenu() {
+  const mega = document.getElementById('mega');
+  const hbg = document.querySelector('.hamburger');
+  if (!mega || !hbg) return;
+  if (hbg.dataset.menuBound === '1') return;
+  hbg.dataset.menuBound = '1';
+  hbg.onclick = null;
+  if (hbg.getAttribute('onclick')) hbg.removeAttribute('onclick');
+
+  function setMenu(open) {
+    mega.classList.toggle('open', open);
+    hbg.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+
+  setMenu(mega.classList.contains('open'));
+
+  hbg.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+    setMenu(!mega.classList.contains('open'));
+  }, true);
+
+  hbg.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+      setMenu(!mega.classList.contains('open'));
+    }
+  }, true);
+
+  document.addEventListener('click', function(e) {
+    if (mega.classList.contains('open') && !mega.contains(e.target) && !hbg.contains(e.target)) {
+      setMenu(false);
+    }
+  }, true);
+})();
+</script>
+
+<script>
+(function () {
+  'use strict';
+
+  var STOP = new Set([
+    'the','a','an','and','or','but','in','on','at','to','for','of','with','by',
+    'is','are','was','were','be','been','being','have','has','had','do','does',
+    'did','will','would','can','could','should','may','might','shall','must',
+    'it','this','that','these','those','i','he','she','we','they','you',
+    'my','your','his','her','our','their','its','me','him','us','them',
+    'not','so','if','as','from','about','up','out','into','than','then',
+    'when','where','who','which','what','how','all','any','no','more',
+    'just','also','very','too','even','here','there','now','only','other'
+  ]);
+
+  var SOCIAL = [
+    { id:'twitter',   max:280,   label:'0 / 280' },
+    { id:'instagram', max:2200,  label:'0 / 2,200' },
+    { id:'linkedin',  max:3000,  label:'0 / 3,000' },
+    { id:'meta',      max:40,    label:'0 / 40' },
+    { id:'youtube',   max:5000,  label:'0 / 5,000' },
+    { id:'sms',       max:160,   label:'0 / 160' }
+  ];
+
+  function syllables(word) {
+    word = word.toLowerCase().replace(/[^a-z]/g, '');
+    if (!word) return 0;
+    if (word.length <= 3) return 1;
+    word = word.replace(/(?:[^laeiouy]es|[^laeiouy]e)$/, '');
+    word = word.replace(/^y/, '');
+    var m = word.match(/[aeiouy]{1,2}/g);
+    return m ? Math.max(1, m.length) : 1;
+  }
+
+  function analyse(text) {
+    var words = text.trim() ? text.trim().split(/\s+/).filter(Boolean) : [];
+    var wCount = words.length;
+    var chars = text.length;
+    var charsNS = text.replace(/\s/g, '').length;
+    var sentsArr = text.split(/[.!?]+/).filter(function(s){ return s.trim(); });
+    var sents = sentsArr.length || 0;
+    var parasArr = text.split(/\n\s*\n/).filter(function(p){ return p.trim(); });
+    var paras = parasArr.length || 0;
+    var uniqueSet = new Set(words.map(function(w){ return w.toLowerCase().replace(/[^a-z]/g,''); }).filter(Boolean));
+    var unique = uniqueSet.size;
+    var pages = wCount ? (wCount / 250) : 0;
+    var avgWPS = (wCount && sents) ? (wCount / sents) : 0;
+    var readMin = wCount ? (wCount / 250) : 0;
+    var speakMin = wCount ? (wCount / 130) : 0;
+
+    var syl = 0;
+    words.forEach(function(w){ syl += syllables(w); });
+    var flesch = 0, fkGrade = 0;
+    if (wCount > 0 && sents > 0) {
+      flesch = 206.835 - 1.015 * (wCount / sents) - 84.6 * (syl / wCount);
+      fkGrade = 0.39 * (wCount / sents) + 11.8 * (syl / wCount) - 15.59;
+    }
+    flesch = Math.max(0, Math.min(100, flesch));
+    fkGrade = Math.max(0, fkGrade);
+
+    var freq = {};
+    words.forEach(function(w) {
+      var k = w.toLowerCase().replace(/[^a-z]/g, '');
+      if (k.length > 2 && !STOP.has(k)) freq[k] = (freq[k] || 0) + 1;
+    });
+    var topKW = Object.entries(freq).sort(function(a,b){ return b[1]-a[1]; }).slice(0, 10);
+
+    return { wCount:wCount, chars:chars, charsNS:charsNS, sents:sents, paras:paras,
+             unique:unique, pages:pages, avgWPS:avgWPS, readMin:readMin, speakMin:speakMin,
+             flesch:flesch, fkGrade:fkGrade, topKW:topKW };
+  }
+
+  function fleschLabel(s) {
+    if (s >= 90) return ['Very Easy', '#22c55e', '#f0fdf4'];
+    if (s >= 80) return ['Easy', '#65a30d', '#f7fee7'];
+    if (s >= 70) return ['Fairly Easy', '#ca8a04', '#fefce8'];
+    if (s >= 60) return ['Standard', '#d97706', '#fffbeb'];
+    if (s >= 50) return ['Fairly Difficult', '#ea580c', '#fff7ed'];
+    if (s >= 30) return ['Difficult', '#dc2626', '#fef2f2'];
+    return ['Very Difficult', '#b91c1c', '#fef2f2'];
+  }
+
+  function fmtTime(mins) {
+    if (!mins) return '—';
+    var m = Math.floor(mins), s = Math.round((mins - m) * 60);
+    if (m === 0) return s + 's';
+    return m + 'm ' + s + 's';
+  }
+
+  function fmt(n, decimals) {
+    if (!n && n !== 0) return '—';
+    if (decimals !== undefined) return n.toFixed(decimals);
+    return n.toLocaleString();
+  }
+
+  function el(id) { return document.getElementById(id); }
+
+  function renderSocial(charCount) {
+    SOCIAL.forEach(function(p) {
+      var pct = charCount / p.max;
+      var fillEl = el('sf-' + p.id);
+      var countEl = el('sc-' + p.id);
+      var isOver = charCount > p.max;
+      var isWarn = !isOver && pct >= 0.8;
+      var displayPct = Math.min(100, pct * 100).toFixed(1) + '%';
+      fillEl.style.width = displayPct;
+      fillEl.classList.toggle('warn', isWarn);
+      fillEl.classList.toggle('over', isOver);
+      var maxFmt = p.max.toLocaleString();
+      countEl.textContent = charCount.toLocaleString() + ' / ' + maxFmt;
+      countEl.classList.toggle('warn', isWarn);
+      countEl.classList.toggle('over', isOver);
+    });
+  }
+
+  function renderKeywords(topKW) {
+    var list = el('wc-kw-list');
+    if (!topKW.length) {
+      list.innerHTML = '<div class="wc-kw-empty">Paste text above to see keyword frequency.</div>';
+      return;
+    }
+    var maxCount = topKW[0][1];
+    var html = '';
+    topKW.forEach(function(pair, i) {
+      var pct = Math.round((pair[1] / maxCount) * 100);
+      html += '<div class="kw-row">' +
+        '<span class="kw-rank">' + (i + 1) + '</span>' +
+        '<span class="kw-word">' + pair[0] + '</span>' +
+        '<div class="kw-bar-wrap"><div class="kw-bar-track"><div class="kw-bar-fill" style="width:' + pct + '%"></div></div></div>' +
+        '<span class="kw-count">' + pair[1] + '</span>' +
+        '</div>';
+    });
+    list.innerHTML = html;
+  }
+
+  function render(text) {
+    var r = analyse(text);
+
+    el('sc-words').textContent  = fmt(r.wCount);
+    el('sc-chars').textContent  = fmt(r.chars);
+    el('sc-chars-ns').textContent = fmt(r.charsNS);
+    el('sc-sents').textContent  = fmt(r.sents);
+    el('sc-paras').textContent  = fmt(r.paras);
+    el('sc-unique').textContent = fmt(r.unique);
+    el('sc-avgwps').textContent = r.avgWPS ? r.avgWPS.toFixed(1) : '—';
+    el('sc-pages').textContent  = r.pages ? r.pages.toFixed(1) : '—';
+
+    el('mc-read').textContent  = fmtTime(r.readMin);
+    el('mc-speak').textContent = fmtTime(r.speakMin);
+
+    if (r.wCount && r.sents) {
+      el('mc-flesch').textContent = r.flesch.toFixed(0);
+      el('mc-grade').textContent  = r.fkGrade.toFixed(1);
+      var lbl = fleschLabel(r.flesch);
+      el('mc-flesch-chip').innerHTML = '<span class="read-chip" style="color:' + lbl[1] + ';background:' + lbl[2] + '">' + lbl[0] + '</span>';
+    } else {
+      el('mc-flesch').textContent = '—';
+      el('mc-grade').textContent  = '—';
+      el('mc-flesch-chip').innerHTML = '';
+    }
+
+    el('wc-char-hint').textContent = r.chars ? r.chars.toLocaleString() + ' chars' : '';
+
+    renderSocial(r.chars);
+    renderKeywords(r.topKW);
+  }
+
+  // Input handler
+  var textarea = el('wc-input');
+  textarea.addEventListener('input', function() { render(this.value); });
+
+  // Clear
+  el('wc-clear-btn').addEventListener('click', function() {
+    textarea.value = '';
+    render('');
+    textarea.focus();
+  });
+
+  // Copy
+  el('wc-copy-btn').addEventListener('click', function() {
+    if (!textarea.value) return;
+    navigator.clipboard.writeText(textarea.value).then(function() {
+      var t = el('wc-toast');
+      t.classList.add('show');
+      setTimeout(function(){ t.classList.remove('show'); }, 2000);
+    });
+  });
+
+  // Case conversion
+  el('wc-case-btn').addEventListener('click', function(e) {
+    e.stopPropagation();
+    el('wc-case-menu').classList.toggle('open');
+    el('wc-case-btn').textContent = el('wc-case-menu').classList.contains('open') ? 'Case ▴' : 'Case ▾';
+  });
+  document.addEventListener('click', function() {
+    el('wc-case-menu').classList.remove('open');
+    el('wc-case-btn').textContent = 'Case ▾';
+  });
+  document.querySelectorAll('.wc-case-opt').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var type = this.dataset.case;
+      var val = textarea.value;
+      if (!val) return;
+      if (type === 'upper') {
+        textarea.value = val.toUpperCase();
+      } else if (type === 'lower') {
+        textarea.value = val.toLowerCase();
+      } else if (type === 'title') {
+        textarea.value = val.replace(/\S+/g, function(w) {
+          return w.charAt(0).toUpperCase() + w.slice(1).toLowerCase();
+        });
+      } else if (type === 'sentence') {
+        textarea.value = val.toLowerCase().replace(/(^|[.!?]\s+)([a-z])/g, function(m, pre, c) {
+          return pre + c.toUpperCase();
+        });
+      }
+      render(textarea.value);
+      el('wc-case-menu').classList.remove('open');
+      el('wc-case-btn').textContent = 'Case ▾';
+    });
+  });
+
+  // Social limits toggle
+  el('wc-social-toggle').addEventListener('click', function() {
+    var body = el('wc-social-body');
+    var icon = el('wc-social-icon');
+    body.classList.toggle('open');
+    icon.classList.toggle('open');
+    icon.textContent = body.classList.contains('open') ? '▲' : '▼';
+  });
+
+  // Initial render
+  render('');
+}());
+</script>
+</body>
+</html>

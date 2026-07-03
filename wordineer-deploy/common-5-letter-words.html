@@ -134,9 +134,10 @@
 }
 </script>
 
-<link rel="stylesheet" href="/styles/global.css?v=9">
+<link rel="stylesheet" href="/styles/global.css?v=12">
 <style>
-.asset-wrap { max-width: 1000px; margin: 0 auto; padding: 0 20px 40px; }
+.asset-wrap { max-width: 960px; margin: 0 auto; padding: 24px 24px 40px; }
+.asset-wrap h2, .asset-wrap h3 { font-family: 'DM Serif Display', serif; font-weight: 400; }
 .filter-bar { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-bottom: 16px; }
 .filter-bar select, .filter-bar input[type=text] { padding: 7px 10px; font-size: 13px; border: 1px solid var(--border); border-radius: 7px; background: var(--bg); color: var(--text); font-family: inherit; }
 .filter-bar label { font-size: 12px; color: var(--text-2); display: flex; align-items: center; gap: 5px; cursor: pointer; }
@@ -159,6 +160,7 @@
 .insight-box { background: var(--bg-2); border-left: 3px solid var(--brand); border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 0 0 24px; font-size: 14px; line-height: 1.7; }
 @media print { .filter-bar, .dl-btn { display: none; } }
 @media (max-width: 600px) { .filter-bar { flex-direction: column; align-items: stretch; } }
+.explainer h2, .explainer h3 { font-family: 'DM Serif Display', serif; font-weight: 400; }
 </style>
 </head>
 
@@ -188,10 +190,6 @@
       <a class="mega-link" href="/random-sentence-generator/">Random Sentence Generator</a>
       <a class="mega-link" href="/random-paragraph-generator/">Random Paragraph Generator</a>
       <a class="mega-link" href="/word-counter/">Word Counter</a>
-      <a class="mega-link active" href="/common-5-letter-words/">Common 5-Letter Words</a>
-      <a class="mega-link" href="/etymology-100-common-words/">Word Origins & Etymology</a>
-      <a class="mega-link" href="/spelling-bee-words-printable/">Spelling Bee Words Printable</a>
-      <a class="mega-link" href="/esl-vocabulary-cefr/">ESL Vocabulary (CEFR)</a>
       <a class="mega-link mega-link--view-all" href="/word-tools/">View all →</a>
     </div>
     <div class="mega-col">
@@ -238,8 +236,19 @@
 </div>
 
 
-<h1>Common 5-Letter Words — Analyzed by Vowel Pattern</h1>
-<p>640+ Wordle-valid 5-letter words with vowel patterns, letter uniqueness, and information-theory scores. Filter by vowel count or pattern, sort any column, or download as CSV.</p>
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/word-tools/">Word Tools</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Common 5-Letter Words</span>
+  </div>
+</div>
+<div class="hero">
+  <h1>Common 5-Letter Words — Analyzed by Vowel Pattern</h1>
+  <p>640+ Wordle-valid 5-letter words with vowel patterns, letter uniqueness, and information-theory scores. Filter by vowel count or pattern, sort any column, or download as CSV.</p>
+</div>
 <div class="asset-wrap">
   <div class="filter-bar">
     <select id="vowel-count-filter">
@@ -313,7 +322,7 @@
   </div>
   <div class="divider"></div>
 
-<div class="asset-wrap">
+<section class="explainer">
   <div class="insight-box">
     <strong>The optimal Wordle opener:</strong> TRACE scores 5.99 bits of information — it places E, T, A, R, C in the positions where those letters appear most frequently across all possible answers. After TRACE as your first guess, the ideal follow-up for uncovering remaining common letters is SOLID (S, O, L, I, D). Together these two guesses test 10 distinct, high-frequency letters.
   </div>
@@ -335,28 +344,28 @@
       <p>S appears in ~37% of 5-letter Wordle words — more than any other consonant. However, S rarely appears in position 1. Positions 4 and 5 are the most productive places to test for S.</p>
     </div>
   </div>
-</div>
+</section>
   <div class="divider"></div>
 
-<section style="max-width:800px;margin:0 auto 40px;padding:0 20px">
-  <h2>Frequently asked questions</h2>
-  <details style="border-bottom:1px solid var(--border);padding:14px 0">
-    <summary style="cursor:pointer;font-weight:600;font-size:15px">What is the best 5-letter starting word for Wordle?</summary>
-    <p style="margin:10px 0 0;color:var(--text-2);font-size:14px;line-height:1.7">By information theory, TRACE, CRANE, SLATE, and CRATE are top openers. TRACE scores 5.99 bits of information per guess — the highest in this dataset. It places E, T, A, R, C in their most-frequent positions across all possible Wordle answers.</p>
-  </details>
-  <details style="border-bottom:1px solid var(--border);padding:14px 0">
-    <summary style="cursor:pointer;font-weight:600;font-size:15px">What does "info score" (bits) mean?</summary>
-    <p style="margin:10px 0 0;color:var(--text-2);font-size:14px;line-height:1.7">The information score measures how much a guess narrows down the answer pool on average, measured in bits. A score of 6 bits means the guess eliminates about 64 of every 65 remaining possibilities on average. Higher is better. Words without a score are valid answers but weren't analyzed for opener efficiency.</p>
-  </details>
-  <details style="border-bottom:1px solid var(--border);padding:14px 0">
-    <summary style="cursor:pointer;font-weight:600;font-size:15px">Can I download the full word list?</summary>
-    <p style="margin:10px 0 0;color:var(--text-2);font-size:14px;line-height:1.7">Yes — click Download CSV above. The file includes all words with vowel pattern, vowel count, unique-letter flag, and information score. Licensed CC BY 4.0: free to use with attribution.</p>
-  </details>
-  <details style="border-bottom:1px solid var(--border);padding:14px 0">
-    <summary style="cursor:pointer;font-weight:600;font-size:15px">Why do some words have no info score?</summary>
-    <p style="margin:10px 0 0;color:var(--text-2);font-size:14px;line-height:1.7">The information score is calculated for a curated set of top strategic openers. Words in the full answer list but not analyzed for opener efficiency show a dash. All words without a score are still valid Wordle answers — they just haven't been scored for first-guess efficiency.</p>
-  </details>
-</section>
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">What is the best 5-letter starting word for Wordle?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">By information theory, TRACE, CRANE, SLATE, and CRATE are top openers. TRACE scores 5.99 bits of information per guess — the highest in this dataset. It places E, T, A, R, C in their most-frequent positions across all possible Wordle answers.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What does "info score" (bits) mean?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">The information score measures how much a guess narrows down the answer pool on average, measured in bits. A score of 6 bits means the guess eliminates about 64 of every 65 remaining possibilities on average. Higher is better. Words without a score are valid answers but weren't analyzed for opener efficiency.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I download the full word list?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes — click Download CSV above. The file includes all words with vowel pattern, vowel count, unique-letter flag, and information score. Licensed CC BY 4.0: free to use with attribution.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Why do some words have no info score?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">The information score is calculated for a curated set of top strategic openers. Words in the full answer list but not analyzed for opener efficiency show a dash. All words without a score are still valid Wordle answers — they just haven't been scored for first-guess efficiency.</div>
+  </div>
+</div>
   <div class="divider"></div>
 
 
@@ -370,7 +379,7 @@
       <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-footer-strip-cta">Try free</a>
     </div>
     <div class="footer-grid">
-      <div><div class="footer-col-title">Writing &amp; Vocabulary</div><a class="footer-link" href="/">Random Word Generator</a><a class="footer-link" href="/random-sentence-generator/">Random Sentence Generator</a><a class="footer-link" href="/random-paragraph-generator/">Random Paragraph Generator</a><a class="footer-link" href="/word-counter/">Word Counter</a><a class="footer-link" href="/common-5-letter-words/">Common 5-Letter Words</a><a class="footer-link" href="/etymology-100-common-words/">Word Origins & Etymology</a><a class="footer-link" href="/spelling-bee-words-printable/">Spelling Bee Printable</a><a class="footer-link" href="/esl-vocabulary-cefr/">ESL Vocabulary (CEFR)</a><a class="footer-link footer-link--view-all" href="/word-tools/">View all →</a></div>
+      <div><div class="footer-col-title">Writing &amp; Vocabulary</div><a class="footer-link" href="/">Random Word Generator</a><a class="footer-link" href="/random-sentence-generator/">Random Sentence Generator</a><a class="footer-link" href="/random-paragraph-generator/">Random Paragraph Generator</a><a class="footer-link" href="/word-counter/">Word Counter</a><a class="footer-link footer-link--view-all" href="/word-tools/">View all →</a></div>
       <div><div class="footer-col-title">Browse by Letter</div><a class="footer-link" href="/random-words-starting-with/">Random Words Starting With (A–Z)</a><a class="footer-link" href="/random-words-starting-with/a">Random Words Starting with A</a><a class="footer-link" href="/random-words-starting-with/s">Random Words Starting with S</a><a class="footer-link" href="/random-words-starting-with/q">Random Words Starting with Q</a><a class="footer-link footer-link--view-all" href="/random-words-starting-with/">View all →</a></div>
       <div><div class="footer-col-title">Names by Origin</div><a class="footer-link" href="/random-spanish-name-generator/">Spanish Name Generator</a><a class="footer-link" href="/random-italian-name-generator/">Italian Name Generator</a><a class="footer-link" href="/random-japanese-name-generator/">Japanese Name Generator</a><a class="footer-link" href="/random-american-name-generator/">American Name Generator</a><a class="footer-link footer-link--view-all" href="/name-generators/">View all →</a></div>
       <div><div class="footer-col-title">Other Name Generators</div><a class="footer-link" href="/character-name-generator/">Character Name Generator</a><a class="footer-link" href="/fantasy-name-generator/">Fantasy Name Generator</a><a class="footer-link" href="/business-name-generator/">Business Name Generator</a><a class="footer-link" href="/band-name-generator/">Band Name Generator</a><a class="footer-link footer-link--view-all" href="/other-generators/">View all →</a></div>
@@ -390,7 +399,7 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="/scripts/tool-engine.js?v=26"></script>
+<script src="/scripts/tool-engine.js?v=27"></script>
 <script>
 (function bindSharedWordineerMenu() {
   const mega = document.getElementById('mega');
@@ -518,6 +527,7 @@
     .then(function(r) { return r.json(); })
     .then(function(d) { DATA = d; populate(d); refresh(); });
 })();
+document.querySelectorAll('.faq-item').forEach(function(item){var q=item.querySelector('.faq-q');if(!q)return;q.addEventListener('click',function(){item.classList.toggle('open');});});
 </script>
 </body>
 </html>

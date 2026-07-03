@@ -109,18 +109,28 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What is a Pictionary word generator?",
-      "acceptedAnswer": { "@type": "Answer", "text": "A Pictionary word generator picks random drawable words for the drawing and guessing game Pictionary. Choose a category and difficulty, then use the words for parties, classrooms, family game night, or holiday games." }
+      "name": "What's the difference between Easy, Medium, and Hard in this Pictionary word generator?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Easy words are concrete objects and simple actions anyone can sketch quickly (Cat, Pizza, Jumping). Medium requires more creativity from the drawer — recognizable but not instantly obvious (Trampoline, Sushi, Photobomb). Hard words are abstract or obscure with no single clear visual form (Nostalgia, Democracy, Spelunking). Start with Easy if your group includes kids or first-timers." }
     },
     {
       "@type": "Question",
-      "name": "How does this random Pictionary generator work?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Pick how many words you want, choose a difficulty and category, and click Generate. The tool avoids repeats during the current session and lets you copy, save, hide, or print the words." }
+      "name": "Can I use this Pictionary word generator for kids?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Set difficulty to Easy and choose Animals or Classic for short, concrete words that are quick to draw and guess. Avoid the Actions category with younger players — drawing a verb is much harder than drawing a noun." }
     },
     {
       "@type": "Question",
       "name": "Can I use this as a Christmas Pictionary word generator?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Select the Christmas category or the Christmas preset to generate holiday words for classroom games, office parties, family gatherings, and Christmas game night." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes — select the Christmas category. Easy Christmas words (Snowman, Candy cane, Santa) work well for classroom parties and mixed-age family games. Medium adds trickier seasonal words like Gingerbread house and Snowball fight. Hard includes Nutcracker, Frankincense, and Nativity scene for groups who want a real challenge." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the Pictionary word generator repeat words?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The tool avoids repeats for your entire session — once a word appears, it won't come up again until you click 'Reset repeats.' Changing difficulty or category resets the history automatically so the pool stays full." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I print the Pictionary word cards?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes — click 'Print cards' for a clean, ad-free layout with two columns of word cards sized for standard paper. Useful for larger groups or classroom activities where passing a phone gets awkward." }
     }
   ]
 }
@@ -150,7 +160,7 @@
 }
 </script>
 
-<link rel="stylesheet" href="/styles/global.css?v=9">
+<link rel="stylesheet" href="/styles/global.css?v=12">
 <style>
 .tool-wrap{max-width:960px;margin:0 auto;padding:24px 24px 0}
 .pic-card{border:1px solid var(--border);border-radius:8px;background:var(--bg);box-shadow:var(--shadow);overflow:hidden}
@@ -217,6 +227,19 @@
   .word-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:0}
   .word-card{min-height:110px;break-inside:avoid;border:1px solid #111}
 }
+/* ── Game Mode ── */
+.game-panel{display:none;flex-direction:column;flex:1;padding:20px}
+.game-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;gap:8px}
+.game-progress{font-size:13px;color:var(--text-3);font-weight:600;text-align:center;flex:1}
+.game-word-area{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;border:2px dashed var(--border);border-radius:12px;padding:40px 24px;cursor:pointer;transition:border-color .15s;min-height:240px}
+.game-word-area:hover{border-color:var(--brand)}
+.game-word-area.is-revealed{border-style:solid;border-color:var(--brand)}
+.game-tap-hint{font-size:13px;color:var(--text-3)}
+.game-word-display{font-size:52px;font-weight:700;color:var(--text);text-align:center;line-height:1.15;transition:opacity .15s}
+.game-word-meta{font-size:12px;color:var(--text-3);text-transform:uppercase;letter-spacing:.05em;display:none}
+.game-nav{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:20px}
+.game-reveal-btn{flex:none;padding:10px 28px;font-size:14px;border:0;border-radius:6px;background:var(--brand);color:white;font-weight:700;cursor:pointer}
+@media(max-width:700px){.game-word-display{font-size:36px}.game-word-area{padding:28px 16px;min-height:180px}}
 </style>
 </head>
 
@@ -246,10 +269,6 @@
       <a class="mega-link" href="/random-sentence-generator/">Random Sentence Generator</a>
       <a class="mega-link" href="/random-paragraph-generator/">Random Paragraph Generator</a>
       <a class="mega-link" href="/word-counter/">Word Counter</a>
-      <a class="mega-link" href="/common-5-letter-words/">Common 5-Letter Words</a>
-      <a class="mega-link" href="/etymology-100-common-words/">Word Origins & Etymology</a>
-      <a class="mega-link" href="/spelling-bee-words-printable/">Spelling Bee Words Printable</a>
-      <a class="mega-link" href="/esl-vocabulary-cefr/">ESL Vocabulary (CEFR)</a>
       <a class="mega-link mega-link--view-all" href="/word-tools/">View all →</a>
     </div>
     <div class="mega-col">
@@ -362,6 +381,8 @@
           <button class="small-btn" type="button" id="copy-btn">Copy list</button>
           <button class="small-btn" type="button" id="print-btn">Print cards</button>
           <button class="small-btn" type="button" id="hide-btn">Hide words</button>
+          <button class="small-btn" type="button" id="share-btn">Share list</button>
+          <button class="small-btn" type="button" id="game-btn">▶ Game Mode</button>
           <button class="small-btn" type="button" id="clear-btn">Clear saved</button>
         </div>
         <div class="rules-mini">Draw the word without letters, numbers, talking, or gestures. Your team gets one point if they guess before the timer runs out.</div>
@@ -375,6 +396,26 @@
           <button class="small-btn" type="button" id="reset-session-btn">Reset repeats</button>
         </div>
         <ul class="word-grid" id="word-grid"></ul>
+
+        <!-- Game Mode Panel -->
+        <div class="game-panel" id="game-panel">
+          <div class="game-header">
+            <button class="small-btn" id="game-exit-btn">← Exit Game</button>
+            <span class="game-progress" id="game-progress">Word 1 of 5</span>
+            <button class="small-btn" id="game-share-btn">Share Link</button>
+          </div>
+          <div class="game-word-area" id="game-word-area">
+            <div class="game-tap-hint" id="game-tap-hint">Tap to reveal</div>
+            <div class="game-word-display" id="game-word-display">?</div>
+            <div class="game-word-meta" id="game-word-meta"></div>
+          </div>
+          <div class="game-nav">
+            <button class="small-btn" id="game-prev-btn" disabled>← Prev</button>
+            <button class="game-reveal-btn" id="game-reveal-btn">Reveal Word</button>
+            <button class="small-btn" id="game-next-btn">Next →</button>
+          </div>
+        </div>
+
         <div class="saved-panel">
           <div class="saved-top">
             <span class="saved-label">Saved words <span id="saved-count">(0)</span></span>
@@ -386,16 +427,7 @@
     </div>
   </div>
 </div>
-<div class="ad-leaderboard">
-  <div class="ad-leaderboard-inner">
-    <span class="ad-tag">Advertisement · 728×90</span>
-    <div class="ad-mock-content">
-      <div class="ad-title">Grammarly - write with confidence. Grammar, tone &amp; clarity.</div>
-      <div class="ad-sub">Used by 30 million people. Works in Google Docs, Gmail, Word and more.</div>
-      <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-mock-cta">Try Grammarly free</a>
-    </div>
-  </div>
-</div>
+<!-- Ad placeholder: reserved for future affiliate opportunity -->
 <div class="content-wrap">
   <div class="section">
     <h2 class="section-title">More word tools</h2>
@@ -435,49 +467,48 @@
   <div class="divider"></div>
 
 <div class="explainer">
-  <h2>What is Pictionary?</h2>
-  <p>Pictionary is a drawing and guessing game. One player draws a secret word while teammates try to guess it before time runs out. The challenge is simple: make the idea clear without writing letters, numbers, or spoken hints.</p>
+  <h2>What makes a word work in Pictionary?</h2>
+  <p>Not every noun is drawable. The best Pictionary words have a clear visual form — something the drawer can put on paper without writing a single letter. "Elephant" works. "Democracy" is a nightmare. That's why difficulty level matters more than category: hard words aren't just obscure, they're harder to represent visually.</p>
+  <p>Use Easy for kids, first-timers, or when you want fast rounds with high energy. Medium is the sweet spot for most adult game nights — words are recognizable but require some creativity to draw. Hard is for groups that have played together a lot and want a challenge that produces genuinely funny misses.</p>
 
-  <h2>How It Works</h2>
-  <p>Choose how many words you need, pick a difficulty, select a category, and click Generate. This fun Pictionary word generator keeps the list focused on things people can actually draw, then lets you copy, save, hide, or print the words.</p>
+  <h2>How to run a great game night round</h2>
+  <p>Generate your word list before the round starts and use the Hide button so words aren't visible on screen. Show only the drawer their word (tap or click a card to reveal it). Start the 60-second timer when the first mark hits the board. If the team guesses correctly before time runs out, the drawer earns the point — not the guesser. Rotate drawers every round.</p>
+  <p>The "Reset repeats" button clears the session memory if you want to start the pool fresh — useful if you're playing multiple games in a row and want the same words back in rotation.</p>
 
-  <h2>How to Play Pictionary</h2>
-  <ol>
-    <li>Split players into two or more teams.</li>
-    <li>Choose one person from the first team to draw.</li>
-    <li>Generate a word and show it only to the drawer.</li>
-    <li>Start the timer. The drawer sketches clues while the team guesses.</li>
-    <li>A correct guess before time runs out earns one point.</li>
-  </ol>
+  <h2>Best categories for different groups</h2>
+  <p><strong>Kids and families:</strong> Easy + Animals or Easy + Classic. Short, concrete words with obvious shapes. Avoid actions — they're hard for younger players to draw clearly.</p>
+  <p><strong>Office parties and casual groups:</strong> Medium + All Categories. Mix keeps it interesting without anyone feeling stuck. Add Funny for bigger reactions and more laughs.</p>
+  <p><strong>Competitive groups:</strong> Hard + Classic or Hard + Actions. Abstract concepts like "Optical illusion" or "Gravity" are genuinely difficult and produce memorable rounds.</p>
 
-  <h2>Christmas Pictionary Word Generator</h2>
-  <p>Use the Christmas category for holiday parties, classrooms, and family gatherings. It includes seasonal words such as stocking, snowman, gingerbread house, wreath, candy cane, and sleigh ride.</p>
+  <h2>Christmas Pictionary</h2>
+  <p>Select the Christmas category for holiday parties, classroom games, and family gatherings. The word list leans toward imagery that's immediately seasonal — stockings, snowmen, gingerbread houses — so even players who aren't great at drawing can get a guess across quickly. Combine Medium difficulty with Christmas for the best balance between easy guesses and surprising moments.</p>
 
-  <h2>Fun Pictionary Word Ideas</h2>
-  <p>For a fun Pictionary word generator round, mix easy objects with silly actions and funny prompts. Try categories like Funny, Food, and Animals when you want faster guesses and bigger reactions.</p>
-  <div class="idea-tags">
-    <span>Pancake</span><span>Moonwalk</span><span>Bubble bath</span><span>Roller coaster</span><span>Penguin</span><span>Pizza delivery</span>
-  </div>
+  <h2>Printing word cards</h2>
+  <p>Click "Print cards" to generate a clean, ad-free print layout — two columns of word cards formatted for standard paper. This works well for larger groups where you want to hand physical cards to each drawer instead of passing a phone around.</p>
 </div>
   <div class="divider"></div>
 
 <div class="faq">
   <h2 class="faq-title">Pictionary FAQs</h2>
   <div class="faq-item open">
-    <div class="faq-q"><span class="faq-q-text">Can I use this for kids?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Yes. Set difficulty to Easy and choose the Animals or classic category for simple words that are quick to draw and guess.</div>
+    <div class="faq-q"><span class="faq-q-text">What's the difference between Easy, Medium, and Hard?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Easy words are concrete objects and simple actions — things anyone can sketch in a few lines (Cat, Pizza, Jumping). Medium words require more imagination from the drawer — recognizable but not instantly obvious (Trampoline, Sushi, Photobomb). Hard words are abstract or obscure — concepts with no single clear visual form (Nostalgia, Democracy, Spelunking). Start with Easy if your group includes kids or first-timers.</div>
   </div>
   <div class="faq-item">
-    <div class="faq-q"><span class="faq-q-text">Can I use this for Christmas Pictionary?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Yes. Choose the Christmas category to generate holiday words for a seasonal game.</div>
+    <div class="faq-q"><span class="faq-q-text">Can I use this for kids?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes. Easy + Animals or Easy + Classic gives you short, concrete words that are quick to draw and guess. Avoid the Actions category with younger players — drawing a verb is much harder than drawing a noun, and it tends to frustrate kids who are still developing their drawing skills.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">Does the generator repeat words?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">The tool avoids repeats during your current session. Use Reset repeats when you want to start the pool over.</div>
+    <div class="faq-a">It avoids repeats for the duration of your session — once a word has appeared, it won't come up again until you click "Reset repeats." This is useful for long games where you're cycling through many rounds. If you change difficulty or category, the repeat history resets automatically so the pool stays full.</div>
   </div>
   <div class="faq-item">
-    <div class="faq-q"><span class="faq-q-text">How many people can play?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Four or more players is ideal because you can form teams, but smaller groups can still play casually.</div>
+    <div class="faq-q"><span class="faq-q-text">Can I use this for Christmas Pictionary?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes — choose the Christmas category. Easy Christmas words (Snowman, Candy cane, Santa) work well for classroom parties and family games with mixed ages. Medium adds trickier seasonal words like Gingerbread house, Sleigh, and Snowball fight. Hard includes things like Nutcracker, Frankincense, and Nativity scene — better for groups who want a real challenge.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I print the word cards?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes — click "Print cards" and the page switches to a clean, ad-free layout with two columns of word cards sized for standard paper. This is handy for larger groups where passing a phone around gets awkward, or for classroom activities where each student draws from a stack of physical cards.</div>
   </div>
 </div>
   <div class="divider"></div>
@@ -501,7 +532,7 @@
       <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-footer-strip-cta">Try free</a>
     </div>
     <div class="footer-grid">
-      <div><div class="footer-col-title">Writing &amp; Vocabulary</div><a class="footer-link" href="/">Random Word Generator</a><a class="footer-link" href="/random-sentence-generator/">Random Sentence Generator</a><a class="footer-link" href="/random-paragraph-generator/">Random Paragraph Generator</a><a class="footer-link" href="/word-counter/">Word Counter</a><a class="footer-link" href="/common-5-letter-words/">Common 5-Letter Words</a><a class="footer-link" href="/etymology-100-common-words/">Word Origins & Etymology</a><a class="footer-link" href="/spelling-bee-words-printable/">Spelling Bee Printable</a><a class="footer-link" href="/esl-vocabulary-cefr/">ESL Vocabulary (CEFR)</a><a class="footer-link footer-link--view-all" href="/word-tools/">View all →</a></div>
+      <div><div class="footer-col-title">Writing &amp; Vocabulary</div><a class="footer-link" href="/">Random Word Generator</a><a class="footer-link" href="/random-sentence-generator/">Random Sentence Generator</a><a class="footer-link" href="/random-paragraph-generator/">Random Paragraph Generator</a><a class="footer-link" href="/word-counter/">Word Counter</a><a class="footer-link footer-link--view-all" href="/word-tools/">View all →</a></div>
       <div><div class="footer-col-title">Browse by Letter</div><a class="footer-link" href="/random-words-starting-with/">Random Words Starting With (A–Z)</a><a class="footer-link" href="/random-words-starting-with/a">Random Words Starting with A</a><a class="footer-link" href="/random-words-starting-with/s">Random Words Starting with S</a><a class="footer-link" href="/random-words-starting-with/q">Random Words Starting with Q</a><a class="footer-link footer-link--view-all" href="/random-words-starting-with/">View all →</a></div>
       <div><div class="footer-col-title">Names by Origin</div><a class="footer-link" href="/random-spanish-name-generator/">Spanish Name Generator</a><a class="footer-link" href="/random-italian-name-generator/">Italian Name Generator</a><a class="footer-link" href="/random-japanese-name-generator/">Japanese Name Generator</a><a class="footer-link" href="/random-american-name-generator/">American Name Generator</a><a class="footer-link footer-link--view-all" href="/name-generators/">View all →</a></div>
       <div><div class="footer-col-title">Other Name Generators</div><a class="footer-link" href="/character-name-generator/">Character Name Generator</a><a class="footer-link" href="/fantasy-name-generator/">Fantasy Name Generator</a><a class="footer-link" href="/business-name-generator/">Business Name Generator</a><a class="footer-link" href="/band-name-generator/">Band Name Generator</a><a class="footer-link footer-link--view-all" href="/other-generators/">View all →</a></div>
@@ -521,7 +552,7 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="/scripts/tool-engine.js?v=26"></script>
+<script src="/scripts/tool-engine.js?v=27"></script>
 <script>
 (function bindSharedWordineerMenu() {
   const mega = document.getElementById('mega');
@@ -666,6 +697,96 @@
   $('reset-session-btn').addEventListener('click',()=>{state.seen.clear();showToast('Repeat history reset')});
   $('timer-toggle').addEventListener('click',startTimer);
   $('timer-reset').addEventListener('click',()=>{stopTimer();state.remaining=state.timer;updateTimer()});
+
+  // ── Game Mode ──
+  const game={words:[],idx:0,revealed:false};
+  const gamePanel=$('game-panel'),gameWordArea=$('game-word-area');
+
+  function enterGame(wordList){
+    if(!wordList.length){showToast('Generate words first');return}
+    game.words=wordList;game.idx=0;game.revealed=false;
+    document.querySelector('.pic-top').style.display='none';
+    grid.style.display='none';
+    document.querySelector('.saved-panel').style.display='none';
+    gamePanel.style.display='flex';
+    renderGame();
+    const url=new URL(window.location.href);
+    url.searchParams.set('words',wordList.map(w=>w.w).join(','));
+    url.searchParams.set('mode','game');
+    history.replaceState(null,'',url.toString());
+  }
+
+  function exitGame(){
+    gamePanel.style.display='none';
+    document.querySelector('.pic-top').style.display='';
+    grid.style.display='';
+    document.querySelector('.saved-panel').style.display='';
+    const url=new URL(window.location.href);
+    url.searchParams.delete('words');url.searchParams.delete('mode');
+    history.replaceState(null,'',url.toString());
+  }
+
+  function renderGame(){
+    const w=game.words[game.idx];
+    $('game-progress').textContent=`Word ${game.idx+1} of ${game.words.length}`;
+    $('game-prev-btn').disabled=game.idx===0;
+    $('game-next-btn').disabled=game.idx===game.words.length-1;
+    if(game.revealed){
+      $('game-word-display').textContent=w.w;$('game-word-display').style.opacity='1';
+      $('game-tap-hint').style.display='none';
+      $('game-word-meta').textContent=`${w.d} · ${w.c[0]}`;$('game-word-meta').style.display='block';
+      $('game-reveal-btn').textContent='Next Word →';
+      gameWordArea.classList.add('is-revealed');
+    }else{
+      $('game-word-display').textContent='?';$('game-word-display').style.opacity='0.2';
+      $('game-tap-hint').style.display='block';
+      $('game-word-meta').style.display='none';
+      $('game-reveal-btn').textContent='Reveal Word';
+      gameWordArea.classList.remove('is-revealed');
+    }
+  }
+
+  function gameReveal(){
+    if(!game.revealed){game.revealed=true;renderGame();}
+    else if(game.idx<game.words.length-1){game.idx++;game.revealed=false;renderGame();}
+  }
+
+  function shareGame(){
+    const url=window.location.href;
+    if(navigator.clipboard)navigator.clipboard.writeText(url).then(()=>showToast('Game link copied!'));
+    else showToast('Copy not available');
+  }
+
+  $('game-btn').addEventListener('click',()=>enterGame(state.current));
+  $('game-exit-btn').addEventListener('click',exitGame);
+  $('game-reveal-btn').addEventListener('click',gameReveal);
+  $('game-prev-btn').addEventListener('click',()=>{if(game.idx>0){game.idx--;game.revealed=false;renderGame()}});
+  $('game-next-btn').addEventListener('click',()=>{if(game.idx<game.words.length-1){game.idx++;game.revealed=false;renderGame()}});
+  gameWordArea.addEventListener('click',gameReveal);
+  $('game-share-btn').addEventListener('click',shareGame);
+  $('share-btn').addEventListener('click',()=>{
+    if(!state.current.length){showToast('Generate words first');return}
+    const url=new URL(window.location.href);
+    url.searchParams.set('words',state.current.map(w=>w.w).join(','));
+    url.searchParams.delete('mode');
+    history.replaceState(null,'',url.toString());
+    if(navigator.clipboard)navigator.clipboard.writeText(url.toString()).then(()=>showToast('List link copied!'));
+  });
+
+  // Init — check for shared URL
+  const urlParams=new URLSearchParams(window.location.search);
+  const sharedWords=urlParams.get('words'),sharedMode=urlParams.get('mode');
+  if(sharedWords){
+    const wantedNames=sharedWords.split(',').map(s=>s.trim().toLowerCase());
+    const wordMap={};
+    words.forEach(w=>{wordMap[w.w.toLowerCase()]=w});
+    const matched=wantedNames.map(n=>wordMap[n]).filter(Boolean);
+    if(matched.length){
+      state.current=matched;renderWords();renderSaved();updateTimer();
+      if(sharedMode==='game')enterGame(matched);
+      return;
+    }
+  }
   generate();renderSaved();updateTimer();
 })();
 
