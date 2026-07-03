@@ -252,6 +252,28 @@
 /* ── explainer h3 ── */
 .explainer h3 { font-family:'DM Serif Display',serif; font-size:17px; font-weight:400; margin-bottom:6px; margin-top:18px; color:var(--text); }
 
+/* ── Daily Challenge ── */
+.dc-wrap { padding:28px 24px 24px; max-width:420px; margin:0 auto; text-align:center; }
+.dc-date-badge { display:inline-flex; align-items:center; gap:6px; font-size:11px; font-weight:700; color:var(--brand-dark); background:var(--brand-light); border-radius:20px; padding:4px 12px; margin-bottom:16px; letter-spacing:.02em; }
+.dc-title { font-size:13px; color:var(--text-2); margin-bottom:8px; }
+.dc-scrambled { font-size:34px; font-weight:700; letter-spacing:0.24em; color:var(--text); margin:10px 0 22px; text-transform:uppercase; }
+.dc-input-row { display:flex; gap:8px; justify-content:center; margin-bottom:10px; }
+.dc-input { padding:10px 14px; font-size:15px; font-family:inherit; border:2px solid var(--border); border-radius:9px; width:186px; text-align:center; letter-spacing:.06em; outline:none; transition:border-color .15s; }
+.dc-input:focus { border-color:var(--brand); }
+.dc-submit-btn { padding:10px 18px; background:var(--brand); color:white; border:none; border-radius:9px; font-size:13px; font-weight:700; font-family:inherit; cursor:pointer; transition:background .15s; }
+.dc-submit-btn:hover { background:var(--brand-dark); }
+.dc-giveup-btn { font-size:12px; color:var(--text-3); cursor:pointer; text-decoration:underline; text-underline-offset:2px; border:none; background:none; font-family:inherit; padding:0; }
+.dc-result-box { margin:12px 0 16px; padding:16px; border-radius:10px; }
+.dc-result-box.dc-correct { background:#f0faf6; border:1.5px solid #1D9E75; }
+.dc-result-box.dc-wrong { background:#fff5f5; border:1.5px solid #E24B4A; }
+.dc-result-emoji { font-size:26px; margin-bottom:6px; }
+.dc-result-word { font-size:22px; font-weight:700; color:var(--text); margin-bottom:3px; }
+.dc-result-label { font-size:12px; color:var(--text-2); margin-bottom:12px; }
+.dc-share-btn { display:inline-flex; align-items:center; gap:6px; padding:7px 14px; border:1px solid var(--border); border-radius:7px; background:var(--bg); color:var(--text-2); font-size:12px; font-weight:600; cursor:pointer; font-family:inherit; transition:background .12s; }
+.dc-share-btn:hover { background:var(--bg-2); }
+.dc-streak { margin-top:14px; font-size:12px; color:var(--text-3); }
+.dc-streak strong { color:var(--text); }
+
 /* ── Print ── */
 @media print {
   body * { visibility:hidden; }
@@ -385,6 +407,7 @@
     <div class="ws-tabs" role="tablist">
       <button class="ws-tab ws-tab-active" id="ws-tab-scramble" role="tab" aria-selected="true" aria-controls="ws-panel-scramble" data-tab="scramble">Scramble</button>
       <button class="ws-tab" id="ws-tab-worksheet" role="tab" aria-selected="false" aria-controls="ws-panel-worksheet" data-tab="worksheet">Worksheet</button>
+      <button class="ws-tab" id="ws-tab-daily" role="tab" aria-selected="false" aria-controls="ws-panel-daily" data-tab="daily">Daily</button>
     </div>
 
     <!-- ── Panel: Scramble ── -->
@@ -482,6 +505,13 @@
           <div class="ws-preview" id="ws-preview"></div>
         </div>
 
+      </div>
+    </div>
+
+    <!-- ── Panel: Daily Challenge ── -->
+    <div id="ws-panel-daily" class="ws-panel" role="tabpanel" aria-labelledby="ws-tab-daily">
+      <div class="dc-wrap" id="dc-wrap">
+        <div class="dc-date-badge">📅 Loading…</div>
       </div>
     </div>
 
@@ -957,6 +987,187 @@ const WORD_SCRAMBLER = (() => {
 })();
 
 WORD_SCRAMBLER.init();
+
+(function() {
+  var DAILY_WORDS = [
+    'planet','bridge','garden','jungle','silver','market','finger','castle',
+    'marble','pillow','rabbit','salmon','sunset','velvet','walnut','barrel',
+    'harbor','kernel','mirror','napkin','rocket','saddle','timber','violin',
+    'garland','harvest','passion','science','triumph','volcano','biology',
+    'fantasy','glitter','horizon','impulse','landing','orchard','furnace',
+    'harmony','radiant','sparrow','ancient','capture','develop','eclipse',
+    'forever','graphic','illness','loyalty','machine','notable','resolve',
+    'texture','variety','welcome','ability','chicken','correct','digital',
+    'example','falling','general','kitchen','library','meeting','pattern',
+    'primary','regular','silence','student','website','mystery','plastic',
+    'journey','fortune','initial','justice','leather','mention','network',
+    'opening','parking','reading','station','traffic','uniform','version',
+    'weather','fishing','grocery','holding','jumping','million','outside',
+    'package','running','sitting','talking','village','walking','battery',
+    'curtain','dolphin','fashion','canteen','opinion','regions','windows',
+    'between','compete','discuss','eastern','forward','gravity','history',
+    'imagine','lasting','medical','nothing','outline','propose','request',
+    'someone','through','various','western','deposit','explore','freedom',
+    'goddess','involve','license','morning','neglect','observe','painter',
+    'rescued','surface','trouble','valiant','witness','another','browser',
+    'concept','finding','garment','hunting','joining','killing','leaving',
+    'nervous','playing','quietly','removed','staying','thought','vulture',
+    'watered','younger','amazing','breathe','century','deserve','emotion',
+    'foolish','glowing','holiday','intense','jealous','knowing','learned',
+    'officer','alcohol','believe','husband','october','perhaps','society',
+    'private','algebra','burning','careful','drawing','element','granite',
+    'helpful','include','keeping','nuclear','present','rapidly','whether',
+    'barrier','climate','destiny','ethical','formula','integer','jubilee',
+    'largely','scandal','thermal','upright','warfare','abolish','ceramic',
+    'dilemma','galleon','heroine','inferno','juggler','lobster','mandate',
+    'nightly','optical','railway','shallow','turbine','vampire','warship',
+    'diamond','feather','monster','natural','phantom','quarter','rainbow',
+    'shelter','tornado','warrior','factory','bravery','crimson','elegant',
+    'glacier','harpoon','plunder','quantum','serpent','thunder','vibrant',
+    'admiral','blanket','captain','crystal','emperor','whisper','pilgrim',
+    'tempest','monarch','odyssey','prophet','emerald','trilogy','chapter',
+    'gallery','speaker','cabinet','capsule','caption','circuit','citadel',
+    'clarity','classic','cluster','coastal','collide','comfort','command',
+    'compose','conceal','connect','context','convert','covered','culture',
+    'curious','current','customs','damages','darling','daytime','dealing',
+    'decided','defiant','density','descent','devoted','diploma','dispute',
+    'distant','diverse','divided','enchant','enforce','engaged','enhance',
+    'enlarge','evident','examine','excited','express','extract','extreme',
+    'fiction','fighter','fertile','festive','flavour','focused','frosted',
+    'fulcrum','gallant','gesture','glimmer','glimpse','glorify','highest',
+    'honored','hundred','hydrant','insight','inspire','instead','interim',
+    'lantern','monster','natural','obscure','passion','quantum','recover',
+    'blossom','blanket','captain','crystal','emperor','harvest','passion',
+    'radiant','sparrow','ancient','capture','develop','eclipse','forever',
+    'graphic','illness','loyalty','machine','notable','resolve','texture',
+    'variety','welcome','ability','chicken','correct','digital','example',
+    'falling','general','kitchen','library','meeting','pattern','primary',
+    'regular','silence','student','website','mystery','plastic','journey',
+    'fortune','initial','justice','leather','mention','network','opening',
+    'parking','reading','station','traffic','uniform','version','weather',
+    'fishing','grocery','holding','jumping','million','outside','package',
+    'running','sitting','talking','village','walking','battery','curtain',
+    'dolphin','fashion','canteen','opinion','regions','windows','between',
+    'compete','discuss','eastern','forward','gravity','history','imagine',
+    'lasting','medical','nothing','outline','propose','request','someone',
+    'through','various','western','deposit','explore','freedom','goddess',
+    'involve','license','morning','neglect','observe','painter','rescued',
+    'surface','trouble','valiant','witness','another','browser','concept',
+    'finding','garment','hunting','joining','killing','leaving','nervous',
+    'playing','quietly','removed','staying','thought','vulture','watered'
+  ];
+
+  function dateKey() {
+    var d = new Date();
+    return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
+  }
+
+  function hashDate(s) {
+    var h = 5381;
+    for (var i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) >>> 0;
+    return h;
+  }
+
+  function seededShuffle(word, seed) {
+    var arr = word.split('');
+    var s = seed >>> 0;
+    for (var i = arr.length - 1; i > 0; i--) {
+      s = (Math.imul(s, 1664525) + 1013904223) >>> 0;
+      var j = s % (i + 1);
+      var tmp = arr[i]; arr[i] = arr[j]; arr[j] = tmp;
+    }
+    if (arr.join('') === word && word.length > 1) {
+      var t = arr[0]; arr[0] = arr[arr.length - 1]; arr[arr.length - 1] = t;
+    }
+    return arr.join('');
+  }
+
+  function formatDate(dk) {
+    var parts = dk.split('-').map(Number);
+    var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    return months[parts[1] - 1] + ' ' + parts[2] + ', ' + parts[0];
+  }
+
+  var STORE_KEY = 'ws_daily';
+  function loadStore() { try { return JSON.parse(localStorage.getItem(STORE_KEY) || '{}'); } catch(e) { return {}; } }
+  function saveStore(obj) { try { localStorage.setItem(STORE_KEY, JSON.stringify(obj)); } catch(e) {} }
+
+  function getYesterdayKey() {
+    var d = new Date(); d.setDate(d.getDate() - 1);
+    return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
+  }
+
+  var dk = dateKey();
+  var h = hashDate(dk);
+  var todayWord = DAILY_WORDS[h % DAILY_WORDS.length];
+  var scrambled = seededShuffle(todayWord, h);
+  var store = loadStore();
+
+  function renderDaily() {
+    var wrap = document.getElementById('dc-wrap');
+    if (!wrap) return;
+    var streak = parseInt(store.streak || 0);
+    var solved = store.date === dk;
+
+    if (solved) {
+      var correct = !!store.correct;
+      var streakHtml = streak > 0 ? '<div class="dc-streak">Streak: <strong>' + streak + ' day' + (streak !== 1 ? 's' : '') + '</strong> 🔥</div>' : '';
+      wrap.innerHTML =
+        '<div class="dc-date-badge">📅 ' + formatDate(dk) + '</div>' +
+        '<div class="dc-result-box ' + (correct ? 'dc-correct' : 'dc-wrong') + '">' +
+          '<div class="dc-result-emoji">' + (correct ? '✅' : '❌') + '</div>' +
+          '<div class="dc-result-word">' + todayWord.toUpperCase() + '</div>' +
+          '<div class="dc-result-label">' + (correct ? 'You got it!' : 'The word was: ' + todayWord) + '</div>' +
+          '<button class="dc-share-btn" id="dc-share">📋 Share result</button>' +
+        '</div>' +
+        '<div class="dc-scrambled">' + scrambled.toUpperCase() + '</div>' +
+        streakHtml;
+      document.getElementById('dc-share').addEventListener('click', function() {
+        var shareText = 'Wordineer Daily Scramble — ' + formatDate(dk) + '\n' + scrambled.toUpperCase() + ' → ' + (correct ? '✅' : '❌') + '\nStreak: ' + streak + '\nwordineer.com/word-scramble/';
+        if (navigator.clipboard) navigator.clipboard.writeText(shareText);
+        var btn = this;
+        btn.textContent = '✓ Copied!';
+        setTimeout(function() { btn.textContent = '📋 Share result'; }, 1600);
+      });
+    } else {
+      var streakHtml = streak > 0 ? '<div class="dc-streak">Streak: <strong>' + streak + ' day' + (streak !== 1 ? 's' : '') + '</strong></div>' : '';
+      wrap.innerHTML =
+        '<div class="dc-date-badge">📅 ' + formatDate(dk) + '</div>' +
+        '<div class="dc-title">Unscramble today\'s word</div>' +
+        '<div class="dc-scrambled">' + scrambled.toUpperCase() + '</div>' +
+        '<div class="dc-input-row">' +
+          '<input class="dc-input" id="dc-input" type="text" placeholder="your answer" autocomplete="off" autocorrect="off" spellcheck="false" maxlength="12">' +
+          '<button class="dc-submit-btn" id="dc-submit">Submit</button>' +
+        '</div>' +
+        '<button class="dc-giveup-btn" id="dc-giveup">Give up</button>' +
+        streakHtml;
+
+      function handleResult(correct) {
+        var prevDate = store.date;
+        var prevStreak = parseInt(store.streak || 0);
+        var newStreak = correct ? (prevDate === getYesterdayKey() ? prevStreak + 1 : 1) : 0;
+        store = { date: dk, correct: correct, streak: newStreak };
+        saveStore(store);
+        renderDaily();
+      }
+
+      function handleSubmit() {
+        var input = document.getElementById('dc-input');
+        var guess = (input ? input.value.trim().toLowerCase().replace(/[^a-z]/g, '') : '');
+        if (!guess) { if (input) input.focus(); return; }
+        handleResult(guess === todayWord);
+      }
+
+      document.getElementById('dc-submit').addEventListener('click', handleSubmit);
+      document.getElementById('dc-input').addEventListener('keydown', function(e) { if (e.key === 'Enter') handleSubmit(); });
+      document.getElementById('dc-giveup').addEventListener('click', function() { handleResult(false); });
+    }
+  }
+
+  document.addEventListener('click', function(e) {
+    if (e.target.closest('[data-tab="daily"]')) setTimeout(renderDaily, 20);
+  });
+})();
 
 </script>
 </body>
