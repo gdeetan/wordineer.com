@@ -252,3 +252,22 @@ linear-gradient(180deg, #fbf9ff 0%, #fffdf9 58%, #ffffff 100%)}
 .tool-item--soon .tool-name{color:var(--text-2);font-size:12px}
 .tool-item--soon .tool-desc{color:var(--text-3);font-size:10px}
 .soon-badge{display:inline-block;font-size:10px;padding:2px 7px;background:var(--bg-3);color:var(--text-3);border-radius:99px;font-weight:500;vertical-align:middle;margin-left:6px}
+/* ── Ad blocks (leaderboard + sidebar) ── */
+.ad-leaderboard{max-width:960px;margin:0 auto 32px;padding:0 24px}
+.ad-leaderboard-inner{position:relative;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px 20px;border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--bg-2)}
+.ad-tag{position:static;font-size:9px;background:var(--bg-3);color:var(--text-3);border:1px solid var(--border);border-radius:3px;padding:1px 6px;white-space:nowrap;flex-shrink:0;align-self:flex-start;margin-top:2px}
+.ad-mock-content{display:flex;align-items:center;gap:16px;flex:1;min-width:0}
+.ad-title{font-size:13px;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ad-sub{font-size:12px;color:var(--text-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ad-mock-cta{display:inline-flex;align-items:center;height:34px;padding:0 14px;border-radius:8px;background:var(--brand);color:#fff;font-size:12px;font-weight:700;text-decoration:none;white-space:nowrap;flex-shrink:0;transition:background .15s}
+.ad-mock-cta:hover{background:var(--brand-dark)}
+.ad-sidebar{margin-top:18px;border:1px solid var(--border);border-radius:10px;padding:14px;background:var(--bg)}
+.ad-sidebar-tag{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-3);display:block;margin-bottom:8px}
+.ad-sidebar-logo{display:flex;align-items:center;gap:6px;margin-bottom:6px}
+.ad-sidebar-brand{font-size:13px;font-weight:700;color:var(--text)}
+.ad-sidebar-headline{font-size:13px;font-weight:600;color:var(--text);margin-bottom:4px}
+.ad-sidebar-body{font-size:12px;color:var(--text-2);line-height:1.5;margin-bottom:10px}
+.ad-sidebar-cta{display:block;background:var(--brand);color:white;text-align:center;padding:8px;border-radius:7px;font-size:12px;font-weight:600;text-decoration:none}
+.ad-sidebar-cta:hover{background:var(--brand-dark)}
+.ad-sidebar-sub{font-size:10px;color:var(--text-3);text-align:center;margin-top:5px}
+@media(max-width:700px){.ad-leaderboard-inner{flex-direction:column;align-items:flex-start;gap:10px}.ad-mock-content{flex-direction:column;align-items:flex-start;gap:8px}}
