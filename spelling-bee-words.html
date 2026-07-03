@@ -387,6 +387,16 @@ body.is-classroom .results-col { min-height: 100vh; }
             </select>
           </div>
 
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="ctrl-syl">Syllables</label>
+            <select id="ctrl-syl">
+              <option value="all">Any count</option>
+              <option value="1">1 syllable</option>
+              <option value="2">2 syllables</option>
+              <option value="3">3+ syllables</option>
+            </select>
+          </div>
+
           <div class="def-row">
             <label class="toggle" aria-label="Show definitions"><input type="checkbox" id="ctrl-defs" checked><span class="toggle-sl"></span></label>
             <label for="ctrl-defs">Show definitions</label>
@@ -424,7 +434,16 @@ body.is-classroom .results-col { min-height: 100vh; }
 
   </div>
 </div>
-
+<div class="ad-leaderboard">
+  <div class="ad-leaderboard-inner">
+    <span class="ad-tag">Ad</span>
+    <div class="ad-mock-content">
+      <div class="ad-title">Build vocabulary at home — kids' books for every grade level</div>
+      <div class="ad-sub">Award-winning spelling and vocabulary workbooks for K–8 students. Matched to Common Core standards.</div>
+      <a href="#placeholder" target="_blank" rel="noopener sponsored" class="ad-mock-cta">Browse books on Amazon →</a>
+    </div>
+  </div>
+</div>
 <div class="content-wrap">
   <div class="section">
     <h2 class="section-title">More spelling &amp; vocabulary tools</h2>
@@ -684,11 +703,13 @@ body.is-classroom .results-col { min-height: 100vh; }
       var g      = document.getElementById('ctrl-grade').value;
       var d      = document.getElementById('ctrl-diff').value;
       var origin = document.getElementById('ctrl-origin').value;
+      var syl    = document.getElementById('ctrl-syl').value;
       var count  = Math.min(50, Math.max(1, parseInt(document.getElementById('ctrl-count').value, 10) || 20));
       var result = words.slice();
       if (g !== 'all')      result = result.filter(function (w) { return w.grade === g; });
       if (d !== 'all')      result = result.filter(function (w) { return w.diff === d; });
       if (origin !== 'all') result = result.filter(function (w) { return w.origin === origin; });
+      if (syl !== 'all')    result = result.filter(function (w) { return syl === '3' ? w.syl >= 3 : w.syl === parseInt(syl, 10); });
       for (var i = result.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
         var tmp = result[i]; result[i] = result[j]; result[j] = tmp;
@@ -816,6 +837,7 @@ body.is-classroom .results-col { min-height: 100vh; }
       document.getElementById('ctrl-grade').value  = 'all';
       document.getElementById('ctrl-diff').value   = 'all';
       document.getElementById('ctrl-origin').value = 'all';
+      document.getElementById('ctrl-syl').value    = 'all';
       document.getElementById('ctrl-defs').checked = true;
       [].slice.call(document.querySelectorAll('.word-def')).forEach(function (el) { el.classList.remove('hidden'); });
       var err = document.getElementById('count-error');
@@ -851,7 +873,7 @@ body.is-classroom .results-col { min-height: 100vh; }
         self.generate();
       });
 
-      ['ctrl-grade', 'ctrl-diff', 'ctrl-origin'].forEach(function (id) {
+      ['ctrl-grade', 'ctrl-diff', 'ctrl-origin', 'ctrl-syl'].forEach(function (id) {
         var el = document.getElementById(id);
         if (el) el.addEventListener('change', function () { self.generate(); });
       });
