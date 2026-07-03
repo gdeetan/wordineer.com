@@ -362,6 +362,15 @@
               <option value="funny">Funny</option>
             </select>
           </div>
+          <div class="control-group">
+            <label class="control-label" for="pic-syllables">Syllables</label>
+            <select id="pic-syllables" class="pic-select">
+              <option value="any">Any count</option>
+              <option value="1">1 syllable</option>
+              <option value="2">2 syllables</option>
+              <option value="3+">3+ syllables</option>
+            </select>
+          </div>
           <div class="timer-box">
             <span class="control-label">Round timer</span>
             <div class="seg three" data-control="timer">
@@ -661,14 +670,15 @@
   }
   function picScheduleLoad(){if(picFullLoaded)return;if('requestIdleCallback' in window)requestIdleCallback(picLoadFullWords,{timeout:4000});else setTimeout(picLoadFullWords,200)}
   window.addEventListener('load',picScheduleLoad,{once:true});
-  const state={count:5,difficulty:'easy',category:'classic',timer:60,current:[],saved:[],seen:new Set(),hidden:false,remaining:60,running:false,interval:null};
+  function countSyls(phrase){return phrase.toLowerCase().replace(/[^a-z ]/g,'').split(' ').reduce(function(sum,w){if(!w)return sum;if(w.length<=3)return sum+1;w=w.replace(/(?:[^laeiouy]es|[^laeiouy]ed|[^laeiouy]e)$/,'').replace(/^y/,'');var m=w.match(/[aeiouy]{1,2}/g);return sum+(m?m.length:1)},0);}
+  const state={count:5,difficulty:'easy',category:'classic',syllables:'any',timer:60,current:[],saved:[],seen:new Set(),hidden:false,remaining:60,running:false,interval:null};
   const $=id=>document.getElementById(id),grid=$('word-grid'),status=$('status'),savedList=$('saved-list'),savedCount=$('saved-count'),toast=$('toast');
   const picCountInput=$('count-input'),picCountError=$('pic-count-error');
   function showToast(text){toast.textContent=text;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),1600)}
   function setSeg(control,value){document.querySelectorAll(`[data-control="${control}"] button`).forEach(btn=>btn.classList.toggle('active',btn.dataset.value===String(value)));if(control==='count')picCountInput.value=value}
   function picValidateCount(){const v=parseInt(picCountInput.value);const invalid=isNaN(v)||v<1||v>50;picCountError.style.display=invalid?'block':'none';picCountInput.style.borderColor=invalid?'#E24B4A':'';return !invalid}
   function setCount(value){const next=Math.max(1,Math.min(50,Number(value)||1));state.count=next;picCountInput.style.borderColor='';picCountError.style.display='none';setSeg('count',next)}
-  function filtered(){if(state.category==='all')return words.filter(item=>item.d===state.difficulty);return words.filter(item=>item.d===state.difficulty&&item.c.includes(state.category))}
+  function filtered(){let pool=state.category==='all'?words.filter(item=>item.d===state.difficulty):words.filter(item=>item.d===state.difficulty&&item.c.includes(state.category));if(state.syllables!=='any'){pool=pool.filter(item=>{const n=countSyls(item.w);return state.syllables==='3+'?n>=3:n===parseInt(state.syllables)});}return pool;}
   function generate(){let pool=filtered().filter(item=>!state.seen.has(item.w));if(!pool.length&&state.seen.size){state.seen.clear();pool=filtered()}if(!pool.length){state.current=[];renderWords();return}const chosen=[];while(chosen.length<state.count&&pool.length){const idx=Math.floor(Math.random()*pool.length);const item=pool.splice(idx,1)[0];chosen.push(item);state.seen.add(item.w)}state.current=chosen;renderWords()}
   function renderWords(){if(!state.current.length){grid.innerHTML='';status.textContent='No words found — try a different filter';return}grid.innerHTML=state.current.map(item=>{const saved=state.saved.includes(item.w);return `<li class="word-card${state.hidden?' hidden':''}"><div><div class="word-text">${item.w}</div><div class="word-meta">${item.d} · ${item.c[0]}</div></div><button class="save-btn${saved?' saved':''}" type="button" data-save="${item.w}" aria-label="Save ${item.w}">♥</button></li>`}).join('');const catLabel=state.category==='all'?'all categories':state.category;status.textContent=`${state.current.length} ${state.difficulty} ${catLabel} word${state.current.length!==1?'s':''} generated`}
   function renderSaved(){savedCount.textContent=`(${state.saved.length})`;savedList.innerHTML=state.saved.length?state.saved.map(word=>`<span class="saved-pill">${word}<button type="button" data-remove="${word}" aria-label="Remove ${word}">×</button></span>`).join(''):'<span class="empty-text">Save words here before you generate the next round.</span>'}
@@ -688,6 +698,7 @@
   picCountInput.addEventListener('change',()=>picValidateCount());
   $('more-options-btn').addEventListener('click',e=>{const panel=$('more-options-panel');const open=panel.classList.toggle('open');e.target.setAttribute('aria-expanded',open?'true':'false');e.target.textContent=open?'Fewer options':'More options'});
   $('pic-category').addEventListener('change',e=>{state.category=e.target.value;state.seen.clear();generate()});
+  $('pic-syllables').addEventListener('change',e=>{state.syllables=e.target.value;state.seen.clear();generate()});
   $('generate-btn').addEventListener('click',()=>{picLoadFullWords();generate()});
   $('copy-btn').addEventListener('click',()=>copyText(state.current.map(item=>item.w).join(', '),'No words to copy'));
   $('copy-saved-btn').addEventListener('click',()=>copyText(state.saved.join(', '),'No saved words'));
