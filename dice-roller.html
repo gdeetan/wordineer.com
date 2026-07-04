@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.adsbygoogle = window.adsbygoogle || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  (function(w, d) {
+    var loaded = false;
+    var cfg = {
+      analyticsId: 'G-7DWH3EGM3Z',
+      adsClient: 'ca-pub-7200956978416233',
+      delay: 10000
+    };
+
+    function loadScript(src, attrs) {
+      var s = d.createElement('script');
+      s.async = true;
+      s.src = src;
+      if (attrs) {
+        Object.keys(attrs).forEach(function(key) {
+          s.setAttribute(key, attrs[key]);
+        });
+      }
+      d.head.appendChild(s);
+    }
+
+    function loadMarketing() {
+      if (loaded) return;
+      loaded = true;
+      gtag('js', new Date());
+      gtag('config', cfg.analyticsId);
+      loadScript('https://www.googletagmanager.com/gtag/js?id=' + cfg.analyticsId);
+      loadScript(
+        'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + cfg.adsClient,
+        { crossorigin: 'anonymous' }
+      );
+    }
+
+    function idleLoad() {
+      if ('requestIdleCallback' in w) {
+        w.requestIdleCallback(loadMarketing, { timeout: 5000 });
+      } else {
+        w.setTimeout(loadMarketing, cfg.delay);
+      }
+    }
+
+    ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function(eventName) {
+      w.addEventListener(eventName, loadMarketing, { once: true, passive: true });
+    });
+    w.addEventListener('load', function() {
+      w.setTimeout(idleLoad, cfg.delay);
+    }, { once: true });
+  })(window, document);
+</script>
+<meta name='impact-site-verification' value='32715504-1cfb-4324-bfc7-ae4cfa1591ea'>
+<link rel="preload" href="/fonts/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-sans-italic-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://wordineer.com/#website",
+      "name": "Wordineer",
+      "url": "https://wordineer.com",
+      "description": "Free online word tools for writers, students, and word game players — random word generator, name generators, word scramble, sentence generator, and more.",
+      "publisher": { "@id": "https://wordineer.com/#organization" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://wordineer.com/#organization",
+      "name": "Wordineer",
+      "url": "https://wordineer.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://wordineer.com/logo.png",
+        "width": 1254,
+        "height": 1254
+      },
+      "description": "Wordineer provides free online word tools for writers, students, and word game players."
+    }
+  ]
+}
+</script>
+<title>Dice Roller — Roll Any Dice Online Free | Wordineer</title>
+<meta name="description" content="Free online dice roller — roll d4, d6, d8, d10, d12, d20, or custom dice instantly. Roll multiple dice at once, see totals and history. No sign-up needed.">
+<link rel="canonical" href="https://wordineer.com/dice-roller/">
+<meta property="og:type"        content="website">
+<meta property="og:site_name"   content="Wordineer">
+<meta property="og:title"       content="Dice Roller — Roll Any Dice Online Free | Wordineer">
+<meta property="og:description" content="Free online dice roller — roll d4, d6, d8, d10, d12, d20, or custom dice instantly. Roll multiple dice at once, see totals and history.">
+<meta property="og:url"         content="https://wordineer.com/dice-roller/">
+<meta property="og:image"       content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What types of dice can I roll?",
+      "acceptedAnswer": { "@type": "Answer", "text": "You can roll a d4, d6, d8, d10, d12, d20, or a custom die with any number of sides from 2 to 100. Each die type covers the most common tabletop RPG dice (the standard 7-die set used in Dungeons & Dragons and other games). The Custom option lets you enter any number of sides you need." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I roll multiple dice at the same time?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Use the quantity selector to roll 1–20 dice of the same type at once. The results show each individual die result and the total sum — useful for rolling 2d6 for movement, 4d6 for D&D character stats, or any other multi-dice roll your game calls for." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the dice roller truly random?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every roll uses the browser's built-in crypto.getRandomValues() — a cryptographically secure random number generator. This is more random than a physical die throw, which can be biased by the thrower's technique." }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I read the roll history?",
+      "acceptedAnswer": { "@type": "Answer", "text": "After each roll the result is added to the history panel below the dice. Each entry shows the dice type, individual results for each die, and the total. The history keeps your last 20 rolls so you can compare results or settle disputes mid-game. Click Clear History to wipe it." }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Games & Fun", "item": "https://wordineer.com/number-chance/" },
+    { "@type": "ListItem", "position": 3, "name": "Dice Roller", "item": "https://wordineer.com/dice-roller/" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Dice Roller",
+  "url": "https://wordineer.com/dice-roller/",
+  "description": "Free online dice roller — roll d4, d6, d8, d10, d12, d20, or custom dice instantly. Roll multiple dice, see totals and history.",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+
+<link rel="stylesheet" href="/styles/global.css?v=13">
+<style>
+/* ── Dice Roller Layout ── */
+.dr-wrap { padding: 20px 20px 0; }
+.dr-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+
+/* ── Controls ── */
+.dr-controls { padding: 20px 20px 16px; border-bottom: 1px solid var(--border-2); }
+.dr-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: flex-end; }
+.dr-field { display: flex; flex-direction: column; gap: 5px; }
+.dr-field label { font-size: 11px; font-weight: 600; color: var(--text-3); text-transform: uppercase; letter-spacing: .05em; }
+
+/* Die type buttons */
+.dr-die-group { display: flex; flex-wrap: wrap; gap: 6px; }
+.dr-die-btn {
+  padding: 7px 12px; font-size: 13px; font-weight: 600; font-family: inherit;
+  border: 1.5px solid var(--border); border-radius: 7px; background: var(--bg);
+  color: var(--text-2); cursor: pointer; transition: all .12s; line-height: 1;
+}
+.dr-die-btn:hover { border-color: var(--brand); color: var(--brand); background: var(--brand-light); }
+.dr-die-btn.active { border-color: var(--brand); background: var(--brand); color: #fff; }
+
+/* Quantity */
+.dr-qty-wrap { display: flex; align-items: center; gap: 6px; }
+.dr-qty-btn {
+  width: 30px; height: 30px; border: 1px solid var(--border); border-radius: 6px;
+  background: var(--bg-2); font-size: 18px; font-weight: 400; cursor: pointer;
+  color: var(--text-2); display: flex; align-items: center; justify-content: center;
+  font-family: inherit; transition: background .1s; line-height: 1;
+}
+.dr-qty-btn:hover { background: var(--brand-light); color: var(--brand); border-color: var(--brand); }
+.dr-qty-val { width: 36px; text-align: center; font-size: 15px; font-weight: 700; color: var(--text); }
+
+/* Custom sides input */
+.dr-custom-wrap { display: none; }
+.dr-custom-wrap.visible { display: flex; flex-direction: column; gap: 5px; }
+.dr-custom-input {
+  width: 72px; padding: 7px 10px; font-size: 14px; font-family: inherit;
+  border: 1.5px solid var(--border); border-radius: 7px; background: var(--bg);
+  color: var(--text); text-align: center;
+}
+.dr-custom-input:focus { outline: none; border-color: var(--brand); }
+
+/* Roll button */
+.dr-roll-btn {
+  padding: 9px 28px; font-size: 15px; font-weight: 700; font-family: inherit;
+  background: var(--brand); color: #fff; border: none; border-radius: 8px;
+  cursor: pointer; transition: background .12s; white-space: nowrap;
+}
+.dr-roll-btn:hover { background: var(--brand-dark, #2a2475); }
+.dr-roll-btn:active { transform: scale(.97); }
+
+/* ── Result display ── */
+.dr-result-area { padding: 24px 20px; text-align: center; min-height: 120px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.dr-dice-row { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 12px; }
+
+/* Individual die face */
+.dr-die-face {
+  width: 52px; height: 52px; border-radius: 10px;
+  background: var(--bg-2); border: 2px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; font-weight: 800; color: var(--brand);
+  transition: transform .15s; box-shadow: 0 1px 3px rgba(0,0,0,.06);
+}
+.dr-die-face.bounce { animation: dr-bounce .25s ease; }
+@keyframes dr-bounce {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.18); }
+  70%  { transform: scale(.92); }
+  100% { transform: scale(1); }
+}
+
+/* Total */
+.dr-total { font-size: 13px; color: var(--text-3); margin-top: 4px; }
+.dr-total strong { font-size: 22px; color: var(--text); font-weight: 800; }
+.dr-total-label { font-size: 12px; color: var(--text-3); margin-left: 4px; }
+
+/* Placeholder */
+.dr-placeholder { color: var(--text-3); font-size: 14px; }
+
+/* ── History ── */
+.dr-history-wrap { border-top: 1px solid var(--border-2); padding: 14px 20px; }
+.dr-history-hdr { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+.dr-history-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: var(--text-3); }
+.dr-clear-btn { font-size: 11px; color: var(--text-3); background: none; border: none; cursor: pointer; font-family: inherit; padding: 2px 6px; border-radius: 4px; }
+.dr-clear-btn:hover { background: var(--bg-2); color: var(--brand); }
+.dr-history-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 5px; max-height: 240px; overflow-y: auto; }
+.dr-history-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-2); padding: 5px 8px; border-radius: 6px; background: var(--bg-2); }
+.dr-history-tag { font-size: 11px; font-weight: 700; color: var(--brand); background: var(--brand-light); padding: 2px 7px; border-radius: 4px; white-space: nowrap; flex-shrink: 0; }
+.dr-history-vals { flex: 1; color: var(--text-3); font-size: 12px; }
+.dr-history-total { font-weight: 700; color: var(--text); white-space: nowrap; }
+.dr-history-empty { font-size: 12px; color: var(--text-3); text-align: center; padding: 8px 0; }
+
+/* ── Stats bar ── */
+.dr-stats { display: flex; gap: 20px; padding: 10px 20px 14px; border-top: 1px solid var(--border-2); flex-wrap: wrap; }
+.dr-stat { display: flex; flex-direction: column; gap: 2px; }
+.dr-stat-label { font-size: 10px; text-transform: uppercase; letter-spacing: .06em; color: var(--text-3); font-weight: 600; }
+.dr-stat-val { font-size: 18px; font-weight: 800; color: var(--text); }
+
+/* ── Mobile ── */
+@media(max-width:600px){
+  .dr-wrap { padding: 14px 14px 0; }
+  .dr-controls { padding: 16px 14px 12px; }
+  .dr-row { gap: 10px; }
+  .dr-die-btn { padding: 6px 10px; font-size: 12px; }
+  .dr-roll-btn { padding: 9px 20px; font-size: 14px; }
+  .dr-die-face { width: 44px; height: 44px; font-size: 17px; }
+  .dr-history-wrap, .dr-stats { padding-left: 14px; padding-right: 14px; }
+}
+</style>
+</head>
+
+<body>
+<nav class="nav">
+  <a class="nav-logo" href="/">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 15 15" fill="none"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </div>
+    Wordineer
+  </a>
+  <div class="nav-links">
+    <a href="/word-tools/">Tools</a>
+    <a href="/blog/">Blog</a>
+  </div>
+  <div>
+    <button class="hamburger" type="button" aria-label="All tools" aria-controls="mega" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mega" id="mega">
+  <div class="mega-inner">
+    <div class="mega-col">
+      <div class="mega-cat">Writing &amp; Vocabulary</div>
+      <a class="mega-link" href="/">Random Word Generator</a>
+      <a class="mega-link" href="/random-sentence-generator/">Random Sentence Generator</a>
+      <a class="mega-link" href="/random-paragraph-generator/">Random Paragraph Generator</a>
+      <a class="mega-link" href="/word-counter/">Word Counter</a>
+      <a class="mega-link mega-link--view-all" href="/word-tools/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Browse by Letter</div>
+      <a class="mega-link" href="/random-words-starting-with/">Random Words Starting With (A–Z)</a>
+      <a class="mega-link" href="/random-words-starting-with/a">Random Words Starting with A</a>
+      <a class="mega-link" href="/random-words-starting-with/s">Random Words Starting with S</a>
+      <a class="mega-link" href="/random-words-starting-with/q">Random Words Starting with Q</a>
+      <a class="mega-link mega-link--view-all" href="/random-words-starting-with/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Names by Origin</div>
+      <a class="mega-link" href="/random-spanish-name-generator/">Spanish Name Generator</a>
+      <a class="mega-link" href="/random-italian-name-generator/">Italian Name Generator</a>
+      <a class="mega-link" href="/random-japanese-name-generator/">Japanese Name Generator</a>
+      <a class="mega-link" href="/random-american-name-generator/">American Name Generator</a>
+      <a class="mega-link mega-link--view-all" href="/name-generators/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Other Name Generators</div>
+      <a class="mega-link" href="/character-name-generator/">Character Name Generator</a>
+      <a class="mega-link" href="/fantasy-name-generator/">Fantasy Name Generator</a>
+      <a class="mega-link" href="/business-name-generator/">Business Name Generator</a>
+      <a class="mega-link" href="/band-name-generator/">Band Name Generator</a>
+      <a class="mega-link mega-link--view-all" href="/other-generators/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Account &amp; Security</div>
+      <a class="mega-link" href="/username-generator/">Username Generator</a>
+      <a class="mega-link" href="/password-generator/">Password Generator</a>
+      <a class="mega-link" href="/passphrase-generator/">Passphrase Generator</a>
+      <a class="mega-link" href="/memorable-password-generator/">Memorable Password Generator</a>
+      <a class="mega-link mega-link--view-all" href="/account-tools/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Games &amp; fun</div>
+      <a class="mega-link" href="/random-number-generator/">Random Number Generator</a>
+      <a class="mega-link" href="/pictionary-phrase-generator/">Pictionary Phrase Generator</a>
+      <a class="mega-link" href="/crossword-puzzle-generator/">Crossword Puzzle Generator</a>
+      <a class="mega-link" href="/wordle-helper/">Wordle Helper</a>
+      <a class="mega-link" href="/wordle-answers/">Wordle Answer Archive</a>
+      <a class="mega-link" href="/coin-flip/">Coin Flip</a>
+      <a class="mega-link active" href="/dice-roller/">Dice Roller</a>
+      <a class="mega-link mega-link--view-all" href="/number-chance/">View all →</a>
+    </div>
+  </div>
+</div>
+
+
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/number-chance/">Games &amp; Fun</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Dice Roller</span>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free Tool
+  </div>
+  <h1>Dice Roller</h1>
+  <p>Roll d4, d6, d8, d10, d12, d20, or a custom die — pick your quantity, press Roll, and get a cryptographically random result instantly. Perfect for D&amp;D, board games, or any tabletop session.</p>
+</div>
+<div class="dr-wrap">
+  <div class="dr-card">
+
+    <!-- Controls -->
+    <div class="dr-controls">
+      <div class="dr-row">
+        <div class="dr-field">
+          <label>Die type</label>
+          <div class="dr-die-group" id="dr-die-group" role="group" aria-label="Select die type">
+            <button class="dr-die-btn active" data-sides="4"  aria-pressed="false">d4</button>
+            <button class="dr-die-btn"        data-sides="6"  aria-pressed="true">d6</button>
+            <button class="dr-die-btn"        data-sides="8"  aria-pressed="false">d8</button>
+            <button class="dr-die-btn"        data-sides="10" aria-pressed="false">d10</button>
+            <button class="dr-die-btn"        data-sides="12" aria-pressed="false">d12</button>
+            <button class="dr-die-btn"        data-sides="20" aria-pressed="false">d20</button>
+            <button class="dr-die-btn"        data-sides="custom" aria-pressed="false">Custom</button>
+          </div>
+        </div>
+
+        <div class="dr-field dr-custom-wrap" id="dr-custom-wrap">
+          <label for="dr-custom-input">Sides (2–100)</label>
+          <input type="number" id="dr-custom-input" class="dr-custom-input" min="2" max="100" value="100" aria-label="Custom number of sides">
+        </div>
+
+        <div class="dr-field">
+          <label>Quantity</label>
+          <div class="dr-qty-wrap">
+            <button class="dr-qty-btn" id="dr-qty-dec" aria-label="Decrease quantity">−</button>
+            <div class="dr-qty-val" id="dr-qty-val" aria-live="polite">1</div>
+            <button class="dr-qty-btn" id="dr-qty-inc" aria-label="Increase quantity">+</button>
+          </div>
+        </div>
+
+        <div class="dr-field" style="justify-content:flex-end">
+          <button class="dr-roll-btn" id="dr-roll-btn">Roll</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Result -->
+    <div class="dr-result-area" id="dr-result-area">
+      <div class="dr-placeholder" id="dr-placeholder">Select a die and press Roll</div>
+      <div class="dr-dice-row" id="dr-dice-row" style="display:none"></div>
+      <div class="dr-total" id="dr-total" style="display:none"></div>
+    </div>
+
+    <!-- Stats -->
+    <div class="dr-stats" id="dr-stats" style="display:none">
+      <div class="dr-stat"><div class="dr-stat-label">Rolls</div><div class="dr-stat-val" id="dr-stat-count">0</div></div>
+      <div class="dr-stat"><div class="dr-stat-label">Session total</div><div class="dr-stat-val" id="dr-stat-sum">0</div></div>
+      <div class="dr-stat"><div class="dr-stat-label">Highest</div><div class="dr-stat-val" id="dr-stat-high">—</div></div>
+      <div class="dr-stat"><div class="dr-stat-label">Lowest</div><div class="dr-stat-val" id="dr-stat-low">—</div></div>
+    </div>
+
+    <!-- History -->
+    <div class="dr-history-wrap">
+      <div class="dr-history-hdr">
+        <div class="dr-history-title">Roll history</div>
+        <button class="dr-clear-btn" id="dr-clear-btn">Clear</button>
+      </div>
+      <ul class="dr-history-list" id="dr-history-list" aria-label="Roll history" aria-live="polite">
+        <li class="dr-history-empty" id="dr-history-empty">No rolls yet</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+<div class="content-wrap" style="margin-top:32px">
+  <div class="ad-rect">
+    <span class="ad-tag">Advertisement · 336×280</span>
+    <div class="ad-rect-img"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4C10.3 4 4 10.3 4 18s6.3 14 14 14 14-6.3 14-14S25.7 4 18 4z" fill="white" opacity=".2"/><path d="M12 18c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="18" r="2.5" fill="white"/></svg></div>
+    <div class="ad-rect-content">
+      <div class="ad-rect-title">Grammarly — write with confidence</div>
+      <div class="ad-rect-body">Grammar, tone &amp; clarity. Used by 30 million people. Works in Google Docs, Gmail, Word and more.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
+    </div>
+  </div>
+</div>
+<div class="content-wrap">
+  <div class="section">
+    <h2 class="section-title">More word tools</h2>
+    <p class="section-sub">Every word generator you need, all free</p>
+    <div class="tools-grid">
+      <a class="tool-item" href="/random-quote-generator/"><div class="tool-icon" style="background:#FBEAF0"><svg viewBox="0 0 13 13" fill="none"><path d="M3 4.5h3.5M3 8.5h4.5" stroke="#A13B63" stroke-width="1.1" stroke-linecap="round"/><path d="M8.2 3.5h1.4v2.1c0 .5.4.9.9.9H11v1.4H9.6c-1.2 0-2.1-.9-2.1-2.1z" fill="#A13B63"/><path d="M2.2 5.2h1.4V7c0 .5.4.9.9.9h.4v1.4h-.4C3.3 9.3 2.2 8.2 2.2 7z" fill="#A13B63"/></svg></div><div class="tool-name">Random Quote Generator</div><div class="tool-desc">Random quotes with filters for topic, author, tone, length, favorites, and image cards.</div></a>
+      <a class="tool-item" href="/random-wordle-generator/"><div class="tool-icon" style="background:#E8F4FE"><svg viewBox="0 0 13 13" fill="none"><rect x='2' y='2' width='3.5' height='3.5' rx='0.5' fill='#2B7FD4'/><rect x='7.5' y='2' width='3.5' height='3.5' rx='0.5' fill='#2B7FD4' opacity='.4'/><rect x='2' y='7.5' width='3.5' height='3.5' rx='0.5' fill='#2B7FD4' opacity='.4'/><rect x='7.5' y='7.5' width='3.5' height='3.5' rx='0.5' fill='#2B7FD4'/></svg></div><div class="tool-name">Random Wordle Generator</div><div class="tool-desc">Random 5-letter words for Wordle. Filter by difficulty and letter.</div></a>
+      <a class="tool-item" href="/wordle-helper/"><div class="tool-icon" style="background:#E1F5EE"><svg viewBox="0 0 13 13" fill="none"><rect x='2' y='2' width='3.5' height='3.5' rx='0.5' fill='#1D9E75'/><rect x='7.5' y='2' width='3.5' height='3.5' rx='0.5' fill='#BA7517'/><rect x='2' y='7.5' width='3.5' height='3.5' rx='0.5' fill='none' stroke='#9a9a94' stroke-width='1'/><rect x='7.5' y='7.5' width='3.5' height='3.5' rx='0.5' fill='#1D9E75'/></svg></div><div class="tool-name">Wordle Helper</div><div class="tool-desc">Entropy-ranked solver — enter your clues and get the single best next guess, not just a filtered list.</div></a>
+      <a class="tool-item" href="/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="#534AB7" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="tool-name">Random word</div><div class="tool-desc">Filter by type, difficulty, length</div></a>
+      <a class="tool-item" href="/random-noun-generator/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h9M2 7h6M2 10h8" stroke="#534AB7" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="tool-name">Random Noun Generator</div><div class="tool-desc">Generate random nouns — filter by type (abstract, concrete, proper, collective) and difficulty.</div></a>
+      <a class="tool-item" href="/random-verb-generator/"><div class="tool-icon" style="background:#EEF6FE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h9M2 7h7M2 10h5" stroke="#2B6CB0" stroke-width="1.3" stroke-linecap="round"/><path d="M10 9l2 1.5-2 1.5" stroke="#2B6CB0" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="tool-name">Random Verb Generator</div><div class="tool-desc">Generate random verbs — filter by type (action, linking, auxiliary, modal) and difficulty.</div></a>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div>
+    <h2 class="section-title">Other tools</h2>
+    <p class="section-sub">Numbers, names, games and more</p>
+    <div class="other-grid">
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3h9M2 6.5h7M2 10h5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Writing &amp; Vocabulary</div><a class="other-link" href="/">Random Word Generator</a><a class="other-link" href="/random-sentence-generator/">Random Sentence Generator</a><a class="other-link" href="/random-paragraph-generator/">Random Paragraph Generator</a><a class="other-link" href="/word-counter/">Word Counter</a><a class="other-link other-link--view-all" href="/word-tools/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h3.5M2 7h9M2 10h6" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Browse by Letter</div><a class="other-link" href="/random-words-starting-with/">Random Words Starting With (A–Z)</a><a class="other-link" href="/random-words-starting-with/a">Random Words Starting with A</a><a class="other-link" href="/random-words-starting-with/s">Random Words Starting with S</a><a class="other-link" href="/random-words-starting-with/q">Random Words Starting with Q</a><a class="other-link other-link--view-all" href="/random-words-starting-with/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4.5" r="2.5" stroke="currentColor" stroke-width="1"/><path d="M1.5 11.5c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Names by Origin</div><a class="other-link" href="/random-spanish-name-generator/">Spanish Name Generator</a><a class="other-link" href="/random-italian-name-generator/">Italian Name Generator</a><a class="other-link" href="/random-japanese-name-generator/">Japanese Name Generator</a><a class="other-link" href="/random-american-name-generator/">American Name Generator</a><a class="other-link other-link--view-all" href="/name-generators/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="1.5" width="9" height="10" rx="1" stroke="currentColor" stroke-width="1"/><path d="M4 4.5h5M4 6.5h5M4 8.5h3" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Other Name Generators</div><a class="other-link" href="/character-name-generator/">Character Name Generator</a><a class="other-link" href="/fantasy-name-generator/">Fantasy Name Generator</a><a class="other-link" href="/business-name-generator/">Business Name Generator</a><a class="other-link" href="/band-name-generator/">Band Name Generator</a><a class="other-link other-link--view-all" href="/other-generators/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="3.5" y="5.5" width="6" height="5" rx="1" stroke="currentColor" stroke-width="1"/><path d="M5 5.5V4a1.5 1.5 0 013 0v1.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Account &amp; Security</div><a class="other-link" href="/password-generator/">Password Generator</a><a class="other-link" href="/passphrase-generator/">Passphrase Generator</a><a class="other-link" href="/memorable-password-generator/">Memorable Password Generator</a><a class="other-link" href="/username-generator/">Username Generator</a><a class="other-link other-link--view-all" href="/account-tools/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="1" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="1" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/></svg>Games &amp; fun</div><a class="other-link" href="/pictionary-phrase-generator/">Pictionary Phrase Generator</a><a class="other-link" href="/wordle-helper/">Wordle Helper</a><a class="other-link" href="/coin-flip/">Coin Flip</a><a class="other-link" href="/dice-roller/">Dice Roller</a><a class="other-link other-link--view-all" href="/number-chance/">View all →</a></div>
+    </div>
+  </div>
+
+  <div class="ad-rect">
+    <span class="ad-tag">Advertisement · 336×280</span>
+    <div class="ad-rect-img"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4C10.3 4 4 10.3 4 18s6.3 14 14 14 14-6.3 14-14S25.7 4 18 4z" fill="white" opacity=".2"/><path d="M12 18c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="18" r="2.5" fill="white"/></svg></div>
+    <div class="ad-rect-content">
+      <div class="ad-rect-title">Grammarly — write with confidence</div>
+      <div class="ad-rect-body">Instantly improve grammar, spelling, clarity, and tone. Works everywhere you write online.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
+    </div>
+  </div>
+  <div class="divider"></div>
+
+<div class="explainer">
+  <h2>How to use the dice roller</h2>
+  <p>Click the die type you need — d4 through d20, or Custom for any number of sides — then use the + and − buttons to set how many dice to roll at once. Press <strong>Roll</strong> (or hit Enter) and the results appear instantly, with each die's result shown individually and the total displayed below. The tool uses <code>crypto.getRandomValues()</code> under the hood, the same cryptographically secure random source that browsers use for encryption, so the results are genuinely random.</p>
+  <p>The session stats bar tracks your roll count, running total, and the highest and lowest single-die result for the current session. If you need to revisit what was rolled, the history panel keeps your last 20 roll events — useful for settling disputes mid-game or checking if a buff applied correctly.</p>
+  <h3>Quick reference: common die uses</h3>
+  <ul style="font-size:14px;color:var(--text-2);line-height:1.7;padding-left:20px">
+    <li><strong>d4</strong> — damage for daggers and magic missiles in D&amp;D</li>
+    <li><strong>d6</strong> — the classic board-game die; used for most movement and many damage rolls</li>
+    <li><strong>d8</strong> — longsword and battleaxe damage; hit die for clerics and druids</li>
+    <li><strong>d10</strong> — hit die for fighters and rangers; percentile rolls when two are used together</li>
+    <li><strong>d12</strong> — greataxe damage; hit die for barbarians</li>
+    <li><strong>d20</strong> — ability checks, attack rolls, and saving throws — the iconic RPG die</li>
+  </ul>
+  <div class="aff-writing">
+    <div class="aff-sponsored">✦ Sponsored <span class="ad-pill">Ad</span></div>
+    <div class="aff-writing-body">Running a campaign? Grammarly keeps your session notes, lore documents, and homebrew rules polished and easy to read — right inside Google Docs or Word.</div>
+    <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Write better with Grammarly — free to start <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
+  </div>
+</div>
+  <div class="divider"></div>
+
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">What types of dice can I roll?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">You can roll a d4, d6, d8, d10, d12, d20, or a custom die with any number of sides from 2 to 100. This covers the standard 7-die polyhedral set used in Dungeons &amp; Dragons, Pathfinder, and most other tabletop RPGs. Need a d3? Use the Custom option and enter 3 sides.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I roll multiple dice at the same time?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes. Use the + and − buttons to set a quantity from 1 to 20. The result shows each die individually and sums them — useful for 2d6 movement, 4d6 drop-lowest character stats, or any multi-die damage roll. The total is displayed prominently so you don't have to add in your head.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Is the dice roller truly random?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes. Every roll uses <code>crypto.getRandomValues()</code> — the browser's cryptographically secure random number generator. It produces numbers with no predictable pattern or bias, making it statistically fairer than a physical die that can be worn or weighted over time.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">How do I roll a percentile (d100)?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Click <strong>Custom</strong>, type 100 in the sides box, and press Roll. You'll get a result from 1 to 100. Alternatively, some games use two d10s — roll 2d10 and read the tens digit from one and the units from the other (treating 00 as 100). For a straight 1–100 result, the Custom 100-sided option is simpler.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I see my previous rolls?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes. The history panel below the dice shows your last 20 roll events in order, newest first. Each entry shows the die type, individual results, and total. Use <strong>Clear History</strong> to wipe it when you start a new game or session.</div>
+  </div>
+
+</div>
+  <div class="divider"></div>
+
+<div>
+  <h2 class="section-title" style="margin-bottom:14px">Who uses this dice roller</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">Tabletop RPG players</div><div class="uc-body">Roll initiative, attack, damage, and saving throws without reaching for a physical set. Keeps your desk clear when playing over video call.</div></div>
+    <div class="uc"><div class="uc-title">Board game players</div><div class="uc-body">No dice in the box, or a piece got lost? Use the d6 option for Monopoly, Catan, and any other dice-driven game in seconds.</div></div>
+    <div class="uc"><div class="uc-title">Teachers</div><div class="uc-body">Random selection for classroom activities — roll a d20 to pick a student number, a d6 for group assignments, or a custom die for any numbered list.</div></div>
+    <div class="uc"><div class="uc-title">Game designers</div><div class="uc-body">Test custom dice mechanics quickly. The Custom option lets you prototype any die type without ordering physical prototypes first.</div></div>
+  </div>
+</div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="ad-footer-strip" style="margin-bottom:24px">
+      <span class="ad-tag">Advertisement · 468×60</span>
+      <div class="ad-fs-text"><strong>Grammarly Premium</strong> — Vocabulary suggestions, tone detector, full-sentence rewrites.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-footer-strip-cta">Try free</a>
+    </div>
+    <div class="footer-grid">
+      <div><div class="footer-col-title">Writing &amp; Vocabulary</div><a class="footer-link" href="/">Random Word Generator</a><a class="footer-link" href="/random-sentence-generator/">Random Sentence Generator</a><a class="footer-link" href="/random-paragraph-generator/">Random Paragraph Generator</a><a class="footer-link" href="/word-counter/">Word Counter</a><a class="footer-link footer-link--view-all" href="/word-tools/">View all →</a></div>
+      <div><div class="footer-col-title">Browse by Letter</div><a class="footer-link" href="/random-words-starting-with/">Random Words Starting With (A–Z)</a><a class="footer-link" href="/random-words-starting-with/a">Random Words Starting with A</a><a class="footer-link" href="/random-words-starting-with/s">Random Words Starting with S</a><a class="footer-link" href="/random-words-starting-with/q">Random Words Starting with Q</a><a class="footer-link footer-link--view-all" href="/random-words-starting-with/">View all →</a></div>
+      <div><div class="footer-col-title">Names by Origin</div><a class="footer-link" href="/random-spanish-name-generator/">Spanish Name Generator</a><a class="footer-link" href="/random-italian-name-generator/">Italian Name Generator</a><a class="footer-link" href="/random-japanese-name-generator/">Japanese Name Generator</a><a class="footer-link" href="/random-american-name-generator/">American Name Generator</a><a class="footer-link footer-link--view-all" href="/name-generators/">View all →</a></div>
+      <div><div class="footer-col-title">Other Name Generators</div><a class="footer-link" href="/character-name-generator/">Character Name Generator</a><a class="footer-link" href="/fantasy-name-generator/">Fantasy Name Generator</a><a class="footer-link" href="/business-name-generator/">Business Name Generator</a><a class="footer-link" href="/band-name-generator/">Band Name Generator</a><a class="footer-link footer-link--view-all" href="/other-generators/">View all →</a></div>
+      <div><div class="footer-col-title">Account &amp; Security</div><a class="footer-link" href="/password-generator/">Password Generator</a><a class="footer-link" href="/passphrase-generator/">Passphrase Generator</a><a class="footer-link" href="/memorable-password-generator/">Memorable Password Generator</a><a class="footer-link" href="/username-generator/">Username Generator</a><a class="footer-link footer-link--view-all" href="/account-tools/">View all →</a></div>
+      <div><div class="footer-col-title">Games &amp; fun</div><a class="footer-link" href="/pictionary-phrase-generator/">Pictionary Phrase Generator</a><a class="footer-link" href="/crossword-puzzle-generator/">Crossword Puzzle Generator</a><a class="footer-link" href="/wordle-helper/">Wordle Helper</a><a class="footer-link" href="/wordle-answers/">Wordle Answer Archive</a><a class="footer-link" href="/coin-flip/">Coin Flip</a><a class="footer-link" href="/dice-roller/">Dice Roller</a><a class="footer-link footer-link--view-all" href="/number-chance/">View all →</a></div>
+    </div>
+    <div class="footer-bottom">
+      <div style="display:flex;align-items:center;gap:7px">
+        <div class="nav-logo-icon" style="width:22px;height:22px;border-radius:5px"><svg viewBox="0 0 15 15" fill="none" style="width:12px;height:12px"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <span style="font-size:14px;font-weight:600;color:var(--text)">Wordineer</span>
+      </div>
+      <span class="footer-copy">© 2026 Wordineer · Free word tools for everyone</span>
+      <div class="footer-meta"><a href="/about/">About</a><a href="/blog/">Blog</a><a href="/affiliate-disclosure/">Affiliate disclosure</a><a href="/privacy/">Privacy</a></div>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="/scripts/tool-engine.js?v=27"></script>
+<script>
+(function bindSharedWordineerMenu() {
+  const mega = document.getElementById('mega');
+  const hbg = document.querySelector('.hamburger');
+  if (!mega || !hbg) return;
+  if (hbg.dataset.menuBound === '1') return;
+  hbg.dataset.menuBound = '1';
+  hbg.onclick = null;
+  if (hbg.getAttribute('onclick')) hbg.removeAttribute('onclick');
+
+  function setMenu(open) {
+    mega.classList.toggle('open', open);
+    hbg.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+
+  setMenu(mega.classList.contains('open'));
+
+  hbg.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+    setMenu(!mega.classList.contains('open'));
+  }, true);
+
+  hbg.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+      setMenu(!mega.classList.contains('open'));
+    }
+  }, true);
+
+  document.addEventListener('click', function(e) {
+    if (mega.classList.contains('open') && !mega.contains(e.target) && !hbg.contains(e.target)) {
+      setMenu(false);
+    }
+  }, true);
+})();
+</script>
+
+<script>
+(function() {
+  'use strict';
+
+  /* ── State ── */
+  var state = {
+    sides: 4,
+    qty: 1,
+    isCustom: false,
+    history: [],
+    stats: { count: 0, sum: 0, high: null, low: null }
+  };
+
+  /* ── Secure random int 1..sides ── */
+  function randInt(sides) {
+    var arr = new Uint32Array(1);
+    var max = Math.floor(0xFFFFFFFF / sides) * sides;
+    do { crypto.getRandomValues(arr); } while (arr[0] >= max);
+    return (arr[0] % sides) + 1;
+  }
+
+  /* ── DOM refs ── */
+  var dieGroup    = document.getElementById('dr-die-group');
+  var customWrap  = document.getElementById('dr-custom-wrap');
+  var customInput = document.getElementById('dr-custom-input');
+  var qtyVal      = document.getElementById('dr-qty-val');
+  var qtyDec      = document.getElementById('dr-qty-dec');
+  var qtyInc      = document.getElementById('dr-qty-inc');
+  var rollBtn     = document.getElementById('dr-roll-btn');
+  var placeholder = document.getElementById('dr-placeholder');
+  var diceRow     = document.getElementById('dr-dice-row');
+  var totalEl     = document.getElementById('dr-total');
+  var historyList = document.getElementById('dr-history-list');
+  var historyEmpty= document.getElementById('dr-history-empty');
+  var clearBtn    = document.getElementById('dr-clear-btn');
+  var statsBar    = document.getElementById('dr-stats');
+  var statCount   = document.getElementById('dr-stat-count');
+  var statSum     = document.getElementById('dr-stat-sum');
+  var statHigh    = document.getElementById('dr-stat-high');
+  var statLow     = document.getElementById('dr-stat-low');
+
+  /* ── Die type selection ── */
+  dieGroup.addEventListener('click', function(e) {
+    var btn = e.target.closest('.dr-die-btn');
+    if (!btn) return;
+    dieGroup.querySelectorAll('.dr-die-btn').forEach(function(b) {
+      b.classList.remove('active');
+      b.setAttribute('aria-pressed', 'false');
+    });
+    btn.classList.add('active');
+    btn.setAttribute('aria-pressed', 'true');
+    state.isCustom = btn.dataset.sides === 'custom';
+    if (!state.isCustom) state.sides = parseInt(btn.dataset.sides, 10);
+    customWrap.classList.toggle('visible', state.isCustom);
+    if (state.isCustom) customInput.focus();
+  });
+
+  /* ── Quantity ── */
+  qtyDec.addEventListener('click', function() {
+    if (state.qty > 1) { state.qty--; qtyVal.textContent = state.qty; }
+  });
+  qtyInc.addEventListener('click', function() {
+    if (state.qty < 20) { state.qty++; qtyVal.textContent = state.qty; }
+  });
+
+  /* ── Roll ── */
+  function roll() {
+    var sides = state.sides;
+    if (state.isCustom) {
+      var v = parseInt(customInput.value, 10);
+      if (!v || v < 2 || v > 100) { customInput.focus(); return; }
+      sides = v;
+    }
+
+    var results = [];
+    for (var i = 0; i < state.qty; i++) results.push(randInt(sides));
+    var total = results.reduce(function(a, b) { return a + b; }, 0);
+    var label = state.qty + 'd' + sides;
+
+    /* Update display */
+    placeholder.style.display = 'none';
+    diceRow.style.display = 'flex';
+    totalEl.style.display = 'block';
+
+    diceRow.innerHTML = results.map(function(r) {
+      return '<div class="dr-die-face bounce">' + r + '</div>';
+    }).join('');
+
+    if (state.qty > 1) {
+      totalEl.innerHTML = 'Total: <strong>' + total + '</strong><span class="dr-total-label">(' + label + ')</span>';
+    } else {
+      totalEl.innerHTML = '<strong>' + total + '</strong><span class="dr-total-label">' + label + '</span>';
+    }
+
+    /* Stats */
+    state.stats.count++;
+    state.stats.sum += total;
+    if (state.stats.high === null || total > state.stats.high) state.stats.high = total;
+    if (state.stats.low  === null || total < state.stats.low)  state.stats.low  = total;
+    statsBar.style.display = 'flex';
+    statCount.textContent = state.stats.count;
+    statSum.textContent   = state.stats.sum;
+    statHigh.textContent  = state.stats.high;
+    statLow.textContent   = state.stats.low;
+
+    /* History */
+    var valsStr = results.length > 1 ? results.join(', ') : '';
+    state.history.unshift({ label: label, vals: valsStr, total: total });
+    if (state.history.length > 20) state.history.pop();
+    renderHistory();
+  }
+
+  function renderHistory() {
+    if (!state.history.length) {
+      historyEmpty.style.display = '';
+      historyList.querySelectorAll('.dr-history-item').forEach(function(el) { el.remove(); });
+      return;
+    }
+    historyEmpty.style.display = 'none';
+    historyList.querySelectorAll('.dr-history-item').forEach(function(el) { el.remove(); });
+    state.history.forEach(function(entry) {
+      var li = document.createElement('li');
+      li.className = 'dr-history-item';
+      li.innerHTML =
+        '<span class="dr-history-tag">' + entry.label + '</span>' +
+        (entry.vals ? '<span class="dr-history-vals">' + entry.vals + '</span>' : '<span class="dr-history-vals"></span>') +
+        '<span class="dr-history-total">' + entry.total + '</span>';
+      historyList.appendChild(li);
+    });
+  }
+
+  rollBtn.addEventListener('click', roll);
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && document.activeElement !== customInput) {
+      e.preventDefault();
+      roll();
+    }
+  });
+
+  clearBtn.addEventListener('click', function() {
+    state.history = [];
+    state.stats = { count: 0, sum: 0, high: null, low: null };
+    statsBar.style.display = 'none';
+    placeholder.style.display = '';
+    diceRow.style.display = 'none';
+    totalEl.style.display = 'none';
+    renderHistory();
+    historyEmpty.style.display = '';
+  });
+
+  /* FAQ accordion */
+  document.querySelectorAll('.faq-q').forEach(function(q) {
+    q.addEventListener('click', function() { q.closest('.faq-item').classList.toggle('open'); });
+  });
+
+  /* Mega menu close */
+  document.addEventListener('click', function(e) {
+    var mega = document.getElementById('mega');
+    var hbg  = document.querySelector('.hamburger');
+    if (!mega || !hbg) return;
+    if (mega.classList.contains('open') && !mega.contains(e.target) && !hbg.contains(e.target))
+      mega.classList.remove('open');
+  });
+
+})();
+</script>
+</body>
+</html>
