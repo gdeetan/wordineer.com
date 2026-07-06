@@ -19,24 +19,7 @@
         },
         {
           "href": "/word-counter/",
-          "text": "Word Counter",
-          "status": "planned"
-        },
-        {
-          "href": "/common-5-letter-words/",
-          "text": "Common 5-Letter Words"
-        },
-        {
-          "href": "/etymology-100-common-words/",
-          "text": "Word Origins & Etymology"
-        },
-        {
-          "href": "/spelling-bee-words-printable/",
-          "text": "Spelling Bee Words Printable"
-        },
-        {
-          "href": "/esl-vocabulary-cefr/",
-          "text": "ESL Vocabulary (CEFR)"
+          "text": "Word Counter"
         }
       ]
     },
@@ -141,6 +124,10 @@
       "view_all_href": "/number-chance/",
       "tools": [
         {
+          "href": "/random-number-generator/",
+          "text": "Random Number Generator"
+        },
+        {
           "href": "/pictionary-phrase-generator/",
           "text": "Pictionary Phrase Generator"
         },
@@ -155,6 +142,14 @@
         {
           "href": "/wordle-answers/",
           "text": "Wordle Answer Archive"
+        },
+        {
+          "href": "/coin-flip/",
+          "text": "Coin Flip"
+        },
+        {
+          "href": "/dice-roller/",
+          "text": "Dice Roller"
         }
       ]
     }
@@ -410,9 +405,9 @@
       "icon_path": "<path d=\"M2 4h9M2 7h7M2 10h5\" stroke=\"#534AB7\" stroke-width=\"1.3\" stroke-linecap=\"round\"/>"
     },
     {
-      "href": "/random-3-letter-word-generator/",
-      "name": "3 Letter Word Generator",
-      "desc": "Random 3-letter words — great for Scrabble, early readers, and word games.",
+      "href": "/3-letter-words/",
+      "name": "3 Letter Words",
+      "desc": "Browse 120+ three-letter words for every letter A–Z, with definitions and difficulty filters.",
       "icon_bg": "#FDE9E7",
       "icon_path": "<path d=\"M2 4h9M2 7h7M2 10h5\" stroke=\"#C7435B\" stroke-width=\"1.3\" stroke-linecap=\"round\"/>"
     },
@@ -555,6 +550,71 @@
       "desc": "The surprising origins of 100 common English words — why 'salary' comes from salt, 'panic' from a Greek god, and more.",
       "icon_bg": "#F5F3FF",
       "icon_path": "<path d=\"M3 4.5h3.5M3 8.5h4.5\" stroke=\"#7C3AED\" stroke-width=\"1.1\" stroke-linecap=\"round\"/><path d=\"M8.2 3.5h1.4v2.1c0 .5.4.9.9.9H11v1.4H9.6c-1.2 0-2.1-.9-2.1-2.1z\" fill=\"#7C3AED\"/><path d=\"M2.2 5.2h1.4V7c0 .5.4.9.9.9h.4v1.4h-.4C3.3 9.3 2.2 8.2 2.2 7z\" fill=\"#7C3AED\"/>"
+    }
+  ],
+  "more_chance_tools": [
+    {
+      "href": "/random-number-1-100/",
+      "name": "Random Number 1–100",
+      "desc": "Pick a random number between 1 and 100. Pool mode draws every number once — perfect for classrooms and raffles.",
+      "icon_bg": "#EEEDFE",
+      "icon_path": "<text x=\"1.5\" y=\"9\" font-size=\"6\" font-weight=\"700\" font-family=\"sans-serif\" fill=\"#534AB7\">1-100</text>"
+    },
+    {
+      "href": "/random-number-generator/",
+      "name": "Random Number Generator",
+      "desc": "Generate random numbers in any range. Set min, max, and count — block duplicates for raffles or allow repeats for dice rolls.",
+      "icon_bg": "#EEEDFE",
+      "icon_path": "<text x=\"2\" y=\"9\" font-size=\"7\" font-weight=\"700\" font-family=\"sans-serif\" fill=\"#534AB7\">42</text>"
+    },
+    {
+      "href": "/dice-roller/",
+      "name": "Dice Roller",
+      "desc": "Roll d4, d6, d8, d10, d12, d20, or custom dice — multiple at once, with history and session stats.",
+      "icon_bg": "#F5F3FF",
+      "icon_path": "<rect x=\"2\" y=\"2\" width=\"9\" height=\"9\" rx=\"1.5\" stroke=\"#7C3AED\" stroke-width=\"1.1\"/><circle cx=\"4.5\" cy=\"4.5\" r=\".85\" fill=\"#7C3AED\"/><circle cx=\"8.5\" cy=\"4.5\" r=\".85\" fill=\"#7C3AED\"/><circle cx=\"4.5\" cy=\"8.5\" r=\".85\" fill=\"#7C3AED\"/><circle cx=\"8.5\" cy=\"8.5\" r=\".85\" fill=\"#7C3AED\"/><circle cx=\"6.5\" cy=\"6.5\" r=\".85\" fill=\"#7C3AED\"/>"
+    },
+    {
+      "href": "/coin-flip/",
+      "name": "Coin Flip",
+      "desc": "Flip a virtual coin — heads or tails, instantly. Multi-flip mode and running stats included.",
+      "icon_bg": "#FFF8DC",
+      "icon_path": "<circle cx=\"6.5\" cy=\"6.5\" r=\"5\" stroke=\"#C8960C\" stroke-width=\"1.1\"/><text x=\"6.5\" y=\"9.8\" text-anchor=\"middle\" font-size=\"5.5\" font-weight=\"700\" font-family=\"sans-serif\" fill=\"#7A5800\">H</text>"
+    },
+    {
+      "href": "/password-generator/",
+      "name": "Password Generator",
+      "desc": "One click, one strong random password. Set your length and character rules.",
+      "icon_bg": "#EEEDFE",
+      "icon_path": "<path d=\"M4.5 6.5V5a2 2 0 0 1 4 0v1.5\" stroke=\"#5B46D4\" stroke-width=\"1.1\" stroke-linecap=\"round\"/><rect x=\"3\" y=\"6.5\" width=\"7\" height=\"4.5\" rx=\"1\" stroke=\"#5B46D4\" stroke-width=\"1.1\"/><circle cx=\"6.5\" cy=\"8.8\" r=\".8\" fill=\"#5B46D4\"/>"
+    },
+    {
+      "href": "/random-letter-generator/",
+      "name": "Random Letter Generator",
+      "desc": "Pick random letters — filter by case, vowels or consonants, and see NATO phonetic codes.",
+      "icon_bg": "#EEEDFE",
+      "icon_path": "<path d=\"M2 3.5h11M2 7.5h7.5M2 11.5h5\" stroke=\"#534AB7\" stroke-width=\"1.3\" stroke-linecap=\"round\"/>"
+    },
+    {
+      "href": "/pictionary-word-generator/",
+      "name": "Pictionary Word Generator",
+      "desc": "Random drawing words for Pictionary rounds.",
+      "icon_bg": "#EEF6E8",
+      "icon_path": "<path d=\"M2 2.5h9v6H6.5L3.5 11V8.5H2z\" stroke=\"#2F6B1F\" stroke-width=\"1.1\" stroke-linejoin=\"round\"/>"
+    },
+    {
+      "href": "/would-you-rather-generator/",
+      "name": "Would You Rather Generator",
+      "desc": "Dilemma questions for icebreakers, parties, and game nights.",
+      "icon_bg": "#EEEDFE",
+      "icon_path": "<path d=\"M2 3.5h3.5v3H2z\" stroke=\"#4A3FD4\" stroke-width=\".9\" stroke-linejoin=\"round\"/><path d=\"M7.5 3.5h3.5v3H7.5z\" stroke=\"#4A3FD4\" stroke-width=\".9\" stroke-linejoin=\"round\"/><path d=\"M3.75 6.5v2.5M9.25 6.5v2.5M3.75 9h5.5\" stroke=\"#4A3FD4\" stroke-width=\".9\" stroke-linecap=\"round\"/>"
+    },
+    {
+      "href": "/truth-or-dare-generator/",
+      "name": "Truth or Dare Generator",
+      "desc": "Random truth questions and dare challenges for any group.",
+      "icon_bg": "#FEF3EE",
+      "icon_path": "<path d=\"M6.5 2.5v4M6.5 8.5v.5\" stroke=\"#C05621\" stroke-width=\"1.5\" stroke-linecap=\"round\"/><circle cx=\"6.5\" cy=\"6.5\" r=\"5\" stroke=\"#C05621\" stroke-width=\"1\"/>"
     }
   ],
   "more_account_tools": [
@@ -859,6 +919,14 @@
         {
           "href": "/wordle-helper/",
           "text": "Wordle Helper"
+        },
+        {
+          "href": "/coin-flip/",
+          "text": "Coin Flip"
+        },
+        {
+          "href": "/dice-roller/",
+          "text": "Dice Roller"
         }
       ]
     }
@@ -883,24 +951,7 @@
         },
         {
           "href": "/word-counter/",
-          "text": "Word Counter",
-          "status": "planned"
-        },
-        {
-          "href": "/common-5-letter-words/",
-          "text": "Common 5-Letter Words"
-        },
-        {
-          "href": "/etymology-100-common-words/",
-          "text": "Word Origins & Etymology"
-        },
-        {
-          "href": "/spelling-bee-words-printable/",
-          "text": "Spelling Bee Printable"
-        },
-        {
-          "href": "/esl-vocabulary-cefr/",
-          "text": "ESL Vocabulary (CEFR)"
+          "text": "Word Counter"
         }
       ]
     },
@@ -1016,6 +1067,14 @@
         {
           "href": "/wordle-answers/",
           "text": "Wordle Answer Archive"
+        },
+        {
+          "href": "/coin-flip/",
+          "text": "Coin Flip"
+        },
+        {
+          "href": "/dice-roller/",
+          "text": "Dice Roller"
         }
       ]
     }

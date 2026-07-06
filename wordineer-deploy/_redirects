@@ -61,8 +61,11 @@ https://www.wordineer.com/*    https://wordineer.com/:splat         301
 /words-that-start-with/y/    /random-words-starting-with/y    301
 /words-that-start-with/z/    /random-words-starting-with/z    301
 /other-generators.html    /other-generators/    301
+/coin-flip.html    /coin-flip/    301
 
 # Pretty URL fallbacks
+/coin-flip/    /coin-flip.html    200
+/random-number-1-100/    /random-number-1-100.html    200
 /charades-generator/    /charades-generator.html    200
 /pictionary-word-generator/    /pictionary-word-generator.html    200
 /random-american-name-generator/    /random-american-name-generator.html    200
@@ -470,3 +473,7 @@ https://www.wordineer.com/*    https://wordineer.com/:splat         301
 /dolch-sight-words/    /dolch-sight-words.html    200
 /fry-sight-words.html    /fry-sight-words/    301
 /fry-sight-words/    /fry-sight-words.html    200
+
+# Word Counter
+/word-counter.html    /word-counter/    301
+/word-counter/    /word-counter.html    200
