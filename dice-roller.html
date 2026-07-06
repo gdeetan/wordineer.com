@@ -136,7 +136,7 @@
   "@type": "BreadcrumbList",
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
-    { "@type": "ListItem", "position": 2, "name": "Games & Fun", "item": "https://wordineer.com/number-chance/" },
+    { "@type": "ListItem", "position": 2, "name": "Number &amp; Chance Tools", "item": "https://wordineer.com/number-chance/" },
     { "@type": "ListItem", "position": 3, "name": "Dice Roller", "item": "https://wordineer.com/dice-roller/" }
   ]
 }
@@ -156,8 +156,8 @@
 
 <link rel="stylesheet" href="/styles/global.css?v=13">
 <style>
-/* ── Dice Roller Layout ── */
-.dr-wrap { padding: 20px 20px 0; }
+/* ── Layout — constrained to content width ── */
+.dr-wrap { max-width: 960px; margin: 0 auto; padding: 20px 24px 0; }
 .dr-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
 
 /* ── Controls ── */
@@ -169,12 +169,14 @@
 /* Die type buttons */
 .dr-die-group { display: flex; flex-wrap: wrap; gap: 6px; }
 .dr-die-btn {
+  display: inline-flex; align-items: center; gap: 5px;
   padding: 7px 12px; font-size: 13px; font-weight: 600; font-family: inherit;
   border: 1.5px solid var(--border); border-radius: 7px; background: var(--bg);
   color: var(--text-2); cursor: pointer; transition: all .12s; line-height: 1;
 }
 .dr-die-btn:hover { border-color: var(--brand); color: var(--brand); background: var(--brand-light); }
 .dr-die-btn.active { border-color: var(--brand); background: var(--brand); color: #fff; }
+.dr-btn-icon { width: 15px; height: 15px; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linejoin: round; }
 
 /* Quantity */
 .dr-qty-wrap { display: flex; align-items: center; gap: 6px; }
@@ -206,29 +208,47 @@
 .dr-roll-btn:hover { background: var(--brand-dark, #2a2475); }
 .dr-roll-btn:active { transform: scale(.97); }
 
-/* ── Result display ── */
-.dr-result-area { padding: 24px 20px; text-align: center; min-height: 120px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-.dr-dice-row { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 12px; }
+/* ── Result area ── */
+.dr-result-area { padding: 28px 20px 22px; text-align: center; min-height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; }
+.dr-roll-label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--text-3); margin-bottom: 2px; }
+.dr-dice-row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
 
-/* Individual die face */
-.dr-die-face {
-  width: 52px; height: 52px; border-radius: 10px;
-  background: var(--bg-2); border: 2px solid var(--border);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 20px; font-weight: 800; color: var(--brand);
-  transition: transform .15s; box-shadow: 0 1px 3px rgba(0,0,0,.06);
+/* ── d6 face — classic pip layout ── */
+.dr-die-face { display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.dr-d6-face {
+  width: 72px; height: 72px; border-radius: 12px;
+  background: #fff; border: 2px solid var(--border);
+  box-shadow: 0 3px 8px rgba(0,0,0,.1), inset 0 1px 2px rgba(255,255,255,.6);
 }
-.dr-die-face.bounce { animation: dr-bounce .25s ease; }
-@keyframes dr-bounce {
-  0%   { transform: scale(1); }
-  40%  { transform: scale(1.18); }
-  70%  { transform: scale(.92); }
-  100% { transform: scale(1); }
+.dr-d6-grid {
+  width: 52px; height: 52px;
+  display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(3, 1fr);
+  padding: 3px; gap: 2px;
 }
+.dr-pip { border-radius: 50%; background: var(--brand); margin: auto; visibility: hidden; width: 11px; height: 11px; }
+.dr-pip.on { visibility: visible; }
+
+/* ── Polygon dice face (d4, d8, d10, d12, d20) ── */
+.dr-poly-face { width: 72px; height: 72px; }
+.dr-poly-svg { width: 72px; height: 72px; overflow: visible; }
+.dr-poly-shape { fill: var(--brand-light, #eeedf8); stroke: var(--brand); stroke-width: 3.5; stroke-linejoin: round; }
+.dr-poly-text { text-anchor: middle; font-weight: 800; fill: var(--brand); font-family: inherit; }
+
+/* ── Roll animation ── */
+@keyframes dr-tumble {
+  0%   { transform: rotate(-40deg) scale(0.4); opacity: 0; }
+  18%  { transform: rotate(20deg) scale(1.2); opacity: 1; }
+  36%  { transform: rotate(-12deg) scale(0.92); }
+  52%  { transform: rotate(7deg) scale(1.06); }
+  68%  { transform: rotate(-4deg) scale(0.98); }
+  82%  { transform: rotate(2deg) scale(1.01); }
+  100% { transform: rotate(0deg) scale(1); opacity: 1; }
+}
+.dr-die-face { animation: dr-tumble 0.6s cubic-bezier(.22,.68,0,1.1) both; }
 
 /* Total */
-.dr-total { font-size: 13px; color: var(--text-3); margin-top: 4px; }
-.dr-total strong { font-size: 22px; color: var(--text); font-weight: 800; }
+.dr-total { font-size: 13px; color: var(--text-3); }
+.dr-total strong { font-size: 26px; color: var(--text); font-weight: 800; }
 .dr-total-label { font-size: 12px; color: var(--text-3); margin-left: 4px; }
 
 /* Placeholder */
@@ -254,13 +274,16 @@
 .dr-stat-val { font-size: 18px; font-weight: 800; color: var(--text); }
 
 /* ── Mobile ── */
-@media(max-width:600px){
-  .dr-wrap { padding: 14px 14px 0; }
+@media(max-width:700px){
+  .dr-wrap { padding: 14px 16px 0; }
   .dr-controls { padding: 16px 14px 12px; }
   .dr-row { gap: 10px; }
-  .dr-die-btn { padding: 6px 10px; font-size: 12px; }
+  .dr-die-btn { padding: 6px 9px; font-size: 12px; }
   .dr-roll-btn { padding: 9px 20px; font-size: 14px; }
-  .dr-die-face { width: 44px; height: 44px; font-size: 17px; }
+  .dr-d6-face { width: 60px; height: 60px; }
+  .dr-poly-face, .dr-poly-svg { width: 60px; height: 60px; }
+  .dr-d6-grid { width: 44px; height: 44px; }
+  .dr-pip { width: 9px; height: 9px; }
   .dr-history-wrap, .dr-stats { padding-left: 14px; padding-right: 14px; }
 }
 </style>
@@ -345,7 +368,7 @@
   <div class="breadcrumb-inner">
     <a href="/">Wordineer</a>
     <span class="breadcrumb-sep">›</span>
-    <a href="/number-chance/">Games &amp; Fun</a>
+    <a href="/number-chance/">Number &amp; Chance Tools</a>
     <span class="breadcrumb-sep">›</span>
     <span aria-current="page">Dice Roller</span>
   </div>
@@ -356,7 +379,7 @@
     Free Tool
   </div>
   <h1>Dice Roller</h1>
-  <p>Roll d4, d6, d8, d10, d12, d20, or a custom die — pick your quantity, press Roll, and get a cryptographically random result instantly. Perfect for D&amp;D, board games, or any tabletop session.</p>
+  <p>Choose your die type, set how many to roll, and press Roll. Each result appears as a visual die face — d6 shows classic pips, other dice show their shape with the number inside. Perfect for D&amp;D, board games, or any tabletop session.</p>
 </div>
 <div class="dr-wrap">
   <div class="dr-card">
@@ -367,13 +390,25 @@
         <div class="dr-field">
           <label>Die type</label>
           <div class="dr-die-group" id="dr-die-group" role="group" aria-label="Select die type">
-            <button class="dr-die-btn active" data-sides="4"  aria-pressed="false">d4</button>
-            <button class="dr-die-btn"        data-sides="6"  aria-pressed="true">d6</button>
-            <button class="dr-die-btn"        data-sides="8"  aria-pressed="false">d8</button>
-            <button class="dr-die-btn"        data-sides="10" aria-pressed="false">d10</button>
-            <button class="dr-die-btn"        data-sides="12" aria-pressed="false">d12</button>
-            <button class="dr-die-btn"        data-sides="20" aria-pressed="false">d20</button>
-            <button class="dr-die-btn"        data-sides="custom" aria-pressed="false">Custom</button>
+            <button class="dr-die-btn active" data-sides="4" aria-pressed="true">
+              <svg class="dr-btn-icon" viewBox="0 0 20 20"><polygon points="10,2 19,18 1,18"/></svg>d4
+            </button>
+            <button class="dr-die-btn" data-sides="6" aria-pressed="false">
+              <svg class="dr-btn-icon" viewBox="0 0 20 20"><rect x="2" y="2" width="16" height="16" rx="2"/></svg>d6
+            </button>
+            <button class="dr-die-btn" data-sides="8" aria-pressed="false">
+              <svg class="dr-btn-icon" viewBox="0 0 20 20"><polygon points="10,1 18,10 10,19 2,10"/></svg>d8
+            </button>
+            <button class="dr-die-btn" data-sides="10" aria-pressed="false">
+              <svg class="dr-btn-icon" viewBox="0 0 20 20"><polygon points="10,1 18,7 15,17 5,17 2,7"/></svg>d10
+            </button>
+            <button class="dr-die-btn" data-sides="12" aria-pressed="false">
+              <svg class="dr-btn-icon" viewBox="0 0 20 20"><polygon points="10,1 17,5 19,13 13,19 7,19 1,13 3,5"/></svg>d12
+            </button>
+            <button class="dr-die-btn" data-sides="20" aria-pressed="false">
+              <svg class="dr-btn-icon" viewBox="0 0 20 20"><polygon points="10,1 19,18 1,18"/><line x1="10" y1="1" x2="5" y2="18" stroke-width="1.2"/><line x1="10" y1="1" x2="15" y2="18" stroke-width="1.2"/></svg>d20
+            </button>
+            <button class="dr-die-btn" data-sides="custom" aria-pressed="false">Custom</button>
           </div>
         </div>
 
@@ -400,6 +435,7 @@
     <!-- Result -->
     <div class="dr-result-area" id="dr-result-area">
       <div class="dr-placeholder" id="dr-placeholder">Select a die and press Roll</div>
+      <div class="dr-roll-label" id="dr-roll-label" style="display:none"></div>
       <div class="dr-dice-row" id="dr-dice-row" style="display:none"></div>
       <div class="dr-total" id="dr-total" style="display:none"></div>
     </div>
@@ -476,16 +512,18 @@
 
 <div class="explainer">
   <h2>How to use the dice roller</h2>
-  <p>Click the die type you need — d4 through d20, or Custom for any number of sides — then use the + and − buttons to set how many dice to roll at once. Press <strong>Roll</strong> (or hit Enter) and the results appear instantly, with each die's result shown individually and the total displayed below. The tool uses <code>crypto.getRandomValues()</code> under the hood, the same cryptographically secure random source that browsers use for encryption, so the results are genuinely random.</p>
-  <p>The session stats bar tracks your roll count, running total, and the highest and lowest single-die result for the current session. If you need to revisit what was rolled, the history panel keeps your last 20 roll events — useful for settling disputes mid-game or checking if a buff applied correctly.</p>
-  <h3>Quick reference: common die uses</h3>
-  <ul style="font-size:14px;color:var(--text-2);line-height:1.7;padding-left:20px">
-    <li><strong>d4</strong> — damage for daggers and magic missiles in D&amp;D</li>
-    <li><strong>d6</strong> — the classic board-game die; used for most movement and many damage rolls</li>
-    <li><strong>d8</strong> — longsword and battleaxe damage; hit die for clerics and druids</li>
-    <li><strong>d10</strong> — hit die for fighters and rangers; percentile rolls when two are used together</li>
-    <li><strong>d12</strong> — greataxe damage; hit die for barbarians</li>
-    <li><strong>d20</strong> — ability checks, attack rolls, and saving throws — the iconic RPG die</li>
+  <p>The "d" in d4, d6, d20 (and so on) just means "die with that many sides." A d6 is the classic 6-sided cube you find in Monopoly. A d20 is a 20-sided gem-shaped die used in Dungeons &amp; Dragons. When you see notation like <strong>2d6</strong>, it means "roll two 6-sided dice and add the results together."</p>
+  <p>To use this roller: pick your die type, use the <strong>+</strong> and <strong>−</strong> buttons to set how many dice to throw at once, then press <strong>Roll</strong> (or hit Enter). Each die appears on screen — the d6 shows actual pips like a real die, while the other shapes (triangle for d4, diamond for d8, pentagon for d12, and so on) display the rolled number inside. If you roll more than one die, the total is shown below.</p>
+  <p>The session stats bar at the bottom of the card tracks how many times you've rolled, your running total, and your highest and lowest result — handy if you're keeping score or testing probability over many rolls.</p>
+  <h3>Quick reference: what each die is used for</h3>
+  <ul style="font-size:14px;color:var(--text-2);line-height:1.9;padding-left:20px">
+    <li><strong>d4</strong> — damage for daggers and magic missiles in D&amp;D; the pointy pyramid-shaped die</li>
+    <li><strong>d6</strong> — the everyday board-game die; used in Monopoly, Catan, Yahtzee, and countless others</li>
+    <li><strong>d8</strong> — longsword and battleaxe damage in D&amp;D; looks like two pyramids glued together</li>
+    <li><strong>d10</strong> — hit die for fighters; two d10s together can make a d100 (percentile roll)</li>
+    <li><strong>d12</strong> — greataxe damage; hit die for barbarians; the least-used die in most RPG sets</li>
+    <li><strong>d20</strong> — the iconic RPG die; used for attack rolls, skill checks, and saving throws in D&amp;D</li>
+    <li><strong>Custom</strong> — enter any number from 2 to 100; useful for d3, d100, or homebrew mechanics</li>
   </ul>
   <div class="aff-writing">
     <div class="aff-sponsored">✦ Sponsored <span class="ad-pill">Ad</span></div>
@@ -628,6 +666,48 @@
     return (arr[0] % sides) + 1;
   }
 
+  /* ── Pip positions per d6 face value (3×3 grid, 1-indexed) ── */
+  var D6_PIPS = {
+    1: [5],
+    2: [1, 9],
+    3: [1, 5, 9],
+    4: [1, 3, 7, 9],
+    5: [1, 3, 5, 7, 9],
+    6: [1, 3, 4, 6, 7, 9]
+  };
+
+  /* ── Polygon definitions for non-d6 dice ── */
+  var POLY_DEFS = {
+    4:  { pts: '50,10 91,84 9,84',             ty: 68 },
+    8:  { pts: '50,8 88,50 50,92 12,50',        ty: 57 },
+    10: { pts: '50,10 87,38 74,82 26,82 13,38', ty: 57 },
+    12: { pts: '50,8 90,37 75,84 25,84 10,37',  ty: 57 },
+    20: { pts: '50,8 92,86 8,86',               ty: 67 }
+  };
+
+  /* ── Build a die face element ── */
+  function renderFace(val, sides) {
+    var wrapper = document.createElement('div');
+    if (sides === 6) {
+      var active = D6_PIPS[val] || [];
+      var dots = '';
+      for (var i = 1; i <= 9; i++) {
+        dots += '<div class="dr-pip' + (active.indexOf(i) !== -1 ? ' on' : '') + '"></div>';
+      }
+      wrapper.innerHTML = '<div class="dr-die-face dr-d6-face"><div class="dr-d6-grid">' + dots + '</div></div>';
+    } else {
+      var def = POLY_DEFS[sides] || { pts: '50,8 90,37 75,84 25,84 10,37', ty: 57 };
+      var fs = val >= 100 ? 17 : val >= 10 ? 24 : 30;
+      wrapper.innerHTML =
+        '<div class="dr-die-face dr-poly-face">' +
+        '<svg class="dr-poly-svg" viewBox="0 0 100 100">' +
+        '<polygon points="' + def.pts + '" class="dr-poly-shape"/>' +
+        '<text x="50" y="' + def.ty + '" class="dr-poly-text" font-size="' + fs + '">' + val + '</text>' +
+        '</svg></div>';
+    }
+    return wrapper.firstChild;
+  }
+
   /* ── DOM refs ── */
   var dieGroup    = document.getElementById('dr-die-group');
   var customWrap  = document.getElementById('dr-custom-wrap');
@@ -637,6 +717,7 @@
   var qtyInc      = document.getElementById('dr-qty-inc');
   var rollBtn     = document.getElementById('dr-roll-btn');
   var placeholder = document.getElementById('dr-placeholder');
+  var rollLabel   = document.getElementById('dr-roll-label');
   var diceRow     = document.getElementById('dr-dice-row');
   var totalEl     = document.getElementById('dr-total');
   var historyList = document.getElementById('dr-history-list');
@@ -686,15 +767,22 @@
     var total = results.reduce(function(a, b) { return a + b; }, 0);
     var label = state.qty + 'd' + sides;
 
-    /* Update display */
+    /* Show result area */
     placeholder.style.display = 'none';
+    rollLabel.style.display = 'block';
+    rollLabel.textContent = 'Rolling ' + label;
     diceRow.style.display = 'flex';
     totalEl.style.display = 'block';
 
-    diceRow.innerHTML = results.map(function(r) {
-      return '<div class="dr-die-face bounce">' + r + '</div>';
-    }).join('');
+    /* Render dice faces with staggered tumble animation */
+    diceRow.innerHTML = '';
+    results.forEach(function(r, idx) {
+      var face = renderFace(r, sides);
+      face.style.animationDelay = (idx * 0.1) + 's';
+      diceRow.appendChild(face);
+    });
 
+    /* Total line */
     if (state.qty > 1) {
       totalEl.innerHTML = 'Total: <strong>' + total + '</strong><span class="dr-total-label">(' + label + ')</span>';
     } else {
@@ -751,6 +839,7 @@
     state.stats = { count: 0, sum: 0, high: null, low: null };
     statsBar.style.display = 'none';
     placeholder.style.display = '';
+    rollLabel.style.display = 'none';
     diceRow.style.display = 'none';
     totalEl.style.display = 'none';
     renderHistory();
