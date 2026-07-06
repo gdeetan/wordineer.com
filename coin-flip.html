@@ -330,6 +330,50 @@
   border: 1px solid #d0d0d8;
 }
 
+/* Mini coins (multi-flip 2–10) */
+.cf-mini-coins {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  max-width: 500px;
+}
+.cf-mini-coin-stage {
+  perspective: 400px;
+  width: 70px;
+  height: 70px;
+}
+.cf-mini-coin {
+  width: 70px;
+  height: 70px;
+  position: relative;
+  transform-style: preserve-3d;
+}
+.cf-mini-coin.is-flipping {
+  animation: cf-spin var(--cf-dur, 0.55s) ease-out var(--cf-delay, 0s) forwards;
+}
+.cf-mini-face {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backface-visibility: hidden;
+  user-select: none;
+}
+.cf-mini-face-heads {
+  background: radial-gradient(circle at 38% 38%, #ffe88a, #f5c518 55%, #c8960c);
+  box-shadow: inset 0 -3px 8px rgba(0,0,0,0.18), 0 3px 10px rgba(0,0,0,0.22);
+  transform: rotateY(0deg);
+}
+.cf-mini-face-tails {
+  background: radial-gradient(circle at 38% 38%, #e8e8e8, #c0c0c0 55%, #909090);
+  box-shadow: inset 0 -3px 8px rgba(0,0,0,0.18), 0 3px 10px rgba(0,0,0,0.22);
+  transform: rotateY(180deg);
+}
+.cf-mini-face svg { width: 35px; height: 35px; }
+
 /* History section */
 .cf-history-section {
   width: 100%;
@@ -489,6 +533,9 @@
 
       <!-- Result label -->
       <div class="cf-result-label is-hidden" id="cf-result-label" aria-live="polite" aria-atomic="true">Heads</div>
+
+      <!-- Mini coins (multi-flip 2–10) -->
+      <div class="cf-mini-coins" id="cf-mini-coins" style="display:none" aria-hidden="true"></div>
 
       <!-- Multi-result chips (hidden until multi-flip) -->
       <div class="cf-multi-results" id="cf-multi-results" style="display:none"></div>
@@ -721,8 +768,10 @@
 (function(){
   // DOM refs
   const coinEl      = document.getElementById('cf-coin');
+  const coinStageEl = coinEl.parentElement;
   const resultLabel = document.getElementById('cf-result-label');
   const multiEl     = document.getElementById('cf-multi-results');
+  const miniCoinsEl = document.getElementById('cf-mini-coins');
   const flipBtn     = document.getElementById('cf-flip-btn');
   const resetBtn    = document.getElementById('cf-reset-btn');
   const countEl     = document.getElementById('cf-count');
@@ -789,6 +838,8 @@
     // Animate
     flipBtn.disabled = true;
     multiEl.style.display = 'none';
+    miniCoinsEl.style.display = 'none';
+    coinStageEl.style.display = '';
     resultLabel.className = 'cf-result-label is-hidden';
 
     // Set CSS variable for final rotation: heads = 0 mod 360, tails = 180
@@ -815,19 +866,7 @@
     });
   }
 
-  function doMultiFlip(n) {
-    const results = [];
-    for (let i = 0; i < n; i++) {
-      const isHeads = secureFlip();
-      results.push(isHeads ? 'heads' : 'tails');
-      headsTotal += isHeads ? 1 : 0;
-      tailsTotal += isHeads ? 0 : 1;
-    }
-    // Prepend to history (newest first)
-    history = results.concat(history);
-    if (history.length > 60) history.length = 60;
-
-    // Show chips
+  function showChips(results) {
     multiEl.style.display = 'flex';
     multiEl.innerHTML = '';
     results.forEach(function(r) {
@@ -836,18 +875,100 @@
       chip.textContent = r.charAt(0).toUpperCase() + r.slice(1);
       multiEl.appendChild(chip);
     });
-
-    // Result label: summary
     const h = results.filter(function(r){ return r === 'heads'; }).length;
     const t = results.length - h;
     resultLabel.textContent = h + ' Heads, ' + t + ' Tails';
     resultLabel.className   = 'cf-result-label';
+  }
 
-    // Reset coin to heads face
-    coinEl.style.transform = 'rotateY(0deg)';
+  function doMultiFlip(n) {
+    const results = [];
+    for (let i = 0; i < n; i++) {
+      const isHeads = secureFlip();
+      results.push(isHeads ? 'heads' : 'tails');
+      headsTotal += isHeads ? 1 : 0;
+      tailsTotal += isHeads ? 0 : 1;
+    }
+    history = results.concat(history);
+    if (history.length > 60) history.length = 60;
 
-    updateStats();
-    updateHistory();
+    if (n <= 10) {
+      // Animate N mini coins with stagger
+      flipBtn.disabled = true;
+      coinStageEl.style.display = 'none';
+      miniCoinsEl.style.display = 'flex';
+      miniCoinsEl.innerHTML = '';
+      resultLabel.className = 'cf-result-label is-hidden';
+      multiEl.style.display = 'none';
+
+      var DUR = 550, STAGGER = 60;
+      var HEADS_SVG = '<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="40" r="36" stroke="#c8960c" stroke-width="2" stroke-dasharray="4 3"/><text x="40" y="48" text-anchor="middle" font-size="22" font-weight="700" fill="#7a5800" font-family="Georgia,serif">H</text></svg>';
+      var TAILS_SVG = '<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="40" r="36" stroke="#888" stroke-width="2" stroke-dasharray="4 3"/><text x="40" y="48" text-anchor="middle" font-size="22" font-weight="700" fill="#444" font-family="Georgia,serif">T</text></svg>';
+
+      results.forEach(function(r, i) {
+        var isHeads = r === 'heads';
+        var stage = document.createElement('div');
+        stage.className = 'cf-mini-coin-stage';
+        stage.setAttribute('aria-hidden', 'true');
+
+        var coin = document.createElement('div');
+        coin.className = 'cf-mini-coin';
+        coin.style.setProperty('--cf-delay', (i * STAGGER) + 'ms');
+        coin.style.setProperty('--cf-dur', DUR + 'ms');
+        coin.style.setProperty('--cf-final-rot', (isHeads ? 720 : 900) + 'deg');
+
+        var hf = document.createElement('div');
+        hf.className = 'cf-mini-face cf-mini-face-heads';
+        hf.innerHTML = HEADS_SVG;
+
+        var tf = document.createElement('div');
+        tf.className = 'cf-mini-face cf-mini-face-tails';
+        tf.innerHTML = TAILS_SVG;
+
+        coin.appendChild(hf);
+        coin.appendChild(tf);
+        stage.appendChild(coin);
+        miniCoinsEl.appendChild(stage);
+
+        void coin.offsetWidth;
+        coin.classList.add('is-flipping');
+      });
+
+      var totalTime = DUR + (n - 1) * STAGGER + 60;
+      setTimeout(function() {
+        miniCoinsEl.querySelectorAll('.cf-mini-coin').forEach(function(c, i) {
+          c.classList.remove('is-flipping');
+          c.style.transform = 'rotateY(' + (results[i] === 'heads' ? 0 : 180) + 'deg)';
+        });
+        showChips(results);
+        updateStats();
+        updateHistory();
+        flipBtn.disabled = false;
+      }, totalTime);
+
+    } else {
+      // Animate big coin once, then show chips
+      flipBtn.disabled = true;
+      coinStageEl.style.display = '';
+      miniCoinsEl.style.display = 'none';
+      resultLabel.className = 'cf-result-label is-hidden';
+      multiEl.style.display = 'none';
+
+      coinEl.style.setProperty('--cf-final-rot', '720deg');
+      coinEl.classList.remove('is-flipping');
+      void coinEl.offsetWidth;
+      coinEl.classList.add('is-flipping');
+
+      coinEl.addEventListener('animationend', function handler() {
+        coinEl.removeEventListener('animationend', handler);
+        coinEl.classList.remove('is-flipping');
+        coinEl.style.transform = 'rotateY(0deg)';
+        showChips(results);
+        updateStats();
+        updateHistory();
+        flipBtn.disabled = false;
+      });
+    }
   }
 
   flipBtn.addEventListener('click', function() {
@@ -867,6 +988,9 @@
     resultLabel.className   = 'cf-result-label is-hidden';
     multiEl.style.display   = 'none';
     multiEl.innerHTML       = '';
+    miniCoinsEl.style.display = 'none';
+    miniCoinsEl.innerHTML   = '';
+    coinStageEl.style.display = '';
     coinEl.style.transform  = 'rotateY(0deg)';
     updateStats();
     updateHistory();
