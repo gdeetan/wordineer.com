@@ -1,0 +1,671 @@
+<!-- CONFIG
+{
+  "url": "/wheel-of-names/",
+  "output": "wheel-of-names.html",
+  "type": "tool",
+  "more_tools_key": "more_chance_tools",
+  "more_tools_title": "More number & chance tools",
+  "more_tools_subtitle": "Dice, coin flips, spinners, and more — all free"
+}
+-->
+
+<!-- SLOT:meta -->
+<title>Wheel of Names — Free Online Name Picker Spinner | Wordineer</title>
+<meta name="description" content="Free online wheel of names spinner. Paste your class list, spin to pick a random name. Round robin mode, shareable URL, no account needed.">
+<link rel="canonical" href="https://wordineer.com/wheel-of-names/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wordineer">
+<meta property="og:title" content="Wheel of Names | Wordineer">
+<meta property="og:description" content="Spin a name picker wheel. Round robin, shareable URL, paste from spreadsheet — free, no account.">
+<meta property="og:url" content="https://wordineer.com/wheel-of-names/">
+<meta property="og:image" content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I add names to the wheel?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Type or paste names into the text box — one name per line, or separated by commas. The wheel updates instantly as you type. You can paste a list directly from a spreadsheet, Google Sheets, or any text editor." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is round robin mode?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Round robin mode ensures every name is picked exactly once before any name repeats. Once the last name is drawn the pool resets automatically and a new round begins. It's ideal for classroom participation, fair turn order, or any situation where equal selection matters." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I save my name list?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. A shareable URL is generated automatically whenever you add names. Copy that link and bookmark it — reopening the URL loads your exact name list without needing an account or sign-in." }
+    },
+    {
+      "@type": "Question",
+      "name": "How many names can the wheel hold?",
+      "acceptedAnswer": { "@type": "Answer", "text": "There is no hard limit built into the tool. Practically, the wheel stays readable up to about 30–40 names. Beyond that the segments become too narrow to show labels clearly, though the spinner still works correctly and picks a random name." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this free to use?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes, completely free. No account, no sign-up, no download required. Open the page, paste your names, and spin." }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Wheel of Names",
+  "url": "https://wordineer.com/wheel-of-names/",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Number & Chance Tools", "item": "https://wordineer.com/number-chance/" },
+    { "@type": "ListItem", "position": 3, "name": "Wheel of Names", "item": "https://wordineer.com/wheel-of-names/" }
+  ]
+}
+</script>
+<!-- /SLOT:meta -->
+
+<!-- SLOT:style -->
+<style>
+.won-wrap { max-width: 680px; margin: 0 auto; padding: 24px 24px 0; }
+.won-layout { display: flex; gap: 24px; flex-direction: column; }
+
+/* Canvas spinner */
+.won-canvas-wrap { position: relative; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+.won-canvas { border-radius: 50%; display: block; cursor: pointer; }
+.won-pointer { width: 0; height: 0; border-left: 14px solid transparent; border-right: 14px solid transparent; border-top: 28px solid #1a1a2e; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3)); }
+
+/* Spin button */
+.won-spin-btn { padding: 12px 36px; background: var(--brand); color: white; border: none; border-radius: 10px; font-size: 1rem; font-weight: 700; font-family: inherit; cursor: pointer; transition: background 0.15s, transform 0.1s; }
+.won-spin-btn:hover { background: var(--brand-dark); }
+.won-spin-btn:active { transform: scale(0.97); }
+.won-spin-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+.won-kbd { font-size: 10px; color: var(--text-3); text-align: center; margin-top: -6px; }
+.won-kbd kbd { background: var(--bg-3); border: 1px solid var(--border); border-radius: 3px; padding: 1px 5px; font-size: 10px; font-family: inherit; }
+
+/* Names textarea + controls */
+.won-input-section { display: flex; flex-direction: column; gap: 12px; }
+.won-input-label { font-size: 12px; font-weight: 700; color: var(--text-2); display: flex; justify-content: space-between; align-items: center; }
+.won-name-count { font-size: 11px; color: var(--text-3); font-weight: 400; }
+.won-textarea { width: 100%; min-height: 140px; padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 13px; font-family: inherit; background: var(--bg); color: var(--text); resize: vertical; box-sizing: border-box; line-height: 1.6; }
+.won-textarea:focus { outline: none; border-color: var(--brand); }
+
+/* Mode toggle */
+.won-modes { display: flex; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+.won-mode-btn { flex: 1; padding: 8px 6px; border: none; background: var(--bg); color: var(--text-2); font-size: 12px; font-weight: 600; font-family: inherit; cursor: pointer; transition: background 0.12s, color 0.12s; border-right: 1px solid var(--border); }
+.won-mode-btn:last-child { border-right: none; }
+.won-mode-btn.is-active { background: var(--brand); color: white; }
+.won-mode-btn:hover:not(.is-active) { background: var(--bg-2); color: var(--text); }
+
+/* Share URL */
+.won-share { display: flex; gap: 8px; align-items: center; }
+.won-share-input { flex: 1; padding: 7px 10px; border: 1px solid var(--border); border-radius: 7px; font-size: 12px; font-family: inherit; background: var(--bg-2); color: var(--text-2); box-sizing: border-box; }
+.won-share-copy { padding: 7px 14px; border: 1px solid var(--border); border-radius: 7px; background: var(--bg); color: var(--text-2); font-size: 12px; font-weight: 600; font-family: inherit; cursor: pointer; white-space: nowrap; }
+.won-share-copy:hover { background: var(--bg-2); color: var(--text); }
+
+/* Winner overlay */
+.won-winner { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 900; align-items: center; justify-content: center; }
+.won-winner.is-visible { display: flex; }
+.won-winner-card { background: var(--bg); border-radius: 18px; padding: 36px 40px; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.3); max-width: 380px; width: 90%; position: relative; }
+.won-winner-label { font-size: 12px; font-weight: 700; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; }
+.won-winner-name { font-size: clamp(1.8rem, 7vw, 2.8rem); font-weight: 800; color: var(--text); margin-bottom: 24px; line-height: 1.1; word-break: break-word; }
+.won-winner-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.won-winner-spin-again { padding: 10px 24px; background: var(--brand); color: white; border: none; border-radius: 8px; font-size: 14px; font-weight: 700; font-family: inherit; cursor: pointer; }
+.won-winner-spin-again:hover { background: var(--brand-dark); }
+.won-winner-remove { padding: 10px 24px; border: 1px solid var(--border); background: var(--bg); color: var(--text-2); border-radius: 8px; font-size: 14px; font-weight: 600; font-family: inherit; cursor: pointer; }
+.won-winner-remove:hover { background: var(--bg-2); }
+.won-winner-close { position: absolute; top: 12px; right: 16px; background: none; border: none; font-size: 20px; color: var(--text-3); cursor: pointer; padding: 4px 8px; }
+
+/* History */
+.won-history-wrap { display: none; }
+.won-history-wrap.is-visible { display: block; }
+.won-history-title { font-size: 10px; font-weight: 700; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 8px; }
+.won-history-list { display: flex; flex-wrap: wrap; gap: 5px; }
+.won-history-chip { padding: 3px 10px; border: 1px solid var(--border); border-radius: 999px; font-size: 12px; color: var(--text-2); background: var(--bg-2); }
+.won-history-chip.latest { background: var(--brand); border-color: var(--brand); color: white; }
+
+/* Round robin progress */
+.won-rr-status { display: none; font-size: 12px; color: var(--text-2); }
+.won-rr-status.is-visible { display: block; }
+
+@media (max-width: 600px) {
+  .won-wrap { padding: 14px 14px 0; }
+  .won-winner-card { padding: 28px 24px; }
+}
+</style>
+<!-- /SLOT:style -->
+
+<!-- SLOT:hero -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/number-chance/">Number &amp; Chance Tools</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Wheel of Names</span>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free · No sign-up · No account
+  </div>
+  <h1>Wheel of names</h1>
+  <p>Paste your class list or names, then spin to pick a random winner. Round robin mode picks everyone once before repeating. Shareable URL lets you reopen the same list — no account needed.</p>
+</div>
+<!-- /SLOT:hero -->
+
+<!-- SLOT:tool -->
+<div class="won-wrap">
+  <div class="won-layout">
+
+    <!-- Canvas spinner -->
+    <div class="won-canvas-wrap">
+      <canvas class="won-canvas" id="won-canvas" width="360" height="360" aria-label="Spinning name wheel"></canvas>
+      <div class="won-pointer" id="won-pointer"></div>
+      <button class="won-spin-btn" id="won-spin-btn" type="button">Spin the wheel</button>
+      <div class="won-kbd">Press <kbd>Space</kbd> or <kbd>Enter</kbd></div>
+    </div>
+
+    <!-- Input section -->
+    <div class="won-input-section">
+
+      <!-- Mode -->
+      <div class="won-modes">
+        <button class="won-mode-btn is-active" id="won-mode-normal" type="button">Normal</button>
+        <button class="won-mode-btn" id="won-mode-rr" type="button">Round Robin</button>
+      </div>
+      <div class="won-rr-status" id="won-rr-status"></div>
+
+      <!-- Names textarea -->
+      <label class="won-input-label" for="won-textarea">
+        Names (one per line or comma-separated)
+        <span class="won-name-count" id="won-name-count">0 names</span>
+      </label>
+      <textarea class="won-textarea" id="won-textarea" placeholder="Alice&#10;Bob&#10;Carol&#10;Dave"></textarea>
+
+      <!-- Share URL -->
+      <div class="won-share">
+        <input class="won-share-input" id="won-share-input" type="text" readonly placeholder="Shareable URL appears here">
+        <button class="won-share-copy" id="won-share-copy" type="button">Copy link</button>
+      </div>
+
+    </div>
+
+    <!-- Pick history -->
+    <div class="won-history-wrap" id="won-history-wrap">
+      <div class="won-history-title">Pick history</div>
+      <div class="won-history-list" id="won-history-list"></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Winner overlay -->
+<div class="won-winner" id="won-winner" role="dialog" aria-modal="true" aria-labelledby="won-winner-name">
+  <div class="won-winner-card">
+    <div class="won-winner-label">&#127881; Winner</div>
+    <div class="won-winner-name" id="won-winner-name"></div>
+    <div class="won-winner-actions">
+      <button class="won-winner-spin-again" id="won-winner-spin-again" type="button">Spin again</button>
+      <button class="won-winner-remove" id="won-winner-remove" type="button">Remove &amp; spin again</button>
+    </div>
+    <button class="won-winner-close" id="won-winner-close" type="button" aria-label="Close">&#215;</button>
+  </div>
+</div>
+<!-- /SLOT:tool -->
+
+<!-- SLOT:ad_b -->
+<div class="content-wrap" style="margin-top:32px">
+  <div class="ad-rect">
+    <span class="ad-tag">Advertisement · 336×280</span>
+    <div class="ad-rect-img"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4C10.3 4 4 10.3 4 18s6.3 14 14 14 14-6.3 14-14S25.7 4 18 4z" fill="white" opacity=".2"/><path d="M12 18c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="18" r="2.5" fill="white"/></svg></div>
+    <div class="ad-rect-content">
+      <div class="ad-rect-title">Grammarly — write with confidence</div>
+      <div class="ad-rect-body">Grammar, tone &amp; clarity. Used by 30 million people. Works in Google Docs, Gmail, Word and more.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
+    </div>
+  </div>
+</div>
+<!-- /SLOT:ad_b -->
+
+<!-- SLOT:explainer -->
+<div class="explainer">
+  <h2>How to use the wheel of names</h2>
+  <p>Type or paste your list of names into the text box — one name per line, or separated by commas. You can paste directly from a Google Sheets column, a class roster, or any plain-text list. The wheel updates live as you type, so you'll see each name appear as a colored segment immediately.</p>
+  <p>Once your names are loaded, press <strong>Spin the wheel</strong> (or click the wheel itself, or press <strong>Space</strong> or <strong>Enter</strong>). The wheel spins for 3–4 seconds and slows to a stop. A winner card pops up with the selected name. From there you can spin again, or remove that name and spin again — useful for elimination-style games.</p>
+
+  <h2>Round robin mode</h2>
+  <p>Switch to <strong>Round Robin</strong> mode using the toggle above the name list. In this mode the wheel tracks which names have already been picked in the current round. Each name can only win once per round — once everyone has been selected, the pool resets automatically and a new round begins.</p>
+  <p>Teachers love round robin mode for fair classroom participation: every student gets called on before anyone is repeated. A status line below the toggle shows how many students have been picked and how many remain this round, so you always know where you are.</p>
+
+  <h2>Shareable URL</h2>
+  <p>As soon as you add names, a shareable URL appears in the box below the name list. This URL encodes your full name list as a query parameter — no server, no account, no saved data. Bookmark it or share it with a colleague and the same list loads instantly when the link is opened.</p>
+  <p>This makes it easy to set up your wheel at home and pull it up on a classroom projector without retyping anything. The URL updates automatically whenever you add or remove names.</p>
+
+  <h2>Classroom uses</h2>
+  <p>The wheel of names is designed to be projector-friendly. The colorful spinning wheel is easy to see from the back of a classroom, and the large winner card is readable at a distance. No student accounts are needed — the tool runs entirely in the browser.</p>
+  <p>Common classroom uses include random student selection for questions or presentations, assigning groups by spinning twice per student, picking reading partners, and determining the order of team presentations. The tool works on any device — phone, tablet, laptop, or desktop — with no installation required.</p>
+</div>
+<!-- /SLOT:explainer -->
+
+<!-- SLOT:faq -->
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">How do I add names to the wheel?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Type or paste names into the text box — one name per line, or separated by commas. The wheel updates instantly as you type. You can paste a list directly from a spreadsheet, Google Sheets, or any text editor and the names will appear on the wheel immediately.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What is round robin mode?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Round robin mode ensures every name is picked exactly once before any name repeats. Once the last name is drawn, the pool resets automatically and a new round begins. It's ideal for classroom participation, fair turn order, or any situation where equal selection matters.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I save my name list?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes. A shareable URL is generated automatically whenever you add names. Copy that link and bookmark it — reopening the URL loads your exact name list without needing an account or sign-in. You can also share the link with a colleague so they get the same list.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">How many names can the wheel hold?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">There is no hard limit built into the tool. Practically, the wheel stays readable up to about 30–40 names. Beyond that the segments become too narrow to show labels clearly, though the spinner still works correctly and picks a random name with equal probability for each entry.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Is this free to use?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes, completely free. No account, no sign-up, no download required. Open the page, paste your names, and spin. The tool runs entirely in your browser and does not send any data to a server.</div>
+  </div>
+
+</div>
+<!-- /SLOT:faq -->
+
+<!-- SLOT:who -->
+<div>
+  <h2 class="section-title" style="margin-bottom:14px">Who uses this wheel of names</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">Teachers</div><div class="uc-body">Pick students randomly for questions, presentations, or group assignments. Round robin mode ensures every student is called on before anyone repeats — projector-friendly and easy to see from the back of a classroom.</div></div>
+    <div class="uc"><div class="uc-title">Event organizers</div><div class="uc-body">Run raffle and giveaway draws live on screen. Paste your entrant list, spin in front of the audience, and let the wheel pick the winner — no spreadsheet tricks or back-room draws needed.</div></div>
+    <div class="uc"><div class="uc-title">Game night hosts</div><div class="uc-body">Randomly assign player order, teams, or roles at the start of a game. Spin once per player to determine turn order, or use it to sort people into teams for trivia, charades, or board games.</div></div>
+    <div class="uc"><div class="uc-title">Remote teams</div><div class="uc-body">Randomly assign speaking order for standups, retrospectives, or brainstorm sessions. Paste your team member names, spin, and let the wheel decide who goes next — fair and impartial for every meeting.</div></div>
+  </div>
+</div>
+<!-- /SLOT:who -->
+
+<!-- SLOT:init -->
+<script>
+const WORDINEER_WON = (() => {
+  // Palette of segment colors (will cycle)
+  const COLORS = [
+    '#5B46D4','#E53E3E','#38A169','#D69E2E','#3182CE',
+    '#D53F8C','#805AD5','#2B6CB0','#C05621','#2C7A7B',
+    '#744210','#276749','#702459','#1A365D','#44337A'
+  ];
+
+  let names = [];           // current list of names
+  let rrPool = [];          // round-robin pool (names not yet picked this round)
+  let mode = 'normal';      // 'normal' | 'rr'
+  let spinning = false;
+  let currentAngle = 0;     // radians, current wheel rotation
+  let history = [];         // array of picked names
+  let cssSize = 360;        // canvas size in CSS pixels
+
+  // DOM refs
+  let canvas, ctx, spinBtn, textarea, nameCountEl;
+  let rrStatusEl, shareInput, shareCopyBtn;
+  let winnerEl, winnerNameEl, winnerSpinAgainBtn, winnerRemoveBtn, winnerCloseBtn;
+  let historyWrap, historyList;
+
+  // ─── Canvas drawing ─────────────────────────────────────────────
+  function drawWheel(angle) {
+    if (!canvas || !ctx) return;
+    const W = canvas.offsetWidth;   // CSS pixels
+    const H = canvas.offsetHeight;
+    const cx = W / 2;
+    const cy = H / 2;
+    const r = Math.min(cx, cy) - 4;
+
+    ctx.clearRect(0, 0, W, H);
+
+    if (names.length === 0) {
+      // Empty state
+      ctx.fillStyle = '#f0f0f0';
+      ctx.beginPath();
+      ctx.arc(cx, cy, r, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillStyle = '#999';
+      ctx.font = 'bold 14px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('Add names above', cx, cy);
+      return;
+    }
+
+    const count = names.length;
+    const sliceAngle = (Math.PI * 2) / count;
+
+    names.forEach((name, i) => {
+      const start = angle + i * sliceAngle;
+      const end = start + sliceAngle;
+
+      // Segment fill
+      ctx.beginPath();
+      ctx.moveTo(cx, cy);
+      ctx.arc(cx, cy, r, start, end);
+      ctx.closePath();
+      ctx.fillStyle = COLORS[i % COLORS.length];
+      ctx.fill();
+      ctx.strokeStyle = 'white';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
+      // Label text
+      ctx.save();
+      ctx.translate(cx, cy);
+      ctx.rotate(start + sliceAngle / 2);
+      ctx.textAlign = 'right';
+      ctx.fillStyle = 'white';
+      const fontSize = count > 12 ? 10 : count > 6 ? 12 : 14;
+      ctx.font = 'bold ' + fontSize + 'px sans-serif';
+      const maxLen = 14;
+      const label = name.length > maxLen ? name.slice(0, maxLen) + '…' : name;
+      ctx.fillText(label, r - 10, 4);
+      ctx.restore();
+    });
+
+    // Center circle
+    ctx.beginPath();
+    ctx.arc(cx, cy, 16, 0, Math.PI * 2);
+    ctx.fillStyle = 'white';
+    ctx.fill();
+    ctx.strokeStyle = '#ddd';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+  }
+
+  // ─── Spin logic ────────────────────────────────────────────────
+  function spin() {
+    if (spinning || names.length < 2) return;
+
+    const activeNames = mode === 'rr' ? rrPool : names;
+    if (activeNames.length === 0) return;
+
+    spinning = true;
+    spinBtn.disabled = true;
+
+    // Pick winner index (within activeNames)
+    const winnerIdx = Math.floor(Math.random() * activeNames.length);
+    const winnerName = activeNames[winnerIdx];
+
+    // Find the global index of the winner in names[]
+    const globalIdx = names.indexOf(winnerName);
+
+    // Target angle: winner segment centered at top (pointing up = -PI/2)
+    const count = names.length;
+    const sliceAngle = (Math.PI * 2) / count;
+    const winnerCenter = globalIdx * sliceAngle + sliceAngle / 2;
+    // We want: currentAngle + winnerCenter = -Math.PI/2 + 2*PI*N (for some integer N)
+    // So: targetAngle = -Math.PI/2 - winnerCenter + 2*PI * (5 + random)
+    const extraSpins = 5 + Math.floor(Math.random() * 3);
+    const targetAngle = (-Math.PI / 2) - winnerCenter + Math.PI * 2 * extraSpins;
+
+    // Normalize so we always spin forward
+    let startAngle = currentAngle % (Math.PI * 2);
+    const totalRotation = targetAngle - (startAngle - Math.PI * 2 * Math.floor(startAngle / (Math.PI * 2)));
+
+    const duration = 3500 + Math.random() * 1000; // 3.5-4.5s
+    const startTime = performance.now();
+    const startAngleSaved = currentAngle;
+
+    function easeOut(t) {
+      // Cubic ease-out
+      return 1 - Math.pow(1 - t, 3);
+    }
+
+    function frame(now) {
+      const elapsed = now - startTime;
+      const t = Math.min(elapsed / duration, 1);
+      currentAngle = startAngleSaved + totalRotation * easeOut(t);
+      drawWheel(currentAngle);
+
+      if (t < 1) {
+        requestAnimationFrame(frame);
+      } else {
+        spinning = false;
+        spinBtn.disabled = false;
+        showWinner(winnerName);
+
+        // Update round robin pool
+        if (mode === 'rr') {
+          rrPool = rrPool.filter(n => n !== winnerName);
+          updateRRStatus();
+          if (rrPool.length === 0) {
+            // All picked — reshuffle for next round
+            rrPool = [...names];
+            updateRRStatus();
+            showToast('Everyone picked! Starting new round.');
+          }
+        }
+
+        // History
+        history.unshift(winnerName);
+        if (history.length > 20) history.length = 20;
+        updateHistory();
+      }
+    }
+
+    requestAnimationFrame(frame);
+  }
+
+  // ─── Winner overlay ────────────────────────────────────────────
+  function showWinner(name) {
+    winnerNameEl.textContent = name;
+    winnerEl.classList.add('is-visible');
+    winnerEl.focus();
+  }
+
+  function closeWinner() {
+    winnerEl.classList.remove('is-visible');
+  }
+
+  function removeAndSpin() {
+    const name = winnerNameEl.textContent;
+    // Remove from textarea
+    const lines = getNames();
+    const filtered = lines.filter(n => n !== name);
+    textarea.value = filtered.join('\n');
+    parseNames();
+    closeWinner();
+    setTimeout(() => spin(), 200);
+  }
+
+  // ─── Name parsing ─────────────────────────────────────────────
+  function getNames() {
+    const raw = textarea.value;
+    // Support comma-separated or newline-separated
+    let parts;
+    if (raw.includes('\n')) {
+      parts = raw.split('\n');
+    } else {
+      parts = raw.split(',');
+    }
+    return parts.map(s => s.trim()).filter(s => s.length > 0);
+  }
+
+  function parseNames() {
+    names = getNames();
+    nameCountEl.textContent = names.length + (names.length === 1 ? ' name' : ' names');
+    if (mode === 'rr') {
+      // Rebuild RR pool but preserve already-picked names
+      rrPool = names.filter(n => rrPool.includes(n));
+      if (rrPool.length === 0) rrPool = [...names];
+      updateRRStatus();
+    }
+    drawWheel(currentAngle);
+    updateShareURL();
+  }
+
+  // ─── Round robin ───────────────────────────────────────────────
+  function updateRRStatus() {
+    if (mode !== 'rr') { rrStatusEl.classList.remove('is-visible'); return; }
+    rrStatusEl.classList.add('is-visible');
+    const picked = names.length - rrPool.length;
+    rrStatusEl.textContent = 'Round robin: ' + picked + ' picked, ' + rrPool.length + ' remaining this round';
+  }
+
+  // ─── Shareable URL ─────────────────────────────────────────────
+  function updateShareURL() {
+    if (names.length === 0) {
+      shareInput.value = '';
+      return;
+    }
+    const encoded = encodeURIComponent(names.join(','));
+    const url = window.location.origin + '/wheel-of-names/?names=' + encoded;
+    shareInput.value = url;
+  }
+
+  function loadFromURL() {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const namesParam = params.get('names');
+      if (namesParam) {
+        const loaded = decodeURIComponent(namesParam).split(',').map(s => s.trim()).filter(Boolean);
+        if (loaded.length > 0) {
+          textarea.value = loaded.join('\n');
+          parseNames();
+        }
+      }
+    } catch (e) {}
+  }
+
+  // ─── History ───────────────────────────────────────────────────
+  function updateHistory() {
+    if (history.length === 0) { historyWrap.classList.remove('is-visible'); return; }
+    historyWrap.classList.add('is-visible');
+    historyList.innerHTML = '';
+    history.forEach((name, i) => {
+      const chip = document.createElement('span');
+      chip.className = 'won-history-chip' + (i === 0 ? ' latest' : '');
+      chip.textContent = name;
+      historyList.appendChild(chip);
+    });
+  }
+
+  // ─── Mode toggle ───────────────────────────────────────────────
+  function setMode(m) {
+    mode = m;
+    document.getElementById('won-mode-normal').classList.toggle('is-active', m === 'normal');
+    document.getElementById('won-mode-rr').classList.toggle('is-active', m === 'rr');
+    if (m === 'rr') {
+      rrPool = [...names];
+      updateRRStatus();
+    } else {
+      rrStatusEl.classList.remove('is-visible');
+    }
+  }
+
+  // ─── Toast ─────────────────────────────────────────────────────
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    if (!t) return;
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2500);
+  }
+
+  // ─── Init ──────────────────────────────────────────────────────
+  function init() {
+    canvas       = document.getElementById('won-canvas');
+    ctx          = canvas ? canvas.getContext('2d') : null;
+    spinBtn      = document.getElementById('won-spin-btn');
+    textarea     = document.getElementById('won-textarea');
+    nameCountEl  = document.getElementById('won-name-count');
+    rrStatusEl   = document.getElementById('won-rr-status');
+    shareInput   = document.getElementById('won-share-input');
+    shareCopyBtn = document.getElementById('won-share-copy');
+    winnerEl     = document.getElementById('won-winner');
+    winnerNameEl = document.getElementById('won-winner-name');
+    winnerSpinAgainBtn = document.getElementById('won-winner-spin-again');
+    winnerRemoveBtn    = document.getElementById('won-winner-remove');
+    winnerCloseBtn     = document.getElementById('won-winner-close');
+    historyWrap  = document.getElementById('won-history-wrap');
+    historyList  = document.getElementById('won-history-list');
+
+    // Resize canvas for device pixel ratio
+    const dpr = window.devicePixelRatio || 1;
+    cssSize = Math.min(360, window.innerWidth - 48);
+    canvas.style.width = cssSize + 'px';
+    canvas.style.height = cssSize + 'px';
+    canvas.width = cssSize * dpr;
+    canvas.height = cssSize * dpr;
+    ctx.scale(dpr, dpr);
+
+    // Load from URL or set default names
+    loadFromURL();
+    if (names.length === 0) {
+      textarea.value = 'Alice\nBob\nCarol\nDave\nEve';
+      parseNames();
+    }
+
+    drawWheel(0);
+
+    // Events
+    spinBtn.addEventListener('click', spin);
+    canvas.addEventListener('click', spin);
+
+    textarea.addEventListener('input', parseNames);
+
+    document.getElementById('won-mode-normal').addEventListener('click', () => setMode('normal'));
+    document.getElementById('won-mode-rr').addEventListener('click', () => setMode('rr'));
+
+    shareCopyBtn.addEventListener('click', () => {
+      if (!shareInput.value) return;
+      navigator.clipboard && navigator.clipboard.writeText(shareInput.value);
+      const orig = shareCopyBtn.textContent;
+      shareCopyBtn.textContent = 'Copied!';
+      setTimeout(() => { shareCopyBtn.textContent = orig; }, 1500);
+      showToast('Link copied!');
+    });
+
+    winnerSpinAgainBtn.addEventListener('click', () => { closeWinner(); setTimeout(spin, 200); });
+    winnerRemoveBtn.addEventListener('click', removeAndSpin);
+    winnerCloseBtn.addEventListener('click', closeWinner);
+    winnerEl.addEventListener('click', e => { if (e.target === winnerEl) closeWinner(); });
+
+    document.addEventListener('keydown', e => {
+      if (winnerEl.classList.contains('is-visible')) {
+        if (e.key === 'Escape') closeWinner();
+        return;
+      }
+      if (['INPUT','SELECT','TEXTAREA','BUTTON'].includes(e.target.tagName)) return;
+      if (e.code === 'Space' || e.code === 'Enter') { e.preventDefault(); spin(); }
+    });
+
+    document.querySelectorAll('.faq-item summary').forEach(s => {
+      s.addEventListener('click', e => {
+        e.preventDefault();
+        const item = s.closest('.faq-item');
+        const wasOpen = item.hasAttribute('open');
+        document.querySelectorAll('.faq-item[open]').forEach(i => i.removeAttribute('open'));
+        if (!wasOpen) item.setAttribute('open', '');
+      });
+    });
+  }
+
+  return { init };
+})();
+
+document.addEventListener('DOMContentLoaded', WORDINEER_WON.init);
+</script>
+<!-- /SLOT:init -->
