@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.adsbygoogle = window.adsbygoogle || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  (function(w, d) {
+    var loaded = false;
+    var cfg = {
+      analyticsId: 'G-7DWH3EGM3Z',
+      adsClient: 'ca-pub-7200956978416233',
+      delay: 10000
+    };
+
+    function loadScript(src, attrs) {
+      var s = d.createElement('script');
+      s.async = true;
+      s.src = src;
+      if (attrs) {
+        Object.keys(attrs).forEach(function(key) {
+          s.setAttribute(key, attrs[key]);
+        });
+      }
+      d.head.appendChild(s);
+    }
+
+    function loadMarketing() {
+      if (loaded) return;
+      loaded = true;
+      gtag('js', new Date());
+      gtag('config', cfg.analyticsId);
+      loadScript('https://www.googletagmanager.com/gtag/js?id=' + cfg.analyticsId);
+      loadScript(
+        'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + cfg.adsClient,
+        { crossorigin: 'anonymous' }
+      );
+    }
+
+    function idleLoad() {
+      if ('requestIdleCallback' in w) {
+        w.requestIdleCallback(loadMarketing, { timeout: 5000 });
+      } else {
+        w.setTimeout(loadMarketing, cfg.delay);
+      }
+    }
+
+    ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function(eventName) {
+      w.addEventListener(eventName, loadMarketing, { once: true, passive: true });
+    });
+    w.addEventListener('load', function() {
+      w.setTimeout(idleLoad, cfg.delay);
+    }, { once: true });
+  })(window, document);
+</script>
+<meta name='impact-site-verification' value='32715504-1cfb-4324-bfc7-ae4cfa1591ea'>
+<link rel="preload" href="/fonts/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-sans-italic-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://wordineer.com/#website",
+      "name": "Wordineer",
+      "url": "https://wordineer.com",
+      "description": "Free online word tools for writers, students, and word game players — random word generator, name generators, word scramble, sentence generator, and more.",
+      "publisher": { "@id": "https://wordineer.com/#organization" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://wordineer.com/#organization",
+      "name": "Wordineer",
+      "url": "https://wordineer.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://wordineer.com/logo.png",
+        "width": 1254,
+        "height": 1254
+      },
+      "description": "Wordineer provides free online word tools for writers, students, and word game players."
+    }
+  ]
+}
+</script>
+<title>Random Number Generator 1 to 3 — Three-Way Tiebreaker | Wordineer</title>
+<meta name="description" content="Generate a random number between 1 and 3 instantly. Perfect for three-way tiebreakers, rock-paper-scissors alternatives, and group decisions. Free, no sign-up.">
+<link rel="canonical" href="https://wordineer.com/random-number-1-3/">
+<meta property="og:type"        content="website">
+<meta property="og:site_name"   content="Wordineer">
+<meta property="og:title"       content="Random Number Generator 1 to 3 | Wordineer">
+<meta property="og:description" content="Pick a random number between 1 and 3 — three-way tiebreaker, group choice, fair rotation. Free.">
+<meta property="og:url"         content="https://wordineer.com/random-number-1-3/">
+<meta property="og:image"       content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Random Number Generator 1 to 3",
+  "url": "https://wordineer.com/random-number-1-3/",
+  "description": "Generate a random number between 1 and 3. Pool mode, distribution, exclude, blind pick.",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@id": "https://wordineer.com/#organization" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Number &amp; Chance Tools", "item": "https://wordineer.com/number-chance/" },
+    { "@type": "ListItem", "position": 3, "name": "Random Number 1–3", "item": "https://wordineer.com/random-number-1-3/" }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="/styles/global.css?v=9">
+<style>
+/* ── Random Number 1-3 ── */
+.rn3-wrap { max-width: 600px; margin: 0 auto; padding: 24px 24px 0; }
+.rn3-card { border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--bg); box-shadow: var(--shadow); padding: 32px 24px 24px; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+.rn3-result-wrap { display: flex; align-items: center; gap: 12px; }
+.rn3-result { font-size: clamp(4rem, 14vw, 6rem); font-weight: 800; color: var(--text); line-height: 1; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; min-width: 3ch; text-align: center; transition: opacity 0.08s; }
+.rn3-result.is-animating { opacity: 0.15; }
+.rn3-copy-btn { display: flex; align-items: center; gap: 5px; padding: 7px 13px; border: 1px solid var(--border); border-radius: 7px; background: var(--bg); color: var(--text-2); font-size: 12px; font-family: inherit; cursor: pointer; transition: background 0.12s, color 0.12s; white-space: nowrap; }
+.rn3-copy-btn:hover { background: var(--bg-2); color: var(--text); }
+.rn3-copy-btn svg { width: 13px; height: 13px; flex-shrink: 0; }
+.rn3-gen-btn { padding: 13px 40px; background: var(--brand); color: white; border: none; border-radius: 10px; font-size: 1.05rem; font-weight: 700; font-family: inherit; cursor: pointer; transition: background 0.15s, transform 0.1s; letter-spacing: -0.01em; }
+.rn3-gen-btn:hover { background: var(--brand-dark); }
+.rn3-gen-btn:active { transform: scale(0.97); }
+.rn3-kbd { font-size: 10px; color: var(--text-3); text-align: center; margin-top: -10px; }
+.rn3-kbd kbd { background: var(--bg-3); border: 1px solid var(--border); border-radius: 3px; padding: 1px 5px; font-size: 10px; font-family: inherit; }
+.rn3-pills { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; }
+.rn3-pill { padding: 5px 13px; border: 1px solid var(--border); border-radius: 999px; font-size: 12px; font-weight: 600; color: var(--text-2); text-decoration: none; background: var(--bg); cursor: pointer; transition: background 0.12s, border-color 0.12s, color 0.12s; font-family: inherit; }
+.rn3-pill:hover { background: var(--bg-2); color: var(--text); border-color: var(--border-2); }
+.rn3-pill.is-active { background: var(--brand); border-color: var(--brand); color: white; cursor: default; }
+.rn3-history-wrap { width: 100%; }
+.rn3-history-label { font-size: 10px; font-weight: 600; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 7px; }
+.rn3-history { display: flex; flex-wrap: wrap; gap: 5px; }
+.rn3-chip { padding: 3px 10px; border: 1px solid var(--border); border-radius: 999px; font-size: 12px; font-weight: 600; color: var(--text-2); background: var(--bg-2); }
+.rn3-chip.newest { background: var(--brand); border-color: var(--brand); color: white; }
+.rn3-modes { display: flex; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; width: 100%; }
+.rn3-mode-btn { flex: 1; padding: 8px 6px; border: none; background: var(--bg); color: var(--text-2); font-size: 12px; font-weight: 600; font-family: inherit; cursor: pointer; transition: background 0.12s, color 0.12s; border-right: 1px solid var(--border); }
+.rn3-mode-btn:last-child { border-right: none; }
+.rn3-mode-btn.is-active { background: var(--brand); color: white; }
+.rn3-mode-btn:hover:not(.is-active) { background: var(--bg-2); color: var(--text); }
+.rn3-pool-status { width: 100%; display: none; }
+.rn3-pool-status.is-visible { display: block; }
+.rn3-pool-text { font-size: 12px; color: var(--text-2); margin-bottom: 6px; display: flex; justify-content: space-between; }
+.rn3-pool-bar-track { height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
+.rn3-pool-bar-fill { height: 100%; background: var(--brand); border-radius: 2px; transition: width 0.3s; }
+.rn3-pool-reset { background: none; border: none; color: var(--brand); font-size: 11px; cursor: pointer; font-family: inherit; padding: 0; margin-top: 5px; text-decoration: underline; text-underline-offset: 2px; }
+.rn3-dist { width: 100%; display: none; }
+.rn3-dist.is-visible { display: block; }
+.rn3-dist-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
+.rn3-dist-title { font-size: 11px; font-weight: 700; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.07em; }
+.rn3-dist-reset { background: none; border: none; color: var(--brand); font-size: 11px; cursor: pointer; font-family: inherit; padding: 0; text-decoration: underline; text-underline-offset: 2px; }
+.rn3-dist-row { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; }
+.rn3-dist-lbl { font-size: 10px; color: var(--text-3); width: 46px; flex-shrink: 0; text-align: right; font-variant-numeric: tabular-nums; }
+.rn3-dist-track { flex: 1; height: 12px; background: var(--bg-2); border-radius: 2px; overflow: hidden; }
+.rn3-dist-bar { height: 100%; background: var(--brand); border-radius: 2px; transition: width 0.4s ease; opacity: 0.75; }
+.rn3-dist-count { font-size: 10px; color: var(--text-3); width: 20px; flex-shrink: 0; font-variant-numeric: tabular-nums; }
+.rn3-exclude-toggle { background: none; border: none; color: var(--text-3); font-size: 11px; cursor: pointer; font-family: inherit; padding: 0; text-decoration: underline; text-underline-offset: 2px; align-self: flex-start; }
+.rn3-exclude-toggle:hover { color: var(--text-2); }
+.rn3-exclude-panel { width: 100%; display: none; }
+.rn3-exclude-panel.is-open { display: block; }
+.rn3-exclude-label { font-size: 11px; font-weight: 600; color: var(--text-3); display: block; margin-bottom: 6px; }
+.rn3-exclude-input { width: 100%; padding: 8px 10px; border: 1px solid var(--border); border-radius: 7px; font-size: 13px; font-family: inherit; background: var(--bg); color: var(--text); box-sizing: border-box; outline: none; }
+.rn3-exclude-input:focus { border-color: var(--brand); }
+.rn3-exclude-chips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 7px; }
+.rn3-exclude-chip { padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 600; }
+.rn3-exclude-chip.valid { background: var(--bg-2); border: 1px solid var(--border); color: var(--text-2); }
+.rn3-exclude-chip.invalid { background: #FEE2E2; border: 1px solid #FECACA; color: #DC2626; }
+.rn3-exclude-error { font-size: 11px; color: #DC2626; margin-top: 4px; display: none; }
+.rn3-exclude-error.show { display: block; }
+.rn3-blind { width: 100%; display: none; }
+.rn3-blind.is-visible { display: block; }
+.rn3-blind-players { display: flex; gap: 12px; margin-bottom: 12px; }
+.rn3-blind-player { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 14px; border: 1px solid var(--border); border-radius: 10px; background: var(--bg-2); }
+.rn3-blind-name { font-size: 11px; font-weight: 700; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.06em; }
+.rn3-blind-pick-btn { padding: 7px 18px; border: 1.5px solid var(--brand); border-radius: 7px; background: var(--bg); color: var(--brand); font-size: 13px; font-weight: 600; font-family: inherit; cursor: pointer; transition: background 0.12s, color 0.12s; }
+.rn3-blind-pick-btn:hover { background: var(--brand); color: white; }
+.rn3-blind-pick-btn.picked { background: var(--bg-2); color: var(--text-3); border-color: var(--border); cursor: default; }
+.rn3-blind-val { font-size: 2rem; font-weight: 800; color: var(--text); min-height: 2.4rem; font-variant-numeric: tabular-nums; line-height: 1; }
+.rn3-blind-val.hidden { visibility: hidden; }
+.rn3-blind-val.winner { color: var(--brand); }
+.rn3-blind-val.loser { color: var(--text-3); }
+.rn3-blind-center { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.rn3-blind-reveal-btn { padding: 9px 28px; background: var(--brand); color: white; border: none; border-radius: 8px; font-size: 13px; font-weight: 700; font-family: inherit; cursor: pointer; transition: background 0.12s; display: none; }
+.rn3-blind-reveal-btn.is-visible { display: block; }
+.rn3-blind-reveal-btn:hover { background: var(--brand-dark); }
+.rn3-blind-result { font-size: 13px; font-weight: 600; color: var(--text-2); text-align: center; min-height: 1.4em; }
+.rn3-blind-again { background: none; border: none; color: var(--brand); font-size: 11px; cursor: pointer; font-family: inherit; padding: 0; text-decoration: underline; text-underline-offset: 2px; display: none; }
+.rn3-blind-again.is-visible { display: block; }
+@media (max-width: 600px) {
+  .rn3-wrap { padding: 14px 14px 0; }
+  .rn3-card { padding: 24px 16px 18px; gap: 16px; }
+  .rn3-blind-players { flex-direction: column; }
+}
+</style>
+</head>
+
+<body>
+<nav class="nav">
+  <a class="nav-logo" href="/">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 15 15" fill="none"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </div>
+    Wordineer
+  </a>
+  <div class="nav-links">
+    <a href="/word-tools/">Tools</a>
+    <a href="/blog/">Blog</a>
+  </div>
+  <div>
+    <button class="hamburger" type="button" aria-label="All tools" aria-controls="mega" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mega" id="mega">
+  <div class="mega-inner">
+    <div class="mega-col">
+      <div class="mega-cat">Writing &amp; Vocabulary</div>
+      <a class="mega-link" href="/">Random Word Generator</a>
+      <a class="mega-link" href="/random-sentence-generator/">Random Sentence Generator</a>
+      <a class="mega-link" href="/random-paragraph-generator/">Random Paragraph Generator</a>
+      <a class="mega-link" href="/word-counter/">Word Counter</a>
+      <a class="mega-link mega-link--view-all" href="/word-tools/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Browse by Letter</div>
+      <a class="mega-link" href="/random-words-starting-with/">Random Words Starting With (A–Z)</a>
+      <a class="mega-link" href="/random-words-starting-with/a">Random Words Starting with A</a>
+      <a class="mega-link" href="/random-words-starting-with/s">Random Words Starting with S</a>
+      <a class="mega-link" href="/random-words-starting-with/q">Random Words Starting with Q</a>
+      <a class="mega-link mega-link--view-all" href="/random-words-starting-with/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Names by Origin</div>
+      <a class="mega-link" href="/random-spanish-name-generator/">Spanish Name Generator</a>
+      <a class="mega-link" href="/random-italian-name-generator/">Italian Name Generator</a>
+      <a class="mega-link" href="/random-japanese-name-generator/">Japanese Name Generator</a>
+      <a class="mega-link" href="/random-american-name-generator/">American Name Generator</a>
+      <a class="mega-link mega-link--view-all" href="/name-generators/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Other Name Generators</div>
+      <a class="mega-link" href="/character-name-generator/">Character Name Generator</a>
+      <a class="mega-link" href="/fantasy-name-generator/">Fantasy Name Generator</a>
+      <a class="mega-link" href="/business-name-generator/">Business Name Generator</a>
+      <a class="mega-link" href="/band-name-generator/">Band Name Generator</a>
+      <a class="mega-link mega-link--view-all" href="/other-generators/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Account &amp; Security</div>
+      <a class="mega-link" href="/username-generator/">Username Generator</a>
+      <a class="mega-link" href="/password-generator/">Password Generator</a>
+      <a class="mega-link" href="/passphrase-generator/">Passphrase Generator</a>
+      <a class="mega-link" href="/memorable-password-generator/">Memorable Password Generator</a>
+      <a class="mega-link mega-link--view-all" href="/account-tools/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Games &amp; fun</div>
+      <a class="mega-link" href="/random-number-generator/">Random Number Generator</a>
+      <a class="mega-link" href="/pictionary-phrase-generator/">Pictionary Phrase Generator</a>
+      <a class="mega-link" href="/crossword-puzzle-generator/">Crossword Puzzle Generator</a>
+      <a class="mega-link" href="/wordle-helper/">Wordle Helper</a>
+      <a class="mega-link" href="/wordle-answers/">Wordle Answer Archive</a>
+      <a class="mega-link" href="/coin-flip/">Coin Flip</a>
+      <a class="mega-link" href="/dice-roller/">Dice Roller</a>
+      <a class="mega-link mega-link--view-all" href="/number-chance/">View all →</a>
+    </div>
+  </div>
+</div>
+
+
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/number-chance/">Number &amp; Chance Tools</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Random Number 1–3</span>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free · No sign-up · Instant
+  </div>
+  <h1>Random number generator 1 to 3</h1>
+  <p>Pick a random number between 1 and 3 instantly. The simplest three-way tiebreaker — each value has exactly a 1-in-3 (33.3%) chance. Works on any device, no install needed.</p>
+</div>
+<div class="rn3-wrap">
+  <div class="rn3-card">
+    <div class="rn3-result-wrap">
+      <div class="rn3-result" id="rn3-result" aria-live="polite" aria-atomic="true">2</div>
+      <button class="rn3-copy-btn" id="rn3-copy-btn" type="button" aria-label="Copy number">
+        <svg viewBox="0 0 14 14" fill="none"><rect x="1" y="4" width="9" height="9.5" rx="1.5" stroke="currentColor" stroke-width="1.1"/><path d="M4.5 4V2.5A1.5 1.5 0 016 1h5.5A1.5 1.5 0 0113 2.5v7a1.5 1.5 0 01-1.5 1.5H10" stroke="currentColor" stroke-width="1.1"/></svg>
+        Copy
+      </button>
+    </div>
+    <button class="rn3-gen-btn" id="rn3-gen-btn" type="button">Generate number</button>
+    <div class="rn3-kbd">Press <kbd>Space</kbd> or <kbd>Enter</kbd> to generate</div>
+    <div class="rn3-pills">
+      <button class="rn3-pill is-active" type="button" disabled>1–3</button>
+      <a href="/random-number-1-4/" class="rn3-pill">1–4</a>
+      <a href="/random-number-1-6/" class="rn3-pill">1–6</a>
+      <a href="/random-number-1-10/" class="rn3-pill">1–10</a>
+    </div>
+    <div class="rn3-history-wrap" id="rn3-history-wrap" style="display:none">
+      <div class="rn3-history-label">Recent results</div>
+      <div class="rn3-history" id="rn3-history"></div>
+    </div>
+    <div class="rn3-modes">
+      <button class="rn3-mode-btn is-active" id="rn3-mode-normal" type="button">Normal</button>
+      <button class="rn3-mode-btn" id="rn3-mode-pool" type="button">Pool mode</button>
+      <button class="rn3-mode-btn" id="rn3-mode-blind" type="button">Blind pick</button>
+    </div>
+    <div class="rn3-pool-status" id="rn3-pool-status">
+      <div class="rn3-pool-text">
+        <span id="rn3-pool-remaining">3 remaining in pool</span>
+        <span id="rn3-pool-fraction">0 / 3 drawn</span>
+      </div>
+      <div class="rn3-pool-bar-track">
+        <div class="rn3-pool-bar-fill" id="rn3-pool-bar" style="width:0%"></div>
+      </div>
+      <button class="rn3-pool-reset" id="rn3-pool-reset-btn" type="button">Reset pool</button>
+    </div>
+    <div class="rn3-dist" id="rn3-dist">
+      <div class="rn3-dist-header">
+        <span class="rn3-dist-title">Distribution</span>
+        <button class="rn3-dist-reset" id="rn3-dist-reset" type="button">Reset stats</button>
+      </div>
+      <div id="rn3-dist-rows"></div>
+    </div>
+    <button class="rn3-exclude-toggle" id="rn3-exclude-toggle" type="button">+ Exclude numbers</button>
+    <div class="rn3-exclude-panel" id="rn3-exclude-panel">
+      <label class="rn3-exclude-label" for="rn3-exclude-input">Numbers to skip (comma-separated)</label>
+      <input class="rn3-exclude-input" id="rn3-exclude-input" type="text" placeholder="e.g. 2" inputmode="numeric">
+      <div class="rn3-exclude-chips" id="rn3-exclude-chips"></div>
+      <div class="rn3-exclude-error" id="rn3-exclude-error"></div>
+    </div>
+    <div class="rn3-blind" id="rn3-blind">
+      <div class="rn3-blind-players">
+        <div class="rn3-blind-player">
+          <div class="rn3-blind-name">Player 1</div>
+          <div class="rn3-blind-val hidden" id="rn3-blind-val-1">—</div>
+          <button class="rn3-blind-pick-btn" id="rn3-blind-pick-1" type="button">Pick</button>
+        </div>
+        <div class="rn3-blind-player">
+          <div class="rn3-blind-name">Player 2</div>
+          <div class="rn3-blind-val hidden" id="rn3-blind-val-2">—</div>
+          <button class="rn3-blind-pick-btn" id="rn3-blind-pick-2" type="button">Pick</button>
+        </div>
+      </div>
+      <div class="rn3-blind-center">
+        <button class="rn3-blind-reveal-btn" id="rn3-blind-reveal" type="button">Reveal</button>
+        <div class="rn3-blind-result" id="rn3-blind-result"></div>
+        <button class="rn3-blind-again" id="rn3-blind-again" type="button">Play again</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="content-wrap" style="margin-top:32px">
+  <div class="ad-rect">
+    <span class="ad-tag">Advertisement · 336×280</span>
+    <div class="ad-rect-img"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4C10.3 4 4 10.3 4 18s6.3 14 14 14 14-6.3 14-14S25.7 4 18 4z" fill="white" opacity=".2"/><path d="M12 18c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="18" r="2.5" fill="white"/></svg></div>
+    <div class="ad-rect-content">
+      <div class="ad-rect-title">Grammarly — write with confidence</div>
+      <div class="ad-rect-body">Grammar, tone &amp; clarity. Used by 30 million people. Works in Google Docs, Gmail, Word and more.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
+    </div>
+  </div>
+</div>
+<div class="content-wrap">
+  <div class="section">
+    <h2 class="section-title">More number & chance tools</h2>
+    <p class="section-sub">Dice, coin flips, spinners, and more — all free</p>
+    <div class="tools-grid">
+      <a class="tool-item" href="/random-number-1-100/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><text x="1.5" y="9" font-size="6" font-weight="700" font-family="sans-serif" fill="#534AB7">1-100</text></svg></div><div class="tool-name">Random Number 1–100</div><div class="tool-desc">Pick a random number between 1 and 100. Pool mode draws every number once — perfect for classrooms and raffles.</div></a>
+      <a class="tool-item" href="/random-number-1-10/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><text x="1.5" y="9" font-size="6" font-weight="700" font-family="sans-serif" fill="#534AB7">1-10</text></svg></div><div class="tool-name">Random Number 1–10</div><div class="tool-desc">Pick a random number between 1 and 10. Pool mode draws every number once — perfect for classroom turn order.</div></a>
+      <a class="tool-item" href="/random-number-generator/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><text x="2" y="9" font-size="7" font-weight="700" font-family="sans-serif" fill="#534AB7">42</text></svg></div><div class="tool-name">Random Number Generator</div><div class="tool-desc">Generate random numbers in any range. Set min, max, and count — block duplicates for raffles or allow repeats for dice rolls.</div></a>
+      <a class="tool-item" href="/dice-roller/"><div class="tool-icon" style="background:#F5F3FF"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="2" width="9" height="9" rx="1.5" stroke="#7C3AED" stroke-width="1.1"/><circle cx="4.5" cy="4.5" r=".85" fill="#7C3AED"/><circle cx="8.5" cy="4.5" r=".85" fill="#7C3AED"/><circle cx="4.5" cy="8.5" r=".85" fill="#7C3AED"/><circle cx="8.5" cy="8.5" r=".85" fill="#7C3AED"/><circle cx="6.5" cy="6.5" r=".85" fill="#7C3AED"/></svg></div><div class="tool-name">Dice Roller</div><div class="tool-desc">Roll d4, d6, d8, d10, d12, d20, or custom dice — multiple at once, with history and session stats.</div></a>
+      <a class="tool-item" href="/coin-flip/"><div class="tool-icon" style="background:#FFF8DC"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5" stroke="#C8960C" stroke-width="1.1"/><text x="6.5" y="9.8" text-anchor="middle" font-size="5.5" font-weight="700" font-family="sans-serif" fill="#7A5800">H</text></svg></div><div class="tool-name">Coin Flip</div><div class="tool-desc">Flip a virtual coin — heads or tails, instantly. Multi-flip mode and running stats included.</div></a>
+      <a class="tool-item" href="/flip-a-coin-10-times/"><div class="tool-icon" style="background:#FFF8DC"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5" stroke="#C8960C" stroke-width="1.1"/><text x="6.5" y="9.8" text-anchor="middle" font-size="4" font-weight="700" font-family="sans-serif" fill="#7A5800">×10</text></svg></div><div class="tool-name">Flip a Coin 10 Times</div><div class="tool-desc">Run 10 coin flips at once. Heads/tails tally, streak tracker, and copy for stats homework.</div></a>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div>
+    <h2 class="section-title">Other tools</h2>
+    <p class="section-sub">Numbers, names, games and more</p>
+    <div class="other-grid">
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3h9M2 6.5h7M2 10h5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Writing &amp; Vocabulary</div><a class="other-link" href="/">Random Word Generator</a><a class="other-link" href="/random-sentence-generator/">Random Sentence Generator</a><a class="other-link" href="/random-paragraph-generator/">Random Paragraph Generator</a><a class="other-link" href="/word-counter/">Word Counter</a><a class="other-link other-link--view-all" href="/word-tools/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h3.5M2 7h9M2 10h6" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Browse by Letter</div><a class="other-link" href="/random-words-starting-with/">Random Words Starting With (A–Z)</a><a class="other-link" href="/random-words-starting-with/a">Random Words Starting with A</a><a class="other-link" href="/random-words-starting-with/s">Random Words Starting with S</a><a class="other-link" href="/random-words-starting-with/q">Random Words Starting with Q</a><a class="other-link other-link--view-all" href="/random-words-starting-with/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4.5" r="2.5" stroke="currentColor" stroke-width="1"/><path d="M1.5 11.5c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Names by Origin</div><a class="other-link" href="/random-spanish-name-generator/">Spanish Name Generator</a><a class="other-link" href="/random-italian-name-generator/">Italian Name Generator</a><a class="other-link" href="/random-japanese-name-generator/">Japanese Name Generator</a><a class="other-link" href="/random-american-name-generator/">American Name Generator</a><a class="other-link other-link--view-all" href="/name-generators/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="1.5" width="9" height="10" rx="1" stroke="currentColor" stroke-width="1"/><path d="M4 4.5h5M4 6.5h5M4 8.5h3" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Other Name Generators</div><a class="other-link" href="/character-name-generator/">Character Name Generator</a><a class="other-link" href="/fantasy-name-generator/">Fantasy Name Generator</a><a class="other-link" href="/business-name-generator/">Business Name Generator</a><a class="other-link" href="/band-name-generator/">Band Name Generator</a><a class="other-link other-link--view-all" href="/other-generators/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="3.5" y="5.5" width="6" height="5" rx="1" stroke="currentColor" stroke-width="1"/><path d="M5 5.5V4a1.5 1.5 0 013 0v1.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Account &amp; Security</div><a class="other-link" href="/password-generator/">Password Generator</a><a class="other-link" href="/passphrase-generator/">Passphrase Generator</a><a class="other-link" href="/memorable-password-generator/">Memorable Password Generator</a><a class="other-link" href="/username-generator/">Username Generator</a><a class="other-link other-link--view-all" href="/account-tools/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="1" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="1" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/></svg>Games &amp; fun</div><a class="other-link" href="/pictionary-phrase-generator/">Pictionary Phrase Generator</a><a class="other-link" href="/wordle-helper/">Wordle Helper</a><a class="other-link" href="/coin-flip/">Coin Flip</a><a class="other-link" href="/dice-roller/">Dice Roller</a><a class="other-link other-link--view-all" href="/number-chance/">View all →</a></div>
+    </div>
+  </div>
+
+  <div class="ad-rect">
+    <span class="ad-tag">Advertisement · 336×280</span>
+    <div class="ad-rect-img"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4C10.3 4 4 10.3 4 18s6.3 14 14 14 14-6.3 14-14S25.7 4 18 4z" fill="white" opacity=".2"/><path d="M12 18c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="18" r="2.5" fill="white"/></svg></div>
+    <div class="ad-rect-content">
+      <div class="ad-rect-title">Grammarly — write with confidence</div>
+      <div class="ad-rect-body">Instantly improve grammar, spelling, clarity, and tone. Works everywhere you write online.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
+    </div>
+  </div>
+  <div class="divider"></div>
+
+<div class="explainer">
+  <h2>Three-way decisions made simple</h2>
+  <p>When a coin flip isn't enough — there are three options — this tool settles it instantly. Each of the values 1, 2, and 3 has exactly a 1-in-3 (≈33.3%) chance per generate. Common uses: choosing between three restaurants, assigning three-player turn order, selecting from three options in a quiz or game, or breaking a three-way tie in any competition.</p>
+
+  <h2>Pool mode: fair rotation among three</h2>
+  <p>Pool mode cycles through 1, 2, and 3 in shuffled order, guaranteeing each appears exactly once before repeating. This is perfect for three-player games where you need each player to go first, second, and third exactly once per cycle before reshuffling.</p>
+
+  <h2>Distribution: equal thirds</h2>
+  <p>After 10 generates, the distribution chart shows individual bars for each value (1, 2, 3). Over many generates, all three bars should reach roughly equal height — confirming that no value is favored over the others.</p>
+</div>
+  <div class="divider"></div>
+
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+
+  <details class="faq-item">
+    <summary class="faq-q">Is this truly random?</summary>
+    <div class="faq-a">Yes. Math.random() seeded from hardware entropy gives each of the three values an equal 1-in-3 (33.3%) probability on every generate.</div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">How is this different from a coin flip?</summary>
+    <div class="faq-a">A coin flip decides between two options. This tool decides between three. It is the simplest impartial method for three-way choices when you don't have other tools available.</div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">What is pool mode for 1–3?</summary>
+    <div class="faq-a">Pool mode cycles all three values in shuffled order before any repeats. In a single cycle of three generates, each value (1, 2, 3) will appear exactly once — guaranteed.</div>
+  </details>
+</div>
+  <div class="divider"></div>
+
+<div>
+  <h2 class="section-title" style="margin-bottom:14px">Who uses this tool</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">Friends and groups</div><div class="uc-body">Settle three-way decisions fairly — who picks first, who sits where, who goes last — without arguments.</div></div>
+    <div class="uc"><div class="uc-title">Game players</div><div class="uc-body">Assign turn order in three-player games. Pool mode guarantees each player goes first, second, and third exactly once per round.</div></div>
+    <div class="uc"><div class="uc-title">Teachers</div><div class="uc-body">Assign students to one of three groups randomly. Pool mode ensures balanced group distribution across repeated assignments.</div></div>
+    <div class="uc"><div class="uc-title">Decision makers</div><div class="uc-body">Choose between exactly three options with a provably impartial result. No human bias, no arguments.</div></div>
+  </div>
+</div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="ad-footer-strip" style="margin-bottom:24px">
+      <span class="ad-tag">Advertisement · 468×60</span>
+      <div class="ad-fs-text"><strong>Grammarly Premium</strong> — Vocabulary suggestions, tone detector, full-sentence rewrites.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-footer-strip-cta">Try free</a>
+    </div>
+    <div class="footer-grid">
+      <div><div class="footer-col-title">Writing &amp; Vocabulary</div><a class="footer-link" href="/">Random Word Generator</a><a class="footer-link" href="/random-sentence-generator/">Random Sentence Generator</a><a class="footer-link" href="/random-paragraph-generator/">Random Paragraph Generator</a><a class="footer-link" href="/word-counter/">Word Counter</a><a class="footer-link footer-link--view-all" href="/word-tools/">View all →</a></div>
+      <div><div class="footer-col-title">Browse by Letter</div><a class="footer-link" href="/random-words-starting-with/">Random Words Starting With (A–Z)</a><a class="footer-link" href="/random-words-starting-with/a">Random Words Starting with A</a><a class="footer-link" href="/random-words-starting-with/s">Random Words Starting with S</a><a class="footer-link" href="/random-words-starting-with/q">Random Words Starting with Q</a><a class="footer-link footer-link--view-all" href="/random-words-starting-with/">View all →</a></div>
+      <div><div class="footer-col-title">Names by Origin</div><a class="footer-link" href="/random-spanish-name-generator/">Spanish Name Generator</a><a class="footer-link" href="/random-italian-name-generator/">Italian Name Generator</a><a class="footer-link" href="/random-japanese-name-generator/">Japanese Name Generator</a><a class="footer-link" href="/random-american-name-generator/">American Name Generator</a><a class="footer-link footer-link--view-all" href="/name-generators/">View all →</a></div>
+      <div><div class="footer-col-title">Other Name Generators</div><a class="footer-link" href="/character-name-generator/">Character Name Generator</a><a class="footer-link" href="/fantasy-name-generator/">Fantasy Name Generator</a><a class="footer-link" href="/business-name-generator/">Business Name Generator</a><a class="footer-link" href="/band-name-generator/">Band Name Generator</a><a class="footer-link footer-link--view-all" href="/other-generators/">View all →</a></div>
+      <div><div class="footer-col-title">Account &amp; Security</div><a class="footer-link" href="/password-generator/">Password Generator</a><a class="footer-link" href="/passphrase-generator/">Passphrase Generator</a><a class="footer-link" href="/memorable-password-generator/">Memorable Password Generator</a><a class="footer-link" href="/username-generator/">Username Generator</a><a class="footer-link footer-link--view-all" href="/account-tools/">View all →</a></div>
+      <div><div class="footer-col-title">Games &amp; fun</div><a class="footer-link" href="/pictionary-phrase-generator/">Pictionary Phrase Generator</a><a class="footer-link" href="/crossword-puzzle-generator/">Crossword Puzzle Generator</a><a class="footer-link" href="/wordle-helper/">Wordle Helper</a><a class="footer-link" href="/wordle-answers/">Wordle Answer Archive</a><a class="footer-link" href="/coin-flip/">Coin Flip</a><a class="footer-link" href="/dice-roller/">Dice Roller</a><a class="footer-link footer-link--view-all" href="/number-chance/">View all →</a></div>
+    </div>
+    <div class="footer-bottom">
+      <div style="display:flex;align-items:center;gap:7px">
+        <div class="nav-logo-icon" style="width:22px;height:22px;border-radius:5px"><svg viewBox="0 0 15 15" fill="none" style="width:12px;height:12px"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <span style="font-size:14px;font-weight:600;color:var(--text)">Wordineer</span>
+      </div>
+      <span class="footer-copy">© 2026 Wordineer · Free word tools for everyone</span>
+      <div class="footer-meta"><a href="/about/">About</a><a href="/blog/">Blog</a><a href="/affiliate-disclosure/">Affiliate disclosure</a><a href="/privacy/">Privacy</a></div>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="/scripts/tool-engine.js?v=26"></script>
+<script>
+(function bindSharedWordineerMenu() {
+  const mega = document.getElementById('mega');
+  const hbg = document.querySelector('.hamburger');
+  if (!mega || !hbg) return;
+  if (hbg.dataset.menuBound === '1') return;
+  hbg.dataset.menuBound = '1';
+  hbg.onclick = null;
+  if (hbg.getAttribute('onclick')) hbg.removeAttribute('onclick');
+
+  function setMenu(open) {
+    mega.classList.toggle('open', open);
+    hbg.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+
+  setMenu(mega.classList.contains('open'));
+
+  hbg.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+    setMenu(!mega.classList.contains('open'));
+  }, true);
+
+  hbg.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+      setMenu(!mega.classList.contains('open'));
+    }
+  }, true);
+
+  document.addEventListener('click', function(e) {
+    if (mega.classList.contains('open') && !mega.contains(e.target) && !hbg.contains(e.target)) {
+      setMenu(false);
+    }
+  }, true);
+})();
+</script>
+
+<script>
+const WORDINEER_RN3 = (() => {
+  const MIN = 1, MAX = 3;
+  const BUCKET_SIZE = 1;
+  const BUCKETS = 3;
+
+  let current = 2;
+  let history = [];
+  let stats = new Array(BUCKETS).fill(0);
+  let generateCount = 0;
+  let excludeSet = new Set();
+  let mode = 'normal';
+  let pool = [];
+  let poolDrawn = 0;
+  let blindPicks = [null, null];
+  let blindRevealed = false;
+
+  let resultEl, copyBtn, genBtn;
+  let historyWrap, historyEl;
+  let poolStatusEl, poolRemainingEl, poolFractionEl, poolBarEl, poolResetBtn;
+  let distEl, distRowsEl, distResetBtn;
+  let excludeToggleBtn, excludePanel, excludeInput, excludeChipsEl, excludeErrorEl;
+  let blindEl, blindVal1, blindVal2, blindPick1, blindPick2, blindRevealBtn, blindResultEl, blindAgainBtn;
+
+  function shuffle(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+
+  function parseExcludes(str) {
+    const valid = new Set(); const invalid = [];
+    str.split(',').forEach(function(s) {
+      const n = parseInt(s.trim(), 10);
+      if (!isNaN(n) && n >= MIN && n <= MAX) { valid.add(n); }
+      else if (s.trim() !== '') { invalid.push(s.trim()); }
+    });
+    return { valid, invalid };
+  }
+
+  function buildPool() {
+    const arr = [];
+    for (let i = MIN; i <= MAX; i++) { if (!excludeSet.has(i)) arr.push(i); }
+    shuffle(arr); pool = arr; poolDrawn = 0; updatePoolStatus();
+  }
+
+  function getAvailable() {
+    const arr = [];
+    for (let i = MIN; i <= MAX; i++) { if (!excludeSet.has(i)) arr.push(i); }
+    return arr;
+  }
+
+  function generate() {
+    if (mode === 'blind') return;
+    const available = getAvailable();
+    if (available.length === 0) { showToast('All numbers excluded!'); return; }
+    let n;
+    if (mode === 'pool') {
+      if (pool.length === 0) { buildPool(); showToast('Pool exhausted — reshuffled!'); }
+      n = pool.shift(); poolDrawn++; updatePoolStatus();
+    } else {
+      n = available[Math.floor(Math.random() * available.length)];
+    }
+    current = n; updateResult(n);
+  }
+
+  function updateResult(n) {
+    resultEl.classList.add('is-animating');
+    setTimeout(function() { resultEl.textContent = n; resultEl.classList.remove('is-animating'); }, 80);
+    history.unshift(n); if (history.length > 10) history.length = 10; updateHistory();
+    const bucket = n - MIN;
+    stats[bucket]++; generateCount++; updateDist();
+  }
+
+  function updateHistory() {
+    if (history.length === 0) { historyWrap.style.display = 'none'; return; }
+    historyWrap.style.display = 'block'; historyEl.innerHTML = '';
+    history.forEach(function(n, i) {
+      const chip = document.createElement('span');
+      chip.className = 'rn3-chip' + (i === 0 ? ' newest' : '');
+      chip.textContent = n; historyEl.appendChild(chip);
+    });
+  }
+
+  function updatePoolStatus() {
+    if (mode !== 'pool') { poolStatusEl.classList.remove('is-visible'); return; }
+    const total = MAX - MIN + 1 - excludeSet.size;
+    poolStatusEl.classList.add('is-visible');
+    poolRemainingEl.textContent = pool.length + ' remaining in pool';
+    poolFractionEl.textContent = poolDrawn + ' / ' + total + ' drawn';
+    const pct = total > 0 ? (poolDrawn / total) * 100 : 0;
+    poolBarEl.style.width = pct + '%';
+  }
+
+  function updateDist() {
+    if (generateCount < 10) { distEl.classList.remove('is-visible'); return; }
+    distEl.classList.add('is-visible');
+    const maxCount = Math.max.apply(null, stats.concat([1]));
+    distRowsEl.innerHTML = '';
+    stats.forEach(function(count, i) {
+      const label = String(MIN + i);
+      const pct = (count / maxCount) * 100;
+      const row = document.createElement('div'); row.className = 'rn3-dist-row';
+      row.innerHTML = '<span class="rn3-dist-lbl">' + label + '</span>' +
+        '<div class="rn3-dist-track"><div class="rn3-dist-bar" style="width:' + pct + '%"></div></div>' +
+        '<span class="rn3-dist-count">' + count + '</span>';
+      distRowsEl.appendChild(row);
+    });
+  }
+
+  function resetStats() {
+    stats = new Array(BUCKETS).fill(0); generateCount = 0; history = [];
+    updateHistory(); updateDist();
+  }
+
+  function onExcludeInput() {
+    const raw = excludeInput.value;
+    if (!raw.trim()) {
+      excludeSet = new Set(); excludeChipsEl.innerHTML = '';
+      excludeErrorEl.textContent = ''; excludeErrorEl.classList.remove('show');
+      if (mode === 'pool') buildPool(); return;
+    }
+    const parsed = parseExcludes(raw); excludeSet = parsed.valid;
+    excludeChipsEl.innerHTML = '';
+    parsed.valid.forEach(function(n) {
+      const chip = document.createElement('span'); chip.className = 'rn3-exclude-chip valid';
+      chip.textContent = n; excludeChipsEl.appendChild(chip);
+    });
+    parsed.invalid.forEach(function(s) {
+      const chip = document.createElement('span'); chip.className = 'rn3-exclude-chip invalid';
+      chip.textContent = s + ' (invalid)'; excludeChipsEl.appendChild(chip);
+    });
+    if (parsed.invalid.length > 0) { excludeErrorEl.textContent = 'Only integers 1–3 are valid.'; excludeErrorEl.classList.add('show'); }
+    else { excludeErrorEl.textContent = ''; excludeErrorEl.classList.remove('show'); }
+    if (mode === 'pool') buildPool();
+  }
+
+  function setMode(m) {
+    mode = m;
+    ['normal', 'pool', 'blind'].forEach(function(id) {
+      document.getElementById('rn3-mode-' + id).classList.toggle('is-active', id === m);
+    });
+    if (m === 'pool') { buildPool(); poolStatusEl.classList.add('is-visible'); genBtn.style.display = ''; }
+    else { poolStatusEl.classList.remove('is-visible'); }
+    const isBlind = m === 'blind';
+    blindEl.classList.toggle('is-visible', isBlind);
+    genBtn.style.display = isBlind ? 'none' : '';
+    if (isBlind) resetBlind();
+  }
+
+  function resetBlind() {
+    blindPicks = [null, null]; blindRevealed = false;
+    [blindVal1, blindVal2].forEach(function(el) { el.textContent = '—'; el.className = 'rn3-blind-val hidden'; });
+    [blindPick1, blindPick2].forEach(function(btn) { btn.textContent = 'Pick'; btn.className = 'rn3-blind-pick-btn'; });
+    blindRevealBtn.classList.remove('is-visible'); blindResultEl.textContent = ''; blindAgainBtn.classList.remove('is-visible');
+  }
+
+  function doPick(playerIdx) {
+    if (blindPicks[playerIdx] !== null || blindRevealed) return;
+    const available = getAvailable();
+    if (available.length === 0) { showToast('All numbers excluded!'); return; }
+    const n = available[Math.floor(Math.random() * available.length)];
+    blindPicks[playerIdx] = n;
+    const btn = playerIdx === 0 ? blindPick1 : blindPick2;
+    btn.textContent = '✓ Picked'; btn.className = 'rn3-blind-pick-btn picked';
+    if (blindPicks[0] !== null && blindPicks[1] !== null) { blindRevealBtn.classList.add('is-visible'); }
+  }
+
+  function doReveal() {
+    if (blindPicks[0] === null || blindPicks[1] === null) return;
+    blindRevealed = true; blindRevealBtn.classList.remove('is-visible');
+    const a = blindPicks[0], b = blindPicks[1];
+    blindVal1.textContent = a; blindVal2.textContent = b;
+    blindVal1.classList.remove('hidden'); blindVal2.classList.remove('hidden');
+    if (a > b) { blindVal1.classList.add('winner'); blindVal2.classList.add('loser'); blindResultEl.textContent = 'Player 1 wins! (' + a + ' > ' + b + ')'; }
+    else if (b > a) { blindVal1.classList.add('loser'); blindVal2.classList.add('winner'); blindResultEl.textContent = 'Player 2 wins! (' + b + ' > ' + a + ')'; }
+    else { blindResultEl.textContent = "It's a tie! Both picked " + a; }
+    blindAgainBtn.classList.add('is-visible');
+  }
+
+  function copyResult() {
+    navigator.clipboard && navigator.clipboard.writeText(String(current));
+    const orig = copyBtn.innerHTML;
+    copyBtn.innerHTML = '<svg viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5 6.5-6.5" stroke="#1D9E75" stroke-width="1.3" stroke-linecap="round"/></svg> Copied!';
+    setTimeout(function() { copyBtn.innerHTML = orig; }, 1200);
+    showToast('Copied!');
+  }
+
+  function showToast(msg) {
+    const t = document.getElementById('toast'); if (!t) return;
+    t.textContent = msg; t.classList.add('show');
+    setTimeout(function() { t.classList.remove('show'); }, 2000);
+  }
+
+  function init() {
+    resultEl = document.getElementById('rn3-result');
+    copyBtn = document.getElementById('rn3-copy-btn');
+    genBtn = document.getElementById('rn3-gen-btn');
+    historyWrap = document.getElementById('rn3-history-wrap');
+    historyEl = document.getElementById('rn3-history');
+    poolStatusEl = document.getElementById('rn3-pool-status');
+    poolRemainingEl = document.getElementById('rn3-pool-remaining');
+    poolFractionEl = document.getElementById('rn3-pool-fraction');
+    poolBarEl = document.getElementById('rn3-pool-bar');
+    poolResetBtn = document.getElementById('rn3-pool-reset-btn');
+    distEl = document.getElementById('rn3-dist');
+    distRowsEl = document.getElementById('rn3-dist-rows');
+    distResetBtn = document.getElementById('rn3-dist-reset');
+    excludeToggleBtn = document.getElementById('rn3-exclude-toggle');
+    excludePanel = document.getElementById('rn3-exclude-panel');
+    excludeInput = document.getElementById('rn3-exclude-input');
+    excludeChipsEl = document.getElementById('rn3-exclude-chips');
+    excludeErrorEl = document.getElementById('rn3-exclude-error');
+    blindEl = document.getElementById('rn3-blind');
+    blindVal1 = document.getElementById('rn3-blind-val-1');
+    blindVal2 = document.getElementById('rn3-blind-val-2');
+    blindPick1 = document.getElementById('rn3-blind-pick-1');
+    blindPick2 = document.getElementById('rn3-blind-pick-2');
+    blindRevealBtn = document.getElementById('rn3-blind-reveal');
+    blindResultEl = document.getElementById('rn3-blind-result');
+    blindAgainBtn = document.getElementById('rn3-blind-again');
+
+    genBtn.addEventListener('click', generate);
+    copyBtn.addEventListener('click', copyResult);
+    poolResetBtn.addEventListener('click', function() { buildPool(); showToast('Pool reset!'); });
+    distResetBtn.addEventListener('click', resetStats);
+    document.getElementById('rn3-mode-normal').addEventListener('click', function() { setMode('normal'); });
+    document.getElementById('rn3-mode-pool').addEventListener('click', function() { setMode('pool'); });
+    document.getElementById('rn3-mode-blind').addEventListener('click', function() { setMode('blind'); });
+    excludeToggleBtn.addEventListener('click', function() {
+      const open = excludePanel.classList.toggle('is-open');
+      excludeToggleBtn.textContent = open ? '− Exclude numbers' : '+ Exclude numbers';
+    });
+    excludeInput.addEventListener('input', onExcludeInput);
+    excludeInput.addEventListener('blur', onExcludeInput);
+    blindPick1.addEventListener('click', function() { doPick(0); });
+    blindPick2.addEventListener('click', function() { doPick(1); });
+    blindRevealBtn.addEventListener('click', doReveal);
+    blindAgainBtn.addEventListener('click', resetBlind);
+    document.addEventListener('keydown', function(e) {
+      if (['INPUT','SELECT','TEXTAREA','BUTTON'].includes(e.target.tagName)) return;
+      if (e.code === 'Space' || e.code === 'Enter') { e.preventDefault(); generate(); }
+    });
+    document.querySelectorAll('.faq-item summary').forEach(function(s) {
+      s.addEventListener('click', function(e) {
+        e.preventDefault();
+        const item = s.closest('.faq-item');
+        const wasOpen = item.hasAttribute('open');
+        document.querySelectorAll('.faq-item[open]').forEach(function(i) { i.removeAttribute('open'); });
+        if (!wasOpen) item.setAttribute('open', '');
+      });
+    });
+  }
+
+  return { init: init };
+})();
+
+document.addEventListener('DOMContentLoaded', WORDINEER_RN3.init);
+</script>
+</body>
+</html>
