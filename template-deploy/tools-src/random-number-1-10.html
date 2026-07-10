@@ -741,10 +741,6 @@ const WORDINEER_RN10 = (() => {
   let excludeToggleBtn, excludePanel, excludeInput, excludeChipsEl, excludeErrorEl;
   let blindEl, blindVal1, blindVal2, blindPick1, blindPick2, blindRevealBtn, blindResultEl, blindAgainBtn;
 
-  function randInt(lo, hi) {
-    return Math.floor(Math.random() * (hi - lo + 1)) + lo;
-  }
-
   function shuffle(arr) {
     for (let i = arr.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
