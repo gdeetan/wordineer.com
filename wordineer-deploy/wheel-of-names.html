@@ -366,7 +366,7 @@
 </div>
 
 <!-- Winner overlay -->
-<div class="won-winner" id="won-winner" role="dialog" aria-modal="true" aria-labelledby="won-winner-name">
+<div class="won-winner" id="won-winner" role="dialog" aria-modal="true" aria-labelledby="won-winner-name" tabindex="-1">
   <div class="won-winner-card">
     <div class="won-winner-label">&#127881; Winner</div>
     <div class="won-winner-name" id="won-winner-name"></div>
@@ -733,9 +733,13 @@ const WORDINEER_WON = (() => {
 
   function removeAndSpin() {
     const name = winnerNameEl.textContent;
-    // Remove from textarea
     const lines = getNames();
     const filtered = lines.filter(n => n !== name);
+    if (filtered.length < 2) {
+      showToast('Need at least 2 names to spin.');
+      closeWinner();
+      return;
+    }
     textarea.value = filtered.join('\n');
     parseNames();
     closeWinner();
