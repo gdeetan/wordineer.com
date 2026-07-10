@@ -93,14 +93,14 @@
   ]
 }
 </script>
-<title>Random Number Generator 1 to 100 — Free &amp; Instant | Wordineer</title>
-<meta name="description" content="Generate a random number between 1 and 100 instantly. Pool mode picks every number once — perfect for teachers. Free, no sign-up, works on any device.">
-<link rel="canonical" href="https://wordineer.com/random-number-1-100/">
+<title>Random Number Generator 1 to 20 — Free &amp; Instant | Wordineer</title>
+<meta name="description" content="Generate a random number between 1 and 20 instantly. Pool mode picks every number once — perfect for teachers and games. Free, no sign-up, works on any device.">
+<link rel="canonical" href="https://wordineer.com/random-number-1-20/">
 <meta property="og:type"        content="website">
 <meta property="og:site_name"   content="Wordineer">
-<meta property="og:title"       content="Random Number Generator 1 to 100 | Wordineer">
-<meta property="og:description" content="Pick a random number between 1 and 100. Pool mode, distribution chart, blind pick, and exclude numbers — all free.">
-<meta property="og:url"         content="https://wordineer.com/random-number-1-100/">
+<meta property="og:title"       content="Random Number Generator 1 to 20 | Wordineer">
+<meta property="og:description" content="Pick a random number between 1 and 20. Pool mode, distribution chart, blind pick, and exclude numbers — all free.">
+<meta property="og:url"         content="https://wordineer.com/random-number-1-20/">
 <meta property="og:image"       content="https://wordineer.com/og-image.png">
 <script type="application/ld+json">
 {
@@ -115,22 +115,17 @@
     {
       "@type": "Question",
       "name": "What is pool mode?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Pool mode picks each number from 1 to 100 exactly once, like drawing from a hat without replacement. Once all 100 numbers have been picked, the pool reshuffles automatically. This is ideal for teachers who want to call on every student exactly once, or for any situation where fairness requires no repeats." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Pool mode picks each number from 1 to 20 exactly once, like drawing from a hat without replacement. Once all 20 numbers have been picked, the pool reshuffles automatically. This is ideal for small classroom groups or any situation where fairness requires no repeats." }
     },
     {
       "@type": "Question",
       "name": "Can I exclude specific numbers?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Open the 'Exclude numbers' panel and enter a comma-separated list of numbers to skip (e.g. 13, 42). The generator will never produce those numbers. In pool mode, excluded numbers are removed from the pool before shuffling." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Open the 'Exclude numbers' panel and enter a comma-separated list of numbers to skip. The generator will never produce those numbers. In pool mode, excluded numbers are removed from the pool before shuffling." }
     },
     {
       "@type": "Question",
       "name": "What is blind pick mode?",
       "acceptedAnswer": { "@type": "Answer", "text": "Blind pick mode lets two players each secretly pick a number, then reveal simultaneously. The higher number wins. It is useful for tiebreakers, deciding turn order, or any situation where you need an impartial two-player decision." }
-    },
-    {
-      "@type": "Question",
-      "name": "What does the distribution chart show?",
-      "acceptedAnswer": { "@type": "Answer", "text": "After 10 or more generates, a distribution chart appears showing how many results have fallen in each decade (1–10, 11–20, and so on). It proves the generator is not biased toward any part of the range." }
     }
   ]
 }
@@ -139,9 +134,9 @@
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "Random Number Generator 1 to 100",
-  "url": "https://wordineer.com/random-number-1-100/",
-  "description": "Generate a random number between 1 and 100 instantly. Pool mode, distribution panel, exclude numbers, and blind pick included.",
+  "name": "Random Number Generator 1 to 20",
+  "url": "https://wordineer.com/random-number-1-20/",
+  "description": "Generate a random number between 1 and 20 instantly. Pool mode, distribution panel, exclude numbers, and blind pick included.",
   "applicationCategory": "UtilityApplication",
   "operatingSystem": "Web",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
@@ -155,20 +150,20 @@
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
     { "@type": "ListItem", "position": 2, "name": "Number &amp; Chance Tools", "item": "https://wordineer.com/number-chance/" },
-    { "@type": "ListItem", "position": 3, "name": "Random Number 1–100", "item": "https://wordineer.com/random-number-1-100/" }
+    { "@type": "ListItem", "position": 3, "name": "Random Number 1–20", "item": "https://wordineer.com/random-number-1-20/" }
   ]
 }
 </script>
 
 <link rel="stylesheet" href="/styles/global.css?v=13">
 <style>
-/* ── Random Number 1-100 ── */
-.rn100-wrap {
+/* ── Random Number 1-20 ── */
+.rn20-wrap {
   max-width: 600px;
   margin: 0 auto;
   padding: 24px 24px 0;
 }
-.rn100-card {
+.rn20-card {
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   background: var(--bg);
@@ -179,14 +174,8 @@
   align-items: center;
   gap: 20px;
 }
-
-/* Result number */
-.rn100-result-wrap {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.rn100-result {
+.rn20-result-wrap { display: flex; align-items: center; gap: 12px; }
+.rn20-result {
   font-size: clamp(4rem, 14vw, 6rem);
   font-weight: 800;
   color: var(--text);
@@ -197,412 +186,94 @@
   text-align: center;
   transition: opacity 0.08s;
 }
-.rn100-result.is-animating { opacity: 0.15; }
-
-.rn100-copy-btn {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  padding: 7px 13px;
-  border: 1px solid var(--border);
-  border-radius: 7px;
-  background: var(--bg);
-  color: var(--text-2);
-  font-size: 12px;
-  font-family: inherit;
-  cursor: pointer;
-  transition: background 0.12s, color 0.12s;
-  white-space: nowrap;
+.rn20-result.is-animating { opacity: 0.15; }
+.rn20-copy-btn {
+  display: flex; align-items: center; gap: 5px;
+  padding: 7px 13px; border: 1px solid var(--border); border-radius: 7px;
+  background: var(--bg); color: var(--text-2); font-size: 12px;
+  font-family: inherit; cursor: pointer; transition: background 0.12s, color 0.12s; white-space: nowrap;
 }
-.rn100-copy-btn:hover { background: var(--bg-2); color: var(--text); }
-.rn100-copy-btn svg { width: 13px; height: 13px; flex-shrink: 0; }
-
-/* Generate button */
-.rn100-gen-btn {
-  padding: 13px 40px;
-  background: var(--brand);
-  color: white;
-  border: none;
-  border-radius: 10px;
-  font-size: 1.05rem;
-  font-weight: 700;
-  font-family: inherit;
-  cursor: pointer;
-  transition: background 0.15s, transform 0.1s;
-  letter-spacing: -0.01em;
+.rn20-copy-btn:hover { background: var(--bg-2); color: var(--text); }
+.rn20-copy-btn svg { width: 13px; height: 13px; flex-shrink: 0; }
+.rn20-gen-btn {
+  padding: 13px 40px; background: var(--brand); color: white; border: none;
+  border-radius: 10px; font-size: 1.05rem; font-weight: 700; font-family: inherit;
+  cursor: pointer; transition: background 0.15s, transform 0.1s; letter-spacing: -0.01em;
 }
-.rn100-gen-btn:hover { background: var(--brand-dark); }
-.rn100-gen-btn:active { transform: scale(0.97); }
-.rn100-kbd {
-  font-size: 10px;
-  color: var(--text-3);
-  text-align: center;
-  margin-top: -10px;
+.rn20-gen-btn:hover { background: var(--brand-dark); }
+.rn20-gen-btn:active { transform: scale(0.97); }
+.rn20-kbd { font-size: 10px; color: var(--text-3); text-align: center; margin-top: -10px; }
+.rn20-kbd kbd { background: var(--bg-3); border: 1px solid var(--border); border-radius: 3px; padding: 1px 5px; font-size: 10px; font-family: inherit; }
+.rn20-pills { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; }
+.rn20-pill {
+  padding: 5px 13px; border: 1px solid var(--border); border-radius: 999px;
+  font-size: 12px; font-weight: 600; color: var(--text-2); text-decoration: none;
+  background: var(--bg); cursor: pointer; transition: background 0.12s, border-color 0.12s, color 0.12s; font-family: inherit;
 }
-.rn100-kbd kbd {
-  background: var(--bg-3);
-  border: 1px solid var(--border);
-  border-radius: 3px;
-  padding: 1px 5px;
-  font-size: 10px;
-  font-family: inherit;
-}
-
-/* Quick-range pills */
-.rn100-pills {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.rn100-pill {
-  padding: 5px 13px;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--text-2);
-  text-decoration: none;
-  background: var(--bg);
-  cursor: pointer;
-  transition: background 0.12s, border-color 0.12s, color 0.12s;
-  font-family: inherit;
-}
-.rn100-pill:hover { background: var(--bg-2); color: var(--text); border-color: var(--border-2); }
-.rn100-pill.is-active {
-  background: var(--brand);
-  border-color: var(--brand);
-  color: white;
-  cursor: default;
-}
-
-/* History */
-.rn100-history-wrap {
-  width: 100%;
-}
-.rn100-history-label {
-  font-size: 10px;
-  font-weight: 600;
-  color: var(--text-3);
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
-  margin-bottom: 7px;
-}
-.rn100-history {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-}
-.rn100-chip {
-  padding: 3px 10px;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--text-2);
-  background: var(--bg-2);
-}
-.rn100-chip.newest {
-  background: var(--brand);
-  border-color: var(--brand);
-  color: white;
-}
-
-/* Mode tabs */
-.rn100-modes {
-  display: flex;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  overflow: hidden;
-  width: 100%;
-}
-.rn100-mode-btn {
-  flex: 1;
-  padding: 8px 6px;
-  border: none;
-  background: var(--bg);
-  color: var(--text-2);
-  font-size: 12px;
-  font-weight: 600;
-  font-family: inherit;
-  cursor: pointer;
-  transition: background 0.12s, color 0.12s;
-  border-right: 1px solid var(--border);
-}
-.rn100-mode-btn:last-child { border-right: none; }
-.rn100-mode-btn.is-active { background: var(--brand); color: white; }
-.rn100-mode-btn:hover:not(.is-active) { background: var(--bg-2); color: var(--text); }
-
-/* Pool status */
-.rn100-pool-status {
-  width: 100%;
-  display: none;
-}
-.rn100-pool-status.is-visible { display: block; }
-.rn100-pool-text {
-  font-size: 12px;
-  color: var(--text-2);
-  margin-bottom: 6px;
-  display: flex;
-  justify-content: space-between;
-}
-.rn100-pool-bar-track {
-  height: 4px;
-  background: var(--border);
-  border-radius: 2px;
-  overflow: hidden;
-}
-.rn100-pool-bar-fill {
-  height: 100%;
-  background: var(--brand);
-  border-radius: 2px;
-  transition: width 0.3s;
-}
-.rn100-pool-reset {
-  background: none;
-  border: none;
-  color: var(--brand);
-  font-size: 11px;
-  cursor: pointer;
-  font-family: inherit;
-  padding: 0;
-  margin-top: 5px;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
-/* Distribution panel */
-.rn100-dist {
-  width: 100%;
-  display: none;
-}
-.rn100-dist.is-visible { display: block; }
-.rn100-dist-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 10px;
-}
-.rn100-dist-title {
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--text-3);
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
-}
-.rn100-dist-reset {
-  background: none;
-  border: none;
-  color: var(--brand);
-  font-size: 11px;
-  cursor: pointer;
-  font-family: inherit;
-  padding: 0;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-.rn100-dist-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 5px;
-}
-.rn100-dist-lbl {
-  font-size: 10px;
-  color: var(--text-3);
-  width: 46px;
-  flex-shrink: 0;
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-.rn100-dist-track {
-  flex: 1;
-  height: 12px;
-  background: var(--bg-2);
-  border-radius: 2px;
-  overflow: hidden;
-}
-.rn100-dist-bar {
-  height: 100%;
-  background: var(--brand);
-  border-radius: 2px;
-  transition: width 0.4s ease;
-  opacity: 0.75;
-}
-.rn100-dist-count {
-  font-size: 10px;
-  color: var(--text-3);
-  width: 20px;
-  flex-shrink: 0;
-  font-variant-numeric: tabular-nums;
-}
-
-/* Exclude panel */
-.rn100-exclude-toggle {
-  background: none;
-  border: none;
-  color: var(--text-3);
-  font-size: 11px;
-  cursor: pointer;
-  font-family: inherit;
-  padding: 0;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-  align-self: flex-start;
-}
-.rn100-exclude-toggle:hover { color: var(--text-2); }
-.rn100-exclude-panel {
-  width: 100%;
-  display: none;
-}
-.rn100-exclude-panel.is-open { display: block; }
-.rn100-exclude-label {
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--text-3);
-  display: block;
-  margin-bottom: 6px;
-}
-.rn100-exclude-input {
-  width: 100%;
-  padding: 8px 10px;
-  border: 1px solid var(--border);
-  border-radius: 7px;
-  font-size: 13px;
-  font-family: inherit;
-  background: var(--bg);
-  color: var(--text);
-  box-sizing: border-box;
-  outline: none;
-}
-.rn100-exclude-input:focus { border-color: var(--brand); }
-.rn100-exclude-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-  margin-top: 7px;
-}
-.rn100-exclude-chip {
-  padding: 2px 8px;
-  border-radius: 999px;
-  font-size: 11px;
-  font-weight: 600;
-}
-.rn100-exclude-chip.valid { background: var(--bg-2); border: 1px solid var(--border); color: var(--text-2); }
-.rn100-exclude-chip.invalid { background: #FEE2E2; border: 1px solid #FECACA; color: #DC2626; }
-.rn100-exclude-error {
-  font-size: 11px;
-  color: #DC2626;
-  margin-top: 4px;
-  display: none;
-}
-.rn100-exclude-error.show { display: block; }
-
-/* Blind pick mode */
-.rn100-blind {
-  width: 100%;
-  display: none;
-}
-.rn100-blind.is-visible { display: block; }
-.rn100-blind-players {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 12px;
-}
-.rn100-blind-player {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  padding: 14px;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  background: var(--bg-2);
-}
-.rn100-blind-name {
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--text-3);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-.rn100-blind-pick-btn {
-  padding: 7px 18px;
-  border: 1.5px solid var(--brand);
-  border-radius: 7px;
-  background: var(--bg);
-  color: var(--brand);
-  font-size: 13px;
-  font-weight: 600;
-  font-family: inherit;
-  cursor: pointer;
-  transition: background 0.12s, color 0.12s;
-}
-.rn100-blind-pick-btn:hover { background: var(--brand); color: white; }
-.rn100-blind-pick-btn.picked {
-  background: var(--bg-2);
-  color: var(--text-3);
-  border-color: var(--border);
-  cursor: default;
-}
-.rn100-blind-val {
-  font-size: 2rem;
-  font-weight: 800;
-  color: var(--text);
-  min-height: 2.4rem;
-  font-variant-numeric: tabular-nums;
-  line-height: 1;
-}
-.rn100-blind-val.hidden { visibility: hidden; }
-.rn100-blind-val.winner { color: var(--brand); }
-.rn100-blind-val.loser { color: var(--text-3); }
-.rn100-blind-center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-}
-.rn100-blind-reveal-btn {
-  padding: 9px 28px;
-  background: var(--brand);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 13px;
-  font-weight: 700;
-  font-family: inherit;
-  cursor: pointer;
-  transition: background 0.12s;
-  display: none;
-}
-.rn100-blind-reveal-btn.is-visible { display: block; }
-.rn100-blind-reveal-btn:hover { background: var(--brand-dark); }
-.rn100-blind-result {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--text-2);
-  text-align: center;
-  min-height: 1.4em;
-}
-.rn100-blind-again {
-  background: none;
-  border: none;
-  color: var(--brand);
-  font-size: 11px;
-  cursor: pointer;
-  font-family: inherit;
-  padding: 0;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-  display: none;
-}
-.rn100-blind-again.is-visible { display: block; }
-
+.rn20-pill:hover { background: var(--bg-2); color: var(--text); border-color: var(--border-2); }
+.rn20-pill.is-active { background: var(--brand); border-color: var(--brand); color: white; cursor: default; }
+.rn20-history-wrap { width: 100%; }
+.rn20-history-label { font-size: 10px; font-weight: 600; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 7px; }
+.rn20-history { display: flex; flex-wrap: wrap; gap: 5px; }
+.rn20-chip { padding: 3px 10px; border: 1px solid var(--border); border-radius: 999px; font-size: 12px; font-weight: 600; color: var(--text-2); background: var(--bg-2); }
+.rn20-chip.newest { background: var(--brand); border-color: var(--brand); color: white; }
+.rn20-modes { display: flex; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; width: 100%; }
+.rn20-mode-btn { flex: 1; padding: 8px 6px; border: none; background: var(--bg); color: var(--text-2); font-size: 12px; font-weight: 600; font-family: inherit; cursor: pointer; transition: background 0.12s, color 0.12s; border-right: 1px solid var(--border); }
+.rn20-mode-btn:last-child { border-right: none; }
+.rn20-mode-btn.is-active { background: var(--brand); color: white; }
+.rn20-mode-btn:hover:not(.is-active) { background: var(--bg-2); color: var(--text); }
+.rn20-pool-status { width: 100%; display: none; }
+.rn20-pool-status.is-visible { display: block; }
+.rn20-pool-text { font-size: 12px; color: var(--text-2); margin-bottom: 6px; display: flex; justify-content: space-between; }
+.rn20-pool-bar-track { height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
+.rn20-pool-bar-fill { height: 100%; background: var(--brand); border-radius: 2px; transition: width 0.3s; }
+.rn20-pool-reset { background: none; border: none; color: var(--brand); font-size: 11px; cursor: pointer; font-family: inherit; padding: 0; margin-top: 5px; text-decoration: underline; text-underline-offset: 2px; }
+.rn20-dist { width: 100%; display: none; }
+.rn20-dist.is-visible { display: block; }
+.rn20-dist-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
+.rn20-dist-title { font-size: 11px; font-weight: 700; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.07em; }
+.rn20-dist-reset { background: none; border: none; color: var(--brand); font-size: 11px; cursor: pointer; font-family: inherit; padding: 0; text-decoration: underline; text-underline-offset: 2px; }
+.rn20-dist-row { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; }
+.rn20-dist-lbl { font-size: 10px; color: var(--text-3); width: 46px; flex-shrink: 0; text-align: right; font-variant-numeric: tabular-nums; }
+.rn20-dist-track { flex: 1; height: 12px; background: var(--bg-2); border-radius: 2px; overflow: hidden; }
+.rn20-dist-bar { height: 100%; background: var(--brand); border-radius: 2px; transition: width 0.4s ease; opacity: 0.75; }
+.rn20-dist-count { font-size: 10px; color: var(--text-3); width: 20px; flex-shrink: 0; font-variant-numeric: tabular-nums; }
+.rn20-exclude-toggle { background: none; border: none; color: var(--text-3); font-size: 11px; cursor: pointer; font-family: inherit; padding: 0; text-decoration: underline; text-underline-offset: 2px; align-self: flex-start; }
+.rn20-exclude-toggle:hover { color: var(--text-2); }
+.rn20-exclude-panel { width: 100%; display: none; }
+.rn20-exclude-panel.is-open { display: block; }
+.rn20-exclude-label { font-size: 11px; font-weight: 600; color: var(--text-3); display: block; margin-bottom: 6px; }
+.rn20-exclude-input { width: 100%; padding: 8px 10px; border: 1px solid var(--border); border-radius: 7px; font-size: 13px; font-family: inherit; background: var(--bg); color: var(--text); box-sizing: border-box; outline: none; }
+.rn20-exclude-input:focus { border-color: var(--brand); }
+.rn20-exclude-chips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 7px; }
+.rn20-exclude-chip { padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 600; }
+.rn20-exclude-chip.valid { background: var(--bg-2); border: 1px solid var(--border); color: var(--text-2); }
+.rn20-exclude-chip.invalid { background: #FEE2E2; border: 1px solid #FECACA; color: #DC2626; }
+.rn20-exclude-error { font-size: 11px; color: #DC2626; margin-top: 4px; display: none; }
+.rn20-exclude-error.show { display: block; }
+.rn20-blind { width: 100%; display: none; }
+.rn20-blind.is-visible { display: block; }
+.rn20-blind-players { display: flex; gap: 12px; margin-bottom: 12px; }
+.rn20-blind-player { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 14px; border: 1px solid var(--border); border-radius: 10px; background: var(--bg-2); }
+.rn20-blind-name { font-size: 11px; font-weight: 700; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.06em; }
+.rn20-blind-pick-btn { padding: 7px 18px; border: 1.5px solid var(--brand); border-radius: 7px; background: var(--bg); color: var(--brand); font-size: 13px; font-weight: 600; font-family: inherit; cursor: pointer; transition: background 0.12s, color 0.12s; }
+.rn20-blind-pick-btn:hover { background: var(--brand); color: white; }
+.rn20-blind-pick-btn.picked { background: var(--bg-2); color: var(--text-3); border-color: var(--border); cursor: default; }
+.rn20-blind-val { font-size: 2rem; font-weight: 800; color: var(--text); min-height: 2.4rem; font-variant-numeric: tabular-nums; line-height: 1; }
+.rn20-blind-val.hidden { visibility: hidden; }
+.rn20-blind-val.winner { color: var(--brand); }
+.rn20-blind-val.loser { color: var(--text-3); }
+.rn20-blind-center { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.rn20-blind-reveal-btn { padding: 9px 28px; background: var(--brand); color: white; border: none; border-radius: 8px; font-size: 13px; font-weight: 700; font-family: inherit; cursor: pointer; transition: background 0.12s; display: none; }
+.rn20-blind-reveal-btn.is-visible { display: block; }
+.rn20-blind-reveal-btn:hover { background: var(--brand-dark); }
+.rn20-blind-result { font-size: 13px; font-weight: 600; color: var(--text-2); text-align: center; min-height: 1.4em; }
+.rn20-blind-again { background: none; border: none; color: var(--brand); font-size: 11px; cursor: pointer; font-family: inherit; padding: 0; text-decoration: underline; text-underline-offset: 2px; display: none; }
+.rn20-blind-again.is-visible { display: block; }
 @media (max-width: 600px) {
-  .rn100-wrap { padding: 14px 14px 0; }
-  .rn100-card { padding: 24px 16px 18px; gap: 16px; }
-  .rn100-blind-players { flex-direction: column; }
+  .rn20-wrap { padding: 14px 14px 0; }
+  .rn20-card { padding: 24px 16px 18px; gap: 16px; }
+  .rn20-blind-players { flex-direction: column; }
 }
 </style>
 </head>
@@ -688,7 +359,7 @@
     <span class="breadcrumb-sep">›</span>
     <a href="/number-chance/">Number &amp; Chance Tools</a>
     <span class="breadcrumb-sep">›</span>
-    <span aria-current="page">Random Number 1–100</span>
+    <span aria-current="page">Random Number 1–20</span>
   </div>
 </div>
 <div class="hero">
@@ -696,96 +367,96 @@
     <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
     Free · No sign-up · Instant
   </div>
-  <h1>Random number generator 1 to 100</h1>
-  <p>Pick a random number between 1 and 100 instantly. Use pool mode to get every number exactly once — no repeats until all 100 have been drawn. Works on any device, no install needed.</p>
+  <h1>Random number generator 1 to 20</h1>
+  <p>Pick a random number between 1 and 20 instantly. Use pool mode to get every number exactly once — no repeats until all 20 have been drawn. Works on any device, no install needed.</p>
 </div>
-<div class="rn100-wrap">
-  <div class="rn100-card">
+<div class="rn20-wrap">
+  <div class="rn20-card">
 
     <!-- Result -->
-    <div class="rn100-result-wrap">
-      <div class="rn100-result" id="rn100-result" aria-live="polite" aria-atomic="true">42</div>
-      <button class="rn100-copy-btn" id="rn100-copy-btn" type="button" aria-label="Copy number">
+    <div class="rn20-result-wrap">
+      <div class="rn20-result" id="rn20-result" aria-live="polite" aria-atomic="true">7</div>
+      <button class="rn20-copy-btn" id="rn20-copy-btn" type="button" aria-label="Copy number">
         <svg viewBox="0 0 14 14" fill="none"><rect x="1" y="4" width="9" height="9.5" rx="1.5" stroke="currentColor" stroke-width="1.1"/><path d="M4.5 4V2.5A1.5 1.5 0 016 1h5.5A1.5 1.5 0 0113 2.5v7a1.5 1.5 0 01-1.5 1.5H10" stroke="currentColor" stroke-width="1.1"/></svg>
         Copy
       </button>
     </div>
 
     <!-- Generate button -->
-    <button class="rn100-gen-btn" id="rn100-gen-btn" type="button">Generate number</button>
-    <div class="rn100-kbd">Press <kbd>Space</kbd> or <kbd>Enter</kbd> to generate</div>
+    <button class="rn20-gen-btn" id="rn20-gen-btn" type="button">Generate number</button>
+    <div class="rn20-kbd">Press <kbd>Space</kbd> or <kbd>Enter</kbd> to generate</div>
 
     <!-- Quick-range pills -->
-    <div class="rn100-pills">
-      <a href="/random-number-1-10/" class="rn100-pill">1–10</a>
-      <a href="/random-number-1-50/" class="rn100-pill">1–50</a>
-      <button class="rn100-pill is-active" type="button" disabled>1–100</button>
-      <a href="/random-number-1-1000/" class="rn100-pill">1–1000</a>
+    <div class="rn20-pills">
+      <a href="/random-number-1-10/" class="rn20-pill">1–10</a>
+      <button class="rn20-pill is-active" type="button" disabled>1–20</button>
+      <a href="/random-number-1-50/" class="rn20-pill">1–50</a>
+      <a href="/random-number-1-100/" class="rn20-pill">1–100</a>
     </div>
 
     <!-- History -->
-    <div class="rn100-history-wrap" id="rn100-history-wrap" style="display:none">
-      <div class="rn100-history-label">Recent results</div>
-      <div class="rn100-history" id="rn100-history"></div>
+    <div class="rn20-history-wrap" id="rn20-history-wrap" style="display:none">
+      <div class="rn20-history-label">Recent results</div>
+      <div class="rn20-history" id="rn20-history"></div>
     </div>
 
     <!-- Mode selector -->
-    <div class="rn100-modes">
-      <button class="rn100-mode-btn is-active" id="rn100-mode-normal" type="button">Normal</button>
-      <button class="rn100-mode-btn" id="rn100-mode-pool" type="button">Pool mode</button>
-      <button class="rn100-mode-btn" id="rn100-mode-blind" type="button">Blind pick</button>
+    <div class="rn20-modes">
+      <button class="rn20-mode-btn is-active" id="rn20-mode-normal" type="button">Normal</button>
+      <button class="rn20-mode-btn" id="rn20-mode-pool" type="button">Pool mode</button>
+      <button class="rn20-mode-btn" id="rn20-mode-blind" type="button">Blind pick</button>
     </div>
 
-    <!-- Pool status (shown in pool mode) -->
-    <div class="rn100-pool-status" id="rn100-pool-status">
-      <div class="rn100-pool-text">
-        <span id="rn100-pool-remaining">100 remaining in pool</span>
-        <span id="rn100-pool-fraction">0 / 100 drawn</span>
+    <!-- Pool status -->
+    <div class="rn20-pool-status" id="rn20-pool-status">
+      <div class="rn20-pool-text">
+        <span id="rn20-pool-remaining">20 remaining in pool</span>
+        <span id="rn20-pool-fraction">0 / 20 drawn</span>
       </div>
-      <div class="rn100-pool-bar-track">
-        <div class="rn100-pool-bar-fill" id="rn100-pool-bar" style="width:0%"></div>
+      <div class="rn20-pool-bar-track">
+        <div class="rn20-pool-bar-fill" id="rn20-pool-bar" style="width:0%"></div>
       </div>
-      <button class="rn100-pool-reset" id="rn100-pool-reset-btn" type="button">Reset pool</button>
+      <button class="rn20-pool-reset" id="rn20-pool-reset-btn" type="button">Reset pool</button>
     </div>
 
     <!-- Distribution panel -->
-    <div class="rn100-dist" id="rn100-dist">
-      <div class="rn100-dist-header">
-        <span class="rn100-dist-title">Distribution</span>
-        <button class="rn100-dist-reset" id="rn100-dist-reset" type="button">Reset stats</button>
+    <div class="rn20-dist" id="rn20-dist">
+      <div class="rn20-dist-header">
+        <span class="rn20-dist-title">Distribution</span>
+        <button class="rn20-dist-reset" id="rn20-dist-reset" type="button">Reset stats</button>
       </div>
-      <div id="rn100-dist-rows"></div>
+      <div id="rn20-dist-rows"></div>
     </div>
 
     <!-- Exclude toggle -->
-    <button class="rn100-exclude-toggle" id="rn100-exclude-toggle" type="button">+ Exclude numbers</button>
+    <button class="rn20-exclude-toggle" id="rn20-exclude-toggle" type="button">+ Exclude numbers</button>
 
     <!-- Exclude panel -->
-    <div class="rn100-exclude-panel" id="rn100-exclude-panel">
-      <label class="rn100-exclude-label" for="rn100-exclude-input">Numbers to skip (comma-separated)</label>
-      <input class="rn100-exclude-input" id="rn100-exclude-input" type="text" placeholder="e.g. 13, 42, 7" inputmode="numeric">
-      <div class="rn100-exclude-chips" id="rn100-exclude-chips"></div>
-      <div class="rn100-exclude-error" id="rn100-exclude-error"></div>
+    <div class="rn20-exclude-panel" id="rn20-exclude-panel">
+      <label class="rn20-exclude-label" for="rn20-exclude-input">Numbers to skip (comma-separated)</label>
+      <input class="rn20-exclude-input" id="rn20-exclude-input" type="text" placeholder="e.g. 7, 13" inputmode="numeric">
+      <div class="rn20-exclude-chips" id="rn20-exclude-chips"></div>
+      <div class="rn20-exclude-error" id="rn20-exclude-error"></div>
     </div>
 
     <!-- Blind pick UI -->
-    <div class="rn100-blind" id="rn100-blind">
-      <div class="rn100-blind-players">
-        <div class="rn100-blind-player">
-          <div class="rn100-blind-name">Player 1</div>
-          <div class="rn100-blind-val hidden" id="rn100-blind-val-1">—</div>
-          <button class="rn100-blind-pick-btn" id="rn100-blind-pick-1" type="button">Pick</button>
+    <div class="rn20-blind" id="rn20-blind">
+      <div class="rn20-blind-players">
+        <div class="rn20-blind-player">
+          <div class="rn20-blind-name">Player 1</div>
+          <div class="rn20-blind-val hidden" id="rn20-blind-val-1">—</div>
+          <button class="rn20-blind-pick-btn" id="rn20-blind-pick-1" type="button">Pick</button>
         </div>
-        <div class="rn100-blind-player">
-          <div class="rn100-blind-name">Player 2</div>
-          <div class="rn100-blind-val hidden" id="rn100-blind-val-2">—</div>
-          <button class="rn100-blind-pick-btn" id="rn100-blind-pick-2" type="button">Pick</button>
+        <div class="rn20-blind-player">
+          <div class="rn20-blind-name">Player 2</div>
+          <div class="rn20-blind-val hidden" id="rn20-blind-val-2">—</div>
+          <button class="rn20-blind-pick-btn" id="rn20-blind-pick-2" type="button">Pick</button>
         </div>
       </div>
-      <div class="rn100-blind-center">
-        <button class="rn100-blind-reveal-btn" id="rn100-blind-reveal" type="button">Reveal</button>
-        <div class="rn100-blind-result" id="rn100-blind-result"></div>
-        <button class="rn100-blind-again" id="rn100-blind-again" type="button">Play again</button>
+      <div class="rn20-blind-center">
+        <button class="rn20-blind-reveal-btn" id="rn20-blind-reveal" type="button">Reveal</button>
+        <div class="rn20-blind-result" id="rn20-blind-result"></div>
+        <button class="rn20-blind-again" id="rn20-blind-again" type="button">Play again</button>
       </div>
     </div>
 
@@ -807,12 +478,12 @@
     <h2 class="section-title">More number & chance tools</h2>
     <p class="section-sub">Dice, coin flips, spinners, and more — all free</p>
     <div class="tools-grid">
+      <a class="tool-item" href="/random-number-1-100/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><text x="1.5" y="9" font-size="6" font-weight="700" font-family="sans-serif" fill="#534AB7">1-100</text></svg></div><div class="tool-name">Random Number 1–100</div><div class="tool-desc">Pick a random number between 1 and 100. Pool mode draws every number once — perfect for classrooms and raffles.</div></a>
       <a class="tool-item" href="/random-number-1-10/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><text x="1.5" y="9" font-size="6" font-weight="700" font-family="sans-serif" fill="#534AB7">1-10</text></svg></div><div class="tool-name">Random Number 1–10</div><div class="tool-desc">Pick a random number between 1 and 10. Pool mode draws every number once — perfect for classroom turn order.</div></a>
       <a class="tool-item" href="/random-number-generator/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><text x="2" y="9" font-size="7" font-weight="700" font-family="sans-serif" fill="#534AB7">42</text></svg></div><div class="tool-name">Random Number Generator</div><div class="tool-desc">Generate random numbers in any range. Set min, max, and count — block duplicates for raffles or allow repeats for dice rolls.</div></a>
       <a class="tool-item" href="/dice-roller/"><div class="tool-icon" style="background:#F5F3FF"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="2" width="9" height="9" rx="1.5" stroke="#7C3AED" stroke-width="1.1"/><circle cx="4.5" cy="4.5" r=".85" fill="#7C3AED"/><circle cx="8.5" cy="4.5" r=".85" fill="#7C3AED"/><circle cx="4.5" cy="8.5" r=".85" fill="#7C3AED"/><circle cx="8.5" cy="8.5" r=".85" fill="#7C3AED"/><circle cx="6.5" cy="6.5" r=".85" fill="#7C3AED"/></svg></div><div class="tool-name">Dice Roller</div><div class="tool-desc">Roll d4, d6, d8, d10, d12, d20, or custom dice — multiple at once, with history and session stats.</div></a>
       <a class="tool-item" href="/coin-flip/"><div class="tool-icon" style="background:#FFF8DC"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5" stroke="#C8960C" stroke-width="1.1"/><text x="6.5" y="9.8" text-anchor="middle" font-size="5.5" font-weight="700" font-family="sans-serif" fill="#7A5800">H</text></svg></div><div class="tool-name">Coin Flip</div><div class="tool-desc">Flip a virtual coin — heads or tails, instantly. Multi-flip mode and running stats included.</div></a>
       <a class="tool-item" href="/flip-a-coin-10-times/"><div class="tool-icon" style="background:#FFF8DC"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5" stroke="#C8960C" stroke-width="1.1"/><text x="6.5" y="9.8" text-anchor="middle" font-size="4" font-weight="700" font-family="sans-serif" fill="#7A5800">×10</text></svg></div><div class="tool-name">Flip a Coin 10 Times</div><div class="tool-desc">Run 10 coin flips at once. Heads/tails tally, streak tracker, and copy for stats homework.</div></a>
-      <a class="tool-item" href="/flip-a-coin-100-times/"><div class="tool-icon" style="background:#FFF8DC"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5" stroke="#C8960C" stroke-width="1.1"/><text x="6.5" y="9.8" text-anchor="middle" font-size="3.5" font-weight="700" font-family="sans-serif" fill="#7A5800">×100</text></svg></div><div class="tool-name">Flip a Coin 100 Times</div><div class="tool-desc">Run 100 coin flips instantly. See the heads/tails split and streak analysis for statistics class.</div></a>
     </div>
   </div>
   <div class="divider"></div>
@@ -841,20 +512,14 @@
   <div class="divider"></div>
 
 <div class="explainer">
-  <h2>What is a random number between 1 and 100?</h2>
-  <p>A random number generator picks an integer from a defined range with no predictable pattern. In normal mode, every number from 1 to 100 has exactly a 1% chance of appearing on each generate — just like rolling a 100-sided die. In pool mode, the tool works like drawing from a hat: each number appears exactly once, then the hat is refilled. Both modes use JavaScript's <code>Math.random()</code>, which is seeded from hardware entropy and passes standard statistical randomness tests.</p>
+  <h2>What is a random number between 1 and 20?</h2>
+  <p>A random number from 1 to 20 is drawn with equal probability — each of the 20 integers has a 5% chance on every generate. The 1–20 range is one of the most versatile in everyday use: it covers a standard classroom row, a small team raffle, and the classic "I'm thinking of a number" guessing game. This tool uses JavaScript's <code>Math.random()</code>, seeded from hardware entropy, to produce unbiased results every time.</p>
 
-  <h2>Pool mode: fair picks for classrooms and raffles</h2>
-  <p>Pool mode is the feature teachers and event organizers ask for most. Activate it and the tool shuffles all 100 numbers into a private queue using the Fisher-Yates algorithm. Each click draws the next number from that queue without replacement — so you can call on 30 students in random order, give each one a unique number, and be guaranteed no one is called twice. When the pool is exhausted, it reshuffles automatically. The progress bar shows how many numbers remain.</p>
+  <h2>Pool mode for small groups</h2>
+  <p>Pool mode shuffles all 20 numbers into a private queue using the Fisher-Yates algorithm. Each click draws the next number without replacement — guaranteeing every number appears exactly once before the pool resets. It is ideal for calling on students in a class of up to 20, assigning unique numbers in a small raffle, or any situation that requires guaranteed fairness across a short range.</p>
 
-  <h2>Distribution chart: proof of fairness</h2>
-  <p>After 10 or more generates, a distribution chart appears below the tool. It groups your results into 10 buckets (1–10, 11–20, and so on) and shows a bar for each bucket proportional to how many results have landed there. Over many generates the bars should be roughly equal — and that's the point. Teachers use it to demonstrate uniform distribution to students; skeptics use it to verify the generator isn't biased.</p>
-
-  <h2>Classroom uses</h2>
-  <p>The 1–100 range covers the most common classroom number games: "I'm thinking of a number between 1 and 100," page-number assignments, percentage spinners, and calling on students by roster number. Pool mode ensures no student is skipped or called twice. The exclude feature lets you skip numbers that don't apply — for example, if your class has 28 students, exclude 29–100 and generate freely.</p>
-
-  <h2>Raffle and giveaway uses</h2>
-  <p>For raffles with up to 100 tickets, this is a one-click solution: activate pool mode, set excludes for any unsold tickets, and draw winners in sequence. Each draw is fair and independent. Copy the result to paste directly into a chat or announce on stream.</p>
+  <h2>Common uses for 1–20</h2>
+  <p>The 1–20 range covers guessing games ("pick a number between 1 and 20"), scoring in classroom quizzes, turn order in board games for up to 20 players, and assignment of numbered seats or roles. The exclude feature lets you remove numbers that don't apply — for example, if your team has 15 people, exclude 16–20 to keep picks within your group size.</p>
 </div>
   <div class="divider"></div>
 
@@ -863,12 +528,12 @@
 
   <details class="faq-item">
     <summary class="faq-q">Is this random number generator truly random?</summary>
-    <div class="faq-a">This tool uses Math.random(), a pseudorandom number generator built into every modern browser. It is seeded from hardware entropy and produces outputs that pass statistical randomness tests — more than sufficient for games, raffles, sampling, and classroom use. For cryptographic applications, a dedicated hardware-based RNG is the appropriate choice.</div>
+    <div class="faq-a">This tool uses Math.random(), a pseudorandom number generator built into every modern browser. It is seeded from hardware entropy and produces outputs that pass statistical randomness tests — more than sufficient for games, raffles, and classroom use.</div>
   </details>
 
   <details class="faq-item">
     <summary class="faq-q">What is pool mode?</summary>
-    <div class="faq-a">Pool mode picks each number from 1 to 100 exactly once, like drawing from a hat without replacement. Once all 100 numbers have been picked, the pool reshuffles. This is ideal for teachers who want to call on every student exactly once, or for any situation where fairness requires no repeats until the full range is exhausted.</div>
+    <div class="faq-a">Pool mode picks each number from 1 to 20 exactly once, like drawing from a hat without replacement. Once all 20 numbers have been picked, the pool reshuffles automatically. This ensures no repeats until every number has been drawn.</div>
   </details>
 
   <details class="faq-item">
@@ -877,18 +542,8 @@
   </details>
 
   <details class="faq-item">
-    <summary class="faq-q">What is blind pick mode?</summary>
-    <div class="faq-a">Blind pick lets two players each secretly generate a number, then reveal simultaneously. The higher number wins. It is useful for tiebreakers, deciding turn order, or any two-player decision where neither party should see the other's pick first.</div>
-  </details>
-
-  <details class="faq-item">
-    <summary class="faq-q">What does the distribution chart show?</summary>
-    <div class="faq-a">After 10 or more generates, a chart appears showing how many results have fallen in each decade (1–10, 11–20, and so on). Over many generates, the bars should be roughly equal — proving the generator is not biased toward any part of the range.</div>
-  </details>
-
-  <details class="faq-item">
-    <summary class="faq-q">How is this different from the custom range generator?</summary>
-    <div class="faq-a">The <a href="/random-number-generator/">custom range generator</a> lets you set any min/max and generate multiple numbers at once. This page is optimized for the 1–100 case specifically, with pool mode, distribution tracking, and blind pick built in for that range.</div>
+    <summary class="faq-q">How is this different from the 1–100 generator?</summary>
+    <div class="faq-a">This page is optimized for the 1–20 range specifically. The distribution chart groups results into pairs (1–2, 3–4, …), pool mode handles 20 numbers, and all pool tracking reflects the smaller range. For a wider range, see the <a href="/random-number-1-100/">1–100 generator</a> or the <a href="/random-number-generator/">custom range generator</a>.</div>
   </details>
 </div>
   <div class="divider"></div>
@@ -896,10 +551,10 @@
 <div>
   <h2 class="section-title" style="margin-bottom:14px">Who uses this tool</h2>
   <div class="uc-grid">
-    <div class="uc"><div class="uc-title">Teachers</div><div class="uc-body">Call on students in random order with pool mode — every student gets called exactly once before the pool resets. No favorites, no repeats.</div></div>
-    <div class="uc"><div class="uc-title">Raffle organizers</div><div class="uc-body">Draw winners from a pool of up to 100 tickets. Exclude unsold ticket numbers and draw in pool mode for guaranteed-unique winners.</div></div>
-    <div class="uc"><div class="uc-title">Game players</div><div class="uc-body">Settle tiebreakers, decide turn order, or run two-player blind picks for any game that needs an impartial number judge.</div></div>
-    <div class="uc"><div class="uc-title">Students &amp; researchers</div><div class="uc-body">Run uniform distribution experiments and verify results with the built-in distribution chart. Real data, no coding required.</div></div>
+    <div class="uc"><div class="uc-title">Teachers</div><div class="uc-body">Call on students in a small class with pool mode — every student gets called exactly once before the pool resets. Perfect for groups of up to 20.</div></div>
+    <div class="uc"><div class="uc-title">Game players</div><div class="uc-body">Decide turn order, run guessing games, or settle tiebreakers. The 1–20 range is a classic for number-guessing games between friends.</div></div>
+    <div class="uc"><div class="uc-title">Event organizers</div><div class="uc-body">Draw winners from a pool of up to 20 tickets. Use pool mode for guaranteed-unique winner draws with no repeats.</div></div>
+    <div class="uc"><div class="uc-title">Students</div><div class="uc-body">Use the distribution chart to verify uniform randomness over the 1–20 range. Each pair of numbers should appear roughly equally over many generates.</div></div>
   </div>
 </div>
 </div>
@@ -975,12 +630,12 @@
 </script>
 
 <script>
-const WORDINEER_RN100 = (() => {
-  const MIN = 1, MAX = 100;
-  const BUCKET_SIZE = 10;
+const WORDINEER_RN20 = (() => {
+  const MIN = 1, MAX = 20;
+  const BUCKET_SIZE = 2;
   const BUCKETS = 10;
 
-  let current = 42;
+  let current = 7;
   let history = [];
   let stats = new Array(BUCKETS).fill(0);
   let generateCount = 0;
@@ -998,10 +653,6 @@ const WORDINEER_RN100 = (() => {
   let excludeToggleBtn, excludePanel, excludeInput, excludeChipsEl, excludeErrorEl;
   let blindEl, blindVal1, blindVal2, blindPick1, blindPick2, blindRevealBtn, blindResultEl, blindAgainBtn;
 
-  function randInt(lo, hi) {
-    return Math.floor(Math.random() * (hi - lo + 1)) + lo;
-  }
-
   function shuffle(arr) {
     for (let i = arr.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -1015,20 +666,15 @@ const WORDINEER_RN100 = (() => {
     const invalid = [];
     str.split(',').forEach(function(s) {
       const n = parseInt(s.trim(), 10);
-      if (!isNaN(n) && n >= MIN && n <= MAX) {
-        valid.add(n);
-      } else if (s.trim() !== '') {
-        invalid.push(s.trim());
-      }
+      if (!isNaN(n) && n >= MIN && n <= MAX) { valid.add(n); }
+      else if (s.trim() !== '') { invalid.push(s.trim()); }
     });
     return { valid, invalid };
   }
 
   function buildPool() {
     const arr = [];
-    for (let i = MIN; i <= MAX; i++) {
-      if (!excludeSet.has(i)) arr.push(i);
-    }
+    for (let i = MIN; i <= MAX; i++) { if (!excludeSet.has(i)) arr.push(i); }
     shuffle(arr);
     pool = arr;
     poolDrawn = 0;
@@ -1037,9 +683,7 @@ const WORDINEER_RN100 = (() => {
 
   function getAvailable() {
     const arr = [];
-    for (let i = MIN; i <= MAX; i++) {
-      if (!excludeSet.has(i)) arr.push(i);
-    }
+    for (let i = MIN; i <= MAX; i++) { if (!excludeSet.has(i)) arr.push(i); }
     return arr;
   }
 
@@ -1047,20 +691,15 @@ const WORDINEER_RN100 = (() => {
     if (mode === 'blind') return;
     const available = getAvailable();
     if (available.length === 0) { showToast('All numbers excluded!'); return; }
-
     let n;
     if (mode === 'pool') {
-      if (pool.length === 0) {
-        buildPool();
-        showToast('Pool exhausted — reshuffled!');
-      }
+      if (pool.length === 0) { buildPool(); showToast('Pool exhausted — reshuffled!'); }
       n = pool.shift();
       poolDrawn++;
       updatePoolStatus();
     } else {
       n = available[Math.floor(Math.random() * available.length)];
     }
-
     current = n;
     updateResult(n);
   }
@@ -1071,11 +710,9 @@ const WORDINEER_RN100 = (() => {
       resultEl.textContent = n;
       resultEl.classList.remove('is-animating');
     }, 80);
-
     history.unshift(n);
     if (history.length > 10) history.length = 10;
     updateHistory();
-
     const bucket = Math.min(Math.floor((n - MIN) / BUCKET_SIZE), BUCKETS - 1);
     stats[bucket]++;
     generateCount++;
@@ -1088,7 +725,7 @@ const WORDINEER_RN100 = (() => {
     historyEl.innerHTML = '';
     history.forEach(function(n, i) {
       const chip = document.createElement('span');
-      chip.className = 'rn100-chip' + (i === 0 ? ' newest' : '');
+      chip.className = 'rn20-chip' + (i === 0 ? ' newest' : '');
       chip.textContent = n;
       historyEl.appendChild(chip);
     });
@@ -1114,11 +751,11 @@ const WORDINEER_RN100 = (() => {
       const hi = lo + BUCKET_SIZE - 1;
       const pct = (count / maxCount) * 100;
       const row = document.createElement('div');
-      row.className = 'rn100-dist-row';
+      row.className = 'rn20-dist-row';
       row.innerHTML =
-        '<span class="rn100-dist-lbl">' + lo + '–' + hi + '</span>' +
-        '<div class="rn100-dist-track"><div class="rn100-dist-bar" style="width:' + pct + '%"></div></div>' +
-        '<span class="rn100-dist-count">' + count + '</span>';
+        '<span class="rn20-dist-lbl">' + lo + '–' + hi + '</span>' +
+        '<div class="rn20-dist-track"><div class="rn20-dist-bar" style="width:' + pct + '%"></div></div>' +
+        '<span class="rn20-dist-count">' + count + '</span>';
       distRowsEl.appendChild(row);
     });
   }
@@ -1146,18 +783,18 @@ const WORDINEER_RN100 = (() => {
     excludeChipsEl.innerHTML = '';
     parsed.valid.forEach(function(n) {
       const chip = document.createElement('span');
-      chip.className = 'rn100-exclude-chip valid';
+      chip.className = 'rn20-exclude-chip valid';
       chip.textContent = n;
       excludeChipsEl.appendChild(chip);
     });
     parsed.invalid.forEach(function(s) {
       const chip = document.createElement('span');
-      chip.className = 'rn100-exclude-chip invalid';
+      chip.className = 'rn20-exclude-chip invalid';
       chip.textContent = s + ' (invalid)';
       excludeChipsEl.appendChild(chip);
     });
     if (parsed.invalid.length > 0) {
-      excludeErrorEl.textContent = 'Only integers 1–100 are valid.';
+      excludeErrorEl.textContent = 'Only integers 1–20 are valid.';
       excludeErrorEl.classList.add('show');
     } else {
       excludeErrorEl.textContent = '';
@@ -1169,7 +806,7 @@ const WORDINEER_RN100 = (() => {
   function setMode(m) {
     mode = m;
     ['normal', 'pool', 'blind'].forEach(function(id) {
-      document.getElementById('rn100-mode-' + id).classList.toggle('is-active', id === m);
+      document.getElementById('rn20-mode-' + id).classList.toggle('is-active', id === m);
     });
     if (m === 'pool') {
       buildPool();
@@ -1189,11 +826,11 @@ const WORDINEER_RN100 = (() => {
     blindRevealed = false;
     [blindVal1, blindVal2].forEach(function(el) {
       el.textContent = '—';
-      el.className = 'rn100-blind-val hidden';
+      el.className = 'rn20-blind-val hidden';
     });
     [blindPick1, blindPick2].forEach(function(btn) {
       btn.textContent = 'Pick';
-      btn.className = 'rn100-blind-pick-btn';
+      btn.className = 'rn20-blind-pick-btn';
     });
     blindRevealBtn.classList.remove('is-visible');
     blindResultEl.textContent = '';
@@ -1208,7 +845,7 @@ const WORDINEER_RN100 = (() => {
     blindPicks[playerIdx] = n;
     const btn = playerIdx === 0 ? blindPick1 : blindPick2;
     btn.textContent = '✓ Picked';
-    btn.className = 'rn100-blind-pick-btn picked';
+    btn.className = 'rn20-blind-pick-btn picked';
     if (blindPicks[0] !== null && blindPicks[1] !== null) {
       blindRevealBtn.classList.add('is-visible');
     }
@@ -1224,12 +861,10 @@ const WORDINEER_RN100 = (() => {
     blindVal1.classList.remove('hidden');
     blindVal2.classList.remove('hidden');
     if (a > b) {
-      blindVal1.classList.add('winner');
-      blindVal2.classList.add('loser');
+      blindVal1.classList.add('winner'); blindVal2.classList.add('loser');
       blindResultEl.textContent = 'Player 1 wins! (' + a + ' > ' + b + ')';
     } else if (b > a) {
-      blindVal1.classList.add('loser');
-      blindVal2.classList.add('winner');
+      blindVal1.classList.add('loser'); blindVal2.classList.add('winner');
       blindResultEl.textContent = 'Player 2 wins! (' + b + ' > ' + a + ')';
     } else {
       blindResultEl.textContent = "It's a tie! Both picked " + a;
@@ -1254,59 +889,54 @@ const WORDINEER_RN100 = (() => {
   }
 
   function init() {
-    resultEl        = document.getElementById('rn100-result');
-    copyBtn         = document.getElementById('rn100-copy-btn');
-    genBtn          = document.getElementById('rn100-gen-btn');
-    historyWrap     = document.getElementById('rn100-history-wrap');
-    historyEl       = document.getElementById('rn100-history');
-    poolStatusEl    = document.getElementById('rn100-pool-status');
-    poolRemainingEl = document.getElementById('rn100-pool-remaining');
-    poolFractionEl  = document.getElementById('rn100-pool-fraction');
-    poolBarEl       = document.getElementById('rn100-pool-bar');
-    poolResetBtn    = document.getElementById('rn100-pool-reset-btn');
-    distEl          = document.getElementById('rn100-dist');
-    distRowsEl      = document.getElementById('rn100-dist-rows');
-    distResetBtn    = document.getElementById('rn100-dist-reset');
-    excludeToggleBtn = document.getElementById('rn100-exclude-toggle');
-    excludePanel    = document.getElementById('rn100-exclude-panel');
-    excludeInput    = document.getElementById('rn100-exclude-input');
-    excludeChipsEl  = document.getElementById('rn100-exclude-chips');
-    excludeErrorEl  = document.getElementById('rn100-exclude-error');
-    blindEl         = document.getElementById('rn100-blind');
-    blindVal1       = document.getElementById('rn100-blind-val-1');
-    blindVal2       = document.getElementById('rn100-blind-val-2');
-    blindPick1      = document.getElementById('rn100-blind-pick-1');
-    blindPick2      = document.getElementById('rn100-blind-pick-2');
-    blindRevealBtn  = document.getElementById('rn100-blind-reveal');
-    blindResultEl   = document.getElementById('rn100-blind-result');
-    blindAgainBtn   = document.getElementById('rn100-blind-again');
+    resultEl        = document.getElementById('rn20-result');
+    copyBtn         = document.getElementById('rn20-copy-btn');
+    genBtn          = document.getElementById('rn20-gen-btn');
+    historyWrap     = document.getElementById('rn20-history-wrap');
+    historyEl       = document.getElementById('rn20-history');
+    poolStatusEl    = document.getElementById('rn20-pool-status');
+    poolRemainingEl = document.getElementById('rn20-pool-remaining');
+    poolFractionEl  = document.getElementById('rn20-pool-fraction');
+    poolBarEl       = document.getElementById('rn20-pool-bar');
+    poolResetBtn    = document.getElementById('rn20-pool-reset-btn');
+    distEl          = document.getElementById('rn20-dist');
+    distRowsEl      = document.getElementById('rn20-dist-rows');
+    distResetBtn    = document.getElementById('rn20-dist-reset');
+    excludeToggleBtn = document.getElementById('rn20-exclude-toggle');
+    excludePanel    = document.getElementById('rn20-exclude-panel');
+    excludeInput    = document.getElementById('rn20-exclude-input');
+    excludeChipsEl  = document.getElementById('rn20-exclude-chips');
+    excludeErrorEl  = document.getElementById('rn20-exclude-error');
+    blindEl         = document.getElementById('rn20-blind');
+    blindVal1       = document.getElementById('rn20-blind-val-1');
+    blindVal2       = document.getElementById('rn20-blind-val-2');
+    blindPick1      = document.getElementById('rn20-blind-pick-1');
+    blindPick2      = document.getElementById('rn20-blind-pick-2');
+    blindRevealBtn  = document.getElementById('rn20-blind-reveal');
+    blindResultEl   = document.getElementById('rn20-blind-result');
+    blindAgainBtn   = document.getElementById('rn20-blind-again');
 
     genBtn.addEventListener('click', generate);
     copyBtn.addEventListener('click', copyResult);
     poolResetBtn.addEventListener('click', function() { buildPool(); showToast('Pool reset!'); });
     distResetBtn.addEventListener('click', resetStats);
-
-    document.getElementById('rn100-mode-normal').addEventListener('click', function() { setMode('normal'); });
-    document.getElementById('rn100-mode-pool').addEventListener('click', function() { setMode('pool'); });
-    document.getElementById('rn100-mode-blind').addEventListener('click', function() { setMode('blind'); });
-
+    document.getElementById('rn20-mode-normal').addEventListener('click', function() { setMode('normal'); });
+    document.getElementById('rn20-mode-pool').addEventListener('click', function() { setMode('pool'); });
+    document.getElementById('rn20-mode-blind').addEventListener('click', function() { setMode('blind'); });
     excludeToggleBtn.addEventListener('click', function() {
       const open = excludePanel.classList.toggle('is-open');
       excludeToggleBtn.textContent = open ? '− Exclude numbers' : '+ Exclude numbers';
     });
     excludeInput.addEventListener('input', onExcludeInput);
     excludeInput.addEventListener('blur', onExcludeInput);
-
     blindPick1.addEventListener('click', function() { doPick(0); });
     blindPick2.addEventListener('click', function() { doPick(1); });
     blindRevealBtn.addEventListener('click', doReveal);
     blindAgainBtn.addEventListener('click', resetBlind);
-
     document.addEventListener('keydown', function(e) {
       if (['INPUT','SELECT','TEXTAREA','BUTTON'].includes(e.target.tagName)) return;
       if (e.code === 'Space' || e.code === 'Enter') { e.preventDefault(); generate(); }
     });
-
     document.querySelectorAll('.faq-item summary').forEach(function(s) {
       s.addEventListener('click', function(e) {
         e.preventDefault();
@@ -1321,7 +951,7 @@ const WORDINEER_RN100 = (() => {
   return { init: init };
 })();
 
-document.addEventListener('DOMContentLoaded', WORDINEER_RN100.init);
+document.addEventListener('DOMContentLoaded', WORDINEER_RN20.init);
 </script>
 </body>
 </html>
