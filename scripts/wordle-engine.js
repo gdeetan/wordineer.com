@@ -305,7 +305,7 @@ const WORDLE_HELPER = (() => {
       });
 
       if (hasUnset) {
-        showError(_cfg.solveErrorId, `Set the tile colours for "${word.toUpperCase()}" before analysing.`);
+        showError(_cfg.solveErrorId, `Set the tile colors for "${word.toUpperCase()}" before analyzing.`);
         return null;
       }
 
@@ -340,7 +340,7 @@ const WORDLE_HELPER = (() => {
         const bw = $(_cfg.bestWordId);
         const bb = $(_cfg.bestBitsId);
         if (bw) bw.textContent = '—';
-        if (bb) bb.textContent = 'No candidates match. Check your clue colours.';
+        if (bb) bb.textContent = 'No candidates match. Check your clue colors.';
         updateCandidateList([], ranked);
         return;
       }
