@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.adsbygoogle = window.adsbygoogle || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  (function(w, d) {
+    var loaded = false;
+    var cfg = {
+      analyticsId: 'G-7DWH3EGM3Z',
+      adsClient: 'ca-pub-7200956978416233',
+      delay: 10000
+    };
+
+    function loadScript(src, attrs) {
+      var s = d.createElement('script');
+      s.async = true;
+      s.src = src;
+      if (attrs) {
+        Object.keys(attrs).forEach(function(key) {
+          s.setAttribute(key, attrs[key]);
+        });
+      }
+      d.head.appendChild(s);
+    }
+
+    function loadMarketing() {
+      if (loaded) return;
+      loaded = true;
+      gtag('js', new Date());
+      gtag('config', cfg.analyticsId);
+      loadScript('https://www.googletagmanager.com/gtag/js?id=' + cfg.analyticsId);
+      loadScript(
+        'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + cfg.adsClient,
+        { crossorigin: 'anonymous' }
+      );
+    }
+
+    function idleLoad() {
+      if ('requestIdleCallback' in w) {
+        w.requestIdleCallback(loadMarketing, { timeout: 5000 });
+      } else {
+        w.setTimeout(loadMarketing, cfg.delay);
+      }
+    }
+
+    ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function(eventName) {
+      w.addEventListener(eventName, loadMarketing, { once: true, passive: true });
+    });
+    w.addEventListener('load', function() {
+      w.setTimeout(idleLoad, cfg.delay);
+    }, { once: true });
+  })(window, document);
+</script>
+<meta name='impact-site-verification' value='32715504-1cfb-4324-bfc7-ae4cfa1591ea'>
+<link rel="preload" href="/fonts/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-sans-italic-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://wordineer.com/#website",
+      "name": "Wordineer",
+      "url": "https://wordineer.com",
+      "description": "Free online word tools for writers, students, and word game players — random word generator, name generators, word scramble, sentence generator, and more.",
+      "publisher": { "@id": "https://wordineer.com/#organization" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://wordineer.com/#organization",
+      "name": "Wordineer",
+      "url": "https://wordineer.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://wordineer.com/logo.png",
+        "width": 1254,
+        "height": 1254
+      },
+      "description": "Wordineer provides free online word tools for writers, students, and word game players."
+    }
+  ]
+}
+</script>
+<title>Random Number Generator — Free, Instant, No Sign-up | Wordineer</title>
+<meta name="description" content="Generate random numbers instantly. Set your range, pick how many, allow or block duplicates, and sort results. Free, no sign-up required.">
+<link rel="canonical" href="https://wordineer.com/random-number-generator/">
+<meta property="og:type"        content="website">
+<meta property="og:site_name"   content="Wordineer">
+<meta property="og:title"       content="Random Number Generator | Wordineer">
+<meta property="og:description" content="Generate random numbers instantly — set your range, pick how many, and copy results. Free, no sign-up.">
+<meta property="og:url"         content="https://wordineer.com/random-number-generator/">
+<meta property="og:image"       content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a random number generator?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A random number generator (RNG) produces numbers with no predictable pattern. You set a minimum and maximum, choose how many numbers you want, and the tool picks from that range. You can allow duplicates for lottery-style draws or block them for things like raffle picks and game mechanics where each number should appear only once." }
+    },
+    {
+      "@type": "Question",
+      "name": "Are the numbers truly random?",
+      "acceptedAnswer": { "@type": "Answer", "text": "This tool uses Math.random(), a pseudorandom number generator built into every modern browser. It produces outputs that are statistically indistinguishable from true randomness for everyday uses like games, raffles, and classroom activities. For cryptographic purposes you would need a hardware-based true random number generator." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between allowing and blocking duplicates?",
+      "acceptedAnswer": { "@type": "Answer", "text": "With duplicates allowed, each pick is independent — the same number can appear more than once, just like rolling a die multiple times. With duplicates blocked, each number in your range can appear at most once in the result — like drawing tickets from a hat without replacement. Use duplicates-off for raffles, seat assignments, or any situation where fairness requires each option to appear exactly once." }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I use this as a lottery number picker?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Set your minimum to 1, your maximum to the highest number in the lottery (for example 59 for Powerball's main balls), set count to 5 or 6, turn duplicates off, and click Generate. For a Powerball-style game also generate a separate single number from 1–26 for the Powerball itself." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I generate a random number between 1 and 10?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes — set Min to 1, Max to 10, Count to 1, and click Generate. You can also use it for 1–6 (dice rolls), 1–100, or any custom range." }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Random Number Generator",
+  "url": "https://wordineer.com/random-number-generator/",
+  "description": "Generate random numbers instantly. Set your range, pick how many, allow or block duplicates, and sort results.",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@id": "https://wordineer.com/#organization" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Number &amp; Chance Tools", "item": "https://wordineer.com/number-chance/" },
+    { "@type": "ListItem", "position": 3, "name": "Random Number Generator", "item": "https://wordineer.com/random-number-generator/" }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="/styles/global.css?v=13">
+<style>
+/* ── Random Number Generator Styles ── */
+.tool-wrap  { max-width:960px; margin:0 auto; padding:24px 24px 0; }
+.tool-card  { border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg); box-shadow:var(--shadow); }
+.tool-split { display:flex; }
+
+.ctrl       { width:220px; flex-shrink:0; padding:18px; border-right:1px solid var(--border-2); background:var(--bg-2); }
+.ctrl-row   { margin-bottom:14px; }
+.ctrl-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; display:block; margin-bottom:5px; }
+.ctrl-row input, .ctrl-row select { width:100%; padding:7px 10px; font-size:13px; font-family:inherit; border:1px solid var(--border); border-radius:7px; background:var(--bg); color:var(--text); appearance:none; outline:none; transition:border-color .15s; }
+.ctrl-row input:focus, .ctrl-row select:focus { border-color:var(--brand); }
+.input-error { border-color:#E24B4A !important; }
+.field-error { display:none; font-size:11px; color:#E24B4A; margin-top:4px; }
+.field-error.show { display:block; }
+.def-row    { display:flex; align-items:center; gap:8px; margin-bottom:10px; }
+.def-row label { font-size:12px; color:var(--text-2); cursor:pointer; }
+.toggle     { position:relative; width:32px; height:18px; flex-shrink:0; }
+.toggle input { opacity:0; width:0; height:0; }
+.toggle-sl  { position:absolute; cursor:pointer; inset:0; background:var(--border); border-radius:9px; transition:.2s; }
+.toggle input:checked + .toggle-sl { background:var(--brand); }
+.toggle-sl::before { content:''; position:absolute; width:14px; height:14px; left:2px; top:2px; background:white; border-radius:50%; transition:.2s; }
+.toggle input:checked + .toggle-sl::before { transform:translateX(14px); }
+.gen-btn    { width:100%; padding:10px 14px; background:var(--brand); color:white; border:none; border-radius:8px; font-size:14px; font-weight:600; font-family:inherit; cursor:pointer; transition:background .15s,transform .1s; letter-spacing:-.01em; }
+.gen-btn:hover { background:var(--brand-dark); }
+.gen-btn:active { transform:scale(.98); }
+.reset-btn  { display:block; width:100%; text-align:center; font-size:11px; color:var(--text-3); margin-top:8px; cursor:pointer; text-decoration:underline; text-underline-offset:2px; border:none; background:none; font-family:inherit; }
+.kbd        { text-align:center; font-size:10px; color:var(--text-3); margin-top:6px; }
+.kbd kbd    { background:var(--bg-3); border:1px solid var(--border); border-radius:3px; padding:1px 5px; font-size:10px; font-family:inherit; }
+
+/* Mobile more options */
+.rng-mobile-toggle { display:none; width:100%; margin:-2px 0 14px; padding:9px 12px; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--brand); font-size:13px; font-weight:600; font-family:inherit; cursor:pointer; }
+.rng-advanced { display:block; }
+
+.words-panel { flex:1; display:flex; flex-direction:column; overflow:hidden; min-height:320px; }
+.words-top  { display:flex; align-items:center; justify-content:space-between; padding:12px 16px; border-bottom:1px solid var(--border-2); }
+.words-count { font-size:12px; color:var(--text-3); }
+.words-actions { display:flex; gap:6px; }
+.act-btn    { font-size:12px; padding:5px 11px; border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:background .12s; }
+.act-btn:hover { background:var(--bg-2); }
+
+/* Number result cards */
+#rng-list { flex:1; overflow-y:auto; padding:12px 16px; display:flex; flex-wrap:wrap; gap:8px; align-content:flex-start; list-style:none; margin:0; min-height:200px; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:none} }
+.rng-num-item { display:flex; flex-direction:column; align-items:center; border:1px solid var(--border); border-radius:8px; padding:12px 14px 8px; background:var(--bg); min-width:72px; flex:0 0 auto; animation:fadeIn .2s ease; }
+.rng-num-main { font-size:32px; font-weight:700; color:var(--text); line-height:1; font-variant-numeric:tabular-nums; }
+.rng-num-btns { display:flex; gap:2px; margin-top:6px; }
+.icon-btn   { width:28px; height:28px; display:flex; align-items:center; justify-content:center; background:transparent; border:none; cursor:pointer; border-radius:5px; color:var(--text-3); transition:background .12s, color .12s; }
+.icon-btn:hover { background:var(--bg-2); color:var(--text); }
+.icon-btn svg { width:14px; height:14px; }
+.icon-btn.saved { color:#E24B4A; }
+
+/* Saved section */
+.saved-section { border-top:1px solid var(--border); padding:12px 14px; background:var(--bg); }
+.saved-top { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:8px; }
+.saved-label { font-size:12px; font-weight:700; color:var(--text); }
+.saved-copy { border:1px solid var(--border); background:var(--bg); color:var(--brand); border-radius:7px; padding:5px 9px; font-size:11px; font-weight:600; cursor:pointer; }
+.saved-tags { display:flex; gap:5px; flex-wrap:wrap; min-height:22px; }
+.saved-tag { display:inline-flex; align-items:center; gap:4px; background:#F0F2FF; color:var(--brand); border-radius:999px; padding:4px 8px; font-size:11px; font-weight:600; }
+.saved-tag-remove { cursor:pointer; opacity:.65; }
+.saved-tag-remove:hover { opacity:1; }
+.saved-empty { color:var(--text-3); font-size:12px; }
+
+/* Size (count) three-way selector */
+.rng-size-opts { display:flex; gap:8px; flex-wrap:wrap; }
+.size-opt   { position:relative; display:flex; align-items:center; gap:7px; font-size:12px; color:var(--text-2); cursor:pointer; }
+.size-opt input { position:absolute; opacity:0; pointer-events:none; }
+.size-tick  { width:18px; height:18px; border:1px solid var(--border); border-radius:5px; background:var(--bg); display:inline-flex; align-items:center; justify-content:center; transition:background .15s, border-color .15s; flex-shrink:0; }
+.size-tick::after { content:'✓'; font-size:13px; font-weight:700; color:white; line-height:1; opacity:0; transform:scale(.7); transition:opacity .15s, transform .15s; }
+.size-opt input:checked + .size-tick { background:var(--brand); border-color:var(--brand); }
+.size-opt input:checked + .size-tick::after { opacity:1; transform:scale(1); }
+.size-opt:hover .size-tick { border-color:var(--brand); }
+
+@media(max-width:700px){
+  .tool-wrap { padding:14px 16px 0; }
+  .tool-card { border-radius:12px; }
+  .ctrl { padding:16px; }
+  .rng-mobile-toggle { display:block; }
+  .rng-advanced { display:none; }
+  .rng-advanced.is-open { display:block; }
+  .reset-btn, .kbd { display:none; }
+  .words-top { padding:10px 16px; }
+  #rng-list { max-height:600px; }
+  .tool-split { flex-direction:column; }
+  .ctrl { width:100%; border-right:none; border-bottom:1px solid var(--border-2); }
+  .hero { padding:12px 16px 12px; }
+  .hero-badge { margin-bottom:6px; }
+  .hero h1 { font-size:24px; }
+}
+</style>
+</head>
+
+<body>
+<nav class="nav">
+  <a class="nav-logo" href="/">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 15 15" fill="none"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </div>
+    Wordineer
+  </a>
+  <div class="nav-links">
+    <a href="/word-tools/">Tools</a>
+    <a href="/blog/">Blog</a>
+  </div>
+  <div>
+    <button class="hamburger" type="button" aria-label="All tools" aria-controls="mega" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mega" id="mega">
+  <div class="mega-inner">
+    <div class="mega-col">
+      <div class="mega-cat">Writing &amp; Vocabulary</div>
+      <a class="mega-link" href="/">Random Word Generator</a>
+      <a class="mega-link" href="/random-sentence-generator/">Random Sentence Generator</a>
+      <a class="mega-link" href="/random-paragraph-generator/">Random Paragraph Generator</a>
+      <a class="mega-link" href="/word-counter/">Word Counter</a>
+      <a class="mega-link mega-link--view-all" href="/word-tools/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Browse by Letter</div>
+      <a class="mega-link" href="/random-words-starting-with/">Random Words Starting With (A–Z)</a>
+      <a class="mega-link" href="/random-words-starting-with/a">Random Words Starting with A</a>
+      <a class="mega-link" href="/random-words-starting-with/s">Random Words Starting with S</a>
+      <a class="mega-link" href="/random-words-starting-with/q">Random Words Starting with Q</a>
+      <a class="mega-link mega-link--view-all" href="/random-words-starting-with/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Names by Origin</div>
+      <a class="mega-link" href="/random-spanish-name-generator/">Spanish Name Generator</a>
+      <a class="mega-link" href="/random-italian-name-generator/">Italian Name Generator</a>
+      <a class="mega-link" href="/random-japanese-name-generator/">Japanese Name Generator</a>
+      <a class="mega-link" href="/random-american-name-generator/">American Name Generator</a>
+      <a class="mega-link mega-link--view-all" href="/name-generators/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Other Name Generators</div>
+      <a class="mega-link" href="/character-name-generator/">Character Name Generator</a>
+      <a class="mega-link" href="/fantasy-name-generator/">Fantasy Name Generator</a>
+      <a class="mega-link" href="/business-name-generator/">Business Name Generator</a>
+      <a class="mega-link" href="/band-name-generator/">Band Name Generator</a>
+      <a class="mega-link mega-link--view-all" href="/other-generators/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Account &amp; Security</div>
+      <a class="mega-link" href="/username-generator/">Username Generator</a>
+      <a class="mega-link" href="/password-generator/">Password Generator</a>
+      <a class="mega-link" href="/passphrase-generator/">Passphrase Generator</a>
+      <a class="mega-link" href="/memorable-password-generator/">Memorable Password Generator</a>
+      <a class="mega-link mega-link--view-all" href="/account-tools/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Games &amp; fun</div>
+      <a class="mega-link active" href="/random-number-generator/">Random Number Generator</a>
+      <a class="mega-link" href="/pictionary-phrase-generator/">Pictionary Phrase Generator</a>
+      <a class="mega-link" href="/crossword-puzzle-generator/">Crossword Puzzle Generator</a>
+      <a class="mega-link" href="/wordle-helper/">Wordle Helper</a>
+      <a class="mega-link" href="/wordle-answers/">Wordle Answer Archive</a>
+      <a class="mega-link" href="/coin-flip/">Coin Flip</a>
+      <a class="mega-link" href="/dice-roller/">Dice Roller</a>
+      <a class="mega-link mega-link--view-all" href="/number-chance/">View all →</a>
+    </div>
+  </div>
+</div>
+
+
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/number-chance/">Number &amp; Chance Tools</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Random Number Generator</span>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free · No sign-up · Instant
+  </div>
+  <h1>Random number generator</h1>
+  <p>Generate random numbers in any range — set your min, max, and count. Block duplicates for raffles or allow repeats for dice-style rolls. One click, no sign-up.</p>
+</div>
+<div class="tool-wrap">
+  <div class="tool-card">
+    <div class="tool-split">
+
+      <!-- LEFT: controls -->
+      <div class="ctrl">
+        <div class="ctrl-row">
+          <label class="ctrl-label" for="rng-min">Minimum</label>
+          <input type="number" id="rng-min" value="1" inputmode="numeric">
+          <span class="field-error" id="rng-min-error">Enter a valid integer</span>
+        </div>
+        <div class="ctrl-row">
+          <label class="ctrl-label" for="rng-max">Maximum</label>
+          <input type="number" id="rng-max" value="100" inputmode="numeric">
+          <span class="field-error" id="rng-max-error">Must be greater than minimum</span>
+        </div>
+        <div class="ctrl-row">
+          <label class="ctrl-label" for="rng-count">How many numbers</label>
+          <input type="number" id="rng-count" value="6" min="1" max="200" inputmode="numeric">
+          <span class="field-error" id="rng-count-error">Enter a number from 1 to 200</span>
+        </div>
+
+        <button type="button" class="rng-mobile-toggle" id="rng-mobile-toggle" aria-expanded="false" aria-controls="rng-advanced">More options</button>
+
+        <div class="rng-advanced" id="rng-advanced">
+          <div class="def-row">
+            <label class="toggle"><input type="checkbox" id="rng-duplicates" checked><span class="toggle-sl"></span></label>
+            <label for="rng-duplicates">Allow duplicates</label>
+          </div>
+          <div class="def-row">
+            <label class="toggle"><input type="checkbox" id="rng-sort"><span class="toggle-sl"></span></label>
+            <label for="rng-sort">Sort results (ascending)</label>
+          </div>
+        </div>
+
+        <button class="gen-btn" id="rng-gen-btn">Generate numbers</button>
+        <button class="reset-btn" id="rng-reset-btn">Reset options</button>
+        <div class="kbd">Press <kbd>Space</kbd> to regenerate</div>
+
+        <div class="ad-sidebar">
+          <span class="ad-sidebar-tag">Ad</span>
+          <div class="ad-sidebar-logo">
+            <svg viewBox="0 0 32 32" fill="none" width="32" height="32"><circle cx="16" cy="16" r="14" fill="#15a249"/><path d="M10 16c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="16" r="2.5" fill="white"/></svg>
+            <span class="ad-sidebar-brand">Grammarly</span>
+          </div>
+          <div class="ad-sidebar-headline">Write with confidence</div>
+          <div class="ad-sidebar-body">Fix grammar, improve clarity, and choose the right words — everywhere you write.</div>
+          <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-sidebar-cta">Try free →</a>
+          <div class="ad-sidebar-sub">Free plan · No credit card</div>
+        </div>
+      </div>
+
+      <!-- RIGHT: number results -->
+      <div class="words-panel">
+        <div class="words-top">
+          <span class="words-count" id="rng-count-display">Generating…</span>
+          <div class="words-actions">
+            <button class="act-btn" id="rng-copy-all-btn">Copy all</button>
+            <button class="act-btn" id="rng-regen-btn">Regenerate</button>
+          </div>
+        </div>
+        <ul id="rng-list"></ul>
+      </div>
+
+    </div>
+
+    <!-- Saved numbers -->
+    <div class="saved-section">
+      <div class="saved-top">
+        <span class="saved-label">Saved numbers <span id="rng-saved-count" style="font-weight:400;opacity:.7">(0)</span></span>
+        <span class="saved-copy" id="rng-copy-saved-btn">Copy saved</span>
+      </div>
+      <div class="saved-tags" id="rng-saved-tags">
+        <span class="saved-empty">Click the heart on any number to save it here</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="content-wrap" style="margin-top:32px">
+  <div class="ad-rect">
+    <span class="ad-tag">Advertisement · 336×280</span>
+    <div class="ad-rect-img"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4C10.3 4 4 10.3 4 18s6.3 14 14 14 14-6.3 14-14S25.7 4 18 4z" fill="white" opacity=".2"/><path d="M12 18c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="18" r="2.5" fill="white"/></svg></div>
+    <div class="ad-rect-content">
+      <div class="ad-rect-title">Grammarly — write with confidence</div>
+      <div class="ad-rect-body">Grammar, tone &amp; clarity. Used by 30 million people. Works in Google Docs, Gmail, Word and more.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
+    </div>
+  </div>
+</div>
+<div class="content-wrap">
+  <div class="section">
+    <h2 class="section-title">More word tools</h2>
+    <p class="section-sub">Every word generator you need, all free</p>
+    <div class="tools-grid">
+      <a class="tool-item" href="/random-quote-generator/"><div class="tool-icon" style="background:#FBEAF0"><svg viewBox="0 0 13 13" fill="none"><path d="M3 4.5h3.5M3 8.5h4.5" stroke="#A13B63" stroke-width="1.1" stroke-linecap="round"/><path d="M8.2 3.5h1.4v2.1c0 .5.4.9.9.9H11v1.4H9.6c-1.2 0-2.1-.9-2.1-2.1z" fill="#A13B63"/><path d="M2.2 5.2h1.4V7c0 .5.4.9.9.9h.4v1.4h-.4C3.3 9.3 2.2 8.2 2.2 7z" fill="#A13B63"/></svg></div><div class="tool-name">Random Quote Generator</div><div class="tool-desc">Random quotes with filters for topic, author, tone, length, favorites, and image cards.</div></a>
+      <a class="tool-item" href="/random-wordle-generator/"><div class="tool-icon" style="background:#E8F4FE"><svg viewBox="0 0 13 13" fill="none"><rect x='2' y='2' width='3.5' height='3.5' rx='0.5' fill='#2B7FD4'/><rect x='7.5' y='2' width='3.5' height='3.5' rx='0.5' fill='#2B7FD4' opacity='.4'/><rect x='2' y='7.5' width='3.5' height='3.5' rx='0.5' fill='#2B7FD4' opacity='.4'/><rect x='7.5' y='7.5' width='3.5' height='3.5' rx='0.5' fill='#2B7FD4'/></svg></div><div class="tool-name">Random Wordle Generator</div><div class="tool-desc">Random 5-letter words for Wordle. Filter by difficulty and letter.</div></a>
+      <a class="tool-item" href="/wordle-helper/"><div class="tool-icon" style="background:#E1F5EE"><svg viewBox="0 0 13 13" fill="none"><rect x='2' y='2' width='3.5' height='3.5' rx='0.5' fill='#1D9E75'/><rect x='7.5' y='2' width='3.5' height='3.5' rx='0.5' fill='#BA7517'/><rect x='2' y='7.5' width='3.5' height='3.5' rx='0.5' fill='none' stroke='#9a9a94' stroke-width='1'/><rect x='7.5' y='7.5' width='3.5' height='3.5' rx='0.5' fill='#1D9E75'/></svg></div><div class="tool-name">Wordle Helper</div><div class="tool-desc">Entropy-ranked solver — enter your clues and get the single best next guess, not just a filtered list.</div></a>
+      <a class="tool-item" href="/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="#534AB7" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="tool-name">Random word</div><div class="tool-desc">Filter by type, difficulty, length</div></a>
+      <a class="tool-item" href="/random-noun-generator/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h9M2 7h6M2 10h8" stroke="#534AB7" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="tool-name">Random Noun Generator</div><div class="tool-desc">Generate random nouns — filter by type (abstract, concrete, proper, collective) and difficulty.</div></a>
+      <a class="tool-item" href="/random-verb-generator/"><div class="tool-icon" style="background:#EEF6FE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h9M2 7h7M2 10h5" stroke="#2B6CB0" stroke-width="1.3" stroke-linecap="round"/><path d="M10 9l2 1.5-2 1.5" stroke="#2B6CB0" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="tool-name">Random Verb Generator</div><div class="tool-desc">Generate random verbs — filter by type (action, linking, auxiliary, modal) and difficulty.</div></a>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div>
+    <h2 class="section-title">Other tools</h2>
+    <p class="section-sub">Numbers, names, games and more</p>
+    <div class="other-grid">
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3h9M2 6.5h7M2 10h5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Writing &amp; Vocabulary</div><a class="other-link" href="/">Random Word Generator</a><a class="other-link" href="/random-sentence-generator/">Random Sentence Generator</a><a class="other-link" href="/random-paragraph-generator/">Random Paragraph Generator</a><a class="other-link" href="/word-counter/">Word Counter</a><a class="other-link other-link--view-all" href="/word-tools/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h3.5M2 7h9M2 10h6" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Browse by Letter</div><a class="other-link" href="/random-words-starting-with/">Random Words Starting With (A–Z)</a><a class="other-link" href="/random-words-starting-with/a">Random Words Starting with A</a><a class="other-link" href="/random-words-starting-with/s">Random Words Starting with S</a><a class="other-link" href="/random-words-starting-with/q">Random Words Starting with Q</a><a class="other-link other-link--view-all" href="/random-words-starting-with/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4.5" r="2.5" stroke="currentColor" stroke-width="1"/><path d="M1.5 11.5c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Names by Origin</div><a class="other-link" href="/random-spanish-name-generator/">Spanish Name Generator</a><a class="other-link" href="/random-italian-name-generator/">Italian Name Generator</a><a class="other-link" href="/random-japanese-name-generator/">Japanese Name Generator</a><a class="other-link" href="/random-american-name-generator/">American Name Generator</a><a class="other-link other-link--view-all" href="/name-generators/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="1.5" width="9" height="10" rx="1" stroke="currentColor" stroke-width="1"/><path d="M4 4.5h5M4 6.5h5M4 8.5h3" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Other Name Generators</div><a class="other-link" href="/character-name-generator/">Character Name Generator</a><a class="other-link" href="/fantasy-name-generator/">Fantasy Name Generator</a><a class="other-link" href="/business-name-generator/">Business Name Generator</a><a class="other-link" href="/band-name-generator/">Band Name Generator</a><a class="other-link other-link--view-all" href="/other-generators/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="3.5" y="5.5" width="6" height="5" rx="1" stroke="currentColor" stroke-width="1"/><path d="M5 5.5V4a1.5 1.5 0 013 0v1.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Account &amp; Security</div><a class="other-link" href="/password-generator/">Password Generator</a><a class="other-link" href="/passphrase-generator/">Passphrase Generator</a><a class="other-link" href="/memorable-password-generator/">Memorable Password Generator</a><a class="other-link" href="/username-generator/">Username Generator</a><a class="other-link other-link--view-all" href="/account-tools/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="1" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="1" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/></svg>Games &amp; fun</div><a class="other-link" href="/pictionary-phrase-generator/">Pictionary Phrase Generator</a><a class="other-link" href="/wordle-helper/">Wordle Helper</a><a class="other-link" href="/coin-flip/">Coin Flip</a><a class="other-link" href="/dice-roller/">Dice Roller</a><a class="other-link other-link--view-all" href="/number-chance/">View all →</a></div>
+    </div>
+  </div>
+
+  <div class="ad-rect">
+    <span class="ad-tag">Advertisement · 336×280</span>
+    <div class="ad-rect-img"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4C10.3 4 4 10.3 4 18s6.3 14 14 14 14-6.3 14-14S25.7 4 18 4z" fill="white" opacity=".2"/><path d="M12 18c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="18" r="2.5" fill="white"/></svg></div>
+    <div class="ad-rect-content">
+      <div class="ad-rect-title">Grammarly — write with confidence</div>
+      <div class="ad-rect-body">Instantly improve grammar, spelling, clarity, and tone. Works everywhere you write online.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
+    </div>
+  </div>
+  <div class="divider"></div>
+
+<div class="explainer">
+  <h2>What is a random number generator?</h2>
+  <p>A random number generator (RNG) produces numbers with no predictable sequence. You define the minimum and maximum values, choose how many numbers you want, and the tool picks from within that range. The result is as fair as drawing numbers from a hat — each integer in the range has an equal chance of appearing on every pick (when duplicates are allowed). Toggle off duplicates and the tool switches to a drawing-without-replacement model, guaranteeing no number appears twice.</p>
+
+  <h2>Lottery and raffle use: duplicates off</h2>
+  <p>The most common use for a no-duplicate RNG is picking raffle winners or simulating lottery draws. Set your range to match the ticket pool (e.g. 1–200 for a 200-ticket raffle), set count to however many prizes you're giving away, turn duplicates off, and click Generate. Every ticket number in the output is unique — no one wins twice from the same draw. For lottery simulations like Powerball (1–69, pick 5) or Mega Millions (1–70, pick 5), the same setup applies; just adjust min, max, and count to match the game format.</p>
+
+  <h2>Dice rolls and games: duplicates on</h2>
+  <p>When you want to simulate dice or any situation where the same result can come up multiple times, keep duplicates on. A single die is range 1–6, count 1. Two dice? Count 2, same range. A d20 from D&D? Range 1–20, count 1. You can also use this to generate random scores, pick a random page number from a book, or select a random question from a numbered list. The sort toggle is useful here — turn it on to see results in numerical order rather than the raw draw order.</p>
+
+  <h2>Classroom and teaching uses</h2>
+  <p>Teachers use random number generators constantly: picking a random student (1 to class size), assigning groups, generating practice problems, or deciding the order of presentations. Set count to 1 and regenerate as needed, or generate all student numbers at once with duplicates off for a fair random order. The tool requires no account, no install, and works on any device — making it practical for classroom use without setup time.</p>
+
+  <h2>Statistical sampling and simulations</h2>
+  <p>Researchers and analysts use random number generators to create random samples from a population, assign participants to control and treatment groups, or seed Monte Carlo simulations. For sample selection, set your range to the size of your population, turn duplicates off, and generate however many samples you need. Copy all and paste directly into your spreadsheet. The sort option makes it easier to cross-reference results against a numbered list.</p>
+
+  <h2>How the randomness works</h2>
+  <p>This tool uses JavaScript's <code>Math.random()</code>, a pseudorandom number generator (PRNG) that produces outputs passing standard statistical randomness tests. It is seeded from the system clock and hardware entropy, making its output unpredictable in practice. For everyday uses — games, raffles, classroom activities, sampling — it is more than sufficient. For cryptographic key generation or security-critical applications, a dedicated hardware RNG or <code>crypto.getRandomValues()</code>-based solution is the appropriate choice.</p>
+</div>
+  <div class="divider"></div>
+
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">What is a random number generator?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">A random number generator picks integers from a range you define, with no predictable pattern. Set a minimum, a maximum, and how many you want. Toggle duplicates off for drawing-without-replacement scenarios like raffles; keep duplicates on for dice-style rolls where the same result can come up again.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Are the numbers truly random?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">This tool uses Math.random(), a pseudorandom number generator built into every modern browser. It is seeded from hardware entropy and produces outputs that pass statistical randomness tests — more than sufficient for games, raffles, sampling, and classroom use. For cryptographic applications, use a dedicated hardware-based RNG.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">How do I use this as a lottery picker?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Set Min to 1 and Max to the highest number in the lottery (e.g. 69 for Powerball's white balls). Set Count to the number of balls drawn (e.g. 5). Turn duplicates off. Click Generate. For games with a bonus ball from a separate range, run a second generation with that range and count 1.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What is the difference between allowing and blocking duplicates?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">With duplicates allowed, each pick is independent — like rolling a die repeatedly, the same number can come up multiple times. With duplicates blocked, each number can appear at most once — like drawing tickets from a hat without putting them back. Use no-duplicate mode for raffles, group assignments, or any scenario where fairness requires each option to appear only once.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I generate a random number between 1 and 10?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes — set Min to 1, Max to 10, Count to 1, and click Generate. You can use any range: 1–6 for a standard die, 1–20 for a D&D d20, 1–100 for a percentage, or any custom range you need.</div>
+  </div>
+</div>
+  <div class="divider"></div>
+
+<div>
+  <h2 class="section-title" style="margin-bottom:14px">Who uses this tool</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">Teachers &amp; facilitators</div><div class="uc-body">Pick random students, assign groups, set presentation order, and generate practice problems — all without bias or the appearance of favoritism.</div></div>
+    <div class="uc"><div class="uc-title">Raffle &amp; event organizers</div><div class="uc-body">Draw winners fairly with duplicates off. Set the range to your ticket count, pick as many winners as you need, and get a clean list instantly.</div></div>
+    <div class="uc"><div class="uc-title">Game players &amp; dungeon masters</div><div class="uc-body">Roll virtual dice for any polyhedral — d4, d6, d8, d10, d12, d20, d100. Generate multiple dice at once or simulate draws from a numbered deck.</div></div>
+    <div class="uc"><div class="uc-title">Researchers &amp; analysts</div><div class="uc-body">Create random samples, assign participants to groups, and seed simulations. Copy results directly into a spreadsheet with one click.</div></div>
+  </div>
+</div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="ad-footer-strip" style="margin-bottom:24px">
+      <span class="ad-tag">Advertisement · 468×60</span>
+      <div class="ad-fs-text"><strong>Grammarly Premium</strong> — Vocabulary suggestions, tone detector, full-sentence rewrites.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-footer-strip-cta">Try free</a>
+    </div>
+    <div class="footer-grid">
+      <div><div class="footer-col-title">Writing &amp; Vocabulary</div><a class="footer-link" href="/">Random Word Generator</a><a class="footer-link" href="/random-sentence-generator/">Random Sentence Generator</a><a class="footer-link" href="/random-paragraph-generator/">Random Paragraph Generator</a><a class="footer-link" href="/word-counter/">Word Counter</a><a class="footer-link footer-link--view-all" href="/word-tools/">View all →</a></div>
+      <div><div class="footer-col-title">Browse by Letter</div><a class="footer-link" href="/random-words-starting-with/">Random Words Starting With (A–Z)</a><a class="footer-link" href="/random-words-starting-with/a">Random Words Starting with A</a><a class="footer-link" href="/random-words-starting-with/s">Random Words Starting with S</a><a class="footer-link" href="/random-words-starting-with/q">Random Words Starting with Q</a><a class="footer-link footer-link--view-all" href="/random-words-starting-with/">View all →</a></div>
+      <div><div class="footer-col-title">Names by Origin</div><a class="footer-link" href="/random-spanish-name-generator/">Spanish Name Generator</a><a class="footer-link" href="/random-italian-name-generator/">Italian Name Generator</a><a class="footer-link" href="/random-japanese-name-generator/">Japanese Name Generator</a><a class="footer-link" href="/random-american-name-generator/">American Name Generator</a><a class="footer-link footer-link--view-all" href="/name-generators/">View all →</a></div>
+      <div><div class="footer-col-title">Other Name Generators</div><a class="footer-link" href="/character-name-generator/">Character Name Generator</a><a class="footer-link" href="/fantasy-name-generator/">Fantasy Name Generator</a><a class="footer-link" href="/business-name-generator/">Business Name Generator</a><a class="footer-link" href="/band-name-generator/">Band Name Generator</a><a class="footer-link footer-link--view-all" href="/other-generators/">View all →</a></div>
+      <div><div class="footer-col-title">Account &amp; Security</div><a class="footer-link" href="/password-generator/">Password Generator</a><a class="footer-link" href="/passphrase-generator/">Passphrase Generator</a><a class="footer-link" href="/memorable-password-generator/">Memorable Password Generator</a><a class="footer-link" href="/username-generator/">Username Generator</a><a class="footer-link footer-link--view-all" href="/account-tools/">View all →</a></div>
+      <div><div class="footer-col-title">Games &amp; fun</div><a class="footer-link" href="/pictionary-phrase-generator/">Pictionary Phrase Generator</a><a class="footer-link" href="/crossword-puzzle-generator/">Crossword Puzzle Generator</a><a class="footer-link" href="/wordle-helper/">Wordle Helper</a><a class="footer-link" href="/wordle-answers/">Wordle Answer Archive</a><a class="footer-link" href="/coin-flip/">Coin Flip</a><a class="footer-link" href="/dice-roller/">Dice Roller</a><a class="footer-link footer-link--view-all" href="/number-chance/">View all →</a></div>
+    </div>
+    <div class="footer-bottom">
+      <div style="display:flex;align-items:center;gap:7px">
+        <div class="nav-logo-icon" style="width:22px;height:22px;border-radius:5px"><svg viewBox="0 0 15 15" fill="none" style="width:12px;height:12px"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <span style="font-size:14px;font-weight:600;color:var(--text)">Wordineer</span>
+      </div>
+      <span class="footer-copy">© 2026 Wordineer · Free word tools for everyone</span>
+      <div class="footer-meta"><a href="/about/">About</a><a href="/blog/">Blog</a><a href="/affiliate-disclosure/">Affiliate disclosure</a><a href="/privacy/">Privacy</a></div>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="/scripts/tool-engine.js?v=27"></script>
+<script>
+(function bindSharedWordineerMenu() {
+  const mega = document.getElementById('mega');
+  const hbg = document.querySelector('.hamburger');
+  if (!mega || !hbg) return;
+  if (hbg.dataset.menuBound === '1') return;
+  hbg.dataset.menuBound = '1';
+  hbg.onclick = null;
+  if (hbg.getAttribute('onclick')) hbg.removeAttribute('onclick');
+
+  function setMenu(open) {
+    mega.classList.toggle('open', open);
+    hbg.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+
+  setMenu(mega.classList.contains('open'));
+
+  hbg.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+    setMenu(!mega.classList.contains('open'));
+  }, true);
+
+  hbg.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+      setMenu(!mega.classList.contains('open'));
+    }
+  }, true);
+
+  document.addEventListener('click', function(e) {
+    if (mega.classList.contains('open') && !mega.contains(e.target) && !hbg.contains(e.target)) {
+      setMenu(false);
+    }
+  }, true);
+})();
+</script>
+
+<script>
+const WORDINEER_RNG = (() => {
+  let current = [];
+  let saved   = [];
+
+  function getInt(id) {
+    return parseInt(document.getElementById(id)?.value, 10);
+  }
+
+  function showError(errId, inputId, show) {
+    document.getElementById(errId)?.classList.toggle('show', show);
+    document.getElementById(inputId)?.classList.toggle('input-error', show);
+  }
+
+  function validate() {
+    const min   = getInt('rng-min');
+    const max   = getInt('rng-max');
+    const count = getInt('rng-count');
+    let ok = true;
+
+    const minBad = isNaN(min);
+    showError('rng-min-error', 'rng-min', minBad);
+    if (minBad) ok = false;
+
+    const maxBad = isNaN(max) || (!isNaN(min) && max <= min);
+    showError('rng-max-error', 'rng-max', maxBad);
+    if (maxBad) ok = false;
+
+    const countBad = isNaN(count) || count < 1 || count > 200;
+    showError('rng-count-error', 'rng-count', countBad);
+    if (countBad) ok = false;
+
+    return ok ? { min, max, count } : null;
+  }
+
+  function generate() {
+    const v = validate();
+    if (!v) return;
+
+    const { min, max, count } = v;
+    const allowDups = document.getElementById('rng-duplicates')?.checked !== false;
+    const sort      = document.getElementById('rng-sort')?.checked === true;
+
+    const rangeSize = max - min + 1;
+    const result    = [];
+
+    if (allowDups) {
+      for (let i = 0; i < count; i++) {
+        result.push(Math.floor(Math.random() * rangeSize) + min);
+      }
+    } else {
+      // Clamp count to range size when no duplicates
+      const n = Math.min(count, rangeSize);
+      // Fisher-Yates partial shuffle
+      const pool = [];
+      for (let i = min; i <= max; i++) pool.push(i);
+      for (let i = 0; i < n; i++) {
+        const j = i + Math.floor(Math.random() * (pool.length - i));
+        [pool[i], pool[j]] = [pool[j], pool[i]];
+        result.push(pool[i]);
+      }
+    }
+
+    if (sort) result.sort((a, b) => a - b);
+
+    current = result;
+    renderList();
+  }
+
+  function renderList() {
+    const list = document.getElementById('rng-list');
+    if (!list) return;
+    list.innerHTML = '';
+
+    current.forEach((num) => {
+      const isSaved = saved.includes(num);
+
+      const li = document.createElement('li');
+      li.className = 'rng-num-item';
+
+      const mainEl = document.createElement('div');
+      mainEl.className = 'rng-num-main';
+      mainEl.textContent = num;
+
+      const btns = document.createElement('div');
+      btns.className = 'rng-num-btns';
+
+      const copyBtn = document.createElement('button');
+      copyBtn.className = 'icon-btn';
+      copyBtn.title = 'Copy';
+      copyBtn.setAttribute('aria-label', 'Copy ' + num);
+      copyBtn.innerHTML = '<svg viewBox="0 0 14 14" fill="none"><rect x="1" y="4" width="9" height="9.5" rx="1.5" stroke="currentColor" stroke-width="1.1"/><path d="M4.5 4V2.5A1.5 1.5 0 016 1h5.5A1.5 1.5 0 0113 2.5v7a1.5 1.5 0 01-1.5 1.5H10" stroke="currentColor" stroke-width="1.1"/></svg>';
+      copyBtn.addEventListener('click', () => copyItem(num, copyBtn));
+
+      const saveBtn = document.createElement('button');
+      saveBtn.className = 'icon-btn' + (isSaved ? ' saved' : '');
+      saveBtn.title = isSaved ? 'Remove from saved' : 'Save';
+      saveBtn.setAttribute('aria-label', (isSaved ? 'Unsave ' : 'Save ') + num);
+      saveBtn.innerHTML = '<svg viewBox="0 0 16 16" fill="none"><path d="M8 13.5S2 9.5 2 5.5A3 3 0 018 4a3 3 0 016 1.5c0 4-6 8-6 8z" stroke="currentColor" stroke-width="1.3" fill="' + (isSaved ? '#E24B4A' : 'none') + '" stroke-linecap="round"/></svg>';
+      saveBtn.addEventListener('click', () => toggleSave(num, saveBtn));
+
+      btns.appendChild(copyBtn);
+      btns.appendChild(saveBtn);
+      li.appendChild(mainEl);
+      li.appendChild(btns);
+      list.appendChild(li);
+    });
+
+    const countEl = document.getElementById('rng-count-display');
+    if (countEl) {
+      const n = current.length;
+      countEl.textContent = n + ' number' + (n !== 1 ? 's' : '');
+    }
+  }
+
+  function toggleSave(num, btn) {
+    const idx = saved.indexOf(num);
+    if (idx >= 0) {
+      saved.splice(idx, 1);
+      btn.classList.remove('saved');
+      btn.querySelector('path').setAttribute('fill', 'none');
+    } else {
+      saved.push(num);
+      btn.classList.add('saved');
+      btn.querySelector('path').setAttribute('fill', '#E24B4A');
+    }
+    renderSaved();
+  }
+
+  function renderSaved() {
+    const el  = document.getElementById('rng-saved-tags');
+    const cnt = document.getElementById('rng-saved-count');
+    if (!el) return;
+    if (cnt) cnt.textContent = '(' + saved.length + ')';
+    if (!saved.length) {
+      el.innerHTML = '<span class="saved-empty">Click the heart on any number to save it here</span>';
+      return;
+    }
+    el.innerHTML = saved.map(n => {
+      return '<span class="saved-tag">' + n + ' <span class="saved-tag-remove" onclick="WORDINEER_RNG.removeSaved(' + n + ')">×</span></span>';
+    }).join('');
+  }
+
+  function removeSaved(num) {
+    saved = saved.filter(n => n !== num);
+    renderSaved();
+    renderList();
+  }
+
+  function copyItem(num, btn) {
+    navigator.clipboard?.writeText(String(num));
+    const orig = btn.innerHTML;
+    btn.innerHTML = '<svg viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5 6.5-6.5" stroke="#1D9E75" stroke-width="1.3" stroke-linecap="round"/></svg>';
+    setTimeout(() => { btn.innerHTML = orig; }, 900);
+    showToast('Copied!');
+  }
+
+  function copyAll() {
+    if (!current.length) return;
+    navigator.clipboard?.writeText(current.join(', '));
+    showToast('All numbers copied!');
+  }
+
+  function copySaved() {
+    if (!saved.length) return;
+    navigator.clipboard?.writeText(saved.join(', '));
+    showToast('Saved numbers copied!');
+  }
+
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    if (!t) return;
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2000);
+  }
+
+  function reset() {
+    const minEl   = document.getElementById('rng-min');
+    const maxEl   = document.getElementById('rng-max');
+    const countEl = document.getElementById('rng-count');
+    const dupEl   = document.getElementById('rng-duplicates');
+    const sortEl  = document.getElementById('rng-sort');
+    if (minEl)   minEl.value   = '1';
+    if (maxEl)   maxEl.value   = '100';
+    if (countEl) countEl.value = '6';
+    if (dupEl)   dupEl.checked = true;
+    if (sortEl)  sortEl.checked = false;
+    ['rng-min-error','rng-max-error','rng-count-error'].forEach(id => {
+      document.getElementById(id)?.classList.remove('show');
+    });
+    ['rng-min','rng-max','rng-count'].forEach(id => {
+      document.getElementById(id)?.classList.remove('input-error');
+    });
+    generate();
+  }
+
+  function init() {
+    generate();
+
+    document.getElementById('rng-gen-btn')?.addEventListener('click', generate);
+    document.getElementById('rng-reset-btn')?.addEventListener('click', reset);
+    document.getElementById('rng-copy-all-btn')?.addEventListener('click', copyAll);
+    document.getElementById('rng-regen-btn')?.addEventListener('click', generate);
+    document.getElementById('rng-copy-saved-btn')?.addEventListener('click', copySaved);
+
+    ['rng-duplicates','rng-sort'].forEach(id => {
+      document.getElementById(id)?.addEventListener('change', generate);
+    });
+
+    ['rng-min','rng-max','rng-count'].forEach(id => {
+      document.getElementById(id)?.addEventListener('input', function() {
+        if (validate()) generate();
+      });
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.code === 'Space' && !['INPUT','SELECT','TEXTAREA','BUTTON'].includes(e.target.tagName)) {
+        e.preventDefault(); generate();
+      }
+    });
+
+    document.querySelectorAll('.faq-q').forEach(q => {
+      q.addEventListener('click', () => q.closest('.faq-item').classList.toggle('open'));
+    });
+
+    document.addEventListener('click', e => {
+      const mega = document.getElementById('mega');
+      const hbg  = document.querySelector('.hamburger');
+      if (!mega || !hbg) return;
+      if (mega.classList.contains('open') && !mega.contains(e.target) && !hbg.contains(e.target))
+        mega.classList.remove('open');
+    });
+  }
+
+  return { init, generate, copyAll, copySaved, copyItem, toggleSave, removeSaved, showToast };
+})();
+
+(function(){
+  const toggle   = document.getElementById('rng-mobile-toggle');
+  const advanced = document.getElementById('rng-advanced');
+
+  if (toggle && advanced) {
+    toggle.addEventListener('click', function() {
+      const isOpen = advanced.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      toggle.textContent = isOpen ? 'Hide more options' : 'More options';
+    });
+  }
+})();
+
+WORDINEER_RNG.init();
+
+</script>
+</body>
+</html>

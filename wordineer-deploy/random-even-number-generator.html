@@ -93,14 +93,14 @@
   ]
 }
 </script>
-<title>Random Number Generator 1 to 6 (Virtual D6) — Free | Wordineer</title>
-<meta name="description" content="Roll a virtual six-sided die — get a random number between 1 and 6 instantly. Pool mode, distribution chart, and blind pick. Free, no sign-up.">
-<link rel="canonical" href="https://wordineer.com/random-number-1-6/">
+<title>Random Even Number Generator — Free &amp; Instant | Wordineer</title>
+<meta name="description" content="Generate a random even number instantly. Set any range, use pool mode for no-repeat draws. Free, no sign-up.">
+<link rel="canonical" href="https://wordineer.com/random-even-number-generator/">
 <meta property="og:type"        content="website">
 <meta property="og:site_name"   content="Wordineer">
-<meta property="og:title"       content="Random Number Generator 1 to 6 (Virtual D6) | Wordineer">
-<meta property="og:description" content="Roll a virtual D6. Get a random number between 1 and 6 — pool mode, distribution, and blind pick included. Free.">
-<meta property="og:url"         content="https://wordineer.com/random-number-1-6/">
+<meta property="og:title"       content="Random Even Number Generator | Wordineer">
+<meta property="og:description" content="Generate a random even number from any range instantly. Pool mode, no-repeat draws, free.">
+<meta property="og:url"         content="https://wordineer.com/random-even-number-generator/">
 <meta property="og:image"       content="https://wordineer.com/og-image.png">
 <script type="application/ld+json">
 {
@@ -109,18 +109,23 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Is this the same as rolling a six-sided die?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. A standard D6 die produces integers from 1 to 6 with equal probability. This tool replicates that using Math.random() seeded from hardware entropy, giving each of the six values a 1-in-6 chance on every roll." }
+      "name": "What is a random even number?",
+      "acceptedAnswer": { "@type": "Answer", "text": "An even number is any integer divisible by 2 with no remainder — for example 2, 4, 6, 8, and so on. This tool generates one at random from any range you choose, always guaranteeing the result is divisible by 2." }
     },
     {
       "@type": "Question",
-      "name": "What is pool mode for 1–6?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Pool mode cycles through 1–6 in shuffled order, guaranteeing each value appears exactly once before repeating. This is useful for games that require each die face to appear once per cycle, or for fair turn ordering among six players." }
+      "name": "What range can I use?",
+      "acceptedAnswer": { "@type": "Answer", "text": "You can set any minimum and maximum values. The tool enforces even output automatically — if you enter an odd minimum it rounds up to the next even number, and if you enter an odd maximum it rounds down to the previous even number." }
     },
     {
       "@type": "Question",
-      "name": "How does the distribution chart work for 1–6?",
-      "acceptedAnswer": { "@type": "Answer", "text": "After 10 rolls, the distribution chart shows individual bars for each value (1, 2, 3, 4, 5, 6). Over many rolls, each bar should reach roughly the same height, confirming the equal-probability distribution of a fair die." }
+      "name": "What is pool mode for even numbers?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Pool mode picks each even number in your range exactly once, like drawing from a hat without replacement. Once every even number in the range has been drawn, the pool reshuffles automatically. This is ideal for any situation where you need no-repeat draws from a set of even numbers." }
+    },
+    {
+      "@type": "Question",
+      "name": "What are even numbers used for in math?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Even numbers appear throughout mathematics and computing: pairing and grouping problems require even counts, coordinate systems often use even grids, binary sequences encode even values when the least significant bit is 0, and in programming the test num % 2 === 0 is one of the most common operations. Even numbers are also central to topics like divisibility rules, number theory, and symmetry." }
     }
   ]
 }
@@ -129,9 +134,9 @@
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "Random Number Generator 1 to 6",
-  "url": "https://wordineer.com/random-number-1-6/",
-  "description": "Roll a virtual six-sided die. Get a random number between 1 and 6 with pool mode, distribution chart, and blind pick.",
+  "name": "Random Even Number Generator",
+  "url": "https://wordineer.com/random-even-number-generator/",
+  "description": "Generate a random even number from any range instantly. Pool mode for no-repeat draws.",
   "applicationCategory": "UtilityApplication",
   "operatingSystem": "Web",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
@@ -145,93 +150,240 @@
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
     { "@type": "ListItem", "position": 2, "name": "Number &amp; Chance Tools", "item": "https://wordineer.com/number-chance/" },
-    { "@type": "ListItem", "position": 3, "name": "Random Number 1–6", "item": "https://wordineer.com/random-number-1-6/" }
+    { "@type": "ListItem", "position": 3, "name": "Random Even Number Generator", "item": "https://wordineer.com/random-even-number-generator/" }
   ]
 }
 </script>
 
 <link rel="stylesheet" href="/styles/global.css?v=13">
 <style>
-/* ── Random Number 1-6 ── */
-.rn6-wrap { max-width: 600px; margin: 0 auto; padding: 24px 24px 0; }
-.rn6-card { border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--bg); box-shadow: var(--shadow); padding: 32px 24px 24px; display: flex; flex-direction: column; align-items: center; gap: 20px; }
-.rn6-result-wrap { display: flex; align-items: center; gap: 12px; }
-.rn6-result { font-size: clamp(4rem, 14vw, 6rem); font-weight: 800; color: var(--text); line-height: 1; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; min-width: 3ch; text-align: center; transition: opacity 0.08s; }
-.rn6-result.is-animating { opacity: 0.15; }
-.rn6-copy-btn { display: flex; align-items: center; gap: 5px; padding: 7px 13px; border: 1px solid var(--border); border-radius: 7px; background: var(--bg); color: var(--text-2); font-size: 12px; font-family: inherit; cursor: pointer; transition: background 0.12s, color 0.12s; white-space: nowrap; }
-.rn6-copy-btn:hover { background: var(--bg-2); color: var(--text); }
-.rn6-copy-btn svg { width: 13px; height: 13px; flex-shrink: 0; }
-.rn6-gen-btn { padding: 13px 40px; background: var(--brand); color: white; border: none; border-radius: 10px; font-size: 1.05rem; font-weight: 700; font-family: inherit; cursor: pointer; transition: background 0.15s, transform 0.1s; letter-spacing: -0.01em; }
-.rn6-gen-btn:hover { background: var(--brand-dark); }
-.rn6-gen-btn:active { transform: scale(0.97); }
-.rn6-kbd { font-size: 10px; color: var(--text-3); text-align: center; margin-top: -10px; }
-.rn6-kbd kbd { background: var(--bg-3); border: 1px solid var(--border); border-radius: 3px; padding: 1px 5px; font-size: 10px; font-family: inherit; }
-.rn6-pills { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; }
-.rn6-pill { padding: 5px 13px; border: 1px solid var(--border); border-radius: 999px; font-size: 12px; font-weight: 600; color: var(--text-2); text-decoration: none; background: var(--bg); cursor: pointer; transition: background 0.12s, border-color 0.12s, color 0.12s; font-family: inherit; }
-.rn6-pill:hover { background: var(--bg-2); color: var(--text); border-color: var(--border-2); }
-.rn6-pill.is-active { background: var(--brand); border-color: var(--brand); color: white; cursor: default; }
-.rn6-history-wrap { width: 100%; }
-.rn6-history-label { font-size: 10px; font-weight: 600; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 7px; }
-.rn6-history { display: flex; flex-wrap: wrap; gap: 5px; }
-.rn6-chip { padding: 3px 10px; border: 1px solid var(--border); border-radius: 999px; font-size: 12px; font-weight: 600; color: var(--text-2); background: var(--bg-2); }
-.rn6-chip.newest { background: var(--brand); border-color: var(--brand); color: white; }
-.rn6-modes { display: flex; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; width: 100%; }
-.rn6-mode-btn { flex: 1; padding: 8px 6px; border: none; background: var(--bg); color: var(--text-2); font-size: 12px; font-weight: 600; font-family: inherit; cursor: pointer; transition: background 0.12s, color 0.12s; border-right: 1px solid var(--border); }
-.rn6-mode-btn:last-child { border-right: none; }
-.rn6-mode-btn.is-active { background: var(--brand); color: white; }
-.rn6-mode-btn:hover:not(.is-active) { background: var(--bg-2); color: var(--text); }
-.rn6-pool-status { width: 100%; display: none; }
-.rn6-pool-status.is-visible { display: block; }
-.rn6-pool-text { font-size: 12px; color: var(--text-2); margin-bottom: 6px; display: flex; justify-content: space-between; }
-.rn6-pool-bar-track { height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
-.rn6-pool-bar-fill { height: 100%; background: var(--brand); border-radius: 2px; transition: width 0.3s; }
-.rn6-pool-reset { background: none; border: none; color: var(--brand); font-size: 11px; cursor: pointer; font-family: inherit; padding: 0; margin-top: 5px; text-decoration: underline; text-underline-offset: 2px; }
-.rn6-dist { width: 100%; display: none; }
-.rn6-dist.is-visible { display: block; }
-.rn6-dist-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
-.rn6-dist-title { font-size: 11px; font-weight: 700; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.07em; }
-.rn6-dist-reset { background: none; border: none; color: var(--brand); font-size: 11px; cursor: pointer; font-family: inherit; padding: 0; text-decoration: underline; text-underline-offset: 2px; }
-.rn6-dist-row { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; }
-.rn6-dist-lbl { font-size: 10px; color: var(--text-3); width: 46px; flex-shrink: 0; text-align: right; font-variant-numeric: tabular-nums; }
-.rn6-dist-track { flex: 1; height: 12px; background: var(--bg-2); border-radius: 2px; overflow: hidden; }
-.rn6-dist-bar { height: 100%; background: var(--brand); border-radius: 2px; transition: width 0.4s ease; opacity: 0.75; }
-.rn6-dist-count { font-size: 10px; color: var(--text-3); width: 20px; flex-shrink: 0; font-variant-numeric: tabular-nums; }
-.rn6-exclude-toggle { background: none; border: none; color: var(--text-3); font-size: 11px; cursor: pointer; font-family: inherit; padding: 0; text-decoration: underline; text-underline-offset: 2px; align-self: flex-start; }
-.rn6-exclude-toggle:hover { color: var(--text-2); }
-.rn6-exclude-panel { width: 100%; display: none; }
-.rn6-exclude-panel.is-open { display: block; }
-.rn6-exclude-label { font-size: 11px; font-weight: 600; color: var(--text-3); display: block; margin-bottom: 6px; }
-.rn6-exclude-input { width: 100%; padding: 8px 10px; border: 1px solid var(--border); border-radius: 7px; font-size: 13px; font-family: inherit; background: var(--bg); color: var(--text); box-sizing: border-box; outline: none; }
-.rn6-exclude-input:focus { border-color: var(--brand); }
-.rn6-exclude-chips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 7px; }
-.rn6-exclude-chip { padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 600; }
-.rn6-exclude-chip.valid { background: var(--bg-2); border: 1px solid var(--border); color: var(--text-2); }
-.rn6-exclude-chip.invalid { background: #FEE2E2; border: 1px solid #FECACA; color: #DC2626; }
-.rn6-exclude-error { font-size: 11px; color: #DC2626; margin-top: 4px; display: none; }
-.rn6-exclude-error.show { display: block; }
-.rn6-blind { width: 100%; display: none; }
-.rn6-blind.is-visible { display: block; }
-.rn6-blind-players { display: flex; gap: 12px; margin-bottom: 12px; }
-.rn6-blind-player { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 14px; border: 1px solid var(--border); border-radius: 10px; background: var(--bg-2); }
-.rn6-blind-name { font-size: 11px; font-weight: 700; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.06em; }
-.rn6-blind-pick-btn { padding: 7px 18px; border: 1.5px solid var(--brand); border-radius: 7px; background: var(--bg); color: var(--brand); font-size: 13px; font-weight: 600; font-family: inherit; cursor: pointer; transition: background 0.12s, color 0.12s; }
-.rn6-blind-pick-btn:hover { background: var(--brand); color: white; }
-.rn6-blind-pick-btn.picked { background: var(--bg-2); color: var(--text-3); border-color: var(--border); cursor: default; }
-.rn6-blind-val { font-size: 2rem; font-weight: 800; color: var(--text); min-height: 2.4rem; font-variant-numeric: tabular-nums; line-height: 1; }
-.rn6-blind-val.hidden { visibility: hidden; }
-.rn6-blind-val.winner { color: var(--brand); }
-.rn6-blind-val.loser { color: var(--text-3); }
-.rn6-blind-center { display: flex; flex-direction: column; align-items: center; gap: 8px; }
-.rn6-blind-reveal-btn { padding: 9px 28px; background: var(--brand); color: white; border: none; border-radius: 8px; font-size: 13px; font-weight: 700; font-family: inherit; cursor: pointer; transition: background 0.12s; display: none; }
-.rn6-blind-reveal-btn.is-visible { display: block; }
-.rn6-blind-reveal-btn:hover { background: var(--brand-dark); }
-.rn6-blind-result { font-size: 13px; font-weight: 600; color: var(--text-2); text-align: center; min-height: 1.4em; }
-.rn6-blind-again { background: none; border: none; color: var(--brand); font-size: 11px; cursor: pointer; font-family: inherit; padding: 0; text-decoration: underline; text-underline-offset: 2px; display: none; }
-.rn6-blind-again.is-visible { display: block; }
+/* ── Random Even Number Generator ── */
+.ren-wrap {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 24px 24px 0;
+}
+.ren-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--bg);
+  box-shadow: var(--shadow);
+  padding: 32px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Result number */
+.ren-result-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.ren-result {
+  font-size: clamp(4rem, 14vw, 6rem);
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  min-width: 3ch;
+  text-align: center;
+  transition: opacity 0.08s;
+}
+.ren-result.is-animating { opacity: 0.15; }
+
+.ren-copy-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 13px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: var(--bg);
+  color: var(--text-2);
+  font-size: 12px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s;
+  white-space: nowrap;
+}
+.ren-copy-btn:hover { background: var(--bg-2); color: var(--text); }
+.ren-copy-btn svg { width: 13px; height: 13px; flex-shrink: 0; }
+
+/* Range inputs */
+.ren-range-row {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  justify-content: center;
+}
+.ren-range-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+  max-width: 140px;
+}
+.ren-range-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.ren-range-input {
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  font-size: 14px;
+  font-family: inherit;
+  background: var(--bg);
+  color: var(--text);
+  box-sizing: border-box;
+  outline: none;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+.ren-range-input:focus { border-color: var(--brand); }
+.ren-range-note {
+  font-size: 11px;
+  color: var(--text-3);
+  text-align: center;
+  margin-top: -8px;
+}
+
+/* Generate button */
+.ren-gen-btn {
+  padding: 13px 40px;
+  background: var(--brand);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+  letter-spacing: -0.01em;
+}
+.ren-gen-btn:hover { background: var(--brand-dark); }
+.ren-gen-btn:active { transform: scale(0.97); }
+.ren-kbd {
+  font-size: 10px;
+  color: var(--text-3);
+  text-align: center;
+  margin-top: -10px;
+}
+.ren-kbd kbd {
+  background: var(--bg-3);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 1px 5px;
+  font-size: 10px;
+  font-family: inherit;
+}
+
+/* History */
+.ren-history-wrap {
+  width: 100%;
+}
+.ren-history-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-bottom: 7px;
+}
+.ren-history {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.ren-chip {
+  padding: 3px 10px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-2);
+  background: var(--bg-2);
+}
+.ren-chip.newest {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: white;
+}
+
+/* Mode tabs */
+.ren-modes {
+  display: flex;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  width: 100%;
+}
+.ren-mode-btn {
+  flex: 1;
+  padding: 8px 6px;
+  border: none;
+  background: var(--bg);
+  color: var(--text-2);
+  font-size: 12px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s;
+  border-right: 1px solid var(--border);
+}
+.ren-mode-btn:last-child { border-right: none; }
+.ren-mode-btn.is-active { background: var(--brand); color: white; }
+.ren-mode-btn:hover:not(.is-active) { background: var(--bg-2); color: var(--text); }
+
+/* Pool status */
+.ren-pool-status {
+  width: 100%;
+  display: none;
+}
+.ren-pool-status.is-visible { display: block; }
+.ren-pool-text {
+  font-size: 12px;
+  color: var(--text-2);
+  margin-bottom: 6px;
+  display: flex;
+  justify-content: space-between;
+}
+.ren-pool-bar-track {
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.ren-pool-bar-fill {
+  height: 100%;
+  background: var(--brand);
+  border-radius: 2px;
+  transition: width 0.3s;
+}
+.ren-pool-reset {
+  background: none;
+  border: none;
+  color: var(--brand);
+  font-size: 11px;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 0;
+  margin-top: 5px;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 @media (max-width: 600px) {
-  .rn6-wrap { padding: 14px 14px 0; }
-  .rn6-card { padding: 24px 16px 18px; gap: 16px; }
-  .rn6-blind-players { flex-direction: column; }
+  .ren-wrap { padding: 14px 14px 0; }
+  .ren-card { padding: 24px 16px 18px; gap: 16px; }
+  .ren-range-row { gap: 10px; }
 }
 </style>
 </head>
@@ -317,7 +469,7 @@
     <span class="breadcrumb-sep">›</span>
     <a href="/number-chance/">Number &amp; Chance Tools</a>
     <span class="breadcrumb-sep">›</span>
-    <span aria-current="page">Random Number 1–6</span>
+    <span aria-current="page">Random Even Number Generator</span>
   </div>
 </div>
 <div class="hero">
@@ -325,78 +477,62 @@
     <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
     Free · No sign-up · Instant
   </div>
-  <h1>Random number generator 1 to 6 (virtual D6)</h1>
-  <p>Roll a virtual six-sided die — get a random number between 1 and 6 instantly. Each value has exactly a 1-in-6 chance, just like a physical die. No dice? No problem.</p>
+  <h1>Random even number generator</h1>
+  <p>Generate a random even number from any range instantly. Pool mode cycles through every even number in your range without repeats. Works on any device.</p>
 </div>
-<div class="rn6-wrap">
-  <div class="rn6-card">
-    <div class="rn6-result-wrap">
-      <div class="rn6-result" id="rn6-result" aria-live="polite" aria-atomic="true">4</div>
-      <button class="rn6-copy-btn" id="rn6-copy-btn" type="button" aria-label="Copy number">
+<div class="ren-wrap">
+  <div class="ren-card">
+
+    <!-- Result -->
+    <div class="ren-result-wrap">
+      <div class="ren-result" id="ren-result" aria-live="polite" aria-atomic="true">42</div>
+      <button class="ren-copy-btn" id="ren-copy-btn" type="button" aria-label="Copy number">
         <svg viewBox="0 0 14 14" fill="none"><rect x="1" y="4" width="9" height="9.5" rx="1.5" stroke="currentColor" stroke-width="1.1"/><path d="M4.5 4V2.5A1.5 1.5 0 016 1h5.5A1.5 1.5 0 0113 2.5v7a1.5 1.5 0 01-1.5 1.5H10" stroke="currentColor" stroke-width="1.1"/></svg>
         Copy
       </button>
     </div>
-    <button class="rn6-gen-btn" id="rn6-gen-btn" type="button">Roll</button>
-    <div class="rn6-kbd">Press <kbd>Space</kbd> or <kbd>Enter</kbd> to roll</div>
-    <div class="rn6-pills">
-      <a href="/random-number-1-4/" class="rn6-pill">1–4</a>
-      <button class="rn6-pill is-active" type="button" disabled>1–6</button>
-      <a href="/random-number-1-10/" class="rn6-pill">1–10</a>
-      <a href="/random-number-1-20/" class="rn6-pill">1–20</a>
-    </div>
-    <div class="rn6-history-wrap" id="rn6-history-wrap" style="display:none">
-      <div class="rn6-history-label">Recent rolls</div>
-      <div class="rn6-history" id="rn6-history"></div>
-    </div>
-    <div class="rn6-modes">
-      <button class="rn6-mode-btn is-active" id="rn6-mode-normal" type="button">Normal</button>
-      <button class="rn6-mode-btn" id="rn6-mode-pool" type="button">Pool mode</button>
-      <button class="rn6-mode-btn" id="rn6-mode-blind" type="button">Blind pick</button>
-    </div>
-    <div class="rn6-pool-status" id="rn6-pool-status">
-      <div class="rn6-pool-text">
-        <span id="rn6-pool-remaining">6 remaining in pool</span>
-        <span id="rn6-pool-fraction">0 / 6 drawn</span>
+
+    <!-- Range inputs -->
+    <div class="ren-range-row">
+      <div class="ren-range-field">
+        <label class="ren-range-label" for="ren-min">Min</label>
+        <input class="ren-range-input" id="ren-min" type="number" value="2" inputmode="numeric" aria-label="Minimum value">
       </div>
-      <div class="rn6-pool-bar-track">
-        <div class="rn6-pool-bar-fill" id="rn6-pool-bar" style="width:0%"></div>
-      </div>
-      <button class="rn6-pool-reset" id="rn6-pool-reset-btn" type="button">Reset pool</button>
-    </div>
-    <div class="rn6-dist" id="rn6-dist">
-      <div class="rn6-dist-header">
-        <span class="rn6-dist-title">Distribution</span>
-        <button class="rn6-dist-reset" id="rn6-dist-reset" type="button">Reset stats</button>
-      </div>
-      <div id="rn6-dist-rows"></div>
-    </div>
-    <button class="rn6-exclude-toggle" id="rn6-exclude-toggle" type="button">+ Exclude numbers</button>
-    <div class="rn6-exclude-panel" id="rn6-exclude-panel">
-      <label class="rn6-exclude-label" for="rn6-exclude-input">Numbers to skip (comma-separated)</label>
-      <input class="rn6-exclude-input" id="rn6-exclude-input" type="text" placeholder="e.g. 1, 6" inputmode="numeric">
-      <div class="rn6-exclude-chips" id="rn6-exclude-chips"></div>
-      <div class="rn6-exclude-error" id="rn6-exclude-error"></div>
-    </div>
-    <div class="rn6-blind" id="rn6-blind">
-      <div class="rn6-blind-players">
-        <div class="rn6-blind-player">
-          <div class="rn6-blind-name">Player 1</div>
-          <div class="rn6-blind-val hidden" id="rn6-blind-val-1">—</div>
-          <button class="rn6-blind-pick-btn" id="rn6-blind-pick-1" type="button">Roll</button>
-        </div>
-        <div class="rn6-blind-player">
-          <div class="rn6-blind-name">Player 2</div>
-          <div class="rn6-blind-val hidden" id="rn6-blind-val-2">—</div>
-          <button class="rn6-blind-pick-btn" id="rn6-blind-pick-2" type="button">Roll</button>
-        </div>
-      </div>
-      <div class="rn6-blind-center">
-        <button class="rn6-blind-reveal-btn" id="rn6-blind-reveal" type="button">Reveal</button>
-        <div class="rn6-blind-result" id="rn6-blind-result"></div>
-        <button class="rn6-blind-again" id="rn6-blind-again" type="button">Roll again</button>
+      <div class="ren-range-field">
+        <label class="ren-range-label" for="ren-max">Max</label>
+        <input class="ren-range-input" id="ren-max" type="number" value="100" inputmode="numeric" aria-label="Maximum value">
       </div>
     </div>
+    <div class="ren-range-note">Output: even numbers only</div>
+
+    <!-- Generate button -->
+    <button class="ren-gen-btn" id="ren-gen-btn" type="button">Generate even number</button>
+    <div class="ren-kbd">Press <kbd>Space</kbd> or <kbd>Enter</kbd> to generate</div>
+
+    <!-- History -->
+    <div class="ren-history-wrap" id="ren-history-wrap" style="display:none">
+      <div class="ren-history-label">Recent results</div>
+      <div class="ren-history" id="ren-history"></div>
+    </div>
+
+    <!-- Mode selector -->
+    <div class="ren-modes">
+      <button class="ren-mode-btn is-active" id="ren-mode-normal" type="button">Normal</button>
+      <button class="ren-mode-btn" id="ren-mode-pool" type="button">Pool mode</button>
+    </div>
+
+    <!-- Pool status (shown in pool mode) -->
+    <div class="ren-pool-status" id="ren-pool-status">
+      <div class="ren-pool-text">
+        <span id="ren-pool-remaining">50 evens remaining</span>
+        <span id="ren-pool-fraction">0 / 50 drawn</span>
+      </div>
+      <div class="ren-pool-bar-track">
+        <div class="ren-pool-bar-fill" id="ren-pool-bar" style="width:0%"></div>
+      </div>
+      <button class="ren-pool-reset" id="ren-pool-reset-btn" type="button">Reset pool</button>
+    </div>
+
   </div>
 </div>
 <div class="content-wrap" style="margin-top:32px">
@@ -449,14 +585,17 @@
   <div class="divider"></div>
 
 <div class="explainer">
-  <h2>Virtual six-sided die (D6)</h2>
-  <p>A standard D6 is the most common die in the world — used in board games, tabletop RPGs, gambling, and classroom probability lessons. This tool replicates it digitally: each of the six values (1–6) has exactly a 1-in-6 (≈16.7%) chance on every roll. The underlying generator uses JavaScript's <code>Math.random()</code>, seeded from hardware entropy in your browser. If you need a visual dice roller with animated faces, see the <a href="/dice-roller/">dice roller</a>.</p>
+  <h2>What is a random even number?</h2>
+  <p>An even number is any integer divisible by 2 with no remainder. The sequence starts at 0, 2, 4, 6, 8 and continues indefinitely in both directions. This tool picks one at random from whatever range you set, always guaranteeing the result passes the test <code>num % 2 === 0</code>. If you enter an odd boundary, the tool adjusts it automatically — odd minimums round up, odd maximums round down — so you always get a valid even output.</p>
 
-  <h2>Pool mode: cycle through all six faces</h2>
-  <p>Pool mode shuffles the six values and deals them out in order — guaranteeing each face appears exactly once before repeating. This is useful for fair turn assignment among six players, board game scenarios requiring each face once per round, or teaching probability by showing that six rolls must cover each value.</p>
+  <h2>Uses in the classroom</h2>
+  <p>Teachers use random even number generators when the lesson specifically covers even and odd distinctions. Having students identify that every result is divisible by 2 reinforces the rule concretely. The generator is also useful for pairing exercises — if a class has 30 students, generating even numbers from 2 to 30 ensures every student gets a unique even partner number.</p>
 
-  <h2>Distribution: proof of fairness</h2>
-  <p>After 10 rolls, the distribution chart shows individual bars for each value from 1 to 6. Over many rolls, all six bars should approach equal height. This mirrors a classroom demonstration of uniform discrete distribution — the same probability model that makes a fair die fair.</p>
+  <h2>Uses in programming and math</h2>
+  <p>Developers frequently need random even numbers when testing modular arithmetic logic, generating test data for functions that expect even inputs, building coordinate grids on even increments, or seeding simulations that require pairs. Even numbers are also central to binary representation: any number whose least significant bit is 0 is even, making them foundational in bitwise operations and low-level programming.</p>
+
+  <h2>Pool mode for even-number sequences</h2>
+  <p>Pool mode is the no-repeat mode. Activate it and the tool builds a shuffled list of every even number in your range using the Fisher-Yates algorithm. Each generate draws the next number from that list without replacement. When the pool is exhausted, it reshuffles. The progress bar shows how many even numbers remain. This is ideal for games, classroom activities, or any sequence where you need every even value represented exactly once.</p>
 </div>
   <div class="divider"></div>
 
@@ -464,23 +603,23 @@
   <h2 class="faq-title">Frequently asked questions</h2>
 
   <details class="faq-item">
-    <summary class="faq-q">Is this the same as rolling a real six-sided die?</summary>
-    <div class="faq-a">Statistically yes — each value from 1 to 6 has equal probability on every roll, just like a fair physical D6. The generator uses Math.random() seeded from hardware entropy, which passes standard fairness tests.</div>
+    <summary class="faq-q">What is a random even number?</summary>
+    <div class="faq-a">An even number is any integer divisible by 2 with no remainder — for example 2, 4, 6, 8. This tool generates one at random from any range you choose, always guaranteeing the result is divisible by 2.</div>
   </details>
 
   <details class="faq-item">
-    <summary class="faq-q">Can I use this for board games that need a D6?</summary>
-    <div class="faq-a">Absolutely. This is a direct digital equivalent of a six-sided die. For animated dice faces, try the <a href="/dice-roller/">dice roller</a>. For rolling multiple dice at once, the dice roller also supports that.</div>
+    <summary class="faq-q">What range can I use?</summary>
+    <div class="faq-a">Any range. Enter your preferred minimum and maximum in the input fields. The tool enforces even output automatically — if you enter an odd minimum it rounds up to the next even number, and if you enter an odd maximum it rounds down to the previous even number.</div>
   </details>
 
   <details class="faq-item">
-    <summary class="faq-q">What does pool mode do with only 6 values?</summary>
-    <div class="faq-a">Pool mode cycles through all six values in shuffled order. This guarantees each appears exactly once before repeating — useful for games that require one of each face value per round, or for assigning turns to six players fairly.</div>
+    <summary class="faq-q">What is pool mode for even numbers?</summary>
+    <div class="faq-a">Pool mode picks each even number in your range exactly once, like drawing from a hat without replacement. Once every even number in the range has been drawn, the pool reshuffles automatically. This is ideal for any situation where you need no-repeat draws from a set of even numbers.</div>
   </details>
 
   <details class="faq-item">
-    <summary class="faq-q">What if I need a D8 or D20?</summary>
-    <div class="faq-a">Use the <a href="/random-number-1-8/">1–8 generator</a> for a D8, or the <a href="/random-number-1-20/">1–20 generator</a> for a D20. For other dice types, the <a href="/dice-roller/">dice roller</a> supports D4, D6, D8, D10, D12, D20, and D100.</div>
+    <summary class="faq-q">What are even numbers used for in math?</summary>
+    <div class="faq-a">Even numbers appear throughout mathematics and computing: pairing and grouping problems require even counts, coordinate systems often use even grids, binary sequences encode even values when the least significant bit is 0, and in programming the test <code>num % 2 === 0</code> is one of the most common operations. Even numbers are also central to topics like divisibility rules, number theory, and symmetry.</div>
   </details>
 </div>
   <div class="divider"></div>
@@ -488,10 +627,10 @@
 <div>
   <h2 class="section-title" style="margin-bottom:14px">Who uses this tool</h2>
   <div class="uc-grid">
-    <div class="uc"><div class="uc-title">Board game players</div><div class="uc-body">No dice nearby? Roll a virtual D6 instantly from any device. Same probability as a physical six-sided die.</div></div>
-    <div class="uc"><div class="uc-title">Teachers</div><div class="uc-body">Demonstrate uniform discrete probability to students. The distribution chart shows each face appearing equally over many rolls.</div></div>
-    <div class="uc"><div class="uc-title">RPG players</div><div class="uc-body">Use as a backup D6 when physical dice aren't available. Works on phones, tablets, and desktops.</div></div>
-    <div class="uc"><div class="uc-title">Game designers</div><div class="uc-body">Quickly test game mechanics that depend on D6 outcomes. Pool mode lets you cycle through all six values in controlled order.</div></div>
+    <div class="uc"><div class="uc-title">Students learning even/odd</div><div class="uc-body">See even numbers generated in real time and practice identifying divisibility by 2. Pool mode ensures every even number in a range appears once.</div></div>
+    <div class="uc"><div class="uc-title">Developers testing mod-2 logic</div><div class="uc-body">Quickly generate even test inputs for functions that use modular arithmetic, bitwise operations, or even-number constraints without writing test fixtures.</div></div>
+    <div class="uc"><div class="uc-title">Teachers</div><div class="uc-body">Assign even-numbered problems, pair students using even roster numbers, or demonstrate even/odd concepts with live random generation in class.</div></div>
+    <div class="uc"><div class="uc-title">Game players</div><div class="uc-body">Many board and card games use even-number mechanics. Generate a fair random even number for scoring, movement, or turn-order decisions.</div></div>
   </div>
 </div>
 </div>
@@ -567,255 +706,192 @@
 </script>
 
 <script>
-const WORDINEER_RN6 = (() => {
-  const MIN = 1, MAX = 6;
-  const BUCKET_SIZE = 1;
-  const BUCKETS = 6;
+const WORDINEER_REN = (() => {
+  const DEFAULT_MIN = 2;
+  const DEFAULT_MAX = 100;
 
-  let current = 4;
+  let current = 42;
   let history = [];
-  let stats = new Array(BUCKETS).fill(0);
-  let generateCount = 0;
-  let excludeSet = new Set();
   let mode = 'normal';
   let pool = [];
   let poolDrawn = 0;
-  let blindPicks = [null, null];
-  let blindRevealed = false;
 
   let resultEl, copyBtn, genBtn;
+  let minInput, maxInput;
   let historyWrap, historyEl;
   let poolStatusEl, poolRemainingEl, poolFractionEl, poolBarEl, poolResetBtn;
-  let distEl, distRowsEl, distResetBtn;
-  let excludeToggleBtn, excludePanel, excludeInput, excludeChipsEl, excludeErrorEl;
-  let blindEl, blindVal1, blindVal2, blindPick1, blindPick2, blindRevealBtn, blindResultEl, blindAgainBtn;
 
-  function shuffle(arr) {
-    for (let i = arr.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [arr[i], arr[j]] = [arr[j], arr[i]];
+  function toEvenUp(n) {
+    return n % 2 === 0 ? n : n + 1;
+  }
+
+  function toEvenDown(n) {
+    return n % 2 === 0 ? n : n - 1;
+  }
+
+  function getMin() {
+    var raw = parseInt(minInput.value, 10);
+    if (isNaN(raw)) raw = DEFAULT_MIN;
+    raw = Math.max(raw, -1e9);
+    return toEvenUp(raw);
+  }
+
+  function getMax() {
+    var raw = parseInt(maxInput.value, 10);
+    if (isNaN(raw)) raw = DEFAULT_MAX;
+    raw = Math.max(raw, getMin() + 2);
+    return toEvenDown(raw);
+  }
+
+  function getEvens() {
+    var lo = getMin();
+    var hi = getMax();
+    var arr = [];
+    for (var i = lo; i <= hi; i += 2) {
+      arr.push(i);
     }
     return arr;
   }
 
-  function parseExcludes(str) {
-    const valid = new Set(); const invalid = [];
-    str.split(',').forEach(function(s) {
-      const n = parseInt(s.trim(), 10);
-      if (!isNaN(n) && n >= MIN && n <= MAX) { valid.add(n); }
-      else if (s.trim() !== '') { invalid.push(s.trim()); }
-    });
-    return { valid, invalid };
+  function shuffle(arr) {
+    for (var i = arr.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = arr[i]; arr[i] = arr[j]; arr[j] = tmp;
+    }
+    return arr;
   }
 
   function buildPool() {
-    const arr = [];
-    for (let i = MIN; i <= MAX; i++) { if (!excludeSet.has(i)) arr.push(i); }
-    shuffle(arr); pool = arr; poolDrawn = 0; updatePoolStatus();
-  }
-
-  function getAvailable() {
-    const arr = [];
-    for (let i = MIN; i <= MAX; i++) { if (!excludeSet.has(i)) arr.push(i); }
-    return arr;
+    var evens = getEvens();
+    shuffle(evens);
+    pool = evens;
+    poolDrawn = 0;
+    updatePoolStatus();
   }
 
   function generate() {
-    if (mode === 'blind') return;
-    const available = getAvailable();
-    if (available.length === 0) { showToast('All numbers excluded!'); return; }
-    let n;
+    var evens = getEvens();
+    if (evens.length === 0) { showToast('No even numbers in range!'); return; }
+
+    var n;
     if (mode === 'pool') {
-      if (pool.length === 0) { buildPool(); showToast('Pool exhausted — reshuffled!'); }
-      n = pool.shift(); poolDrawn++; updatePoolStatus();
+      if (pool.length === 0) {
+        buildPool();
+        showToast('Pool exhausted — reshuffled!');
+      }
+      n = pool.shift();
+      poolDrawn++;
+      updatePoolStatus();
     } else {
-      n = available[Math.floor(Math.random() * available.length)];
+      n = evens[Math.floor(Math.random() * evens.length)];
     }
-    current = n; updateResult(n);
+
+    current = n;
+    updateResult(n);
   }
 
   function updateResult(n) {
     resultEl.classList.add('is-animating');
-    setTimeout(function() { resultEl.textContent = n; resultEl.classList.remove('is-animating'); }, 80);
-    history.unshift(n); if (history.length > 10) history.length = 10; updateHistory();
-    const bucket = n - MIN;
-    stats[bucket]++; generateCount++; updateDist();
+    setTimeout(function() {
+      resultEl.textContent = n;
+      resultEl.classList.remove('is-animating');
+    }, 80);
+
+    history.unshift(n);
+    if (history.length > 10) history.length = 10;
+    updateHistory();
   }
 
   function updateHistory() {
     if (history.length === 0) { historyWrap.style.display = 'none'; return; }
-    historyWrap.style.display = 'block'; historyEl.innerHTML = '';
+    historyWrap.style.display = 'block';
+    historyEl.innerHTML = '';
     history.forEach(function(n, i) {
-      const chip = document.createElement('span');
-      chip.className = 'rn6-chip' + (i === 0 ? ' newest' : '');
-      chip.textContent = n; historyEl.appendChild(chip);
+      var chip = document.createElement('span');
+      chip.className = 'ren-chip' + (i === 0 ? ' newest' : '');
+      chip.textContent = n;
+      historyEl.appendChild(chip);
     });
   }
 
   function updatePoolStatus() {
     if (mode !== 'pool') { poolStatusEl.classList.remove('is-visible'); return; }
-    const total = MAX - MIN + 1 - excludeSet.size;
+    var evens = getEvens();
+    var total = evens.length + poolDrawn;
     poolStatusEl.classList.add('is-visible');
-    poolRemainingEl.textContent = pool.length + ' remaining in pool';
+    poolRemainingEl.textContent = pool.length + ' evens remaining';
     poolFractionEl.textContent = poolDrawn + ' / ' + total + ' drawn';
-    const pct = total > 0 ? (poolDrawn / total) * 100 : 0;
+    var pct = total > 0 ? (poolDrawn / total) * 100 : 0;
     poolBarEl.style.width = pct + '%';
-  }
-
-  function updateDist() {
-    if (generateCount < 10) { distEl.classList.remove('is-visible'); return; }
-    distEl.classList.add('is-visible');
-    const maxCount = Math.max.apply(null, stats.concat([1]));
-    distRowsEl.innerHTML = '';
-    stats.forEach(function(count, i) {
-      const label = String(MIN + i);
-      const pct = (count / maxCount) * 100;
-      const row = document.createElement('div'); row.className = 'rn6-dist-row';
-      row.innerHTML = '<span class="rn6-dist-lbl">' + label + '</span>' +
-        '<div class="rn6-dist-track"><div class="rn6-dist-bar" style="width:' + pct + '%"></div></div>' +
-        '<span class="rn6-dist-count">' + count + '</span>';
-      distRowsEl.appendChild(row);
-    });
-  }
-
-  function resetStats() {
-    stats = new Array(BUCKETS).fill(0); generateCount = 0; history = [];
-    updateHistory(); updateDist();
-  }
-
-  function onExcludeInput() {
-    const raw = excludeInput.value;
-    if (!raw.trim()) {
-      excludeSet = new Set(); excludeChipsEl.innerHTML = '';
-      excludeErrorEl.textContent = ''; excludeErrorEl.classList.remove('show');
-      if (mode === 'pool') buildPool(); return;
-    }
-    const parsed = parseExcludes(raw); excludeSet = parsed.valid;
-    excludeChipsEl.innerHTML = '';
-    parsed.valid.forEach(function(n) {
-      const chip = document.createElement('span'); chip.className = 'rn6-exclude-chip valid';
-      chip.textContent = n; excludeChipsEl.appendChild(chip);
-    });
-    parsed.invalid.forEach(function(s) {
-      const chip = document.createElement('span'); chip.className = 'rn6-exclude-chip invalid';
-      chip.textContent = s + ' (invalid)'; excludeChipsEl.appendChild(chip);
-    });
-    if (parsed.invalid.length > 0) { excludeErrorEl.textContent = 'Only integers 1–6 are valid.'; excludeErrorEl.classList.add('show'); }
-    else { excludeErrorEl.textContent = ''; excludeErrorEl.classList.remove('show'); }
-    if (mode === 'pool') buildPool();
   }
 
   function setMode(m) {
     mode = m;
-    ['normal', 'pool', 'blind'].forEach(function(id) {
-      document.getElementById('rn6-mode-' + id).classList.toggle('is-active', id === m);
+    ['normal', 'pool'].forEach(function(id) {
+      document.getElementById('ren-mode-' + id).classList.toggle('is-active', id === m);
     });
-    if (m === 'pool') { buildPool(); poolStatusEl.classList.add('is-visible'); genBtn.style.display = ''; }
-    else { poolStatusEl.classList.remove('is-visible'); }
-    const isBlind = m === 'blind';
-    blindEl.classList.toggle('is-visible', isBlind);
-    genBtn.style.display = isBlind ? 'none' : '';
-    if (isBlind) resetBlind();
-  }
-
-  function resetBlind() {
-    blindPicks = [null, null]; blindRevealed = false;
-    [blindVal1, blindVal2].forEach(function(el) { el.textContent = '—'; el.className = 'rn6-blind-val hidden'; });
-    [blindPick1, blindPick2].forEach(function(btn) { btn.textContent = 'Roll'; btn.className = 'rn6-blind-pick-btn'; });
-    blindRevealBtn.classList.remove('is-visible'); blindResultEl.textContent = ''; blindAgainBtn.classList.remove('is-visible');
-  }
-
-  function doPick(playerIdx) {
-    if (blindPicks[playerIdx] !== null || blindRevealed) return;
-    const available = getAvailable();
-    if (available.length === 0) { showToast('All numbers excluded!'); return; }
-    const n = available[Math.floor(Math.random() * available.length)];
-    blindPicks[playerIdx] = n;
-    const btn = playerIdx === 0 ? blindPick1 : blindPick2;
-    btn.textContent = '✓ Rolled'; btn.className = 'rn6-blind-pick-btn picked';
-    if (blindPicks[0] !== null && blindPicks[1] !== null) { blindRevealBtn.classList.add('is-visible'); }
-  }
-
-  function doReveal() {
-    if (blindPicks[0] === null || blindPicks[1] === null) return;
-    blindRevealed = true; blindRevealBtn.classList.remove('is-visible');
-    const a = blindPicks[0], b = blindPicks[1];
-    blindVal1.textContent = a; blindVal2.textContent = b;
-    blindVal1.classList.remove('hidden'); blindVal2.classList.remove('hidden');
-    if (a > b) { blindVal1.classList.add('winner'); blindVal2.classList.add('loser'); blindResultEl.textContent = 'Player 1 wins! (' + a + ' > ' + b + ')'; }
-    else if (b > a) { blindVal1.classList.add('loser'); blindVal2.classList.add('winner'); blindResultEl.textContent = 'Player 2 wins! (' + b + ' > ' + a + ')'; }
-    else { blindResultEl.textContent = "It's a tie! Both rolled " + a; }
-    blindAgainBtn.classList.add('is-visible');
+    if (m === 'pool') {
+      buildPool();
+      poolStatusEl.classList.add('is-visible');
+    } else {
+      poolStatusEl.classList.remove('is-visible');
+    }
   }
 
   function copyResult() {
     navigator.clipboard && navigator.clipboard.writeText(String(current));
-    const orig = copyBtn.innerHTML;
+    var orig = copyBtn.innerHTML;
     copyBtn.innerHTML = '<svg viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5 6.5-6.5" stroke="#1D9E75" stroke-width="1.3" stroke-linecap="round"/></svg> Copied!';
     setTimeout(function() { copyBtn.innerHTML = orig; }, 1200);
     showToast('Copied!');
   }
 
   function showToast(msg) {
-    const t = document.getElementById('toast'); if (!t) return;
-    t.textContent = msg; t.classList.add('show');
+    var t = document.getElementById('toast');
+    if (!t) return;
+    t.textContent = msg;
+    t.classList.add('show');
     setTimeout(function() { t.classList.remove('show'); }, 2000);
   }
 
+  function onRangeChange() {
+    if (mode === 'pool') buildPool();
+  }
+
   function init() {
-    resultEl = document.getElementById('rn6-result');
-    copyBtn = document.getElementById('rn6-copy-btn');
-    genBtn = document.getElementById('rn6-gen-btn');
-    historyWrap = document.getElementById('rn6-history-wrap');
-    historyEl = document.getElementById('rn6-history');
-    poolStatusEl = document.getElementById('rn6-pool-status');
-    poolRemainingEl = document.getElementById('rn6-pool-remaining');
-    poolFractionEl = document.getElementById('rn6-pool-fraction');
-    poolBarEl = document.getElementById('rn6-pool-bar');
-    poolResetBtn = document.getElementById('rn6-pool-reset-btn');
-    distEl = document.getElementById('rn6-dist');
-    distRowsEl = document.getElementById('rn6-dist-rows');
-    distResetBtn = document.getElementById('rn6-dist-reset');
-    excludeToggleBtn = document.getElementById('rn6-exclude-toggle');
-    excludePanel = document.getElementById('rn6-exclude-panel');
-    excludeInput = document.getElementById('rn6-exclude-input');
-    excludeChipsEl = document.getElementById('rn6-exclude-chips');
-    excludeErrorEl = document.getElementById('rn6-exclude-error');
-    blindEl = document.getElementById('rn6-blind');
-    blindVal1 = document.getElementById('rn6-blind-val-1');
-    blindVal2 = document.getElementById('rn6-blind-val-2');
-    blindPick1 = document.getElementById('rn6-blind-pick-1');
-    blindPick2 = document.getElementById('rn6-blind-pick-2');
-    blindRevealBtn = document.getElementById('rn6-blind-reveal');
-    blindResultEl = document.getElementById('rn6-blind-result');
-    blindAgainBtn = document.getElementById('rn6-blind-again');
+    resultEl      = document.getElementById('ren-result');
+    copyBtn       = document.getElementById('ren-copy-btn');
+    genBtn        = document.getElementById('ren-gen-btn');
+    minInput      = document.getElementById('ren-min');
+    maxInput      = document.getElementById('ren-max');
+    historyWrap   = document.getElementById('ren-history-wrap');
+    historyEl     = document.getElementById('ren-history');
+    poolStatusEl  = document.getElementById('ren-pool-status');
+    poolRemainingEl = document.getElementById('ren-pool-remaining');
+    poolFractionEl  = document.getElementById('ren-pool-fraction');
+    poolBarEl     = document.getElementById('ren-pool-bar');
+    poolResetBtn  = document.getElementById('ren-pool-reset-btn');
 
     genBtn.addEventListener('click', generate);
     copyBtn.addEventListener('click', copyResult);
     poolResetBtn.addEventListener('click', function() { buildPool(); showToast('Pool reset!'); });
-    distResetBtn.addEventListener('click', resetStats);
-    document.getElementById('rn6-mode-normal').addEventListener('click', function() { setMode('normal'); });
-    document.getElementById('rn6-mode-pool').addEventListener('click', function() { setMode('pool'); });
-    document.getElementById('rn6-mode-blind').addEventListener('click', function() { setMode('blind'); });
-    excludeToggleBtn.addEventListener('click', function() {
-      const open = excludePanel.classList.toggle('is-open');
-      excludeToggleBtn.textContent = open ? '− Exclude numbers' : '+ Exclude numbers';
-    });
-    excludeInput.addEventListener('input', onExcludeInput);
-    excludeInput.addEventListener('blur', onExcludeInput);
-    blindPick1.addEventListener('click', function() { doPick(0); });
-    blindPick2.addEventListener('click', function() { doPick(1); });
-    blindRevealBtn.addEventListener('click', doReveal);
-    blindAgainBtn.addEventListener('click', resetBlind);
+
+    minInput.addEventListener('change', onRangeChange);
+    maxInput.addEventListener('change', onRangeChange);
+
+    document.getElementById('ren-mode-normal').addEventListener('click', function() { setMode('normal'); });
+    document.getElementById('ren-mode-pool').addEventListener('click', function() { setMode('pool'); });
+
     document.addEventListener('keydown', function(e) {
       if (['INPUT','SELECT','TEXTAREA','BUTTON'].includes(e.target.tagName)) return;
       if (e.code === 'Space' || e.code === 'Enter') { e.preventDefault(); generate(); }
     });
+
     document.querySelectorAll('.faq-item summary').forEach(function(s) {
       s.addEventListener('click', function(e) {
         e.preventDefault();
-        const item = s.closest('.faq-item');
-        const wasOpen = item.hasAttribute('open');
+        var item = s.closest('.faq-item');
+        var wasOpen = item.hasAttribute('open');
         document.querySelectorAll('.faq-item[open]').forEach(function(i) { i.removeAttribute('open'); });
         if (!wasOpen) item.setAttribute('open', '');
       });
@@ -825,7 +901,7 @@ const WORDINEER_RN6 = (() => {
   return { init: init };
 })();
 
-document.addEventListener('DOMContentLoaded', WORDINEER_RN6.init);
+document.addEventListener('DOMContentLoaded', WORDINEER_REN.init);
 </script>
 </body>
 </html>

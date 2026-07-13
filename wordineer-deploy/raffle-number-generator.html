@@ -93,15 +93,15 @@
   ]
 }
 </script>
-<title>Flip a Coin 100 Times — Statistics &amp; Probability Demo | Wordineer</title>
-<meta name="description" content="Flip a virtual coin 100 times instantly. See the heads/tails split, streak analysis, and whether you got close to 50/50. Perfect for statistics class.">
-<link rel="canonical" href="https://wordineer.com/flip-a-coin-100-times/">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Wordineer">
-<meta property="og:title" content="Flip a Coin 100 Times | Wordineer">
-<meta property="og:description" content="100 coin flips instantly. Heads/tails split, streak analysis, and distribution bar. For stats class or just curiosity.">
-<meta property="og:url" content="https://wordineer.com/flip-a-coin-100-times/">
-<meta property="og:image" content="https://wordineer.com/og-image.png">
+<title>Raffle Number Generator — Draw a Random Winner | Wordineer</title>
+<meta name="description" content="Draw a random raffle number from any pool size instantly. Set how many tickets were sold, draw one winner, then draw again for second prizes. Free, no sign-up.">
+<link rel="canonical" href="https://wordineer.com/raffle-number-generator/">
+<meta property="og:type"        content="website">
+<meta property="og:site_name"   content="Wordineer">
+<meta property="og:title"       content="Raffle Number Generator | Wordineer">
+<meta property="og:description" content="Draw a random raffle winner from any pool size. No-repeat mode removes winners after each draw. Free.">
+<meta property="og:url"         content="https://wordineer.com/raffle-number-generator/">
+<meta property="og:image"       content="https://wordineer.com/og-image.png">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -109,28 +109,23 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "How close to 50/50 should 100 coin flips be?",
-      "acceptedAnswer": { "@type": "Answer", "text": "With 100 fair coin flips, the standard deviation is about 5. That means getting between 45 and 55 heads is the 'normal' range — roughly 68% of all 100-flip runs land in that window. Getting exactly 50 heads happens about 8% of the time. Results outside the 40–60 range (more than 2 standard deviations) occur about 5% of the time and are considered statistically notable but not impossible." }
+      "name": "How does the raffle number generator work?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Enter the number of tickets in your raffle pool, then click Draw. The tool picks one random number from 1 to your pool size. Each number has an equal probability of being drawn. Enable No-repeat mode to automatically remove each drawn number so the same ticket can't win twice." }
     },
     {
       "@type": "Question",
-      "name": "What is the longest streak you can expect in 100 flips?",
-      "acceptedAnswer": { "@type": "Answer", "text": "In 100 fair coin flips, a streak of 7 or more (all heads or all tails) is expected roughly 80% of the time. A streak of 6 appears in about 96% of runs. This surprises most people — our brains tend to see long streaks as suspicious, but they are completely normal in random sequences. The streak analysis panel in this tool shows your longest heads and tails streaks after each run." }
+      "name": "Can I draw multiple winners without repeats?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Enable No-repeat mode before drawing. Each drawn number is removed from the pool permanently, so subsequent draws always pick from the remaining tickets. The pool counter shows how many tickets remain. You can reset the pool at any time to start over." }
     },
     {
       "@type": "Question",
-      "name": "What does the Law of Large Numbers mean for coin flips?",
-      "acceptedAnswer": { "@type": "Answer", "text": "The Law of Large Numbers states that as you increase the number of trials, the observed proportion converges toward the true probability. With 10 flips you might see 30% heads; with 100 flips you're much more likely to be near 50%; with 10,000 flips you'll be very close to exactly 50%. This tool's session stats panel shows cumulative heads and tails across multiple 100-flip runs, letting you watch the percentage converge in real time." }
+      "name": "What pool size can I use?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Any size from 2 to 10,000 tickets. Enter the total number of tickets sold or assigned in your raffle and the tool will draw from that exact range." }
     },
     {
       "@type": "Question",
-      "name": "Is this coin flip truly random?",
-      "acceptedAnswer": { "@type": "Answer", "text": "This tool uses JavaScript's Math.random(), which is a pseudo-random number generator (PRNG) seeded by the browser's entropy source. It is not cryptographically secure, but it is more than sufficient for probability demonstrations, statistics homework, and classroom exercises. Each flip is an independent 50/50 event with no memory of previous results." }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I flip a coin fewer times?",
-      "acceptedAnswer": { "@type": "Answer", "text": "For 10 flips at once with a coin-by-coin grid, use our Flip a Coin 10 Times tool at wordineer.com/flip-a-coin-10-times/. For a single interactive flip with running history, use the Coin Flip tool at wordineer.com/coin-flip/. All tools are free and require no sign-up." }
+      "name": "Is this fair for a real raffle?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. The tool uses JavaScript's cryptographically seeded Math.random(), which produces a uniformly distributed result. Every ticket number has an equal probability of being drawn. For high-stakes draws you may want to use a hardware random number generator, but for typical fundraisers and office raffles this tool is perfectly fair." }
     }
   ]
 }
@@ -139,9 +134,9 @@
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "Flip a Coin 100 Times",
-  "url": "https://wordineer.com/flip-a-coin-100-times/",
-  "description": "Flip a virtual coin 100 times instantly. See the heads/tails split, streak analysis, and whether you got close to 50/50. Perfect for statistics class.",
+  "name": "Raffle Number Generator",
+  "url": "https://wordineer.com/raffle-number-generator/",
+  "description": "Draw a random raffle winner from any pool size. No-repeat mode for multi-prize draws.",
   "applicationCategory": "UtilityApplication",
   "operatingSystem": "Web",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
@@ -155,78 +150,271 @@
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
     { "@type": "ListItem", "position": 2, "name": "Number &amp; Chance Tools", "item": "https://wordineer.com/number-chance/" },
-    { "@type": "ListItem", "position": 3, "name": "Flip a Coin 100 Times", "item": "https://wordineer.com/flip-a-coin-100-times/" }
+    { "@type": "ListItem", "position": 3, "name": "Raffle Number Generator", "item": "https://wordineer.com/raffle-number-generator/" }
   ]
 }
 </script>
 
 <link rel="stylesheet" href="/styles/global.css?v=13">
 <style>
-/* ── Flip a Coin 100 Times ── */
-.cf100-wrap { max-width: 620px; margin: 0 auto; padding: 24px 24px 0; }
-.cf100-card { border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--bg); box-shadow: var(--shadow); padding: 32px 24px 24px; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+/* ── Raffle Number Generator ── */
+.rng-wrap {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 24px 24px 0;
+}
+.rng-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--bg);
+  box-shadow: var(--shadow);
+  padding: 32px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
 
-/* Big tally */
-.cf100-tally { display: flex; gap: 24px; align-items: center; justify-content: center; }
-.cf100-tally-item { display: flex; flex-direction: column; align-items: center; gap: 4px; }
-.cf100-tally-count { font-size: clamp(2.5rem, 10vw, 3.5rem); font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; }
-.cf100-tally-count.heads { color: var(--brand); }
-.cf100-tally-count.tails { color: var(--text-2); }
-.cf100-tally-label { font-size: 11px; font-weight: 600; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.07em; }
-.cf100-tally-sep { font-size: 2rem; color: var(--border); font-weight: 300; }
+/* Winner display */
+.rng-winner-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+.rng-winner-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.rng-winner {
+  font-size: clamp(4.5rem, 18vw, 7rem);
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  min-width: 3ch;
+  text-align: center;
+  transition: opacity 0.08s;
+}
+.rng-winner.is-animating { opacity: 0.12; }
+.rng-prize-badge {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-2);
+  padding: 3px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--bg-2);
+  display: none;
+}
+.rng-prize-badge.is-visible { display: block; }
 
-/* Distribution bar */
-.cf100-dist { width: 100%; }
-.cf100-dist-row { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
-.cf100-dist-label { font-size: 11px; font-weight: 600; color: var(--text-3); width: 40px; text-align: right; flex-shrink: 0; }
-.cf100-dist-track { flex: 1; height: 16px; background: var(--bg-2); border-radius: 3px; overflow: hidden; position: relative; }
-.cf100-dist-fill-h { height: 100%; background: var(--brand); border-radius: 3px; transition: width 0.4s ease; opacity: 0.85; }
-.cf100-dist-fill-t { height: 100%; background: var(--bg-3); border-radius: 3px; transition: width 0.4s ease; }
-.cf100-dist-count { font-size: 11px; color: var(--text-3); width: 24px; flex-shrink: 0; font-variant-numeric: tabular-nums; }
+/* Pool size input */
+.rng-pool-row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.rng-pool-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.rng-pool-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.rng-pool-input {
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  font-size: 14px;
+  font-family: inherit;
+  background: var(--bg);
+  color: var(--text);
+  box-sizing: border-box;
+  outline: none;
+  text-align: center;
+  width: 100px;
+  font-variant-numeric: tabular-nums;
+}
+.rng-pool-input:focus { border-color: var(--brand); }
 
-/* 10×10 grid of chips */
-.cf100-grid { display: grid; grid-template-columns: repeat(10, 1fr); gap: 3px; width: 100%; max-width: 380px; }
-.cf100-chip { aspect-ratio: 1; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 700; }
-.cf100-chip.heads { background: var(--brand); color: white; }
-.cf100-chip.tails { background: var(--bg-3); color: var(--text-2); border: 1px solid var(--border); }
-.cf100-chip.pending { background: var(--bg-2); border: 1px solid var(--border); color: transparent; }
+/* Draw button */
+.rng-draw-btn {
+  padding: 13px 36px;
+  background: var(--brand);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+  letter-spacing: -0.01em;
+}
+.rng-draw-btn:hover { background: var(--brand-dark); }
+.rng-draw-btn:active { transform: scale(0.97); }
+.rng-draw-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
 
-/* Flip button */
-.cf100-flip-btn { padding: 13px 40px; background: var(--brand); color: white; border: none; border-radius: 10px; font-size: 1.05rem; font-weight: 700; font-family: inherit; cursor: pointer; transition: background 0.15s, transform 0.1s; letter-spacing: -0.01em; }
-.cf100-flip-btn:hover { background: var(--brand-dark); }
-.cf100-flip-btn:active { transform: scale(0.97); }
-.cf100-kbd { font-size: 10px; color: var(--text-3); text-align: center; margin-top: -10px; }
-.cf100-kbd kbd { background: var(--bg-3); border: 1px solid var(--border); border-radius: 3px; padding: 1px 5px; font-size: 10px; font-family: inherit; }
+/* No-repeat toggle */
+.rng-norepeat-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  justify-content: center;
+}
+.rng-toggle-label {
+  font-size: 13px;
+  color: var(--text-2);
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.rng-toggle {
+  position: relative;
+  width: 34px;
+  height: 18px;
+  flex-shrink: 0;
+}
+.rng-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+.rng-toggle-track {
+  position: absolute;
+  inset: 0;
+  background: var(--border);
+  border-radius: 9px;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+.rng-toggle input:checked + .rng-toggle-track { background: var(--brand); }
+.rng-toggle-track::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 14px;
+  height: 14px;
+  background: white;
+  border-radius: 50%;
+  transition: transform 0.2s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.18);
+}
+.rng-toggle input:checked + .rng-toggle-track::after { transform: translateX(16px); }
 
-/* Summary */
-.cf100-summary { font-size: 13px; color: var(--text-2); text-align: center; min-height: 1.4em; }
+/* Pool status (no-repeat mode) */
+.rng-pool-status {
+  width: 100%;
+  display: none;
+}
+.rng-pool-status.is-visible { display: block; }
+.rng-pool-status-text {
+  font-size: 12px;
+  color: var(--text-2);
+  margin-bottom: 6px;
+  display: flex;
+  justify-content: space-between;
+}
+.rng-pool-bar-track {
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.rng-pool-bar-fill {
+  height: 100%;
+  background: var(--brand);
+  border-radius: 2px;
+  transition: width 0.3s;
+}
+.rng-pool-reset-btn {
+  background: none;
+  border: none;
+  color: var(--brand);
+  font-size: 11px;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 0;
+  margin-top: 5px;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
 
-/* Streak analysis */
-.cf100-streaks { width: 100%; display: none; }
-.cf100-streaks.is-visible { display: block; }
-.cf100-streak-title { font-size: 10px; font-weight: 700; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 8px; }
-.cf100-streak-row { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 6px; }
-.cf100-streak-item { font-size: 12px; color: var(--text-2); }
-.cf100-streak-item strong { color: var(--text); }
-.cf100-streak-note { font-size: 11px; color: var(--text-3); font-style: italic; }
+/* Winners log */
+.rng-log-wrap {
+  width: 100%;
+  display: none;
+}
+.rng-log-wrap.is-visible { display: block; }
+.rng-log-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-bottom: 7px;
+}
+.rng-log {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.rng-log-chip {
+  padding: 3px 10px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-2);
+  background: var(--bg-2);
+}
+.rng-log-chip.newest {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: white;
+}
 
-/* Actions */
-.cf100-actions { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
-.cf100-copy-btn { display: flex; align-items: center; gap: 5px; padding: 8px 16px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg); color: var(--text-2); font-size: 12px; font-weight: 600; font-family: inherit; cursor: pointer; transition: background 0.12s; }
-.cf100-copy-btn:hover { background: var(--bg-2); color: var(--text); }
-.cf100-copy-btn svg { width: 13px; height: 13px; }
+.rng-kbd {
+  font-size: 10px;
+  color: var(--text-3);
+  text-align: center;
+  margin-top: -10px;
+}
+.rng-kbd kbd {
+  background: var(--bg-3);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 1px 5px;
+  font-size: 10px;
+  font-family: inherit;
+}
 
-/* Session stats */
-.cf100-session { width: 100%; display: none; }
-.cf100-session.is-visible { display: block; }
-.cf100-session-title { font-size: 10px; font-weight: 700; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 6px; }
-.cf100-session-text { font-size: 12px; color: var(--text-2); }
-
-@media (max-width: 480px) {
-  .cf100-wrap { padding: 14px 14px 0; }
-  .cf100-card { padding: 24px 14px 18px; gap: 14px; }
-  .cf100-grid { max-width: 300px; }
-  .cf100-chip { font-size: 7px; }
+@media (max-width: 600px) {
+  .rng-wrap { padding: 14px 14px 0; }
+  .rng-card { padding: 24px 16px 18px; gap: 16px; }
 }
 </style>
 </head>
@@ -312,7 +500,7 @@
     <span class="breadcrumb-sep">›</span>
     <a href="/number-chance/">Number &amp; Chance Tools</a>
     <span class="breadcrumb-sep">›</span>
-    <span aria-current="page">Flip a Coin 100 Times</span>
+    <span aria-current="page">Raffle Number Generator</span>
   </div>
 </div>
 <div class="hero">
@@ -320,74 +508,58 @@
     <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
     Free · No sign-up · Instant
   </div>
-  <h1>Flip a coin 100 times</h1>
-  <p>See how close to 50/50 you actually get. Run 100 coin flips instantly, analyze the heads/tails split, longest streak, and expected deviation. Perfect for probability class or satisfying your curiosity.</p>
+  <h1>Raffle number generator</h1>
+  <p>Draw a random raffle winner from any pool of tickets. Set the pool size, hit Draw, and get a winner in an instant. Enable No-repeat mode to remove winners after each draw so the same ticket can't win twice.</p>
 </div>
-<div class="cf100-wrap">
-  <div class="cf100-card">
+<div class="rng-wrap">
+  <div class="rng-card">
 
-    <!-- Big tally -->
-    <div class="cf100-tally">
-      <div class="cf100-tally-item">
-        <div class="cf100-tally-count heads" id="cf100-heads-count">—</div>
-        <div class="cf100-tally-label">Heads</div>
+    <!-- Winner display -->
+    <div class="rng-winner-wrap">
+      <div class="rng-winner-label" id="rng-winner-label" style="visibility:hidden">Winner</div>
+      <div class="rng-winner" id="rng-winner" aria-live="polite" aria-atomic="true">–</div>
+      <div class="rng-prize-badge" id="rng-prize-badge">1st prize</div>
+    </div>
+
+    <!-- Pool size input -->
+    <div class="rng-pool-row">
+      <div class="rng-pool-field">
+        <label class="rng-pool-label" for="rng-pool-size">Tickets sold</label>
+        <input class="rng-pool-input" id="rng-pool-size" type="number" min="2" max="10000" value="200" inputmode="numeric" aria-label="Number of tickets in pool">
       </div>
-      <div class="cf100-tally-sep">·</div>
-      <div class="cf100-tally-item">
-        <div class="cf100-tally-count tails" id="cf100-tails-count">—</div>
-        <div class="cf100-tally-label">Tails</div>
+      <button class="rng-draw-btn" id="rng-draw-btn" type="button">Draw winner</button>
+    </div>
+
+    <!-- No-repeat toggle -->
+    <div class="rng-norepeat-row">
+      <label class="rng-toggle-label" for="rng-norepeat">
+        <span class="rng-toggle">
+          <input type="checkbox" id="rng-norepeat" aria-label="No-repeat mode">
+          <span class="rng-toggle-track"></span>
+        </span>
+        No-repeat mode
+      </label>
+    </div>
+
+    <!-- Pool status (no-repeat mode) -->
+    <div class="rng-pool-status" id="rng-pool-status">
+      <div class="rng-pool-status-text">
+        <span id="rng-pool-remaining">200 tickets remaining</span>
+        <span id="rng-pool-fraction">0 / 200 drawn</span>
       </div>
-    </div>
-
-    <!-- Distribution bar (heads vs tails split) -->
-    <div class="cf100-dist" id="cf100-dist" style="display:none">
-      <div class="cf100-dist-row">
-        <div class="cf100-dist-label">Heads</div>
-        <div class="cf100-dist-track"><div class="cf100-dist-fill-h" id="cf100-bar-h" style="width:0%"></div></div>
-        <div class="cf100-dist-count" id="cf100-bar-h-count">0</div>
+      <div class="rng-pool-bar-track">
+        <div class="rng-pool-bar-fill" id="rng-pool-bar" style="width:0%"></div>
       </div>
-      <div class="cf100-dist-row">
-        <div class="cf100-dist-label">Tails</div>
-        <div class="cf100-dist-track"><div class="cf100-dist-fill-t" id="cf100-bar-t" style="width:0%"></div></div>
-        <div class="cf100-dist-count" id="cf100-bar-t-count">0</div>
-      </div>
+      <button class="rng-pool-reset-btn" id="rng-pool-reset-btn" type="button">Reset pool</button>
     </div>
 
-    <!-- 10×10 chip grid -->
-    <div class="cf100-grid" id="cf100-grid" aria-label="100 coin flip results">
-      <!-- populated by JS -->
+    <!-- Winners log -->
+    <div class="rng-log-wrap" id="rng-log-wrap">
+      <div class="rng-log-label">Past winners</div>
+      <div class="rng-log" id="rng-log"></div>
     </div>
 
-    <!-- Flip button -->
-    <button class="cf100-flip-btn" id="cf100-flip-btn" type="button">Run 100 Flips</button>
-    <div class="cf100-kbd">Press <kbd>Space</kbd> or <kbd>Enter</kbd></div>
-
-    <!-- Summary -->
-    <div class="cf100-summary" id="cf100-summary" aria-live="polite" aria-atomic="true"></div>
-
-    <!-- Streak analysis -->
-    <div class="cf100-streaks" id="cf100-streaks">
-      <div class="cf100-streak-title">Streak analysis</div>
-      <div class="cf100-streak-row">
-        <div class="cf100-streak-item">Longest heads streak: <strong id="cf100-streak-h">—</strong></div>
-        <div class="cf100-streak-item">Longest tails streak: <strong id="cf100-streak-t">—</strong></div>
-      </div>
-      <div class="cf100-streak-note" id="cf100-streak-note"></div>
-    </div>
-
-    <!-- Actions -->
-    <div class="cf100-actions" id="cf100-actions" style="display:none">
-      <button class="cf100-copy-btn" id="cf100-copy-btn" type="button">
-        <svg viewBox="0 0 14 14" fill="none"><rect x="1" y="4" width="9" height="9.5" rx="1.5" stroke="currentColor" stroke-width="1.1"/><path d="M4.5 4V2.5A1.5 1.5 0 016 1h5.5A1.5 1.5 0 0113 2.5v7a1.5 1.5 0 01-1.5 1.5H10" stroke="currentColor" stroke-width="1.1"/></svg>
-        Copy stats
-      </button>
-    </div>
-
-    <!-- Session stats -->
-    <div class="cf100-session" id="cf100-session">
-      <div class="cf100-session-title">Session totals</div>
-      <div class="cf100-session-text" id="cf100-session-text"></div>
-    </div>
+    <div class="rng-kbd">Press <kbd>Space</kbd> or <kbd>Enter</kbd> to draw</div>
 
   </div>
 </div>
@@ -441,17 +613,17 @@
   <div class="divider"></div>
 
 <div class="explainer">
-  <h2>What does 100 coin flips tell you?</h2>
-  <p>One hundred flips is where probability starts to feel real. With just 10 flips, a 7-heads result seems surprising — but with 100 flips, the Law of Large Numbers kicks in and your results reliably converge toward 50/50. Mathematically, the standard deviation of a 100-flip run is exactly 5, which means roughly two-thirds of all runs will land between 45 and 55 heads. Running this tool a few times lets you observe this distribution firsthand. If you pool 30 students' results in a classroom, the combined percentage will be remarkably close to 50% — a live demonstration of the central limit theorem without a single formula.</p>
+  <h2>How to run a raffle draw</h2>
+  <p>Enter the total number of tickets in your pool — typically the number of tickets sold or handed out. Then click Draw Winner. The tool picks one random number from 1 to your pool size and displays it prominently. Announce the winner and move on. For second and third prizes, click Draw Winner again.</p>
 
-  <h2>How to read the streak analysis</h2>
-  <p>After each run, the streak panel shows the longest consecutive heads run and the longest consecutive tails run. Most people expect long streaks to be rare — but in 100 fair flips, a streak of 7 or more appears in roughly 80% of all runs. A streak of 6 appears in about 96% of runs. Our brains are wired to see patterns in randomness and flag them as suspicious, but long streaks are a mathematical certainty in large enough samples. The streak note tells you whether your run's longest streak is typical or on the shorter side, so you can calibrate your intuition.</p>
+  <h2>No-repeat mode for multi-prize raffles</h2>
+  <p>Enable No-repeat mode before starting a multi-prize draw. Each winning ticket is removed from the pool after being drawn, so the same number can never win twice. The progress bar shows remaining tickets and a log records every winner in sequence. Reset the pool to start fresh with all tickets back in play.</p>
 
-  <h2>Expected deviation: how far off 50/50 is normal?</h2>
-  <p>With 100 flips, the expected deviation from 50 heads follows a binomial distribution with standard deviation σ = √(100 × 0.5 × 0.5) = 5. That means: getting 45–55 heads is within 1 standard deviation (68% of runs), getting 40–60 heads is within 2 standard deviations (95% of runs), and getting outside 40–60 heads — say, 37 heads or 64 heads — happens only about 5% of the time and would be considered statistically notable. The summary line after each run tells you whether your result was "very close," "within normal range," or a "notable deviation."</p>
+  <h2>Is this fair for a real raffle?</h2>
+  <p>Yes. The tool uses JavaScript's built-in Math.random() seeded by the browser's cryptographic entropy source, which produces a statistically uniform distribution. Every ticket number has exactly the same probability of being drawn. For typical fundraisers, charity events, and office raffles this is a perfectly fair and verifiable method. If the stakes are very high, print the winning number and keep a screenshot as a record.</p>
 
-  <h2>Classroom uses</h2>
-  <p>Statistics teachers use this tool for several core lessons. For a Law of Large Numbers demo, have each student run 3–5 trials and record their heads counts — then aggregate the class totals and watch the percentage converge toward 50. For a Gambler's Fallacy lesson, have students predict the next flip after a long streak, then reveal that each flip is always exactly 50/50 regardless of history. For a standard deviation lesson, collect all students' heads counts and plot them — you'll get a nearly perfect bell curve centered on 50 with spread of about 5, without any simulation software required.</p>
+  <h2>Tips for a smooth draw event</h2>
+  <p>Display this page on a shared screen so your audience can see the draw happen in real time. Before drawing, set the pool size to match the exact number of tickets distributed. If you sold 150 tickets, set the pool to 150. Ticket #1 through #150 are all equally likely. You can pause between draws and the log keeps track of all previous winners automatically.</p>
 </div>
   <div class="divider"></div>
 
@@ -459,28 +631,23 @@
   <h2 class="faq-title">Frequently asked questions</h2>
 
   <details class="faq-item">
-    <summary class="faq-q">How close to 50/50 should 100 coin flips be?</summary>
-    <div class="faq-a">With 100 fair coin flips, the standard deviation is about 5. Getting between 45 and 55 heads is the "normal" range — roughly 68% of all 100-flip runs land there. Getting exactly 50 heads happens about 8% of the time. Results outside the 40–60 range occur about 5% of the time and are statistically notable but not impossible.</div>
+    <summary class="faq-q">How does the raffle number generator work?</summary>
+    <div class="faq-a">Enter the number of tickets in your pool, then click Draw. The tool picks one random number from 1 to your pool size. Enable No-repeat mode to automatically remove each drawn number so the same ticket can't win twice.</div>
   </details>
 
   <details class="faq-item">
-    <summary class="faq-q">What is the longest streak you can expect in 100 flips?</summary>
-    <div class="faq-a">In 100 fair coin flips, a streak of 7 or more (all heads or all tails) is expected roughly 80% of the time. A streak of 6 appears in about 96% of runs. This surprises most people — our brains tend to see long streaks as suspicious, but they are completely normal in random sequences of this length.</div>
+    <summary class="faq-q">Can I draw multiple winners without repeats?</summary>
+    <div class="faq-a">Yes. Enable No-repeat mode before drawing. Each drawn number is removed from the pool permanently, so subsequent draws always pick from the remaining tickets. The pool counter shows how many tickets remain. Reset the pool at any time to start over.</div>
   </details>
 
   <details class="faq-item">
-    <summary class="faq-q">What does the Law of Large Numbers mean for coin flips?</summary>
-    <div class="faq-a">The Law of Large Numbers states that as you increase the number of trials, the observed proportion converges toward the true probability. With 10 flips you might see 30% heads; with 100 flips you're much more likely to be near 50%; with 10,000 flips you'll be very close to exactly 50%. This tool's session stats panel shows cumulative results across runs, letting you watch convergence in real time.</div>
+    <summary class="faq-q">What pool size can I use?</summary>
+    <div class="faq-a">Any size from 2 to 10,000 tickets. Enter the total number of tickets sold or assigned in your raffle and the tool will draw from that exact range (1 to N).</div>
   </details>
 
   <details class="faq-item">
-    <summary class="faq-q">Is this coin flip truly random?</summary>
-    <div class="faq-a">This tool uses JavaScript's Math.random(), which is a pseudo-random number generator seeded by your browser's entropy source. It is not cryptographically secure, but it is more than sufficient for probability demonstrations, statistics homework, and classroom exercises. Each flip is an independent 50/50 event with no memory of previous results.</div>
-  </details>
-
-  <details class="faq-item">
-    <summary class="faq-q">How do I flip a coin fewer times?</summary>
-    <div class="faq-a">For 10 flips at once with a coin-by-coin grid, try our <a href="/flip-a-coin-10-times/">Flip a Coin 10 Times</a> tool. For a single interactive flip with running history and stats, use the <a href="/coin-flip/">Coin Flip</a> tool. All tools are free and require no sign-up.</div>
+    <summary class="faq-q">Is this fair for a real raffle?</summary>
+    <div class="faq-a">Yes. The tool uses JavaScript's Math.random() seeded by the browser's cryptographic entropy source, producing a uniformly distributed result. Every ticket number has an equal probability. For typical fundraisers and office raffles this is perfectly fair.</div>
   </details>
 </div>
   <div class="divider"></div>
@@ -488,10 +655,10 @@
 <div>
   <h2 class="section-title" style="margin-bottom:14px">Who uses this tool</h2>
   <div class="uc-grid">
-    <div class="uc"><div class="uc-title">Statistics students</div><div class="uc-body">See the Law of Large Numbers in action — run multiple trials and watch the cumulative heads percentage converge toward 50% as your sample size grows.</div></div>
-    <div class="uc"><div class="uc-title">Teachers</div><div class="uc-body">Quick classroom probability demo that needs no install and works on a projector. Pool student results in a shared spreadsheet to build a live bell curve in minutes.</div></div>
-    <div class="uc"><div class="uc-title">Researchers</div><div class="uc-body">Fast random sampling baseline for checking intuition about binary distributions before running more complex simulations or analyses.</div></div>
-    <div class="uc"><div class="uc-title">Curious minds</div><div class="uc-body">Settle the question of how fair a coin really is — and find out whether a streak of 8 in a row is genuinely rare or just Tuesday in probability land.</div></div>
+    <div class="uc"><div class="uc-title">Fundraiser organizers</div><div class="uc-body">Run a fair, transparent raffle draw on a shared screen. No-repeat mode ensures every winner is unique across multiple prizes.</div></div>
+    <div class="uc"><div class="uc-title">Office event coordinators</div><div class="uc-body">Draw door prizes at company events or holiday parties. Display the draw on a projector and log all winners automatically.</div></div>
+    <div class="uc"><div class="uc-title">Teachers</div><div class="uc-body">Assign random ticket numbers to students for fair selection — picking helpers, reading order, or prize giveaways without bias.</div></div>
+    <div class="uc"><div class="uc-title">Online community managers</div><div class="uc-body">Screenshot the draw for giveaways on social media or Discord to prove the winner was chosen fairly and at random.</div></div>
   </div>
 </div>
 </div>
@@ -567,167 +734,183 @@
 </script>
 
 <script>
-const WORDINEER_CF100 = (() => {
-  const FLIPS = 100;
+const WORDINEER_RAFFNG = (() => {
+  let winnerCount = 0;
+  let log = [];
+  let noRepeat = false;
+  let pool = [];
+  let poolTotal = 0;
+  let poolDrawn = 0;
 
-  let results = [];
-  let sessionHeads = 0;
-  let sessionTails = 0;
-  let sessionRuns = 0;
-
-  let gridEl, flipBtn, summaryEl, distEl, barH, barT, barHCount, barTCount;
-  let streaksEl, streakH, streakT, streakNote, actionsEl, copyBtn, sessionEl, sessionTextEl;
-  let headsCountEl, tailsCountEl;
-
-  function buildGrid() {
-    gridEl.innerHTML = '';
-    for (let i = 0; i < FLIPS; i++) {
-      const chip = document.createElement('div');
-      chip.className = 'cf100-chip pending';
-      chip.id = 'cf100-chip-' + i;
-      gridEl.appendChild(chip);
-    }
+  function getPoolSize() {
+    var raw = parseInt(document.getElementById('rng-pool-size').value, 10);
+    if (isNaN(raw) || raw < 2) raw = 2;
+    if (raw > 10000) raw = 10000;
+    return raw;
   }
 
-  function runFlips() {
-    results = [];
-    for (let i = 0; i < FLIPS; i++) {
-      results.push(Math.random() < 0.5 ? 'H' : 'T');
+  function shuffle(arr) {
+    for (var i = arr.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = arr[i]; arr[i] = arr[j]; arr[j] = tmp;
     }
-    renderResults();
+    return arr;
   }
 
-  function renderResults() {
-    const heads = results.filter(r => r === 'H').length;
-    const tails = FLIPS - heads;
+  function buildPool() {
+    var n = getPoolSize();
+    pool = [];
+    for (var i = 1; i <= n; i++) pool.push(i);
+    shuffle(pool);
+    poolTotal = n;
+    poolDrawn = 0;
+    updatePoolStatus();
+  }
 
-    // Update grid chips
-    results.forEach((r, i) => {
-      const chip = document.getElementById('cf100-chip-' + i);
-      chip.className = 'cf100-chip ' + (r === 'H' ? 'heads' : 'tails');
-      chip.textContent = r;
-    });
+  function draw() {
+    if (noRepeat && pool.length === 0) {
+      showToast('All ' + poolTotal + ' tickets drawn!');
+      return;
+    }
 
-    // Tally counts
-    headsCountEl.textContent = heads;
-    tailsCountEl.textContent = tails;
-
-    // Distribution bar
-    distEl.style.display = '';
-    barH.style.width = heads + '%';
-    barT.style.width = tails + '%';
-    barHCount.textContent = heads;
-    barTCount.textContent = tails;
-
-    // Summary
-    const pct = heads;
-    const deviation = Math.abs(heads - 50);
-    let deviationNote = '';
-    if (deviation <= 5) deviationNote = 'Very close to 50/50!';
-    else if (deviation <= 10) deviationNote = 'Within normal range.';
-    else deviationNote = 'Notable deviation — try again!';
-    summaryEl.textContent = heads + ' heads, ' + tails + ' tails (' + pct + '% heads) · ' + deviationNote;
-
-    // Streaks
-    const { maxH, maxT } = getStreaks(results);
-    streakH.textContent = maxH;
-    streakT.textContent = maxT;
-    if (maxH >= 7 || maxT >= 7) {
-      streakNote.textContent = 'A streak of 7+ is expected in ~80% of 100-flip runs — perfectly normal!';
+    var n;
+    if (noRepeat) {
+      n = pool.pop();
+      poolDrawn++;
+      updatePoolStatus();
     } else {
-      streakNote.textContent = 'A streak of 7+ is expected in ~80% of 100-flip runs. You got shorter streaks this time.';
+      var size = getPoolSize();
+      n = Math.floor(Math.random() * size) + 1;
     }
-    streaksEl.classList.add('is-visible');
 
-    // Actions
-    actionsEl.style.display = '';
+    winnerCount++;
+    log.unshift({ n: n, prize: winnerCount });
+    if (log.length > 20) log.length = 20;
 
-    // Session
-    sessionHeads += heads;
-    sessionTails += tails;
-    sessionRuns++;
-    if (sessionRuns >= 2) {
-      const total = sessionHeads + sessionTails;
-      const sessionPct = Math.round((sessionHeads / total) * 100);
-      sessionTextEl.textContent = sessionRuns + ' runs · ' + sessionHeads + ' heads / ' + sessionTails + ' tails (' + sessionPct + '% heads across ' + total + ' flips)';
-      sessionEl.classList.add('is-visible');
+    animateWinner(n, winnerCount);
+    updateLog();
+
+    if (noRepeat && pool.length === 0) {
+      document.getElementById('rng-draw-btn').disabled = true;
+      showToast('All tickets drawn!');
     }
   }
 
-  function getStreaks(arr) {
-    let maxH = 0, maxT = 0, curH = 0, curT = 0;
-    arr.forEach(r => {
-      if (r === 'H') { curH++; maxH = Math.max(maxH, curH); curT = 0; }
-      else { curT++; maxT = Math.max(maxT, curT); curH = 0; }
+  function animateWinner(n, prize) {
+    var winnerEl = document.getElementById('rng-winner');
+    var labelEl  = document.getElementById('rng-winner-label');
+    var badgeEl  = document.getElementById('rng-prize-badge');
+
+    winnerEl.classList.add('is-animating');
+    setTimeout(function() {
+      winnerEl.textContent = n;
+      winnerEl.classList.remove('is-animating');
+      labelEl.style.visibility = 'visible';
+      if (prize > 1) {
+        badgeEl.textContent = ordinal(prize) + ' prize';
+        badgeEl.classList.add('is-visible');
+      } else {
+        badgeEl.classList.remove('is-visible');
+      }
+    }, 80);
+  }
+
+  function ordinal(n) {
+    var s = ['th','st','nd','rd'];
+    var v = n % 100;
+    return n + (s[(v-20) % 10] || s[v] || s[0]);
+  }
+
+  function updateLog() {
+    var wrap = document.getElementById('rng-log-wrap');
+    var logEl = document.getElementById('rng-log');
+    if (log.length === 0) { wrap.classList.remove('is-visible'); return; }
+    wrap.classList.add('is-visible');
+    logEl.innerHTML = '';
+    log.forEach(function(entry, i) {
+      var chip = document.createElement('span');
+      chip.className = 'rng-log-chip' + (i === 0 ? ' newest' : '');
+      chip.textContent = '#' + entry.n;
+      logEl.appendChild(chip);
     });
-    return { maxH, maxT };
   }
 
-  function copyStats() {
-    const heads = results.filter(r => r === 'H').length;
-    const tails = FLIPS - heads;
-    const { maxH, maxT } = getStreaks(results);
-    const text = '100 flips: ' + heads + ' heads / ' + tails + ' tails (' + heads + '%) · Longest heads streak: ' + maxH + ' · Longest tails streak: ' + maxT;
-    navigator.clipboard && navigator.clipboard.writeText(text);
-    const orig = copyBtn.innerHTML;
-    copyBtn.innerHTML = '<svg viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5 6.5-6.5" stroke="#1D9E75" stroke-width="1.3" stroke-linecap="round"/></svg> Copied!';
-    setTimeout(() => { copyBtn.innerHTML = orig; }, 1200);
-    showToast('Copied!');
+  function updatePoolStatus() {
+    var statusEl = document.getElementById('rng-pool-status');
+    if (!noRepeat) { statusEl.classList.remove('is-visible'); return; }
+    statusEl.classList.add('is-visible');
+    document.getElementById('rng-pool-remaining').textContent = pool.length + ' tickets remaining';
+    document.getElementById('rng-pool-fraction').textContent = poolDrawn + ' / ' + poolTotal + ' drawn';
+    var pct = poolTotal > 0 ? (poolDrawn / poolTotal) * 100 : 0;
+    document.getElementById('rng-pool-bar').style.width = pct + '%';
+  }
+
+  function resetPool() {
+    winnerCount = 0;
+    log = [];
+    buildPool();
+    document.getElementById('rng-draw-btn').disabled = false;
+    document.getElementById('rng-winner').textContent = '–';
+    document.getElementById('rng-winner-label').style.visibility = 'hidden';
+    document.getElementById('rng-prize-badge').classList.remove('is-visible');
+    document.getElementById('rng-log-wrap').classList.remove('is-visible');
+    document.getElementById('rng-log').innerHTML = '';
+    showToast('Pool reset!');
+  }
+
+  function onNoRepeatChange() {
+    noRepeat = document.getElementById('rng-norepeat').checked;
+    if (noRepeat) {
+      buildPool();
+    } else {
+      document.getElementById('rng-pool-status').classList.remove('is-visible');
+      winnerCount = 0;
+      log = [];
+      document.getElementById('rng-winner').textContent = '–';
+      document.getElementById('rng-winner-label').style.visibility = 'hidden';
+      document.getElementById('rng-prize-badge').classList.remove('is-visible');
+      document.getElementById('rng-log-wrap').classList.remove('is-visible');
+      document.getElementById('rng-log').innerHTML = '';
+      document.getElementById('rng-draw-btn').disabled = false;
+    }
   }
 
   function showToast(msg) {
-    const t = document.getElementById('toast');
+    var t = document.getElementById('toast');
     if (!t) return;
     t.textContent = msg;
     t.classList.add('show');
-    setTimeout(() => { t.classList.remove('show'); }, 2000);
+    setTimeout(function() { t.classList.remove('show'); }, 2000);
   }
 
   function init() {
-    gridEl        = document.getElementById('cf100-grid');
-    flipBtn       = document.getElementById('cf100-flip-btn');
-    summaryEl     = document.getElementById('cf100-summary');
-    distEl        = document.getElementById('cf100-dist');
-    barH          = document.getElementById('cf100-bar-h');
-    barT          = document.getElementById('cf100-bar-t');
-    barHCount     = document.getElementById('cf100-bar-h-count');
-    barTCount     = document.getElementById('cf100-bar-t-count');
-    streaksEl     = document.getElementById('cf100-streaks');
-    streakH       = document.getElementById('cf100-streak-h');
-    streakT       = document.getElementById('cf100-streak-t');
-    streakNote    = document.getElementById('cf100-streak-note');
-    actionsEl     = document.getElementById('cf100-actions');
-    copyBtn       = document.getElementById('cf100-copy-btn');
-    sessionEl     = document.getElementById('cf100-session');
-    sessionTextEl = document.getElementById('cf100-session-text');
-    headsCountEl  = document.getElementById('cf100-heads-count');
-    tailsCountEl  = document.getElementById('cf100-tails-count');
-
-    buildGrid();
-
-    flipBtn.addEventListener('click', runFlips);
-    copyBtn.addEventListener('click', copyStats);
-
-    document.addEventListener('keydown', e => {
-      if (['INPUT','SELECT','TEXTAREA','BUTTON'].includes(e.target.tagName)) return;
-      if (e.code === 'Space' || e.code === 'Enter') { e.preventDefault(); runFlips(); }
+    document.getElementById('rng-draw-btn').addEventListener('click', draw);
+    document.getElementById('rng-norepeat').addEventListener('change', onNoRepeatChange);
+    document.getElementById('rng-pool-reset-btn').addEventListener('click', resetPool);
+    document.getElementById('rng-pool-size').addEventListener('change', function() {
+      if (noRepeat) buildPool();
     });
 
-    document.querySelectorAll('.faq-item summary').forEach(s => {
-      s.addEventListener('click', e => {
+    document.addEventListener('keydown', function(e) {
+      if (['INPUT','SELECT','TEXTAREA','BUTTON'].includes(e.target.tagName)) return;
+      if (e.code === 'Space' || e.code === 'Enter') { e.preventDefault(); draw(); }
+    });
+
+    document.querySelectorAll('.faq-item summary').forEach(function(s) {
+      s.addEventListener('click', function(e) {
         e.preventDefault();
-        const item = s.closest('.faq-item');
-        const wasOpen = item.hasAttribute('open');
-        document.querySelectorAll('.faq-item[open]').forEach(i => i.removeAttribute('open'));
+        var item = s.closest('.faq-item');
+        var wasOpen = item.hasAttribute('open');
+        document.querySelectorAll('.faq-item[open]').forEach(function(i) { i.removeAttribute('open'); });
         if (!wasOpen) item.setAttribute('open', '');
       });
     });
   }
 
-  return { init };
+  return { init: init };
 })();
 
-document.addEventListener('DOMContentLoaded', WORDINEER_CF100.init);
+document.addEventListener('DOMContentLoaded', WORDINEER_RAFFNG.init);
 </script>
 </body>
 </html>
