@@ -73,6 +73,77 @@ def copy_redirects():
     shutil.copy2(src, os.path.join(OUT_DIR, '_redirects'))
     print('  copied → _redirects into output/')
 
+
+def build_sitemap(data):
+    """Generate sitemap.xml from tools.json live entries and write to output/ and wordineer-deploy/."""
+    today = datetime.now(timezone.utc).strftime('%Y-%m-%d')
+
+    seen = set()
+    entries = []
+
+    def add(href, priority, changefreq):
+        if not href or href in seen:
+            return
+        seen.add(href)
+        loc = 'https://wordineer.com/' if href == '/' else 'https://wordineer.com' + href.rstrip('/') + '/'
+        entries.append((loc, priority, changefreq))
+
+    add('/', 1.0, 'weekly')
+
+    for cat in data.get('mega', []):
+        add(cat.get('view_all_href', ''), 0.8, 'weekly')
+        for tool in cat.get('tools', []):
+            if tool.get('status') in ('planned', 'standby', 'coming_soon'):
+                continue
+            add(tool.get('href', ''), 0.7, 'weekly')
+
+    for tool in data.get('more_word_tools', []):
+        if tool.get('status') in ('planned', 'standby', 'coming_soon'):
+            continue
+        add(tool.get('href', ''), 0.7, 'weekly')
+
+    for tool in data.get('more_name_tools', []):
+        if tool.get('status') in ('planned', 'standby', 'coming_soon'):
+            continue
+        add(tool.get('href', ''), 0.7, 'weekly')
+
+    for tool in data.get('other_tools', []):
+        if tool.get('status') in ('planned', 'standby', 'coming_soon'):
+            continue
+        add(tool.get('href', ''), 0.6, 'monthly')
+
+    for col in data.get('footer_cols', []):
+        for tool in col.get('links', []):
+            if tool.get('status') in ('planned', 'standby', 'coming_soon'):
+                continue
+            add(tool.get('href', ''), 0.5, 'monthly')
+
+    lines = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    ]
+    for loc, priority, changefreq in entries:
+        lines += [
+            '  <url>',
+            f'    <loc>{loc}</loc>',
+            f'    <lastmod>{today}</lastmod>',
+            f'    <changefreq>{changefreq}</changefreq>',
+            f'    <priority>{priority:.1f}</priority>',
+            '  </url>',
+        ]
+    lines.append('</urlset>')
+    xml = '\n'.join(lines)
+
+    out_path = os.path.join(OUT_DIR, 'sitemap.xml')
+    write(out_path, xml)
+
+    deploy_path = os.path.join(ROOT, '..', 'wordineer-deploy', 'sitemap.xml')
+    if os.path.isdir(os.path.dirname(deploy_path)):
+        write(deploy_path, xml)
+        print(f'  sitemap.xml → {len(entries)} URLs (output/ + wordineer-deploy/)')
+    else:
+        print(f'  sitemap.xml → {len(entries)} URLs (output/ only)')
+
 def slot(src, name):
     """Pull the content between <!-- SLOT:name --> and <!-- /SLOT:name -->."""
     m = re.search(
@@ -399,6 +470,7 @@ def main():
     copy_data_assets()
     copy_script_assets()
     copy_redirects()
+    build_sitemap(data)
 
     print(f'\nDone! Output is in:  {OUT_DIR}/')
     print('Deploy: cp output/*.html output/_redirects ../wordineer-deploy/')
