@@ -1,15 +1,11 @@
 # robots.txt — Wordineer
 # https://wordineer.com/robots.txt
-# Updated: 2026-04-25
+# Updated: 2026-07-14
 
-# ── All crawlers ────────────────────────────────────────────
 User-agent: *
 Allow: /
 
-# Block utility/private paths (add more as needed)
+# Block Cloudflare internal paths only
 Disallow: /cdn-cgi/
-Disallow: /scripts/
-Disallow: /styles/
 
-# ── Sitemap ─────────────────────────────────────────────────
 Sitemap: https://wordineer.com/sitemap.xml
