@@ -97,7 +97,7 @@ def chart_guess_distribution():
 
     for oi, (opener, color) in enumerate(zip(openers, bar_colors)):
         dist = data[opener]["distribution"]
-        counts = [dist.get(g, 0) for g in guess_counts]
+        counts = [dist.get(str(g), 0) for g in guess_counts]
         offset = (oi - len(openers) / 2 + 0.5) * width
         bars = ax.bar([xi + offset for xi in x], counts, width=width * 0.85,
                       color=color, label=opener, zorder=3, alpha=0.9)
