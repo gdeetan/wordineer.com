@@ -1,0 +1,364 @@
+<!-- CONFIG
+{
+  "url": "/female-username-generator/",
+  "output": "female-username-generator.html",
+  "type": "tool",
+  "more_tools_key": "more_account_tools",
+  "more_tools_title": "More account tools",
+  "more_tools_subtitle": "Password generators, passphrase tools, username generators — all free"
+}
+-->
+
+<!-- SLOT:meta -->
+<title>Female Username Generator — Handles with a Feminine Identity | Wordineer</title>
+<meta name="description" content="Generate female usernames across any platform or tone. Elegant, creative, aesthetic, playful, or professional — feminine identity in a handle, no sign-up required.">
+<link rel="canonical" href="https://wordineer.com/female-username-generator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wordineer">
+<meta property="og:title" content="Female Username Generator — Handles with a Feminine Identity | Wordineer">
+<meta property="og:description" content="Generate female-leaning usernames across five tones: elegant, creative, aesthetic, playful, and professional. 12 results, copy and save favorites.">
+<meta property="og:url" content="https://wordineer.com/female-username-generator/">
+<meta property="og:image" content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "What is the difference between this and the girl username generator?", "acceptedAnswer": { "@type": "Answer", "text": "The female username generator covers a broader range of tones — from professional and elegant through to playful. It includes vocabulary that works for adult professional identities, creative careers, and mature aesthetics, not just youthful or cute styles. The girl generator focuses more on playful, cute, and aesthetic vibes specifically. Both generators produce feminine-leaning handles; they differ in the register and vocabulary of their word pools." } },
+    { "@type": "Question", "name": "What format works best for professional female usernames?", "acceptedAnswer": { "@type": "Answer", "text": "For professional contexts, lowercase or CamelCase without separators tends to look cleanest. Dots (first.last style) read as email-adjacent, which can work for professional-tone handles on platforms like LinkedIn or GitHub. Avoid underscores in professional contexts — they look more casual and gaming-adjacent." } },
+    { "@type": "Question", "name": "Can I use these for a professional social media account?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The Professional and Elegant tones are specifically designed for handles that look appropriate on LinkedIn, a personal website, or a professional Instagram or Twitter account. The word pools draw from names and vocabulary that signal competence and sophistication rather than personality-first identity." } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Female Username Generator",
+  "url": "https://wordineer.com/female-username-generator/",
+  "description": "Generate female-leaning usernames across five tones: elegant, creative, aesthetic, playful, professional. 12 results, favorites tray.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@id": "https://wordineer.com/#organization" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Account Tools", "item": "https://wordineer.com/account-tools/" },
+    { "@type": "ListItem", "position": 3, "name": "Female Username Generator", "item": "https://wordineer.com/female-username-generator/" }
+  ]
+}
+</script>
+<!-- /SLOT:meta -->
+
+<!-- SLOT:style -->
+<style>
+.tool-wrap { max-width:960px; margin:0 auto; padding:24px 24px 0; }
+.tool-card  { border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg); box-shadow:var(--shadow); }
+.tool-split { display:flex; }
+.ctrl       { width:220px; flex-shrink:0; padding:18px; border-right:1px solid var(--border-2); background:var(--bg-2); }
+.ctrl-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; display:block; margin-bottom:8px; }
+.ctrl-row   { margin-bottom:16px; }
+.style-btns { display:flex; flex-wrap:wrap; gap:5px; }
+.style-btn  { font-size:11px; font-weight:600; padding:5px 10px; border:1px solid var(--border); border-radius:20px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:all .15s; }
+.style-btn.active { background:var(--brand); color:white; border-color:var(--brand); }
+.style-btn:hover:not(.active) { background:var(--bg-3); }
+.seed-input { width:100%; padding:7px 10px; border:1px solid var(--border); border-radius:6px; font-size:13px; font-family:inherit; background:var(--bg); color:var(--text); outline:none; box-sizing:border-box; }
+.seed-input:focus { border-color:var(--brand); }
+.seed-hint  { font-size:10px; color:var(--text-3); margin-top:4px; }
+.fmt-btns   { display:flex; gap:4px; flex-wrap:wrap; }
+.fmt-btn    { font-size:10px; font-weight:600; padding:4px 7px; border:1px solid var(--border); border-radius:5px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:all .15s; }
+.fmt-btn.active { background:var(--brand); color:white; border-color:var(--brand); }
+.gen-btn    { width:100%; padding:10px 14px; background:var(--brand); color:white; border:none; border-radius:8px; font-size:14px; font-weight:600; font-family:inherit; cursor:pointer; transition:background .15s,transform .1s; }
+.gen-btn:hover { background:var(--brand-dark); }
+.gen-btn:active { transform:scale(.98); }
+.kbd        { text-align:center; font-size:10px; color:var(--text-3); margin-top:6px; }
+.kbd kbd    { background:var(--bg-3); border:1px solid var(--border); border-radius:3px; padding:1px 5px; font-size:10px; font-family:inherit; }
+.words-panel { flex:1; display:flex; flex-direction:column; overflow:hidden; min-height:360px; }
+.panel-top  { display:flex; align-items:center; justify-content:space-between; padding:10px 16px; border-bottom:1px solid var(--border-2); }
+.panel-label { font-size:12px; color:var(--text-3); font-weight:600; }
+.act-btn    { font-size:12px; padding:5px 11px; border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:background .12s; }
+.act-btn:hover { background:var(--bg-2); }
+.un-grid    { display:grid; grid-template-columns:1fr 1fr; gap:0; flex:1; }
+.un-item    { display:flex; align-items:center; justify-content:space-between; padding:9px 14px; border-bottom:1px solid var(--border-2); border-right:1px solid var(--border-2); gap:6px; animation:fadeIn .2s ease; }
+.un-item:nth-child(even) { border-right:none; }
+.un-item:nth-last-child(-n+2) { border-bottom:none; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(3px)} to{opacity:1;transform:none} }
+.un-name    { font-size:13px; font-weight:600; color:var(--text); flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.un-actions { display:flex; gap:4px; flex-shrink:0; }
+.un-copy    { font-size:11px; padding:3px 8px; border:1px solid var(--border); border-radius:5px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:background .12s; }
+.un-copy:hover { background:var(--bg-2); }
+.un-heart   { font-size:13px; padding:3px 6px; border:none; border-radius:5px; background:transparent; color:var(--text-3); cursor:pointer; transition:all .12s; }
+.un-heart:hover { color:#e55; }
+.un-heart.saved { color:#e55; }
+.fav-tray   { border-top:1px solid var(--border-2); padding:10px 14px; background:var(--bg-2); min-height:44px; }
+.fav-label  { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; margin-bottom:6px; }
+.fav-list   { display:flex; flex-wrap:wrap; gap:5px; }
+.fav-chip   { font-size:12px; font-weight:600; padding:3px 10px; background:var(--bg); border:1px solid var(--border); border-radius:20px; color:var(--text); display:flex; align-items:center; gap:5px; }
+.fav-chip-x { cursor:pointer; color:var(--text-3); font-size:11px; }
+.fav-empty  { font-size:12px; color:var(--text-3); font-style:italic; }
+.platform-strip { border-top:1px solid var(--border-2); padding:10px 14px; }
+.strip-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; margin-bottom:7px; }
+.strip-items { display:flex; flex-wrap:wrap; gap:8px; }
+.strip-item { font-size:11px; color:var(--text-2); background:var(--bg-2); border:1px solid var(--border-2); border-radius:5px; padding:3px 8px; font-family:monospace; }
+.strip-item b { color:var(--text); }
+.un-toast   { position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(10px); background:#1a1a1a; color:white; font-size:13px; font-weight:600; padding:10px 18px; border-radius:8px; opacity:0; transition:opacity .2s,transform .2s; pointer-events:none; z-index:999; }
+.un-toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+@media (max-width:640px) {
+  .tool-split { flex-direction:column; }
+  .ctrl { width:auto; border-right:none; border-bottom:1px solid var(--border-2); }
+  .un-grid { grid-template-columns:1fr; }
+  .un-item:nth-child(even) { border-right:none; }
+  .un-item:nth-last-child(-n+2) { border-bottom:1px solid var(--border-2); }
+  .un-item:last-child { border-bottom:none; }
+}
+</style>
+<!-- /SLOT:style -->
+
+<!-- SLOT:hero -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/account-tools/">Account Tools</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Female Username Generator</span>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free · No sign-up · Instant
+  </div>
+  <h1>Female Username Generator</h1>
+  <p>Generate feminine-leaning handles across five distinct tones — from elegant and professional to creative, aesthetic, and playful. For a more playful vibe, try our <a href="/girl-username-generator/">Girl Username Generator</a> instead.</p>
+</div>
+<!-- /SLOT:hero -->
+
+<!-- SLOT:tool -->
+<div class="tool-wrap">
+  <div class="tool-card">
+    <div class="tool-split">
+      <div class="ctrl">
+        <div class="ctrl-row">
+          <span class="ctrl-label">Tone</span>
+          <div class="style-btns" id="un-styles">
+            <button class="style-btn active" data-style="elegant">Elegant</button>
+            <button class="style-btn" data-style="creative">Creative</button>
+            <button class="style-btn" data-style="aesthetic">Aesthetic</button>
+            <button class="style-btn" data-style="playful">Playful</button>
+            <button class="style-btn" data-style="professional">Professional</button>
+          </div>
+        </div>
+        <div class="ctrl-row">
+          <label class="ctrl-label" for="un-seed">Seed word (optional)</label>
+          <input type="text" id="un-seed" class="seed-input" placeholder="e.g. rose, sage, luna" maxlength="20" autocomplete="off">
+          <p class="seed-hint">Guides the theme of generated names</p>
+        </div>
+        <div class="ctrl-row">
+          <span class="ctrl-label">Format</span>
+          <div class="fmt-btns" id="un-formats">
+            <button class="fmt-btn active" data-fmt="lower">lowercase</button>
+            <button class="fmt-btn" data-fmt="camel">CamelCase</button>
+            <button class="fmt-btn" data-fmt="dot">with.dots</button>
+          </div>
+        </div>
+        <button class="gen-btn" id="un-gen-btn">Generate usernames</button>
+        <p class="kbd">Press <kbd>Enter</kbd> or <kbd>Space</kbd></p>
+      </div>
+      <div class="words-panel">
+        <div class="panel-top">
+          <span class="panel-label" id="un-style-label">Elegant tone</span>
+          <button class="act-btn" id="un-refresh-btn">↻ Refresh</button>
+        </div>
+        <div class="un-grid" id="un-grid" role="list" aria-label="Generated female usernames"></div>
+        <div class="fav-tray">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
+            <span class="fav-label">Saved favorites</span>
+            <button class="act-btn" id="un-copy-all-btn" style="display:none">Copy all</button>
+          </div>
+          <div class="fav-list" id="un-fav-list"><span class="fav-empty">Heart a name to save it here</span></div>
+        </div>
+        <div class="platform-strip">
+          <div class="strip-label">Platform preview</div>
+          <div class="strip-items" id="un-strip">
+            <span class="strip-item" id="strip-ig"><b>@</b>—</span>
+            <span class="strip-item" id="strip-rd"><b>u/</b>—</span>
+            <span class="strip-item" id="strip-dc">— <span style="color:var(--text-3);font-size:10px">(Discord)</span></span>
+            <span class="strip-item" id="strip-tt">— <span style="color:var(--text-3);font-size:10px">(TikTok)</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="un-toast" id="un-toast" role="status" aria-live="polite">Copied!</div>
+<!-- /SLOT:tool -->
+
+<!-- SLOT:ad_b --><!-- /SLOT:ad_b -->
+
+<!-- SLOT:init -->
+<script>
+(function () {
+  var POOLS = {
+    elegant:      { adj:['Grace','Poise','Serene','Ivory','Velvet','Pearl','Satin','Opale','Luminous','Refined','Gilded','Silken','Aureate','Lucent','Alabast','Pristine','Polished','Poised','Assured','Tranquil'], noun:['Rose','Lily','Dove','Swan','Pearl','Iris','Veil','Dusk','Lace','Mist','Tide','Glow','Luna','Aura','Haze','Form','Line','Arc','Note','Grace'] },
+    creative:     { adj:['Artist','Maker','Writer','Poet','Sketch','Render','Craft','Vision','Design','Concept','Draft','Study','Frame','Capture','Compose','Shape','Build','Weave','Draw','Paint'], noun:['Studio','Canvas','Palette','Mural','Lens','Note','Page','Stitch','Thread','Mosaic','Collage','Montage','Fresco','Etching','Linocut','Woodcut','Diptych','Triptych','Tableau','Relief'] },
+    aesthetic:    { adj:['Blossom','Willow','Sage','Lavender','Velvet','Linen','Ivory','Pearl','Rose','Clover','Fern','Moss','Dewdrop','Petal','Ribbon','Satin','Lace','Gossamer','Chiffon','Voile'], noun:['Glow','Haze','Mist','Dusk','Dawn','Light','Shade','Tone','Tint','Hue','Bloom','Drift','Wisp','Gleam','Shimmer','Flicker','Ember','Spark','Aura','Veil'] },
+    playful:      { adj:['Sparkle','Shimmer','Glitter','Twinkle','Bounce','Flutter','Dance','Whirl','Swirl','Bubble','Fizz','Pop','Zoom','Skip','Leap','Hop','Spin','Twirl','Dash','Zoom'], noun:['Star','Moon','Cloud','Sun','Rainbow','Comet','Sprinkle','Pebble','Button','Daisy','Maple','Ripple','Mochi','Boba','Berry','Cherry','Peach','Honey','Cookie','Candy'] },
+    professional: { adj:['Morgan','Riley','Casey','Avery','Blake','Quinn','Sage','Jordan','Taylor','Alex','Drew','Reese','Skyler','Devon','Elliot','Corey','Jamie','Rowan','Finley','Parker'], noun:['Works','Creates','Writes','Designs','Builds','Leads','Grows','Makes','Thinks','Solves','Plans','Drives','Shapes','Crafts','Codes','Runs','Edits','Manages','Advises','Consults'] }
+  };
+
+  var LABELS = { elegant:'Elegant tone', creative:'Creative tone', aesthetic:'Aesthetic tone', playful:'Playful tone', professional:'Professional tone' };
+  var BLOCK = ['kill','hate','nazi','rape','sex','porn','fuck','shit','bitch','bastard','cock','pussy','nigger','faggot'];
+
+  function isClean(s){ var l=s.toLowerCase(); return !BLOCK.some(function(b){return l.indexOf(b)!==-1;}); }
+  function cryptoPick(arr){ var b=new Uint8Array(1); crypto.getRandomValues(b); return arr[b[0]%arr.length]; }
+
+  function applyFmt(raw, fmt) {
+    var words = raw.split(/(?=[A-Z])/).filter(Boolean);
+    if (fmt==='lower') return words.join('').toLowerCase();
+    if (fmt==='dot')   return words.join('.').toLowerCase();
+    return words.map(function(w){return w.charAt(0).toUpperCase()+w.slice(1).toLowerCase();}).join('');
+  }
+
+  function seedFilter(pool, seed) {
+    if (!seed) return pool;
+    var s=seed.toLowerCase().slice(0,3);
+    var m=pool.filter(function(w){return w.toLowerCase().startsWith(s);});
+    return m.length>=3?m:pool;
+  }
+
+  var favorites=[];
+  function escH(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+  function showToast(m){var t=document.getElementById('un-toast'); t.textContent=m||'Copied!'; t.classList.add('show'); setTimeout(function(){t.classList.remove('show');},1800);}
+  function copyText(tx){if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(tx).then(function(){showToast();}).catch(function(){fb(tx);showToast();});}else{fb(tx);showToast();}}
+  function fb(tx){var ta=document.createElement('textarea'); ta.value=tx; ta.style.cssText='position:fixed;opacity:0;pointer-events:none'; document.body.appendChild(ta); ta.focus(); ta.select(); try{document.execCommand('copy');}catch(e){} document.body.removeChild(ta);}
+
+  function updateStrip(name){
+    var s=escH(name||'—');
+    document.getElementById('strip-ig').innerHTML='<b>@</b>'+s;
+    document.getElementById('strip-rd').innerHTML='<b>u/</b>'+s;
+    document.getElementById('strip-dc').innerHTML=s+' <span style="color:var(--text-3);font-size:10px">(Discord)</span>';
+    document.getElementById('strip-tt').innerHTML=s+' <span style="color:var(--text-3);font-size:10px">(TikTok)</span>';
+  }
+
+  function renderFavorites(){
+    var list=document.getElementById('un-fav-list'); var btn=document.getElementById('un-copy-all-btn');
+    if(!favorites.length){list.innerHTML='<span class="fav-empty">Heart a name to save it here</span>'; btn.style.display='none'; return;}
+    btn.style.display='';
+    list.innerHTML=favorites.map(function(n){return '<span class="fav-chip">'+escH(n)+'<span class="fav-chip-x" data-fav="'+escH(n)+'">×</span></span>';}).join('');
+  }
+
+  function renderGrid(names){
+    var grid=document.getElementById('un-grid');
+    if(!names.length){grid.innerHTML='<div style="padding:20px;color:var(--text-3);font-size:13px;grid-column:1/-1">No names matched — try a different tone or seed.</div>'; return;}
+    grid.innerHTML=names.map(function(n){
+      var saved=favorites.indexOf(n)!==-1;
+      return '<div class="un-item" role="listitem"><span class="un-name">'+escH(n)+'</span><div class="un-actions">'
+        +'<button class="un-heart'+(saved?' saved':'')+'" data-name="'+escH(n)+'">♥</button>'
+        +'<button class="un-copy" data-name="'+escH(n)+'">Copy</button></div></div>';
+    }).join('');
+    if(names[0]) updateStrip(names[0]);
+  }
+
+  function getStyle(){return (document.querySelector('.style-btn.active')||{}).dataset.style||'elegant';}
+  function getFmt(){return (document.querySelector('.fmt-btn.active')||{}).dataset.fmt||'lower';}
+
+  function generate(){
+    var style=getStyle(); var seed=(document.getElementById('un-seed').value||'').trim(); var fmt=getFmt();
+    document.getElementById('un-style-label').textContent=LABELS[style]||'Custom tone';
+    var p=POOLS[style]; var adj=seedFilter(p.adj,seed); var noun=seedFilter(p.noun,seed);
+    var results=[]; var attempts=0;
+    while(results.length<12&&attempts<300){
+      attempts++;
+      var raw=cryptoPick(adj)+cryptoPick(noun);
+      var formatted=applyFmt(raw,fmt);
+      if(isClean(formatted)&&results.indexOf(formatted)===-1) results.push(formatted);
+    }
+    renderGrid(results);
+  }
+
+  document.addEventListener('DOMContentLoaded',function(){
+    document.getElementById('un-styles').addEventListener('click',function(e){
+      var b=e.target.closest('.style-btn'); if(!b) return;
+      document.querySelectorAll('.style-btn').forEach(function(x){x.classList.remove('active');}); b.classList.add('active'); generate();
+    });
+    document.getElementById('un-formats').addEventListener('click',function(e){
+      var b=e.target.closest('.fmt-btn'); if(!b) return;
+      document.querySelectorAll('.fmt-btn').forEach(function(x){x.classList.remove('active');}); b.classList.add('active'); generate();
+    });
+    document.getElementById('un-gen-btn').addEventListener('click',generate);
+    document.getElementById('un-refresh-btn').addEventListener('click',generate);
+    document.getElementById('un-grid').addEventListener('click',function(e){
+      var cp=e.target.closest('.un-copy'); if(cp){copyText(cp.dataset.name); return;}
+      var ht=e.target.closest('.un-heart'); if(ht){
+        var n=ht.dataset.name; var idx=favorites.indexOf(n);
+        if(idx===-1){favorites.push(n); ht.classList.add('saved');}else{favorites.splice(idx,1); ht.classList.remove('saved');}
+        renderFavorites(); updateStrip(n);
+      }
+    });
+    document.getElementById('un-fav-list').addEventListener('click',function(e){
+      var x=e.target.closest('.fav-chip-x'); if(!x) return;
+      favorites=favorites.filter(function(f){return f!==x.dataset.fav;}); renderFavorites();
+      var ht=document.querySelector('.un-heart[data-name="'+x.dataset.fav+'"]'); if(ht) ht.classList.remove('saved');
+    });
+    document.getElementById('un-copy-all-btn').addEventListener('click',function(){copyText(favorites.join('\n')); showToast('Copied '+favorites.length+' names!');});
+    document.getElementById('un-seed').addEventListener('input',function(){clearTimeout(this._t); this._t=setTimeout(generate,400);});
+    document.addEventListener('keydown',function(e){if(e.target!==document.body) return; if(e.key==='Enter'||e.key===' '){e.preventDefault(); generate();}});
+    generate();
+  });
+}());
+</script>
+<!-- /SLOT:init -->
+
+<!-- SLOT:explainer -->
+<div class="explainer">
+  <h2>Female Identity in Online Handles</h2>
+  <p>A handle communicates something about you before you say a word. For women and female-identifying people online, that communication often carries additional weight — names that read too young can undermine professional credibility, names that read too formal can feel distant in casual communities, and names that don't feel authentic to your identity create a constant low-level friction. This generator offers five distinct tones to match the context you're building a presence in.</p>
+
+  <h2>The Five Tones</h2>
+  <p><strong>Elegant</strong> — Refined vocabulary that signals taste and sophistication. Works well for lifestyle accounts, personal brand identities, and anywhere a polished impression matters. Words like GraceLumen, IvoryMist, SatinAura.</p>
+  <p><strong>Creative</strong> — Vocabulary drawn from art, design, writing, and making. Works for artists, designers, writers, photographers, and other creatives building a professional or semi-professional presence. Words like ArtistCanvas, VisionStudio, SketchMosaic.</p>
+  <p><strong>Aesthetic</strong> — Soft, visual vocabulary that signals aesthetic awareness without committing to a specific subculture. Works across Instagram, TikTok, and Pinterest communities. Words like BlossomGlow, WillowDrift, SageEmber.</p>
+  <p><strong>Playful</strong> — Light, fun vocabulary that signals personality and warmth. Works well for communities where relatability matters more than polish. Words like SparkleCloud, TwinkleMochi, BounceCherry.</p>
+  <p><strong>Professional</strong> — Gender-neutral first names paired with action words — the format that reads cleanly on LinkedIn, GitHub, professional Twitter, and industry communities. Words like MorganDesigns, AveryBuilds, SageLeads.</p>
+
+  <h2>Choosing Between Female and Girl Generators</h2>
+  <p>The <a href="/girl-username-generator/">Girl Username Generator</a> focuses on youthful, playful, and aesthetic tones specifically — it's ideal for social media, gaming communities, and anywhere personality-first identity works best. This generator covers a broader range, including professional and elegant registers that the girl generator doesn't address. If you're building a presence that might mix professional and personal contexts — a personal brand, a creator account you plan to grow, a portfolio identity — the female generator gives you more options across that spectrum.</p>
+</div>
+<!-- /SLOT:explainer -->
+
+<!-- SLOT:faq -->
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">What's the difference between this and the girl username generator?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">The female generator covers a broader range of tones — from professional and elegant through to playful. It includes vocabulary that works for adult professional identities, mature aesthetics, and creative careers. The girl generator focuses more on playful, cute, and aesthetic vibes specifically. Both produce feminine-leaning handles; they differ in register and vocabulary.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Which tone works for a professional account?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">The Professional and Elegant tones are best for professional contexts. Professional uses gender-neutral first names with action words (MorganDesigns, AveryBuilds) — the format that reads cleanly on LinkedIn and professional Twitter. Elegant uses refined vocabulary that signals taste without being too casual.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I use these handles across multiple platforms?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes — this generator doesn't enforce platform-specific constraints, so you can use the output anywhere. The platform preview strip shows how each generated name looks formatted for Instagram, Reddit, Discord, and TikTok. If you need a handle that fits Instagram's 30-char limit or TikTok's 24-char limit specifically, use the dedicated platform generators.</div>
+  </div>
+</div>
+<!-- /SLOT:faq -->
+
+<!-- SLOT:who -->
+<div>
+  <h2 class="section-title" style="margin-bottom:14px">Who uses a female username generator?</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">Professional women</div><div class="uc-body">Building a consistent personal brand identity across LinkedIn, GitHub, personal websites, and professional social accounts</div></div>
+    <div class="uc"><div class="uc-title">Creative professionals</div><div class="uc-body">Artists, designers, photographers, and writers who want a handle that signals their creative identity without being purely decorative</div></div>
+    <div class="uc"><div class="uc-title">Content creators</div><div class="uc-body">Female creators building an audience who want a name that can grow with them across aesthetic, lifestyle, and professional content</div></div>
+    <div class="uc"><div class="uc-title">Rebranders</div><div class="uc-body">Women who've outgrown a youthful handle and want something that reflects where they are now, not where they were five years ago</div></div>
+  </div>
+</div>
+<!-- /SLOT:who -->

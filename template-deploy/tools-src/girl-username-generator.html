@@ -1,0 +1,548 @@
+<!-- CONFIG
+{
+  "url": "/girl-username-generator/",
+  "output": "girl-username-generator.html",
+  "type": "tool",
+  "more_tools_key": "more_account_tools",
+  "more_tools_title": "More account tools",
+  "more_tools_subtitle": "Password generators, passphrase tools, username generators — all free"
+}
+-->
+
+<!-- SLOT:meta -->
+<title>Girl Username Generator — Feminine Handles for Every Platform | Wordineer</title>
+<meta name="description" content="Generate girl usernames with feminine-leaning wordlists. Aesthetic, cute, creative, sweet, and baddie sub-modes. Works across Instagram, TikTok, Discord, and more.">
+<link rel="canonical" href="https://wordineer.com/girl-username-generator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wordineer">
+<meta property="og:title" content="Girl Username Generator — Feminine Handles for Every Platform | Wordineer">
+<meta property="og:description" content="Generate girl usernames with feminine-leaning wordlists. Aesthetic, cute, creative, sweet, and baddie sub-modes. Works across Instagram, TikTok, Discord, and more.">
+<meta property="og:url" content="https://wordineer.com/girl-username-generator/">
+<meta property="og:image" content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How does the girl username generator work?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Choose a sub-mode — Aesthetic, Cute, Creative, Sweet, or Baddie — and the generator combines words from the curated feminine-leaning word pool for that mode. Apply your preferred format (lowercase, CamelCase, underscores, or dots), add a seed word to steer results, and generate 12 handle ideas instantly. Save favorites with the heart button and use the platform preview strip to see how each name looks on Instagram, TikTok, Discord, Reddit, and Gmail." }
+    },
+    {
+      "@type": "Question",
+      "name": "What do the five sub-modes mean?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Aesthetic uses soft, natural, textile vocabulary — blossom, willow, velvet, linen. Cute is playful and sweet — mochi, bunny, peach, bubblegum. Creative centers on identity roles — artist, dreamer, visionary, storyteller. Sweet uses light and warmth vocabulary — angel, shimmer, bliss, serenity. Baddie is confident and powerful — queen, icon, legend, apex, crown." }
+    },
+    {
+      "@type": "Question",
+      "name": "Will these usernames be available on Instagram or TikTok?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The tool cannot check live availability — that requires API access to each platform. Generate a shortlist of names you like, then check manually on each platform. Popular words like honey and rose tend to be taken in short combos on major platforms. Use the seed word feature or the longer length filter to find more specific combinations that are more likely to be available." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use these on platforms other than Instagram and TikTok?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. The platform preview strip shows how each name looks across Instagram, TikTok, Reddit, Discord, and Gmail. These handles are designed to work anywhere — the word pools contain standard English vocabulary with no special characters, so they comply with every major platform's rules." }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Girl Username Generator",
+  "url": "https://wordineer.com/girl-username-generator/",
+  "description": "Generate feminine-leaning usernames across Aesthetic, Cute, Creative, Sweet, and Baddie sub-modes. Seed word, format toggle, cross-platform preview.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@id": "https://wordineer.com/#organization" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Account Tools", "item": "https://wordineer.com/account-tools/" },
+    { "@type": "ListItem", "position": 3, "name": "Girl Username Generator", "item": "https://wordineer.com/girl-username-generator/" }
+  ]
+}
+</script>
+<!-- /SLOT:meta -->
+
+<!-- SLOT:style -->
+<style>
+.tool-wrap { max-width:960px; margin:0 auto; padding:24px 24px 0; }
+.tool-card  { border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg); box-shadow:var(--shadow); }
+.tool-split { display:flex; }
+
+.ctrl       { width:220px; flex-shrink:0; padding:18px; border-right:1px solid var(--border-2); background:var(--bg-2); }
+.ctrl-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; display:block; margin-bottom:8px; }
+.ctrl-row   { margin-bottom:16px; }
+
+.style-btns { display:flex; flex-wrap:wrap; gap:5px; }
+.style-btn  { font-size:11px; font-weight:600; padding:4px 9px; border:1px solid var(--border); border-radius:20px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:all .15s; }
+.style-btn.active { background:var(--brand); color:white; border-color:var(--brand); }
+.style-btn:hover:not(.active) { background:var(--bg-3); }
+
+.seed-input { width:100%; padding:7px 10px; border:1px solid var(--border); border-radius:6px; font-size:13px; font-family:inherit; background:var(--bg); color:var(--text); outline:none; box-sizing:border-box; }
+.seed-input:focus { border-color:var(--brand); }
+.seed-hint  { font-size:10px; color:var(--text-3); margin-top:4px; }
+
+.len-btns   { display:flex; gap:5px; }
+.len-btn    { flex:1; font-size:11px; font-weight:600; padding:5px 4px; border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; text-align:center; transition:all .15s; }
+.len-btn.active { background:var(--brand); color:white; border-color:var(--brand); }
+
+.fmt-btns   { display:flex; gap:4px; flex-wrap:wrap; }
+.fmt-btn    { font-size:10px; font-weight:600; padding:4px 7px; border:1px solid var(--border); border-radius:5px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:all .15s; }
+.fmt-btn.active { background:var(--brand); color:white; border-color:var(--brand); }
+
+.gen-btn    { width:100%; padding:10px 14px; background:var(--brand); color:white; border:none; border-radius:8px; font-size:14px; font-weight:600; font-family:inherit; cursor:pointer; transition:background .15s,transform .1s; letter-spacing:-.01em; }
+.gen-btn:hover { background:var(--brand-dark); }
+.gen-btn:active { transform:scale(.98); }
+.kbd        { text-align:center; font-size:10px; color:var(--text-3); margin-top:6px; }
+.kbd kbd    { background:var(--bg-3); border:1px solid var(--border); border-radius:3px; padding:1px 5px; font-size:10px; font-family:inherit; }
+
+.words-panel { flex:1; display:flex; flex-direction:column; overflow:hidden; min-height:360px; }
+.panel-top  { display:flex; align-items:center; justify-content:space-between; padding:10px 16px; border-bottom:1px solid var(--border-2); }
+.panel-label { font-size:12px; color:var(--text-3); font-weight:600; }
+.act-btn    { font-size:12px; padding:5px 11px; border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:background .12s; }
+.act-btn:hover { background:var(--bg-2); }
+
+.un-grid    { display:grid; grid-template-columns:1fr 1fr; gap:0; flex:1; }
+.un-item    { display:flex; align-items:center; justify-content:space-between; padding:9px 14px; border-bottom:1px solid var(--border-2); border-right:1px solid var(--border-2); gap:6px; animation:fadeIn .2s ease; }
+.un-item:nth-child(even) { border-right:none; }
+.un-item:nth-last-child(-n+2) { border-bottom:none; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(3px)} to{opacity:1;transform:none} }
+.un-name    { font-size:13px; font-weight:600; color:var(--text); flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.un-actions { display:flex; gap:4px; flex-shrink:0; }
+.un-copy    { font-size:11px; padding:3px 8px; border:1px solid var(--border); border-radius:5px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:background .12s; }
+.un-copy:hover { background:var(--bg-2); }
+.un-heart   { font-size:13px; padding:3px 6px; border:1px solid var(--border); border-radius:5px; background:var(--bg); color:var(--text-3); cursor:pointer; font-family:inherit; transition:all .12s; border-color:transparent; }
+.un-heart:hover { color:#e55; }
+.un-heart.saved { color:#e55; }
+
+.fav-tray   { border-top:1px solid var(--border-2); padding:10px 14px; background:var(--bg-2); min-height:44px; }
+.fav-label  { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; margin-bottom:6px; }
+.fav-list   { display:flex; flex-wrap:wrap; gap:5px; }
+.fav-chip   { font-size:12px; font-weight:600; padding:3px 10px; background:var(--bg); border:1px solid var(--border); border-radius:20px; color:var(--text); display:flex; align-items:center; gap:5px; }
+.fav-chip-x { cursor:pointer; color:var(--text-3); font-size:11px; line-height:1; }
+.fav-chip-x:hover { color:var(--text); }
+.fav-empty  { font-size:12px; color:var(--text-3); font-style:italic; }
+.fav-copy-all { font-size:11px; padding:3px 9px; border:1px solid var(--border); border-radius:5px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; }
+
+.platform-strip { border-top:1px solid var(--border-2); padding:10px 14px; }
+.strip-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; margin-bottom:7px; }
+.strip-items { display:flex; flex-wrap:wrap; gap:8px; }
+.strip-item { font-size:11px; color:var(--text-2); background:var(--bg-2); border:1px solid var(--border-2); border-radius:5px; padding:3px 8px; font-family:monospace; }
+.strip-item b { color:var(--text); }
+
+.un-toast   { position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(10px); background:#1a1a1a; color:white; font-size:13px; font-weight:600; padding:10px 18px; border-radius:8px; opacity:0; transition:opacity .2s,transform .2s; pointer-events:none; z-index:999; }
+.un-toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+
+@media (max-width:640px) {
+  .tool-split { flex-direction:column; }
+  .ctrl { width:auto; border-right:none; border-bottom:1px solid var(--border-2); }
+  .un-grid { grid-template-columns:1fr; }
+  .un-item:nth-child(even) { border-right:none; }
+  .un-item:nth-last-child(-n+2) { border-bottom:1px solid var(--border-2); }
+  .un-item:last-child { border-bottom:none; }
+}
+</style>
+<!-- /SLOT:style -->
+
+<!-- SLOT:hero -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/account-tools/">Account Tools</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Girl Username Generator</span>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free · No sign-up · Instant
+  </div>
+  <h1>Girl Username Generator</h1>
+  <p>Generate feminine-leaning usernames across five sub-modes — Aesthetic, Cute, Creative, Sweet, and Baddie. Add a seed word, choose your format, save favorites, and see how each name looks across Instagram, TikTok, Discord, Reddit, and more.</p>
+</div>
+<!-- /SLOT:hero -->
+
+<!-- SLOT:tool -->
+<div class="tool-wrap">
+  <div class="tool-card">
+    <div class="tool-split">
+
+      <!-- Left: Controls -->
+      <div class="ctrl">
+        <div class="ctrl-row">
+          <span class="ctrl-label">Sub-mode</span>
+          <div class="style-btns" id="un-styles">
+            <button class="style-btn active" data-style="aesthetic">Aesthetic</button>
+            <button class="style-btn" data-style="cute">Cute</button>
+            <button class="style-btn" data-style="creative">Creative</button>
+            <button class="style-btn" data-style="sweet">Sweet</button>
+            <button class="style-btn" data-style="baddie">Baddie</button>
+          </div>
+        </div>
+
+        <div class="ctrl-row">
+          <label class="ctrl-label" for="un-seed">Seed word (optional)</label>
+          <input type="text" id="un-seed" class="seed-input" placeholder="e.g. rose, honey, star" maxlength="20" autocomplete="off">
+          <p class="seed-hint">Guides the theme of generated names</p>
+        </div>
+
+        <div class="ctrl-row">
+          <span class="ctrl-label">Length</span>
+          <div class="len-btns" id="un-lengths">
+            <button class="len-btn active" data-len="any">Any</button>
+            <button class="len-btn" data-len="short">Short<br><span style="font-weight:400;font-size:10px">≤8</span></button>
+            <button class="len-btn" data-len="med">Med<br><span style="font-weight:400;font-size:10px">9–14</span></button>
+            <button class="len-btn" data-len="long">Long<br><span style="font-weight:400;font-size:10px">15+</span></button>
+          </div>
+        </div>
+
+        <div class="ctrl-row">
+          <span class="ctrl-label">Format</span>
+          <div class="fmt-btns" id="un-formats">
+            <button class="fmt-btn active" data-fmt="lower">lowercase</button>
+            <button class="fmt-btn" data-fmt="camel">CamelCase</button>
+            <button class="fmt-btn" data-fmt="under">with_underscores</button>
+            <button class="fmt-btn" data-fmt="dot">with.dots</button>
+          </div>
+        </div>
+
+        <button class="gen-btn" id="un-gen-btn">Generate usernames</button>
+        <p class="kbd">Press <kbd>Enter</kbd> or <kbd>Space</kbd></p>
+      </div>
+
+      <!-- Right: Output -->
+      <div class="words-panel">
+        <div class="panel-top">
+          <span class="panel-label" id="un-style-label">Aesthetic mode</span>
+          <button class="act-btn" id="un-refresh-btn">↻ Refresh</button>
+        </div>
+
+        <div class="un-grid" id="un-grid" role="list" aria-label="Generated usernames"></div>
+
+        <!-- Favorites tray -->
+        <div class="fav-tray">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
+            <span class="fav-label">Saved favorites</span>
+            <button class="fav-copy-all act-btn" id="un-copy-all-btn" style="display:none">Copy all</button>
+          </div>
+          <div class="fav-list" id="un-fav-list">
+            <span class="fav-empty">Heart a name to save it here</span>
+          </div>
+        </div>
+
+        <!-- Platform preview strip -->
+        <div class="platform-strip">
+          <div class="strip-label">Platform preview</div>
+          <div class="strip-items" id="un-strip">
+            <span class="strip-item" id="strip-ig"><b>@</b>—</span>
+            <span class="strip-item" id="strip-rd"><b>u/</b>—</span>
+            <span class="strip-item" id="strip-dc">—</span>
+            <span class="strip-item" id="strip-tt">—</span>
+            <span class="strip-item" id="strip-gm">—<b>@gmail.com</b></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="un-toast" id="un-toast" role="status" aria-live="polite">Copied!</div>
+<!-- /SLOT:tool -->
+
+<!-- SLOT:ad_b -->
+<!-- Ad placeholder -->
+<!-- /SLOT:ad_b -->
+
+<!-- SLOT:init -->
+<script>
+(function () {
+  var POOLS = {
+    aesthetic: ['blossom','petal','willow','clover','fern','moss','dewdrop','linen','sage','lavender','rose','ivory','pearl','velvet','lace','ribbon','satin','silk','chiffon','tulle','organza','poplin','crepe','gossamer','voile'],
+    cute: ['bunny','honey','sugar','candy','mochi','pudding','peach','daisy','cherry','strawberry','cupcake','cookie','jellybean','lollipop','bubblegum','cotton','fluff','boba','gummy','sprinkle','marshmallow','bonbon','truffle','macaron','creampuff'],
+    creative: ['artist','writer','creator','maker','dreamer','thinker','builder','designer','visionary','innovator','pioneer','explorer','discoverer','adventurer','seeker','wanderer','traveler','observer','narrator','storyteller'],
+    sweet: ['angel','dove','star','cloud','moon','sun','sky','light','glow','shine','gleam','sparkle','twinkle','shimmer','glimmer','radiance','warmth','joy','bliss','serenity','tranquility','harmony','peace','grace','love'],
+    baddie: ['queen','boss','icon','legend','vibe','mood','aesthetic','energy','aura','force','power','strength','elite','prime','apex','crown','throne','reign','rule','dominate']
+  };
+
+  var STYLE_LABELS = {
+    aesthetic: 'Aesthetic mode',
+    cute: 'Cute mode',
+    creative: 'Creative mode',
+    sweet: 'Sweet mode',
+    baddie: 'Baddie mode'
+  };
+
+  var BLOCK = ['kill','hate','nazi','rape','sex','porn','fuck','shit','bitch','bastard','cock','pussy','nigger','faggot'];
+
+  function isClean(s) {
+    var l = s.toLowerCase();
+    return !BLOCK.some(function(b) { return l.indexOf(b) !== -1; });
+  }
+
+  function cryptoPick(arr) {
+    if (!arr || !arr.length) return '';
+    var buf = new Uint8Array(1);
+    crypto.getRandomValues(buf);
+    return arr[buf[0] % arr.length];
+  }
+
+  function applyFormat(raw, fmt) {
+    var words = raw.split(/(?=[A-Z])|[-_ .]/).filter(Boolean);
+    if (fmt === 'lower') return words.join('').toLowerCase();
+    if (fmt === 'under') return words.join('_').toLowerCase();
+    if (fmt === 'dot')   return words.join('.').toLowerCase();
+    return words.map(function(w) { return w.charAt(0).toUpperCase() + w.slice(1).toLowerCase(); }).join('');
+  }
+
+  function seedFilter(pool, seed) {
+    if (!seed) return pool;
+    var s = seed.toLowerCase().slice(0, 3);
+    var matched = pool.filter(function(w) { return w.toLowerCase().startsWith(s); });
+    return matched.length >= 4 ? matched : pool;
+  }
+
+  function matchLength(name, lenFilter) {
+    var l = name.length;
+    if (lenFilter === 'short') return l <= 8;
+    if (lenFilter === 'med')   return l >= 9 && l <= 14;
+    if (lenFilter === 'long')  return l >= 15;
+    return true;
+  }
+
+  function generateBatch(style, seed, fmt, lenFilter) {
+    var pool = POOLS[style] || POOLS.aesthetic;
+    var filteredPool = seedFilter(pool, seed);
+    var results = [];
+    var attempts = 0;
+    while (results.length < 12 && attempts < 400) {
+      attempts++;
+      var w1 = cryptoPick(filteredPool);
+      var w2 = cryptoPick(filteredPool);
+      if (!w1 || !w2 || w1 === w2) continue;
+      var combo = w1.charAt(0).toUpperCase() + w1.slice(1).toLowerCase() + w2.charAt(0).toUpperCase() + w2.slice(1).toLowerCase();
+      var formatted = applyFormat(combo, fmt);
+      if (isClean(formatted) && matchLength(formatted, lenFilter) && results.indexOf(formatted) === -1) {
+        results.push(formatted);
+      }
+    }
+    return results;
+  }
+
+  var favorites = [];
+  var currentNames = [];
+
+  function escH(s) {
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function showToast(msg) {
+    var t = document.getElementById('un-toast');
+    t.textContent = msg || 'Copied!';
+    t.classList.add('show');
+    setTimeout(function() { t.classList.remove('show'); }, 1800);
+  }
+
+  function copyText(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function(){ showToast(); }).catch(function(){ fallbackCopy(text); showToast(); });
+    } else { fallbackCopy(text); showToast(); }
+  }
+
+  function fallbackCopy(text) {
+    var ta = document.createElement('textarea');
+    ta.value = text; ta.style.cssText = 'position:fixed;opacity:0;pointer-events:none';
+    document.body.appendChild(ta); ta.focus(); ta.select();
+    try { document.execCommand('copy'); } catch(e) {}
+    document.body.removeChild(ta);
+  }
+
+  function updateStrip(name) {
+    var safe = escH(name || '—');
+    document.getElementById('strip-ig').innerHTML = '<b>@</b>' + (name ? safe : '—');
+    document.getElementById('strip-rd').innerHTML = '<b>u/</b>' + (name ? safe : '—');
+    document.getElementById('strip-dc').innerHTML = (name ? safe : '—') + ' <span style="color:var(--text-3);font-size:10px">(Discord)</span>';
+    document.getElementById('strip-tt').innerHTML = (name ? safe : '—') + ' <span style="color:var(--text-3);font-size:10px">(TikTok)</span>';
+    document.getElementById('strip-gm').innerHTML = (name ? safe : '—') + '<b>@gmail.com</b>';
+  }
+
+  function renderFavorites() {
+    var list = document.getElementById('un-fav-list');
+    var btn  = document.getElementById('un-copy-all-btn');
+    if (!favorites.length) {
+      list.innerHTML = '<span class="fav-empty">Heart a name to save it here</span>';
+      btn.style.display = 'none';
+      return;
+    }
+    btn.style.display = '';
+    list.innerHTML = favorites.map(function(n) {
+      return '<span class="fav-chip">' + escH(n) + '<span class="fav-chip-x" data-fav="' + escH(n) + '" title="Remove">×</span></span>';
+    }).join('');
+  }
+
+  function renderGrid(names) {
+    currentNames = names;
+    var grid = document.getElementById('un-grid');
+    if (!names.length) {
+      grid.innerHTML = '<div style="padding:20px;color:var(--text-3);font-size:13px;grid-column:1/-1">No names matched that length filter — try "Any" or a different sub-mode.</div>';
+      return;
+    }
+    grid.innerHTML = names.map(function(n) {
+      var saved = favorites.indexOf(n) !== -1;
+      return '<div class="un-item" role="listitem">'
+        + '<span class="un-name">' + escH(n) + '</span>'
+        + '<div class="un-actions">'
+        + '<button class="un-heart' + (saved ? ' saved' : '') + '" data-name="' + escH(n) + '" title="' + (saved ? 'Remove from favorites' : 'Save to favorites') + '">♥</button>'
+        + '<button class="un-copy" data-name="' + escH(n) + '">Copy</button>'
+        + '</div></div>';
+    }).join('');
+    if (names[0]) updateStrip(names[0]);
+  }
+
+  function getActiveStyle()  { return (document.querySelector('.style-btn.active') || {}).dataset.style || 'aesthetic'; }
+  function getActiveLength() { return (document.querySelector('.len-btn.active') || {}).dataset.len || 'any'; }
+  function getActiveFormat() { return (document.querySelector('.fmt-btn.active') || {}).dataset.fmt || 'lower'; }
+
+  function generate() {
+    var style = getActiveStyle();
+    var seed  = (document.getElementById('un-seed').value || '').trim();
+    var fmt   = getActiveFormat();
+    var len   = getActiveLength();
+    document.getElementById('un-style-label').textContent = STYLE_LABELS[style] || style;
+    var names = generateBatch(style, seed, fmt, len);
+    renderGrid(names);
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('un-styles').addEventListener('click', function(e) {
+      var btn = e.target.closest('.style-btn');
+      if (!btn) return;
+      document.querySelectorAll('.style-btn').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      generate();
+    });
+
+    document.getElementById('un-lengths').addEventListener('click', function(e) {
+      var btn = e.target.closest('.len-btn');
+      if (!btn) return;
+      document.querySelectorAll('.len-btn').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      generate();
+    });
+
+    document.getElementById('un-formats').addEventListener('click', function(e) {
+      var btn = e.target.closest('.fmt-btn');
+      if (!btn) return;
+      document.querySelectorAll('.fmt-btn').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      generate();
+    });
+
+    document.getElementById('un-gen-btn').addEventListener('click', generate);
+    document.getElementById('un-refresh-btn').addEventListener('click', generate);
+
+    document.getElementById('un-grid').addEventListener('click', function(e) {
+      var copyBtn = e.target.closest('.un-copy');
+      if (copyBtn) { copyText(copyBtn.dataset.name); return; }
+      var heartBtn = e.target.closest('.un-heart');
+      if (heartBtn) {
+        var name = heartBtn.dataset.name;
+        var idx  = favorites.indexOf(name);
+        if (idx === -1) { favorites.push(name); heartBtn.classList.add('saved'); }
+        else            { favorites.splice(idx, 1); heartBtn.classList.remove('saved'); }
+        renderFavorites();
+        updateStrip(name);
+      }
+    });
+
+    document.getElementById('un-fav-list').addEventListener('click', function(e) {
+      var x = e.target.closest('.fav-chip-x');
+      if (!x) return;
+      var name = x.dataset.fav;
+      favorites = favorites.filter(function(f){ return f !== name; });
+      renderFavorites();
+      var heart = document.querySelector('.un-heart[data-name="' + name + '"]');
+      if (heart) heart.classList.remove('saved');
+    });
+
+    document.getElementById('un-copy-all-btn').addEventListener('click', function() {
+      copyText(favorites.join('\n'));
+      showToast('Copied ' + favorites.length + ' names!');
+    });
+
+    document.getElementById('un-seed').addEventListener('input', function() {
+      clearTimeout(this._t);
+      this._t = setTimeout(generate, 400);
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.target !== document.body) return;
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); generate(); }
+    });
+
+    generate();
+  });
+}());
+</script>
+<!-- /SLOT:init -->
+
+<!-- SLOT:explainer -->
+<div class="explainer">
+  <h2>Feminine Identity in Online Spaces</h2>
+  <p>Online identity is personal and performative at the same time. Your username is one of the first things people see when they interact with your profile, comment, or stream. For many users, a handle that reflects a feminine aesthetic isn't about labeling — it's about expressing personality, joining communities, and projecting the energy they want to carry online. Whether that's soft and aesthetic, confident and baddie, creative and driven, or sweet and approachable, the vocabulary in a username can do a lot of communicative work before anyone reads a single post.</p>
+  <p>The five sub-modes cover different registers of feminine-leaning identity. Aesthetic pulls from soft natural and textile vocabulary — willow, velvet, gossamer, linen. Cute draws from playful, snack-adjacent sweetness — mochi, bubblegum, marshmallow, boba. Creative centers on identity through action — dreamer, storyteller, visionary, pioneer. Sweet uses luminous and light vocabulary — shimmer, bliss, serenity, radiance. Baddie is the confident register — queen, icon, legend, apex. Each mode creates a genuinely different feel even when you generate from the same format.</p>
+  <p>The username you choose tends to stick. On most platforms, changing a handle later breaks links, confuses followers, and requires manual updates everywhere you've shared it. It's worth generating a proper shortlist — use the favorites tray to collect the names that catch your eye across multiple batches, then compare them with the platform preview strip before committing. A name that looks great as an Instagram handle might feel awkward as a Gmail address; the strip shows you both at once.</p>
+
+  <h2>Choosing the Right Sub-Mode</h2>
+  <p><strong>Aesthetic</strong> — Soft, natural, textile vocabulary. Blossom, petal, gossamer, voile. Works beautifully with dot format. Best for: lifestyle, beauty, photography, fashion, slow-living content.</p>
+  <p><strong>Cute</strong> — Playful and sweet. Mochi, bubblegum, creampuff, boba. Pairs well with lowercase or dots. Best for: kawaii-adjacent content, food accounts, gaming profiles where personality matters.</p>
+  <p><strong>Creative</strong> — Identity through craft and curiosity. Dreamer, storyteller, pioneer, visionary. Best for: art, writing, design, and creator-economy content.</p>
+  <p><strong>Sweet</strong> — Light, warmth, and serenity. Shimmer, bliss, radiance, grace. Best for: wellness, self-care, journaling, and inspirational content.</p>
+  <p><strong>Baddie</strong> — Confident and powerful. Queen, icon, apex, reign. Best for: fashion, lifestyle, fitness, and any content where confidence and authority are the vibe.</p>
+</div>
+<!-- /SLOT:explainer -->
+
+<!-- SLOT:faq -->
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">How do I check if my username is available?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">The tool can't check live availability — that requires direct API access to each platform. Generate a shortlist of 5–10 names you like, then check manually on Instagram, TikTok, and wherever else you plan to use the handle. Popular words like honey, rose, and star tend to be taken in short combos. Use the seed word feature or long length filter for more specific combinations that are more likely to be free.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What's the difference between Aesthetic and Sweet modes?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Aesthetic draws from visual and material vocabulary — fabrics, flowers, plants, textures. It's about how things look and feel. Sweet draws from light, warmth, and emotional vocabulary — shimmer, bliss, serenity, joy. Aesthetic is more visual and object-focused; Sweet is more emotional and atmospheric. Both overlap in tone, but Aesthetic feels more tangible and Sweet feels more intangible.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I use these on Discord and TikTok as well as Instagram?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes. The platform preview strip shows how your generated name looks on Instagram, TikTok, Discord, Reddit, and Gmail simultaneously. All word pools use standard English with no special characters, so they comply with every major platform's username rules.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Is anything stored from my session?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Nothing is stored. The tool runs entirely in your browser. No names, seed words, or favorites are sent to any server. Favorites disappear when you close or reload the page — use "Copy all" to save your shortlist before leaving.</div>
+  </div>
+</div>
+<!-- /SLOT:faq -->
+
+<!-- SLOT:who -->
+<div>
+  <h2 class="section-title" style="margin-bottom:14px">Who uses a girl username generator?</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">New social account creators</div><div class="uc-body">Anyone creating a first Instagram, TikTok, or Discord account who wants something expressive rather than a name plus random number</div></div>
+    <div class="uc"><div class="uc-title">Content creators launching a brand</div><div class="uc-body">Creators building beauty, lifestyle, fashion, or wellness accounts who want a handle that sets the tone from the first glance</div></div>
+    <div class="uc"><div class="uc-title">Rebranders</div><div class="uc-body">People who've outgrown their current handle and want something that fits who they are now and where their content is going</div></div>
+    <div class="uc"><div class="uc-title">Gaming and community members</div><div class="uc-body">Players and community participants who want a feminine-leaning handle that feels intentional rather than the platform's default suggestion</div></div>
+  </div>
+</div>
+<!-- /SLOT:who -->

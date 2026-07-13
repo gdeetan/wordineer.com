@@ -1,0 +1,486 @@
+<!-- CONFIG
+{
+  "url": "/anime-username-generator/",
+  "output": "anime-username-generator.html",
+  "type": "tool",
+  "more_tools_key": "more_account_tools",
+  "more_tools_title": "More account tools",
+  "more_tools_subtitle": "Password generators, passphrase tools, username generators — all free"
+}
+-->
+
+<!-- SLOT:meta -->
+<title>Anime Username Generator — Handles Inspired by Every Genre | Wordineer</title>
+<meta name="description" content="Generate anime-inspired usernames by genre: Shonen, Shojo, Isekai, and Mecha. Japanese-influenced names, romanized. 12 results, save favorites.">
+<link rel="canonical" href="https://wordineer.com/anime-username-generator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wordineer">
+<meta property="og:title" content="Anime Username Generator — Handles Inspired by Every Genre | Wordineer">
+<meta property="og:description" content="Generate anime-inspired usernames by genre: Shonen, Shojo, Isekai, and Mecha. Japanese-influenced names, romanized. 12 results, save favorites.">
+<meta property="og:url" content="https://wordineer.com/anime-username-generator/">
+<meta property="og:image" content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What makes an anime username authentic vs cringe?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The line is usually specificity vs. overexposure. A name referencing a specific character from a specific series ('ryuji_takeshi') reads as genuine fandom. A name that screams 'I know three anime words' ('kawaii_chan99') reads as performative. Authentic anime handles tend to use romanized Japanese names naturally, reference specific source material, or combine genre vocabulary in a way that shows familiarity with the community." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between Shonen and Shojo genres for usernames?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Shonen anime (targeted at young males) tends toward action, friendship, and power — names from this pool feel energetic and aspirational. Shojo anime (targeted at young females) tends toward romance, emotion, and relationships — names feel softer and more lyrical. Both use Japanese name vocabulary, but the emotional register is different." }
+    },
+    {
+      "@type": "Question",
+      "name": "What platforms are anime usernames most common on?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Anime-style usernames are most common on MyAnimeList, AniList, Discord anime servers, Reddit anime communities, Twitter/X, and TikTok. They're less common on professional platforms. The format that travels best is a romanized Japanese name or combination — it reads as intentional on any platform without being jarring in non-anime contexts." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Isekai and how does that affect usernames?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Isekai is a genre about being transported to another world, often with game mechanics. The vocabulary is a mix of RPG terms (level, skill, guild, dungeon) and dramatic modifiers (reincarnated, broken, overpowered, cheat). Isekai usernames tend to read as ironic or self-aware — 'ReincarnatedHero' or 'CheatSkillUser' are classic examples from the community." }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Anime Username Generator",
+  "url": "https://wordineer.com/anime-username-generator/",
+  "description": "Generate anime-inspired usernames by genre: Shonen, Shojo, Isekai, Mecha, and General. Japanese-influenced names, romanized.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@id": "https://wordineer.com/#organization" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Account Tools", "item": "https://wordineer.com/account-tools/" },
+    { "@type": "ListItem", "position": 3, "name": "Anime Username Generator", "item": "https://wordineer.com/anime-username-generator/" }
+  ]
+}
+</script>
+<!-- /SLOT:meta -->
+
+<!-- SLOT:style -->
+<style>
+.tool-wrap { max-width:960px; margin:0 auto; padding:24px 24px 0; }
+.tool-card  { border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg); box-shadow:var(--shadow); }
+.tool-split { display:flex; }
+
+.ctrl       { width:220px; flex-shrink:0; padding:18px; border-right:1px solid var(--border-2); background:var(--bg-2); }
+.ctrl-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; display:block; margin-bottom:8px; }
+.ctrl-row   { margin-bottom:16px; }
+
+.style-btns { display:flex; flex-wrap:wrap; gap:5px; }
+.style-btn  { font-size:11px; font-weight:600; padding:4px 9px; border:1px solid var(--border); border-radius:20px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:all .15s; }
+.style-btn.active { background:var(--brand); color:white; border-color:var(--brand); }
+.style-btn:hover:not(.active) { background:var(--bg-3); }
+
+.fmt-btns   { display:flex; gap:4px; flex-wrap:wrap; }
+.fmt-btn    { font-size:10px; font-weight:600; padding:4px 7px; border:1px solid var(--border); border-radius:5px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:all .15s; }
+.fmt-btn.active { background:var(--brand); color:white; border-color:var(--brand); }
+
+.gen-btn    { width:100%; padding:10px 14px; background:var(--brand); color:white; border:none; border-radius:8px; font-size:14px; font-weight:600; font-family:inherit; cursor:pointer; transition:background .15s,transform .1s; letter-spacing:-.01em; }
+.gen-btn:hover { background:var(--brand-dark); }
+.gen-btn:active { transform:scale(.98); }
+.kbd        { text-align:center; font-size:10px; color:var(--text-3); margin-top:6px; }
+.kbd kbd    { background:var(--bg-3); border:1px solid var(--border); border-radius:3px; padding:1px 5px; font-size:10px; font-family:inherit; }
+
+.words-panel { flex:1; display:flex; flex-direction:column; overflow:hidden; min-height:360px; }
+.panel-top  { display:flex; align-items:center; justify-content:space-between; padding:10px 16px; border-bottom:1px solid var(--border-2); }
+.panel-label { font-size:12px; color:var(--text-3); font-weight:600; }
+.act-btn    { font-size:12px; padding:5px 11px; border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:background .12s; }
+.act-btn:hover { background:var(--bg-2); }
+
+.un-grid    { display:grid; grid-template-columns:1fr 1fr; gap:0; flex:1; }
+.un-item    { display:flex; align-items:center; justify-content:space-between; padding:9px 14px; border-bottom:1px solid var(--border-2); border-right:1px solid var(--border-2); gap:6px; animation:fadeIn .2s ease; }
+.un-item:nth-child(even) { border-right:none; }
+.un-item:nth-last-child(-n+2) { border-bottom:none; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(3px)} to{opacity:1;transform:none} }
+.un-name    { font-size:13px; font-weight:600; color:var(--text); flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.un-actions { display:flex; gap:4px; flex-shrink:0; }
+.un-copy    { font-size:11px; padding:3px 8px; border:1px solid var(--border); border-radius:5px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:background .12s; }
+.un-copy:hover { background:var(--bg-2); }
+.un-heart   { font-size:13px; padding:3px 6px; border:1px solid var(--border); border-radius:5px; background:var(--bg); color:var(--text-3); cursor:pointer; font-family:inherit; transition:all .12s; border-color:transparent; }
+.un-heart:hover { color:#e55; }
+.un-heart.saved { color:#e55; }
+
+.fav-tray   { border-top:1px solid var(--border-2); padding:10px 14px; background:var(--bg-2); min-height:44px; }
+.fav-label  { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; margin-bottom:6px; }
+.fav-list   { display:flex; flex-wrap:wrap; gap:5px; }
+.fav-chip   { font-size:12px; font-weight:600; padding:3px 10px; background:var(--bg); border:1px solid var(--border); border-radius:20px; color:var(--text); display:flex; align-items:center; gap:5px; }
+.fav-chip-x { cursor:pointer; color:var(--text-3); font-size:11px; line-height:1; }
+.fav-chip-x:hover { color:var(--text); }
+.fav-empty  { font-size:12px; color:var(--text-3); font-style:italic; }
+.fav-copy-all { font-size:11px; padding:3px 9px; border:1px solid var(--border); border-radius:5px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; }
+
+.platform-strip { border-top:1px solid var(--border-2); padding:10px 14px; }
+.strip-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; margin-bottom:7px; }
+.strip-items { display:flex; flex-wrap:wrap; gap:8px; }
+.strip-item { font-size:11px; color:var(--text-2); background:var(--bg-2); border:1px solid var(--border-2); border-radius:5px; padding:3px 8px; font-family:monospace; }
+.strip-item b { color:var(--text); }
+
+.un-toast   { position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(10px); background:#1a1a1a; color:white; font-size:13px; font-weight:600; padding:10px 18px; border-radius:8px; opacity:0; transition:opacity .2s,transform .2s; pointer-events:none; z-index:999; }
+.un-toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+
+@media (max-width:640px) {
+  .tool-split { flex-direction:column; }
+  .ctrl { width:auto; border-right:none; border-bottom:1px solid var(--border-2); }
+  .un-grid { grid-template-columns:1fr; }
+  .un-item:nth-child(even) { border-right:none; }
+  .un-item:nth-last-child(-n+2) { border-bottom:1px solid var(--border-2); }
+  .un-item:last-child { border-bottom:none; }
+}
+</style>
+<!-- /SLOT:style -->
+
+<!-- SLOT:hero -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/account-tools/">Account Tools</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Anime Username Generator</span>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free · No sign-up · Genre-specific wordlists
+  </div>
+  <h1>Anime Username Generator</h1>
+  <p>Generate anime-inspired usernames by genre: Shonen, Shojo, Isekai, Mecha, or General. Names draw from romanized Japanese vocabulary, RPG terminology, and genre-specific word pools. 12 results per batch — save favorites and copy the ones you like.</p>
+</div>
+<!-- /SLOT:hero -->
+
+<!-- SLOT:tool -->
+<div class="tool-wrap">
+  <div class="tool-card">
+    <div class="tool-split">
+
+      <!-- Left: Controls -->
+      <div class="ctrl">
+        <div class="ctrl-row">
+          <span class="ctrl-label">Genre</span>
+          <div class="style-btns" id="an-genres">
+            <button class="style-btn active" data-genre="shonen">Shonen</button>
+            <button class="style-btn" data-genre="shojo">Shojo</button>
+            <button class="style-btn" data-genre="isekai">Isekai</button>
+            <button class="style-btn" data-genre="mecha">Mecha</button>
+            <button class="style-btn" data-genre="general">General</button>
+          </div>
+        </div>
+
+        <div class="ctrl-row">
+          <span class="ctrl-label">Format</span>
+          <div class="fmt-btns" id="an-formats">
+            <button class="fmt-btn active" data-fmt="camel">CamelCase</button>
+            <button class="fmt-btn" data-fmt="lower">lowercase</button>
+            <button class="fmt-btn" data-fmt="under">with_underscores</button>
+          </div>
+        </div>
+
+        <button class="gen-btn" id="an-gen-btn">Generate usernames</button>
+        <p class="kbd">Press <kbd>Enter</kbd> or <kbd>Space</kbd></p>
+      </div>
+
+      <!-- Right: Output -->
+      <div class="words-panel">
+        <div class="panel-top">
+          <span class="panel-label" id="an-genre-label">Shonen genre</span>
+          <button class="act-btn" id="an-refresh-btn">↻ Refresh</button>
+        </div>
+
+        <div class="un-grid" id="an-grid" role="list" aria-label="Generated anime usernames"></div>
+
+        <!-- Favorites tray -->
+        <div class="fav-tray">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
+            <span class="fav-label">Saved favorites</span>
+            <button class="fav-copy-all act-btn" id="an-copy-all-btn" style="display:none">Copy all</button>
+          </div>
+          <div class="fav-list" id="an-fav-list">
+            <span class="fav-empty">Heart a name to save it here</span>
+          </div>
+        </div>
+
+        <!-- Platform preview strip -->
+        <div class="platform-strip">
+          <div class="strip-label">Platform preview</div>
+          <div class="strip-items" id="an-strip">
+            <span class="strip-item" id="strip-an-mal">— <span style="color:var(--text-3);font-size:10px">(MAL)</span></span>
+            <span class="strip-item" id="strip-an-ig"><b>@</b>—</span>
+            <span class="strip-item" id="strip-an-dc">— <span style="color:var(--text-3);font-size:10px">(Discord)</span></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="un-toast" id="an-toast" role="status" aria-live="polite">Copied!</div>
+<!-- /SLOT:tool -->
+
+<!-- SLOT:ad_b -->
+<!-- Ad placeholder -->
+<!-- /SLOT:ad_b -->
+
+<!-- SLOT:init -->
+<script>
+(function () {
+  var POOLS = {
+    shonen: ['Ryuji','Takeshi','Kaito','Makoto','Haruto','Yusei','Izuku','Goku','Ichigo','Natsu','Gray','Edward','Alphonse','Zoro','Luffy','Ace','Sabo','Shanks','Kakashi','Minato','Sasuke','Jiraiya','Neji','Rock','Might'],
+    shojo:  ['Sakura','Hinata','Rin','Yuki','Mio','Kanade','Asuna','Rei','Usagi','Nozomi','Kotori','Honoka','Eli','Nico','Umi','Hanayo','Maki','Ayase','Toujou','Minami','Kousaka','Sonoda','Hoshizora','Watanabe','Kunikida'],
+    isekai: ['Hero','Sage','Overlord','Demon','Elf','Dwarf','Dragon','Guild','Dungeon','Adventurer','Level','Skill','Magic','Mana','Inventory','Respawn','Reincarnated','Transported','AnotherWorld','GameSystem','CheatSkill','BrokenPower','StatusWindow','Protagonist','Summoned'],
+    mecha:  ['Unit','Zero','Delta','Striker','Omega','Titan','Blade','Iron','Steel','Pilot','Core','Reactor','Sync','Deploy','Launch','Intercept','Target','Engage','Fire','Gundam','Eva','Zaku','Valkyrie','Knightmare','Lancelot'],
+    general:['Otaku','Waifu','Senpai','Tsundere','Yandere','Kuudere','Dandere','Genki','Chibi','Baka','Moe','Kawaii','SliceOfLife','Isekai','Shonen','Shojo','Seinen','Josei','Magical','Protagonist']
+  };
+
+  var GENRE_NAMES = {
+    shonen: 'Shonen genre',
+    shojo: 'Shojo genre',
+    isekai: 'Isekai genre',
+    mecha: 'Mecha genre',
+    general: 'General anime'
+  };
+
+  var BLOCK = ['kill','hate','nazi','rape','sex','porn','fuck','shit','bitch','bastard','cock','pussy','nigger','faggot'];
+
+  function isClean(s) {
+    var l = s.toLowerCase();
+    return !BLOCK.some(function(b) { return l.indexOf(b) !== -1; });
+  }
+
+  function cryptoPick(arr) {
+    if (!arr || !arr.length) return '';
+    var buf = new Uint8Array(1);
+    crypto.getRandomValues(buf);
+    return arr[buf[0] % arr.length];
+  }
+
+  function capitalize(s) {
+    if (!s) return '';
+    return s.charAt(0).toUpperCase() + s.slice(1).toLowerCase();
+  }
+
+  function applyFormat(w1, w2, fmt) {
+    if (fmt === 'camel') return capitalize(w1) + capitalize(w2);
+    if (fmt === 'lower') return w1.toLowerCase() + w2.toLowerCase();
+    if (fmt === 'under') return w1.toLowerCase() + '_' + w2.toLowerCase();
+    return w1 + w2;
+  }
+
+  function generateBatch(genre, fmt) {
+    var pool = POOLS[genre];
+    var results = [];
+    var seen = {};
+    var attempts = 0;
+    while (results.length < 12 && attempts < 400) {
+      attempts++;
+      var w1 = cryptoPick(pool);
+      var w2 = cryptoPick(pool);
+      if (w1 === w2) continue;
+      var name = applyFormat(w1, w2, fmt);
+      if (name.length < 3 || name.length > 30) continue;
+      if (!isClean(name)) continue;
+      if (seen[name]) continue;
+      seen[name] = 1;
+      results.push(name);
+    }
+    return results;
+  }
+
+  var favorites = [];
+
+  function escH(s) {
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function showToast(msg) {
+    var t = document.getElementById('an-toast');
+    t.textContent = msg || 'Copied!';
+    t.classList.add('show');
+    setTimeout(function() { t.classList.remove('show'); }, 1800);
+  }
+
+  function copyText(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function(){ showToast(); }).catch(function(){ fallbackCopy(text); showToast(); });
+    } else { fallbackCopy(text); showToast(); }
+  }
+
+  function fallbackCopy(text) {
+    var ta = document.createElement('textarea');
+    ta.value = text; ta.style.cssText = 'position:fixed;opacity:0;pointer-events:none';
+    document.body.appendChild(ta); ta.focus(); ta.select();
+    try { document.execCommand('copy'); } catch(e) {}
+    document.body.removeChild(ta);
+  }
+
+  function updateStrip(name) {
+    var safe = escH(name || '—');
+    document.getElementById('strip-an-mal').innerHTML = safe + ' <span style="color:var(--text-3);font-size:10px">(MAL)</span>';
+    document.getElementById('strip-an-ig').innerHTML = '<b>@</b>' + safe;
+    document.getElementById('strip-an-dc').innerHTML = safe + ' <span style="color:var(--text-3);font-size:10px">(Discord)</span>';
+  }
+
+  function renderFavorites() {
+    var list = document.getElementById('an-fav-list');
+    var btn  = document.getElementById('an-copy-all-btn');
+    if (!favorites.length) {
+      list.innerHTML = '<span class="fav-empty">Heart a name to save it here</span>';
+      btn.style.display = 'none';
+      return;
+    }
+    btn.style.display = '';
+    list.innerHTML = favorites.map(function(n) {
+      return '<span class="fav-chip">' + escH(n) + '<span class="fav-chip-x" data-fav="' + escH(n) + '" title="Remove">×</span></span>';
+    }).join('');
+  }
+
+  function renderGrid(names) {
+    var grid = document.getElementById('an-grid');
+    if (!names.length) {
+      grid.innerHTML = '<div style="padding:20px;color:var(--text-3);font-size:13px;grid-column:1/-1">No names generated — try a different genre or format.</div>';
+      return;
+    }
+    grid.innerHTML = names.map(function(n) {
+      var saved = favorites.indexOf(n) !== -1;
+      return '<div class="un-item" role="listitem">'
+        + '<div class="un-name">' + escH(n) + '</div>'
+        + '<div class="un-actions">'
+        + '<button class="un-heart' + (saved ? ' saved' : '') + '" data-name="' + escH(n) + '" title="' + (saved ? 'Remove from favorites' : 'Save to favorites') + '">♥</button>'
+        + '<button class="un-copy" data-name="' + escH(n) + '">Copy</button>'
+        + '</div></div>';
+    }).join('');
+    if (names[0]) updateStrip(names[0]);
+  }
+
+  function getActiveGenre()  { return (document.querySelector('#an-genres .style-btn.active') || {}).dataset.genre || 'shonen'; }
+  function getActiveFormat() { return (document.querySelector('#an-formats .fmt-btn.active') || {}).dataset.fmt || 'camel'; }
+
+  function generate() {
+    var genre = getActiveGenre();
+    var fmt   = getActiveFormat();
+    document.getElementById('an-genre-label').textContent = GENRE_NAMES[genre] || 'Anime style';
+    renderGrid(generateBatch(genre, fmt));
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('an-genres').addEventListener('click', function(e) {
+      var btn = e.target.closest('.style-btn');
+      if (!btn) return;
+      document.querySelectorAll('#an-genres .style-btn').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      generate();
+    });
+
+    document.getElementById('an-formats').addEventListener('click', function(e) {
+      var btn = e.target.closest('.fmt-btn');
+      if (!btn) return;
+      document.querySelectorAll('#an-formats .fmt-btn').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      generate();
+    });
+
+    document.getElementById('an-gen-btn').addEventListener('click', generate);
+    document.getElementById('an-refresh-btn').addEventListener('click', generate);
+
+    document.getElementById('an-grid').addEventListener('click', function(e) {
+      var copyBtn = e.target.closest('.un-copy');
+      if (copyBtn) { copyText(copyBtn.dataset.name); return; }
+      var heartBtn = e.target.closest('.un-heart');
+      if (heartBtn) {
+        var name = heartBtn.dataset.name;
+        var idx  = favorites.indexOf(name);
+        if (idx === -1) { favorites.push(name); heartBtn.classList.add('saved'); }
+        else            { favorites.splice(idx, 1); heartBtn.classList.remove('saved'); }
+        renderFavorites();
+        updateStrip(name);
+      }
+    });
+
+    document.getElementById('an-fav-list').addEventListener('click', function(e) {
+      var x = e.target.closest('.fav-chip-x');
+      if (!x) return;
+      var name = x.dataset.fav;
+      favorites = favorites.filter(function(f){ return f !== name; });
+      renderFavorites();
+      var heart = document.querySelector('.un-heart[data-name="' + name + '"]');
+      if (heart) heart.classList.remove('saved');
+    });
+
+    document.getElementById('an-copy-all-btn').addEventListener('click', function() {
+      copyText(favorites.join('\n'));
+      showToast('Copied ' + favorites.length + ' names!');
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.target !== document.body) return;
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); generate(); }
+    });
+
+    generate();
+  });
+}());
+</script>
+<!-- /SLOT:init -->
+
+<!-- SLOT:explainer -->
+<div class="explainer">
+  <h2>Anime Username Culture</h2>
+  <p>The anime community has developed a rich tradition of themed usernames across MyAnimeList, AniList, Discord servers, Reddit, and social media. What separates an authentic anime handle from a cringe one is usually specificity and sincerity. A username that references a specific character, uses a romanized Japanese name naturally, or combines genre vocabulary in a way that shows real familiarity with the community reads as genuine. A username that just assembles a few well-known anime words ('kawaii_chan99') reads as someone who discovered anime last week.</p>
+  <p>The four major genre pools reflect genuinely different naming aesthetics. Shonen vocabulary is energetic and aspirational — names from shows like Naruto, My Hero Academia, Dragon Ball, and One Piece. Shojo vocabulary is softer and more lyrical — names from romance-focused series. Isekai vocabulary blends RPG game mechanics with dramatic modifiers, reflecting the genre's self-aware meta-humor. Mecha vocabulary draws from military, technological, and unit-designation traditions from Gundam, Evangelion, and similar franchises.</p>
+  <p>Platform context matters for format choice. MyAnimeList and AniList tend to see CamelCase handles (SakuraHinata, RyujiKaito). Discord anime servers often use lowercase with underscores for that casual aesthetic. Instagram and TikTok handles work better in lowercase or CamelCase without underscores. The format buttons let you see how the same underlying name combination reads in different contexts.</p>
+
+  <h2>How the Generator Works</h2>
+  <p>Each genre has a curated word pool: Shonen uses romanized Japanese character names from action anime, Shojo uses names from romance anime, Isekai uses RPG/isekai vocabulary, Mecha uses unit designations and technical terms, and General uses anime community vocabulary. Names are formed by combining two words from the selected pool. Format buttons control how the words are joined. Every result is checked against a blocklist before appearing.</p>
+</div>
+<!-- /SLOT:explainer -->
+
+<!-- SLOT:faq -->
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">What makes an anime username authentic vs cringe?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Specificity and sincerity. A handle referencing a specific character or using a romanized Japanese name naturally reads as genuine fandom. Overused anime buzzwords assembled for the aesthetic reads as performative. The most respected handles in anime communities tend to be simple character names or meaningful combinations — not a list of 'anime words' strung together.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What is the difference between Shonen and Shojo genres for usernames?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Shonen anime targets young male audiences with action, friendship, and power themes — names from this pool feel energetic and aspirational. Shojo targets young female audiences with romance and emotional themes — names feel softer and more lyrical. Both use Japanese name vocabulary, but the emotional register and source material are different.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What platforms are anime usernames most popular on?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">MyAnimeList, AniList, Discord anime servers, Reddit's anime subreddits, Twitter/X, and TikTok are the most common homes for anime-style handles. The format that travels best cross-platform is a romanized Japanese name or CamelCase combination — it reads as intentional without being jarring in non-anime contexts.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What is Isekai and how does it affect username style?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Isekai is a genre about being transported to another world, often with game-like mechanics. The vocabulary blends RPG terms (level, skill, guild, dungeon) with dramatic modifiers (reincarnated, broken, cheat, overpowered). Isekai usernames often read as ironic or self-aware — 'ReincarnatedHero' or 'CheatSkillUser' are recognizable archetypes that the community jokes about and celebrates.</div>
+  </div>
+</div>
+<!-- /SLOT:faq -->
+
+<!-- SLOT:who -->
+<div>
+  <h2 class="section-title" style="margin-bottom:14px">Who uses an anime username generator?</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">Anime fans setting up new accounts</div><div class="uc-body">Anyone joining MyAnimeList, AniList, or anime Discord servers who wants a handle that fits the community aesthetic</div></div>
+    <div class="uc"><div class="uc-title">Genre enthusiasts</div><div class="uc-body">Fans who want a username that signals their favorite genre — a Shonen action fan wants a different vibe than a Shojo romance fan</div></div>
+    <div class="uc"><div class="uc-title">Social media creators</div><div class="uc-body">TikTok and Instagram accounts focused on anime content who want a handle that signals their niche immediately</div></div>
+    <div class="uc"><div class="uc-title">Gaming-anime crossover players</div><div class="uc-body">Players of anime-based games (Genshin Impact, Blue Archive, Fate/GO) who want a handle that works in both gaming and anime communities</div></div>
+  </div>
+</div>
+<!-- /SLOT:who -->

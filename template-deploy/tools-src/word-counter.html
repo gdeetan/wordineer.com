@@ -283,7 +283,7 @@
         id="wc-input"
         class="wc-textarea"
         placeholder="Paste or type your text here…"
-        aria-label="Text to analyse"
+        aria-label="Text to analyze"
         spellcheck="true"
       ></textarea>
       <div class="wc-actions">
@@ -482,9 +482,9 @@
 
   <h2>Best Practices for Using Word Count Data</h2>
   <p>A few principles for getting real value out of these metrics:</p>
-  <p><strong>Don't optimise for a target number — optimise for the reader.</strong> Word count matters because length affects reader behaviour, not because some number is inherently correct. A 1,500-word article that completely answers a question outperforms a padded 2,500-word article that buries the answer in filler. Use word count to check that you've said enough, not to hit a quota.</p>
+  <p><strong>Don't optimise for a target number — optimise for the reader.</strong> Word count matters because length affects reader behavior, not because some number is inherently correct. A 1,500-word article that completely answers a question outperforms a padded 2,500-word article that buries the answer in filler. Use word count to check that you've said enough, not to hit a quota.</p>
   <p><strong>Use reading time as a communication tool.</strong> Adding "4-minute read" to the top of a blog post sets expectations and has been shown to reduce bounce rates. This tool gives you that number automatically — round to the nearest minute and include it in your post introduction.</p>
-  <p><strong>Watch your average sentence length.</strong> If your average words-per-sentence is consistently above 25, look for run-on sentences that could split into two. Long sentences aren't wrong — some ideas require length — but a consistent pattern of long sentences fatigues readers without them realising why.</p>
+  <p><strong>Watch your average sentence length.</strong> If your average words-per-sentence is consistently above 25, look for run-on sentences that could split into two. Long sentences aren't wrong — some ideas require length — but a consistent pattern of long sentences fatigues readers without them realizing why.</p>
   <p><strong>Use keyword frequency as a sanity check, not a target.</strong> If your primary topic word appears only once in a 1,500-word article, you may have drifted off-topic. If it appears 40 times, you've over-optimised and the text will read awkwardly. The 1–2% range is a rough guide for your main keyword, with secondary terms appearing less frequently. Use this tool's keyword table to see what words are actually dominating your text — sometimes the answer is surprising.</p>
   <p><strong>Check character counts before you publish, not after.</strong> Catching that your Meta ad headline is 43 characters here takes two seconds. Finding out after you've spent 20 minutes in Ads Manager setting up the campaign costs you time and frustration.</p>
 
@@ -579,7 +579,7 @@
     return m ? Math.max(1, m.length) : 1;
   }
 
-  function analyse(text) {
+  function analyze(text) {
     var words = text.trim() ? text.trim().split(/\s+/).filter(Boolean) : [];
     var wCount = words.length;
     var chars = text.length;
@@ -681,7 +681,7 @@
   }
 
   function render(text) {
-    var r = analyse(text);
+    var r = analyze(text);
 
     el('sc-words').textContent  = fmt(r.wCount);
     el('sc-chars').textContent  = fmt(r.chars);

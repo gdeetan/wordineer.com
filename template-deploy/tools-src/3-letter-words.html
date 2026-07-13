@@ -893,7 +893,7 @@
     });
   });
 
-  // Honour ?letter= param on load
+  // Honor ?letter= param on load
   var params = new URLSearchParams(window.location.search);
   var initLetter = (params.get('letter') || 'a').toLowerCase();
   if (initLetter !== 'a' && /^[a-z]$/.test(initLetter)) {

@@ -268,7 +268,7 @@ div.bw-top3 { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
   <h2>How we tested</h2>
   <p>We scored every word in the Wordineer guess dictionary (715 five-letter words) against our 642-word answer pool using <strong>Shannon entropy</strong>: for each candidate guess, we computed what color pattern it would produce against every possible answer, grouped answers by pattern, and scored the guess by how evenly it split the pool. Higher entropy = better guess.</p>
   <p>We then simulated 10,000 games: a random opener (Python's <code>random.Random(42)</code>, seed 42), followed by always playing the highest-entropy suggestion, until solved or 6 guesses exceeded. Secrets were drawn uniformly from the 642-word answer pool — not the actual NYT sequence, which isn't public.</p>
-  <p><strong>Important limitation:</strong> Our word lists are Wordineer's curated sets, not the exact NYT lists. The NYT Wordle answer pool is not public and changes over time. Our rankings reflect our own data and will differ from analyses that use other word lists. Full methodology and Python source code: <a href="https://wordineer.com/best-wordle-starting-words/">see cite box below</a>.</p>
+  <p><strong>Important limitation:</strong> Our word lists are Wordineer's curated sets, not the exact NYT lists. The NYT Wordle answer pool is not public and changes over time. Our rankings reflect our own data and will differ from analyzes that use other word lists. Full methodology and Python source code: <a href="https://wordineer.com/best-wordle-starting-words/">see cite box below</a>.</p>
 
   <div class="bw-cite-box">
     <h3>Cite or link this analysis</h3>

@@ -1,0 +1,512 @@
+<!-- CONFIG
+{
+  "url": "/gmail-username-generator/",
+  "output": "gmail-username-generator.html",
+  "type": "tool",
+  "more_tools_key": "more_account_tools",
+  "more_tools_title": "More account tools",
+  "more_tools_subtitle": "Password generators, passphrase tools, username generators — all free"
+}
+-->
+
+<!-- SLOT:meta -->
+<title>Gmail Username Generator — Professional &amp; Personal Email Handles | Wordineer</title>
+<meta name="description" content="Generate Gmail-compatible usernames: 6–30 chars, letters, numbers, and dots only. Professional or personal toggle. 12 results, copy and use.">
+<link rel="canonical" href="https://wordineer.com/gmail-username-generator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wordineer">
+<meta property="og:title" content="Gmail Username Generator — Professional &amp; Personal Email Handles | Wordineer">
+<meta property="og:description" content="Generate Gmail-compatible usernames: 6–30 chars, letters, numbers, and dots only. Professional or personal toggle. 12 results, copy and use.">
+<meta property="og:url" content="https://wordineer.com/gmail-username-generator/">
+<meta property="og:image" content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What characters are allowed in a Gmail address?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Gmail allows letters (a–z), numbers (0–9), and dots (.) only. No hyphens, underscores, or special characters. The username must be 6 to 30 characters long. This generator enforces all three constraints automatically, so every result is Gmail-compatible." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Gmail treat dots as significant in usernames?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No — Gmail ignores dots entirely in the local part of the address. john.doe@gmail.com and johndoe@gmail.com and j.o.h.n.d.o.e@gmail.com all deliver to the same inbox. The dot is useful as a visual separator for humans but has no technical effect on routing." }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my email handle matter for professional impression?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Employers, clients, and contacts see your email address before they see your resume content or message body. An address like firstname.lastname@gmail.com reads as organized and professional; something like coolgamer99@gmail.com reads as informal or youthful. If you're job hunting or running a freelance business, the first impression from your email address is worth optimizing." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I check if a Gmail address is available?",
+      "acceptedAnswer": { "@type": "Answer", "text": "This generator can't check live availability — Gmail doesn't expose that through a public API. To check, visit accounts.google.com/signup and enter the handle you want in the username field. Gmail will tell you immediately if it's taken and suggest alternatives." }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Gmail Username Generator",
+  "url": "https://wordineer.com/gmail-username-generator/",
+  "description": "Generate Gmail-compatible usernames: 6–30 chars, letters, numbers, and dots only. Professional or personal toggle.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@id": "https://wordineer.com/#organization" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Account Tools", "item": "https://wordineer.com/account-tools/" },
+    { "@type": "ListItem", "position": 3, "name": "Gmail Username Generator", "item": "https://wordineer.com/gmail-username-generator/" }
+  ]
+}
+</script>
+<!-- /SLOT:meta -->
+
+<!-- SLOT:style -->
+<style>
+.tool-wrap { max-width:960px; margin:0 auto; padding:24px 24px 0; }
+.tool-card  { border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg); box-shadow:var(--shadow); }
+.tool-split { display:flex; }
+
+.ctrl       { width:220px; flex-shrink:0; padding:18px; border-right:1px solid var(--border-2); background:var(--bg-2); }
+.ctrl-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; display:block; margin-bottom:8px; }
+.ctrl-row   { margin-bottom:16px; }
+
+.style-btns { display:flex; flex-wrap:wrap; gap:5px; }
+.style-btn  { font-size:11px; font-weight:600; padding:4px 9px; border:1px solid var(--border); border-radius:20px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:all .15s; }
+.style-btn.active { background:var(--brand); color:white; border-color:var(--brand); }
+.style-btn:hover:not(.active) { background:var(--bg-3); }
+
+.fmt-btns   { display:flex; gap:4px; flex-wrap:wrap; }
+.fmt-btn    { font-size:10px; font-weight:600; padding:4px 7px; border:1px solid var(--border); border-radius:5px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:all .15s; }
+.fmt-btn.active { background:var(--brand); color:white; border-color:var(--brand); }
+
+.gen-btn    { width:100%; padding:10px 14px; background:var(--brand); color:white; border:none; border-radius:8px; font-size:14px; font-weight:600; font-family:inherit; cursor:pointer; transition:background .15s,transform .1s; letter-spacing:-.01em; }
+.gen-btn:hover { background:var(--brand-dark); }
+.gen-btn:active { transform:scale(.98); }
+.kbd        { text-align:center; font-size:10px; color:var(--text-3); margin-top:6px; }
+.kbd kbd    { background:var(--bg-3); border:1px solid var(--border); border-radius:3px; padding:1px 5px; font-size:10px; font-family:inherit; }
+
+.constraint-note { font-size:10px; color:var(--text-3); background:var(--bg-3); border:1px solid var(--border-2); border-radius:5px; padding:6px 8px; line-height:1.4; }
+
+.words-panel { flex:1; display:flex; flex-direction:column; overflow:hidden; min-height:360px; }
+.panel-top  { display:flex; align-items:center; justify-content:space-between; padding:10px 16px; border-bottom:1px solid var(--border-2); }
+.panel-label { font-size:12px; color:var(--text-3); font-weight:600; }
+.act-btn    { font-size:12px; padding:5px 11px; border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:background .12s; }
+.act-btn:hover { background:var(--bg-2); }
+
+.un-grid    { display:grid; grid-template-columns:1fr 1fr; gap:0; flex:1; }
+.un-item    { display:flex; align-items:center; justify-content:space-between; padding:9px 14px; border-bottom:1px solid var(--border-2); border-right:1px solid var(--border-2); gap:6px; animation:fadeIn .2s ease; }
+.un-item:nth-child(even) { border-right:none; }
+.un-item:nth-last-child(-n+2) { border-bottom:none; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(3px)} to{opacity:1;transform:none} }
+.un-name    { font-size:13px; font-weight:600; color:var(--text); flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.un-sub     { font-size:10px; color:var(--text-3); margin-top:1px; }
+.un-actions { display:flex; gap:4px; flex-shrink:0; }
+.un-copy    { font-size:11px; padding:3px 8px; border:1px solid var(--border); border-radius:5px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:background .12s; }
+.un-copy:hover { background:var(--bg-2); }
+.un-heart   { font-size:13px; padding:3px 6px; border:1px solid var(--border); border-radius:5px; background:var(--bg); color:var(--text-3); cursor:pointer; font-family:inherit; transition:all .12s; border-color:transparent; }
+.un-heart:hover { color:#e55; }
+.un-heart.saved { color:#e55; }
+
+.fav-tray   { border-top:1px solid var(--border-2); padding:10px 14px; background:var(--bg-2); min-height:44px; }
+.fav-label  { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; margin-bottom:6px; }
+.fav-list   { display:flex; flex-wrap:wrap; gap:5px; }
+.fav-chip   { font-size:12px; font-weight:600; padding:3px 10px; background:var(--bg); border:1px solid var(--border); border-radius:20px; color:var(--text); display:flex; align-items:center; gap:5px; }
+.fav-chip-x { cursor:pointer; color:var(--text-3); font-size:11px; line-height:1; }
+.fav-chip-x:hover { color:var(--text); }
+.fav-empty  { font-size:12px; color:var(--text-3); font-style:italic; }
+.fav-copy-all { font-size:11px; padding:3px 9px; border:1px solid var(--border); border-radius:5px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; }
+
+.platform-strip { border-top:1px solid var(--border-2); padding:10px 14px; }
+.strip-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; margin-bottom:7px; }
+.strip-items { display:flex; flex-wrap:wrap; gap:8px; }
+.strip-item { font-size:11px; color:var(--text-2); background:var(--bg-2); border:1px solid var(--border-2); border-radius:5px; padding:3px 8px; font-family:monospace; }
+.strip-item b { color:var(--text); }
+
+.un-toast   { position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(10px); background:#1a1a1a; color:white; font-size:13px; font-weight:600; padding:10px 18px; border-radius:8px; opacity:0; transition:opacity .2s,transform .2s; pointer-events:none; z-index:999; }
+.un-toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+
+@media (max-width:640px) {
+  .tool-split { flex-direction:column; }
+  .ctrl { width:auto; border-right:none; border-bottom:1px solid var(--border-2); }
+  .un-grid { grid-template-columns:1fr; }
+  .un-item:nth-child(even) { border-right:none; }
+  .un-item:nth-last-child(-n+2) { border-bottom:1px solid var(--border-2); }
+  .un-item:last-child { border-bottom:none; }
+}
+</style>
+<!-- /SLOT:style -->
+
+<!-- SLOT:hero -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/account-tools/">Account Tools</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Gmail Username Generator</span>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free · No sign-up · Gmail-compatible
+  </div>
+  <h1>Gmail Username Generator</h1>
+  <p>Generate Gmail-compatible handles — letters, numbers, and dots only, 6 to 30 characters. Switch between Professional, Personal, and Creative modes. 12 results instantly, copy the one you want.</p>
+</div>
+<!-- /SLOT:hero -->
+
+<!-- SLOT:tool -->
+<div class="tool-wrap">
+  <div class="tool-card">
+    <div class="tool-split">
+
+      <!-- Left: Controls -->
+      <div class="ctrl">
+        <div class="ctrl-row">
+          <span class="ctrl-label">Mode</span>
+          <div class="style-btns" id="gm-modes">
+            <button class="style-btn active" data-mode="professional">Professional</button>
+            <button class="style-btn" data-mode="personal">Personal</button>
+            <button class="style-btn" data-mode="creative">Creative</button>
+          </div>
+        </div>
+
+        <div class="ctrl-row">
+          <span class="ctrl-label">Format</span>
+          <div class="fmt-btns" id="gm-formats">
+            <button class="fmt-btn active" data-fmt="dot">first.last</button>
+            <button class="fmt-btn" data-fmt="plain">firstlast</button>
+            <button class="fmt-btn" data-fmt="dotword">first.last.word</button>
+          </div>
+        </div>
+
+        <div class="ctrl-row">
+          <p class="constraint-note">Gmail allows letters, numbers, and dots (.) only — 6 to 30 characters</p>
+        </div>
+
+        <button class="gen-btn" id="gm-gen-btn">Generate usernames</button>
+        <p class="kbd">Press <kbd>Enter</kbd> or <kbd>Space</kbd></p>
+      </div>
+
+      <!-- Right: Output -->
+      <div class="words-panel">
+        <div class="panel-top">
+          <span class="panel-label" id="gm-mode-label">Professional mode</span>
+          <button class="act-btn" id="gm-refresh-btn">↻ Refresh</button>
+        </div>
+
+        <div class="un-grid" id="gm-grid" role="list" aria-label="Generated Gmail usernames"></div>
+
+        <!-- Favorites tray -->
+        <div class="fav-tray">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
+            <span class="fav-label">Saved favorites</span>
+            <button class="fav-copy-all act-btn" id="gm-copy-all-btn" style="display:none">Copy all</button>
+          </div>
+          <div class="fav-list" id="gm-fav-list">
+            <span class="fav-empty">Heart a name to save it here</span>
+          </div>
+        </div>
+
+        <!-- Platform preview strip -->
+        <div class="platform-strip">
+          <div class="strip-label">Gmail preview</div>
+          <div class="strip-items" id="gm-strip">
+            <span class="strip-item" id="strip-gm-full">—<b>@gmail.com</b></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="un-toast" id="gm-toast" role="status" aria-live="polite">Copied!</div>
+<!-- /SLOT:tool -->
+
+<!-- SLOT:ad_b -->
+<!-- Ad placeholder -->
+<!-- /SLOT:ad_b -->
+
+<!-- SLOT:init -->
+<script>
+(function () {
+  var POOLS = {
+    professional: {
+      first: ['alex','jordan','taylor','morgan','riley','casey','avery','blake','quinn','sage','river','robin','finley','drew','reese','skyler','devon','elliot','corey','jamie'],
+      last:  ['smith','jones','lee','kim','park','chen','garcia','martin','wright','hall','allen','scott','young','baker','adams','clark','lewis','harris','thomas','walker']
+    },
+    personal: {
+      adj:  ['sunny','bright','cosmic','happy','swift','bold','calm','deep','wild','free','light','dark','sage','wise','keen','sharp','cool','warm','pure','clear'],
+      noun: ['star','moon','sun','sky','ocean','river','mountain','cloud','thunder','lightning','storm','ember','flame','frost','bloom','grove','haven','ridge','peak','crest']
+    },
+    creative: ['pixel','nova','echo','prism','helix','apex','nexus','flux','delta','sigma','theta','zephyr','solstice','equinox','zenith','nadir','apogee','perihelion','azimuth','meridian']
+  };
+
+  var MODE_NAMES = {
+    professional: 'Professional mode',
+    personal: 'Personal mode',
+    creative: 'Creative mode'
+  };
+
+  var BLOCK = ['kill','hate','nazi','rape','sex','porn','fuck','shit','bitch','bastard','cock','pussy','nigger','faggot'];
+
+  function isClean(s) {
+    var l = s.toLowerCase();
+    return !BLOCK.some(function(b) { return l.indexOf(b) !== -1; });
+  }
+
+  function cryptoPick(arr) {
+    if (!arr || !arr.length) return '';
+    var buf = new Uint8Array(1);
+    crypto.getRandomValues(buf);
+    return arr[buf[0] % arr.length];
+  }
+
+  function gmailSanitize(s) {
+    return s.replace(/[^a-z0-9.]/g, '').slice(0, 30);
+  }
+
+  function buildName(mode, fmt) {
+    var raw = '';
+    if (mode === 'professional') {
+      var first = cryptoPick(POOLS.professional.first);
+      var last  = cryptoPick(POOLS.professional.last);
+      if (fmt === 'dot')     raw = first + '.' + last;
+      else if (fmt === 'plain') raw = first + last;
+      else {
+        var extra = cryptoPick(POOLS.personal.noun);
+        raw = first + '.' + last + '.' + extra;
+      }
+    } else if (mode === 'personal') {
+      var adj  = cryptoPick(POOLS.personal.adj);
+      var noun = cryptoPick(POOLS.personal.noun);
+      var num  = Math.floor(Math.random() * 90) + 10;
+      if (fmt === 'dot')   raw = adj + '.' + noun;
+      else if (fmt === 'plain') raw = adj + noun + num;
+      else {
+        var extra2 = cryptoPick(POOLS.personal.adj);
+        raw = adj + '.' + noun + '.' + extra2;
+      }
+    } else {
+      var word1 = cryptoPick(POOLS.creative);
+      var word2 = cryptoPick(POOLS.creative);
+      if (fmt === 'dot')   raw = word1 + '.' + word2;
+      else if (fmt === 'plain') raw = word1 + word2;
+      else {
+        var word3 = cryptoPick(POOLS.personal.noun);
+        raw = word1 + '.' + word2 + '.' + word3;
+      }
+    }
+    return gmailSanitize(raw.toLowerCase());
+  }
+
+  function generateBatch(mode, fmt) {
+    var results = [];
+    var attempts = 0;
+    while (results.length < 12 && attempts < 400) {
+      attempts++;
+      var name = buildName(mode, fmt);
+      if (name.length < 6 || name.length > 30) continue;
+      if (!isClean(name)) continue;
+      if (results.indexOf(name) !== -1) continue;
+      results.push(name);
+    }
+    return results;
+  }
+
+  var favorites = [];
+  var currentNames = [];
+
+  function escH(s) {
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function showToast(msg) {
+    var t = document.getElementById('gm-toast');
+    t.textContent = msg || 'Copied!';
+    t.classList.add('show');
+    setTimeout(function() { t.classList.remove('show'); }, 1800);
+  }
+
+  function copyText(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function(){ showToast(); }).catch(function(){ fallbackCopy(text); showToast(); });
+    } else { fallbackCopy(text); showToast(); }
+  }
+
+  function fallbackCopy(text) {
+    var ta = document.createElement('textarea');
+    ta.value = text; ta.style.cssText = 'position:fixed;opacity:0;pointer-events:none';
+    document.body.appendChild(ta); ta.focus(); ta.select();
+    try { document.execCommand('copy'); } catch(e) {}
+    document.body.removeChild(ta);
+  }
+
+  function updateStrip(name) {
+    var safe = escH(name || '—');
+    document.getElementById('strip-gm-full').innerHTML = safe + '<b>@gmail.com</b>';
+  }
+
+  function renderFavorites() {
+    var list = document.getElementById('gm-fav-list');
+    var btn  = document.getElementById('gm-copy-all-btn');
+    if (!favorites.length) {
+      list.innerHTML = '<span class="fav-empty">Heart a name to save it here</span>';
+      btn.style.display = 'none';
+      return;
+    }
+    btn.style.display = '';
+    list.innerHTML = favorites.map(function(n) {
+      return '<span class="fav-chip">' + escH(n) + '<span class="fav-chip-x" data-fav="' + escH(n) + '" title="Remove">×</span></span>';
+    }).join('');
+  }
+
+  function renderGrid(names) {
+    currentNames = names;
+    var grid = document.getElementById('gm-grid');
+    if (!names.length) {
+      grid.innerHTML = '<div style="padding:20px;color:var(--text-3);font-size:13px;grid-column:1/-1">No names generated — try a different mode or format.</div>';
+      return;
+    }
+    grid.innerHTML = names.map(function(n) {
+      var saved = favorites.indexOf(n) !== -1;
+      return '<div class="un-item" role="listitem">'
+        + '<div><div class="un-name">' + escH(n) + '</div><div class="un-sub">' + escH(n) + '@gmail.com</div></div>'
+        + '<div class="un-actions">'
+        + '<button class="un-heart' + (saved ? ' saved' : '') + '" data-name="' + escH(n) + '" title="' + (saved ? 'Remove from favorites' : 'Save to favorites') + '">♥</button>'
+        + '<button class="un-copy" data-name="' + escH(n) + '">Copy</button>'
+        + '</div></div>';
+    }).join('');
+    if (names[0]) updateStrip(names[0]);
+  }
+
+  function getActiveMode()   { return (document.querySelector('#gm-modes .style-btn.active') || {}).dataset.mode || 'professional'; }
+  function getActiveFormat() { return (document.querySelector('#gm-formats .fmt-btn.active') || {}).dataset.fmt || 'dot'; }
+
+  function generate() {
+    var mode = getActiveMode();
+    var fmt  = getActiveFormat();
+    document.getElementById('gm-mode-label').textContent = MODE_NAMES[mode] || 'Custom mode';
+    var names = generateBatch(mode, fmt);
+    renderGrid(names);
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('gm-modes').addEventListener('click', function(e) {
+      var btn = e.target.closest('.style-btn');
+      if (!btn) return;
+      document.querySelectorAll('#gm-modes .style-btn').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      generate();
+    });
+
+    document.getElementById('gm-formats').addEventListener('click', function(e) {
+      var btn = e.target.closest('.fmt-btn');
+      if (!btn) return;
+      document.querySelectorAll('#gm-formats .fmt-btn').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      generate();
+    });
+
+    document.getElementById('gm-gen-btn').addEventListener('click', generate);
+    document.getElementById('gm-refresh-btn').addEventListener('click', generate);
+
+    document.getElementById('gm-grid').addEventListener('click', function(e) {
+      var copyBtn = e.target.closest('.un-copy');
+      if (copyBtn) { copyText(copyBtn.dataset.name); return; }
+      var heartBtn = e.target.closest('.un-heart');
+      if (heartBtn) {
+        var name = heartBtn.dataset.name;
+        var idx  = favorites.indexOf(name);
+        if (idx === -1) { favorites.push(name); heartBtn.classList.add('saved'); }
+        else            { favorites.splice(idx, 1); heartBtn.classList.remove('saved'); }
+        renderFavorites();
+        updateStrip(name);
+      }
+    });
+
+    document.getElementById('gm-fav-list').addEventListener('click', function(e) {
+      var x = e.target.closest('.fav-chip-x');
+      if (!x) return;
+      var name = x.dataset.fav;
+      favorites = favorites.filter(function(f){ return f !== name; });
+      renderFavorites();
+      var heart = document.querySelector('.un-heart[data-name="' + name + '"]');
+      if (heart) heart.classList.remove('saved');
+    });
+
+    document.getElementById('gm-copy-all-btn').addEventListener('click', function() {
+      copyText(favorites.join('\n'));
+      showToast('Copied ' + favorites.length + ' names!');
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.target !== document.body) return;
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); generate(); }
+    });
+
+    generate();
+  });
+}());
+</script>
+<!-- /SLOT:init -->
+
+<!-- SLOT:explainer -->
+<div class="explainer">
+  <h2>Why Your Gmail Handle Matters</h2>
+  <p>Your Gmail address is often the first professional signal you send before a conversation even begins. Recruiters, clients, and collaborators see your address in the From field before they read a single word of your message. An address structured as firstname.lastname or firstnamelastname reads as organized and intentional. One that reads as a gaming tag or a childhood nickname you never updated signals something different — not necessarily bad, but informal in contexts where formality helps.</p>
+  <p>For professional contexts, the best Gmail handles follow a simple pattern: some combination of your first name, last name, and possibly a number if the obvious combinations are taken. Dots work well visually even though Gmail ignores them for delivery purposes — john.doe@gmail.com and johndoe@gmail.com land in the same inbox, but the dotted version looks cleaner in a signature. For personal use, you have more latitude: word combinations, short descriptors, or creative compound handles all work fine.</p>
+  <p>Common mistakes to avoid: using numbers that look like a birth year (name1990@ reads as dated), using underscores (Gmail doesn't allow them anyway), picking something very long (addresses that wrap in mobile clients are painful), and choosing anything with slang that might age poorly. Short, clean, and pronounceable handles travel best across contexts.</p>
+
+  <h2>How the Generator Works</h2>
+  <p>Every result is automatically sanitized to contain only letters, numbers, and dots — the only characters Gmail allows. Results are checked to be between 6 and 30 characters, the limits Google enforces at account creation. Professional mode combines curated first and last name pools in various dot-separated formats. Personal mode combines descriptive adjectives and nouns, optionally with numbers. Creative mode uses distinctive single-word handles and compound formations for accounts where personality matters more than professionalism.</p>
+</div>
+<!-- /SLOT:explainer -->
+
+<!-- SLOT:faq -->
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">What characters are allowed in a Gmail address?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Gmail allows letters (a–z), numbers (0–9), and dots (.) only. No hyphens, underscores, plus signs, or other special characters are permitted in the username itself. The address must be 6 to 30 characters. This generator enforces all three rules so every result is ready to try at account creation.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Does Gmail treat dots differently from no dots?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">No. Gmail ignores dots in the username entirely. john.doe@gmail.com and johndoe@gmail.com and j.o.h.n.d.o.e@gmail.com all deliver to the same inbox. You can't register both as separate accounts. Dots are only useful as a visual separator to make an address easier to read.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">How do I check if a Gmail address is available?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">This generator can't check live availability — Gmail doesn't expose a public API for that. To check, go to accounts.google.com/signup, reach the username field, and type the handle you want. Google will immediately tell you if it's taken and suggest alternatives. Short firstname.lastname combinations at a common name are usually taken; adding a middle initial, a number, or using a less common surname helps.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What is the difference between Professional and Personal modes?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Professional mode generates handles in firstname.lastname or firstnamelastname patterns using real name-style words — appropriate for job applications, business contacts, and formal contexts. Personal mode generates word-combination handles (sunny.storm, brightocean42) that are still Gmail-compatible but have more personality. Creative mode generates distinctive compound handles for accounts where memorability matters more than professionalism.</div>
+  </div>
+</div>
+<!-- /SLOT:faq -->
+
+<!-- SLOT:who -->
+<div>
+  <h2 class="section-title" style="margin-bottom:14px">Who uses a Gmail username generator?</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">Job seekers</div><div class="uc-body">Anyone updating a resume who wants a clean, professional email address that doesn't undermine an otherwise strong application</div></div>
+    <div class="uc"><div class="uc-title">Freelancers</div><div class="uc-body">Independent contractors and consultants who need a client-facing email that reads as professional before they can afford a custom domain</div></div>
+    <div class="uc"><div class="uc-title">New Gmail accounts</div><div class="uc-body">Anyone setting up a fresh Google account — whether for a new identity, a side project, or because their old address is embarrassing</div></div>
+    <div class="uc"><div class="uc-title">Privacy-conscious users</div><div class="uc-body">People who want a non-identifying Gmail address for signups, newsletters, and services they don't want tied to their main identity</div></div>
+  </div>
+</div>
+<!-- /SLOT:who -->

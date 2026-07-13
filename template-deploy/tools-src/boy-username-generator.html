@@ -1,0 +1,548 @@
+<!-- CONFIG
+{
+  "url": "/boy-username-generator/",
+  "output": "boy-username-generator.html",
+  "type": "tool",
+  "more_tools_key": "more_account_tools",
+  "more_tools_title": "More account tools",
+  "more_tools_subtitle": "Password generators, passphrase tools, username generators — all free"
+}
+-->
+
+<!-- SLOT:meta -->
+<title>Boy Username Generator — Masculine Handles for Gaming &amp; Social | Wordineer</title>
+<meta name="description" content="Generate boy usernames with masculine-leaning wordlists. Sports, gaming, nature, and cool sub-modes. Works across Xbox, Discord, TikTok, and more.">
+<link rel="canonical" href="https://wordineer.com/boy-username-generator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wordineer">
+<meta property="og:title" content="Boy Username Generator — Masculine Handles for Gaming &amp; Social | Wordineer">
+<meta property="og:description" content="Generate boy usernames with masculine-leaning wordlists. Sports, gaming, nature, and cool sub-modes. Works across Xbox, Discord, TikTok, and more.">
+<meta property="og:url" content="https://wordineer.com/boy-username-generator/">
+<meta property="og:image" content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How does the boy username generator work?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Choose a sub-mode — Gaming, Sports, Nature, Cool, or Adventurous — and the generator combines words from the curated masculine-leaning word pool for that mode. Apply your preferred format (lowercase, CamelCase, underscores, or dots), add a seed word to guide results, and generate 12 handle ideas instantly. Save favorites with the heart button and use the platform preview strip to see how each name looks across Xbox, Discord, TikTok, and more." }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the five sub-modes?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Gaming uses competitive, power-word vocabulary: apex, phantom, titan, vortex, nexus. Sports uses athletic achievement language: champion, clutch, elite, grit, hustle, podium. Nature draws from wild animal and landscape vocabulary: thunder, wolf, hawk, bear, ridge, ember. Cool uses sleek, confident vocabulary: cipher, flux, prism, echo, delta, nova. Adventurous uses exploration-themed words: navigator, pioneer, tracker, voyager, pathfinder." }
+    },
+    {
+      "@type": "Question",
+      "name": "Will these usernames work on Xbox and PlayStation?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The word pools contain only standard English letters with no spaces or special characters, which meets the character rules of every major gaming platform including Xbox, PlayStation, Steam, and Epic. Platform-specific limits (Xbox allows up to 12 characters; PSN allows up to 16) are not enforced by this tool, so check your preferred platform's rules and use the length filter to narrow results appropriately." }
+    },
+    {
+      "@type": "Question",
+      "name": "What format should I use for a gaming handle?",
+      "acceptedAnswer": { "@type": "Answer", "text": "CamelCase (ApexPhantom) is the most common gaming handle format — it's readable without spaces and looks sharp in leaderboards. Lowercase (apexphantom) is also widely used on Discord. Underscores (apex_phantom) work on most social platforms. Dots work well for Instagram and Twitter but can look out of place on gaming platforms that don't render them in leader boards or kill feeds." }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Boy Username Generator",
+  "url": "https://wordineer.com/boy-username-generator/",
+  "description": "Generate masculine-leaning usernames across Gaming, Sports, Nature, Cool, and Adventurous sub-modes. Seed word, format toggle, cross-platform preview.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@id": "https://wordineer.com/#organization" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Account Tools", "item": "https://wordineer.com/account-tools/" },
+    { "@type": "ListItem", "position": 3, "name": "Boy Username Generator", "item": "https://wordineer.com/boy-username-generator/" }
+  ]
+}
+</script>
+<!-- /SLOT:meta -->
+
+<!-- SLOT:style -->
+<style>
+.tool-wrap { max-width:960px; margin:0 auto; padding:24px 24px 0; }
+.tool-card  { border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg); box-shadow:var(--shadow); }
+.tool-split { display:flex; }
+
+.ctrl       { width:220px; flex-shrink:0; padding:18px; border-right:1px solid var(--border-2); background:var(--bg-2); }
+.ctrl-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; display:block; margin-bottom:8px; }
+.ctrl-row   { margin-bottom:16px; }
+
+.style-btns { display:flex; flex-wrap:wrap; gap:5px; }
+.style-btn  { font-size:11px; font-weight:600; padding:4px 9px; border:1px solid var(--border); border-radius:20px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:all .15s; }
+.style-btn.active { background:var(--brand); color:white; border-color:var(--brand); }
+.style-btn:hover:not(.active) { background:var(--bg-3); }
+
+.seed-input { width:100%; padding:7px 10px; border:1px solid var(--border); border-radius:6px; font-size:13px; font-family:inherit; background:var(--bg); color:var(--text); outline:none; box-sizing:border-box; }
+.seed-input:focus { border-color:var(--brand); }
+.seed-hint  { font-size:10px; color:var(--text-3); margin-top:4px; }
+
+.len-btns   { display:flex; gap:5px; }
+.len-btn    { flex:1; font-size:11px; font-weight:600; padding:5px 4px; border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; text-align:center; transition:all .15s; }
+.len-btn.active { background:var(--brand); color:white; border-color:var(--brand); }
+
+.fmt-btns   { display:flex; gap:4px; flex-wrap:wrap; }
+.fmt-btn    { font-size:10px; font-weight:600; padding:4px 7px; border:1px solid var(--border); border-radius:5px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:all .15s; }
+.fmt-btn.active { background:var(--brand); color:white; border-color:var(--brand); }
+
+.gen-btn    { width:100%; padding:10px 14px; background:var(--brand); color:white; border:none; border-radius:8px; font-size:14px; font-weight:600; font-family:inherit; cursor:pointer; transition:background .15s,transform .1s; letter-spacing:-.01em; }
+.gen-btn:hover { background:var(--brand-dark); }
+.gen-btn:active { transform:scale(.98); }
+.kbd        { text-align:center; font-size:10px; color:var(--text-3); margin-top:6px; }
+.kbd kbd    { background:var(--bg-3); border:1px solid var(--border); border-radius:3px; padding:1px 5px; font-size:10px; font-family:inherit; }
+
+.words-panel { flex:1; display:flex; flex-direction:column; overflow:hidden; min-height:360px; }
+.panel-top  { display:flex; align-items:center; justify-content:space-between; padding:10px 16px; border-bottom:1px solid var(--border-2); }
+.panel-label { font-size:12px; color:var(--text-3); font-weight:600; }
+.act-btn    { font-size:12px; padding:5px 11px; border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:background .12s; }
+.act-btn:hover { background:var(--bg-2); }
+
+.un-grid    { display:grid; grid-template-columns:1fr 1fr; gap:0; flex:1; }
+.un-item    { display:flex; align-items:center; justify-content:space-between; padding:9px 14px; border-bottom:1px solid var(--border-2); border-right:1px solid var(--border-2); gap:6px; animation:fadeIn .2s ease; }
+.un-item:nth-child(even) { border-right:none; }
+.un-item:nth-last-child(-n+2) { border-bottom:none; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(3px)} to{opacity:1;transform:none} }
+.un-name    { font-size:13px; font-weight:600; color:var(--text); flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.un-actions { display:flex; gap:4px; flex-shrink:0; }
+.un-copy    { font-size:11px; padding:3px 8px; border:1px solid var(--border); border-radius:5px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:background .12s; }
+.un-copy:hover { background:var(--bg-2); }
+.un-heart   { font-size:13px; padding:3px 6px; border:1px solid var(--border); border-radius:5px; background:var(--bg); color:var(--text-3); cursor:pointer; font-family:inherit; transition:all .12s; border-color:transparent; }
+.un-heart:hover { color:#e55; }
+.un-heart.saved { color:#e55; }
+
+.fav-tray   { border-top:1px solid var(--border-2); padding:10px 14px; background:var(--bg-2); min-height:44px; }
+.fav-label  { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; margin-bottom:6px; }
+.fav-list   { display:flex; flex-wrap:wrap; gap:5px; }
+.fav-chip   { font-size:12px; font-weight:600; padding:3px 10px; background:var(--bg); border:1px solid var(--border); border-radius:20px; color:var(--text); display:flex; align-items:center; gap:5px; }
+.fav-chip-x { cursor:pointer; color:var(--text-3); font-size:11px; line-height:1; }
+.fav-chip-x:hover { color:var(--text); }
+.fav-empty  { font-size:12px; color:var(--text-3); font-style:italic; }
+.fav-copy-all { font-size:11px; padding:3px 9px; border:1px solid var(--border); border-radius:5px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; }
+
+.platform-strip { border-top:1px solid var(--border-2); padding:10px 14px; }
+.strip-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; margin-bottom:7px; }
+.strip-items { display:flex; flex-wrap:wrap; gap:8px; }
+.strip-item { font-size:11px; color:var(--text-2); background:var(--bg-2); border:1px solid var(--border-2); border-radius:5px; padding:3px 8px; font-family:monospace; }
+.strip-item b { color:var(--text); }
+
+.un-toast   { position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(10px); background:#1a1a1a; color:white; font-size:13px; font-weight:600; padding:10px 18px; border-radius:8px; opacity:0; transition:opacity .2s,transform .2s; pointer-events:none; z-index:999; }
+.un-toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+
+@media (max-width:640px) {
+  .tool-split { flex-direction:column; }
+  .ctrl { width:auto; border-right:none; border-bottom:1px solid var(--border-2); }
+  .un-grid { grid-template-columns:1fr; }
+  .un-item:nth-child(even) { border-right:none; }
+  .un-item:nth-last-child(-n+2) { border-bottom:1px solid var(--border-2); }
+  .un-item:last-child { border-bottom:none; }
+}
+</style>
+<!-- /SLOT:style -->
+
+<!-- SLOT:hero -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/account-tools/">Account Tools</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Boy Username Generator</span>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free · No sign-up · Instant
+  </div>
+  <h1>Boy Username Generator</h1>
+  <p>Generate masculine-leaning usernames across five sub-modes — Gaming, Sports, Nature, Cool, and Adventurous. Add a seed word, choose your format, save favorites, and preview how each name looks on Xbox, Discord, TikTok, and more.</p>
+</div>
+<!-- /SLOT:hero -->
+
+<!-- SLOT:tool -->
+<div class="tool-wrap">
+  <div class="tool-card">
+    <div class="tool-split">
+
+      <!-- Left: Controls -->
+      <div class="ctrl">
+        <div class="ctrl-row">
+          <span class="ctrl-label">Sub-mode</span>
+          <div class="style-btns" id="un-styles">
+            <button class="style-btn active" data-style="gaming">Gaming</button>
+            <button class="style-btn" data-style="sports">Sports</button>
+            <button class="style-btn" data-style="nature">Nature</button>
+            <button class="style-btn" data-style="cool">Cool</button>
+            <button class="style-btn" data-style="adventurous">Adventurous</button>
+          </div>
+        </div>
+
+        <div class="ctrl-row">
+          <label class="ctrl-label" for="un-seed">Seed word (optional)</label>
+          <input type="text" id="un-seed" class="seed-input" placeholder="e.g. wolf, apex, storm" maxlength="20" autocomplete="off">
+          <p class="seed-hint">Guides the theme of generated names</p>
+        </div>
+
+        <div class="ctrl-row">
+          <span class="ctrl-label">Length</span>
+          <div class="len-btns" id="un-lengths">
+            <button class="len-btn active" data-len="any">Any</button>
+            <button class="len-btn" data-len="short">Short<br><span style="font-weight:400;font-size:10px">≤8</span></button>
+            <button class="len-btn" data-len="med">Med<br><span style="font-weight:400;font-size:10px">9–14</span></button>
+            <button class="len-btn" data-len="long">Long<br><span style="font-weight:400;font-size:10px">15+</span></button>
+          </div>
+        </div>
+
+        <div class="ctrl-row">
+          <span class="ctrl-label">Format</span>
+          <div class="fmt-btns" id="un-formats">
+            <button class="fmt-btn" data-fmt="lower">lowercase</button>
+            <button class="fmt-btn active" data-fmt="camel">CamelCase</button>
+            <button class="fmt-btn" data-fmt="under">with_underscores</button>
+            <button class="fmt-btn" data-fmt="dot">with.dots</button>
+          </div>
+        </div>
+
+        <button class="gen-btn" id="un-gen-btn">Generate usernames</button>
+        <p class="kbd">Press <kbd>Enter</kbd> or <kbd>Space</kbd></p>
+      </div>
+
+      <!-- Right: Output -->
+      <div class="words-panel">
+        <div class="panel-top">
+          <span class="panel-label" id="un-style-label">Gaming mode</span>
+          <button class="act-btn" id="un-refresh-btn">↻ Refresh</button>
+        </div>
+
+        <div class="un-grid" id="un-grid" role="list" aria-label="Generated usernames"></div>
+
+        <!-- Favorites tray -->
+        <div class="fav-tray">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
+            <span class="fav-label">Saved favorites</span>
+            <button class="fav-copy-all act-btn" id="un-copy-all-btn" style="display:none">Copy all</button>
+          </div>
+          <div class="fav-list" id="un-fav-list">
+            <span class="fav-empty">Heart a name to save it here</span>
+          </div>
+        </div>
+
+        <!-- Platform preview strip -->
+        <div class="platform-strip">
+          <div class="strip-label">Platform preview</div>
+          <div class="strip-items" id="un-strip">
+            <span class="strip-item" id="strip-ig"><b>@</b>—</span>
+            <span class="strip-item" id="strip-rd"><b>u/</b>—</span>
+            <span class="strip-item" id="strip-dc">—</span>
+            <span class="strip-item" id="strip-tt">—</span>
+            <span class="strip-item" id="strip-gm">—<b>@gmail.com</b></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="un-toast" id="un-toast" role="status" aria-live="polite">Copied!</div>
+<!-- /SLOT:tool -->
+
+<!-- SLOT:ad_b -->
+<!-- Ad placeholder -->
+<!-- /SLOT:ad_b -->
+
+<!-- SLOT:init -->
+<script>
+(function () {
+  var POOLS = {
+    gaming: ['apex','void','rogue','phantom','titan','surge','nexus','vortex','core','spike','wolf','storm','blade','ghost','viper','hawk','raven','frost','dusk','ash','drift','pulse','forge','claw','edge'],
+    sports: ['striker','champion','clutch','elite','prime','peak','gold','crown','legend','trophy','force','drive','rush','speed','burst','power','grit','grind','hustle','compete','win','podium','score','goal','assist'],
+    nature: ['thunder','storm','frost','ash','ember','ridge','peak','tide','dusk','dawn','blaze','wolf','hawk','raven','bear','elk','fox','eagle','lynx','boar','bison','cougar','falcon','osprey','condor'],
+    cool: ['cipher','axiom','flux','prism','echo','delta','null','zero','neo','ultra','force','shift','wave','pulse','drift','surge','apex','void','nexus','nova','comet','blaze','frost','storm','shadow'],
+    adventurous: ['explorer','navigator','pioneer','scout','ranger','tracker','hunter','trapper','guide','pathfinder','voyager','wayfarer','journeyer','wanderer','rover','roamer','rambler','trekker','hiker','climber']
+  };
+
+  var STYLE_LABELS = {
+    gaming: 'Gaming mode',
+    sports: 'Sports mode',
+    nature: 'Nature mode',
+    cool: 'Cool mode',
+    adventurous: 'Adventurous mode'
+  };
+
+  var BLOCK = ['kill','hate','nazi','rape','sex','porn','fuck','shit','bitch','bastard','cock','pussy','nigger','faggot'];
+
+  function isClean(s) {
+    var l = s.toLowerCase();
+    return !BLOCK.some(function(b) { return l.indexOf(b) !== -1; });
+  }
+
+  function cryptoPick(arr) {
+    if (!arr || !arr.length) return '';
+    var buf = new Uint8Array(1);
+    crypto.getRandomValues(buf);
+    return arr[buf[0] % arr.length];
+  }
+
+  function applyFormat(raw, fmt) {
+    var words = raw.split(/(?=[A-Z])|[-_ .]/).filter(Boolean);
+    if (fmt === 'lower') return words.join('').toLowerCase();
+    if (fmt === 'under') return words.join('_').toLowerCase();
+    if (fmt === 'dot')   return words.join('.').toLowerCase();
+    return words.map(function(w) { return w.charAt(0).toUpperCase() + w.slice(1).toLowerCase(); }).join('');
+  }
+
+  function seedFilter(pool, seed) {
+    if (!seed) return pool;
+    var s = seed.toLowerCase().slice(0, 3);
+    var matched = pool.filter(function(w) { return w.toLowerCase().startsWith(s); });
+    return matched.length >= 4 ? matched : pool;
+  }
+
+  function matchLength(name, lenFilter) {
+    var l = name.length;
+    if (lenFilter === 'short') return l <= 8;
+    if (lenFilter === 'med')   return l >= 9 && l <= 14;
+    if (lenFilter === 'long')  return l >= 15;
+    return true;
+  }
+
+  function generateBatch(style, seed, fmt, lenFilter) {
+    var pool = POOLS[style] || POOLS.gaming;
+    var filteredPool = seedFilter(pool, seed);
+    var results = [];
+    var attempts = 0;
+    while (results.length < 12 && attempts < 400) {
+      attempts++;
+      var w1 = cryptoPick(filteredPool);
+      var w2 = cryptoPick(filteredPool);
+      if (!w1 || !w2 || w1 === w2) continue;
+      var combo = w1.charAt(0).toUpperCase() + w1.slice(1).toLowerCase() + w2.charAt(0).toUpperCase() + w2.slice(1).toLowerCase();
+      var formatted = applyFormat(combo, fmt);
+      if (isClean(formatted) && matchLength(formatted, lenFilter) && results.indexOf(formatted) === -1) {
+        results.push(formatted);
+      }
+    }
+    return results;
+  }
+
+  var favorites = [];
+  var currentNames = [];
+
+  function escH(s) {
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function showToast(msg) {
+    var t = document.getElementById('un-toast');
+    t.textContent = msg || 'Copied!';
+    t.classList.add('show');
+    setTimeout(function() { t.classList.remove('show'); }, 1800);
+  }
+
+  function copyText(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function(){ showToast(); }).catch(function(){ fallbackCopy(text); showToast(); });
+    } else { fallbackCopy(text); showToast(); }
+  }
+
+  function fallbackCopy(text) {
+    var ta = document.createElement('textarea');
+    ta.value = text; ta.style.cssText = 'position:fixed;opacity:0;pointer-events:none';
+    document.body.appendChild(ta); ta.focus(); ta.select();
+    try { document.execCommand('copy'); } catch(e) {}
+    document.body.removeChild(ta);
+  }
+
+  function updateStrip(name) {
+    var safe = escH(name || '—');
+    document.getElementById('strip-ig').innerHTML = '<b>@</b>' + (name ? safe : '—');
+    document.getElementById('strip-rd').innerHTML = '<b>u/</b>' + (name ? safe : '—');
+    document.getElementById('strip-dc').innerHTML = (name ? safe : '—') + ' <span style="color:var(--text-3);font-size:10px">(Discord)</span>';
+    document.getElementById('strip-tt').innerHTML = (name ? safe : '—') + ' <span style="color:var(--text-3);font-size:10px">(TikTok)</span>';
+    document.getElementById('strip-gm').innerHTML = (name ? safe : '—') + '<b>@gmail.com</b>';
+  }
+
+  function renderFavorites() {
+    var list = document.getElementById('un-fav-list');
+    var btn  = document.getElementById('un-copy-all-btn');
+    if (!favorites.length) {
+      list.innerHTML = '<span class="fav-empty">Heart a name to save it here</span>';
+      btn.style.display = 'none';
+      return;
+    }
+    btn.style.display = '';
+    list.innerHTML = favorites.map(function(n) {
+      return '<span class="fav-chip">' + escH(n) + '<span class="fav-chip-x" data-fav="' + escH(n) + '" title="Remove">×</span></span>';
+    }).join('');
+  }
+
+  function renderGrid(names) {
+    currentNames = names;
+    var grid = document.getElementById('un-grid');
+    if (!names.length) {
+      grid.innerHTML = '<div style="padding:20px;color:var(--text-3);font-size:13px;grid-column:1/-1">No names matched that length filter — try "Any" or a different sub-mode.</div>';
+      return;
+    }
+    grid.innerHTML = names.map(function(n) {
+      var saved = favorites.indexOf(n) !== -1;
+      return '<div class="un-item" role="listitem">'
+        + '<span class="un-name">' + escH(n) + '</span>'
+        + '<div class="un-actions">'
+        + '<button class="un-heart' + (saved ? ' saved' : '') + '" data-name="' + escH(n) + '" title="' + (saved ? 'Remove from favorites' : 'Save to favorites') + '">♥</button>'
+        + '<button class="un-copy" data-name="' + escH(n) + '">Copy</button>'
+        + '</div></div>';
+    }).join('');
+    if (names[0]) updateStrip(names[0]);
+  }
+
+  function getActiveStyle()  { return (document.querySelector('.style-btn.active') || {}).dataset.style || 'gaming'; }
+  function getActiveLength() { return (document.querySelector('.len-btn.active') || {}).dataset.len || 'any'; }
+  function getActiveFormat() { return (document.querySelector('.fmt-btn.active') || {}).dataset.fmt || 'camel'; }
+
+  function generate() {
+    var style = getActiveStyle();
+    var seed  = (document.getElementById('un-seed').value || '').trim();
+    var fmt   = getActiveFormat();
+    var len   = getActiveLength();
+    document.getElementById('un-style-label').textContent = STYLE_LABELS[style] || style;
+    var names = generateBatch(style, seed, fmt, len);
+    renderGrid(names);
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('un-styles').addEventListener('click', function(e) {
+      var btn = e.target.closest('.style-btn');
+      if (!btn) return;
+      document.querySelectorAll('.style-btn').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      generate();
+    });
+
+    document.getElementById('un-lengths').addEventListener('click', function(e) {
+      var btn = e.target.closest('.len-btn');
+      if (!btn) return;
+      document.querySelectorAll('.len-btn').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      generate();
+    });
+
+    document.getElementById('un-formats').addEventListener('click', function(e) {
+      var btn = e.target.closest('.fmt-btn');
+      if (!btn) return;
+      document.querySelectorAll('.fmt-btn').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      generate();
+    });
+
+    document.getElementById('un-gen-btn').addEventListener('click', generate);
+    document.getElementById('un-refresh-btn').addEventListener('click', generate);
+
+    document.getElementById('un-grid').addEventListener('click', function(e) {
+      var copyBtn = e.target.closest('.un-copy');
+      if (copyBtn) { copyText(copyBtn.dataset.name); return; }
+      var heartBtn = e.target.closest('.un-heart');
+      if (heartBtn) {
+        var name = heartBtn.dataset.name;
+        var idx  = favorites.indexOf(name);
+        if (idx === -1) { favorites.push(name); heartBtn.classList.add('saved'); }
+        else            { favorites.splice(idx, 1); heartBtn.classList.remove('saved'); }
+        renderFavorites();
+        updateStrip(name);
+      }
+    });
+
+    document.getElementById('un-fav-list').addEventListener('click', function(e) {
+      var x = e.target.closest('.fav-chip-x');
+      if (!x) return;
+      var name = x.dataset.fav;
+      favorites = favorites.filter(function(f){ return f !== name; });
+      renderFavorites();
+      var heart = document.querySelector('.un-heart[data-name="' + name + '"]');
+      if (heart) heart.classList.remove('saved');
+    });
+
+    document.getElementById('un-copy-all-btn').addEventListener('click', function() {
+      copyText(favorites.join('\n'));
+      showToast('Copied ' + favorites.length + ' names!');
+    });
+
+    document.getElementById('un-seed').addEventListener('input', function() {
+      clearTimeout(this._t);
+      this._t = setTimeout(generate, 400);
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.target !== document.body) return;
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); generate(); }
+    });
+
+    generate();
+  });
+}());
+</script>
+<!-- /SLOT:init -->
+
+<!-- SLOT:explainer -->
+<div class="explainer">
+  <h2>Masculine Identity in Online Gaming and Social Media</h2>
+  <p>Online handles carry a weight that offline names don't. In gaming lobbies, a username appears next to kills, assists, and scores — it's your identity in the most competitive contexts you'll use it in. In social media, it appears next to everything you post, like, or comment on. Masculine-leaning handles tend to draw from confidence, power, nature, and competition — vocabulary that signals capability and presence without explanation. This isn't about enforcing a narrow definition of masculinity; it's about giving people who want that register a toolset to work from.</p>
+  <p>The spectrum from neutral to very masculine handles is wide. A handle like "WolfStorm" reads differently from "NatureRoamer" or "ApexPhantom" — all are masculine-adjacent, but they sit in different sub-registers. Gaming handles tend toward power words and sharp vocabulary. Sports handles draw on achievement and grit. Nature handles use wild animal and landscape imagery that carries its own kind of strength. Cool handles are sleek and confident without being aggressive. Adventurous handles emphasize exploration and capability. Each sub-mode generates from its own curated pool so the results actually feel different.</p>
+  <p>Gaming culture has been central to username conventions for decades. The conventions that emerged from Xbox Live, Counter-Strike, and early MMOs — CamelCase compounds, no spaces, power-word vocabulary — have spread into broader online identity. Even on social platforms, users with gaming-origin handles carry that convention forward. The CamelCase default here reflects that history: "ApexVoid" reads naturally as a gaming handle in a way that "apex.void" doesn't, even though both are valid usernames.</p>
+
+  <h2>The Five Sub-Modes</h2>
+  <p><strong>Gaming</strong> — Power words and sharp vocabulary: apex, phantom, titan, vortex, nexus, forge, pulse. These are the words that look natural in a kill feed or leaderboard. Best for: FPS, battle royale, MOBA, RPG gaming accounts.</p>
+  <p><strong>Sports</strong> — Achievement and competition: champion, clutch, elite, grit, hustle, podium, trophy. These handles work across social platforms built around athletic identity and sports fandom.</p>
+  <p><strong>Nature</strong> — Wild animal and landscape vocabulary: wolf, hawk, thunder, ridge, ember, falcon, condor. These have a timeless quality that works on any platform without feeling trend-dependent.</p>
+  <p><strong>Cool</strong> — Sleek and confident without aggression: cipher, flux, prism, delta, nova, comet. These are handles that read as smart and self-assured — good for tech-adjacent, music, or general social accounts.</p>
+  <p><strong>Adventurous</strong> — Exploration-themed: navigator, pioneer, pathfinder, voyager, trekker, ranger. These work best for travel, outdoor, fitness, and adventure-oriented content.</p>
+</div>
+<!-- /SLOT:explainer -->
+
+<!-- SLOT:faq -->
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">Will these usernames work on Xbox and PlayStation?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">The word pools contain only standard English letters with no spaces or special characters, which complies with every major gaming platform. Xbox allows up to 12 characters; PSN allows up to 16. Use the length filter to target the right range for your platform. Remember that generated names are in lowercase with CamelCase format by default — check the exact capitalization rules for the platform you're registering on.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What's the best format for a gaming handle?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">CamelCase is the most common and readable gaming format — ApexPhantom is instantly readable in a kill feed, leaderboard, or lobby. Lowercase works well on Discord and Steam. Underscores (apex_phantom) are common on social platforms but can look cluttered in gaming contexts. Dots are best for Instagram and Twitter but feel out of place on most gaming platforms.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I check if my username is available?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">The tool can't check live availability — that requires direct API access to each platform. Generate a shortlist of 5–10 names you like, then check manually on each platform. Power words like apex, wolf, and ghost are popular and short combos may already be taken. Use the seed word feature or longer length filter for more specific combinations.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Is anything stored from my session?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Nothing is stored. The tool runs entirely in your browser tab. No names, seed words, or favorites are sent to any server. Favorites disappear when you close or reload the page — use "Copy all" to save your shortlist before leaving.</div>
+  </div>
+</div>
+<!-- /SLOT:faq -->
+
+<!-- SLOT:who -->
+<div>
+  <h2 class="section-title" style="margin-bottom:14px">Who uses a boy username generator?</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">New gamers setting up accounts</div><div class="uc-body">Players creating their first Xbox, PlayStation, Steam, or Discord account who want something better than a random number after their name</div></div>
+    <div class="uc"><div class="uc-title">Competitive players rebranding</div><div class="uc-body">Players who want a new handle that's more memorable, intimidating, or consistent across multiple gaming platforms</div></div>
+    <div class="uc"><div class="uc-title">Sports and fitness creators</div><div class="uc-body">Athletes and fitness influencers building social accounts who want a handle that reflects their competitive drive and athletic identity</div></div>
+    <div class="uc"><div class="uc-title">Outdoor and adventure content creators</div><div class="uc-body">Hikers, climbers, and adventure sport enthusiasts who want a nature-themed handle that matches the content they create</div></div>
+  </div>
+</div>
+<!-- /SLOT:who -->

@@ -1,0 +1,563 @@
+<!-- CONFIG
+{
+  "url": "/instagram-username-generator/",
+  "output": "instagram-username-generator.html",
+  "type": "tool",
+  "more_tools_key": "more_account_tools",
+  "more_tools_title": "More account tools",
+  "more_tools_subtitle": "Password generators, passphrase tools, username generators — all free"
+}
+-->
+
+<!-- SLOT:meta -->
+<title>Instagram Username Generator — @Handles for Every Niche | Wordineer</title>
+<meta name="description" content="Generate Instagram usernames tuned for your content niche. Fashion, beauty, travel, food, fitness, photography, and more. Max 30 chars, Instagram format enforced.">
+<link rel="canonical" href="https://wordineer.com/instagram-username-generator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wordineer">
+<meta property="og:title" content="Instagram Username Generator — @Handles for Every Niche | Wordineer">
+<meta property="og:description" content="Generate Instagram usernames tuned for your content niche. Fashion, beauty, travel, food, fitness, photography, and more. Max 30 chars, Instagram format enforced.">
+<meta property="og:url" content="https://wordineer.com/instagram-username-generator/">
+<meta property="og:image" content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How does the Instagram username generator work?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Select a content niche, choose a format style (word_word, wordword, or word.word), and pick a target length. The generator combines words from your niche pool, enforces Instagram's 30-character limit, and uses only allowed characters: letters, numbers, underscores, and periods. Twelve results appear instantly." }
+    },
+    {
+      "@type": "Question",
+      "name": "What characters are allowed in an Instagram username?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Instagram allows letters (a–z, A–Z), numbers (0–9), underscores (_), and periods (.). No spaces, hyphens, or special characters. The generator enforces this automatically — any disallowed characters are stripped before output. Handles are also capped at 30 characters." }
+    },
+    {
+      "@type": "Question",
+      "name": "Will the generated usernames be available?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The tool cannot check live availability — that requires API access to Instagram and a sign-in. Generate a shortlist you like, then check each one by visiting instagram.com/[handle] directly. The tool will remind you of this when you copy a name." }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does niche matter for an Instagram handle?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Instagram's discovery algorithm and human browsing both respond to niche alignment. A handle with vocabulary from your content category tells potential followers what to expect before they read a single caption. A fitness account named something from the fitness word pool is more findable and more credible than a generic handle." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the best format for an Instagram handle?",
+      "acceptedAnswer": { "@type": "Answer", "text": "It depends on your niche. Fashion and lifestyle accounts often use word.word for a clean editorial feel. Food and fitness accounts lean toward wordword (no separator) for punchy brevity. Travel accounts often use underscores. The generator lets you try all three formats on the same niche without regenerating the word pool." }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Instagram Username Generator",
+  "url": "https://wordineer.com/instagram-username-generator/",
+  "description": "Generate Instagram usernames tuned for your content niche. 30-char limit enforced, niche word pools, three format styles, live IG profile card preview.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@id": "https://wordineer.com/#organization" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Account Tools", "item": "https://wordineer.com/account-tools/" },
+    { "@type": "ListItem", "position": 3, "name": "Instagram Username Generator", "item": "https://wordineer.com/instagram-username-generator/" }
+  ]
+}
+</script>
+<!-- /SLOT:meta -->
+
+<!-- SLOT:style -->
+<style>
+.tool-wrap { max-width:960px; margin:0 auto; padding:24px 24px 0; }
+.tool-card  { border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg); box-shadow:var(--shadow); }
+.tool-split { display:flex; }
+
+.ctrl       { width:220px; flex-shrink:0; padding:18px; border-right:1px solid var(--border-2); background:var(--bg-2); }
+.ctrl-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; display:block; margin-bottom:8px; }
+.ctrl-row   { margin-bottom:16px; }
+
+.style-btns { display:flex; flex-wrap:wrap; gap:5px; }
+.style-btn  { font-size:11px; font-weight:600; padding:4px 9px; border:1px solid var(--border); border-radius:20px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:all .15s; }
+.style-btn.active { background:var(--brand); color:white; border-color:var(--brand); }
+.style-btn:hover:not(.active) { background:var(--bg-3); }
+
+.len-btns   { display:flex; gap:5px; }
+.len-btn    { flex:1; font-size:11px; font-weight:600; padding:5px 4px; border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; text-align:center; transition:all .15s; }
+.len-btn.active { background:var(--brand); color:white; border-color:var(--brand); }
+
+.fmt-btns   { display:flex; gap:4px; flex-wrap:wrap; }
+.fmt-btn    { font-size:10px; font-weight:600; padding:4px 7px; border:1px solid var(--border); border-radius:5px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:all .15s; }
+.fmt-btn.active { background:var(--brand); color:white; border-color:var(--brand); }
+
+.gen-btn    { width:100%; padding:10px 14px; background:var(--brand); color:white; border:none; border-radius:8px; font-size:14px; font-weight:600; font-family:inherit; cursor:pointer; transition:background .15s,transform .1s; letter-spacing:-.01em; }
+.gen-btn:hover { background:var(--brand-dark); }
+.gen-btn:active { transform:scale(.98); }
+.kbd        { text-align:center; font-size:10px; color:var(--text-3); margin-top:6px; }
+.kbd kbd    { background:var(--bg-3); border:1px solid var(--border); border-radius:3px; padding:1px 5px; font-size:10px; font-family:inherit; }
+
+.words-panel { flex:1; display:flex; flex-direction:column; overflow:hidden; min-height:360px; }
+.panel-top  { display:flex; align-items:center; justify-content:space-between; padding:10px 16px; border-bottom:1px solid var(--border-2); }
+.panel-label { font-size:12px; color:var(--text-3); font-weight:600; }
+.act-btn    { font-size:12px; padding:5px 11px; border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:background .12s; }
+.act-btn:hover { background:var(--bg-2); }
+
+.un-grid    { display:grid; grid-template-columns:1fr 1fr; gap:0; flex:1; }
+.un-item    { display:flex; align-items:center; justify-content:space-between; padding:9px 14px; border-bottom:1px solid var(--border-2); border-right:1px solid var(--border-2); gap:6px; animation:fadeIn .2s ease; }
+.un-item:nth-child(even) { border-right:none; }
+.un-item:nth-last-child(-n+2) { border-bottom:none; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(3px)} to{opacity:1;transform:none} }
+.un-name    { font-size:13px; font-weight:600; color:var(--text); flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.un-actions { display:flex; gap:4px; flex-shrink:0; }
+.un-copy    { font-size:11px; padding:3px 8px; border:1px solid var(--border); border-radius:5px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:background .12s; }
+.un-copy:hover { background:var(--bg-2); }
+.un-heart   { font-size:13px; padding:3px 6px; border:1px solid var(--border); border-radius:5px; background:var(--bg); color:var(--text-3); cursor:pointer; font-family:inherit; transition:all .12s; border-color:transparent; }
+.un-heart:hover { color:#e55; }
+.un-heart.saved { color:#e55; }
+
+.fav-tray   { border-top:1px solid var(--border-2); padding:10px 14px; background:var(--bg-2); min-height:44px; }
+.fav-label  { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; margin-bottom:6px; }
+.fav-list   { display:flex; flex-wrap:wrap; gap:5px; }
+.fav-chip   { font-size:12px; font-weight:600; padding:3px 10px; background:var(--bg); border:1px solid var(--border); border-radius:20px; color:var(--text); display:flex; align-items:center; gap:5px; }
+.fav-chip-x { cursor:pointer; color:var(--text-3); font-size:11px; line-height:1; }
+.fav-chip-x:hover { color:var(--text); }
+.fav-empty  { font-size:12px; color:var(--text-3); font-style:italic; }
+.fav-copy-all { font-size:11px; padding:3px 9px; border:1px solid var(--border); border-radius:5px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; }
+
+/* Instagram profile card */
+.ig-preview { margin:0 14px 12px; background:#111; border-radius:12px; padding:14px 16px; display:flex; align-items:center; gap:12px; border:1px solid #333; }
+.ig-avatar  { width:40px; height:40px; border-radius:50%; background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); display:flex; align-items:center; justify-content:center; font-size:20px; flex-shrink:0; }
+.ig-handle  { font-family:monospace; font-size:15px; font-weight:700; color:#fff; }
+.ig-note    { font-size:10px; color:#888; margin-top:2px; }
+
+.platform-strip { border-top:1px solid var(--border-2); padding:10px 14px; }
+.strip-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; margin-bottom:7px; }
+.strip-items { display:flex; flex-wrap:wrap; gap:8px; }
+.strip-item { font-size:11px; color:var(--text-2); background:var(--bg-2); border:1px solid var(--border-2); border-radius:5px; padding:3px 8px; font-family:monospace; }
+.strip-item b { color:var(--text); }
+
+.un-toast   { position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(10px); background:#1a1a1a; color:white; font-size:13px; font-weight:600; padding:10px 18px; border-radius:8px; opacity:0; transition:opacity .2s,transform .2s; pointer-events:none; z-index:999; white-space:nowrap; max-width:90vw; overflow:hidden; text-overflow:ellipsis; }
+.un-toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+
+@media (max-width:640px) {
+  .tool-split { flex-direction:column; }
+  .ctrl { width:auto; border-right:none; border-bottom:1px solid var(--border-2); }
+  .un-grid { grid-template-columns:1fr; }
+  .un-item:nth-child(even) { border-right:none; }
+  .un-item:nth-last-child(-n+2) { border-bottom:1px solid var(--border-2); }
+  .un-item:last-child { border-bottom:none; }
+}
+</style>
+<!-- /SLOT:style -->
+
+<!-- SLOT:hero -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/account-tools/">Account Tools</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Instagram Username Generator</span>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free · No sign-up · 30-char limit enforced
+  </div>
+  <h1>Instagram Username Generator</h1>
+  <p>Pick your content niche, choose a format style, and get 12 Instagram-ready handles instantly. All names are lowercase, 30 characters max, and use only allowed characters. Copy a name to see how it looks as an Instagram profile.</p>
+</div>
+<!-- /SLOT:hero -->
+
+<!-- SLOT:tool -->
+<div class="tool-wrap">
+  <div class="tool-card">
+    <div class="tool-split">
+
+      <!-- Left: Controls -->
+      <div class="ctrl">
+        <div class="ctrl-row">
+          <span class="ctrl-label">Content niche</span>
+          <div class="style-btns" id="un-styles">
+            <button class="style-btn active" data-style="fashion">Fashion</button>
+            <button class="style-btn" data-style="beauty">Beauty</button>
+            <button class="style-btn" data-style="travel">Travel</button>
+            <button class="style-btn" data-style="food">Food</button>
+            <button class="style-btn" data-style="fitness">Fitness</button>
+            <button class="style-btn" data-style="photography">Photography</button>
+            <button class="style-btn" data-style="gaming">Gaming</button>
+            <button class="style-btn" data-style="art">Art</button>
+            <button class="style-btn" data-style="lifestyle">Lifestyle</button>
+            <button class="style-btn" data-style="nature">Nature</button>
+          </div>
+        </div>
+
+        <div class="ctrl-row">
+          <span class="ctrl-label">Format style</span>
+          <div class="fmt-btns" id="un-formats">
+            <button class="fmt-btn active" data-fmt="under">word_word</button>
+            <button class="fmt-btn" data-fmt="lower">wordword</button>
+            <button class="fmt-btn" data-fmt="dot">word.word</button>
+          </div>
+        </div>
+
+        <div class="ctrl-row">
+          <span class="ctrl-label">Length target</span>
+          <div class="len-btns" id="un-lengths">
+            <button class="len-btn" data-len="short">Short<br><span style="font-weight:400;font-size:10px">≤12</span></button>
+            <button class="len-btn active" data-len="med">Standard<br><span style="font-weight:400;font-size:10px">13–20</span></button>
+            <button class="len-btn" data-len="long">Full<br><span style="font-weight:400;font-size:10px">21–30</span></button>
+          </div>
+        </div>
+
+        <button class="gen-btn" id="un-gen-btn">Generate handles</button>
+        <p class="kbd">Press <kbd>Enter</kbd> or <kbd>Space</kbd></p>
+      </div>
+
+      <!-- Right: Output -->
+      <div class="words-panel">
+        <div class="panel-top">
+          <span class="panel-label" id="un-style-label">Fashion niche</span>
+          <button class="act-btn" id="un-refresh-btn">↻ Refresh</button>
+        </div>
+
+        <div class="un-grid" id="un-grid" role="list" aria-label="Generated Instagram usernames"></div>
+
+        <!-- Instagram profile card preview -->
+        <div class="ig-preview">
+          <div class="ig-avatar">👤</div>
+          <div>
+            <div class="ig-handle">@<span id="ig-preview-name">—</span></div>
+            <div class="ig-note">Tap to check availability on Instagram</div>
+          </div>
+        </div>
+
+        <!-- Favorites tray -->
+        <div class="fav-tray">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
+            <span class="fav-label">Saved favorites</span>
+            <button class="fav-copy-all act-btn" id="un-copy-all-btn" style="display:none">Copy all</button>
+          </div>
+          <div class="fav-list" id="un-fav-list">
+            <span class="fav-empty">Heart a name to save it here</span>
+          </div>
+        </div>
+
+        <!-- Platform preview strip -->
+        <div class="platform-strip">
+          <div class="strip-label">Platform preview</div>
+          <div class="strip-items" id="un-strip">
+            <span class="strip-item" id="strip-ig"><b>@</b>—</span>
+            <span class="strip-item" id="strip-rd"><b>u/</b>—</span>
+            <span class="strip-item" id="strip-dc">—</span>
+            <span class="strip-item" id="strip-tt">—</span>
+            <span class="strip-item" id="strip-gm">—<b>@gmail.com</b></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="un-toast" id="un-toast" role="status" aria-live="polite">Copied!</div>
+<!-- /SLOT:tool -->
+
+<!-- SLOT:ad_b -->
+<!-- Ad placeholder -->
+<!-- /SLOT:ad_b -->
+
+<!-- SLOT:init -->
+<script>
+(function () {
+  var POOLS = {
+    fashion: ['style','vogue','thread','luxe','couture','chic','mode','drip','edit','capsule','look','trend','closet','wardrobe','fit','ensemble','silhouette','palette','runway','label','stitch','tailor','bespoke','minimal','classic','bold','edge','layer','texture','accent'],
+    beauty: ['glow','blush','lash','contour','dewy','radiant','slay','beat','glam','filter','bare','matte','sheer','tinted','flush','luminous','pigment','liner','palette','blender','primer','highlight','bronze','coral','satin','velvet','lacquer','shimmer','tone','gloss'],
+    travel: ['roam','wander','drift','journey','escape','vista','explore','nomad','atlas','trek','voyage','horizon','latitude','detour','compass','traverse','passage','sojourn','ramble','pilgrim','globe','frontier','escapade','venture','discovery','odyssey','pathway','trail','roving','cross'],
+    food: ['feast','savor','brunch','bite','crumb','drizzle','plated','rustic','tasting','bake','graze','garnish','simmer','blend','fold','taste','palate','umami','morsel','nibble','course','relish','dine','nourish','harvest','ferment','pickle','craft','artisan','local'],
+    fitness: ['grind','lift','gains','circuit','sweat','hustle','rep','cardio','beast','fuel','strength','endure','push','flex','train','sprint','squat','press','burn','zone','tempo','form','mobility','recovery','athlete','peak','stamina','grit','threshold','pace'],
+    photography: ['lens','frame','exposure','grain','aperture','bokeh','capture','shutter','develop','print','shoot','compose','depth','focus','filter','silver','darkroom','still','moment','candid','portrait','macro','wide','silhouette','contrast','shadow','light','scene','texture','raw'],
+    gaming: ['load','respawn','glitch','buff','meta','skin','grind','flex','carry','clutch','loot','boss','raid','spawn','patch','guild','quest','rank','tier','build','spec','roll','nerf','gg','tryhard','xp','frag','scope','blade','rogue'],
+    art: ['sketch','paint','canvas','ink','doodle','mural','gesso','palette','brush','craft','medium','render','gesture','form','texture','layer','composition','hue','tonal','value','pigment','mark','trace','contour','abstract','study','expressive','loose','bold','mixed'],
+    lifestyle: ['daily','ritual','reset','unwind','balance','slow','minimal','intentional','routine','calm','practice','habit','simplify','curate','pause','reflect','restore','align','grounded','present','nourish','breathe','tender','steady','quiet','notice','savor','anchor','flow','ease'],
+    nature: ['fern','moss','pine','creek','ridge','dew','bloom','roam','soil','seed','grove','meadow','hollow','brook','glade','boulder','crest','canopy','burrow','nest','shore','tide','petal','spore','fungi','lichen','sedge','bracken','heath','moor']
+  };
+
+  var NICHE_LABELS = {
+    fashion: 'Fashion niche', beauty: 'Beauty niche', travel: 'Travel niche',
+    food: 'Food niche', fitness: 'Fitness niche', photography: 'Photography niche',
+    gaming: 'Gaming niche', art: 'Art niche', lifestyle: 'Lifestyle niche', nature: 'Nature niche'
+  };
+
+  var BLOCK = ['kill','hate','nazi','rape','sex','porn','fuck','shit','bitch','bastard','cock','pussy','nigger','faggot'];
+
+  function isClean(s) {
+    var l = s.toLowerCase();
+    return !BLOCK.some(function(b) { return l.indexOf(b) !== -1; });
+  }
+
+  function cryptoPick(arr) {
+    if (!arr || !arr.length) return '';
+    var buf = new Uint8Array(1);
+    crypto.getRandomValues(buf);
+    return arr[buf[0] % arr.length];
+  }
+
+  function enforceIG(raw) {
+    return raw.replace(/[^a-z0-9_.]/g, '').slice(0, 30);
+  }
+
+  function applyFormat(w1, w2, fmt) {
+    if (fmt === 'lower') return (w1 + w2).toLowerCase();
+    if (fmt === 'dot')   return (w1 + '.' + w2).toLowerCase();
+    return (w1 + '_' + w2).toLowerCase();
+  }
+
+  function matchLength(name, lenFilter) {
+    var l = name.length;
+    if (lenFilter === 'short') return l <= 12;
+    if (lenFilter === 'med')   return l >= 13 && l <= 20;
+    if (lenFilter === 'long')  return l >= 21;
+    return true;
+  }
+
+  function generateBatch(niche, fmt, lenFilter) {
+    var pool = POOLS[niche] || POOLS.fashion;
+    var results = [];
+    var attempts = 0;
+    while (results.length < 12 && attempts < 400) {
+      attempts++;
+      var w1 = cryptoPick(pool);
+      var w2 = cryptoPick(pool);
+      if (!w1 || !w2 || w1 === w2) continue;
+      var raw = applyFormat(w1, w2, fmt);
+      var name = enforceIG(raw);
+      if (name.length < 3) continue;
+      if (isClean(name) && matchLength(name, lenFilter) && results.indexOf(name) === -1) {
+        results.push(name);
+      }
+    }
+    return results;
+  }
+
+  var favorites = [];
+
+  function escH(s) {
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function showToast(msg) {
+    var t = document.getElementById('un-toast');
+    t.textContent = msg || 'Copied!';
+    t.classList.add('show');
+    setTimeout(function() { t.classList.remove('show'); }, 2400);
+  }
+
+  function copyText(text) {
+    var msg = 'Copied! Check instagram.com/' + text + ' for availability';
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function(){ showToast(msg); }).catch(function(){ fallbackCopy(text); showToast(msg); });
+    } else { fallbackCopy(text); showToast(msg); }
+  }
+
+  function fallbackCopy(text) {
+    var ta = document.createElement('textarea');
+    ta.value = text; ta.style.cssText = 'position:fixed;opacity:0;pointer-events:none';
+    document.body.appendChild(ta); ta.focus(); ta.select();
+    try { document.execCommand('copy'); } catch(e) {}
+    document.body.removeChild(ta);
+  }
+
+  function updatePreview(name) {
+    document.getElementById('ig-preview-name').textContent = name || '—';
+  }
+
+  function updateStrip(name) {
+    var safe = escH(name || '—');
+    var val = name ? safe : '—';
+    document.getElementById('strip-ig').innerHTML = '<b>@</b>' + val;
+    document.getElementById('strip-rd').innerHTML = '<b>u/</b>' + val;
+    document.getElementById('strip-dc').innerHTML = val + ' <span style="color:var(--text-3);font-size:10px">(Discord)</span>';
+    document.getElementById('strip-tt').innerHTML = val + ' <span style="color:var(--text-3);font-size:10px">(TikTok)</span>';
+    document.getElementById('strip-gm').innerHTML = val + '<b>@gmail.com</b>';
+  }
+
+  function renderFavorites() {
+    var list = document.getElementById('un-fav-list');
+    var btn  = document.getElementById('un-copy-all-btn');
+    if (!favorites.length) {
+      list.innerHTML = '<span class="fav-empty">Heart a name to save it here</span>';
+      btn.style.display = 'none';
+      return;
+    }
+    btn.style.display = '';
+    list.innerHTML = favorites.map(function(n) {
+      return '<span class="fav-chip">' + escH(n) + '<span class="fav-chip-x" data-fav="' + escH(n) + '" title="Remove">×</span></span>';
+    }).join('');
+  }
+
+  function renderGrid(names) {
+    var grid = document.getElementById('un-grid');
+    if (!names.length) {
+      grid.innerHTML = '<div style="padding:20px;color:var(--text-3);font-size:13px;grid-column:1/-1">No names matched that length filter — try "Standard" or a different niche.</div>';
+      return;
+    }
+    grid.innerHTML = names.map(function(n) {
+      var saved = favorites.indexOf(n) !== -1;
+      return '<div class="un-item" role="listitem">'
+        + '<span class="un-name">' + escH(n) + '</span>'
+        + '<div class="un-actions">'
+        + '<button class="un-heart' + (saved ? ' saved' : '') + '" data-name="' + escH(n) + '" title="' + (saved ? 'Remove from favorites' : 'Save to favorites') + '">♥</button>'
+        + '<button class="un-copy" data-name="' + escH(n) + '">Copy</button>'
+        + '</div></div>';
+    }).join('');
+    if (names[0]) { updateStrip(names[0]); updatePreview(names[0]); }
+  }
+
+  function getActiveStyle()  { return (document.querySelector('.style-btn.active') || {}).dataset.style || 'fashion'; }
+  function getActiveLength() { return (document.querySelector('.len-btn.active') || {}).dataset.len || 'med'; }
+  function getActiveFormat() { return (document.querySelector('.fmt-btn.active') || {}).dataset.fmt || 'under'; }
+
+  function generate() {
+    var niche = getActiveStyle();
+    var fmt   = getActiveFormat();
+    var len   = getActiveLength();
+    document.getElementById('un-style-label').textContent = NICHE_LABELS[niche] || 'Custom niche';
+    var names = generateBatch(niche, fmt, len);
+    renderGrid(names);
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('un-styles').addEventListener('click', function(e) {
+      var btn = e.target.closest('.style-btn');
+      if (!btn) return;
+      document.querySelectorAll('.style-btn').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      generate();
+    });
+
+    document.getElementById('un-lengths').addEventListener('click', function(e) {
+      var btn = e.target.closest('.len-btn');
+      if (!btn) return;
+      document.querySelectorAll('.len-btn').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      generate();
+    });
+
+    document.getElementById('un-formats').addEventListener('click', function(e) {
+      var btn = e.target.closest('.fmt-btn');
+      if (!btn) return;
+      document.querySelectorAll('.fmt-btn').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      generate();
+    });
+
+    document.getElementById('un-gen-btn').addEventListener('click', generate);
+    document.getElementById('un-refresh-btn').addEventListener('click', generate);
+
+    document.getElementById('un-grid').addEventListener('click', function(e) {
+      var copyBtn = e.target.closest('.un-copy');
+      if (copyBtn) { copyText(copyBtn.dataset.name); updatePreview(copyBtn.dataset.name); return; }
+      var heartBtn = e.target.closest('.un-heart');
+      if (heartBtn) {
+        var name = heartBtn.dataset.name;
+        var idx  = favorites.indexOf(name);
+        if (idx === -1) { favorites.push(name); heartBtn.classList.add('saved'); }
+        else            { favorites.splice(idx, 1); heartBtn.classList.remove('saved'); }
+        renderFavorites();
+        updateStrip(name);
+        updatePreview(name);
+      }
+    });
+
+    document.getElementById('un-fav-list').addEventListener('click', function(e) {
+      var x = e.target.closest('.fav-chip-x');
+      if (!x) return;
+      var name = x.dataset.fav;
+      favorites = favorites.filter(function(f){ return f !== name; });
+      renderFavorites();
+      var heart = document.querySelector('.un-heart[data-name="' + name + '"]');
+      if (heart) heart.classList.remove('saved');
+    });
+
+    document.getElementById('un-copy-all-btn').addEventListener('click', function() {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(favorites.join('\n')).then(function(){ showToast('Copied ' + favorites.length + ' names!'); }).catch(function(){ fallbackCopy(favorites.join('\n')); showToast('Copied ' + favorites.length + ' names!'); });
+      } else { fallbackCopy(favorites.join('\n')); showToast('Copied ' + favorites.length + ' names!'); }
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.target !== document.body) return;
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); generate(); }
+    });
+
+    generate();
+  });
+}());
+</script>
+<!-- /SLOT:init -->
+
+<!-- SLOT:explainer -->
+<div class="explainer">
+  <h2>Why Your Instagram Handle Matters More Than You Think</h2>
+  <p>Your Instagram username is the one piece of text that appears next to every post, every comment, every story, and every DM you send. It's how Instagram's search surfaces you to people looking for your kind of content. A handle that aligns with your niche isn't just aesthetically coherent — it's a discoverability signal. Someone searching for travel content who sees an account with a handle built from travel vocabulary is more likely to click through than one with a generic name or someone's real name with a number appended.</p>
+
+  <h2>Instagram Handle Rules and Format Conventions</h2>
+  <p>Instagram enforces specific character rules: only lowercase letters, numbers, underscores, and periods. No spaces, hyphens, or special characters. The maximum length is 30 characters. The generator enforces all of these automatically — every result in the grid is already Instagram-ready. What varies is the separator style: word_word uses an underscore (common in fitness, photography, and lifestyle accounts), wordword runs the words together (common in beauty and food), and word.word uses a period (popular in fashion and editorial accounts).</p>
+
+  <h2>Niche Alignment and Why Generic Handles Age Badly</h2>
+  <p>A handle you pick at 18 that's your name plus your birth year will feel strange at 25. A handle built from vocabulary that means something to you in your content niche holds up longer — it's about what you make, not when you were born. The niche word pools in this generator were built from vocabulary that's authentic to each content community rather than generic "cool words." A fitness handle built from fitness vocabulary (grind, gains, circuit, threshold) signals immediately what the account is about.</p>
+
+  <h2>Checking Availability</h2>
+  <p>This tool cannot check live availability on Instagram — that would require API access and authentication. The standard approach is to generate a shortlist of 5–10 handles you like, then visit instagram.com/[handle] for each one. If the page shows a real profile, the handle is taken. If it shows a "Sorry, this page isn't available" message, the handle may be free — sign up and claim it promptly. Copying a name in this generator automatically reminds you to check availability.</p>
+</div>
+<!-- /SLOT:explainer -->
+
+<!-- SLOT:faq -->
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">Does this enforce Instagram's 30-character limit?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes. Every generated name is automatically trimmed to 30 characters and stripped of any characters Instagram doesn't allow (spaces, hyphens, special characters). All output uses only letters, numbers, underscores, and periods — the exact set Instagram accepts.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I change my Instagram username later?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes — go to your profile, tap Edit Profile, and change the username field. However, changing your handle on an established account breaks any links that use the old name, and followers who tagged or mentioned you by old handle won't reach you via those old tags. It's worth getting it right early.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Should my Instagram handle match my other platforms?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">For brand and creator accounts, yes — consistent handles across platforms make it much easier for people to find you after encountering you on one platform. The cross-platform preview strip in this tool shows your handle formatted for Instagram, Reddit, Discord, TikTok, and Gmail so you can verify it works everywhere at once.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What format works best for Instagram?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">No single format dominates — it depends on niche and vibe. Fashion and editorial accounts tend to use word.word for a clean, typographic feel. Fitness and food accounts often prefer wordword (no separator) for punchy brevity. Travel and lifestyle accounts frequently use underscores. Use the format toggle to compare the same word pool across all three without regenerating.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Are results filtered for offensive content?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes. Every generated name passes through a blocklist before appearing. Any combination that contains an offensive term is silently skipped. The generator tries up to 400 candidates to fill 12 clean results.</div>
+  </div>
+</div>
+<!-- /SLOT:faq -->
+
+<!-- SLOT:who -->
+<div>
+  <h2 class="section-title" style="margin-bottom:14px">Who uses an Instagram username generator?</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">New creators</div><div class="uc-body">People starting an Instagram account for the first time who want a handle that signals their niche rather than defaulting to a name plus random numbers</div></div>
+    <div class="uc"><div class="uc-title">Niche rebranders</div><div class="uc-body">Existing accounts pivoting to a new content category and looking for a handle that better represents what they actually post now</div></div>
+    <div class="uc"><div class="uc-title">Small business owners</div><div class="uc-body">Local businesses setting up an Instagram presence who want something memorable and relevant to their industry without hiring a branding consultant</div></div>
+    <div class="uc"><div class="uc-title">Personal brand builders</div><div class="uc-body">Professionals creating a thought leadership presence who want a handle that's professional, searchable, and works across Instagram and LinkedIn</div></div>
+  </div>
+</div>
+<!-- /SLOT:who -->
