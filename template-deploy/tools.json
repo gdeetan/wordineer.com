@@ -102,8 +102,7 @@
       "tools": [
         {
           "href": "/username-generator/",
-          "text": "Username Generator",
-          "status": "planned"
+          "text": "Username Generator"
         },
         {
           "href": "/password-generator/",
@@ -114,8 +113,8 @@
           "text": "Passphrase Generator"
         },
         {
-          "href": "/memorable-password-generator/",
-          "text": "Memorable Password Generator"
+          "href": "/random-pin-generator/",
+          "text": "Random PIN Generator"
         }
       ]
     },
@@ -279,6 +278,13 @@
       "desc": "Entropy-ranked solver — enter your clues and get the single best next guess, not just a filtered list.",
       "icon_bg": "#E1F5EE",
       "icon_path": "<rect x='2' y='2' width='3.5' height='3.5' rx='0.5' fill='#1D9E75'/><rect x='7.5' y='2' width='3.5' height='3.5' rx='0.5' fill='#BA7517'/><rect x='2' y='7.5' width='3.5' height='3.5' rx='0.5' fill='none' stroke='#9a9a94' stroke-width='1'/><rect x='7.5' y='7.5' width='3.5' height='3.5' rx='0.5' fill='#1D9E75'/>"
+    },
+    {
+      "href": "/best-wordle-starting-words/",
+      "name": "Best Wordle Starting Words",
+      "desc": "Top 100 openers ranked by Shannon entropy — original analysis, 10,000-game benchmark, downloadable data.",
+      "icon_bg": "#E6F1FB",
+      "icon_path": "<rect x='2' y='9' width='1.5' height='3' rx='0.3' fill='#185FA5'/><rect x='4.5' y='6.5' width='1.5' height='5.5' rx='0.3' fill='#185FA5'/><rect x='7' y='4' width='1.5' height='8' rx='0.3' fill='#185FA5'/><rect x='9.5' y='2' width='1.5' height='10' rx='0.3' fill='#185FA5'/>"
     },
     {
       "href": "/",
@@ -810,6 +816,181 @@
   ],
   "more_account_tools": [
     {
+      "href": "/username-generator/",
+      "name": "Username Generator",
+      "desc": "Generate unique usernames by style, seed word, and format.",
+      "icon_bg": "#EEF6E8",
+      "icon_path": "<circle cx=\"6.5\" cy=\"4.5\" r=\"1.8\" stroke=\"#2B6B3E\" stroke-width=\"1\"/><path d=\"M3 10.5c0-2 1.6-3.5 3.5-3.5s3.5 1.5 3.5 3.5\" stroke=\"#2B6B3E\" stroke-width=\"1\" stroke-linecap=\"round\"/>"
+    },
+    {
+      "href": "/cool-username-generator/",
+      "name": "Cool Username Generator",
+      "desc": "Confident power-word handles for gaming and social.",
+      "icon_bg": "#EEF6E8",
+      "icon_path": "<circle cx=\"6.5\" cy=\"4.5\" r=\"1.8\" stroke=\"#2B6B3E\" stroke-width=\"1\"/><path d=\"M3 10.5c0-2 1.6-3.5 3.5-3.5s3.5 1.5 3.5 3.5\" stroke=\"#2B6B3E\" stroke-width=\"1\" stroke-linecap=\"round\"/><path d=\"M10.5 1.5L9.5 3h1L9 4.5\" stroke=\"#2B6B3E\" stroke-width=\".9\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>"
+    },
+    {
+      "href": "/aesthetic-username-generator/",
+      "name": "Aesthetic Username Generator",
+      "desc": "Cottagecore, dark academia, VSCO, cyberpunk, and more.",
+      "icon_bg": "#EEF6E8",
+      "icon_path": "<circle cx=\"6.5\" cy=\"4.5\" r=\"1.8\" stroke=\"#2B6B3E\" stroke-width=\"1\"/><path d=\"M3 10.5c0-2 1.6-3.5 3.5-3.5s3.5 1.5 3.5 3.5\" stroke=\"#2B6B3E\" stroke-width=\"1\" stroke-linecap=\"round\"/><path d=\"M10 2v1.5M10 2h1.5M10 2h-1.5M10 2v-.5\" stroke=\"#2B6B3E\" stroke-width=\".8\" stroke-linecap=\"round\"/>"
+    },
+    {
+      "href": "/funny-username-generator/",
+      "name": "Funny Username Generator",
+      "desc": "Puns, alliteration, and absurd combos that actually land.",
+      "icon_bg": "#EEF6E8",
+      "icon_path": "<circle cx=\"6.5\" cy=\"4.5\" r=\"1.8\" stroke=\"#2B6B3E\" stroke-width=\"1\"/><path d=\"M3 10.5c0-2 1.6-3.5 3.5-3.5s3.5 1.5 3.5 3.5\" stroke=\"#2B6B3E\" stroke-width=\"1\" stroke-linecap=\"round\"/><path d=\"M9 2.5c.8 0 1.5.5 1.5 1.2\" stroke=\"#2B6B3E\" stroke-width=\".9\" stroke-linecap=\"round\"/>"
+    },
+    {
+      "href": "/cute-username-generator/",
+      "name": "Cute Username Generator",
+      "desc": "Playful names that feel friendly — boba, mochi, and more.",
+      "icon_bg": "#EEF6E8",
+      "icon_path": "<circle cx=\"6.5\" cy=\"4.5\" r=\"1.8\" stroke=\"#2B6B3E\" stroke-width=\"1\"/><path d=\"M3 10.5c0-2 1.6-3.5 3.5-3.5s3.5 1.5 3.5 3.5\" stroke=\"#2B6B3E\" stroke-width=\"1\" stroke-linecap=\"round\"/><path d=\"M9.2 2.8c.2-.3.6-.3.8 0 .2.3 0 .6-.3.9l-.5.4-.5-.4c-.3-.3-.5-.6-.3-.9.2-.3.6-.3.8 0z\" fill=\"#2B6B3E\"/>"
+    },
+    {
+      "href": "/instagram-username-generator/",
+      "name": "Instagram Username Generator",
+      "desc": "Handles tuned for Instagram's 30-char limit and culture.",
+      "icon_bg": "#FAEEDA",
+      "icon_path": "<rect x=\"4\" y=\"1.5\" width=\"5\" height=\"10\" rx=\"1.5\" stroke=\"#854F0B\" stroke-width=\"1.1\"/><circle cx=\"6.5\" cy=\"10.5\" r=\".6\" fill=\"#854F0B\"/><line x1=\"5.5\" y1=\"3\" x2=\"7.5\" y2=\"3\" stroke=\"#854F0B\" stroke-width=\".8\" stroke-linecap=\"round\"/>"
+    },
+    {
+      "href": "/discord-username-generator/",
+      "name": "Discord Username Generator",
+      "desc": "Post-2023 format, alphanumeric only, squad name mode.",
+      "icon_bg": "#FAEEDA",
+      "icon_path": "<rect x=\"4\" y=\"1.5\" width=\"5\" height=\"10\" rx=\"1.5\" stroke=\"#854F0B\" stroke-width=\"1.1\"/><circle cx=\"6.5\" cy=\"10.5\" r=\".6\" fill=\"#854F0B\"/><line x1=\"5.5\" y1=\"3\" x2=\"7.5\" y2=\"3\" stroke=\"#854F0B\" stroke-width=\".8\" stroke-linecap=\"round\"/>"
+    },
+    {
+      "href": "/tiktok-username-generator/",
+      "name": "TikTok Username Generator",
+      "desc": "Short, punchy handles for TikTok's 24-char limit.",
+      "icon_bg": "#FAEEDA",
+      "icon_path": "<rect x=\"4\" y=\"1.5\" width=\"5\" height=\"10\" rx=\"1.5\" stroke=\"#854F0B\" stroke-width=\"1.1\"/><circle cx=\"6.5\" cy=\"10.5\" r=\".6\" fill=\"#854F0B\"/><line x1=\"5.5\" y1=\"3\" x2=\"7.5\" y2=\"3\" stroke=\"#854F0B\" stroke-width=\".8\" stroke-linecap=\"round\"/>"
+    },
+    {
+      "href": "/roblox-username-generator/",
+      "name": "Roblox Username Generator",
+      "desc": "Names that fit Roblox's 3–20 char limit and community.",
+      "icon_bg": "#FAEEDA",
+      "icon_path": "<rect x=\"4\" y=\"1.5\" width=\"5\" height=\"10\" rx=\"1.5\" stroke=\"#854F0B\" stroke-width=\"1.1\"/><circle cx=\"6.5\" cy=\"10.5\" r=\".6\" fill=\"#854F0B\"/><line x1=\"5.5\" y1=\"3\" x2=\"7.5\" y2=\"3\" stroke=\"#854F0B\" stroke-width=\".8\" stroke-linecap=\"round\"/>"
+    },
+    {
+      "href": "/reddit-username-generator/",
+      "name": "Reddit Username Generator",
+      "desc": "u/ handles for Reddit's culture and naming rules.",
+      "icon_bg": "#FAEEDA",
+      "icon_path": "<rect x=\"4\" y=\"1.5\" width=\"5\" height=\"10\" rx=\"1.5\" stroke=\"#854F0B\" stroke-width=\"1.1\"/><circle cx=\"6.5\" cy=\"10.5\" r=\".6\" fill=\"#854F0B\"/><line x1=\"5.5\" y1=\"3\" x2=\"7.5\" y2=\"3\" stroke=\"#854F0B\" stroke-width=\".8\" stroke-linecap=\"round\"/>"
+    },
+    {
+      "href": "/xbox-username-generator/",
+      "name": "Xbox Username Generator",
+      "desc": "Gamertags for Xbox's 3–15 char, letters/numbers only.",
+      "icon_bg": "#FAEEDA",
+      "icon_path": "<rect x=\"4\" y=\"1.5\" width=\"5\" height=\"10\" rx=\"1.5\" stroke=\"#854F0B\" stroke-width=\"1.1\"/><circle cx=\"6.5\" cy=\"10.5\" r=\".6\" fill=\"#854F0B\"/><line x1=\"5.5\" y1=\"3\" x2=\"7.5\" y2=\"3\" stroke=\"#854F0B\" stroke-width=\".8\" stroke-linecap=\"round\"/>"
+    },
+    {
+      "href": "/youtube-username-generator/",
+      "name": "YouTube Username Generator",
+      "desc": "Channel-worthy names with niche and category selector.",
+      "icon_bg": "#FAEEDA",
+      "icon_path": "<rect x=\"4\" y=\"1.5\" width=\"5\" height=\"10\" rx=\"1.5\" stroke=\"#854F0B\" stroke-width=\"1.1\"/><circle cx=\"6.5\" cy=\"10.5\" r=\".6\" fill=\"#854F0B\"/><line x1=\"5.5\" y1=\"3\" x2=\"7.5\" y2=\"3\" stroke=\"#854F0B\" stroke-width=\".8\" stroke-linecap=\"round\"/>"
+    },
+    {
+      "href": "/gmail-username-generator/",
+      "name": "Gmail Username Generator",
+      "desc": "Email-friendly handles, letters/numbers/dots only.",
+      "icon_bg": "#FAEEDA",
+      "icon_path": "<rect x=\"4\" y=\"1.5\" width=\"5\" height=\"10\" rx=\"1.5\" stroke=\"#854F0B\" stroke-width=\"1.1\"/><circle cx=\"6.5\" cy=\"10.5\" r=\".6\" fill=\"#854F0B\"/><line x1=\"5.5\" y1=\"3\" x2=\"7.5\" y2=\"3\" stroke=\"#854F0B\" stroke-width=\".8\" stroke-linecap=\"round\"/>"
+    },
+    {
+      "href": "/fortnite-username-generator/",
+      "name": "Fortnite Username Generator",
+      "desc": "Battle Royale energy, squad names mode, 3–16 chars.",
+      "icon_bg": "#FAEEDA",
+      "icon_path": "<rect x=\"4\" y=\"1.5\" width=\"5\" height=\"10\" rx=\"1.5\" stroke=\"#854F0B\" stroke-width=\"1.1\"/><circle cx=\"6.5\" cy=\"10.5\" r=\".6\" fill=\"#854F0B\"/><line x1=\"5.5\" y1=\"3\" x2=\"7.5\" y2=\"3\" stroke=\"#854F0B\" stroke-width=\".8\" stroke-linecap=\"round\"/>"
+    },
+    {
+      "href": "/valorant-username-generator/",
+      "name": "Valorant Username Generator",
+      "desc": "Agent-tactical vocabulary for ranked and casual play.",
+      "icon_bg": "#FAEEDA",
+      "icon_path": "<rect x=\"4\" y=\"1.5\" width=\"5\" height=\"10\" rx=\"1.5\" stroke=\"#854F0B\" stroke-width=\"1.1\"/><circle cx=\"6.5\" cy=\"10.5\" r=\".6\" fill=\"#854F0B\"/><line x1=\"5.5\" y1=\"3\" x2=\"7.5\" y2=\"3\" stroke=\"#854F0B\" stroke-width=\".8\" stroke-linecap=\"round\"/>"
+    },
+    {
+      "href": "/anime-username-generator/",
+      "name": "Anime Username Generator",
+      "desc": "Shonen, shojo, isekai, and mecha genre wordlists.",
+      "icon_bg": "#FDE9E7",
+      "icon_path": "<path d=\"M6.5 2v3M6.5 8v3M2 6.5h3M8 6.5h3\" stroke=\"#B5352B\" stroke-width=\"1.1\" stroke-linecap=\"round\"/><circle cx=\"6.5\" cy=\"6.5\" r=\"1.2\" fill=\"none\" stroke=\"#B5352B\" stroke-width=\"1\"/>"
+    },
+    {
+      "href": "/fantasy-username-generator/",
+      "name": "Fantasy Username Generator",
+      "desc": "High fantasy, dark, Norse, and Celtic name pools.",
+      "icon_bg": "#FDE9E7",
+      "icon_path": "<path d=\"M6.5 2v3M6.5 8v3M2 6.5h3M8 6.5h3\" stroke=\"#B5352B\" stroke-width=\"1.1\" stroke-linecap=\"round\"/><circle cx=\"6.5\" cy=\"6.5\" r=\"1.2\" fill=\"none\" stroke=\"#B5352B\" stroke-width=\"1\"/>"
+    },
+    {
+      "href": "/kawaii-username-generator/",
+      "name": "Kawaii Username Generator",
+      "desc": "Japanese-inspired cute words with pastel palette.",
+      "icon_bg": "#FDE9E7",
+      "icon_path": "<path d=\"M6.5 2v3M6.5 8v3M2 6.5h3M8 6.5h3\" stroke=\"#B5352B\" stroke-width=\"1.1\" stroke-linecap=\"round\"/><circle cx=\"6.5\" cy=\"6.5\" r=\"1.2\" fill=\"none\" stroke=\"#B5352B\" stroke-width=\"1\"/>"
+    },
+    {
+      "href": "/edgy-username-generator/",
+      "name": "Edgy Username Generator",
+      "desc": "Dark, sharp vocabulary with attitude — use thoughtfully.",
+      "icon_bg": "#FDE9E7",
+      "icon_path": "<path d=\"M6.5 2v3M6.5 8v3M2 6.5h3M8 6.5h3\" stroke=\"#B5352B\" stroke-width=\"1.1\" stroke-linecap=\"round\"/><circle cx=\"6.5\" cy=\"6.5\" r=\"1.2\" fill=\"none\" stroke=\"#B5352B\" stroke-width=\"1\"/>"
+    },
+    {
+      "href": "/girl-username-generator/",
+      "name": "Girl Username Generator",
+      "desc": "Feminine-leaning handles with aesthetic sub-modes.",
+      "icon_bg": "#FDE9E7",
+      "icon_path": "<path d=\"M6.5 2v3M6.5 8v3M2 6.5h3M8 6.5h3\" stroke=\"#B5352B\" stroke-width=\"1.1\" stroke-linecap=\"round\"/><circle cx=\"6.5\" cy=\"6.5\" r=\"1.2\" fill=\"none\" stroke=\"#B5352B\" stroke-width=\"1\"/>"
+    },
+    {
+      "href": "/boy-username-generator/",
+      "name": "Boy Username Generator",
+      "desc": "Masculine-leaning with sports, gaming, and nature pools.",
+      "icon_bg": "#FDE9E7",
+      "icon_path": "<path d=\"M6.5 2v3M6.5 8v3M2 6.5h3M8 6.5h3\" stroke=\"#B5352B\" stroke-width=\"1.1\" stroke-linecap=\"round\"/><circle cx=\"6.5\" cy=\"6.5\" r=\"1.2\" fill=\"none\" stroke=\"#B5352B\" stroke-width=\"1\"/>"
+    },
+    {
+      "href": "/female-username-generator/",
+      "name": "Female Username Generator",
+      "desc": "Handles with a feminine feel across any platform.",
+      "icon_bg": "#FDE9E7",
+      "icon_path": "<path d=\"M6.5 2v3M6.5 8v3M2 6.5h3M8 6.5h3\" stroke=\"#B5352B\" stroke-width=\"1.1\" stroke-linecap=\"round\"/><circle cx=\"6.5\" cy=\"6.5\" r=\"1.2\" fill=\"none\" stroke=\"#B5352B\" stroke-width=\"1\"/>"
+    },
+    {
+      "href": "/8-character-password-generator/",
+      "name": "8 Character Password Generator",
+      "desc": "Exactly 8 characters — the minimum for most accounts.",
+      "icon_bg": "#EEEDFE",
+      "icon_path": "<path d=\"M4.5 6.5V5a2 2 0 0 1 4 0v1.5\" stroke=\"#5B46D4\" stroke-width=\"1.1\" stroke-linecap=\"round\"/><rect x=\"3\" y=\"6.5\" width=\"7\" height=\"4.5\" rx=\"1\" stroke=\"#5B46D4\" stroke-width=\"1.1\"/><text x=\"4.5\" y=\"9.9\" font-size=\"3.5\" font-family=\"sans-serif\" fill=\"#5B46D4\" font-weight=\"700\">8</text>"
+    },
+    {
+      "href": "/10-character-password-generator/",
+      "name": "10 Character Password Generator",
+      "desc": "Exactly 10 characters — solid for most site minimums.",
+      "icon_bg": "#EEEDFE",
+      "icon_path": "<path d=\"M4.5 6.5V5a2 2 0 0 1 4 0v1.5\" stroke=\"#5B46D4\" stroke-width=\"1.1\" stroke-linecap=\"round\"/><rect x=\"3\" y=\"6.5\" width=\"7\" height=\"4.5\" rx=\"1\" stroke=\"#5B46D4\" stroke-width=\"1.1\"/><text x=\"4.5\" y=\"9.9\" font-size=\"3.5\" font-family=\"sans-serif\" fill=\"#5B46D4\" font-weight=\"700\">10</text>"
+    },
+    {
+      "href": "/diceware-passphrase-generator/",
+      "name": "Diceware Passphrase Generator",
+      "desc": "EFF wordlists, live entropy display, crack-time estimate.",
+      "icon_bg": "#E6F1FB",
+      "icon_path": "<rect x=\"3\" y=\"3\" width=\"7\" height=\"7\" rx=\"1.5\" stroke=\"#1D6FA4\" stroke-width=\"1.1\"/><circle cx=\"5.2\" cy=\"5.2\" r=\".75\" fill=\"#1D6FA4\"/><circle cx=\"7.8\" cy=\"5.2\" r=\".75\" fill=\"#1D6FA4\"/><circle cx=\"5.2\" cy=\"7.8\" r=\".75\" fill=\"#1D6FA4\"/><circle cx=\"7.8\" cy=\"7.8\" r=\".75\" fill=\"#1D6FA4\"/>"
+    },
+    {
       "href": "/password-generator/",
       "name": "Password Generator",
       "desc": "One click, one strong random password. Set your length and character rules.",
@@ -1081,6 +1262,10 @@
       "icon_path": "<rect x=\"3.5\" y=\"5.5\" width=\"6\" height=\"5\" rx=\"1\" stroke=\"currentColor\" stroke-width=\"1\"/><path d=\"M5 5.5V4a1.5 1.5 0 013 0v1.5\" stroke=\"currentColor\" stroke-width=\"1\" stroke-linecap=\"round\"/>",
       "links": [
         {
+          "href": "/username-generator/",
+          "text": "Username Generator"
+        },
+        {
           "href": "/password-generator/",
           "text": "Password Generator"
         },
@@ -1089,12 +1274,8 @@
           "text": "Passphrase Generator"
         },
         {
-          "href": "/memorable-password-generator/",
-          "text": "Memorable Password Generator"
-        },
-        {
-          "href": "/username-generator/",
-          "text": "Username Generator"
+          "href": "/instagram-username-generator/",
+          "text": "Instagram Username Generator"
         }
       ]
     },

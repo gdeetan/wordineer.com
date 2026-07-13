@@ -92,6 +92,10 @@ Navigation, mega-menu, tools grids, and footer are injected automatically from `
 3. If the tool needs a clean URL (`/tool-name/` instead of `/tool-name.html`), add rewrite rules to `wordineer-deploy/_redirects`.
 4. Build and copy output, then preview locally before deploying.
 
+## Mega-menu, footer, and other_tools column limits
+
+Each category column in the hamburger mega-menu (`mega`), the footer (`footer_cols`), and the body "Other tools" grid (`other_tools`) must have **at most 4 tool links + one "View all" link**. Do not add a fifth tool link — keep only the most representative tools for the category and rely on the hub page (via "View all") for the full list. Apply this rule whenever adding tools to `tools.json`.
+
 ---
 
 ## Data files (`wordineer-deploy/data/`)

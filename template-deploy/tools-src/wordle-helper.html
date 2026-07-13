@@ -8,14 +8,14 @@
 
 <!-- SLOT:meta -->
 <title>Wordle Helper — Free Solver &amp; Best Starting Words | Wordineer</title>
-<meta name="description" content="Free Wordle helper — no sign-up, no paywall. Enter your guesses and clue colours to get the single best next word, ranked by information theory. Or use Practice Mode to try it now.">
+<meta name="description" content="Free Wordle helper — no sign-up, no paywall. Enter your guesses and clue colors to get the single best next word, ranked by information theory. Or use Practice Mode to try it now.">
 <link rel="canonical" href="https://wordineer.com/wordle-helper/">
 <meta property="og:type"        content="website">
 <meta property="og:site_name"   content="Wordineer">
 <meta property="og:title"       content="Wordle Helper — Free Solver &amp; Best Starting Words | Wordineer">
 <meta property="og:description" content="Enter your Wordle clues and get the single best next guess, ranked by how much it narrows the field. Free, no sign-up, no paywall.">
 <meta property="og:url"         content="https://wordineer.com/wordle-helper/">
-<meta property="og:image"       content="https://wordineer.com/og-image.png">
+<meta property="og:image"       content="https://wordineer.com/assets/og-wordle-helper.png">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -24,7 +24,7 @@
     {
       "@type": "Question",
       "name": "How does the Wordle Helper work?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Enter each of your guesses and tap the tiles to set the colours Wordle gave you (green for correct position, yellow for wrong position, grey for not in the word). Click Analyse and the tool tests every remaining candidate word to find the one that splits the remaining pool most evenly — the same idea used by NYT's WordleBot, measured in bits of information (Shannon entropy). The top-ranked word is shown as your best next guess." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Enter each of your guesses and tap the tiles to set the colors Wordle gave you (green for correct position, yellow for wrong position, grey for not in the word). Click Analyze and the tool tests every remaining candidate word to find the one that splits the remaining pool most evenly — the same idea used by NYT's WordleBot, measured in bits of information (Shannon entropy). The top-ranked word is shown as your best next guess." }
     },
     {
       "@type": "Question",
@@ -34,17 +34,27 @@
     {
       "@type": "Question",
       "name": "What are the best starting words for Wordle?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Words that cover high-frequency letters (E, A, R, I, O, T, N, S) in one guess give you the most information. CRANE, SLATE, and RAISE are popular choices because they test 5 distinct common letters with no repeats. The Wordle Helper's starting word picker lists 18 well-known high-coverage openers you can click to pre-fill." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Our information-theory analysis ranks TRACE #1 (5.989 bits), SLATE #2 (5.949 bits), and SNARE #3 (5.933 bits). All three cover common letters with no repeats and give you maximum information from your first guess. See the full ranked list at wordineer.com/best-wordle-starting-words/." }
     },
     {
       "@type": "Question",
       "name": "What is Practice Mode?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Practice Mode lets you use the Wordle Helper without an active game open anywhere. The tool picks a random secret word, you type your guesses, and it colours the tiles automatically — just like a real Wordle. An optional hint panel shows the best next guess after each guess. The word is random, not today's Wordle answer." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Practice Mode lets you use the Wordle Helper without an active game open anywhere. The tool picks a random secret word, you type your guesses, and it colors the tiles automatically — just like a real Wordle. An optional hint panel shows the best next guess after each guess. The word is random, not today's Wordle answer." }
     },
     {
       "@type": "Question",
       "name": "How is this different from other Wordle solvers?",
       "acceptedAnswer": { "@type": "Answer", "text": "Most Wordle solver tools just show a filtered list of remaining words. This tool also ranks every remaining candidate by Shannon entropy and recommends the single best next guess — the word most likely to narrow down the answer fastest. Practice Mode also lets first-time visitors understand and trust the tool without needing an active Wordle game open." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is using a Wordle solver cheating?",
+      "acceptedAnswer": { "@type": "Answer", "text": "That depends on how you play. The tool can't see today's answer — it only knows what your color results tell it, the same information you have. Many players use it after solving to review their choices, the same way NYT's own WordleBot works. Others use it mid-game to learn strategy. Where you draw the line is personal — playing with a solver is still playing." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the Wordle Helper support colorblind mode?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Click the colorblind toggle at the top of the tool to switch the tile colors to blue (correct position) and orange (wrong position), matching the convention used by Wordle's own colorblind setting." }
     }
   ]
 }
@@ -52,11 +62,11 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebApplication",
+  "@type": "SoftwareApplication",
   "name": "Wordle Helper",
   "url": "https://wordineer.com/wordle-helper/",
-  "description": "Free Wordle solver — enter your clue colours and get the single best next guess, ranked by Shannon entropy.",
-  "applicationCategory": "UtilityApplication",
+  "description": "Free Wordle solver — enter your clue colors and get the single best next guess, ranked by Shannon entropy.",
+  "applicationCategory": "GameApplication",
   "operatingSystem": "Web",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
   "publisher": { "@id": "https://wordineer.com/#organization" }
@@ -75,6 +85,23 @@
 .wh-grid-tile[data-state="2"] { background:var(--green);  border-color:var(--green);  color:#fff; }
 .wh-grid-tile[data-state="1"] { background:var(--amber);  border-color:var(--amber);  color:#fff; }
 .wh-grid-tile[data-state="0"] { background:var(--bg-3);   border-color:var(--bg-3);   color:var(--text-3); }
+
+/* Colorblind mode — blue = correct position, orange = wrong position */
+.wh-wrap.wh-colorblind .wh-tile[data-state="2"],
+.wh-wrap.wh-colorblind .wh-grid-tile[data-state="2"] { background:var(--blue);  border-color:var(--blue);  color:#fff; }
+.wh-wrap.wh-colorblind .wh-tile[data-state="1"],
+.wh-wrap.wh-colorblind .wh-grid-tile[data-state="1"] { background:#D97706; border-color:#D97706; color:#fff; }
+
+/* Colorblind toggle button */
+.wh-cb-toggle {
+  padding:5px 12px; font-size:12px; font-weight:600; font-family:inherit;
+  border:1px solid var(--border); border-radius:999px;
+  background:var(--bg); color:var(--text-2); cursor:pointer;
+  transition:background .12s, border-color .12s, color .12s;
+  display:flex; align-items:center; gap:5px;
+}
+.wh-cb-toggle:hover { background:var(--bg-2); border-color:var(--text-3); }
+.wh-cb-toggle.active { background:var(--blue-light); border-color:var(--blue); color:var(--blue); }
 
 /* Wrap */
 .wh-wrap { max-width:640px; margin:0 auto; padding:20px 20px 0; }
@@ -204,12 +231,20 @@
     Free · No sign-up · Best next guess — not just a list
   </div>
   <h1>Wordle Helper</h1>
-  <p>Enter your guesses and their colour results to get the single best next word to try — ranked by how much it narrows down the answer. Or switch to Practice Mode to try the tool without an active game.</p>
+  <p>Enter your guesses and their color results to get the single best next word to try — ranked by how much it narrows down the answer. Or switch to Practice Mode to try the tool without an active game.</p>
+  <p style="font-size:12px;color:var(--text-3);margin-top:8px">Built by Garrick Dee · Methodology updated July 2026 · Word list updated July 2026</p>
 </div>
 <!-- /SLOT:hero -->
 
 <!-- SLOT:tool -->
 <div class="wh-wrap">
+
+  <div style="display:flex;justify-content:flex-end;margin-bottom:10px">
+    <button class="wh-cb-toggle" id="wh-cb-toggle" aria-pressed="false" title="Toggle colorblind-friendly tile colors">
+      <svg viewBox="0 0 14 14" fill="none" width="12" height="12"><circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1.2"/><path d="M7 4v3l2 1.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+      Colorblind mode
+    </button>
+  </div>
 
   <!-- Persistent how-it-works strip — always visible, never collapsed -->
   <div class="wh-how" aria-label="How to use Wordle Helper">
@@ -219,11 +254,11 @@
     </div>
     <div class="wh-how-step">
       <div class="wh-how-num">2</div>
-      <div class="wh-how-label">Play it in your Wordle and note the colours it gives back</div>
+      <div class="wh-how-label">Play it in your Wordle and note the colors it gives back</div>
     </div>
     <div class="wh-how-step">
       <div class="wh-how-num">3</div>
-      <div class="wh-how-label">Click each tile here to set those colours, then Analyse</div>
+      <div class="wh-how-label">Click each tile here to set those colors, then Analyze</div>
     </div>
   </div>
   <!-- Tab bar -->
@@ -241,7 +276,7 @@
     <div class="wh-chips" id="wh-chips"></div>
 
     <p style="font-size:12px;color:var(--text-2);margin-bottom:8px">
-      After typing a guess, click each tile to cycle its colour:
+      After typing a guess, click each tile to cycle its color:
       <span style="display:inline-block;width:12px;height:12px;border-radius:2px;background:var(--bg-3);vertical-align:middle;margin:0 2px"></span> grey (not in word) →
       <span style="display:inline-block;width:12px;height:12px;border-radius:2px;background:var(--green);vertical-align:middle;margin:0 2px"></span> green (correct) →
       <span style="display:inline-block;width:12px;height:12px;border-radius:2px;background:var(--amber);vertical-align:middle;margin:0 2px"></span> yellow (wrong position)
@@ -251,7 +286,7 @@
 
     <div style="display:flex;gap:10px;align-items:center;margin-bottom:8px;flex-wrap:wrap">
       <button class="gen-btn" id="wh-add-guess" style="width:auto;padding:9px 18px">+ Add guess</button>
-      <button class="gen-btn" id="wh-analyse" style="flex:1;min-width:120px">Analyse →</button>
+      <button class="gen-btn" id="wh-analyse" style="flex:1;min-width:120px">Analyze →</button>
     </div>
     <div class="wh-input-error" id="wh-solve-error"></div>
 
@@ -280,7 +315,7 @@
   <div class="wh-panel" id="wh-panel-practice" role="tabpanel" aria-labelledby="wh-tab-practice">
 
     <p style="font-size:13px;color:var(--text-2);margin-bottom:16px">
-      The tool picks a random secret word. Type your guesses — it colours the tiles automatically and suggests your best next move after each one. No active game needed.
+      The tool picks a random secret word. Type your guesses — it colors the tiles automatically and suggests your best next move after each one. No active game needed.
     </p>
 
     <div class="wh-grid" id="wh-prac-grid"></div>
@@ -330,21 +365,40 @@
 <!-- SLOT:explainer -->
 <div class="explainer">
   <h2>How to use the Wordle Helper</h2>
-  <p>Open your Wordle game (NYT, a clone, or anywhere you play), enter your first guess there, then come back here. Type the same word into the first row, then click each tile to match the colour Wordle gave you — grey for a letter not in the word, green for correct position, yellow for the letter is in the word but in the wrong spot. Click Analyse and the tool finds your best next guess.</p>
-  <p>If you don't have an active game open, switch to <strong>Practice Mode</strong> — the tool picks a random word and auto-colours your tiles so you can see exactly how the solver works in real time.</p>
+  <p>Open your Wordle game (NYT, a clone, or anywhere you play), enter your first guess there, then come back here. Type the same word into the first row, then click each tile to match the color Wordle gave you — grey for a letter not in the word, green for correct position, yellow for the letter is in the word but in the wrong spot. Click Analyze and the tool finds your best next guess.</p>
+  <p>If you don't have an active game open, switch to <strong>Practice Mode</strong> — the tool picks a random word and auto-colors your tiles so you can see exactly how the solver works in real time.</p>
 
   <h2>How the recommendation works</h2>
   <p>After each guess, the tool filters the candidate pool down to only words consistent with every clue you've entered. It then tests each remaining candidate as a hypothetical next guess: for every possible answer, what pattern would this guess produce? The word that creates the most evenly spread distribution of outcomes gets the highest score. This is Shannon entropy — the same principle NYT's WordleBot uses internally, measured in bits of information. The word that gives you the most information on average is shown as your best next guess.</p>
   <p>In practical terms: a guess that could produce 20 different outcome patterns is more valuable than one that only produces 3, because it narrows down the field more aggressively no matter what the answer turns out to be.</p>
+  <p>In our benchmark of 10,000 simulated games (Python seed 42, playing the top-ranked suggestion every turn), the solver solved <strong>100% of games</strong> in 6 or fewer guesses, averaging <strong>3.02 guesses</strong>. <a href="/best-wordle-starting-words/">See the full analysis and comparison table →</a></p>
 
   <h2>Why we don't use the original 2,309-word answer list</h2>
   <p>When Wordle was originally independent, its answer list was public and several solvers memorised it. NYT has since changed the list and continues to edit it — so any tool claiming to know the exact answer pool is outdated. This helper ranks candidates by real-world word frequency instead of relying on a static list, which makes it more robust as the game evolves.</p>
 
   <h2>Starting word strategy</h2>
-  <p>The starting-word chip picker lists 18 well-known high-coverage openers. The best starting words test common letters — E, A, R, I, O, T, N, S — without repeating any of them. CRANE covers C, R, A, N, E; SLATE covers S, L, A, T, E; RAISE covers R, A, I, S, E. All three are solid first guesses. The chip list also includes less obvious options like ROATE, which ranks highly in full entropy analyses. Click any chip to pre-fill it into the first row.</p>
+  <p>The starting-word chip picker lists well-known high-coverage openers. The best starting words test common letters — E, A, R, I, O, T, N, S — without repeating any of them. Our entropy analysis ranks <strong>TRACE #1</strong> (5.989 bits), SLATE #2, and SNARE #3. CRANE and RAISE are also strong choices. Click any chip to pre-fill it into the first row. For the full ranked list of 100 openers with downloadable data, see <a href="/best-wordle-starting-words/">Best Wordle Starting Words</a>.</p>
+
+  <div style="background:var(--bg-2);border:1px solid var(--border-2);border-radius:var(--radius-lg);padding:18px 20px;margin:24px 0">
+    <h3 style="font-size:14px;font-weight:700;color:var(--text);margin:0 0 8px">Link or cite this tool</h3>
+    <div style="font-size:13px;color:var(--text-2);background:var(--bg);border:1px solid var(--border-2);border-radius:var(--radius);padding:9px 12px;margin-bottom:10px;font-family:monospace;line-height:1.5">Wordineer Wordle Helper — wordineer.com/wordle-helper/ — Free solver ranked by Shannon entropy, no sign-up required.</div>
+    <a href="/best-wordle-starting-words/" style="font-size:13px;font-weight:600;color:var(--brand)">View full methodology and entropy data →</a>
+  </div>
+
+  <details style="margin:24px 0;background:var(--bg-2);border:1px solid var(--border-2);border-radius:var(--radius-lg);padding:14px 18px">
+    <summary style="font-size:14px;font-weight:700;color:var(--text);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center">
+      Updates
+      <svg viewBox="0 0 16 16" fill="none" width="14"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </summary>
+    <ul style="font-size:13px;color:var(--text-2);margin:12px 0 0;padding-left:18px;line-height:1.7">
+      <li><strong>July 2026</strong> — Added colorblind mode (blue/orange tiles); published entropy analysis of 715 starting words with 10,000-game benchmark; updated top opener recommendation to TRACE.</li>
+      <li><strong>June 2026</strong> — Added Practice Mode: play a full Wordle against a random secret word directly in the tool, with per-guess entropy hints.</li>
+      <li><strong>June 2026</strong> — Launched with Shannon entropy ranking, probe-word optimization for large candidate pools, and 18 curated starting word chips.</li>
+    </ul>
+  </details>
 
   <h2>Related tools</h2>
-  <p>If you want to play a full self-contained Wordle game rather than get solving help, try the <a href="/wordle-game/">Wordle game</a> on Wordineer. For a random 5-letter word to practice with, the <a href="/random-wordle-generator/">random Wordle word generator</a> picks one instantly with filters for difficulty. For a drawing-based word game, the <a href="/pictionary-word-generator/">Pictionary word generator</a> offers category-filtered prompts.</p>
+  <p>For the full entropy-ranked list of best starting words with downloadable data, see <a href="/best-wordle-starting-words/">Best Wordle Starting Words</a>. To play a full self-contained Wordle game rather than get solving help, try the <a href="/wordle-game/">Wordle game</a> on Wordineer. For a random 5-letter word to practice with, the <a href="/random-wordle-generator/">random Wordle word generator</a> picks one instantly with filters for difficulty. For a drawing-based word game, the <a href="/pictionary-word-generator/">Pictionary word generator</a> offers category-filtered prompts.</p>
   <!-- scrabble-word-finder: add link here once /scrabble-word-finder/ page ships -->
 </div>
 <!-- /SLOT:explainer -->
@@ -357,7 +411,7 @@
       <span class="faq-q-text">How does the Wordle Helper work?</span>
       <svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
     </div>
-    <div class="faq-a">Enter each of your guesses and tap the tiles to set the colours Wordle gave you (green for correct position, yellow for wrong position, grey for not in the word). Click Analyse and the tool tests every remaining candidate word to find the one that splits the remaining pool most evenly — the same idea used by NYT's WordleBot, measured in bits of information (Shannon entropy). The top-ranked word is shown as your best next guess.</div>
+    <div class="faq-a">Enter each of your guesses and tap the tiles to set the colors Wordle gave you (green for correct position, yellow for wrong position, grey for not in the word). Click Analyze and the tool tests every remaining candidate word to find the one that splits the remaining pool most evenly — the same idea used by NYT's WordleBot, measured in bits of information (Shannon entropy). The top-ranked word is shown as your best next guess.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q">
@@ -371,14 +425,14 @@
       <span class="faq-q-text">What are the best starting words for Wordle?</span>
       <svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
     </div>
-    <div class="faq-a">Words that cover high-frequency letters (E, A, R, I, O, T, N, S) in one guess give you the most information. CRANE, SLATE, and RAISE are popular choices because they test 5 distinct common letters with no repeats. The Wordle Helper's starting word picker lists 18 well-known high-coverage openers you can click to pre-fill.</div>
+    <div class="faq-a">Our information-theory analysis ranks TRACE #1 (5.989 bits of information), SLATE #2, and SNARE #3. All cover common letters with no repeats, giving you maximum information from your first guess. See the <a href="/best-wordle-starting-words/">full ranked list of 100 openers</a> with a downloadable CSV and 10,000-game benchmark data.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q">
       <span class="faq-q-text">What is Practice Mode?</span>
       <svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
     </div>
-    <div class="faq-a">Practice Mode lets you use the Wordle Helper without an active game open anywhere. The tool picks a random secret word, you type your guesses, and it colours the tiles automatically — just like a real Wordle. An optional hint panel shows the best next guess after each guess. The word is random, not today's Wordle answer.</div>
+    <div class="faq-a">Practice Mode lets you use the Wordle Helper without an active game open anywhere. The tool picks a random secret word, you type your guesses, and it colors the tiles automatically — just like a real Wordle. An optional hint panel shows the best next guess after each guess. The word is random, not today's Wordle answer.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q">
@@ -386,6 +440,20 @@
       <svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
     </div>
     <div class="faq-a">Most Wordle solver tools just show a filtered list of remaining words. This tool also ranks every remaining candidate by Shannon entropy and recommends the single best next guess — the word most likely to narrow down the answer fastest. Practice Mode also lets first-time visitors understand and trust the tool without needing an active Wordle game open.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">
+      <span class="faq-q-text">Is using a Wordle solver cheating?</span>
+      <svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </div>
+    <div class="faq-a">That depends on how you play. This tool can't see today's answer — it only knows what your color results tell it, the same information you have. Many players use it after solving to review their choices, the same way NYT's own WordleBot works. Others use it mid-game to learn strategy. Where you draw the line is personal — playing with a solver is still playing.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">
+      <span class="faq-q-text">Does the Wordle Helper support colorblind mode?</span>
+      <svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </div>
+    <div class="faq-a">Yes — click the "Colorblind mode" button at the top of the tool to switch tile colors to blue (correct position) and orange (wrong position), matching the convention used by Wordle's own colorblind setting. Your preference is saved for the session.</div>
   </div>
 </div>
 <!-- /SLOT:faq -->
@@ -405,6 +473,21 @@
 <!-- SLOT:init -->
 <script src="/scripts/wordle-engine.js?v=2"></script>
 <script>
+// Colorblind mode toggle — persisted in sessionStorage
+(function() {
+  const btn  = document.getElementById('wh-cb-toggle');
+  const wrap = document.querySelector('.wh-wrap');
+  if (!btn || !wrap) return;
+  const active = sessionStorage.getItem('wh-colorblind') === '1';
+  if (active) { wrap.classList.add('wh-colorblind'); btn.classList.add('active'); btn.setAttribute('aria-pressed','true'); }
+  btn.addEventListener('click', function() {
+    const on = wrap.classList.toggle('wh-colorblind');
+    btn.classList.toggle('active', on);
+    btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    sessionStorage.setItem('wh-colorblind', on ? '1' : '0');
+  });
+})();
+
 WORDLE_HELPER.init({
   tabSolveId:      'wh-tab-solve',
   tabPracticeId:   'wh-tab-practice',
