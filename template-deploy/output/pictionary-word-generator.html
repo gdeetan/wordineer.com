@@ -1,3 +1,4 @@
+<!-- build: 2026-07-13T10:43:06Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -109,18 +110,28 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What is a Pictionary word generator?",
-      "acceptedAnswer": { "@type": "Answer", "text": "A Pictionary word generator picks random drawable words for the drawing and guessing game Pictionary. Choose a category and difficulty, then use the words for parties, classrooms, family game night, or holiday games." }
+      "name": "What's the difference between Easy, Medium, and Hard in this Pictionary word generator?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Easy words are concrete objects and simple actions anyone can sketch quickly (Cat, Pizza, Jumping). Medium requires more creativity from the drawer — recognizable but not instantly obvious (Trampoline, Sushi, Photobomb). Hard words are abstract or obscure with no single clear visual form (Nostalgia, Democracy, Spelunking). Start with Easy if your group includes kids or first-timers." }
     },
     {
       "@type": "Question",
-      "name": "How does this random Pictionary generator work?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Pick how many words you want, choose a difficulty and category, and click Generate. The tool avoids repeats during the current session and lets you copy, save, hide, or print the words." }
+      "name": "Can I use this Pictionary word generator for kids?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Set difficulty to Easy and choose Animals or Classic for short, concrete words that are quick to draw and guess. Avoid the Actions category with younger players — drawing a verb is much harder than drawing a noun." }
     },
     {
       "@type": "Question",
       "name": "Can I use this as a Christmas Pictionary word generator?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Select the Christmas category or the Christmas preset to generate holiday words for classroom games, office parties, family gatherings, and Christmas game night." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes — select the Christmas category. Easy Christmas words (Snowman, Candy cane, Santa) work well for classroom parties and mixed-age family games. Medium adds trickier seasonal words like Gingerbread house and Snowball fight. Hard includes Nutcracker, Frankincense, and Nativity scene for groups who want a real challenge." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the Pictionary word generator repeat words?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The tool avoids repeats for your entire session — once a word appears, it won't come up again until you click 'Reset repeats.' Changing difficulty or category resets the history automatically so the pool stays full." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I print the Pictionary word cards?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes — click 'Print cards' for a clean, ad-free layout with two columns of word cards sized for standard paper. Useful for larger groups or classroom activities where passing a phone gets awkward." }
     }
   ]
 }
@@ -144,13 +155,14 @@
   "@type": "BreadcrumbList",
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
-    { "@type": "ListItem", "position": 2, "name": "Word Tools", "item": "https://wordineer.com/word-tools/" },
+    { "@type": "ListItem", "position": 2, "name": "Number &amp; Chance Tools", "item": "https://wordineer.com/number-chance/" },
     { "@type": "ListItem", "position": 3, "name": "Pictionary Word Generator", "item": "https://wordineer.com/pictionary-word-generator/" }
   ]
 }
 </script>
 
-<link rel="stylesheet" href="/styles/global.css?v=9">
+
+<link rel="stylesheet" href="/styles/global.css?v=13">
 <style>
 .tool-wrap{max-width:960px;margin:0 auto;padding:24px 24px 0}
 .pic-card{border:1px solid var(--border);border-radius:8px;background:var(--bg);box-shadow:var(--shadow);overflow:hidden}
@@ -217,6 +229,19 @@
   .word-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:0}
   .word-card{min-height:110px;break-inside:avoid;border:1px solid #111}
 }
+/* ── Game Mode ── */
+.game-panel{display:none;flex-direction:column;flex:1;padding:20px}
+.game-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;gap:8px}
+.game-progress{font-size:13px;color:var(--text-3);font-weight:600;text-align:center;flex:1}
+.game-word-area{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;border:2px dashed var(--border);border-radius:12px;padding:40px 24px;cursor:pointer;transition:border-color .15s;min-height:240px}
+.game-word-area:hover{border-color:var(--brand)}
+.game-word-area.is-revealed{border-style:solid;border-color:var(--brand)}
+.game-tap-hint{font-size:13px;color:var(--text-3)}
+.game-word-display{font-size:52px;font-weight:700;color:var(--text);text-align:center;line-height:1.15;transition:opacity .15s}
+.game-word-meta{font-size:12px;color:var(--text-3);text-transform:uppercase;letter-spacing:.05em;display:none}
+.game-nav{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:20px}
+.game-reveal-btn{flex:none;padding:10px 28px;font-size:14px;border:0;border-radius:6px;background:var(--brand);color:white;font-weight:700;cursor:pointer}
+@media(max-width:700px){.game-word-display{font-size:36px}.game-word-area{padding:28px 16px;min-height:180px}}
 </style>
 </head>
 
@@ -277,15 +302,23 @@
       <a class="mega-link" href="/username-generator/">Username Generator</a>
       <a class="mega-link" href="/password-generator/">Password Generator</a>
       <a class="mega-link" href="/passphrase-generator/">Passphrase Generator</a>
-      <a class="mega-link" href="/memorable-password-generator/">Memorable Password Generator</a>
+      <a class="mega-link" href="/random-pin-generator/">Random PIN Generator</a>
       <a class="mega-link mega-link--view-all" href="/account-tools/">View all →</a>
     </div>
     <div class="mega-col">
       <div class="mega-cat">Games &amp; fun</div>
-      <a class="mega-link" href="/pictionary-phrase-generator/">Pictionary Phrase Generator</a>
-      <a class="mega-link" href="/crossword-puzzle-generator/">Crossword Puzzle Generator</a>
-      <a class="mega-link" href="/wordle-helper/">Wordle Helper</a>
+      <a class="mega-link" href="/coin-flip/">Flip a Coin</a>
+      <a class="mega-link" href="/random-number-generator/">Number Generator</a>
+      <a class="mega-link" href="/dice-roller/">Dice Roller</a>
+      <a class="mega-link" href="/wheel-of-names/">Wheel of Names</a>
       <a class="mega-link mega-link--view-all" href="/number-chance/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Learn & Resources</div>
+      <a class="mega-link" href="/spelling-bee-words/">Spelling Bee Words</a>
+      <a class="mega-link" href="/common-5-letter-words/">Common 5-Letter Words</a>
+      <a class="mega-link" href="/etymology-100-common-words/">Etymology Guide</a>
+      <a class="mega-link" href="/esl-vocabulary-cefr/">ESL Vocabulary (CEFR)</a>
     </div>
   </div>
 </div>
@@ -295,7 +328,7 @@
   <div class="breadcrumb-inner">
     <a href="/">Wordineer</a>
     <span class="breadcrumb-sep">›</span>
-    <a href="/word-tools/">Word Tools</a>
+    <a href="/number-chance/">Number &amp; Chance Tools</a>
     <span class="breadcrumb-sep">›</span>
     <span aria-current="page">Pictionary Word Generator</span>
   </div>
@@ -338,6 +371,15 @@
               <option value="funny">Funny</option>
             </select>
           </div>
+          <div class="control-group">
+            <label class="control-label" for="pic-syllables">Syllables</label>
+            <select id="pic-syllables" class="pic-select">
+              <option value="any">Any count</option>
+              <option value="1">1 syllable</option>
+              <option value="2">2 syllables</option>
+              <option value="3+">3+ syllables</option>
+            </select>
+          </div>
           <div class="timer-box">
             <span class="control-label">Round timer</span>
             <div class="seg three" data-control="timer">
@@ -357,6 +399,8 @@
           <button class="small-btn" type="button" id="copy-btn">Copy list</button>
           <button class="small-btn" type="button" id="print-btn">Print cards</button>
           <button class="small-btn" type="button" id="hide-btn">Hide words</button>
+          <button class="small-btn" type="button" id="share-btn">Share list</button>
+          <button class="small-btn" type="button" id="game-btn">▶ Game Mode</button>
           <button class="small-btn" type="button" id="clear-btn">Clear saved</button>
         </div>
         <div class="rules-mini">Draw the word without letters, numbers, talking, or gestures. Your team gets one point if they guess before the timer runs out.</div>
@@ -370,6 +414,26 @@
           <button class="small-btn" type="button" id="reset-session-btn">Reset repeats</button>
         </div>
         <ul class="word-grid" id="word-grid"></ul>
+
+        <!-- Game Mode Panel -->
+        <div class="game-panel" id="game-panel">
+          <div class="game-header">
+            <button class="small-btn" id="game-exit-btn">← Exit Game</button>
+            <span class="game-progress" id="game-progress">Word 1 of 5</span>
+            <button class="small-btn" id="game-share-btn">Share Link</button>
+          </div>
+          <div class="game-word-area" id="game-word-area">
+            <div class="game-tap-hint" id="game-tap-hint">Tap to reveal</div>
+            <div class="game-word-display" id="game-word-display">?</div>
+            <div class="game-word-meta" id="game-word-meta"></div>
+          </div>
+          <div class="game-nav">
+            <button class="small-btn" id="game-prev-btn" disabled>← Prev</button>
+            <button class="game-reveal-btn" id="game-reveal-btn">Reveal Word</button>
+            <button class="small-btn" id="game-next-btn">Next →</button>
+          </div>
+        </div>
+
         <div class="saved-panel">
           <div class="saved-top">
             <span class="saved-label">Saved words <span id="saved-count">(0)</span></span>
@@ -381,13 +445,13 @@
     </div>
   </div>
 </div>
-<div class="ad-leaderboard">
-  <div class="ad-leaderboard-inner">
-    <span class="ad-tag">Advertisement · 728×90</span>
-    <div class="ad-mock-content">
-      <div class="ad-title">Grammarly - write with confidence. Grammar, tone &amp; clarity.</div>
-      <div class="ad-sub">Used by 30 million people. Works in Google Docs, Gmail, Word and more.</div>
-      <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-mock-cta">Try Grammarly free</a>
+<div class="content-wrap" style="margin-top:32px">
+  <div class="ad-rect" style="border-color:rgba(220,38,38,0.3)">
+    <div class="ad-rect-img" style="background:linear-gradient(135deg,#dc2626,#b91c1c)"><svg viewBox="0 0 36 36" fill="none" width="36" height="36"><rect x="4" y="8" width="28" height="20" rx="3" stroke="white" stroke-width="2"/><path d="M10 18l4 4 8-8" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="ad-rect-content">
+      <div class="ad-rect-title">Get the official Pictionary board game — hours of drawing fun</div>
+      <div class="ad-rect-body">The classic family party game. Guess the drawing before time runs out. Perfect for game night with kids and adults.</div>
+      <a href="#placeholder" target="_blank" rel="noopener sponsored" class="aff-cta-btn" style="background:#b91c1c">Shop on Amazon →</a>
     </div>
   </div>
 </div>
@@ -399,9 +463,9 @@
       <a class="tool-item" href="/random-quote-generator/"><div class="tool-icon" style="background:#FBEAF0"><svg viewBox="0 0 13 13" fill="none"><path d="M3 4.5h3.5M3 8.5h4.5" stroke="#A13B63" stroke-width="1.1" stroke-linecap="round"/><path d="M8.2 3.5h1.4v2.1c0 .5.4.9.9.9H11v1.4H9.6c-1.2 0-2.1-.9-2.1-2.1z" fill="#A13B63"/><path d="M2.2 5.2h1.4V7c0 .5.4.9.9.9h.4v1.4h-.4C3.3 9.3 2.2 8.2 2.2 7z" fill="#A13B63"/></svg></div><div class="tool-name">Random Quote Generator</div><div class="tool-desc">Random quotes with filters for topic, author, tone, length, favorites, and image cards.</div></a>
       <a class="tool-item" href="/random-wordle-generator/"><div class="tool-icon" style="background:#E8F4FE"><svg viewBox="0 0 13 13" fill="none"><rect x='2' y='2' width='3.5' height='3.5' rx='0.5' fill='#2B7FD4'/><rect x='7.5' y='2' width='3.5' height='3.5' rx='0.5' fill='#2B7FD4' opacity='.4'/><rect x='2' y='7.5' width='3.5' height='3.5' rx='0.5' fill='#2B7FD4' opacity='.4'/><rect x='7.5' y='7.5' width='3.5' height='3.5' rx='0.5' fill='#2B7FD4'/></svg></div><div class="tool-name">Random Wordle Generator</div><div class="tool-desc">Random 5-letter words for Wordle. Filter by difficulty and letter.</div></a>
       <a class="tool-item" href="/wordle-helper/"><div class="tool-icon" style="background:#E1F5EE"><svg viewBox="0 0 13 13" fill="none"><rect x='2' y='2' width='3.5' height='3.5' rx='0.5' fill='#1D9E75'/><rect x='7.5' y='2' width='3.5' height='3.5' rx='0.5' fill='#BA7517'/><rect x='2' y='7.5' width='3.5' height='3.5' rx='0.5' fill='none' stroke='#9a9a94' stroke-width='1'/><rect x='7.5' y='7.5' width='3.5' height='3.5' rx='0.5' fill='#1D9E75'/></svg></div><div class="tool-name">Wordle Helper</div><div class="tool-desc">Entropy-ranked solver — enter your clues and get the single best next guess, not just a filtered list.</div></a>
+      <a class="tool-item" href="/best-wordle-starting-words/"><div class="tool-icon" style="background:#E6F1FB"><svg viewBox="0 0 13 13" fill="none"><rect x='2' y='9' width='1.5' height='3' rx='0.3' fill='#185FA5'/><rect x='4.5' y='6.5' width='1.5' height='5.5' rx='0.3' fill='#185FA5'/><rect x='7' y='4' width='1.5' height='8' rx='0.3' fill='#185FA5'/><rect x='9.5' y='2' width='1.5' height='10' rx='0.3' fill='#185FA5'/></svg></div><div class="tool-name">Best Wordle Starting Words</div><div class="tool-desc">Top 100 openers ranked by Shannon entropy — original analysis, 10,000-game benchmark, downloadable data.</div></a>
       <a class="tool-item" href="/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="#534AB7" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="tool-name">Random word</div><div class="tool-desc">Filter by type, difficulty, length</div></a>
       <a class="tool-item" href="/random-noun-generator/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h9M2 7h6M2 10h8" stroke="#534AB7" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="tool-name">Random Noun Generator</div><div class="tool-desc">Generate random nouns — filter by type (abstract, concrete, proper, collective) and difficulty.</div></a>
-      <a class="tool-item" href="/random-verb-generator/"><div class="tool-icon" style="background:#EEF6FE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h9M2 7h7M2 10h5" stroke="#2B6CB0" stroke-width="1.3" stroke-linecap="round"/><path d="M10 9l2 1.5-2 1.5" stroke="#2B6CB0" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="tool-name">Random Verb Generator</div><div class="tool-desc">Generate random verbs — filter by type (action, linking, auxiliary, modal) and difficulty.</div></a>
     </div>
   </div>
   <div class="divider"></div>
@@ -413,8 +477,8 @@
       <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h3.5M2 7h9M2 10h6" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Browse by Letter</div><a class="other-link" href="/random-words-starting-with/">Random Words Starting With (A–Z)</a><a class="other-link" href="/random-words-starting-with/a">Random Words Starting with A</a><a class="other-link" href="/random-words-starting-with/s">Random Words Starting with S</a><a class="other-link" href="/random-words-starting-with/q">Random Words Starting with Q</a><a class="other-link other-link--view-all" href="/random-words-starting-with/">View all →</a></div>
       <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4.5" r="2.5" stroke="currentColor" stroke-width="1"/><path d="M1.5 11.5c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Names by Origin</div><a class="other-link" href="/random-spanish-name-generator/">Spanish Name Generator</a><a class="other-link" href="/random-italian-name-generator/">Italian Name Generator</a><a class="other-link" href="/random-japanese-name-generator/">Japanese Name Generator</a><a class="other-link" href="/random-american-name-generator/">American Name Generator</a><a class="other-link other-link--view-all" href="/name-generators/">View all →</a></div>
       <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="1.5" width="9" height="10" rx="1" stroke="currentColor" stroke-width="1"/><path d="M4 4.5h5M4 6.5h5M4 8.5h3" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Other Name Generators</div><a class="other-link" href="/character-name-generator/">Character Name Generator</a><a class="other-link" href="/fantasy-name-generator/">Fantasy Name Generator</a><a class="other-link" href="/business-name-generator/">Business Name Generator</a><a class="other-link" href="/band-name-generator/">Band Name Generator</a><a class="other-link other-link--view-all" href="/other-generators/">View all →</a></div>
-      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="3.5" y="5.5" width="6" height="5" rx="1" stroke="currentColor" stroke-width="1"/><path d="M5 5.5V4a1.5 1.5 0 013 0v1.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Account &amp; Security</div><a class="other-link" href="/password-generator/">Password Generator</a><a class="other-link" href="/passphrase-generator/">Passphrase Generator</a><a class="other-link" href="/memorable-password-generator/">Memorable Password Generator</a><a class="other-link" href="/username-generator/">Username Generator</a><a class="other-link other-link--view-all" href="/account-tools/">View all →</a></div>
-      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="1" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="1" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/></svg>Games &amp; fun</div><a class="other-link" href="/pictionary-phrase-generator/">Pictionary Phrase Generator</a><a class="other-link" href="/wordle-helper/">Wordle Helper</a><a class="other-link other-link--view-all" href="/number-chance/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="3.5" y="5.5" width="6" height="5" rx="1" stroke="currentColor" stroke-width="1"/><path d="M5 5.5V4a1.5 1.5 0 013 0v1.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Account &amp; Security</div><a class="other-link" href="/username-generator/">Username Generator</a><a class="other-link" href="/password-generator/">Password Generator</a><a class="other-link" href="/passphrase-generator/">Passphrase Generator</a><a class="other-link" href="/instagram-username-generator/">Instagram Username Generator</a><a class="other-link other-link--view-all" href="/account-tools/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="1" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="1" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/></svg>Games &amp; fun</div><a class="other-link" href="/pictionary-phrase-generator/">Pictionary Phrase Generator</a><a class="other-link" href="/wordle-helper/">Wordle Helper</a><a class="other-link" href="/coin-flip/">Coin Flip</a><a class="other-link" href="/dice-roller/">Dice Roller</a><a class="other-link other-link--view-all" href="/number-chance/">View all →</a></div>
     </div>
   </div>
 
@@ -430,49 +494,48 @@
   <div class="divider"></div>
 
 <div class="explainer">
-  <h2>What is Pictionary?</h2>
-  <p>Pictionary is a drawing and guessing game. One player draws a secret word while teammates try to guess it before time runs out. The challenge is simple: make the idea clear without writing letters, numbers, or spoken hints.</p>
+  <h2>What makes a word work in Pictionary?</h2>
+  <p>Not every noun is drawable. The best Pictionary words have a clear visual form — something the drawer can put on paper without writing a single letter. "Elephant" works. "Democracy" is a nightmare. That's why difficulty level matters more than category: hard words aren't just obscure, they're harder to represent visually.</p>
+  <p>Use Easy for kids, first-timers, or when you want fast rounds with high energy. Medium is the sweet spot for most adult game nights — words are recognizable but require some creativity to draw. Hard is for groups that have played together a lot and want a challenge that produces genuinely funny misses.</p>
 
-  <h2>How It Works</h2>
-  <p>Choose how many words you need, pick a difficulty, select a category, and click Generate. This fun Pictionary word generator keeps the list focused on things people can actually draw, then lets you copy, save, hide, or print the words.</p>
+  <h2>How to run a great game night round</h2>
+  <p>Generate your word list before the round starts and use the Hide button so words aren't visible on screen. Show only the drawer their word (tap or click a card to reveal it). Start the 60-second timer when the first mark hits the board. If the team guesses correctly before time runs out, the drawer earns the point — not the guesser. Rotate drawers every round.</p>
+  <p>The "Reset repeats" button clears the session memory if you want to start the pool fresh — useful if you're playing multiple games in a row and want the same words back in rotation.</p>
 
-  <h2>How to Play Pictionary</h2>
-  <ol>
-    <li>Split players into two or more teams.</li>
-    <li>Choose one person from the first team to draw.</li>
-    <li>Generate a word and show it only to the drawer.</li>
-    <li>Start the timer. The drawer sketches clues while the team guesses.</li>
-    <li>A correct guess before time runs out earns one point.</li>
-  </ol>
+  <h2>Best categories for different groups</h2>
+  <p><strong>Kids and families:</strong> Easy + Animals or Easy + Classic. Short, concrete words with obvious shapes. Avoid actions — they're hard for younger players to draw clearly.</p>
+  <p><strong>Office parties and casual groups:</strong> Medium + All Categories. Mix keeps it interesting without anyone feeling stuck. Add Funny for bigger reactions and more laughs.</p>
+  <p><strong>Competitive groups:</strong> Hard + Classic or Hard + Actions. Abstract concepts like "Optical illusion" or "Gravity" are genuinely difficult and produce memorable rounds.</p>
 
-  <h2>Christmas Pictionary Word Generator</h2>
-  <p>Use the Christmas category for holiday parties, classrooms, and family gatherings. It includes seasonal words such as stocking, snowman, gingerbread house, wreath, candy cane, and sleigh ride.</p>
+  <h2>Christmas Pictionary</h2>
+  <p>Select the Christmas category for holiday parties, classroom games, and family gatherings. The word list leans toward imagery that's immediately seasonal — stockings, snowmen, gingerbread houses — so even players who aren't great at drawing can get a guess across quickly. Combine Medium difficulty with Christmas for the best balance between easy guesses and surprising moments.</p>
 
-  <h2>Fun Pictionary Word Ideas</h2>
-  <p>For a fun Pictionary word generator round, mix easy objects with silly actions and funny prompts. Try categories like Funny, Food, and Animals when you want faster guesses and bigger reactions.</p>
-  <div class="idea-tags">
-    <span>Pancake</span><span>Moonwalk</span><span>Bubble bath</span><span>Roller coaster</span><span>Penguin</span><span>Pizza delivery</span>
-  </div>
+  <h2>Printing word cards</h2>
+  <p>Click "Print cards" to generate a clean, ad-free print layout — two columns of word cards formatted for standard paper. This works well for larger groups where you want to hand physical cards to each drawer instead of passing a phone around.</p>
 </div>
   <div class="divider"></div>
 
 <div class="faq">
   <h2 class="faq-title">Pictionary FAQs</h2>
   <div class="faq-item open">
-    <div class="faq-q"><span class="faq-q-text">Can I use this for kids?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Yes. Set difficulty to Easy and choose the Animals or classic category for simple words that are quick to draw and guess.</div>
+    <div class="faq-q"><span class="faq-q-text">What's the difference between Easy, Medium, and Hard?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Easy words are concrete objects and simple actions — things anyone can sketch in a few lines (Cat, Pizza, Jumping). Medium words require more imagination from the drawer — recognizable but not instantly obvious (Trampoline, Sushi, Photobomb). Hard words are abstract or obscure — concepts with no single clear visual form (Nostalgia, Democracy, Spelunking). Start with Easy if your group includes kids or first-timers.</div>
   </div>
   <div class="faq-item">
-    <div class="faq-q"><span class="faq-q-text">Can I use this for Christmas Pictionary?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Yes. Choose the Christmas category to generate holiday words for a seasonal game.</div>
+    <div class="faq-q"><span class="faq-q-text">Can I use this for kids?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes. Easy + Animals or Easy + Classic gives you short, concrete words that are quick to draw and guess. Avoid the Actions category with younger players — drawing a verb is much harder than drawing a noun, and it tends to frustrate kids who are still developing their drawing skills.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">Does the generator repeat words?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">The tool avoids repeats during your current session. Use Reset repeats when you want to start the pool over.</div>
+    <div class="faq-a">It avoids repeats for the duration of your session — once a word has appeared, it won't come up again until you click "Reset repeats." This is useful for long games where you're cycling through many rounds. If you change difficulty or category, the repeat history resets automatically so the pool stays full.</div>
   </div>
   <div class="faq-item">
-    <div class="faq-q"><span class="faq-q-text">How many people can play?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Four or more players is ideal because you can form teams, but smaller groups can still play casually.</div>
+    <div class="faq-q"><span class="faq-q-text">Can I use this for Christmas Pictionary?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes — choose the Christmas category. Easy Christmas words (Snowman, Candy cane, Santa) work well for classroom parties and family games with mixed ages. Medium adds trickier seasonal words like Gingerbread house, Sleigh, and Snowball fight. Hard includes things like Nutcracker, Frankincense, and Nativity scene — better for groups who want a real challenge.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I print the word cards?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes — click "Print cards" and the page switches to a clean, ad-free layout with two columns of word cards sized for standard paper. This is handy for larger groups where passing a phone around gets awkward, or for classroom activities where each student draws from a stack of physical cards.</div>
   </div>
 </div>
   <div class="divider"></div>
@@ -486,6 +549,8 @@
     <div class="uc"><div class="uc-title">Word lovers</div><div class="uc-body">Wordineer builds free, fast word tools with simple controls and clean results.</div></div>
   </div>
 </div>
+
+
 </div>
 
 <footer class="footer">
@@ -501,7 +566,8 @@
       <div><div class="footer-col-title">Names by Origin</div><a class="footer-link" href="/random-spanish-name-generator/">Spanish Name Generator</a><a class="footer-link" href="/random-italian-name-generator/">Italian Name Generator</a><a class="footer-link" href="/random-japanese-name-generator/">Japanese Name Generator</a><a class="footer-link" href="/random-american-name-generator/">American Name Generator</a><a class="footer-link footer-link--view-all" href="/name-generators/">View all →</a></div>
       <div><div class="footer-col-title">Other Name Generators</div><a class="footer-link" href="/character-name-generator/">Character Name Generator</a><a class="footer-link" href="/fantasy-name-generator/">Fantasy Name Generator</a><a class="footer-link" href="/business-name-generator/">Business Name Generator</a><a class="footer-link" href="/band-name-generator/">Band Name Generator</a><a class="footer-link footer-link--view-all" href="/other-generators/">View all →</a></div>
       <div><div class="footer-col-title">Account &amp; Security</div><a class="footer-link" href="/password-generator/">Password Generator</a><a class="footer-link" href="/passphrase-generator/">Passphrase Generator</a><a class="footer-link" href="/memorable-password-generator/">Memorable Password Generator</a><a class="footer-link" href="/username-generator/">Username Generator</a><a class="footer-link footer-link--view-all" href="/account-tools/">View all →</a></div>
-      <div><div class="footer-col-title">Games &amp; fun</div><a class="footer-link" href="/pictionary-phrase-generator/">Pictionary Phrase Generator</a><a class="footer-link" href="/crossword-puzzle-generator/">Crossword Puzzle Generator</a><a class="footer-link" href="/wordle-helper/">Wordle Helper</a><a class="footer-link footer-link--view-all" href="/number-chance/">View all →</a></div>
+      <div><div class="footer-col-title">Games &amp; fun</div><a class="footer-link" href="/coin-flip/">Flip a Coin</a><a class="footer-link" href="/random-number-generator/">Number Generator</a><a class="footer-link" href="/dice-roller/">Dice Roller</a><a class="footer-link" href="/wheel-of-names/">Wheel of Names</a><a class="footer-link footer-link--view-all" href="/number-chance/">View all →</a></div>
+      <div><div class="footer-col-title">Learn & Resources</div><a class="footer-link" href="/spelling-bee-words/">Spelling Bee Words</a><a class="footer-link" href="/common-5-letter-words/">Common 5-Letter Words</a><a class="footer-link" href="/etymology-100-common-words/">Etymology Guide</a><a class="footer-link" href="/esl-vocabulary-cefr/">ESL Vocabulary (CEFR)</a></div>
     </div>
     <div class="footer-bottom">
       <div style="display:flex;align-items:center;gap:7px">
@@ -516,7 +582,7 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="/scripts/tool-engine.js?v=25"></script>
+<script src="/scripts/tool-engine.js?v=27"></script>
 <script>
 (function bindSharedWordineerMenu() {
   const mega = document.getElementById('mega');
@@ -625,14 +691,15 @@
   }
   function picScheduleLoad(){if(picFullLoaded)return;if('requestIdleCallback' in window)requestIdleCallback(picLoadFullWords,{timeout:4000});else setTimeout(picLoadFullWords,200)}
   window.addEventListener('load',picScheduleLoad,{once:true});
-  const state={count:5,difficulty:'easy',category:'classic',timer:60,current:[],saved:[],seen:new Set(),hidden:false,remaining:60,running:false,interval:null};
+  function countSyls(phrase){return phrase.toLowerCase().replace(/[^a-z ]/g,'').split(' ').reduce(function(sum,w){if(!w)return sum;if(w.length<=3)return sum+1;w=w.replace(/(?:[^laeiouy]es|[^laeiouy]ed|[^laeiouy]e)$/,'').replace(/^y/,'');var m=w.match(/[aeiouy]{1,2}/g);return sum+(m?m.length:1)},0);}
+  const state={count:5,difficulty:'easy',category:'classic',syllables:'any',timer:60,current:[],saved:[],seen:new Set(),hidden:false,remaining:60,running:false,interval:null};
   const $=id=>document.getElementById(id),grid=$('word-grid'),status=$('status'),savedList=$('saved-list'),savedCount=$('saved-count'),toast=$('toast');
   const picCountInput=$('count-input'),picCountError=$('pic-count-error');
   function showToast(text){toast.textContent=text;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),1600)}
   function setSeg(control,value){document.querySelectorAll(`[data-control="${control}"] button`).forEach(btn=>btn.classList.toggle('active',btn.dataset.value===String(value)));if(control==='count')picCountInput.value=value}
   function picValidateCount(){const v=parseInt(picCountInput.value);const invalid=isNaN(v)||v<1||v>50;picCountError.style.display=invalid?'block':'none';picCountInput.style.borderColor=invalid?'#E24B4A':'';return !invalid}
   function setCount(value){const next=Math.max(1,Math.min(50,Number(value)||1));state.count=next;picCountInput.style.borderColor='';picCountError.style.display='none';setSeg('count',next)}
-  function filtered(){if(state.category==='all')return words.filter(item=>item.d===state.difficulty);return words.filter(item=>item.d===state.difficulty&&item.c.includes(state.category))}
+  function filtered(){let pool=state.category==='all'?words.filter(item=>item.d===state.difficulty):words.filter(item=>item.d===state.difficulty&&item.c.includes(state.category));if(state.syllables!=='any'){pool=pool.filter(item=>{const n=countSyls(item.w);return state.syllables==='3+'?n>=3:n===parseInt(state.syllables)});}return pool;}
   function generate(){let pool=filtered().filter(item=>!state.seen.has(item.w));if(!pool.length&&state.seen.size){state.seen.clear();pool=filtered()}if(!pool.length){state.current=[];renderWords();return}const chosen=[];while(chosen.length<state.count&&pool.length){const idx=Math.floor(Math.random()*pool.length);const item=pool.splice(idx,1)[0];chosen.push(item);state.seen.add(item.w)}state.current=chosen;renderWords()}
   function renderWords(){if(!state.current.length){grid.innerHTML='';status.textContent='No words found — try a different filter';return}grid.innerHTML=state.current.map(item=>{const saved=state.saved.includes(item.w);return `<li class="word-card${state.hidden?' hidden':''}"><div><div class="word-text">${item.w}</div><div class="word-meta">${item.d} · ${item.c[0]}</div></div><button class="save-btn${saved?' saved':''}" type="button" data-save="${item.w}" aria-label="Save ${item.w}">♥</button></li>`}).join('');const catLabel=state.category==='all'?'all categories':state.category;status.textContent=`${state.current.length} ${state.difficulty} ${catLabel} word${state.current.length!==1?'s':''} generated`}
   function renderSaved(){savedCount.textContent=`(${state.saved.length})`;savedList.innerHTML=state.saved.length?state.saved.map(word=>`<span class="saved-pill">${word}<button type="button" data-remove="${word}" aria-label="Remove ${word}">×</button></span>`).join(''):'<span class="empty-text">Save words here before you generate the next round.</span>'}
@@ -652,6 +719,7 @@
   picCountInput.addEventListener('change',()=>picValidateCount());
   $('more-options-btn').addEventListener('click',e=>{const panel=$('more-options-panel');const open=panel.classList.toggle('open');e.target.setAttribute('aria-expanded',open?'true':'false');e.target.textContent=open?'Fewer options':'More options'});
   $('pic-category').addEventListener('change',e=>{state.category=e.target.value;state.seen.clear();generate()});
+  $('pic-syllables').addEventListener('change',e=>{state.syllables=e.target.value;state.seen.clear();generate()});
   $('generate-btn').addEventListener('click',()=>{picLoadFullWords();generate()});
   $('copy-btn').addEventListener('click',()=>copyText(state.current.map(item=>item.w).join(', '),'No words to copy'));
   $('copy-saved-btn').addEventListener('click',()=>copyText(state.saved.join(', '),'No saved words'));
@@ -661,6 +729,96 @@
   $('reset-session-btn').addEventListener('click',()=>{state.seen.clear();showToast('Repeat history reset')});
   $('timer-toggle').addEventListener('click',startTimer);
   $('timer-reset').addEventListener('click',()=>{stopTimer();state.remaining=state.timer;updateTimer()});
+
+  // ── Game Mode ──
+  const game={words:[],idx:0,revealed:false};
+  const gamePanel=$('game-panel'),gameWordArea=$('game-word-area');
+
+  function enterGame(wordList){
+    if(!wordList.length){showToast('Generate words first');return}
+    game.words=wordList;game.idx=0;game.revealed=false;
+    document.querySelector('.pic-top').style.display='none';
+    grid.style.display='none';
+    document.querySelector('.saved-panel').style.display='none';
+    gamePanel.style.display='flex';
+    renderGame();
+    const url=new URL(window.location.href);
+    url.searchParams.set('words',wordList.map(w=>w.w).join(','));
+    url.searchParams.set('mode','game');
+    history.replaceState(null,'',url.toString());
+  }
+
+  function exitGame(){
+    gamePanel.style.display='none';
+    document.querySelector('.pic-top').style.display='';
+    grid.style.display='';
+    document.querySelector('.saved-panel').style.display='';
+    const url=new URL(window.location.href);
+    url.searchParams.delete('words');url.searchParams.delete('mode');
+    history.replaceState(null,'',url.toString());
+  }
+
+  function renderGame(){
+    const w=game.words[game.idx];
+    $('game-progress').textContent=`Word ${game.idx+1} of ${game.words.length}`;
+    $('game-prev-btn').disabled=game.idx===0;
+    $('game-next-btn').disabled=game.idx===game.words.length-1;
+    if(game.revealed){
+      $('game-word-display').textContent=w.w;$('game-word-display').style.opacity='1';
+      $('game-tap-hint').style.display='none';
+      $('game-word-meta').textContent=`${w.d} · ${w.c[0]}`;$('game-word-meta').style.display='block';
+      $('game-reveal-btn').textContent='Next Word →';
+      gameWordArea.classList.add('is-revealed');
+    }else{
+      $('game-word-display').textContent='?';$('game-word-display').style.opacity='0.2';
+      $('game-tap-hint').style.display='block';
+      $('game-word-meta').style.display='none';
+      $('game-reveal-btn').textContent='Reveal Word';
+      gameWordArea.classList.remove('is-revealed');
+    }
+  }
+
+  function gameReveal(){
+    if(!game.revealed){game.revealed=true;renderGame();}
+    else if(game.idx<game.words.length-1){game.idx++;game.revealed=false;renderGame();}
+  }
+
+  function shareGame(){
+    const url=window.location.href;
+    if(navigator.clipboard)navigator.clipboard.writeText(url).then(()=>showToast('Game link copied!'));
+    else showToast('Copy not available');
+  }
+
+  $('game-btn').addEventListener('click',()=>enterGame(state.current));
+  $('game-exit-btn').addEventListener('click',exitGame);
+  $('game-reveal-btn').addEventListener('click',gameReveal);
+  $('game-prev-btn').addEventListener('click',()=>{if(game.idx>0){game.idx--;game.revealed=false;renderGame()}});
+  $('game-next-btn').addEventListener('click',()=>{if(game.idx<game.words.length-1){game.idx++;game.revealed=false;renderGame()}});
+  gameWordArea.addEventListener('click',gameReveal);
+  $('game-share-btn').addEventListener('click',shareGame);
+  $('share-btn').addEventListener('click',()=>{
+    if(!state.current.length){showToast('Generate words first');return}
+    const url=new URL(window.location.href);
+    url.searchParams.set('words',state.current.map(w=>w.w).join(','));
+    url.searchParams.delete('mode');
+    history.replaceState(null,'',url.toString());
+    if(navigator.clipboard)navigator.clipboard.writeText(url.toString()).then(()=>showToast('List link copied!'));
+  });
+
+  // Init — check for shared URL
+  const urlParams=new URLSearchParams(window.location.search);
+  const sharedWords=urlParams.get('words'),sharedMode=urlParams.get('mode');
+  if(sharedWords){
+    const wantedNames=sharedWords.split(',').map(s=>s.trim().toLowerCase());
+    const wordMap={};
+    words.forEach(w=>{wordMap[w.w.toLowerCase()]=w});
+    const matched=wantedNames.map(n=>wordMap[n]).filter(Boolean);
+    if(matched.length){
+      state.current=matched;renderWords();renderSaved();updateTimer();
+      if(sharedMode==='game')enterGame(matched);
+      return;
+    }
+  }
   generate();renderSaved();updateTimer();
 })();
 

@@ -271,3 +271,12 @@ linear-gradient(180deg, #fbf9ff 0%, #fffdf9 58%, #ffffff 100%)}
 .ad-sidebar-cta:hover{background:var(--brand-dark)}
 .ad-sidebar-sub{font-size:10px;color:var(--text-3);text-align:center;margin-top:5px}
 @media(max-width:700px){.ad-leaderboard-inner{flex-direction:column;align-items:flex-start;gap:10px}.ad-mock-content{flex-direction:column;align-items:flex-start;gap:8px}}
+/* ── Related tools & guides ── */
+.related-tools{background:var(--bg-2);border:1px solid var(--border-2);border-radius:var(--radius-lg);padding:20px 24px;margin:0 0 32px}
+.related-title{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:12px}
+.related-links{display:flex;flex-wrap:wrap;gap:8px}
+.related-link{display:inline-flex;align-items:center;font-size:13px;color:var(--text-2);text-decoration:none;background:var(--bg);border:1px solid var(--border);border-radius:99px;padding:5px 13px;line-height:1.4;transition:color .12s,border-color .12s,background .12s}
+.related-link::after{content:"→";margin-left:5px;font-size:11px;opacity:.5;transition:opacity .12s,transform .12s;display:inline-block}
+.related-link:hover{color:var(--brand);border-color:rgba(74,63,212,.28);background:var(--brand-light)}
+.related-link:hover::after{opacity:1;transform:translateX(2px)}
+@media(max-width:700px){.related-tools{padding:16px 16px}.related-link{font-size:12px}}

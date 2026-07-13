@@ -1,3 +1,4 @@
+<!-- build: 2026-07-13T10:43:06Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -109,33 +110,33 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What is a Word of the Day tool?",
-      "acceptedAnswer": { "@type": "Answer", "text": "A Word of the Day tool shows one vocabulary word each day with a definition, example sentence, and practice prompt so you can learn and use the word." }
+      "name": "What's the fastest way to actually remember a new word?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Write one sentence using the word before you leave the page. Producing a word in context is far more effective for retention than reading its definition passively. The memory hook on each word gives you an association to anchor the meaning — read it, then write your sentence. That 90-second routine is worth more than reviewing 20 words at once." }
     },
     {
       "@type": "Question",
-      "name": "How do I use today's word?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Read the definition, study the example sentence, then write your own sentence using the word. You can copy or save the word for later practice." }
+      "name": "What if today's word is too easy or too hard?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Hit 'Surprise me' to get a different word from the vocabulary set without changing the official daily word. Press it as many times as you like to find a word at the right difficulty. The daily word stays the same for everyone on that calendar date." }
     },
     {
       "@type": "Question",
-      "name": "Can I save words?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Click Save word to keep words in your browser during your visit, then copy your saved list when you are ready." }
+      "name": "Do my saved words persist if I close the browser?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes — saved words are stored in your browser's local storage, so they stay between visits on the same device and browser. They won't sync across devices. Use 'Copy saved' to paste your list into a notes app before clearing your browser data." }
     },
     {
       "@type": "Question",
-      "name": "Does the word change every day?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. The main word updates daily using a date-based selection, so the same day shows the same word and the next day shows a new one." }
+      "name": "Does the word of the day change every day?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. The word is selected by date — everyone sees the same word on the same day, and it updates at midnight. The 'Previous words' panel shows the last 7 days of words in case you missed one." }
     },
     {
       "@type": "Question",
-      "name": "Is this tool free?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Wordineer's Word of the Day tool is free, works instantly, and does not require a sign-up." }
+      "name": "How do I use the Word of the Day as a classroom activity?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Project the page, show the word and memory hook, and ask students to guess the definition before scrolling down. Then reveal the definition and example and give everyone 60 seconds to write one original sentence. The whole warm-up takes 4–5 minutes and works for any subject." }
     },
     {
       "@type": "Question",
       "name": "Where do the words come from?",
-      "acceptedAnswer": { "@type": "Answer", "text": "The daily words are curated for learning value. When extra practice words are needed, the tool can also use Wordineer's existing vocabulary dataset." }
+      "acceptedAnswer": { "@type": "Answer", "text": "The daily words are curated for learning value — chosen to be genuinely useful in writing and conversation. Each entry includes a pronunciation guide, plain-English explanation, real-world example sentence, memory hook, and a short quiz." }
     }
   ]
 }
@@ -168,7 +169,8 @@
 }
 </script>
 
-<link rel="stylesheet" href="/styles/global.css?v=9">
+
+<link rel="stylesheet" href="/styles/global.css?v=13">
 <style>
 .tool-wrap  { max-width:960px; margin:0 auto; padding:24px 24px 0; }
 .tool-card  { border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg); box-shadow:var(--shadow); }
@@ -306,15 +308,23 @@
       <a class="mega-link" href="/username-generator/">Username Generator</a>
       <a class="mega-link" href="/password-generator/">Password Generator</a>
       <a class="mega-link" href="/passphrase-generator/">Passphrase Generator</a>
-      <a class="mega-link" href="/memorable-password-generator/">Memorable Password Generator</a>
+      <a class="mega-link" href="/random-pin-generator/">Random PIN Generator</a>
       <a class="mega-link mega-link--view-all" href="/account-tools/">View all →</a>
     </div>
     <div class="mega-col">
       <div class="mega-cat">Games &amp; fun</div>
-      <a class="mega-link" href="/pictionary-phrase-generator/">Pictionary Phrase Generator</a>
-      <a class="mega-link" href="/crossword-puzzle-generator/">Crossword Puzzle Generator</a>
-      <a class="mega-link" href="/wordle-helper/">Wordle Helper</a>
+      <a class="mega-link" href="/coin-flip/">Flip a Coin</a>
+      <a class="mega-link" href="/random-number-generator/">Number Generator</a>
+      <a class="mega-link" href="/dice-roller/">Dice Roller</a>
+      <a class="mega-link" href="/wheel-of-names/">Wheel of Names</a>
       <a class="mega-link mega-link--view-all" href="/number-chance/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Learn & Resources</div>
+      <a class="mega-link" href="/spelling-bee-words/">Spelling Bee Words</a>
+      <a class="mega-link" href="/common-5-letter-words/">Common 5-Letter Words</a>
+      <a class="mega-link" href="/etymology-100-common-words/">Etymology Guide</a>
+      <a class="mega-link" href="/esl-vocabulary-cefr/">ESL Vocabulary (CEFR)</a>
     </div>
   </div>
 </div>
@@ -422,13 +432,14 @@
     </div>
   </div>
 </div>
-<div class="ad-leaderboard">
-  <div class="ad-leaderboard-inner">
-    <span class="ad-tag">Advertisement - 728x90</span>
-    <div class="ad-mock-content">
-      <div class="ad-title">Grammarly - write with confidence. Grammar, tone and clarity.</div>
-      <div class="ad-sub">Use new vocabulary naturally in emails, essays, stories, and school work.</div>
-      <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-mock-cta">Try Grammarly free</a>
+<div class="content-wrap" style="margin-top:32px">
+  <div class="ad-rect">
+    <span class="ad-tag">Advertisement · 336×280</span>
+    <div class="ad-rect-img"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4C10.3 4 4 10.3 4 18s6.3 14 14 14 14-6.3 14-14S25.7 4 18 4z" fill="white" opacity=".2"/><path d="M12 18c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="18" r="2.5" fill="white"/></svg></div>
+    <div class="ad-rect-content">
+      <div class="ad-rect-title">Grammarly — write with confidence</div>
+      <div class="ad-rect-body">Grammar, tone &amp; clarity. Used by 30 million people. Works in Google Docs, Gmail, Word and more.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
     </div>
   </div>
 </div>
@@ -440,9 +451,9 @@
       <a class="tool-item" href="/random-quote-generator/"><div class="tool-icon" style="background:#FBEAF0"><svg viewBox="0 0 13 13" fill="none"><path d="M3 4.5h3.5M3 8.5h4.5" stroke="#A13B63" stroke-width="1.1" stroke-linecap="round"/><path d="M8.2 3.5h1.4v2.1c0 .5.4.9.9.9H11v1.4H9.6c-1.2 0-2.1-.9-2.1-2.1z" fill="#A13B63"/><path d="M2.2 5.2h1.4V7c0 .5.4.9.9.9h.4v1.4h-.4C3.3 9.3 2.2 8.2 2.2 7z" fill="#A13B63"/></svg></div><div class="tool-name">Random Quote Generator</div><div class="tool-desc">Random quotes with filters for topic, author, tone, length, favorites, and image cards.</div></a>
       <a class="tool-item" href="/random-wordle-generator/"><div class="tool-icon" style="background:#E8F4FE"><svg viewBox="0 0 13 13" fill="none"><rect x='2' y='2' width='3.5' height='3.5' rx='0.5' fill='#2B7FD4'/><rect x='7.5' y='2' width='3.5' height='3.5' rx='0.5' fill='#2B7FD4' opacity='.4'/><rect x='2' y='7.5' width='3.5' height='3.5' rx='0.5' fill='#2B7FD4' opacity='.4'/><rect x='7.5' y='7.5' width='3.5' height='3.5' rx='0.5' fill='#2B7FD4'/></svg></div><div class="tool-name">Random Wordle Generator</div><div class="tool-desc">Random 5-letter words for Wordle. Filter by difficulty and letter.</div></a>
       <a class="tool-item" href="/wordle-helper/"><div class="tool-icon" style="background:#E1F5EE"><svg viewBox="0 0 13 13" fill="none"><rect x='2' y='2' width='3.5' height='3.5' rx='0.5' fill='#1D9E75'/><rect x='7.5' y='2' width='3.5' height='3.5' rx='0.5' fill='#BA7517'/><rect x='2' y='7.5' width='3.5' height='3.5' rx='0.5' fill='none' stroke='#9a9a94' stroke-width='1'/><rect x='7.5' y='7.5' width='3.5' height='3.5' rx='0.5' fill='#1D9E75'/></svg></div><div class="tool-name">Wordle Helper</div><div class="tool-desc">Entropy-ranked solver — enter your clues and get the single best next guess, not just a filtered list.</div></a>
+      <a class="tool-item" href="/best-wordle-starting-words/"><div class="tool-icon" style="background:#E6F1FB"><svg viewBox="0 0 13 13" fill="none"><rect x='2' y='9' width='1.5' height='3' rx='0.3' fill='#185FA5'/><rect x='4.5' y='6.5' width='1.5' height='5.5' rx='0.3' fill='#185FA5'/><rect x='7' y='4' width='1.5' height='8' rx='0.3' fill='#185FA5'/><rect x='9.5' y='2' width='1.5' height='10' rx='0.3' fill='#185FA5'/></svg></div><div class="tool-name">Best Wordle Starting Words</div><div class="tool-desc">Top 100 openers ranked by Shannon entropy — original analysis, 10,000-game benchmark, downloadable data.</div></a>
       <a class="tool-item" href="/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="#534AB7" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="tool-name">Random word</div><div class="tool-desc">Filter by type, difficulty, length</div></a>
       <a class="tool-item" href="/random-noun-generator/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h9M2 7h6M2 10h8" stroke="#534AB7" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="tool-name">Random Noun Generator</div><div class="tool-desc">Generate random nouns — filter by type (abstract, concrete, proper, collective) and difficulty.</div></a>
-      <a class="tool-item" href="/random-verb-generator/"><div class="tool-icon" style="background:#EEF6FE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h9M2 7h7M2 10h5" stroke="#2B6CB0" stroke-width="1.3" stroke-linecap="round"/><path d="M10 9l2 1.5-2 1.5" stroke="#2B6CB0" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="tool-name">Random Verb Generator</div><div class="tool-desc">Generate random verbs — filter by type (action, linking, auxiliary, modal) and difficulty.</div></a>
     </div>
   </div>
   <div class="divider"></div>
@@ -454,8 +465,8 @@
       <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h3.5M2 7h9M2 10h6" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Browse by Letter</div><a class="other-link" href="/random-words-starting-with/">Random Words Starting With (A–Z)</a><a class="other-link" href="/random-words-starting-with/a">Random Words Starting with A</a><a class="other-link" href="/random-words-starting-with/s">Random Words Starting with S</a><a class="other-link" href="/random-words-starting-with/q">Random Words Starting with Q</a><a class="other-link other-link--view-all" href="/random-words-starting-with/">View all →</a></div>
       <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4.5" r="2.5" stroke="currentColor" stroke-width="1"/><path d="M1.5 11.5c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Names by Origin</div><a class="other-link" href="/random-spanish-name-generator/">Spanish Name Generator</a><a class="other-link" href="/random-italian-name-generator/">Italian Name Generator</a><a class="other-link" href="/random-japanese-name-generator/">Japanese Name Generator</a><a class="other-link" href="/random-american-name-generator/">American Name Generator</a><a class="other-link other-link--view-all" href="/name-generators/">View all →</a></div>
       <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="1.5" width="9" height="10" rx="1" stroke="currentColor" stroke-width="1"/><path d="M4 4.5h5M4 6.5h5M4 8.5h3" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Other Name Generators</div><a class="other-link" href="/character-name-generator/">Character Name Generator</a><a class="other-link" href="/fantasy-name-generator/">Fantasy Name Generator</a><a class="other-link" href="/business-name-generator/">Business Name Generator</a><a class="other-link" href="/band-name-generator/">Band Name Generator</a><a class="other-link other-link--view-all" href="/other-generators/">View all →</a></div>
-      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="3.5" y="5.5" width="6" height="5" rx="1" stroke="currentColor" stroke-width="1"/><path d="M5 5.5V4a1.5 1.5 0 013 0v1.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Account &amp; Security</div><a class="other-link" href="/password-generator/">Password Generator</a><a class="other-link" href="/passphrase-generator/">Passphrase Generator</a><a class="other-link" href="/memorable-password-generator/">Memorable Password Generator</a><a class="other-link" href="/username-generator/">Username Generator</a><a class="other-link other-link--view-all" href="/account-tools/">View all →</a></div>
-      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="1" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="1" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/></svg>Games &amp; fun</div><a class="other-link" href="/pictionary-phrase-generator/">Pictionary Phrase Generator</a><a class="other-link" href="/wordle-helper/">Wordle Helper</a><a class="other-link other-link--view-all" href="/number-chance/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="3.5" y="5.5" width="6" height="5" rx="1" stroke="currentColor" stroke-width="1"/><path d="M5 5.5V4a1.5 1.5 0 013 0v1.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Account &amp; Security</div><a class="other-link" href="/username-generator/">Username Generator</a><a class="other-link" href="/password-generator/">Password Generator</a><a class="other-link" href="/passphrase-generator/">Passphrase Generator</a><a class="other-link" href="/instagram-username-generator/">Instagram Username Generator</a><a class="other-link other-link--view-all" href="/account-tools/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="1" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="1" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/></svg>Games &amp; fun</div><a class="other-link" href="/pictionary-phrase-generator/">Pictionary Phrase Generator</a><a class="other-link" href="/wordle-helper/">Wordle Helper</a><a class="other-link" href="/coin-flip/">Coin Flip</a><a class="other-link" href="/dice-roller/">Dice Roller</a><a class="other-link other-link--view-all" href="/number-chance/">View all →</a></div>
     </div>
   </div>
 
@@ -471,24 +482,23 @@
   <div class="divider"></div>
 
 <div class="explainer">
-  <h2>What is Word of the Day?</h2>
-  <p>Word of the Day is a simple vocabulary habit: learn one useful word, understand what it means, then use it in your own writing or conversation. This tool keeps the routine short so you can build vocabulary without feeling like you are studying a full lesson.</p>
+  <h2>Why one word a day actually works</h2>
+  <p>Most vocabulary-building attempts fail because they try to cover too much at once. A list of 50 words reviewed once is almost entirely forgotten within a week. One word — read, understood, used in a sentence, and encountered again the next day — has a real chance of staying with you. That's the premise here: narrow focus, daily repetition, active use.</p>
+  <p>The tool is built around what retention research actually shows: passive recognition isn't enough. Reading a definition once doesn't stick. What works is seeing the word in context (the example sentence), building a mental association (the memory hook), and producing the word yourself (writing your own sentence or answering the quiz). All three are on the page.</p>
 
-  <h2>How to use the tool</h2>
-  <p>Start with today's word at the top of the page. Read the short definition, then read the plain-English explanation and example sentence. After that, write one sentence of your own using the word. If the word feels useful, save it and copy your saved list for later review.</p>
-  <p>Use the Surprise me button when you want extra practice. It gives you another vocabulary word without changing the official daily word.</p>
+  <h2>The right way to use each section</h2>
+  <p><strong>Definition:</strong> Read it once, then look away and try to say it back in your own words. If you can't, read it again.</p>
+  <p><strong>Plain English explanation:</strong> This translates the formal definition into how the word actually gets used. Read this if the definition feels abstract.</p>
+  <p><strong>Example sentence:</strong> Notice the context — who's using the word and in what situation. The sentence is written to show the word in a realistic setting, not just define it.</p>
+  <p><strong>Memory hook:</strong> A mental association that connects the word to something you already know. Don't skip this — it's often the difference between recognizing a word and actually remembering it a week later.</p>
+  <p><strong>Quiz:</strong> Try to answer before revealing. Even a wrong guess is more effective for retention than passively reading the answer.</p>
 
-  <h2>Why this helps vocabulary stick</h2>
-  <p>A word is easier to remember when you see it in context and use it right away. That is why this tool includes an example, a memory hook, and a quick quiz. The goal is not just to recognize the word once, but to make it usable.</p>
+  <h2>How to use this as a classroom tool</h2>
+  <p>Project the page at the start of class. Read the word aloud, ask students to guess the meaning before you reveal the definition (reveal only the word and the memory hook first). Then show the definition, read the example, and ask each student to write one original sentence. Share a few aloud. The whole activity takes 4–5 minutes and works as a daily warm-up for any subject.</p>
+  <p>Use "Surprise me" to give advanced students a second word or to generate a harder one if today's feels too simple for your class level.</p>
 
-  <h3>For students</h3>
-  <p>Use the daily word as a warm-up before homework or test prep. Try writing one original sentence, then check whether your sentence matches the meaning.</p>
-
-  <h3>For writers</h3>
-  <p>Save words that fit your style, topic, or tone. When you need a stronger word later, copy your saved list and try one in a draft.</p>
-
-  <h3>For teachers</h3>
-  <p>Use the page as a quick bell-ringer activity: read the word, ask students to guess the meaning from the example, then have everyone write a sentence.</p>
+  <h2>For writers and self-learners</h2>
+  <p>Save words that match your writing style or subject area using the Save button. At the end of a session, copy your saved list and paste it into a notes app or document. The next time you sit down to write, scan the list and try to use one word naturally — not forced, just when the context fits. That's active recall in a real writing context, which is when vocabulary genuinely sticks.</p>
 </div>
   <div class="divider"></div>
 
@@ -496,33 +506,33 @@
   <h2 class="faq-title">Frequently asked questions</h2>
 
   <div class="faq-item open">
-    <div class="faq-q"><span class="faq-q-text">What is a Word of the Day tool?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">It is a daily vocabulary tool that shows one word with its definition, example sentence, memory hook, and quick practice prompt.</div>
+    <div class="faq-q"><span class="faq-q-text">What's the fastest way to actually remember a new word?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Write one sentence using the word before you leave the page. It sounds simple, but producing a word (writing or saying it in context) is dramatically more effective for retention than reading its definition. The memory hook is there to give you an association that makes the word easier to recall later — read it, sit with it for a second, then write your sentence. That takes about 90 seconds and is worth more than reviewing 20 words passively.</div>
   </div>
 
   <div class="faq-item">
-    <div class="faq-q"><span class="faq-q-text">How do I use today's word?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Read the meaning, study the example, then write one sentence of your own using the word. That small act of use helps the word stick.</div>
+    <div class="faq-q"><span class="faq-q-text">What if today's word is too easy or too hard?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Hit "Surprise me" — it pulls a different word from the vocabulary set without changing the official daily word. You can press it as many times as you like to find a word at the right difficulty for you. The daily word stays the same for everyone on that calendar date, but Surprise me gives you a personal override.</div>
   </div>
 
   <div class="faq-item">
-    <div class="faq-q"><span class="faq-q-text">Can I save words?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Yes. Click Save word to keep a word in your saved list during your visit. You can copy the full saved list when you are done.</div>
+    <div class="faq-q"><span class="faq-q-text">Do my saved words persist if I close the browser?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes — saved words are stored in your browser's local storage, so they stay between visits on the same device and browser. They won't sync across devices, and clearing your browser data will remove them. If you want to keep your list long-term, use "Copy saved" to paste it into a notes app or document before clearing.</div>
   </div>
 
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">Does the word change every day?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Yes. The main word is selected by date, so it stays stable throughout the day and changes the next day.</div>
+    <div class="faq-a">Yes. The main word is selected by date — everyone sees the same word on the same day, and it updates at midnight. You can also click into previous days using the "Previous words" panel at the bottom of the tool, which shows the last 7 days of words in case you missed one.</div>
   </div>
 
   <div class="faq-item">
-    <div class="faq-q"><span class="faq-q-text">Is this tool free?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Yes. It is free, instant, and does not require an account.</div>
+    <div class="faq-q"><span class="faq-q-text">How do I use this as a classroom activity?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Project the page, reveal the word and memory hook, and ask students to guess the definition before you scroll down. Then show the definition and example, and give everyone 60 seconds to write one original sentence. Ask two or three students to read theirs aloud. The whole activity takes 4–5 minutes and works as a warm-up for any subject. Use "Surprise me" if you want a harder word or a second word for advanced students.</div>
   </div>
 
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">Where do the words come from?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">The daily entries are curated for vocabulary learning. For extra practice, the tool can also draw from Wordineer's existing word dataset.</div>
+    <div class="faq-a">The daily words are curated for learning value — they're chosen to be genuinely useful in writing and conversation, not just obscure or impressive-sounding. Each entry includes a pronunciation guide, plain-English explanation, real-world example sentence, memory hook, and a short quiz. The "Surprise me" pool draws from Wordineer's broader vocabulary dataset when you want extra practice beyond the daily word.</div>
   </div>
 </div>
   <div class="divider"></div>
@@ -536,6 +546,8 @@
     <div class="uc"><div class="uc-title">Teachers</div><div class="uc-body">Turn each word into a quick classroom prompt, sentence challenge, or discussion starter.</div></div>
   </div>
 </div>
+
+
 </div>
 
 <footer class="footer">
@@ -551,7 +563,8 @@
       <div><div class="footer-col-title">Names by Origin</div><a class="footer-link" href="/random-spanish-name-generator/">Spanish Name Generator</a><a class="footer-link" href="/random-italian-name-generator/">Italian Name Generator</a><a class="footer-link" href="/random-japanese-name-generator/">Japanese Name Generator</a><a class="footer-link" href="/random-american-name-generator/">American Name Generator</a><a class="footer-link footer-link--view-all" href="/name-generators/">View all →</a></div>
       <div><div class="footer-col-title">Other Name Generators</div><a class="footer-link" href="/character-name-generator/">Character Name Generator</a><a class="footer-link" href="/fantasy-name-generator/">Fantasy Name Generator</a><a class="footer-link" href="/business-name-generator/">Business Name Generator</a><a class="footer-link" href="/band-name-generator/">Band Name Generator</a><a class="footer-link footer-link--view-all" href="/other-generators/">View all →</a></div>
       <div><div class="footer-col-title">Account &amp; Security</div><a class="footer-link" href="/password-generator/">Password Generator</a><a class="footer-link" href="/passphrase-generator/">Passphrase Generator</a><a class="footer-link" href="/memorable-password-generator/">Memorable Password Generator</a><a class="footer-link" href="/username-generator/">Username Generator</a><a class="footer-link footer-link--view-all" href="/account-tools/">View all →</a></div>
-      <div><div class="footer-col-title">Games &amp; fun</div><a class="footer-link" href="/pictionary-phrase-generator/">Pictionary Phrase Generator</a><a class="footer-link" href="/crossword-puzzle-generator/">Crossword Puzzle Generator</a><a class="footer-link" href="/wordle-helper/">Wordle Helper</a><a class="footer-link footer-link--view-all" href="/number-chance/">View all →</a></div>
+      <div><div class="footer-col-title">Games &amp; fun</div><a class="footer-link" href="/coin-flip/">Flip a Coin</a><a class="footer-link" href="/random-number-generator/">Number Generator</a><a class="footer-link" href="/dice-roller/">Dice Roller</a><a class="footer-link" href="/wheel-of-names/">Wheel of Names</a><a class="footer-link footer-link--view-all" href="/number-chance/">View all →</a></div>
+      <div><div class="footer-col-title">Learn & Resources</div><a class="footer-link" href="/spelling-bee-words/">Spelling Bee Words</a><a class="footer-link" href="/common-5-letter-words/">Common 5-Letter Words</a><a class="footer-link" href="/etymology-100-common-words/">Etymology Guide</a><a class="footer-link" href="/esl-vocabulary-cefr/">ESL Vocabulary (CEFR)</a></div>
     </div>
     <div class="footer-bottom">
       <div style="display:flex;align-items:center;gap:7px">
@@ -566,7 +579,7 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="/scripts/tool-engine.js?v=25"></script>
+<script src="/scripts/tool-engine.js?v=27"></script>
 <script>
 (function bindSharedWordineerMenu() {
   const mega = document.getElementById('mega');
@@ -831,6 +844,10 @@ const WORDINEER_WOTD = (() => {
     document.getElementById('wotd-copy-saved')?.addEventListener('click', () => {
       if (!saved.length) return;
       copyText(saved.map(item => item.word + ' - ' + item.definition).join('\n'));
+    });
+
+    document.querySelectorAll('.faq-q').forEach(q => {
+      q.addEventListener('click', () => q.closest('.faq-item').classList.toggle('open'));
     });
   }
 
