@@ -1,3 +1,4 @@
+<!-- build: 2026-07-13T10:21:05Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -158,6 +159,7 @@
   "publisher": { "@id": "https://wordineer.com/#organization" }
 }
 </script>
+
 
 <link rel="stylesheet" href="/styles/global.css?v=13">
 <style>
@@ -368,6 +370,13 @@
       <a class="mega-link" href="/wheel-of-names/">Wheel of Names</a>
       <a class="mega-link mega-link--view-all" href="/number-chance/">View all →</a>
     </div>
+    <div class="mega-col">
+      <div class="mega-cat">Learn & Resources</div>
+      <a class="mega-link" href="/spelling-bee-words/">Spelling Bee Words</a>
+      <a class="mega-link" href="/common-5-letter-words/">Common 5-Letter Words</a>
+      <a class="mega-link" href="/etymology-100-common-words/">Etymology Guide</a>
+      <a class="mega-link" href="/esl-vocabulary-cefr/">ESL Vocabulary (CEFR)</a>
+    </div>
   </div>
 </div>
 
@@ -439,7 +448,7 @@
 
     <div style="display:flex;gap:10px;align-items:center;margin-bottom:8px;flex-wrap:wrap">
       <button class="gen-btn" id="wh-add-guess" style="width:auto;padding:9px 18px">+ Add guess</button>
-      <button class="gen-btn" id="wh-analyse" style="flex:1;min-width:120px">Analyze →</button>
+      <button class="gen-btn" id="wh-analyze" style="flex:1;min-width:120px">Analyze →</button>
     </div>
     <div class="wh-input-error" id="wh-solve-error"></div>
 
@@ -651,6 +660,17 @@
     <div class="uc"><div class="uc-title">Data-curious players</div><div class="uc-body">Interested in how information theory applies to word games? The entropy score next to each suggestion shows exactly why one word beats another in terms of information gained.</div></div>
   </div>
 </div>
+
+
+<div class="related-tools">
+  <h3 class="related-title">Related tools &amp; guides</h3>
+  <div class="related-links">
+    <a class="related-link" href="/common-5-letter-words/">common 5-letter words — letter frequency analysis</a>
+    <a class="related-link" href="/best-wordle-starting-words/">best Wordle starting words, ranked</a>
+    <a class="related-link" href="/wordle-answers/">every Wordle answer — searchable archive</a>
+  </div>
+</div>
+
 </div>
 
 <footer class="footer">
@@ -667,6 +687,7 @@
       <div><div class="footer-col-title">Other Name Generators</div><a class="footer-link" href="/character-name-generator/">Character Name Generator</a><a class="footer-link" href="/fantasy-name-generator/">Fantasy Name Generator</a><a class="footer-link" href="/business-name-generator/">Business Name Generator</a><a class="footer-link" href="/band-name-generator/">Band Name Generator</a><a class="footer-link footer-link--view-all" href="/other-generators/">View all →</a></div>
       <div><div class="footer-col-title">Account &amp; Security</div><a class="footer-link" href="/password-generator/">Password Generator</a><a class="footer-link" href="/passphrase-generator/">Passphrase Generator</a><a class="footer-link" href="/memorable-password-generator/">Memorable Password Generator</a><a class="footer-link" href="/username-generator/">Username Generator</a><a class="footer-link footer-link--view-all" href="/account-tools/">View all →</a></div>
       <div><div class="footer-col-title">Games &amp; fun</div><a class="footer-link" href="/coin-flip/">Flip a Coin</a><a class="footer-link" href="/random-number-generator/">Number Generator</a><a class="footer-link" href="/dice-roller/">Dice Roller</a><a class="footer-link" href="/wheel-of-names/">Wheel of Names</a><a class="footer-link footer-link--view-all" href="/number-chance/">View all →</a></div>
+      <div><div class="footer-col-title">Learn & Resources</div><a class="footer-link" href="/spelling-bee-words/">Spelling Bee Words</a><a class="footer-link" href="/common-5-letter-words/">Common 5-Letter Words</a><a class="footer-link" href="/etymology-100-common-words/">Etymology Guide</a><a class="footer-link" href="/esl-vocabulary-cefr/">ESL Vocabulary (CEFR)</a></div>
     </div>
     <div class="footer-bottom">
       <div style="display:flex;align-items:center;gap:7px">
@@ -748,7 +769,7 @@ WORDLE_HELPER.init({
   chipsId:         'wh-chips',
   solveRowsId:     'wh-solve-rows',
   addGuessBtnId:   'wh-add-guess',
-  analyseBtnId:    'wh-analyse',
+  analyseBtnId:    'wh-analyze',
   solveErrorId:    'wh-solve-error',
   resultsId:       'wh-results',
   bestWordId:      'wh-best-word',
