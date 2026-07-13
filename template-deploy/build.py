@@ -63,6 +63,15 @@ def copy_script_assets():
         copied += 1
     print(f'  copied → {copied} JS script file(s) into output/scripts/')
 
+def copy_redirects():
+    """Copy _redirects into output/ so deploy only needs to copy output/."""
+    src = os.path.join(ROOT, '_redirects')
+    if not os.path.isfile(src):
+        print('  warning → template-deploy/_redirects not found, skipping')
+        return
+    shutil.copy2(src, os.path.join(OUT_DIR, '_redirects'))
+    print('  copied → _redirects into output/')
+
 def slot(src, name):
     """Pull the content between <!-- SLOT:name --> and <!-- /SLOT:name -->."""
     m = re.search(
@@ -341,6 +350,7 @@ def build_page(src_path, data):
 # ── main ─────────────────────────────────────────────────────────────────────
 
 def main():
+    # Deploy: python3 build.py && cp output/*.html output/_redirects ../wordineer-deploy/
     data = json.loads(read(DATA_FILE))
     os.makedirs(OUT_DIR, exist_ok=True)
 
@@ -354,9 +364,10 @@ def main():
         build_page(os.path.join(SRC_DIR, fname), data)
     copy_data_assets()
     copy_script_assets()
+    copy_redirects()
 
     print(f'\nDone! Output is in:  {OUT_DIR}/')
-    print('Copy the contents of output/ to wordineer-deploy/ when ready to deploy.')
+    print('Deploy: cp output/*.html output/_redirects ../wordineer-deploy/')
 
 if __name__ == '__main__':
     main()
