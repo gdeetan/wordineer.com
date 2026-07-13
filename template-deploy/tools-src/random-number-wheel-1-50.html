@@ -1,0 +1,388 @@
+<!-- CONFIG
+{
+  "url": "/random-number-wheel-1-50/",
+  "output": "random-number-wheel-1-50.html",
+  "type": "tool",
+  "more_tools_key": "more_chance_tools",
+  "more_tools_title": "More number & chance tools",
+  "more_tools_subtitle": "Dice, coin flips, spinners, and more — all free"
+}
+-->
+
+<!-- SLOT:meta -->
+<title>Random Number Wheel 1–50 — Spin the Spinner | Wordineer</title>
+<meta name="description" content="Spin a number wheel and land on a random number from 1 to 50. Perfect for classroom raffles, probability demos, and group games. Free, no sign-up.">
+<link rel="canonical" href="https://wordineer.com/random-number-wheel-1-50/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wordineer">
+<meta property="og:title" content="Random Number Wheel 1–50 | Wordineer">
+<meta property="og:description" content="Spin a number wheel and land on a random number from 1 to 50. Perfect for classroom raffles, probability demos, and group games. Free, no sign-up.">
+<meta property="og:url" content="https://wordineer.com/random-number-wheel-1-50/">
+<meta property="og:image" content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a random number wheel 1 to 50?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A random number wheel 1–50 is a spinning wheel divided into 50 equal segments numbered 1 through 50. Each spin lands on one number with equal 2% probability, making it a fair and visual way to pick a random number between 1 and 50." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is every number equally likely?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. All 50 segments are equal size so each number has exactly a 2% (1 in 50) chance of being selected on any given spin." }
+    },
+    {
+      "@type": "Question",
+      "name": "How is the 1–50 wheel used in classrooms?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Teachers use it for classroom raffles (up to 50 students), probability demonstrations, and math games. Spin on a projector and students can predict where it will land — a vivid demonstration of equal probability." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this on a projector?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. The wheel uses bold, high-contrast colors designed for projector and smartboard display. The result number is shown in large text beneath the wheel so the class can read it easily." }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Random Number Wheel 1–50",
+  "url": "https://wordineer.com/random-number-wheel-1-50/",
+  "description": "Spin a number wheel and land on a random number from 1 to 50. Perfect for classroom raffles, probability demos, and group games.",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@id": "https://wordineer.com/#organization" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Number & Chance Tools", "item": "https://wordineer.com/number-chance/" },
+    { "@type": "ListItem", "position": 3, "name": "Random Number Wheel 1–50", "item": "https://wordineer.com/random-number-wheel-1-50/" }
+  ]
+}
+</script>
+<!-- /SLOT:meta -->
+
+<!-- SLOT:style -->
+<style>
+.rnw-wrap { max-width: 520px; margin: 0 auto; padding: 24px 24px 0; }
+.rnw-card { border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--bg); box-shadow: var(--shadow); padding: 28px 24px 24px; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+
+/* Canvas container with pointer */
+.rnw-canvas-wrap { position: relative; display: flex; align-items: center; justify-content: center; }
+.rnw-canvas { display: block; border-radius: 50%; cursor: pointer; }
+.rnw-pointer { position: absolute; top: -4px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 22px solid var(--brand); filter: drop-shadow(0 2px 3px rgba(0,0,0,0.2)); }
+
+/* Result */
+.rnw-result { font-size: clamp(2.5rem, 12vw, 4rem); font-weight: 800; color: var(--text); line-height: 1; min-height: 1.2em; text-align: center; font-variant-numeric: tabular-nums; }
+.rnw-result-label { font-size: 11px; color: var(--text-3); text-align: center; margin-top: -8px; }
+
+/* Spin button */
+.rnw-spin-btn { padding: 13px 40px; background: var(--brand); color: white; border: none; border-radius: 10px; font-size: 1.05rem; font-weight: 700; font-family: inherit; cursor: pointer; transition: background 0.15s, transform 0.1s; }
+.rnw-spin-btn:hover { background: var(--brand-dark); }
+.rnw-spin-btn:active { transform: scale(0.97); }
+.rnw-kbd { font-size: 10px; color: var(--text-3); text-align: center; margin-top: -12px; }
+.rnw-kbd kbd { background: var(--bg-3); border: 1px solid var(--border); border-radius: 3px; padding: 1px 5px; font-size: 10px; font-family: inherit; }
+
+/* History */
+.rnw-history-wrap { width: 100%; display: none; }
+.rnw-history-wrap.is-visible { display: block; }
+.rnw-history-label { font-size: 10px; font-weight: 600; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 7px; }
+.rnw-history { display: flex; flex-wrap: wrap; gap: 5px; }
+.rnw-history-chip { width: 36px; height: 36px; border-radius: 50%; border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: var(--text-2); background: var(--bg-2); }
+.rnw-history-chip.newest { background: var(--brand); border-color: var(--brand); color: white; }
+
+@media (max-width: 480px) {
+  .rnw-wrap { padding: 14px 14px 0; }
+  .rnw-card { padding: 20px 14px 18px; gap: 16px; }
+}
+</style>
+<!-- /SLOT:style -->
+
+<!-- SLOT:hero -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/number-chance/">Number &amp; Chance Tools</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Random Number Wheel 1–50</span>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free · No sign-up · Instant
+  </div>
+  <h1>Random number wheel 1–50</h1>
+  <p>Spin the wheel and land on a random number from 1 to 50. Great for classroom raffles, group draws, and probability demonstrations. Click the wheel or press Space to spin.</p>
+</div>
+<!-- /SLOT:hero -->
+
+<!-- SLOT:tool -->
+<div class="rnw-wrap">
+  <div class="rnw-card">
+
+    <!-- Canvas wheel with pointer -->
+    <div class="rnw-canvas-wrap">
+      <canvas class="rnw-canvas" id="rnw-canvas" aria-label="Number spinner 1 to 50"></canvas>
+      <div class="rnw-pointer"></div>
+    </div>
+
+    <!-- Result -->
+    <div class="rnw-result" id="rnw-result" aria-live="polite" aria-atomic="true">—</div>
+    <div class="rnw-result-label" id="rnw-result-label">Click to spin</div>
+
+    <!-- Spin button -->
+    <button class="rnw-spin-btn" id="rnw-spin-btn" type="button">Spin</button>
+    <div class="rnw-kbd">Press <kbd>Space</kbd> or <kbd>Enter</kbd></div>
+
+    <!-- History -->
+    <div class="rnw-history-wrap" id="rnw-history-wrap">
+      <div class="rnw-history-label">Recent spins</div>
+      <div class="rnw-history" id="rnw-history"></div>
+    </div>
+
+  </div>
+</div>
+<!-- /SLOT:tool -->
+
+<!-- SLOT:ad_b -->
+<div class="content-wrap" style="margin-top:32px">
+  <div class="ad-rect">
+    <span class="ad-tag">Advertisement · 336×280</span>
+    <div class="ad-rect-img"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4C10.3 4 4 10.3 4 18s6.3 14 14 14 14-6.3 14-14S25.7 4 18 4z" fill="white" opacity=".2"/><path d="M12 18c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="18" r="2.5" fill="white"/></svg></div>
+    <div class="ad-rect-content">
+      <div class="ad-rect-title">Grammarly — write with confidence</div>
+      <div class="ad-rect-body">Grammar, tone &amp; clarity. Used by 30 million people. Works in Google Docs, Gmail, Word and more.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
+    </div>
+  </div>
+</div>
+<!-- /SLOT:ad_b -->
+
+<!-- SLOT:explainer -->
+<div class="explainer">
+  <h2>How to use the 1–50 number wheel</h2>
+  <p>The Random Number Wheel 1–50 is built for situations where you need a fair, visible random pick from a larger pool. Use it on a classroom projector to draw a raffle winner from up to 50 students, run probability experiments, or pick a number for any game that needs a range beyond 1–10 or 1–20. The result is shown in large text beneath the wheel so everyone in the room can see it.</p>
+  <h2>Probability with 50 segments</h2>
+  <p>A fair spinner with 50 equal segments gives each number a 1/50 = 2% probability. This is identical to drawing one card from a deck of 50, or rolling a hypothetical 50-sided die. Run the spin 50 times and tally the results — each number should appear roughly once. In practice you'll see some numbers appear twice and others not at all, which is a useful demonstration that randomness doesn't guarantee even short-run distribution even when long-run probability is equal.</p>
+  <h2>Classroom uses for the 1–50 wheel</h2>
+  <p>The 1–50 range covers most classroom sizes and many common game formats. Use it for student number draws, picking a question from a numbered list, or running a probability simulation where students predict outcomes before each spin. It's also useful for raffle draws at school events — spin it on a screen where the whole audience can watch, making the draw visibly fair with no manual intervention.</p>
+</div>
+<!-- /SLOT:explainer -->
+
+<!-- SLOT:faq -->
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+
+  <details class="faq-item">
+    <summary class="faq-q">What is a random number wheel 1 to 50?</summary>
+    <div class="faq-a">A random number wheel 1–50 is a spinning wheel divided into 50 equal segments numbered 1 through 50. Each spin lands on one number with equal 2% probability, making it a fair and visual way to pick a random number between 1 and 50.</div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">Is every number equally likely?</summary>
+    <div class="faq-a">Yes. All 50 segments are identical in size, so each number has exactly a 2% (1 in 50) chance of being selected on any given spin. The result is independent of all previous spins.</div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">How is the 1–50 wheel used in classrooms?</summary>
+    <div class="faq-a">Teachers use it for classroom raffles with up to 50 participants, probability demonstrations, and math games. Project it on a smartboard and have students predict where the wheel will land — a vivid, interactive demonstration of equal probability.</div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">Can I use this on a projector?</summary>
+    <div class="faq-a">Yes. The wheel uses bold, high-contrast colors designed for projector and smartboard display. The result number is shown in large text beneath the wheel so the entire class can read it clearly from any seat.</div>
+  </details>
+
+</div>
+<!-- /SLOT:faq -->
+
+<!-- SLOT:who -->
+<div>
+  <h2 class="section-title" style="margin-bottom:14px">Who uses this tool</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">Teachers</div><div class="uc-body">Run fair classroom draws — up to 50 student numbers picked at random, visibly on a projector.</div></div>
+    <div class="uc"><div class="uc-title">Event organizers</div><div class="uc-body">Draw raffle winners in front of an audience. The spin makes the process transparent and engaging.</div></div>
+    <div class="uc"><div class="uc-title">Game hosts</div><div class="uc-body">Use the 1–50 range for trivia question selection, team assignments, or any game that needs a larger random range.</div></div>
+    <div class="uc"><div class="uc-title">Students</div><div class="uc-body">Run probability experiments — spin 50 times and tally results to see how real randomness compares to theoretical distribution.</div></div>
+  </div>
+</div>
+<!-- /SLOT:who -->
+
+<!-- SLOT:init -->
+<script>
+const WORDINEER_RNW = (() => {
+  const COUNT = 50;
+  const NUMBERS = Array.from({length: COUNT}, function(_, i) { return i + 1; });
+  const BASE_COLORS = [
+    '#3C3489','#1D9E75','#E85D04','#7209B7','#0077B6',
+    '#F72585','#4CC9F0','#F4A261','#6A994E','#BC4749',
+    '#560BAD','#480CA8','#3A0CA3','#3F37C9','#4361EE',
+    '#4895EF','#4CC9F0','#F72585','#B5179E','#7209B7'
+  ];
+  const COLORS = NUMBERS.map(function(_, i) { return BASE_COLORS[i % BASE_COLORS.length]; });
+
+  let canvas, ctx, spinBtn, resultEl, resultLabelEl, historyWrap, historyEl;
+  let spinning = false;
+  let currentAngle = 0;
+  let cssSize = 300;
+  let history = [];
+
+  function drawWheel(angle) {
+    if (!canvas || !ctx) return;
+    const W = cssSize;
+    const H = cssSize;
+    const cx = W / 2;
+    const cy = H / 2;
+    const r = Math.min(cx, cy) - 4;
+    const sliceAngle = (Math.PI * 2) / COUNT;
+
+    ctx.clearRect(0, 0, W * (window.devicePixelRatio || 1), H * (window.devicePixelRatio || 1));
+
+    NUMBERS.forEach(function(num, i) {
+      const start = angle + i * sliceAngle;
+      const end = start + sliceAngle;
+
+      ctx.beginPath();
+      ctx.moveTo(cx, cy);
+      ctx.arc(cx, cy, r, start, end);
+      ctx.closePath();
+      ctx.fillStyle = COLORS[i];
+      ctx.fill();
+      ctx.strokeStyle = 'white';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+
+      // Only draw text if segments are wide enough to be readable
+      if (cssSize >= 260) {
+        ctx.save();
+        ctx.translate(cx, cy);
+        ctx.rotate(start + sliceAngle / 2);
+        ctx.textAlign = 'right';
+        ctx.fillStyle = 'white';
+        ctx.font = 'bold 9px sans-serif';
+        ctx.fillText(String(num), r - 6, 3);
+        ctx.restore();
+      }
+    });
+
+    // Center circle
+    ctx.beginPath();
+    ctx.arc(cx, cy, 12, 0, Math.PI * 2);
+    ctx.fillStyle = 'white';
+    ctx.fill();
+    ctx.strokeStyle = '#ddd';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+  }
+
+  function spin() {
+    if (spinning) return;
+    spinning = true;
+    spinBtn.disabled = true;
+    resultLabelEl.textContent = 'Spinning…';
+
+    const sliceAngle = (Math.PI * 2) / COUNT;
+    const winnerIdx = Math.floor(Math.random() * COUNT);
+    const winnerCenter = winnerIdx * sliceAngle + sliceAngle / 2;
+    const extraSpins = 5 + Math.floor(Math.random() * 3);
+    const targetAngle = (-Math.PI / 2) - winnerCenter + Math.PI * 2 * extraSpins;
+    const startAngleSaved = currentAngle % (Math.PI * 2);
+    const totalRotation = targetAngle - startAngleSaved + Math.PI * 2 * Math.floor((targetAngle - startAngleSaved) / (Math.PI * 2) < 0 ? 1 : 0);
+
+    const duration = 3000 + Math.random() * 1000;
+    const startTime = performance.now();
+
+    function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+
+    function frame(now) {
+      const elapsed = now - startTime;
+      const t = Math.min(elapsed / duration, 1);
+      currentAngle = startAngleSaved + totalRotation * easeOut(t);
+      drawWheel(currentAngle);
+
+      if (t < 1) {
+        requestAnimationFrame(frame);
+      } else {
+        spinning = false;
+        spinBtn.disabled = false;
+        const winner = NUMBERS[winnerIdx];
+        resultEl.textContent = winner;
+        resultLabelEl.textContent = 'You spun ' + winner + '!';
+        history.unshift(winner);
+        if (history.length > 10) history.length = 10;
+        updateHistory();
+      }
+    }
+
+    requestAnimationFrame(frame);
+  }
+
+  function updateHistory() {
+    if (history.length === 0) { historyWrap.classList.remove('is-visible'); return; }
+    historyWrap.classList.add('is-visible');
+    historyEl.innerHTML = '';
+    history.forEach(function(n, i) {
+      const chip = document.createElement('span');
+      chip.className = 'rnw-history-chip' + (i === 0 ? ' newest' : '');
+      chip.textContent = n;
+      historyEl.appendChild(chip);
+    });
+  }
+
+  function init() {
+    canvas        = document.getElementById('rnw-canvas');
+    ctx           = canvas ? canvas.getContext('2d') : null;
+    spinBtn       = document.getElementById('rnw-spin-btn');
+    resultEl      = document.getElementById('rnw-result');
+    resultLabelEl = document.getElementById('rnw-result-label');
+    historyWrap   = document.getElementById('rnw-history-wrap');
+    historyEl     = document.getElementById('rnw-history');
+
+    const dpr = window.devicePixelRatio || 1;
+    cssSize = Math.min(300, window.innerWidth - 80);
+    canvas.style.width = cssSize + 'px';
+    canvas.style.height = cssSize + 'px';
+    canvas.width = cssSize * dpr;
+    canvas.height = cssSize * dpr;
+    ctx.scale(dpr, dpr);
+
+    drawWheel(0);
+
+    spinBtn.addEventListener('click', spin);
+    canvas.addEventListener('click', spin);
+
+    document.addEventListener('keydown', function(e) {
+      if (['INPUT','SELECT','TEXTAREA','BUTTON'].includes(e.target.tagName)) return;
+      if (e.code === 'Space' || e.code === 'Enter') { e.preventDefault(); spin(); }
+    });
+
+    document.querySelectorAll('.faq-item summary').forEach(function(s) {
+      s.addEventListener('click', function(e) {
+        e.preventDefault();
+        const item = s.closest('.faq-item');
+        const wasOpen = item.hasAttribute('open');
+        document.querySelectorAll('.faq-item[open]').forEach(function(i) { i.removeAttribute('open'); });
+        if (!wasOpen) item.setAttribute('open', '');
+      });
+    });
+  }
+
+  return { init: init };
+})();
+
+document.addEventListener('DOMContentLoaded', WORDINEER_RNW.init);
+</script>
+<!-- /SLOT:init -->
