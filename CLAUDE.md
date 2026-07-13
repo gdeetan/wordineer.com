@@ -34,6 +34,8 @@ template-deploy-backup/   ← archived snapshot, do not edit
 
 **Never edit `wordineer-deploy/` directly.** It is build output. Always edit `template-deploy/tools-src/` and rebuild.
 
+**Every change to page content or structure must start in `template-deploy/`.** After any edit to `tools-src/`, `tools.json`, or template fragments, run `build.py` and copy output to `wordineer-deploy/`. Never skip this step — edits made only in `wordineer-deploy/` will be overwritten on the next build and are not tracked as source.
+
 ---
 
 ## Build & deploy
