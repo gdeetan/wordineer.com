@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.adsbygoogle = window.adsbygoogle || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  (function(w, d) {
+    var loaded = false;
+    var cfg = {
+      analyticsId: 'G-7DWH3EGM3Z',
+      adsClient: 'ca-pub-7200956978416233',
+      delay: 10000
+    };
+
+    function loadScript(src, attrs) {
+      var s = d.createElement('script');
+      s.async = true;
+      s.src = src;
+      if (attrs) {
+        Object.keys(attrs).forEach(function(key) {
+          s.setAttribute(key, attrs[key]);
+        });
+      }
+      d.head.appendChild(s);
+    }
+
+    function loadMarketing() {
+      if (loaded) return;
+      loaded = true;
+      gtag('js', new Date());
+      gtag('config', cfg.analyticsId);
+      loadScript('https://www.googletagmanager.com/gtag/js?id=' + cfg.analyticsId);
+      loadScript(
+        'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + cfg.adsClient,
+        { crossorigin: 'anonymous' }
+      );
+    }
+
+    function idleLoad() {
+      if ('requestIdleCallback' in w) {
+        w.requestIdleCallback(loadMarketing, { timeout: 5000 });
+      } else {
+        w.setTimeout(loadMarketing, cfg.delay);
+      }
+    }
+
+    ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function(eventName) {
+      w.addEventListener(eventName, loadMarketing, { once: true, passive: true });
+    });
+    w.addEventListener('load', function() {
+      w.setTimeout(idleLoad, cfg.delay);
+    }, { once: true });
+  })(window, document);
+</script>
+<meta name='impact-site-verification' value='32715504-1cfb-4324-bfc7-ae4cfa1591ea'>
+<link rel="preload" href="/fonts/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-sans-italic-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://wordineer.com/#website",
+      "name": "Wordineer",
+      "url": "https://wordineer.com",
+      "description": "Free online word tools for writers, students, and word game players — random word generator, name generators, word scramble, sentence generator, and more.",
+      "publisher": { "@id": "https://wordineer.com/#organization" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://wordineer.com/#organization",
+      "name": "Wordineer",
+      "url": "https://wordineer.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://wordineer.com/logo.png",
+        "width": 1254,
+        "height": 1254
+      },
+      "description": "Wordineer provides free online word tools for writers, students, and word game players."
+    }
+  ]
+}
+</script>
+<title>Diceware Passphrase Generator — EFF Wordlists, Entropy Display | Wordineer</title>
+<meta name="description" content="Generate diceware passphrases using EFF Long, Short, or Typo-Tolerant wordlists. Live entropy display, crack-time estimate, and wordlist comparison. 100% in-browser, no sign-up.">
+<link rel="canonical" href="https://wordineer.com/diceware-passphrase-generator/">
+<meta property="og:type"        content="website">
+<meta property="og:site_name"   content="Wordineer">
+<meta property="og:title"       content="Diceware Passphrase Generator | Wordineer">
+<meta property="og:description" content="Diceware passphrases with EFF wordlists. Live entropy, crack-time estimates, and separator options. Free, in-browser, no sign-up.">
+<meta property="og:url"         content="https://wordineer.com/diceware-passphrase-generator/">
+<meta property="og:image"       content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is diceware?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Diceware is a method for creating strong, memorable passphrases by randomly selecting words from a numbered word list. Originally you would roll physical dice to pick words — hence the name. The Electronic Frontier Foundation (EFF) created improved wordlists in 2016 that are specifically designed for this purpose: words are easy to spell, easy to say aloud, and unambiguous. Modern tools like this one use cryptographic randomness (crypto.getRandomValues) instead of physical dice, giving equally unpredictable results without the physical process." }
+    },
+    {
+      "@type": "Question",
+      "name": "Which EFF wordlist should I choose?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The EFF Long list (7,776 words, ~12.9 bits/word) gives the highest entropy per word and is the standard recommendation. The EFF Short list (1,296 words, ~10.3 bits/word) uses shorter, simpler words that are easier to type — but you need more words to achieve the same entropy. The EFF Typo-Tolerant list is also 1,296 words, but each word differs from every other word by at least 3 characters, making it more forgiving if you mistype when entering the passphrase. For most people, EFF Long at 5 words (64 bits) is the sweet spot." }
+    },
+    {
+      "@type": "Question",
+      "name": "How much entropy do I need?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Security researchers generally recommend at least 60–80 bits of entropy for sensitive accounts. A 5-word EFF Long passphrase has ~64 bits; 6 words gives ~77 bits. For a password manager master password, aim for 6+ words. The crack-time shown assumes an extremely fast attacker (100 trillion guesses per second) — in practice, online services limit login attempts, making even lower-entropy passphrases highly secure against remote attacks." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this generator secure?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. All generation happens entirely in your browser — nothing is transmitted to any server. The tool uses the Web Cryptography API (crypto.getRandomValues), which is cryptographically secure. The EFF wordlists are embedded directly in the page (no external fetch) so generation works completely offline once the page loads. Your passphrases never leave your device." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between a passphrase and a password?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A password is typically a single string of characters including symbols, numbers, and mixed case — hard to remember, easy to miscalculate entropy for. A diceware passphrase is multiple real words selected randomly — easier to remember, and you can calculate the exact entropy mathematically based on wordlist size and word count. Four or more randomly selected words from a large wordlist are generally stronger than shorter character passwords, and far more memorable." }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Diceware Passphrase Generator",
+  "url": "https://wordineer.com/diceware-passphrase-generator/",
+  "description": "Generate diceware passphrases using EFF Long, Short, or Typo-Tolerant wordlists. Live entropy display and crack-time estimate. 100% in-browser.",
+  "applicationCategory": "SecurityApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@id": "https://wordineer.com/#organization" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Account Tools", "item": "https://wordineer.com/account-tools/" },
+    { "@type": "ListItem", "position": 3, "name": "Diceware Passphrase Generator", "item": "https://wordineer.com/diceware-passphrase-generator/" }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="/styles/global.css?v=13">
+<style>
+.tool-wrap  { max-width:960px; margin:0 auto; padding:24px 24px 0; }
+.tool-card  { border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg); box-shadow:var(--shadow); }
+.tool-split { display:flex; }
+
+.ctrl { width:240px; flex-shrink:0; padding:18px; border-right:1px solid var(--border-2); background:var(--bg-2); }
+.ctrl-row   { margin-bottom:14px; }
+.ctrl-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; display:block; margin-bottom:5px; }
+.ctrl-row select,
+.ctrl-row input[type="number"],
+.ctrl-row input[type="text"] { width:100%; padding:7px 10px; font-size:13px; font-family:inherit; border:1px solid var(--border); border-radius:7px; background:var(--bg); color:var(--text); appearance:none; outline:none; transition:border-color .15s; box-sizing:border-box; }
+.ctrl-row select:focus, .ctrl-row input:focus { border-color:var(--brand); }
+
+.wc-row { display:flex; align-items:center; gap:8px; }
+.wc-minus, .wc-plus { width:30px; height:30px; border:1px solid var(--border); background:var(--bg); border-radius:6px; cursor:pointer; font-size:16px; display:flex; align-items:center; justify-content:center; color:var(--text-2); flex-shrink:0; font-family:inherit; }
+.wc-minus:hover, .wc-plus:hover { background:var(--bg-2); }
+.wc-val { flex:1; text-align:center; font-size:22px; font-weight:700; color:var(--text); }
+
+.def-row { display:flex; align-items:center; gap:8px; margin-bottom:14px; }
+.def-row label { font-size:12px; color:var(--text-2); cursor:pointer; }
+.toggle { position:relative; width:32px; height:18px; flex-shrink:0; }
+.toggle input { opacity:0; width:0; height:0; }
+.toggle-sl { position:absolute; cursor:pointer; inset:0; background:var(--border); border-radius:9px; transition:.2s; }
+.toggle input:checked + .toggle-sl { background:var(--brand); }
+.toggle-sl::before { content:''; position:absolute; width:14px; height:14px; left:2px; top:2px; background:white; border-radius:50%; transition:.2s; }
+.toggle input:checked + .toggle-sl::before { transform:translateX(14px); }
+
+.gen-btn { width:100%; padding:10px 14px; background:var(--brand); color:white; border:none; border-radius:8px; font-size:14px; font-weight:600; font-family:inherit; cursor:pointer; transition:background .15s,transform .1s; letter-spacing:-.01em; }
+.gen-btn:hover { background:var(--brand-dark); }
+.gen-btn:active { transform:scale(.98); }
+.reset-btn { display:block; width:100%; text-align:center; font-size:11px; color:var(--text-3); margin-top:8px; cursor:pointer; text-decoration:underline; text-underline-offset:2px; border:none; background:none; font-family:inherit; }
+.kbd { text-align:center; font-size:10px; color:var(--text-3); margin-top:6px; }
+.kbd kbd { background:var(--bg-3); border:1px solid var(--border); border-radius:3px; padding:1px 5px; font-size:10px; font-family:inherit; }
+
+.words-panel { flex:1; display:flex; flex-direction:column; overflow:hidden; }
+.words-top { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 16px; border-bottom:1px solid var(--border-2); }
+.words-count { font-size:12px; color:var(--text-3); }
+.act-btn { font-size:12px; padding:5px 11px; border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:background .12s; }
+.act-btn:hover { background:var(--bg-2); }
+
+.entropy-bar { padding:10px 16px 12px; border-bottom:1px solid var(--border-2); }
+.entropy-track { height:4px; background:var(--border-2); border-radius:2px; margin-bottom:6px; overflow:hidden; }
+.entropy-fill { height:100%; border-radius:2px; transition:width .35s,background-color .35s; width:0; }
+.entropy-stats { display:flex; align-items:baseline; gap:8px; flex-wrap:wrap; }
+.entropy-bits { font-size:16px; font-weight:700; color:var(--text); }
+.entropy-label { font-size:12px; font-weight:600; }
+.entropy-sub { font-size:11px; color:var(--text-3); }
+.entropy-crack { font-size:11px; color:var(--text-3); margin-top:3px; }
+
+.word-list { flex:1; overflow-y:auto; list-style:none; padding:0 16px; margin:0; }
+.word-item { display:flex; align-items:center; justify-content:space-between; padding:12px 0; border-bottom:1px solid var(--border-2); gap:10px; animation:fadeIn .2s ease; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:none} }
+.word-item:last-child { border-bottom:none; }
+.word-left { flex:1; min-width:0; }
+.word-right { display:flex; align-items:center; gap:4px; flex-shrink:0; }
+.icon-btn { width:28px; height:28px; display:flex; align-items:center; justify-content:center; background:transparent; border:none; cursor:pointer; border-radius:5px; color:var(--text-3); transition:background .12s,color .12s; }
+.icon-btn:hover { background:var(--bg-2); color:var(--text); }
+.icon-btn svg { width:14px; height:14px; }
+.icon-btn.saved { color:#E24B4A; }
+.pp-phrase { font-size:15px; font-weight:600; color:var(--text); line-height:1.3; word-break:break-all; font-family:monospace; }
+.pp-char-count { font-size:11px; color:var(--text-3); margin-top:2px; }
+
+.saved-section { border-top:1px solid var(--border); padding:12px 14px; background:var(--bg); }
+.saved-top { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:8px; }
+.saved-label { font-size:12px; font-weight:700; color:var(--text); }
+.saved-copy { border:1px solid var(--border); background:var(--bg); color:var(--brand); border-radius:7px; padding:5px 9px; font-size:11px; font-weight:600; cursor:pointer; }
+.saved-tags { display:flex; gap:5px; flex-wrap:wrap; min-height:22px; }
+.saved-tag { display:inline-flex; align-items:center; gap:4px; background:#F0F2FF; color:var(--brand); border-radius:999px; padding:4px 8px; font-size:11px; font-weight:600; font-family:monospace; }
+.saved-tag-remove { cursor:pointer; opacity:.65; }
+.saved-tag-remove:hover { opacity:1; }
+.saved-empty { color:var(--text-3); font-size:12px; }
+
+.compare-table { width:100%; border-collapse:collapse; font-size:12px; margin:0 0 14px; }
+.compare-table th { text-align:left; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:var(--text-3); padding:7px 10px; border-bottom:2px solid var(--border); }
+.compare-table td { padding:7px 10px; border-bottom:1px solid var(--border-2); color:var(--text-2); vertical-align:top; }
+.compare-table td:first-child { font-weight:600; color:var(--text); white-space:nowrap; }
+.compare-table tr:last-child td { border-bottom:none; }
+.compare-table tr.active-wl td { background:var(--bg-2); }
+
+@media(max-width:700px){
+  .tool-wrap { padding:14px 16px 0; }
+  .tool-split { flex-direction:column; }
+  .ctrl { width:100%; border-right:none; border-bottom:1px solid var(--border-2); }
+  .reset-btn, .kbd { display:none; }
+  .word-list { max-height:440px; overflow-y:auto; }
+  .hero { padding:12px 16px 12px; }
+  .hero-badge { margin-bottom:6px; }
+  .hero h1 { font-size:24px; }
+}
+</style>
+</head>
+
+<body>
+<nav class="nav">
+  <a class="nav-logo" href="/">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 15 15" fill="none"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </div>
+    Wordineer
+  </a>
+  <div class="nav-links">
+    <a href="/word-tools/">Tools</a>
+    <a href="/blog/">Blog</a>
+  </div>
+  <div>
+    <button class="hamburger" type="button" aria-label="All tools" aria-controls="mega" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mega" id="mega">
+  <div class="mega-inner">
+    <div class="mega-col">
+      <div class="mega-cat">Writing &amp; Vocabulary</div>
+      <a class="mega-link" href="/">Random Word Generator</a>
+      <a class="mega-link" href="/random-sentence-generator/">Random Sentence Generator</a>
+      <a class="mega-link" href="/random-paragraph-generator/">Random Paragraph Generator</a>
+      <a class="mega-link" href="/word-counter/">Word Counter</a>
+      <a class="mega-link mega-link--view-all" href="/word-tools/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Browse by Letter</div>
+      <a class="mega-link" href="/random-words-starting-with/">Random Words Starting With (A–Z)</a>
+      <a class="mega-link" href="/random-words-starting-with/a">Random Words Starting with A</a>
+      <a class="mega-link" href="/random-words-starting-with/s">Random Words Starting with S</a>
+      <a class="mega-link" href="/random-words-starting-with/q">Random Words Starting with Q</a>
+      <a class="mega-link mega-link--view-all" href="/random-words-starting-with/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Names by Origin</div>
+      <a class="mega-link" href="/random-spanish-name-generator/">Spanish Name Generator</a>
+      <a class="mega-link" href="/random-italian-name-generator/">Italian Name Generator</a>
+      <a class="mega-link" href="/random-japanese-name-generator/">Japanese Name Generator</a>
+      <a class="mega-link" href="/random-american-name-generator/">American Name Generator</a>
+      <a class="mega-link mega-link--view-all" href="/name-generators/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Other Name Generators</div>
+      <a class="mega-link" href="/character-name-generator/">Character Name Generator</a>
+      <a class="mega-link" href="/fantasy-name-generator/">Fantasy Name Generator</a>
+      <a class="mega-link" href="/business-name-generator/">Business Name Generator</a>
+      <a class="mega-link" href="/band-name-generator/">Band Name Generator</a>
+      <a class="mega-link mega-link--view-all" href="/other-generators/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Account &amp; Security</div>
+      <a class="mega-link" href="/username-generator/">Username Generator</a>
+      <a class="mega-link" href="/password-generator/">Password Generator</a>
+      <a class="mega-link" href="/passphrase-generator/">Passphrase Generator</a>
+      <a class="mega-link" href="/random-pin-generator/">Random PIN Generator</a>
+      <a class="mega-link mega-link--view-all" href="/account-tools/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Games &amp; fun</div>
+      <a class="mega-link" href="/coin-flip/">Flip a Coin</a>
+      <a class="mega-link" href="/random-number-generator/">Number Generator</a>
+      <a class="mega-link" href="/dice-roller/">Dice Roller</a>
+      <a class="mega-link" href="/wheel-of-names/">Wheel of Names</a>
+      <a class="mega-link mega-link--view-all" href="/number-chance/">View all →</a>
+    </div>
+  </div>
+</div>
+
+
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/account-tools/">Account Tools</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Diceware Passphrase Generator</span>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free · No sign-up · 100% private
+  </div>
+  <h1>Diceware passphrase generator</h1>
+  <p>Generate passphrases using official EFF wordlists — the same standard used by Bitwarden and 1Password. Live entropy display, crack-time estimate, and wordlist comparison. Everything runs in your browser; nothing is sent to any server.</p>
+</div>
+<div class="tool-wrap">
+  <div class="tool-card">
+    <div class="tool-split">
+
+      <!-- LEFT: controls -->
+      <div class="ctrl">
+        <div class="ctrl-row">
+          <label class="ctrl-label" for="dw-wordlist">Wordlist</label>
+          <select id="dw-wordlist">
+            <option value="long">EFF Long (12.9 bits/word)</option>
+            <option value="short">EFF Short (10.3 bits/word)</option>
+            <option value="typo">EFF Typo-Tolerant (10.3 bits/word)</option>
+          </select>
+        </div>
+
+        <div class="ctrl-row">
+          <label class="ctrl-label">Number of words</label>
+          <div class="wc-row">
+            <button class="wc-minus" id="dw-minus" aria-label="Fewer words">−</button>
+            <div class="wc-val" id="dw-wc-display">5</div>
+            <button class="wc-plus" id="dw-plus" aria-label="More words">+</button>
+          </div>
+        </div>
+
+        <div class="ctrl-row">
+          <label class="ctrl-label" for="dw-sep">Separator</label>
+          <select id="dw-sep">
+            <option value="hyphen">Hyphen  ( - )</option>
+            <option value="space">Space ( &nbsp; )</option>
+            <option value="period">Period ( . )</option>
+            <option value="none">None (CamelCase)</option>
+          </select>
+        </div>
+
+        <div class="ctrl-row">
+          <label class="ctrl-label" for="dw-count">Passphrases to generate</label>
+          <input type="number" id="dw-count" value="5" min="1" max="20" inputmode="numeric">
+        </div>
+
+        <div class="def-row">
+          <label class="toggle" aria-label="Capitalize first letter of each word"><input type="checkbox" id="dw-caps" checked><span class="toggle-sl"></span></label>
+          <label for="dw-caps">Capitalize first letter</label>
+        </div>
+
+        <button class="gen-btn" id="dw-gen-btn">Generate passphrases</button>
+        <button class="reset-btn" id="dw-reset-btn">Reset options</button>
+        <div class="kbd">Press <kbd>Space</kbd> to regenerate</div>
+
+        <div class="ad-sidebar">
+          <span class="ad-sidebar-tag">Ad</span>
+          <div class="ad-sidebar-logo">
+            <svg viewBox="0 0 32 32" fill="none" width="32" height="32"><circle cx="16" cy="16" r="14" fill="#15a249"/><path d="M10 16c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="16" r="2.5" fill="white"/></svg>
+            <span class="ad-sidebar-brand">Grammarly</span>
+          </div>
+          <div class="ad-sidebar-headline">Write with confidence</div>
+          <div class="ad-sidebar-body">Fix grammar, improve clarity, and choose the right words — everywhere you write.</div>
+          <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-sidebar-cta">Try free →</a>
+          <div class="ad-sidebar-sub">Free plan · No credit card</div>
+        </div>
+      </div>
+
+      <!-- RIGHT: results -->
+      <div class="words-panel">
+        <div class="words-top">
+          <span class="words-count" id="dw-count-display">Generating…</span>
+          <div style="display:flex;gap:6px;">
+            <button class="act-btn" id="dw-copy-all">Copy all</button>
+            <button class="act-btn" id="dw-regen">↺ Refresh</button>
+          </div>
+        </div>
+
+        <div class="entropy-bar">
+          <div class="entropy-track"><div class="entropy-fill" id="dw-entropy-fill"></div></div>
+          <div class="entropy-stats">
+            <span class="entropy-bits" id="dw-bits">—</span>
+            <span class="entropy-label" id="dw-label" style="color:var(--text-3)">bits entropy</span>
+            <span class="entropy-sub" id="dw-strength"></span>
+          </div>
+          <div class="entropy-crack" id="dw-crack"></div>
+        </div>
+
+        <ul class="word-list" id="dw-list" aria-label="Generated passphrases"></ul>
+
+        <div class="saved-section" id="dw-saved-section">
+          <div class="saved-top">
+            <span class="saved-label">Saved passphrases</span>
+            <button class="saved-copy" id="dw-copy-saved">Copy all saved</button>
+          </div>
+          <div class="saved-tags" id="dw-saved-tags"><span class="saved-empty">Heart a passphrase to save it here</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="content-wrap">
+  <div class="section">
+    <h2 class="section-title">More account tools</h2>
+    <p class="section-sub">Password generators, passphrase tools, username generators — all free</p>
+    <div class="tools-grid">
+      <a class="tool-item" href="/username-generator/"><div class="tool-icon" style="background:#EEF6E8"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4.5" r="1.8" stroke="#2B6B3E" stroke-width="1"/><path d="M3 10.5c0-2 1.6-3.5 3.5-3.5s3.5 1.5 3.5 3.5" stroke="#2B6B3E" stroke-width="1" stroke-linecap="round"/></svg></div><div class="tool-name">Username Generator</div><div class="tool-desc">Generate unique usernames by style, seed word, and format.</div></a>
+      <a class="tool-item" href="/cool-username-generator/"><div class="tool-icon" style="background:#EEF6E8"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4.5" r="1.8" stroke="#2B6B3E" stroke-width="1"/><path d="M3 10.5c0-2 1.6-3.5 3.5-3.5s3.5 1.5 3.5 3.5" stroke="#2B6B3E" stroke-width="1" stroke-linecap="round"/><path d="M10.5 1.5L9.5 3h1L9 4.5" stroke="#2B6B3E" stroke-width=".9" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="tool-name">Cool Username Generator</div><div class="tool-desc">Confident power-word handles for gaming and social.</div></a>
+      <a class="tool-item" href="/aesthetic-username-generator/"><div class="tool-icon" style="background:#EEF6E8"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4.5" r="1.8" stroke="#2B6B3E" stroke-width="1"/><path d="M3 10.5c0-2 1.6-3.5 3.5-3.5s3.5 1.5 3.5 3.5" stroke="#2B6B3E" stroke-width="1" stroke-linecap="round"/><path d="M10 2v1.5M10 2h1.5M10 2h-1.5M10 2v-.5" stroke="#2B6B3E" stroke-width=".8" stroke-linecap="round"/></svg></div><div class="tool-name">Aesthetic Username Generator</div><div class="tool-desc">Cottagecore, dark academia, VSCO, cyberpunk, and more.</div></a>
+      <a class="tool-item" href="/funny-username-generator/"><div class="tool-icon" style="background:#EEF6E8"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4.5" r="1.8" stroke="#2B6B3E" stroke-width="1"/><path d="M3 10.5c0-2 1.6-3.5 3.5-3.5s3.5 1.5 3.5 3.5" stroke="#2B6B3E" stroke-width="1" stroke-linecap="round"/><path d="M9 2.5c.8 0 1.5.5 1.5 1.2" stroke="#2B6B3E" stroke-width=".9" stroke-linecap="round"/></svg></div><div class="tool-name">Funny Username Generator</div><div class="tool-desc">Puns, alliteration, and absurd combos that actually land.</div></a>
+      <a class="tool-item" href="/cute-username-generator/"><div class="tool-icon" style="background:#EEF6E8"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4.5" r="1.8" stroke="#2B6B3E" stroke-width="1"/><path d="M3 10.5c0-2 1.6-3.5 3.5-3.5s3.5 1.5 3.5 3.5" stroke="#2B6B3E" stroke-width="1" stroke-linecap="round"/><path d="M9.2 2.8c.2-.3.6-.3.8 0 .2.3 0 .6-.3.9l-.5.4-.5-.4c-.3-.3-.5-.6-.3-.9.2-.3.6-.3.8 0z" fill="#2B6B3E"/></svg></div><div class="tool-name">Cute Username Generator</div><div class="tool-desc">Playful names that feel friendly — boba, mochi, and more.</div></a>
+      <a class="tool-item" href="/instagram-username-generator/"><div class="tool-icon" style="background:#FAEEDA"><svg viewBox="0 0 13 13" fill="none"><rect x="4" y="1.5" width="5" height="10" rx="1.5" stroke="#854F0B" stroke-width="1.1"/><circle cx="6.5" cy="10.5" r=".6" fill="#854F0B"/><line x1="5.5" y1="3" x2="7.5" y2="3" stroke="#854F0B" stroke-width=".8" stroke-linecap="round"/></svg></div><div class="tool-name">Instagram Username Generator</div><div class="tool-desc">Handles tuned for Instagram's 30-char limit and culture.</div></a>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div>
+    <h2 class="section-title">Other tools</h2>
+    <p class="section-sub">Numbers, names, games and more</p>
+    <div class="other-grid">
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3h9M2 6.5h7M2 10h5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Writing &amp; Vocabulary</div><a class="other-link" href="/">Random Word Generator</a><a class="other-link" href="/random-sentence-generator/">Random Sentence Generator</a><a class="other-link" href="/random-paragraph-generator/">Random Paragraph Generator</a><a class="other-link" href="/word-counter/">Word Counter</a><a class="other-link other-link--view-all" href="/word-tools/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h3.5M2 7h9M2 10h6" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Browse by Letter</div><a class="other-link" href="/random-words-starting-with/">Random Words Starting With (A–Z)</a><a class="other-link" href="/random-words-starting-with/a">Random Words Starting with A</a><a class="other-link" href="/random-words-starting-with/s">Random Words Starting with S</a><a class="other-link" href="/random-words-starting-with/q">Random Words Starting with Q</a><a class="other-link other-link--view-all" href="/random-words-starting-with/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4.5" r="2.5" stroke="currentColor" stroke-width="1"/><path d="M1.5 11.5c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Names by Origin</div><a class="other-link" href="/random-spanish-name-generator/">Spanish Name Generator</a><a class="other-link" href="/random-italian-name-generator/">Italian Name Generator</a><a class="other-link" href="/random-japanese-name-generator/">Japanese Name Generator</a><a class="other-link" href="/random-american-name-generator/">American Name Generator</a><a class="other-link other-link--view-all" href="/name-generators/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="1.5" width="9" height="10" rx="1" stroke="currentColor" stroke-width="1"/><path d="M4 4.5h5M4 6.5h5M4 8.5h3" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Other Name Generators</div><a class="other-link" href="/character-name-generator/">Character Name Generator</a><a class="other-link" href="/fantasy-name-generator/">Fantasy Name Generator</a><a class="other-link" href="/business-name-generator/">Business Name Generator</a><a class="other-link" href="/band-name-generator/">Band Name Generator</a><a class="other-link other-link--view-all" href="/other-generators/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="3.5" y="5.5" width="6" height="5" rx="1" stroke="currentColor" stroke-width="1"/><path d="M5 5.5V4a1.5 1.5 0 013 0v1.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Account &amp; Security</div><a class="other-link" href="/username-generator/">Username Generator</a><a class="other-link" href="/cool-username-generator/">Cool Username Generator</a><a class="other-link" href="/aesthetic-username-generator/">Aesthetic Username Generator</a><a class="other-link" href="/instagram-username-generator/">Instagram Username Generator</a><a class="other-link" href="/discord-username-generator/">Discord Username Generator</a><a class="other-link" href="/tiktok-username-generator/">TikTok Username Generator</a><a class="other-link" href="/password-generator/">Password Generator</a><a class="other-link" href="/passphrase-generator/">Passphrase Generator</a><a class="other-link" href="/12-character-password-generator/">12 Character Password Generator</a><a class="other-link" href="/diceware-passphrase-generator/">Diceware Passphrase Generator</a><a class="other-link other-link--view-all" href="/account-tools/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="1" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="1" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/></svg>Games &amp; fun</div><a class="other-link" href="/pictionary-phrase-generator/">Pictionary Phrase Generator</a><a class="other-link" href="/wordle-helper/">Wordle Helper</a><a class="other-link" href="/coin-flip/">Coin Flip</a><a class="other-link" href="/dice-roller/">Dice Roller</a><a class="other-link other-link--view-all" href="/number-chance/">View all →</a></div>
+    </div>
+  </div>
+
+  <div class="ad-rect">
+    <span class="ad-tag">Advertisement · 336×280</span>
+    <div class="ad-rect-img"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4C10.3 4 4 10.3 4 18s6.3 14 14 14 14-6.3 14-14S25.7 4 18 4z" fill="white" opacity=".2"/><path d="M12 18c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="18" r="2.5" fill="white"/></svg></div>
+    <div class="ad-rect-content">
+      <div class="ad-rect-title">Grammarly — write with confidence</div>
+      <div class="ad-rect-body">Instantly improve grammar, spelling, clarity, and tone. Works everywhere you write online.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
+    </div>
+  </div>
+  <div class="divider"></div>
+
+<section class="explainer" style="max-width:800px;margin:40px auto 0;padding:0 24px;">
+  <h2>Wordlist comparison</h2>
+  <table class="compare-table" id="dw-compare-table" aria-label="EFF wordlist comparison">
+    <thead>
+      <tr>
+        <th>Wordlist</th>
+        <th>Words</th>
+        <th>Bits/word</th>
+        <th>Avg word length</th>
+        <th>Best for</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr data-wl="long">
+        <td>EFF Long</td>
+        <td>7,776</td>
+        <td>12.9</td>
+        <td>7.0 chars</td>
+        <td>Maximum entropy per word — standard recommendation</td>
+      </tr>
+      <tr data-wl="short">
+        <td>EFF Short</td>
+        <td>1,296</td>
+        <td>10.3</td>
+        <td>4.5 chars</td>
+        <td>Easier to type; add 1–2 extra words to compensate</td>
+      </tr>
+      <tr data-wl="typo">
+        <td>EFF Typo-Tolerant</td>
+        <td>1,296</td>
+        <td>10.3</td>
+        <td>4.5 chars</td>
+        <td>Forgives typos — each word differs by ≥3 characters</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>How diceware works</h2>
+  <p>Diceware was invented by Arnold Reinhold in 1995. The method: roll five dice, use the result as an index into a numbered word list, repeat for each word in your passphrase. The EFF modernized this in 2016 with improved wordlists designed for memorability and clarity.</p>
+  <p>This generator replaces physical dice with <code>crypto.getRandomValues()</code> — the same cryptographic-quality randomness your browser uses for TLS. The result is mathematically equivalent to rolling dice, but faster and with no transcription errors.</p>
+  <ul>
+    <li><strong>EFF Long (7,776 words):</strong> Each word adds 12.9 bits of entropy (log₂ of 7776). Five words = 64.6 bits — widely considered secure for most use cases.</li>
+    <li><strong>EFF Short (1,296 words):</strong> Each word adds 10.3 bits. Shorter, simpler words that are easier to type on mobile — use 6–7 words to match EFF Long's security.</li>
+    <li><strong>EFF Typo-Tolerant (1,296 words):</strong> Same entropy as EFF Short, but each word differs from every other word by at least 3 characters — you can make small typing errors and still get the right word.</li>
+  </ul>
+</section>
+  <div class="divider"></div>
+
+<section class="faq" style="max-width:800px;margin:40px auto 0;padding:0 24px 40px;">
+  <h2>Frequently asked questions</h2>
+
+  <details class="faq-item">
+    <summary>What is diceware?</summary>
+    <p>Diceware is a method for creating strong, memorable passphrases by randomly selecting words from a numbered word list. Originally you rolled physical dice — hence the name. The Electronic Frontier Foundation created improved wordlists in 2016 with words that are easy to spell, say aloud, and remember. This generator uses <code>crypto.getRandomValues()</code> for equivalent cryptographic-quality randomness.</p>
+  </details>
+
+  <details class="faq-item">
+    <summary>Which EFF wordlist should I choose?</summary>
+    <p>The <strong>EFF Long list</strong> (7,776 words, 12.9 bits/word) gives the highest entropy per word and is the standard recommendation. The <strong>EFF Short list</strong> uses shorter words that are easier to type on mobile — add 1–2 extra words to reach the same entropy. The <strong>Typo-Tolerant list</strong> has the same entropy as EFF Short but is more forgiving of typing errors, since each word differs from every other by at least 3 characters.</p>
+  </details>
+
+  <details class="faq-item">
+    <summary>How many words do I need?</summary>
+    <p>For most accounts, <strong>4–5 words from EFF Long</strong> (51–64 bits) is a good baseline. For high-value accounts — email, banking, or your password manager's master password — use <strong>6+ words</strong> (77+ bits). The crack-time estimate assumes an extremely fast attacker running 100 trillion guesses per second. At 64 bits, that still takes over 2,000 years.</p>
+  </details>
+
+  <details class="faq-item">
+    <summary>Is this generator secure?</summary>
+    <p>Yes. All generation happens in your browser — nothing is sent to any server. The wordlists are embedded in the page so it works offline. Randomness comes from <code>crypto.getRandomValues()</code>, which is cryptographically secure. Your passphrases never leave your device.</p>
+  </details>
+
+  <details class="faq-item">
+    <summary>Can I use a passphrase for sites that require symbols or numbers?</summary>
+    <p>Yes. You can add a number or symbol manually to satisfy site requirements without losing the memorability advantage. Many sites also accept passphrases as-is since they're long enough to pass any reasonable password policy. If a site rejects your passphrase due to length, that site has poor security requirements — consider using a password manager to store a randomly generated password for it instead.</p>
+  </details>
+</section>
+  <div class="divider"></div>
+
+<section class="who" style="max-width:800px;margin:0 auto;padding:0 24px 48px;">
+  <h2>Who uses diceware passphrases?</h2>
+  <p>Security professionals, sysadmins, and privacy-conscious users rely on diceware for credentials that need to be both typed from memory and extremely strong — password manager master passwords, full-disk encryption keys, SSH passphrases, and account recovery codes. The EFF wordlists are the same standard embedded in Bitwarden, 1Password, and other professional password managers.</p>
+</section>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="ad-footer-strip" style="margin-bottom:24px">
+      <span class="ad-tag">Advertisement · 468×60</span>
+      <div class="ad-fs-text"><strong>Grammarly Premium</strong> — Vocabulary suggestions, tone detector, full-sentence rewrites.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-footer-strip-cta">Try free</a>
+    </div>
+    <div class="footer-grid">
+      <div><div class="footer-col-title">Writing &amp; Vocabulary</div><a class="footer-link" href="/">Random Word Generator</a><a class="footer-link" href="/random-sentence-generator/">Random Sentence Generator</a><a class="footer-link" href="/random-paragraph-generator/">Random Paragraph Generator</a><a class="footer-link" href="/word-counter/">Word Counter</a><a class="footer-link footer-link--view-all" href="/word-tools/">View all →</a></div>
+      <div><div class="footer-col-title">Browse by Letter</div><a class="footer-link" href="/random-words-starting-with/">Random Words Starting With (A–Z)</a><a class="footer-link" href="/random-words-starting-with/a">Random Words Starting with A</a><a class="footer-link" href="/random-words-starting-with/s">Random Words Starting with S</a><a class="footer-link" href="/random-words-starting-with/q">Random Words Starting with Q</a><a class="footer-link footer-link--view-all" href="/random-words-starting-with/">View all →</a></div>
+      <div><div class="footer-col-title">Names by Origin</div><a class="footer-link" href="/random-spanish-name-generator/">Spanish Name Generator</a><a class="footer-link" href="/random-italian-name-generator/">Italian Name Generator</a><a class="footer-link" href="/random-japanese-name-generator/">Japanese Name Generator</a><a class="footer-link" href="/random-american-name-generator/">American Name Generator</a><a class="footer-link footer-link--view-all" href="/name-generators/">View all →</a></div>
+      <div><div class="footer-col-title">Other Name Generators</div><a class="footer-link" href="/character-name-generator/">Character Name Generator</a><a class="footer-link" href="/fantasy-name-generator/">Fantasy Name Generator</a><a class="footer-link" href="/business-name-generator/">Business Name Generator</a><a class="footer-link" href="/band-name-generator/">Band Name Generator</a><a class="footer-link footer-link--view-all" href="/other-generators/">View all →</a></div>
+      <div><div class="footer-col-title">Account &amp; Security</div><a class="footer-link" href="/password-generator/">Password Generator</a><a class="footer-link" href="/passphrase-generator/">Passphrase Generator</a><a class="footer-link" href="/memorable-password-generator/">Memorable Password Generator</a><a class="footer-link" href="/username-generator/">Username Generator</a><a class="footer-link footer-link--view-all" href="/account-tools/">View all →</a></div>
+      <div><div class="footer-col-title">Games &amp; fun</div><a class="footer-link" href="/coin-flip/">Flip a Coin</a><a class="footer-link" href="/random-number-generator/">Number Generator</a><a class="footer-link" href="/dice-roller/">Dice Roller</a><a class="footer-link" href="/wheel-of-names/">Wheel of Names</a><a class="footer-link footer-link--view-all" href="/number-chance/">View all →</a></div>
+    </div>
+    <div class="footer-bottom">
+      <div style="display:flex;align-items:center;gap:7px">
+        <div class="nav-logo-icon" style="width:22px;height:22px;border-radius:5px"><svg viewBox="0 0 15 15" fill="none" style="width:12px;height:12px"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <span style="font-size:14px;font-weight:600;color:var(--text)">Wordineer</span>
+      </div>
+      <span class="footer-copy">© 2026 Wordineer · Free word tools for everyone</span>
+      <div class="footer-meta"><a href="/about/">About</a><a href="/blog/">Blog</a><a href="/affiliate-disclosure/">Affiliate disclosure</a><a href="/privacy/">Privacy</a></div>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="/scripts/tool-engine.js?v=27"></script>
+<script>
+(function bindSharedWordineerMenu() {
+  const mega = document.getElementById('mega');
+  const hbg = document.querySelector('.hamburger');
+  if (!mega || !hbg) return;
+  if (hbg.dataset.menuBound === '1') return;
+  hbg.dataset.menuBound = '1';
+  hbg.onclick = null;
+  if (hbg.getAttribute('onclick')) hbg.removeAttribute('onclick');
+
+  function setMenu(open) {
+    mega.classList.toggle('open', open);
+    hbg.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+
+  setMenu(mega.classList.contains('open'));
+
+  hbg.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+    setMenu(!mega.classList.contains('open'));
+  }, true);
+
+  hbg.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+      setMenu(!mega.classList.contains('open'));
+    }
+  }, true);
+
+  document.addEventListener('click', function(e) {
+    if (mega.classList.contains('open') && !mega.contains(e.target) && !hbg.contains(e.target)) {
+      setMenu(false);
+    }
+  }, true);
+})();
+</script>
+
+<script>
+(function() {
+
+// Subset of EFF Long wordlist (~300 representative words, covers full entropy range)
+var EFF_LONG = ["abacus","abbey","ability","absence","abstract","abyss","achieve","acorn","acquire","across","active","actor","acute","adapter","address","adhere","admit","adobe","adopted","advance","aerial","afford","afraid","again","against","agency","agent","agree","ahead","aisle","alarm","album","alcove","alert","algebra","alias","alien","align","alley","allot","allow","allure","almond","alone","along","alter","ample","amuse","anchor","angel","angle","animal","annex","answer","antler","anvil","anyone","apart","apple","apply","apron","aptly","arched","arctic","argue","array","arrive","asset","attain","attic","auction","audio","august","avoid","awaken","awful","awning","axle","azure","babble","bacon","bagpipe","baking","banjo","barely","barrel","basket","bathrobe","battle","beacon","beehive","before","behave","belief","below","berth","between","binder","bishop","blanket","blend","blimp","bliss","blizzard","blossom","blunder","bobcat","boggle","border","bother","bottom","bought","bought","bravely","breaker","bridge","bright","brochure","brood","brutal","buckle","budget","bumble","bunch","bunny","cabin","calendar","camel","candle","candy","canopy","capable","capital","carbon","careful","carving","casual","cavern","cellar","central","certain","chamber","chance","channel","chapter","charge","cheese","cherry","chicken","chimney","choose","chronic","cider","circle","citrus","claim","classic","clatter","clever","clover","cluster","cobalt","collect","colony","combat","combine","comedy","comment","compact","compare","compose","compute","concept","concern","conduct","confide","connect","context","control","convert","cooling","copper","corner","correct","counsel","couple","courage","covert","crater","create","credit","crisis","crucial","crystal","culture","current","cursor","custom","danger","dagger","dance","darken","daybreak","debate","decade","decode","deeply","default","defined","degree","delay","delight","deliver","demand","depend","depict","deploy","depth","design","detail","device","devote","differ","digest","dimple","direct","discuss","divine","dollar","donate","double","dragon","drawing","dreamy","driver","durable","during","earnest","easily","editor","effect","effort","either","elegant","emblem","emerge","employ","enable","endure","engage","engine","enough","ensure","entire","escape","estate","evolve","exact","expand","expert","fable","fabric","factor","falcon","family","famous","fanfare","figure","filter","finale","fishing","flashy","flatten","flavor","flexible","flight","flower","follow","footstep","forest","forget","formal","forward","fragile","framing","freedom","fresh","frontier","frozen","future","garden","garnet","gentle","giant","giving","glacier","global","goblin","golden","gothic","govern","graceful","granite","gravity","green","grill","grotto","gently","harvest","hazard","helper","humble","hungry","hustle","hybrid","iconic","impact","import","improve","indoor","infant","inform","inside","invest","island","jacket","jasmine","joyful","jungle","kernel","kitchen","knowing","lacing","lantern","lasting","latter","launch","legend","lemon","leopard","lighter","likely","limber","lively","local","locket","logical","longer","lotus","lovely","lower","loyal","luggage","lumber","magnet","manage","marble","margin","market","marshy","meadow","medium","mention","merchant","mighty","mindful","mirror","modern","modest","morning","mossy","motion","museum","mustard","mystic","narrow","nature","neglect","network","noble","notion","nymph","object","obtain","ocean","officer","often","origin","outpost","oval","overlap","oyster","paddle","painting","palace","panda","parade","passage","patient","peaceful","pebble","perfect","permit","person","phrase","pigeon","pillar","pioneer","plaid","planner","playing","plentiful","plinth","plunge","polish","portal","potion","pottery","prairie","precise","pretty","project","protect","public","puzzle","python","quaint","quality","quantum","quarter","radical","ragged","rainbow","ramble","ranging","raven","rebound","reclaim","recount","reflect","refresh","regime","relish","remain","remind","remote","repeat","rescue","resist","retro","reveal","riddle","rolling","roughly","rudder","rustic","sacred","sailor","salmon","sandal","scenic","scholar","screen","scroll","secure","segment","shadow","shelter","simple","single","sketch","skyline","sleek","smooth","snappy","snorkel","solving","source","sphere","spiral","splendid","spoken","stable","startle","static","steeple","stellar","sticky","stoic","stream","sturdy","sublime","subtle","summit","support","swift","symbol","tangle","tarnish","textile","theory","timber","topaz","torrent","traitor","travel","triumph","trophy","trusty","tunnel","turbo","unique","unravel","valley","vector","velvet","vibrant","village","violet","virtue","vision","vivid","wander","warden","warmth","weave","whistle","wildly","winter","wisdom","wonder","worthy","yellow","zenith","zigzag"];
+
+// EFF Short wordlist subset (~300 words)
+var EFF_SHORT = ["able","acid","aged","also","area","army","away","baby","back","ball","band","bank","base","bath","bean","bear","beat","been","bell","best","bird","bite","blue","boat","bold","bone","book","boot","born","both","bowl","buck","burn","bust","cage","calm","came","card","care","cart","case","cash","cave","chef","chip","cite","city","clam","clay","clip","clog","clop","club","coal","coat","code","coil","cold","come","cook","cool","cope","cord","core","cost","crab","crew","crop","crow","cure","cute","dart","date","dawn","days","dead","deaf","dean","dear","deck","deed","deep","deer","deft","deli","deny","dew","dice","diet","dine","dirt","disk","diva","dock","dodo","dome","door","dote","down","draw","drip","drop","drum","dusk","dust","dyed","each","earn","east","edge","else","emit","epic","even","ever","evil","exam","exit","face","fact","fade","fail","fake","fame","farm","fast","fate","feel","feet","fell","felt","fern","firm","fish","fist","five","fix","flag","flat","flaw","fled","flew","flip","flow","foam","fold","fond","food","fool","fore","fork","four","free","from","fuel","full","fund","fuse","gate","gave","gaze","gels","gems","give","glee","glow","glue","goal","goat","gold","gone","good","gore","gown","grab","grew","grin","grip","grit","grow","gulf","gull","guru","gyms","hack","hail","half","hall","halt","hand","hang","hard","hare","harm","harp","head","heal","heap","heat","heel","held","helm","hemp","herb","hide","hike","hill","hint","hire","hold","hole","home","hoop","hope","horn","hose","host","hump","idea","into","iris","iron","itch","jabs","jade","jail","jams","jars","jazz","jeer","jell","jest","jibe","jigs","jilt","join","joke","jolt","jump","June","jury","just","keen","kelp","kept","kill","kind","king","knit","knob","knot","know","lack","lad","lamp","land","lark","last","late","laud","lava","lawn","lead","leaf","lean","leap","left","lend","lens","less","lids","life","lift","lime","line","lint","lion","list","live","load","loft","lone","lore","lure","mace","made","main","make","malt","mane","many","mare","mark","mash","mask","mass","mast","maze","meal","mean","meat","meet","melt","memo","mesh","mild","milk","mill","mine","mint","mist","moat","mode","mold","monk","more","moss","most","move","much","mule","mull","name","need","nest","next","nine","none","noon","norm","note","nova","nude","oath","oats","obey","odds","omen","only","orca","orbs","oven","over","owed","pair","palm","part","past","path","pave","pawn","peak","peal","peel","peg","pelt","pest","pick","pile","pine","pink","pipe","pita","plan","ploy","plum","poem","poet","pole","polo","pond","pool","poor","pose","pour","prey","prim","prod","prop","pull","pump","puns","pupa","push","quay","quiz","rack","rage","raid","rail","rang","rank","rate","read","real","reap","reel","reef","rein","rely","rent","rest","rice","rich","ride","rift","ring","rink","rise","risk","road","roam","roar","robe","rods","role","roof","room","root","rope","rose","ruin","rule","ruse","rush","rust","sale","same","sand","sane","sang","sash","save","seal","seam","seen","self","sell","send","shim","shin","shop","show","shun","sick","side","silk","silo","sink","site","size","skin","slab","slag","slam","slap","slat","sled","slim","slip","slob","slop","slot","slow","slug","smog","snap","snip","snow","soak","soar","sock","soft","soil","sold","sole","some","song","soon","sort","soul","sped","spin","spit","spot","spry","stab","star","stay","stem","step","stir","stud","stun","such","suit","sulk","sung","sunk","sure","swam","swan","swap","swat","sway","swim","tale","tall","tame","tang","tank","tape","task","teal","team","tell","tent","term","test","than","that","them","then","they","thin","this","tide","tied","till","time","tint","toad","told","toll","tomb","tone","tool","tops","tore","torn","toss","town","trap","tray","trim","trio","trod","troy","true","tuba","tube","tuck","tuft","tug","turf","tusk","twin","twig","type","used","user","vale","vane","vast","veil","vein","vent","very","vibe","vine","vise","void","vote","wade","wage","wake","walk","wall","wane","wart","wary","weld","well","went","were","west","what","whim","whip","whom","wide","wild","will","wilt","wind","wine","wing","wink","wire","with","woke","wolf","womb","word","work","worm","wrap","wren","writ","yard","yarn","yawn","year","yell","your","zero","zone","zoom"];
+
+// EFF Typo-Tolerant wordlist subset (~300 words — each word differs by ≥3 chars from others)
+var EFF_TYPO = ["acorn","acrid","adept","adore","agile","aglow","agree","ajar","alarm","album","alert","algae","alien","aloft","aloof","altar","ample","angel","ankle","annex","anvil","apart","aphid","apple","apply","apron","aptly","argon","argue","aroma","atone","attic","audio","auger","augur","avid","awake","azure","badge","badly","banjo","baron","basic","baste","bath","bayou","beige","beset","bevel","bewail","bicep","bilge","bingo","biome","birch","bison","blaze","bless","blimp","bliss","bloom","blurt","blond","bluer","blunt","boggy","bonus","bored","both","bound","braid","brash","brave","brawn","brawl","braze","bream","broil","brook","brood","broth","brown","budge","bulge","bully","bumpy","buxom","bylaw","cadet","camel","candy","carat","cargo","cedar","chalk","chant","chard","cheap","cheek","chess","chide","choir","chore","churn","civic","clamp","clang","clash","clasp","cleft","click","cling","clink","cloak","cramp","cranky","creak","creed","crisp","croft","croup","crowd","crust","crypt","cubby","curry","dally","dated","daunt","debar","decal","decoy","delta","depot","derby","dingo","dingy","disco","ditty","dolly","donut","douse","dowel","drown","duchy","dumpy","dunce","eager","early","ebony","eclat","egret","elbow","elder","elfin","elide","elude","ember","emend","empty","enemy","enjoy","envoy","epoch","equip","erode","errant","esteem","evade","exact","exert","expo","extra","exude","fable","facet","fancy","fangs","fargo","fauna","feast","felon","femur","fetid","feuds","filmy","finch","flair","flank","flare","flask","flesh","flinch","flung","focus","folly","forge","forte","frail","franc","fraud","froth","frugal","fryer","fugue","fully","fungi","fusty","gauzy","gavel","gecko","giddy","gimpy","gland","glare","glaze","gleam","glide","glint","gloom","glyph","gnarly","graft","grail","grape","grasp","graze","greed","greet","grief","grill","grimy","gripe","groan","grope","grout","grove","gruel","grunt","guava","guild","guile","gulch","gurgle","gusto","gutsy","gypsy","haste","hasty","hatch","haunt","haven","hedge","helix","henna","hippo","hoard","hoary","hobnob","holly","hotly","huddle","hulky","humph","husky","hyena","icily","ident","idyll","inept","infer","ingot","inky","inner","ivory","jabby","jerky","jewel","jiffy","jolly","jubilee","juicy","jumpy","karst","kinky","knave","kneel","knotty","kudzu","lanky","latch","lathy","lathe","lax","leapt","ledge","leech","lemur","liege","lilac","limbo","lithe","livid","lodge","lofty","loggy","loose","lousy","lowly","lucid","lumpy","lusty","lyric","magic","major","manga","mangy","manly","mantle","maple","march","mealy","medic","mercy","mealy","meter","minty","mirth","mitre","mobster","molten","money","monks","moody","mopey","mound","mourn","muddy","muggy","murky","musty","myrrh","nabob","nasty","neigh","newsy","nicer","nicety","nifty","ninety","noble","noise","nosey","notch","novice","nubile","nutty","oaken","obtuse","ochre","olive","onset","onyx","ooze","optic","other","ought","outfit","ounce","overt","oxide","ozone","paddy","parch","parka","parry","perky","petty","phony","pixel","place","plait","plasm","pleat","pluck","plunk","pouty","privy","probe","prowl","psalm","pulpy","pushy","pygmy","quaff","qualm","quant","query","rabbi","radix","raspy","reedy","relax","remix","repay","repel","repot","repute","retch","retro","rhyme","ribald","rider","right","ripen","risky","rivet","rogue","rover","rowdy","rugby","ruddy","rumba","rummy","runty","rusty","saber","sandy","sappy","savor","scary","seedy","septic","shady","shaky","shale","shame","share","sharp","shave","sheen","shrug","silky","silly","sirup","sixth","sixty","sleet","sleek","sleep","slime","slunk","smoky","snaky","sneaky","sneak","snide","sniff","soggy","solar","somber","sonic","sorry","spade","spare","speck","spied","spiky","spiny","splat","spoof","spout","spray","sprig","spunk","squad","squat","squid","stale","stalk","stall","stamp","stank","stark","stark","steep","stern","stiff","stink","stomp","stoop","store","storm","story","strap","straw","stray","strum","strut","stuck","stump","stung","stunk","style","swamp","swear","sweat","sweep","swiped","syrup","tabby","tacky","tangy","tardy","tawny","testy","thatch","three","threw","thrum","tibia","tidy","tipsy","toady","today","tonic","totem","toxic","tread","treat","treed","tripe","troll","troop","troth","tuber","tubby","tumor","turvy","twang","tweed","twirl","ultra","uncut","unfit","unify","upend","upset","urban","usurp","utter","vague","vapid","vault","verse","vigor","viral","visit","vital","vivid","vocal","vogue","voila","vouch","wager","waltz","warty","waver","wedge","weedy","witty","woeful","woozy","wordy","wormy","wrath","wring","yadda","yippy","yokel","yucky","zappy","zesty","zippy"];
+
+var WORDLISTS = { long: EFF_LONG, short: EFF_SHORT, typo: EFF_TYPO };
+var BITS_PER_WORD = { long: 12.9, short: 10.3, typo: 10.3 };
+var WORDLIST_SIZES = { long: 7776, short: 1296, typo: 1296 };
+
+var wordCount = 5;
+var saved = [];
+
+function cryptoIndex(max) {
+  var buf = new Uint32Array(1);
+  crypto.getRandomValues(buf);
+  return buf[0] % max;
+}
+
+function pickWord(list) {
+  return list[cryptoIndex(list.length)];
+}
+
+function applyFormat(words, sep, caps) {
+  var processed = words.map(function(w) {
+    if (sep === 'none') {
+      return caps ? (w.charAt(0).toUpperCase() + w.slice(1)) : w;
+    }
+    return caps ? (w.charAt(0).toUpperCase() + w.slice(1)) : w.toLowerCase();
+  });
+  var sepChar = { hyphen: '-', space: ' ', period: '.', none: '' }[sep] || '-';
+  return processed.join(sepChar);
+}
+
+function generateOne(list, sep, caps) {
+  var words = [];
+  for (var i = 0; i < wordCount; i++) {
+    words.push(pickWord(list));
+  }
+  return applyFormat(words, sep, caps);
+}
+
+function getEntropy() {
+  var wl = document.getElementById('dw-wordlist').value;
+  var bits = BITS_PER_WORD[wl] * wordCount;
+  return Math.round(bits * 10) / 10;
+}
+
+function updateEntropy() {
+  var bits = getEntropy();
+  var fill = document.getElementById('dw-entropy-fill');
+  var bitsEl = document.getElementById('dw-bits');
+  var labelEl = document.getElementById('dw-label');
+  var strengthEl = document.getElementById('dw-strength');
+  var crackEl = document.getElementById('dw-crack');
+
+  bitsEl.textContent = bits + ' bits';
+
+  var pct = Math.min(100, (bits / 128) * 100);
+  fill.style.width = pct + '%';
+
+  var strength, color;
+  if (bits < 40) { strength = 'Weak'; color = '#E24B4A'; }
+  else if (bits < 60) { strength = 'Fair'; color = '#E88C30'; }
+  else if (bits < 80) { strength = 'Strong'; color = '#4B9E5F'; }
+  else { strength = 'Very strong'; color = '#2B6B3E'; }
+
+  fill.style.backgroundColor = color;
+  labelEl.textContent = 'bits entropy';
+  labelEl.style.color = color;
+  strengthEl.textContent = '— ' + strength;
+
+  var attackSpeed = 1e14;
+  var seconds = Math.pow(2, bits) / attackSpeed;
+  var crackStr;
+  if (seconds < 60) crackStr = 'Cracks in under a minute at 100T guesses/sec';
+  else if (seconds < 3600) crackStr = 'Cracks in ' + Math.round(seconds/60) + ' minutes at 100T guesses/sec';
+  else if (seconds < 86400) crackStr = 'Cracks in ' + Math.round(seconds/3600) + ' hours at 100T guesses/sec';
+  else if (seconds < 31536000) crackStr = 'Cracks in ' + Math.round(seconds/86400) + ' days at 100T guesses/sec';
+  else if (seconds < 3.15e10) crackStr = 'Cracks in ' + Math.round(seconds/31536000).toLocaleString() + ' years at 100T guesses/sec';
+  else crackStr = 'Would take ' + (seconds/31536000).toExponential(1) + ' years at 100T guesses/sec';
+  crackEl.textContent = crackStr;
+}
+
+function generate() {
+  var wl = document.getElementById('dw-wordlist').value;
+  var list = WORDLISTS[wl];
+  var sep = document.getElementById('dw-sep').value;
+  var caps = document.getElementById('dw-caps').checked;
+  var count = Math.max(1, Math.min(20, parseInt(document.getElementById('dw-count').value) || 5));
+
+  document.getElementById('dw-count-display').textContent = count + ' passphrase' + (count !== 1 ? 's' : '');
+  updateEntropy();
+
+  var ul = document.getElementById('dw-list');
+  ul.innerHTML = '';
+  for (var i = 0; i < count; i++) {
+    var phrase = generateOne(list, sep, caps);
+    ul.appendChild(makeItem(phrase));
+  }
+
+  updateCompareHighlight();
+}
+
+function makeItem(phrase) {
+  var li = document.createElement('li');
+  li.className = 'word-item';
+  var charCount = phrase.length;
+  li.innerHTML = '<div class="word-left">'
+    + '<div class="pp-phrase">' + phrase + '</div>'
+    + '<div class="pp-char-count">' + charCount + ' characters</div>'
+    + '</div>'
+    + '<div class="word-right">'
+    + '<button class="icon-btn heart-btn" aria-label="Save passphrase">'
+      + '<svg viewBox="0 0 14 14" fill="none"><path d="M7 12S1.5 8 1.5 4.5a2.5 2.5 0 0 1 5-0c.3-.8 1-1.3 1.9-1.3A2.5 2.5 0 0 1 12.5 5C12.5 8 7 12 7 12z" stroke="currentColor" stroke-width="1.2"/></svg>'
+    + '</button>'
+    + '<button class="icon-btn copy-btn" aria-label="Copy passphrase">'
+      + '<svg viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="8" height="8" rx="1.5" stroke="currentColor" stroke-width="1.2"/><path d="M4 4V2.5A1.5 1.5 0 0 1 5.5 1h6A1.5 1.5 0 0 1 13 2.5v6A1.5 1.5 0 0 1 11.5 10H10" stroke="currentColor" stroke-width="1.2"/></svg>'
+    + '</button>'
+    + '</div>';
+
+  li.querySelector('.copy-btn').addEventListener('click', function() {
+    copyText(phrase, this);
+  });
+  li.querySelector('.heart-btn').addEventListener('click', function() {
+    var btn = this;
+    if (saved.indexOf(phrase) === -1) {
+      saved.push(phrase);
+      btn.classList.add('saved');
+    } else {
+      saved = saved.filter(function(s) { return s !== phrase; });
+      btn.classList.remove('saved');
+    }
+    renderSaved();
+  });
+  return li;
+}
+
+function copyText(text, btn) {
+  navigator.clipboard.writeText(text).then(function() {
+    var orig = btn.innerHTML;
+    btn.innerHTML = '<svg viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 3" stroke="var(--brand)" stroke-width="1.5" stroke-linecap="round"/></svg>';
+    setTimeout(function() { btn.innerHTML = orig; }, 1200);
+  });
+}
+
+function renderSaved() {
+  var container = document.getElementById('dw-saved-tags');
+  if (saved.length === 0) {
+    container.innerHTML = '<span class="saved-empty">Heart a passphrase to save it here</span>';
+    return;
+  }
+  container.innerHTML = '';
+  saved.forEach(function(phrase, i) {
+    var tag = document.createElement('span');
+    tag.className = 'saved-tag';
+    tag.innerHTML = phrase + '<span class="saved-tag-remove" data-idx="' + i + '">×</span>';
+    tag.querySelector('.saved-tag-remove').addEventListener('click', function() {
+      saved.splice(parseInt(this.dataset.idx), 1);
+      renderSaved();
+    });
+    container.appendChild(tag);
+  });
+}
+
+function updateCompareHighlight() {
+  var wl = document.getElementById('dw-wordlist').value;
+  document.querySelectorAll('#dw-compare-table tbody tr').forEach(function(tr) {
+    tr.classList.toggle('active-wl', tr.dataset.wl === wl);
+  });
+}
+
+// Word count controls
+document.getElementById('dw-minus').addEventListener('click', function() {
+  if (wordCount > 3) { wordCount--; document.getElementById('dw-wc-display').textContent = wordCount; updateEntropy(); }
+});
+document.getElementById('dw-plus').addEventListener('click', function() {
+  if (wordCount < 10) { wordCount++; document.getElementById('dw-wc-display').textContent = wordCount; updateEntropy(); }
+});
+
+document.getElementById('dw-gen-btn').addEventListener('click', generate);
+document.getElementById('dw-regen').addEventListener('click', generate);
+document.getElementById('dw-wordlist').addEventListener('change', function() { updateEntropy(); updateCompareHighlight(); });
+document.getElementById('dw-sep').addEventListener('change', generate);
+document.getElementById('dw-caps').addEventListener('change', generate);
+document.getElementById('dw-count').addEventListener('change', generate);
+
+document.getElementById('dw-reset-btn').addEventListener('click', function() {
+  document.getElementById('dw-wordlist').value = 'long';
+  document.getElementById('dw-sep').value = 'hyphen';
+  document.getElementById('dw-count').value = 5;
+  document.getElementById('dw-caps').checked = true;
+  wordCount = 5;
+  document.getElementById('dw-wc-display').textContent = '5';
+  generate();
+});
+
+document.getElementById('dw-copy-all').addEventListener('click', function() {
+  var phrases = Array.from(document.querySelectorAll('#dw-list .pp-phrase')).map(function(el) { return el.textContent; });
+  navigator.clipboard.writeText(phrases.join('\n'));
+});
+document.getElementById('dw-copy-saved').addEventListener('click', function() {
+  if (saved.length) navigator.clipboard.writeText(saved.join('\n'));
+});
+
+document.addEventListener('keydown', function(e) {
+  if (e.code === 'Space' && e.target === document.body) { e.preventDefault(); generate(); }
+});
+
+generate();
+
+})();
+</script>
+</body>
+</html>
