@@ -12,6 +12,7 @@ import json
 import os
 import re
 import shutil
+from datetime import datetime, timezone
 
 ROOT      = os.path.dirname(os.path.abspath(__file__))
 TMPL_DIR  = os.path.join(ROOT, 'template')
@@ -265,6 +266,31 @@ def build_footer_cols(footer_cols):
     return '\n'.join(cols)
 
 
+def build_related_html(url, data):
+    related = data.get('page_meta', {}).get(url, {}).get('related', [])
+    if not related:
+        return ''
+    links = '\n'.join(
+        f'    <a class="related-link" href="{r["href"]}">{r["text"]}</a>'
+        for r in related
+    )
+    return (
+        '\n<div class="related-tools">'
+        '\n  <h3 class="related-title">Related tools &amp; guides</h3>'
+        '\n  <div class="related-links">\n'
+        + links +
+        '\n  </div>'
+        '\n</div>\n'
+    )
+
+
+def build_og_image_tag(url, data, meta_slot):
+    if 'og:image' in meta_slot:
+        return ''  # page already declares its own og:image
+    og = data.get('page_meta', {}).get(url, {}).get('ogImage') or '/og-default.jpg'
+    return f'<meta property="og:image" content="https://wordineer.com{og}">'
+
+
 # ── page builder ─────────────────────────────────────────────────────────────
 
 def build_page(src_path, data):
@@ -286,6 +312,11 @@ def build_page(src_path, data):
     footer_cols_html = build_footer_cols(data['footer_cols'])
     breadcrumb_html, breadcrumb_schema_html = build_breadcrumb(active_url, data, cfg)
 
+    # Related tools and og:image from page_meta
+    related_html  = build_related_html(active_url, data)
+    og_image_tag  = build_og_image_tag(active_url, data, slots['meta'])
+    build_stamp   = f'<!-- build: {datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")} -->\n'
+
     # Load shared template fragments
     head   = read(os.path.join(TMPL_DIR, 'head.html'))
     nav    = read(os.path.join(TMPL_DIR, 'nav.html'))
@@ -294,19 +325,21 @@ def build_page(src_path, data):
     # Inject slots into shared templates
     head   = (head
         .replace('{{META}}', slots['meta'])
+        .replace('{{OG_IMAGE}}', og_image_tag)
         .replace('{{HEAD_EXTRAS}}', breadcrumb_schema_html)
         .replace('{{STYLE}}', slots['style']))
     nav    = nav.replace('{{MEGA_COLS}}', mega_html)
     footer = footer.replace('{{FOOTER_COLS}}', footer_cols_html)
 
     if page_type == 'content':
-        # Simple layout: head → nav → hero → content → footer
+        # Simple layout: head → nav → hero → content → related → footer
         page = '\n'.join([
-            head,
+            build_stamp + head,
             '<body>',
             nav,
             slots['hero'],
             slots['content'],
+            related_html,
             footer,
             '</body>',
             '</html>',
@@ -325,10 +358,11 @@ def build_page(src_path, data):
             .replace('{{OTHER_GRID}}', other_grid_html)
             .replace('{{EXPLAINER}}',  slots['explainer'])
             .replace('{{FAQ}}',        slots['faq'])
-            .replace('{{WHO}}',        slots['who']))
+            .replace('{{WHO}}',        slots['who'])
+            .replace('{{RELATED_TOOLS}}', related_html))
 
         page = '\n'.join([
-            head,
+            build_stamp + head,
             '<body>',
             nav,
             breadcrumb_html,
