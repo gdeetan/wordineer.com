@@ -1,0 +1,379 @@
+<!-- CONFIG
+{
+  "url": "/rock-paper-scissors/",
+  "output": "rock-paper-scissors.html",
+  "type": "tool",
+  "more_tools_key": "more_chance_tools",
+  "more_tools_title": "More number & chance tools",
+  "more_tools_subtitle": "Dice, coin flips, spinners, and more — all free"
+}
+-->
+
+<!-- SLOT:meta -->
+<title>Rock Paper Scissors — Play Online vs Computer | Wordineer</title>
+<meta name="description" content="Play Rock Paper Scissors against the computer. Tracks your score and win streak. Free, no sign-up, works on any device.">
+<link rel="canonical" href="https://wordineer.com/rock-paper-scissors/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wordineer">
+<meta property="og:title" content="Rock Paper Scissors | Wordineer">
+<meta property="og:description" content="Play Rock Paper Scissors against the computer. Tracks your score and win streak. Free, no sign-up, works on any device.">
+<meta property="og:url" content="https://wordineer.com/rock-paper-scissors/">
+<meta property="og:image" content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What are the rules of Rock Paper Scissors?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Rock Paper Scissors is a three-choice hand game where each option beats one and loses to one: Rock crushes Scissors, Scissors cuts Paper, Paper covers Rock. When both players choose the same option, it's a tie. The three-way cycle means no single choice dominates the others, making the game perfectly balanced as a fair random tiebreaker." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the best strategy for Rock Paper Scissors?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Against a truly random computer opponent, no strategy can improve your expected win rate above 33.3% — the Nash equilibrium is to also play randomly, one-third each. Against a human opponent, psychology and pattern recognition matter: people tend to repeat a winning move, avoid throwing the option they just lost with, and statistically throw Rock most often as their first move. Against humans, throwing Paper slightly more often exploits the Rock bias." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the probability of winning Rock Paper Scissors?",
+      "acceptedAnswer": { "@type": "Answer", "text": "When both players choose randomly, the probability is exactly 1/3 (33.3%) to win, 1/3 to lose, and 1/3 to tie each round. Over many rounds against a random opponent, your win, loss, and tie counts should converge toward equal thirds — this tool tracks your running session totals so you can observe this in practice." }
+    },
+    {
+      "@type": "Question",
+      "name": "How is Rock Paper Scissors used to make decisions?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Rock Paper Scissors is used worldwide as a neutral, fast tiebreaker that both parties accept as fair because neither side has an inherent advantage. Famous uses include a 2005 Christie's vs. Sotheby's auction decided this way, playground disputes, sports tie-breaking, and business decisions. International RPS championships are held annually, with strategy and psychology playing real roles in competitive play." }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Rock Paper Scissors",
+  "url": "https://wordineer.com/rock-paper-scissors/",
+  "description": "Play Rock Paper Scissors against the computer. Tracks your score and win streak. Free, no sign-up, works on any device.",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@id": "https://wordineer.com/#organization" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Number &amp; Chance Tools", "item": "https://wordineer.com/number-chance/" },
+    { "@type": "ListItem", "position": 3, "name": "Rock Paper Scissors", "item": "https://wordineer.com/rock-paper-scissors/" }
+  ]
+}
+</script>
+<!-- /SLOT:meta -->
+
+<!-- SLOT:style -->
+<style>
+/* ── Rock Paper Scissors ── */
+.rps-wrap { max-width: 540px; margin: 0 auto; padding: 24px 24px 0; }
+.rps-card { border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--bg); box-shadow: var(--shadow); padding: 32px 24px 24px; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+
+/* Score display */
+.rps-score { display: flex; gap: 0; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; width: 100%; }
+.rps-score-item { flex: 1; padding: 10px 8px; text-align: center; background: var(--bg-2); }
+.rps-score-item:not(:last-child) { border-right: 1px solid var(--border); }
+.rps-score-num { font-size: 1.6rem; font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; }
+.rps-score-num.you { color: var(--brand); }
+.rps-score-num.ties { color: var(--text-3); }
+.rps-score-num.cpu { color: #DC2626; }
+.rps-score-label { font-size: 10px; font-weight: 600; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.07em; margin-top: 3px; }
+
+/* VS display */
+.rps-arena { display: flex; align-items: center; justify-content: center; gap: 24px; width: 100%; }
+.rps-player { display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1; }
+.rps-player-label { font-size: 10px; font-weight: 700; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.07em; }
+.rps-icon { font-size: 3.5rem; line-height: 1; min-height: 1.2em; display: flex; align-items: center; justify-content: center; transition: transform 0.2s; }
+.rps-icon.reveal { animation: rps-pop 0.3s ease; }
+@keyframes rps-pop { 0% { transform: scale(0.5); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+.rps-vs { font-size: 1rem; font-weight: 700; color: var(--text-3); }
+
+/* Result */
+.rps-result { font-size: 1.2rem; font-weight: 800; text-align: center; min-height: 1.5em; }
+.rps-result.win { color: #1D9E75; }
+.rps-result.lose { color: #DC2626; }
+.rps-result.tie { color: var(--text-2); }
+.rps-result-detail { font-size: 12px; color: var(--text-3); text-align: center; min-height: 1.2em; }
+
+/* Choice buttons */
+.rps-choices { display: flex; gap: 12px; justify-content: center; }
+.rps-choice-btn { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 14px 18px; border: 2px solid var(--border); border-radius: 12px; background: var(--bg); cursor: pointer; font-family: inherit; transition: border-color 0.15s, background 0.15s, transform 0.1s; }
+.rps-choice-btn:hover { border-color: var(--brand); background: var(--bg-2); }
+.rps-choice-btn:active { transform: scale(0.95); }
+.rps-choice-btn.selected { border-color: var(--brand); background: var(--bg-2); }
+.rps-choice-icon { font-size: 2rem; line-height: 1; }
+.rps-choice-label { font-size: 11px; font-weight: 700; color: var(--text-2); text-transform: uppercase; letter-spacing: 0.05em; }
+
+/* Streak */
+.rps-streak { font-size: 11px; color: var(--text-3); text-align: center; min-height: 1.2em; }
+
+@media (max-width: 480px) {
+  .rps-wrap { padding: 14px 14px 0; }
+  .rps-card { padding: 24px 14px 20px; gap: 16px; }
+  .rps-choice-btn { padding: 12px 14px; }
+  .rps-choice-icon { font-size: 1.6rem; }
+}
+</style>
+<!-- /SLOT:style -->
+
+<!-- SLOT:hero -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/number-chance/">Number &amp; Chance Tools</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Rock Paper Scissors</span>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free · No sign-up · Instant
+  </div>
+  <h1>Rock Paper Scissors</h1>
+  <p>Play Rock Paper Scissors against the computer. The computer picks randomly — your skill is predicting the pattern. Tracks your score and win streak across the session.</p>
+</div>
+<!-- /SLOT:hero -->
+
+<!-- SLOT:tool -->
+<div class="rps-wrap">
+  <div class="rps-card">
+    <!-- Score -->
+    <div class="rps-score">
+      <div class="rps-score-item">
+        <div class="rps-score-num you" id="rps-score-you">0</div>
+        <div class="rps-score-label">You</div>
+      </div>
+      <div class="rps-score-item">
+        <div class="rps-score-num ties" id="rps-score-ties">0</div>
+        <div class="rps-score-label">Ties</div>
+      </div>
+      <div class="rps-score-item">
+        <div class="rps-score-num cpu" id="rps-score-cpu">0</div>
+        <div class="rps-score-label">Computer</div>
+      </div>
+    </div>
+
+    <!-- Arena -->
+    <div class="rps-arena">
+      <div class="rps-player">
+        <div class="rps-player-label">You</div>
+        <div class="rps-icon" id="rps-icon-you">🤜</div>
+      </div>
+      <div class="rps-vs">VS</div>
+      <div class="rps-player">
+        <div class="rps-player-label">Computer</div>
+        <div class="rps-icon" id="rps-icon-cpu">🤜</div>
+      </div>
+    </div>
+
+    <!-- Result -->
+    <div class="rps-result" id="rps-result" aria-live="polite" aria-atomic="true">Choose your move below</div>
+    <div class="rps-result-detail" id="rps-result-detail"></div>
+
+    <!-- Choice buttons -->
+    <div class="rps-choices">
+      <button class="rps-choice-btn" id="rps-rock" type="button" data-choice="rock">
+        <span class="rps-choice-icon">🪨</span>
+        <span class="rps-choice-label">Rock</span>
+      </button>
+      <button class="rps-choice-btn" id="rps-paper" type="button" data-choice="paper">
+        <span class="rps-choice-icon">📄</span>
+        <span class="rps-choice-label">Paper</span>
+      </button>
+      <button class="rps-choice-btn" id="rps-scissors" type="button" data-choice="scissors">
+        <span class="rps-choice-icon">✂️</span>
+        <span class="rps-choice-label">Scissors</span>
+      </button>
+    </div>
+
+    <!-- Streak -->
+    <div class="rps-streak" id="rps-streak"></div>
+  </div>
+</div>
+<!-- /SLOT:tool -->
+
+<!-- SLOT:ad_b -->
+<div class="content-wrap" style="margin-top:32px">
+  <div class="ad-rect">
+    <span class="ad-tag">Advertisement · 336×280</span>
+    <div class="ad-rect-img"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4C10.3 4 4 10.3 4 18s6.3 14 14 14 14-6.3 14-14S25.7 4 18 4z" fill="white" opacity=".2"/><path d="M12 18c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="18" r="2.5" fill="white"/></svg></div>
+    <div class="ad-rect-content">
+      <div class="ad-rect-title">Grammarly — write with confidence</div>
+      <div class="ad-rect-body">Grammar, tone &amp; clarity. Used by 30 million people. Works in Google Docs, Gmail, Word and more.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
+    </div>
+  </div>
+</div>
+<!-- /SLOT:ad_b -->
+
+<!-- SLOT:explainer -->
+<div class="explainer">
+  <h2>How does Rock Paper Scissors work?</h2>
+  <p>Rock Paper Scissors is a simultaneous hand game where each of the three choices beats one and loses to one: Rock crushes Scissors, Scissors cuts Paper, Paper covers Rock. When both players choose the same thing, it's a tie. This creates a perfectly balanced three-way cycle — no single choice dominates the others, making the game a fair random tiebreaker when both players choose without knowing the other's pick.</p>
+  <h2>Is there a winning strategy against the computer?</h2>
+  <p>In this tool, the computer picks Rock, Paper, or Scissors with equal 33.3% probability each round — it has no memory of previous rounds and uses no pattern. Against a truly random opponent, no strategy can improve your expected win rate above 33.3%. However, in real play against a human, psychology matters: people tend to repeat winning moves, throw the losing move less after a loss, and "Rock" is statistically the most common first throw. Against a human opponent, throw Paper more often to exploit Rock bias.</p>
+  <h2>Uses in classrooms and decisions</h2>
+  <p>Rock Paper Scissors is one of the most widely used decision-making tools in the world — from settling playground disputes to major business decisions (a 2005 Sotheby's auction between Christie's and Sotheby's was decided this way). Teachers use it to introduce probability concepts (equal 1/3 outcomes), game theory (Nash equilibrium — the optimal mixed strategy is random 1/3 each), and even evolutionary biology (lizard-lizard-rock cycles in nature).</p>
+</div>
+<!-- /SLOT:explainer -->
+
+<!-- SLOT:faq -->
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+
+  <details class="faq-item">
+    <summary class="faq-q">What are the rules of Rock Paper Scissors?</summary>
+    <div class="faq-a">Rock Paper Scissors is a three-choice hand game where each option beats one and loses to one: Rock crushes Scissors, Scissors cuts Paper, Paper covers Rock. When both players choose the same option, it's a tie. The three-way cycle means no single choice dominates the others, making the game perfectly balanced as a fair random tiebreaker.</div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">What is the best strategy for Rock Paper Scissors?</summary>
+    <div class="faq-a">Against a truly random computer opponent, no strategy can improve your expected win rate above 33.3% — the Nash equilibrium is to also play randomly, one-third each. Against a human opponent, psychology and pattern recognition matter: people tend to repeat a winning move, avoid throwing the option they just lost with, and statistically throw Rock most often as their first move. Against humans, throwing Paper slightly more often exploits the Rock bias.</div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">What is the probability of winning Rock Paper Scissors?</summary>
+    <div class="faq-a">When both players choose randomly, the probability is exactly 1/3 (33.3%) to win, 1/3 to lose, and 1/3 to tie each round. Over many rounds against a random opponent, your win, loss, and tie counts should converge toward equal thirds — this tool tracks your running session totals so you can observe this in practice.</div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">How is Rock Paper Scissors used to make decisions?</summary>
+    <div class="faq-a">Rock Paper Scissors is used worldwide as a neutral, fast tiebreaker that both parties accept as fair because neither side has an inherent advantage. Famous uses include a 2005 Christie's vs. Sotheby's auction decided this way, playground disputes, sports tie-breaking, and business decisions. International RPS championships are held annually, with strategy and psychology playing real roles in competitive play.</div>
+  </details>
+</div>
+<!-- /SLOT:faq -->
+
+<!-- SLOT:who -->
+<div>
+  <h2 class="section-title" style="margin-bottom:14px">Who uses this tool</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">Decision makers</div><div class="uc-body">Settle disputes and make quick binary choices with a neutral random tiebreaker that both parties accept as fair.</div></div>
+    <div class="uc"><div class="uc-title">Students</div><div class="uc-body">Practice probability concepts — track session results and observe that each choice really does win, lose, and tie about equally over many rounds.</div></div>
+    <div class="uc"><div class="uc-title">Teachers</div><div class="uc-body">Introduce game theory and Nash equilibria: the only optimal strategy against a random opponent is to also play randomly, which this tool demonstrates live.</div></div>
+    <div class="uc"><div class="uc-title">Game players</div><div class="uc-body">Warm up before tournaments or practice reading patterns in their own choices — most people aren't as random as they think.</div></div>
+  </div>
+</div>
+<!-- /SLOT:who -->
+
+<!-- SLOT:init -->
+<script>
+const WORDINEER_RPS = (() => {
+  const CHOICES = ['rock', 'paper', 'scissors'];
+  const ICONS = { rock: '🪨', paper: '📄', scissors: '✂️' };
+  const BEATS = { rock: 'scissors', scissors: 'paper', paper: 'rock' };
+  const DETAIL = {
+    'rock-scissors': 'Rock crushes Scissors.',
+    'scissors-paper': 'Scissors cuts Paper.',
+    'paper-rock': 'Paper covers Rock.'
+  };
+
+  let score = { you: 0, cpu: 0, ties: 0 };
+  let winStreak = 0;
+  let bestStreak = 0;
+
+  let iconYou, iconCpu, resultEl, detailEl, streakEl;
+  let scoreYou, scoreCpu, scoreTies;
+
+  function play(choice) {
+    const cpu = CHOICES[Math.floor(Math.random() * 3)];
+
+    // Update icons
+    iconYou.textContent = ICONS[choice];
+    iconYou.classList.add('reveal');
+    iconCpu.textContent = ICONS[cpu];
+    iconCpu.classList.add('reveal');
+    setTimeout(function() {
+      iconYou.classList.remove('reveal');
+      iconCpu.classList.remove('reveal');
+    }, 400);
+
+    // Determine result
+    var result, detail;
+    if (choice === cpu) {
+      result = 'tie';
+      detail = "It's a tie!";
+      score.ties++;
+      winStreak = 0;
+    } else if (BEATS[choice] === cpu) {
+      result = 'win';
+      detail = DETAIL[choice + '-' + cpu] + ' You win!';
+      score.you++;
+      winStreak++;
+      if (winStreak > bestStreak) bestStreak = winStreak;
+    } else {
+      result = 'lose';
+      detail = DETAIL[cpu + '-' + choice] + ' Computer wins.';
+      score.cpu++;
+      winStreak = 0;
+    }
+
+    var labels = { win: 'You win! 🎉', lose: 'Computer wins.', tie: "It's a tie!" };
+    resultEl.textContent = labels[result];
+    resultEl.className = 'rps-result ' + result;
+    detailEl.textContent = detail;
+
+    scoreYou.textContent = score.you;
+    scoreCpu.textContent = score.cpu;
+    scoreTies.textContent = score.ties;
+
+    // Streak note
+    if (winStreak >= 3) {
+      streakEl.textContent = 'Win streak: ' + winStreak + (bestStreak > winStreak ? ' · Best: ' + bestStreak : '');
+    } else if (winStreak === 0 && bestStreak > 0) {
+      streakEl.textContent = 'Best win streak: ' + bestStreak;
+    } else {
+      streakEl.textContent = '';
+    }
+
+    // Highlight selected button briefly
+    document.querySelectorAll('.rps-choice-btn').forEach(function(btn) {
+      btn.classList.toggle('selected', btn.dataset.choice === choice);
+    });
+    setTimeout(function() {
+      document.querySelectorAll('.rps-choice-btn').forEach(function(btn) { btn.classList.remove('selected'); });
+    }, 600);
+  }
+
+  function init() {
+    iconYou   = document.getElementById('rps-icon-you');
+    iconCpu   = document.getElementById('rps-icon-cpu');
+    resultEl  = document.getElementById('rps-result');
+    detailEl  = document.getElementById('rps-result-detail');
+    streakEl  = document.getElementById('rps-streak');
+    scoreYou  = document.getElementById('rps-score-you');
+    scoreCpu  = document.getElementById('rps-score-cpu');
+    scoreTies = document.getElementById('rps-score-ties');
+
+    document.querySelectorAll('.rps-choice-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() { play(btn.dataset.choice); });
+    });
+
+    document.querySelectorAll('.faq-item summary').forEach(function(s) {
+      s.addEventListener('click', function(e) {
+        e.preventDefault();
+        var item = s.closest('.faq-item');
+        var wasOpen = item.hasAttribute('open');
+        document.querySelectorAll('.faq-item[open]').forEach(function(i) { i.removeAttribute('open'); });
+        if (!wasOpen) item.setAttribute('open', '');
+      });
+    });
+  }
+
+  return { init: init };
+})();
+
+document.addEventListener('DOMContentLoaded', WORDINEER_RPS.init);
+</script>
+<!-- /SLOT:init -->

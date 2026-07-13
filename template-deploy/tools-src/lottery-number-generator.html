@@ -1,0 +1,548 @@
+<!-- CONFIG
+{
+  "url": "/lottery-number-generator/",
+  "output": "lottery-number-generator.html",
+  "type": "tool",
+  "more_tools_key": "more_chance_tools",
+  "more_tools_title": "More number & chance tools",
+  "more_tools_subtitle": "Dice, coin flips, spinners, and more — all free"
+}
+-->
+
+<!-- SLOT:meta -->
+<title>Lottery Number Generator — Random Lucky Numbers | Wordineer</title>
+<meta name="description" content="Generate 6 random lottery numbers from 1–49 instantly. Lottery-ball style display, copy your numbers, and generate as many sets as you need. Free, no sign-up.">
+<link rel="canonical" href="https://wordineer.com/lottery-number-generator/">
+<meta property="og:type"        content="website">
+<meta property="og:site_name"   content="Wordineer">
+<meta property="og:title"       content="Lottery Number Generator | Wordineer">
+<meta property="og:description" content="Generate 6 random lottery numbers from 1–49 instantly. Lottery-ball display, copy button, multiple sets. Free.">
+<meta property="og:url"         content="https://wordineer.com/lottery-number-generator/">
+<meta property="og:image"       content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How are lottery numbers generated?",
+      "acceptedAnswer": { "@type": "Answer", "text": "This tool uses the Fisher-Yates shuffle algorithm to randomly pick 6 unique numbers from 1 to 49, matching the format used by many major lotteries worldwide including the UK National Lottery and many international draws. Every number from 1–49 has an equal probability of appearing." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I generate multiple sets at once?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Use the Sets field to choose between 1 and 10 sets of lottery numbers. Each set is fully unique within itself (no duplicate numbers in a single line), though the same number may appear across different sets." }
+    },
+    {
+      "@type": "Question",
+      "name": "Are randomly generated lottery numbers as good as picking my own?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes — every combination has an equal probability of winning. Studies show that randomly generated numbers are slightly better in practice because popular 'lucky' numbers (birthdays, sequences like 1-2-3) lead to shared jackpots when they win. Random picks reduce the chance of splitting a prize." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the 1–49 lottery format?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The 6/49 format (pick 6 from 49) is one of the most common lottery formats globally, used by the UK National Lottery, Canada Lotto 6/49, and many other draws. You pick 6 numbers and match as many as possible to the drawn numbers to win prizes." }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Lottery Number Generator",
+  "url": "https://wordineer.com/lottery-number-generator/",
+  "description": "Generate 6 random lottery numbers from 1–49 instantly. Lottery-ball display, multiple sets, copy button.",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@id": "https://wordineer.com/#organization" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Number &amp; Chance Tools", "item": "https://wordineer.com/number-chance/" },
+    { "@type": "ListItem", "position": 3, "name": "Lottery Number Generator", "item": "https://wordineer.com/lottery-number-generator/" }
+  ]
+}
+</script>
+<!-- /SLOT:meta -->
+
+<!-- SLOT:style -->
+<style>
+/* ── Lottery Number Generator ── */
+.lng-wrap {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 24px 24px 0;
+}
+.lng-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--bg);
+  box-shadow: var(--shadow);
+  padding: 32px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+}
+
+/* Ball row */
+.lng-balls {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  min-height: 68px;
+  align-items: center;
+}
+.lng-ball {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 36% 32%, #fff6 25%, transparent 60%), var(--brand);
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-variant-numeric: tabular-nums;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.18);
+  transition: transform 0.15s, opacity 0.08s;
+  opacity: 0;
+  transform: scale(0.6) translateY(8px);
+  letter-spacing: -0.01em;
+}
+.lng-ball.is-shown {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  transition: opacity 0.2s cubic-bezier(.3,1.4,.6,1), transform 0.2s cubic-bezier(.3,1.4,.6,1);
+}
+.lng-ball.ball-low  { background: radial-gradient(circle at 36% 32%, #fff6 25%, transparent 60%), #e74c3c; }
+.lng-ball.ball-mid  { background: radial-gradient(circle at 36% 32%, #fff6 25%, transparent 60%), #e67e22; }
+.lng-ball.ball-high { background: radial-gradient(circle at 36% 32%, #fff6 25%, transparent 60%), #3498db; }
+.lng-ball.ball-top  { background: radial-gradient(circle at 36% 32%, #fff6 25%, transparent 60%), #27ae60; }
+
+/* Controls */
+.lng-controls {
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.lng-sets-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.lng-sets-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.lng-sets-input {
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  font-size: 14px;
+  font-family: inherit;
+  background: var(--bg);
+  color: var(--text);
+  box-sizing: border-box;
+  outline: none;
+  text-align: center;
+  width: 72px;
+  font-variant-numeric: tabular-nums;
+}
+.lng-sets-input:focus { border-color: var(--brand); }
+
+.lng-gen-btn {
+  padding: 13px 32px;
+  background: var(--brand);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+  letter-spacing: -0.01em;
+}
+.lng-gen-btn:hover { background: var(--brand-dark); }
+.lng-gen-btn:active { transform: scale(0.97); }
+
+/* Multi-set results */
+.lng-sets-wrap {
+  width: 100%;
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+}
+.lng-sets-wrap.is-visible { display: flex; }
+.lng-set-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-2);
+}
+.lng-set-num {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-3);
+  min-width: 18px;
+}
+.lng-set-numbers {
+  flex: 1;
+  font-size: 15px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+  letter-spacing: 0.01em;
+}
+.lng-set-copy {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text-2);
+  font-size: 11px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.lng-set-copy:hover { background: var(--bg-2); color: var(--text); }
+.lng-set-copy svg { width: 11px; height: 11px; }
+
+/* Copy all + keyboard hint */
+.lng-copy-all-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 16px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: var(--bg);
+  color: var(--text-2);
+  font-size: 12px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s;
+}
+.lng-copy-all-btn:hover { background: var(--bg-2); color: var(--text); }
+.lng-copy-all-btn svg { width: 13px; height: 13px; }
+.lng-kbd {
+  font-size: 10px;
+  color: var(--text-3);
+  text-align: center;
+  margin-top: -10px;
+}
+.lng-kbd kbd {
+  background: var(--bg-3);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 1px 5px;
+  font-size: 10px;
+  font-family: inherit;
+}
+
+@media (max-width: 600px) {
+  .lng-wrap { padding: 14px 14px 0; }
+  .lng-card { padding: 24px 16px 18px; gap: 16px; }
+  .lng-ball { width: 48px; height: 48px; font-size: 1.1rem; }
+}
+</style>
+<!-- /SLOT:style -->
+
+<!-- SLOT:hero -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/number-chance/">Number &amp; Chance Tools</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Lottery Number Generator</span>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free · No sign-up · Instant
+  </div>
+  <h1>Lottery number generator</h1>
+  <p>Generate 6 random lucky lottery numbers from 1–49 instantly. Matches the standard 6/49 format used by lotteries worldwide. Generate up to 10 sets at once and copy them with one click.</p>
+</div>
+<!-- /SLOT:hero -->
+
+<!-- SLOT:tool -->
+<div class="lng-wrap">
+  <div class="lng-card">
+
+    <!-- Single-set ball display -->
+    <div class="lng-balls" id="lng-balls" aria-live="polite" aria-label="Lottery numbers">
+      <div class="lng-ball ball-low" id="lng-b0">–</div>
+      <div class="lng-ball ball-mid" id="lng-b1">–</div>
+      <div class="lng-ball ball-high" id="lng-b2">–</div>
+      <div class="lng-ball ball-top" id="lng-b3">–</div>
+      <div class="lng-ball ball-low" id="lng-b4">–</div>
+      <div class="lng-ball ball-mid" id="lng-b5">–</div>
+    </div>
+
+    <!-- Controls -->
+    <div class="lng-controls">
+      <div class="lng-sets-field">
+        <label class="lng-sets-label" for="lng-sets">Sets</label>
+        <input class="lng-sets-input" id="lng-sets" type="number" min="1" max="10" value="1" inputmode="numeric" aria-label="Number of sets">
+      </div>
+      <button class="lng-gen-btn" id="lng-gen-btn" type="button">Generate lucky numbers</button>
+    </div>
+
+    <!-- Multi-set results (shown when sets > 1) -->
+    <div class="lng-sets-wrap" id="lng-sets-wrap"></div>
+
+    <!-- Copy all (shown when sets > 1) -->
+    <button class="lng-copy-all-btn" id="lng-copy-all-btn" type="button" style="display:none">
+      <svg viewBox="0 0 14 14" fill="none"><rect x="1" y="4" width="9" height="9.5" rx="1.5" stroke="currentColor" stroke-width="1.1"/><path d="M4.5 4V2.5A1.5 1.5 0 016 1h5.5A1.5 1.5 0 0113 2.5v7a1.5 1.5 0 01-1.5 1.5H10" stroke="currentColor" stroke-width="1.1"/></svg>
+      Copy all sets
+    </button>
+
+    <div class="lng-kbd">Press <kbd>Space</kbd> or <kbd>Enter</kbd> to generate</div>
+
+  </div>
+</div>
+<!-- /SLOT:tool -->
+
+<!-- SLOT:ad_b -->
+<div class="content-wrap" style="margin-top:32px">
+  <div class="ad-rect">
+    <span class="ad-tag">Advertisement · 336×280</span>
+    <div class="ad-rect-img"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4C10.3 4 4 10.3 4 18s6.3 14 14 14 14-6.3 14-14S25.7 4 18 4z" fill="white" opacity=".2"/><path d="M12 18c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="18" r="2.5" fill="white"/></svg></div>
+    <div class="ad-rect-content">
+      <div class="ad-rect-title">Grammarly — write with confidence</div>
+      <div class="ad-rect-body">Grammar, tone &amp; clarity. Used by 30 million people. Works in Google Docs, Gmail, Word and more.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
+    </div>
+  </div>
+</div>
+<!-- /SLOT:ad_b -->
+
+<!-- SLOT:explainer -->
+<div class="explainer">
+  <h2>How the lottery number generator works</h2>
+  <p>The generator uses the Fisher-Yates shuffle algorithm to pick 6 unique numbers from a pool of 1 to 49. The algorithm is the same technique used by physical lottery ball machines — every number in the range has an equal probability of appearing in any position. The balls are then sorted in ascending order and displayed with color-coded bands so you can read them at a glance.</p>
+
+  <h2>Why use random numbers for the lottery?</h2>
+  <p>Any combination has an equal probability of winning. However, choosing your own numbers based on birthdays or popular sequences (1, 2, 3, 4, 5, 6) means you're more likely to share the jackpot if those numbers win. Studies of real lottery draws show that truly random picks are slightly better in expected value because they reduce the probability of splitting a prize with other players who chose the same "lucky" numbers.</p>
+
+  <h2>The 6/49 format explained</h2>
+  <p>The 6/49 format — pick 6 numbers from 1 to 49 — is one of the world's most common lottery structures. It's used by the UK National Lottery, Canada Lotto 6/49, and many other major draws. The odds of matching all 6 are 1 in 13,983,816. This tool matches that exact format so your generated numbers are ready to play directly.</p>
+
+  <h2>Generating sets for an office pool</h2>
+  <p>Use the Sets field to generate up to 10 lines at once. Each set is an independent draw — the same number can appear across different sets, just not within a single set. Use "Copy all sets" to get every line formatted as a plain-text list, ready to paste into a spreadsheet or group chat.</p>
+</div>
+<!-- /SLOT:explainer -->
+
+<!-- SLOT:faq -->
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+
+  <details class="faq-item">
+    <summary class="faq-q">How are lottery numbers generated?</summary>
+    <div class="faq-a">This tool uses the Fisher-Yates shuffle algorithm to randomly pick 6 unique numbers from 1 to 49. Every number has an equal probability of appearing, matching the randomness of a physical lottery draw.</div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">Can I generate multiple sets at once?</summary>
+    <div class="faq-a">Yes. Set the Sets field to any number from 1–10 to generate multiple lines simultaneously. Each set is independently drawn — no duplicates within a set, but the same number can appear across sets.</div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">Are randomly generated lottery numbers as good as picking my own?</summary>
+    <div class="faq-a">Yes — every combination has an equal probability of winning. Random picks may actually be slightly better in practice because popular "lucky" numbers lead to shared jackpots when they win. Random numbers reduce the chance of splitting a prize.</div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">What is the 1–49 lottery format?</summary>
+    <div class="faq-a">The 6/49 format (pick 6 from 49) is used by the UK National Lottery, Canada Lotto 6/49, and many other draws worldwide. You pick 6 numbers and win prizes based on how many match the drawn numbers.</div>
+  </details>
+</div>
+<!-- /SLOT:faq -->
+
+<!-- SLOT:who -->
+<div>
+  <h2 class="section-title" style="margin-bottom:14px">Who uses this tool</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">Casual lottery players</div><div class="uc-body">Get a quick set of random numbers before heading to the store. No deliberating — just generate and play.</div></div>
+    <div class="uc"><div class="uc-title">Office pool organizers</div><div class="uc-body">Generate 10 unique sets at once and distribute them to colleagues for syndicate plays. Copy all sets to paste into a shared doc instantly.</div></div>
+    <div class="uc"><div class="uc-title">Educators</div><div class="uc-body">Demonstrate probability and combinations in class. Show students the 1-in-13-million odds of matching all 6 numbers using live examples.</div></div>
+    <div class="uc"><div class="uc-title">Statisticians and researchers</div><div class="uc-body">Generate test data for probability models or analyze distribution of random draws over many iterations.</div></div>
+  </div>
+</div>
+<!-- /SLOT:who -->
+
+<!-- SLOT:init -->
+<script>
+const WORDINEER_LNG = (() => {
+  const POOL_SIZE = 49;
+  const PICK = 6;
+
+  let lastSets = [];
+
+  function shuffle(arr) {
+    for (var i = arr.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = arr[i]; arr[i] = arr[j]; arr[j] = tmp;
+    }
+    return arr;
+  }
+
+  function pickSet() {
+    var pool = [];
+    for (var i = 1; i <= POOL_SIZE; i++) pool.push(i);
+    shuffle(pool);
+    var picked = pool.slice(0, PICK);
+    picked.sort(function(a, b) { return a - b; });
+    return picked;
+  }
+
+  function ballClass(n) {
+    if (n <= 12) return 'ball-low';
+    if (n <= 24) return 'ball-mid';
+    if (n <= 37) return 'ball-high';
+    return 'ball-top';
+  }
+
+  function animateBalls(nums) {
+    for (var i = 0; i < PICK; i++) {
+      (function(idx) {
+        var el = document.getElementById('lng-b' + idx);
+        el.classList.remove('is-shown');
+        el.className = 'lng-ball ' + ballClass(nums[idx]);
+        setTimeout(function() {
+          el.textContent = nums[idx];
+          el.classList.add('is-shown');
+        }, 60 * idx + 60);
+      })(i);
+    }
+  }
+
+  function generate() {
+    var setsInput = document.getElementById('lng-sets');
+    var n = Math.min(10, Math.max(1, parseInt(setsInput.value, 10) || 1));
+    setsInput.value = n;
+
+    lastSets = [];
+    for (var i = 0; i < n; i++) {
+      lastSets.push(pickSet());
+    }
+
+    animateBalls(lastSets[0]);
+
+    var setsWrap = document.getElementById('lng-sets-wrap');
+    var copyAllBtn = document.getElementById('lng-copy-all-btn');
+
+    if (n === 1) {
+      setsWrap.classList.remove('is-visible');
+      setsWrap.innerHTML = '';
+      copyAllBtn.style.display = 'none';
+    } else {
+      setsWrap.innerHTML = '';
+      lastSets.forEach(function(set, idx) {
+        var row = document.createElement('div');
+        row.className = 'lng-set-row';
+        var numLabel = document.createElement('div');
+        numLabel.className = 'lng-set-num';
+        numLabel.textContent = (idx + 1) + '.';
+        var nums = document.createElement('div');
+        nums.className = 'lng-set-numbers';
+        nums.textContent = set.join('  –  ');
+        var copyBtn = document.createElement('button');
+        copyBtn.className = 'lng-set-copy';
+        copyBtn.type = 'button';
+        copyBtn.innerHTML = '<svg viewBox="0 0 14 14" fill="none"><rect x="1" y="4" width="9" height="9.5" rx="1.5" stroke="currentColor" stroke-width="1.1"/><path d="M4.5 4V2.5A1.5 1.5 0 016 1h5.5A1.5 1.5 0 0113 2.5v7a1.5 1.5 0 01-1.5 1.5H10" stroke="currentColor" stroke-width="1.1"/></svg> Copy';
+        (function(s) {
+          copyBtn.addEventListener('click', function() {
+            navigator.clipboard && navigator.clipboard.writeText(s.join(', '));
+            copyBtn.textContent = 'Copied!';
+            setTimeout(function() {
+              copyBtn.innerHTML = '<svg viewBox="0 0 14 14" fill="none"><rect x="1" y="4" width="9" height="9.5" rx="1.5" stroke="currentColor" stroke-width="1.1"/><path d="M4.5 4V2.5A1.5 1.5 0 016 1h5.5A1.5 1.5 0 0113 2.5v7a1.5 1.5 0 01-1.5 1.5H10" stroke="currentColor" stroke-width="1.1"/></svg> Copy';
+            }, 1200);
+            showToast('Copied!');
+          });
+        })(set);
+        row.appendChild(numLabel);
+        row.appendChild(nums);
+        row.appendChild(copyBtn);
+        setsWrap.appendChild(row);
+      });
+      setsWrap.classList.add('is-visible');
+      copyAllBtn.style.display = 'flex';
+    }
+  }
+
+  function copyAll() {
+    if (!lastSets.length) return;
+    var text = lastSets.map(function(s, i) { return (i + 1) + '. ' + s.join(', '); }).join('\n');
+    navigator.clipboard && navigator.clipboard.writeText(text);
+    var btn = document.getElementById('lng-copy-all-btn');
+    var orig = btn.innerHTML;
+    btn.innerHTML = '<svg viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5 6.5-6.5" stroke="#1D9E75" stroke-width="1.3" stroke-linecap="round"/></svg> Copied!';
+    setTimeout(function() { btn.innerHTML = orig; }, 1200);
+    showToast('All sets copied!');
+  }
+
+  function showToast(msg) {
+    var t = document.getElementById('toast');
+    if (!t) return;
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(function() { t.classList.remove('show'); }, 2000);
+  }
+
+  function init() {
+    document.getElementById('lng-gen-btn').addEventListener('click', generate);
+    document.getElementById('lng-copy-all-btn').addEventListener('click', copyAll);
+
+    document.addEventListener('keydown', function(e) {
+      if (['INPUT','SELECT','TEXTAREA','BUTTON'].includes(e.target.tagName)) return;
+      if (e.code === 'Space' || e.code === 'Enter') { e.preventDefault(); generate(); }
+    });
+
+    document.querySelectorAll('.faq-item summary').forEach(function(s) {
+      s.addEventListener('click', function(e) {
+        e.preventDefault();
+        var item = s.closest('.faq-item');
+        var wasOpen = item.hasAttribute('open');
+        document.querySelectorAll('.faq-item[open]').forEach(function(i) { i.removeAttribute('open'); });
+        if (!wasOpen) item.setAttribute('open', '');
+      });
+    });
+
+    generate();
+  }
+
+  return { init: init };
+})();
+
+document.addEventListener('DOMContentLoaded', WORDINEER_LNG.init);
+</script>
+<!-- /SLOT:init -->

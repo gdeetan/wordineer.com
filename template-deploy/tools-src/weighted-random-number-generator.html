@@ -1,0 +1,404 @@
+<!-- CONFIG
+{
+  "url": "/weighted-random-number-generator/",
+  "output": "weighted-random-number-generator.html",
+  "type": "tool",
+  "more_tools_key": "more_chance_tools",
+  "more_tools_title": "More number & chance tools",
+  "more_tools_subtitle": "Dice, coin flips, spinners, and more — all free"
+}
+-->
+
+<!-- SLOT:meta -->
+<title>Weighted Random Number Generator — Unequal Probability | Wordineer</title>
+<meta name="description" content="Generate random results with custom weights. Add options, set relative weights, and pick — perfect for probability demos, game design, and unequal random selections. Free.">
+<link rel="canonical" href="https://wordineer.com/weighted-random-number-generator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wordineer">
+<meta property="og:title" content="Weighted Random Number Generator | Wordineer">
+<meta property="og:description" content="Generate random results with custom weights. Add options, set relative weights, and pick — perfect for probability demos, game design, and unequal random selections. Free.">
+<meta property="og:url" content="https://wordineer.com/weighted-random-number-generator/">
+<meta property="og:image" content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a weighted random generator?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A weighted random generator picks options with probabilities proportional to their assigned weights. An option with weight 3 is three times more likely to be chosen than an option with weight 1. This lets you simulate non-uniform probability distributions — where not all outcomes are equally likely — while still producing random results each time." }
+    },
+    {
+      "@type": "Question",
+      "name": "How do weights work?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The total weight is calculated by summing all individual weights. Each option's probability equals its weight divided by the total. For example, three options with weights 1, 2, and 3 have a total weight of 6, giving probabilities of 1/6 ≈ 16.7%, 2/6 ≈ 33.3%, and 3/6 = 50%. The probability bars next to each option update in real time as you adjust weights." }
+    },
+    {
+      "@type": "Question",
+      "name": "What can I use this for?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Common uses include game design (defining loot tables and item drop rates), probability demonstrations in classrooms, unequal raffle draws where premium ticket holders have higher weight, A/B test simulation, and icebreaker activities where popular options have higher weights. Any situation where not all outcomes should be equally likely — but should still be random — is a weighted random problem." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I name the options?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. You can enter any label for each option — a name, an item, an outcome, or any text. Each option also gets a weight from 1 to 99. The generator supports up to 10 options at once. You can add or remove options at any time, and the probability bars update instantly to reflect your current weights." }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Weighted Random Number Generator",
+  "url": "https://wordineer.com/weighted-random-number-generator/",
+  "description": "Generate random results with custom weights. Add options, set relative weights, and pick — perfect for probability demos, game design, and unequal random selections.",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@id": "https://wordineer.com/#organization" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Number &amp; Chance Tools", "item": "https://wordineer.com/number-chance/" },
+    { "@type": "ListItem", "position": 3, "name": "Weighted Random Generator", "item": "https://wordineer.com/weighted-random-number-generator/" }
+  ]
+}
+</script>
+<!-- /SLOT:meta -->
+
+<!-- SLOT:style -->
+<style>
+/* ── Weighted Random Generator ── */
+.wrg-wrap { max-width: 560px; margin: 0 auto; padding: 24px 24px 0; }
+.wrg-card { border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--bg); box-shadow: var(--shadow); padding: 28px 24px 24px; display: flex; flex-direction: column; gap: 20px; }
+
+/* Result display */
+.wrg-result-wrap { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 20px; border: 1px solid var(--border); border-radius: 10px; background: var(--bg-2); }
+.wrg-result { font-size: clamp(1.6rem, 7vw, 2.4rem); font-weight: 800; color: var(--text); line-height: 1; min-height: 1.2em; text-align: center; transition: opacity 0.1s; }
+.wrg-result.animating { opacity: 0.2; }
+.wrg-result-prob { font-size: 11px; color: var(--text-3); }
+
+/* Pick button */
+.wrg-pick-btn { padding: 13px 40px; background: var(--brand); color: white; border: none; border-radius: 10px; font-size: 1.05rem; font-weight: 700; font-family: inherit; cursor: pointer; transition: background 0.15s, transform 0.1s; align-self: center; }
+.wrg-pick-btn:hover { background: var(--brand-dark); }
+.wrg-pick-btn:active { transform: scale(0.97); }
+.wrg-kbd { font-size: 10px; color: var(--text-3); text-align: center; margin-top: -14px; }
+.wrg-kbd kbd { background: var(--bg-3); border: 1px solid var(--border); border-radius: 3px; padding: 1px 5px; font-size: 10px; font-family: inherit; }
+
+/* Options list */
+.wrg-options-title { font-size: 10px; font-weight: 700; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.07em; }
+.wrg-options { display: flex; flex-direction: column; gap: 8px; }
+.wrg-option-row { display: flex; gap: 8px; align-items: center; }
+.wrg-option-label-input { flex: 1; padding: 8px 10px; border: 1px solid var(--border); border-radius: 7px; font-size: 13px; font-family: inherit; background: var(--bg); color: var(--text); outline: none; }
+.wrg-option-label-input:focus { border-color: var(--brand); }
+.wrg-option-weight-input { width: 52px; padding: 8px 6px; border: 1px solid var(--border); border-radius: 7px; font-size: 13px; font-family: inherit; background: var(--bg); color: var(--text); text-align: center; outline: none; }
+.wrg-option-weight-input:focus { border-color: var(--brand); }
+.wrg-option-bar-wrap { width: 60px; flex-shrink: 0; }
+.wrg-option-bar-track { height: 6px; background: var(--bg-3); border-radius: 3px; overflow: hidden; }
+.wrg-option-bar-fill { height: 100%; background: var(--brand); border-radius: 3px; transition: width 0.3s; opacity: 0.7; }
+.wrg-option-bar-pct { font-size: 9px; color: var(--text-3); text-align: right; margin-top: 2px; }
+.wrg-option-remove { background: none; border: none; color: var(--text-3); cursor: pointer; font-size: 16px; line-height: 1; padding: 4px; border-radius: 4px; transition: color 0.12s; }
+.wrg-option-remove:hover { color: #DC2626; }
+.wrg-option-highlight .wrg-option-label-input { border-color: var(--brand); background: var(--bg-2); }
+
+/* Add option button */
+.wrg-add-btn { align-self: flex-start; padding: 6px 14px; border: 1.5px dashed var(--border); border-radius: 7px; background: transparent; color: var(--text-2); font-size: 12px; font-weight: 600; font-family: inherit; cursor: pointer; transition: border-color 0.12s, color 0.12s; }
+.wrg-add-btn:hover { border-color: var(--brand); color: var(--brand); }
+
+/* History */
+.wrg-history-wrap { display: none; }
+.wrg-history-wrap.is-visible { display: block; }
+.wrg-history-title { font-size: 10px; font-weight: 700; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 7px; }
+.wrg-history { display: flex; flex-wrap: wrap; gap: 5px; }
+.wrg-history-chip { padding: 3px 10px; border: 1px solid var(--border); border-radius: 999px; font-size: 12px; font-weight: 600; color: var(--text-2); background: var(--bg-2); }
+.wrg-history-chip.newest { background: var(--brand); border-color: var(--brand); color: white; }
+
+@media (max-width: 480px) {
+  .wrg-wrap { padding: 14px 14px 0; }
+  .wrg-card { padding: 20px 14px 18px; gap: 16px; }
+  .wrg-option-bar-wrap { display: none; }
+}
+</style>
+<!-- /SLOT:style -->
+
+<!-- SLOT:hero -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/number-chance/">Number &amp; Chance Tools</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Weighted Random Generator</span>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free · No sign-up · Instant
+  </div>
+  <h1>Weighted random generator</h1>
+  <p>Add options, assign weights, and pick — results appear with the probability you define. Higher weight = more likely. Perfect for probability demos, loot tables, and unequal random decisions.</p>
+</div>
+<!-- /SLOT:hero -->
+
+<!-- SLOT:tool -->
+<div class="wrg-wrap">
+  <div class="wrg-card">
+
+    <!-- Result -->
+    <div class="wrg-result-wrap">
+      <div class="wrg-result" id="wrg-result">—</div>
+      <div class="wrg-result-prob" id="wrg-result-prob">Click "Pick" to draw</div>
+    </div>
+
+    <!-- Pick button -->
+    <button class="wrg-pick-btn" id="wrg-pick-btn" type="button">Pick</button>
+    <div class="wrg-kbd">Press <kbd>Space</kbd> or <kbd>Enter</kbd></div>
+
+    <!-- Options -->
+    <div class="wrg-options-title">Options &amp; weights</div>
+    <div class="wrg-options" id="wrg-options"></div>
+    <button class="wrg-add-btn" id="wrg-add-btn" type="button">+ Add option</button>
+
+    <!-- History -->
+    <div class="wrg-history-wrap" id="wrg-history-wrap">
+      <div class="wrg-history-title">Recent picks</div>
+      <div class="wrg-history" id="wrg-history"></div>
+    </div>
+
+  </div>
+</div>
+<!-- /SLOT:tool -->
+
+<!-- SLOT:ad_b -->
+<div class="content-wrap" style="margin-top:32px">
+  <div class="ad-rect">
+    <span class="ad-tag">Advertisement · 336×280</span>
+    <div class="ad-rect-img"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4C10.3 4 4 10.3 4 18s6.3 14 14 14 14-6.3 14-14S25.7 4 18 4z" fill="white" opacity=".2"/><path d="M12 18c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="18" r="2.5" fill="white"/></svg></div>
+    <div class="ad-rect-content">
+      <div class="ad-rect-title">Grammarly — write with confidence</div>
+      <div class="ad-rect-body">Grammar, tone &amp; clarity. Used by 30 million people. Works in Google Docs, Gmail, Word and more.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
+    </div>
+  </div>
+</div>
+<!-- /SLOT:ad_b -->
+
+<!-- SLOT:explainer -->
+<div class="explainer">
+  <h2>How weighted random selection works</h2>
+  <p>A weighted random generator assigns each option a relative probability proportional to its weight. If you have three options with weights 1, 2, and 3, their probabilities are 1/6 ≈ 16.7%, 2/6 ≈ 33.3%, and 3/6 = 50%. The implementation uses a cumulative weight array — a random number from 0 to the total weight is drawn, then mapped to the option whose range it falls in. This is the standard weighted random algorithm used in game engines, A/B testing frameworks, and recommendation systems.</p>
+  <h2>Use cases</h2>
+  <p>Game designers use weighted tables to define item drop rates — a common sword might have weight 50 while a legendary weapon has weight 1. Probability teachers use it to demonstrate non-uniform distributions. HR teams use it for weighted candidate selection simulations. Icebreaker facilitators assign weights to activities based on group interest. Any situation where not all outcomes should be equally likely — but should still be random — is a weighted random problem.</p>
+  <h2>Tips for setting weights</h2>
+  <p>Weights are relative, not absolute percentages — only the ratios between them matter. Weight 10 vs. weight 5 is the same as weight 2 vs. weight 1 (one is twice as likely as the other). Use small integers for simplicity: weight 3 for "likely," weight 2 for "possible," weight 1 for "rare." The probability bars next to each option update in real time as you adjust weights, so you can see exactly what percentage each option represents before you pick.</p>
+</div>
+<!-- /SLOT:explainer -->
+
+<!-- SLOT:faq -->
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+
+  <details class="faq-item">
+    <summary class="faq-q">What is a weighted random generator?</summary>
+    <div class="faq-a">A weighted random generator picks options with probabilities proportional to their assigned weights. An option with weight 3 is three times more likely to be chosen than an option with weight 1. This lets you simulate non-uniform probability distributions — where not all outcomes are equally likely — while still producing random results each time.</div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">How do weights work?</summary>
+    <div class="faq-a">The total weight is calculated by summing all individual weights. Each option's probability equals its weight divided by the total. For example, three options with weights 1, 2, and 3 have a total weight of 6, giving probabilities of 1/6 ≈ 16.7%, 2/6 ≈ 33.3%, and 3/6 = 50%. The probability bars next to each option update in real time as you adjust weights so you can see the exact breakdown before picking.</div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">What can I use this for?</summary>
+    <div class="faq-a">Common uses include game design (defining loot tables and item drop rates), probability demonstrations in classrooms, unequal raffle draws where premium ticket holders have higher weight, A/B test simulation, and icebreaker activities where popular options have higher weights. Any situation where not all outcomes should be equally likely — but should still be random — is a weighted random problem.</div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">Can I name the options?</summary>
+    <div class="faq-a">Yes. You can enter any label for each option — a name, an item, an outcome, or any text. Each option also gets a weight from 1 to 99. The generator supports up to 10 options at once. You can add or remove options at any time, and the probability bars update instantly to reflect your current weights.</div>
+  </details>
+</div>
+<!-- /SLOT:faq -->
+
+<!-- SLOT:who -->
+<div>
+  <h2 class="section-title" style="margin-bottom:14px">Who uses this tool</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">Game designers</div><div class="uc-body">Define loot tables and item drop rates — set weights to make rare items truly rare without writing code.</div></div>
+    <div class="uc"><div class="uc-title">Teachers</div><div class="uc-body">Demonstrate non-uniform probability distributions hands-on — adjust weights and observe how results cluster toward higher-weighted options.</div></div>
+    <div class="uc"><div class="uc-title">Event organizers</div><div class="uc-body">Run unequal raffles — give premium ticket holders a higher weight for fair but weighted prize draws.</div></div>
+    <div class="uc"><div class="uc-title">Developers</div><div class="uc-body">Prototype and test weighted random algorithms before implementing them in code — verify behavior visually before writing a line.</div></div>
+  </div>
+</div>
+<!-- /SLOT:who -->
+
+<!-- SLOT:init -->
+<script>
+const WORDINEER_WRG = (() => {
+  const DEFAULT_OPTIONS = [
+    { label: 'Option A', weight: 3 },
+    { label: 'Option B', weight: 2 },
+    { label: 'Option C', weight: 1 }
+  ];
+
+  let history = [];
+  let lastResult = null;
+  let lastResultHighlightId = null;
+
+  let optionsEl, pickBtn, resultEl, resultProbEl, addBtn, historyWrap, historyEl;
+
+  function getOptions() {
+    const rows = optionsEl.querySelectorAll('.wrg-option-row');
+    const opts = [];
+    rows.forEach(function(row) {
+      const label = row.querySelector('.wrg-option-label-input').value.trim();
+      const weight = Math.max(1, parseInt(row.querySelector('.wrg-option-weight-input').value) || 1);
+      if (label) opts.push({ label: label, weight: weight, row: row });
+    });
+    return opts;
+  }
+
+  function getTotalWeight(opts) {
+    return opts.reduce(function(s, o) { return s + o.weight; }, 0);
+  }
+
+  function updateBars() {
+    const opts = getOptions();
+    const total = getTotalWeight(opts);
+    const rows = optionsEl.querySelectorAll('.wrg-option-row');
+    let optIdx = 0;
+    rows.forEach(function(row) {
+      const label = row.querySelector('.wrg-option-label-input').value.trim();
+      if (!label) return;
+      const weight = Math.max(1, parseInt(row.querySelector('.wrg-option-weight-input').value) || 1);
+      const pct = total > 0 ? Math.round((weight / total) * 100) : 0;
+      row.querySelector('.wrg-option-bar-fill').style.width = pct + '%';
+      row.querySelector('.wrg-option-bar-pct').textContent = pct + '%';
+      optIdx++;
+    });
+  }
+
+  function pick() {
+    const opts = getOptions();
+    if (opts.length === 0) return;
+    const total = getTotalWeight(opts);
+    let r = Math.random() * total;
+    let chosen = opts[opts.length - 1];
+    for (let i = 0; i < opts.length; i++) {
+      r -= opts[i].weight;
+      if (r <= 0) { chosen = opts[i]; break; }
+    }
+
+    // Animate result
+    resultEl.classList.add('animating');
+    setTimeout(function() {
+      resultEl.textContent = chosen.label;
+      resultEl.classList.remove('animating');
+      const pct = Math.round((chosen.weight / total) * 100);
+      resultProbEl.textContent = chosen.weight + ' weight · ' + pct + '% probability';
+
+      // Highlight the chosen row
+      optionsEl.querySelectorAll('.wrg-option-row').forEach(function(r) { r.classList.remove('wrg-option-highlight'); });
+      if (chosen.row) chosen.row.classList.add('wrg-option-highlight');
+      setTimeout(function() { if (chosen.row) chosen.row.classList.remove('wrg-option-highlight'); }, 1000);
+
+      history.unshift(chosen.label);
+      if (history.length > 10) history.length = 10;
+      updateHistory();
+    }, 100);
+  }
+
+  function updateHistory() {
+    if (history.length === 0) { historyWrap.classList.remove('is-visible'); return; }
+    historyWrap.classList.add('is-visible');
+    historyEl.innerHTML = '';
+    history.forEach(function(label, i) {
+      const chip = document.createElement('span');
+      chip.className = 'wrg-history-chip' + (i === 0 ? ' newest' : '');
+      chip.textContent = label;
+      historyEl.appendChild(chip);
+    });
+  }
+
+  function addOptionRow(label, weight) {
+    const row = document.createElement('div');
+    row.className = 'wrg-option-row';
+    row.innerHTML =
+      '<input class="wrg-option-label-input" type="text" placeholder="Option name" value="' + (label || '') + '">' +
+      '<input class="wrg-option-weight-input" type="number" min="1" max="99" value="' + (weight || 1) + '" inputmode="numeric">' +
+      '<div class="wrg-option-bar-wrap"><div class="wrg-option-bar-track"><div class="wrg-option-bar-fill" style="width:0%"></div></div><div class="wrg-option-bar-pct">0%</div></div>' +
+      '<button class="wrg-option-remove" type="button" aria-label="Remove option">×</button>';
+
+    row.querySelector('.wrg-option-label-input').addEventListener('input', updateBars);
+    row.querySelector('.wrg-option-weight-input').addEventListener('input', updateBars);
+    row.querySelector('.wrg-option-remove').addEventListener('click', function() {
+      if (optionsEl.querySelectorAll('.wrg-option-row').length > 2) {
+        row.remove();
+        updateBars();
+      } else {
+        showToast('Need at least 2 options.');
+      }
+    });
+
+    optionsEl.appendChild(row);
+    updateBars();
+  }
+
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    if (!t) return;
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(function() { t.classList.remove('show'); }, 2000);
+  }
+
+  function init() {
+    optionsEl    = document.getElementById('wrg-options');
+    pickBtn      = document.getElementById('wrg-pick-btn');
+    resultEl     = document.getElementById('wrg-result');
+    resultProbEl = document.getElementById('wrg-result-prob');
+    addBtn       = document.getElementById('wrg-add-btn');
+    historyWrap  = document.getElementById('wrg-history-wrap');
+    historyEl    = document.getElementById('wrg-history');
+
+    DEFAULT_OPTIONS.forEach(function(o) { addOptionRow(o.label, o.weight); });
+
+    pickBtn.addEventListener('click', pick);
+    addBtn.addEventListener('click', function() {
+      if (optionsEl.querySelectorAll('.wrg-option-row').length >= 10) {
+        showToast('Maximum 10 options.');
+        return;
+      }
+      addOptionRow('', 1);
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (['INPUT','SELECT','TEXTAREA','BUTTON'].includes(e.target.tagName)) return;
+      if (e.code === 'Space' || e.code === 'Enter') { e.preventDefault(); pick(); }
+    });
+
+    document.querySelectorAll('.faq-item summary').forEach(function(s) {
+      s.addEventListener('click', function(e) {
+        e.preventDefault();
+        const item = s.closest('.faq-item');
+        const wasOpen = item.hasAttribute('open');
+        document.querySelectorAll('.faq-item[open]').forEach(function(i) { i.removeAttribute('open'); });
+        if (!wasOpen) item.setAttribute('open', '');
+      });
+    });
+  }
+
+  return { init: init };
+})();
+
+document.addEventListener('DOMContentLoaded', WORDINEER_WRG.init);
+</script>
+<!-- /SLOT:init -->

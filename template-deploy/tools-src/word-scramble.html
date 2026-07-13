@@ -17,8 +17,8 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What is a word scramble?",
-      "acceptedAnswer": { "@type": "Answer", "text": "A word scramble is a tool that randomly rearranges the letters in a word to create a jumbled version. It's used in classroom games, spelling practice, and puzzle creation. Type a word, press Enter, and get a scrambled version instantly — then hit Re-scramble to try different arrangements." }
+      "name": "What's the difference between scrambling and unscrambling a word?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Scrambling takes a real word and jumbles its letters to create a puzzle — useful for classroom worksheets, games, and escape room clues. Unscrambling runs in reverse: you have jumbled letters and need to find the real word hidden inside. The Scramble tab handles the first; the Word Unscramble tool handles the second. The worksheet generator scrambles a whole list at once and prints it in a classroom-ready format." }
     },
     {
       "@type": "Question",
@@ -161,6 +161,28 @@
 /* ── explainer h3 ── */
 .explainer h3 { font-family:'DM Serif Display',serif; font-size:17px; font-weight:400; margin-bottom:6px; margin-top:18px; color:var(--text); }
 
+/* ── Daily Challenge ── */
+.dc-wrap { padding:28px 24px 24px; max-width:420px; margin:0 auto; text-align:center; }
+.dc-date-badge { display:inline-flex; align-items:center; gap:6px; font-size:11px; font-weight:700; color:var(--brand-dark); background:var(--brand-light); border-radius:20px; padding:4px 12px; margin-bottom:16px; letter-spacing:.02em; }
+.dc-title { font-size:13px; color:var(--text-2); margin-bottom:8px; }
+.dc-scrambled { font-size:34px; font-weight:700; letter-spacing:0.24em; color:var(--text); margin:10px 0 22px; text-transform:uppercase; }
+.dc-input-row { display:flex; gap:8px; justify-content:center; margin-bottom:10px; }
+.dc-input { padding:10px 14px; font-size:15px; font-family:inherit; border:2px solid var(--border); border-radius:9px; width:186px; text-align:center; letter-spacing:.06em; outline:none; transition:border-color .15s; }
+.dc-input:focus { border-color:var(--brand); }
+.dc-submit-btn { padding:10px 18px; background:var(--brand); color:white; border:none; border-radius:9px; font-size:13px; font-weight:700; font-family:inherit; cursor:pointer; transition:background .15s; }
+.dc-submit-btn:hover { background:var(--brand-dark); }
+.dc-giveup-btn { font-size:12px; color:var(--text-3); cursor:pointer; text-decoration:underline; text-underline-offset:2px; border:none; background:none; font-family:inherit; padding:0; }
+.dc-result-box { margin:12px 0 16px; padding:16px; border-radius:10px; }
+.dc-result-box.dc-correct { background:#f0faf6; border:1.5px solid #1D9E75; }
+.dc-result-box.dc-wrong { background:#fff5f5; border:1.5px solid #E24B4A; }
+.dc-result-emoji { font-size:26px; margin-bottom:6px; }
+.dc-result-word { font-size:22px; font-weight:700; color:var(--text); margin-bottom:3px; }
+.dc-result-label { font-size:12px; color:var(--text-2); margin-bottom:12px; }
+.dc-share-btn { display:inline-flex; align-items:center; gap:6px; padding:7px 14px; border:1px solid var(--border); border-radius:7px; background:var(--bg); color:var(--text-2); font-size:12px; font-weight:600; cursor:pointer; font-family:inherit; transition:background .12s; }
+.dc-share-btn:hover { background:var(--bg-2); }
+.dc-streak { margin-top:14px; font-size:12px; color:var(--text-3); }
+.dc-streak strong { color:var(--text); }
+
 /* ── Print ── */
 @media print {
   body * { visibility:hidden; }
@@ -226,6 +248,7 @@
     <div class="ws-tabs" role="tablist">
       <button class="ws-tab ws-tab-active" id="ws-tab-scramble" role="tab" aria-selected="true" aria-controls="ws-panel-scramble" data-tab="scramble">Scramble</button>
       <button class="ws-tab" id="ws-tab-worksheet" role="tab" aria-selected="false" aria-controls="ws-panel-worksheet" data-tab="worksheet">Worksheet</button>
+      <button class="ws-tab" id="ws-tab-daily" role="tab" aria-selected="false" aria-controls="ws-panel-daily" data-tab="daily">Daily</button>
     </div>
 
     <!-- ── Panel: Scramble ── -->
@@ -326,18 +349,26 @@
       </div>
     </div>
 
+    <!-- ── Panel: Daily Challenge ── -->
+    <div id="ws-panel-daily" class="ws-panel" role="tabpanel" aria-labelledby="ws-tab-daily">
+      <div class="dc-wrap" id="dc-wrap">
+        <div class="dc-date-badge">📅 Loading…</div>
+      </div>
+    </div>
+
   </div>
 </div>
 <!-- /SLOT:tool -->
 
 <!-- SLOT:ad_b -->
-<div class="ad-leaderboard">
-  <div class="ad-leaderboard-inner">
-    <span class="ad-tag">Advertisement · 728×90</span>
-    <div class="ad-mock-content">
-      <div class="ad-title">Grammarly — write with confidence. Grammar, tone &amp; clarity.</div>
-      <div class="ad-sub">Used by 30 million people. Works in Google Docs, Gmail, Word and more.</div>
-      <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-mock-cta">Try Grammarly free</a>
+<div class="content-wrap" style="margin-top:32px">
+  <div class="ad-rect">
+    <span class="ad-tag">Advertisement · 336×280</span>
+    <div class="ad-rect-img"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4C10.3 4 4 10.3 4 18s6.3 14 14 14 14-6.3 14-14S25.7 4 18 4z" fill="white" opacity=".2"/><path d="M12 18c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="18" r="2.5" fill="white"/></svg></div>
+    <div class="ad-rect-content">
+      <div class="ad-rect-title">Grammarly — write with confidence</div>
+      <div class="ad-rect-body">Grammar, tone &amp; clarity. Used by 30 million people. Works in Google Docs, Gmail, Word and more.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
     </div>
   </div>
 </div>
@@ -373,8 +404,8 @@
   <h2 class="faq-title">Frequently asked questions</h2>
 
   <div class="faq-item open">
-    <div class="faq-q"><span class="faq-q-text">What is a word scramble?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">A word scramble is a tool that randomly rearranges letters to create jumbled versions of words — or works in reverse, taking scrambled letters and finding all the real words hidden inside them. Both directions are useful: scrambling creates puzzles and classroom activities, while unscrambling helps with word games like Scrabble, Words With Friends, and classroom jumble exercises. This tool combines both in one place, and adds a worksheet generator for teachers.</div>
+    <div class="faq-q"><span class="faq-q-text">What's the difference between scrambling and unscrambling?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Scrambling takes a real word and jumbles its letters — the output is a puzzle for someone else to solve. That's what the Scramble tab does: you put a word in, get a cryptic version out, and use it in a game, worksheet, or escape room clue. Unscrambling runs in reverse — you have a set of jumbled letters and need to find the real word hidden inside. For that, use the <a href="/word-unscramble/">Word Unscramble</a> tool, which accepts up to 15 letters (including blank tiles) and returns every valid English word it can make. The worksheet generator on this page sits in the middle — it scrambles a whole list of words at once and lays them out in a printable format for students to solve.</div>
   </div>
 
   <div class="faq-item">
@@ -699,6 +730,187 @@ const WORD_SCRAMBLER = (() => {
 })();
 
 WORD_SCRAMBLER.init();
+
+(function() {
+  var DAILY_WORDS = [
+    'planet','bridge','garden','jungle','silver','market','finger','castle',
+    'marble','pillow','rabbit','salmon','sunset','velvet','walnut','barrel',
+    'harbor','kernel','mirror','napkin','rocket','saddle','timber','violin',
+    'garland','harvest','passion','science','triumph','volcano','biology',
+    'fantasy','glitter','horizon','impulse','landing','orchard','furnace',
+    'harmony','radiant','sparrow','ancient','capture','develop','eclipse',
+    'forever','graphic','illness','loyalty','machine','notable','resolve',
+    'texture','variety','welcome','ability','chicken','correct','digital',
+    'example','falling','general','kitchen','library','meeting','pattern',
+    'primary','regular','silence','student','website','mystery','plastic',
+    'journey','fortune','initial','justice','leather','mention','network',
+    'opening','parking','reading','station','traffic','uniform','version',
+    'weather','fishing','grocery','holding','jumping','million','outside',
+    'package','running','sitting','talking','village','walking','battery',
+    'curtain','dolphin','fashion','canteen','opinion','regions','windows',
+    'between','compete','discuss','eastern','forward','gravity','history',
+    'imagine','lasting','medical','nothing','outline','propose','request',
+    'someone','through','various','western','deposit','explore','freedom',
+    'goddess','involve','license','morning','neglect','observe','painter',
+    'rescued','surface','trouble','valiant','witness','another','browser',
+    'concept','finding','garment','hunting','joining','killing','leaving',
+    'nervous','playing','quietly','removed','staying','thought','vulture',
+    'watered','younger','amazing','breathe','century','deserve','emotion',
+    'foolish','glowing','holiday','intense','jealous','knowing','learned',
+    'officer','alcohol','believe','husband','october','perhaps','society',
+    'private','algebra','burning','careful','drawing','element','granite',
+    'helpful','include','keeping','nuclear','present','rapidly','whether',
+    'barrier','climate','destiny','ethical','formula','integer','jubilee',
+    'largely','scandal','thermal','upright','warfare','abolish','ceramic',
+    'dilemma','galleon','heroine','inferno','juggler','lobster','mandate',
+    'nightly','optical','railway','shallow','turbine','vampire','warship',
+    'diamond','feather','monster','natural','phantom','quarter','rainbow',
+    'shelter','tornado','warrior','factory','bravery','crimson','elegant',
+    'glacier','harpoon','plunder','quantum','serpent','thunder','vibrant',
+    'admiral','blanket','captain','crystal','emperor','whisper','pilgrim',
+    'tempest','monarch','odyssey','prophet','emerald','trilogy','chapter',
+    'gallery','speaker','cabinet','capsule','caption','circuit','citadel',
+    'clarity','classic','cluster','coastal','collide','comfort','command',
+    'compose','conceal','connect','context','convert','covered','culture',
+    'curious','current','customs','damages','darling','daytime','dealing',
+    'decided','defiant','density','descent','devoted','diploma','dispute',
+    'distant','diverse','divided','enchant','enforce','engaged','enhance',
+    'enlarge','evident','examine','excited','express','extract','extreme',
+    'fiction','fighter','fertile','festive','flavour','focused','frosted',
+    'fulcrum','gallant','gesture','glimmer','glimpse','glorify','highest',
+    'honored','hundred','hydrant','insight','inspire','instead','interim',
+    'lantern','monster','natural','obscure','passion','quantum','recover',
+    'blossom','blanket','captain','crystal','emperor','harvest','passion',
+    'radiant','sparrow','ancient','capture','develop','eclipse','forever',
+    'graphic','illness','loyalty','machine','notable','resolve','texture',
+    'variety','welcome','ability','chicken','correct','digital','example',
+    'falling','general','kitchen','library','meeting','pattern','primary',
+    'regular','silence','student','website','mystery','plastic','journey',
+    'fortune','initial','justice','leather','mention','network','opening',
+    'parking','reading','station','traffic','uniform','version','weather',
+    'fishing','grocery','holding','jumping','million','outside','package',
+    'running','sitting','talking','village','walking','battery','curtain',
+    'dolphin','fashion','canteen','opinion','regions','windows','between',
+    'compete','discuss','eastern','forward','gravity','history','imagine',
+    'lasting','medical','nothing','outline','propose','request','someone',
+    'through','various','western','deposit','explore','freedom','goddess',
+    'involve','license','morning','neglect','observe','painter','rescued',
+    'surface','trouble','valiant','witness','another','browser','concept',
+    'finding','garment','hunting','joining','killing','leaving','nervous',
+    'playing','quietly','removed','staying','thought','vulture','watered'
+  ];
+
+  function dateKey() {
+    var d = new Date();
+    return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
+  }
+
+  function hashDate(s) {
+    var h = 5381;
+    for (var i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) >>> 0;
+    return h;
+  }
+
+  function seededShuffle(word, seed) {
+    var arr = word.split('');
+    var s = seed >>> 0;
+    for (var i = arr.length - 1; i > 0; i--) {
+      s = (Math.imul(s, 1664525) + 1013904223) >>> 0;
+      var j = s % (i + 1);
+      var tmp = arr[i]; arr[i] = arr[j]; arr[j] = tmp;
+    }
+    if (arr.join('') === word && word.length > 1) {
+      var t = arr[0]; arr[0] = arr[arr.length - 1]; arr[arr.length - 1] = t;
+    }
+    return arr.join('');
+  }
+
+  function formatDate(dk) {
+    var parts = dk.split('-').map(Number);
+    var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    return months[parts[1] - 1] + ' ' + parts[2] + ', ' + parts[0];
+  }
+
+  var STORE_KEY = 'ws_daily';
+  function loadStore() { try { return JSON.parse(localStorage.getItem(STORE_KEY) || '{}'); } catch(e) { return {}; } }
+  function saveStore(obj) { try { localStorage.setItem(STORE_KEY, JSON.stringify(obj)); } catch(e) {} }
+
+  function getYesterdayKey() {
+    var d = new Date(); d.setDate(d.getDate() - 1);
+    return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
+  }
+
+  var dk = dateKey();
+  var h = hashDate(dk);
+  var todayWord = DAILY_WORDS[h % DAILY_WORDS.length];
+  var scrambled = seededShuffle(todayWord, h);
+  var store = loadStore();
+
+  function renderDaily() {
+    var wrap = document.getElementById('dc-wrap');
+    if (!wrap) return;
+    var streak = parseInt(store.streak || 0);
+    var solved = store.date === dk;
+
+    if (solved) {
+      var correct = !!store.correct;
+      var streakHtml = streak > 0 ? '<div class="dc-streak">Streak: <strong>' + streak + ' day' + (streak !== 1 ? 's' : '') + '</strong> 🔥</div>' : '';
+      wrap.innerHTML =
+        '<div class="dc-date-badge">📅 ' + formatDate(dk) + '</div>' +
+        '<div class="dc-result-box ' + (correct ? 'dc-correct' : 'dc-wrong') + '">' +
+          '<div class="dc-result-emoji">' + (correct ? '✅' : '❌') + '</div>' +
+          '<div class="dc-result-word">' + todayWord.toUpperCase() + '</div>' +
+          '<div class="dc-result-label">' + (correct ? 'You got it!' : 'The word was: ' + todayWord) + '</div>' +
+          '<button class="dc-share-btn" id="dc-share">📋 Share result</button>' +
+        '</div>' +
+        '<div class="dc-scrambled">' + scrambled.toUpperCase() + '</div>' +
+        streakHtml;
+      document.getElementById('dc-share').addEventListener('click', function() {
+        var shareText = 'Wordineer Daily Scramble — ' + formatDate(dk) + '\n' + scrambled.toUpperCase() + ' → ' + (correct ? '✅' : '❌') + '\nStreak: ' + streak + '\nwordineer.com/word-scramble/';
+        if (navigator.clipboard) navigator.clipboard.writeText(shareText);
+        var btn = this;
+        btn.textContent = '✓ Copied!';
+        setTimeout(function() { btn.textContent = '📋 Share result'; }, 1600);
+      });
+    } else {
+      var streakHtml = streak > 0 ? '<div class="dc-streak">Streak: <strong>' + streak + ' day' + (streak !== 1 ? 's' : '') + '</strong></div>' : '';
+      wrap.innerHTML =
+        '<div class="dc-date-badge">📅 ' + formatDate(dk) + '</div>' +
+        '<div class="dc-title">Unscramble today\'s word</div>' +
+        '<div class="dc-scrambled">' + scrambled.toUpperCase() + '</div>' +
+        '<div class="dc-input-row">' +
+          '<input class="dc-input" id="dc-input" type="text" placeholder="your answer" autocomplete="off" autocorrect="off" spellcheck="false" maxlength="12">' +
+          '<button class="dc-submit-btn" id="dc-submit">Submit</button>' +
+        '</div>' +
+        '<button class="dc-giveup-btn" id="dc-giveup">Give up</button>' +
+        streakHtml;
+
+      function handleResult(correct) {
+        var prevDate = store.date;
+        var prevStreak = parseInt(store.streak || 0);
+        var newStreak = correct ? (prevDate === getYesterdayKey() ? prevStreak + 1 : 1) : 0;
+        store = { date: dk, correct: correct, streak: newStreak };
+        saveStore(store);
+        renderDaily();
+      }
+
+      function handleSubmit() {
+        var input = document.getElementById('dc-input');
+        var guess = (input ? input.value.trim().toLowerCase().replace(/[^a-z]/g, '') : '');
+        if (!guess) { if (input) input.focus(); return; }
+        handleResult(guess === todayWord);
+      }
+
+      document.getElementById('dc-submit').addEventListener('click', handleSubmit);
+      document.getElementById('dc-input').addEventListener('keydown', function(e) { if (e.key === 'Enter') handleSubmit(); });
+      document.getElementById('dc-giveup').addEventListener('click', function() { handleResult(false); });
+    }
+  }
+
+  document.addEventListener('click', function(e) {
+    if (e.target.closest('[data-tab="daily"]')) setTimeout(renderDaily, 20);
+  });
+})();
 
 (function bindWordineerMenu(){
   const mega = document.getElementById("mega");

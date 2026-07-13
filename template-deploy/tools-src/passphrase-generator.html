@@ -1,0 +1,750 @@
+<!-- CONFIG
+{
+  "url": "/passphrase-generator/",
+  "output": "passphrase-generator.html",
+  "type": "tool",
+  "more_tools_key": "more_word_tools",
+  "more_tools_subtitle": "More free word and generator tools"
+}
+-->
+
+<!-- SLOT:meta -->
+<title>Passphrase Generator — Secure, Memorable Passphrases | Wordineer</title>
+<meta name="description" content="Generate strong, memorable passphrases instantly. Choose word count, separators, capitalization, and more. Uses the EFF word list and cryptographically secure randomness. Free, no sign-up.">
+<link rel="canonical" href="https://wordineer.com/passphrase-generator/">
+<meta property="og:type"        content="website">
+<meta property="og:site_name"   content="Wordineer">
+<meta property="og:title"       content="Passphrase Generator | Wordineer">
+<meta property="og:description" content="Generate multiple strong passphrases at once. EFF word list, cryptographic randomness, entropy display. Free, no sign-up.">
+<meta property="og:url"         content="https://wordineer.com/passphrase-generator/">
+<meta property="og:image"       content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is this passphrase generator secure?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. All generation happens entirely in your browser — nothing is transmitted to any server. The tool uses the Web Cryptography API (crypto.getRandomValues), which is cryptographically secure randomness, not the weaker Math.random(). The word list is the EFF large wordlist, the same standard used by professional password managers. Your passphrases never leave your device." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is entropy and why does it matter?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Entropy (measured in bits) describes how many possible passphrases could be generated with your current settings. Higher bits means more possible combinations, which means longer to crack. A 4-word EFF passphrase has about 51 bits of entropy, and a 5-word passphrase has about 64 bits. Security researchers generally recommend at least 60–80 bits for sensitive accounts. The crack-time estimate assumes a very fast attacker making 1 trillion guesses per second — at 64 bits, that still takes over 18,000 years." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use a passphrase for my bank or work account?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. A 5-word passphrase (64 bits of entropy) is extremely strong — far stronger than a typical password like 'P@ssw0rd123'. Most sites accept passphrases as long as they meet any minimum length requirement. For critical accounts (banking, email, password manager master password), use 5 or 6 words and enable the number option to satisfy sites that require a digit." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the EFF word list?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The EFF (Electronic Frontier Foundation) large word list is a curated set of 7,776 common, everyday English words designed specifically for creating diceware passphrases. The EFF selected words that are easy to spell, easy to remember, and unambiguous — removing obscure words, offensive terms, and words that sound like other words when spoken aloud. It is the same standard word list used by Bitwarden, 1Password, and other professional password managers." }
+    },
+    {
+      "@type": "Question",
+      "name": "How many words should my passphrase have?",
+      "acceptedAnswer": { "@type": "Answer", "text": "For most accounts, 4 words is a reasonable minimum (51 bits). For sensitive accounts — email, banking, your password manager master password — use 5 words (64 bits) or 6 words (77 bits). Adding a number or symbol increases entropy further. The key advantage of passphrases is that more words means both higher security AND easier to remember, which is the opposite of how traditional password complexity advice works." }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Passphrase Generator",
+  "url": "https://wordineer.com/passphrase-generator/",
+  "description": "Generate strong, memorable passphrases instantly. Choose word count, separators, capitalization, and more. Uses the EFF word list and cryptographically secure randomness. Free, no sign-up.",
+  "applicationCategory": "SecurityApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@id": "https://wordineer.com/#organization" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Word Tools", "item": "https://wordineer.com/word-tools/" },
+    { "@type": "ListItem", "position": 3, "name": "Passphrase Generator", "item": "https://wordineer.com/passphrase-generator/" }
+  ]
+}
+</script>
+<!-- /SLOT:meta -->
+
+<!-- SLOT:style -->
+<style>
+.tool-wrap  { max-width:960px; margin:0 auto; padding:24px 24px 0; }
+.tool-card  { border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg); box-shadow:var(--shadow); }
+.tool-split { display:flex; }
+
+.ctrl { width:220px; flex-shrink:0; padding:18px; border-right:1px solid var(--border-2); background:var(--bg-2); }
+.ctrl-row   { margin-bottom:14px; }
+.ctrl-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; display:block; margin-bottom:5px; }
+.ctrl-row input[type="number"],
+.ctrl-row input[type="text"],
+.ctrl-row select { width:100%; padding:7px 10px; font-size:13px; font-family:inherit; border:1px solid var(--border); border-radius:7px; background:var(--bg); color:var(--text); appearance:none; outline:none; transition:border-color .15s; box-sizing:border-box; }
+.ctrl-row input:focus, .ctrl-row select:focus { border-color:var(--brand); }
+.def-row    { display:flex; align-items:center; gap:8px; margin-bottom:14px; }
+.def-row label { font-size:12px; color:var(--text-2); cursor:pointer; }
+.toggle     { position:relative; width:32px; height:18px; flex-shrink:0; }
+.toggle input { opacity:0; width:0; height:0; }
+.toggle-sl  { position:absolute; cursor:pointer; inset:0; background:var(--border); border-radius:9px; transition:.2s; }
+.toggle input:checked + .toggle-sl { background:var(--brand); }
+.toggle-sl::before { content:''; position:absolute; width:14px; height:14px; left:2px; top:2px; background:white; border-radius:50%; transition:.2s; }
+.toggle input:checked + .toggle-sl::before { transform:translateX(14px); }
+.gen-btn    { width:100%; padding:10px 14px; background:var(--brand); color:white; border:none; border-radius:8px; font-size:14px; font-weight:600; font-family:inherit; cursor:pointer; transition:background .15s,transform .1s; letter-spacing:-.01em; }
+.gen-btn:hover { background:var(--brand-dark); }
+.gen-btn:active { transform:scale(.98); }
+.reset-btn  { display:block; width:100%; text-align:center; font-size:11px; color:var(--text-3); margin-top:8px; cursor:pointer; text-decoration:underline; text-underline-offset:2px; border:none; background:none; font-family:inherit; }
+.kbd        { text-align:center; font-size:10px; color:var(--text-3); margin-top:6px; }
+.kbd kbd    { background:var(--bg-3); border:1px solid var(--border); border-radius:3px; padding:1px 5px; font-size:10px; font-family:inherit; }
+
+.words-panel { flex:1; display:flex; flex-direction:column; overflow:hidden; }
+.words-top { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 16px; border-bottom:1px solid var(--border-2); }
+.words-count { font-size:12px; color:var(--text-3); }
+.words-actions { display:flex; gap:6px; flex-wrap:wrap; justify-content:flex-end; }
+.act-btn    { font-size:12px; padding:5px 11px; border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:background .12s; }
+.act-btn:hover { background:var(--bg-2); }
+
+.pp-entropy-bar  { padding:8px 16px 10px; border-bottom:1px solid var(--border-2); }
+.pp-entropy-track { height:4px; background:var(--border-2); border-radius:2px; margin-bottom:6px; overflow:hidden; }
+.pp-entropy-fill  { height:100%; border-radius:2px; transition:width .35s,background-color .35s; width:0; }
+.pp-entropy-info  { display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
+.pp-entropy-text  { font-size:12px; font-weight:600; }
+.pp-entropy-sub   { font-size:11px; color:var(--text-3); }
+
+.word-list  { flex:1; overflow-y:auto; list-style:none; padding:0 16px; margin:0; }
+.word-item  { display:flex; align-items:center; justify-content:space-between; padding:11px 0; border-bottom:1px solid var(--border-2); gap:10px; animation:fadeIn .2s ease; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:none} }
+.word-item:last-child { border-bottom:none; }
+.word-left  { flex:1; min-width:0; }
+.word-right { display:flex; align-items:center; gap:4px; flex-shrink:0; }
+.icon-btn   { width:28px; height:28px; display:flex; align-items:center; justify-content:center; background:transparent; border:none; cursor:pointer; border-radius:5px; color:var(--text-3); transition:background .12s,color .12s; }
+.icon-btn:hover { background:var(--bg-2); color:var(--text); }
+.icon-btn svg { width:14px; height:14px; }
+.icon-btn.saved { color:#E24B4A; }
+.pp-phrase      { font-size:15px; font-weight:600; color:var(--text); line-height:1.3; word-break:break-all; font-family:monospace; }
+.pp-char-count  { font-size:11px; color:var(--text-3); margin-top:2px; }
+.pp-len-row     { display:flex; align-items:center; gap:6px; }
+.pp-len-row input { width:62px !important; flex-shrink:0; }
+.pp-len-sep     { font-size:13px; color:var(--text-3); }
+.pp-compare     { width:100%; border-collapse:collapse; font-size:13px; margin:0 0 14px; }
+.pp-compare th  { text-align:left; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:var(--text-3); padding:7px 10px; border-bottom:2px solid var(--border); }
+.pp-compare td  { padding:8px 10px; border-bottom:1px solid var(--border-2); color:var(--text-2); vertical-align:top; line-height:1.5; }
+.pp-compare td:first-child { font-weight:600; color:var(--text); white-space:nowrap; }
+.pp-compare tr:last-child td { border-bottom:none; }
+.pp-compare code { font-family:monospace; font-size:12px; }
+
+.saved-section { border-top:1px solid var(--border); padding:12px 14px; background:var(--bg); }
+.saved-top { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:8px; }
+.saved-label { font-size:12px; font-weight:700; color:var(--text); }
+.saved-copy { border:1px solid var(--border); background:var(--bg); color:var(--brand); border-radius:7px; padding:5px 9px; font-size:11px; font-weight:600; cursor:pointer; }
+.saved-tags { display:flex; gap:5px; flex-wrap:wrap; min-height:22px; }
+.saved-tag { display:inline-flex; align-items:center; gap:4px; background:#F0F2FF; color:var(--brand); border-radius:999px; padding:4px 8px; font-size:11px; font-weight:600; font-family:monospace; }
+.saved-tag-remove { cursor:pointer; opacity:.65; }
+.saved-tag-remove:hover { opacity:1; }
+.saved-empty { color:var(--text-3); font-size:12px; }
+
+.pp-custom-sep-row { margin-top:8px; display:none; }
+.pp-custom-sep-row.visible { display:block; }
+
+.explainer ul { font-size:14px; color:var(--text-2); line-height:1.7; margin:0 0 10px 0; padding-left:18px; }
+.explainer ul li { margin-bottom:4px; }
+
+.pp-mobile-toggle { display:none; width:100%; margin:-2px 0 14px; padding:9px 12px; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--brand); font-size:13px; font-weight:600; font-family:inherit; cursor:pointer; }
+.pp-advanced { display:block; }
+
+@media(max-width:700px){
+  .tool-wrap { padding:14px 16px 0; }
+  .tool-split { flex-direction:column; }
+  .ctrl { width:100%; border-right:none; border-bottom:1px solid var(--border-2); }
+  .reset-btn, .kbd { display:none; }
+  .word-list { max-height:440px; overflow-y:auto; }
+  .pp-mobile-toggle { display:block; }
+  .pp-advanced { display:none; }
+  .pp-advanced.is-open { display:block; }
+  .hero { padding:12px 16px 12px; }
+  .hero-badge { margin-bottom:6px; }
+  .hero h1 { font-size:24px; }
+}
+</style>
+<!-- /SLOT:style -->
+
+<!-- SLOT:hero -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/account-tools/">Account Tools</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Passphrase Generator</span>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free · No sign-up · 100% private
+  </div>
+  <h1>Passphrase generator</h1>
+  <p>Generate strong, memorable passphrases instantly — multiple results at once, so you can pick your favourite. Uses the EFF word list and cryptographically secure randomness. Nothing leaves your browser.</p>
+</div>
+<!-- /SLOT:hero -->
+
+<!-- SLOT:tool -->
+<div class="tool-wrap">
+  <div class="tool-card">
+    <div class="tool-split">
+
+      <!-- LEFT: controls -->
+      <div class="ctrl">
+        <div class="ctrl-row">
+          <label class="ctrl-label" for="pp-count">Number of passphrases</label>
+          <input type="number" id="pp-count" value="5" min="1" max="20" inputmode="numeric">
+        </div>
+
+        <button type="button" class="pp-mobile-toggle" id="pp-mobile-toggle" aria-expanded="false" aria-controls="pp-advanced">More options</button>
+
+        <div class="pp-advanced" id="pp-advanced">
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="pp-words">Words per passphrase</label>
+            <input type="number" id="pp-words" value="4" min="3" max="8" inputmode="numeric">
+          </div>
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="pp-sep">Separator</label>
+            <select id="pp-sep">
+              <option value="dash">Dash  ( - )</option>
+              <option value="space">Space ( &nbsp; )</option>
+              <option value="underscore">Underscore ( _ )</option>
+              <option value="period">Period ( . )</option>
+              <option value="none">None</option>
+              <option value="custom">Custom…</option>
+            </select>
+            <div class="pp-custom-sep-row" id="pp-custom-sep-row">
+              <input type="text" id="pp-custom-sep" placeholder="Type separator" maxlength="3" value="">
+            </div>
+          </div>
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="pp-caps">Capitalization</label>
+            <select id="pp-caps">
+              <option value="first">First letter of each word</option>
+              <option value="none">No capitalization</option>
+              <option value="upper">ALL CAPS</option>
+              <option value="random">Random letter</option>
+            </select>
+          </div>
+          <div class="ctrl-row">
+            <label class="ctrl-label">Word length (chars)</label>
+            <div class="pp-len-row">
+              <input type="number" id="pp-min-len" value="4" min="3" max="10" inputmode="numeric" title="Minimum word length">
+              <span class="pp-len-sep">–</span>
+              <input type="number" id="pp-max-len" value="8" min="3" max="12" inputmode="numeric" title="Maximum word length">
+            </div>
+          </div>
+          <div class="def-row">
+            <label class="toggle" aria-label="Include a number"><input type="checkbox" id="pp-number"><span class="toggle-sl"></span></label>
+            <label for="pp-number">Include a number</label>
+          </div>
+          <div class="def-row">
+            <label class="toggle" aria-label="Include a symbol"><input type="checkbox" id="pp-symbol"><span class="toggle-sl"></span></label>
+            <label for="pp-symbol">Include a symbol</label>
+          </div>
+        </div>
+
+        <button class="gen-btn" id="pp-gen-btn">Generate passphrases</button>
+        <button class="reset-btn" id="pp-reset-btn">Reset options</button>
+        <div class="kbd">Press <kbd>Space</kbd> to regenerate</div>
+
+        <div class="ad-sidebar">
+          <span class="ad-sidebar-tag">Ad</span>
+          <div class="ad-sidebar-logo">
+            <svg viewBox="0 0 32 32" fill="none" width="32" height="32"><circle cx="16" cy="16" r="14" fill="#15a249"/><path d="M10 16c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="16" r="2.5" fill="white"/></svg>
+            <span class="ad-sidebar-brand">Grammarly</span>
+          </div>
+          <div class="ad-sidebar-headline">Write with confidence</div>
+          <div class="ad-sidebar-body">Fix grammar, improve clarity, and choose the right words — everywhere you write.</div>
+          <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-sidebar-cta">Try free →</a>
+          <div class="ad-sidebar-sub">Free plan · No credit card</div>
+        </div>
+      </div>
+
+      <!-- RIGHT: passphrase results -->
+      <div class="words-panel">
+        <div class="words-top">
+          <span class="words-count" id="pp-count-display">Generating…</span>
+          <div class="words-actions">
+            <button class="act-btn" id="pp-copy-all-btn">Copy all</button>
+            <button type="button" class="act-btn" id="pp-regen-btn" onclick="document.getElementById('pp-gen-btn')?.click()">Regenerate</button>
+          </div>
+        </div>
+        <div class="pp-entropy-bar" id="pp-entropy-bar" style="display:none">
+          <div class="pp-entropy-track"><div class="pp-entropy-fill" id="pp-entropy-fill"></div></div>
+          <div class="pp-entropy-info">
+            <span class="pp-entropy-text" id="pp-entropy-text"></span>
+            <span class="pp-entropy-sub" id="pp-entropy-sub"></span>
+          </div>
+        </div>
+        <ul class="word-list" id="pp-list"></ul>
+      </div>
+
+    </div>
+
+    <!-- Saved passphrases -->
+    <div class="saved-section">
+      <div class="saved-top">
+        <span class="saved-label">Saved passphrases <span id="pp-saved-count" style="font-weight:400;opacity:.7">(0)</span></span>
+        <button class="saved-copy" id="pp-copy-saved-btn">Copy saved</button>
+      </div>
+      <div class="saved-tags" id="pp-saved-tags">
+        <span class="saved-empty">Click the heart on any passphrase to save it here</span>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /SLOT:tool -->
+
+<!-- SLOT:ad_b -->
+<!-- Ad placeholder: reserved for future affiliate opportunity -->
+<!-- /SLOT:ad_b -->
+
+<!-- SLOT:explainer -->
+<div class="explainer">
+  <h2>What is a passphrase?</h2>
+  <p>A passphrase is a sequence of random words used as a password — for example, <strong>correct-horse-battery-staple</strong>. Instead of trying to remember a string of symbols like <code>X#m9!qL2</code>, you remember a short story or mental image. The randomness comes from how the words are selected (by a cryptographic random number generator, not by you), not from the words being obscure. Common words chosen randomly are statistically far harder to crack than clever-looking passwords chosen by humans.</p>
+  <p>The concept was popularised by the XKCD comic "Password Strength" and is now the recommended approach by NIST (the US National Institute of Standards and Technology), the Electronic Frontier Foundation, and most professional security researchers.</p>
+
+  <h2>Passphrase vs password — at a glance</h2>
+  <table class="pp-compare">
+    <thead><tr><th></th><th>Passphrase</th><th>Traditional password</th></tr></thead>
+    <tbody>
+      <tr><td>Example</td><td><code>flame-orbit-cedar-mist</code></td><td><code>F@m3!x9#Rq</code></td></tr>
+      <tr><td>Entropy (typical)</td><td>51–77 bits (4–6 words)</td><td>30–50 bits (8–12 chars)</td></tr>
+      <tr><td>Easy to remember</td><td>Yes — words form a mental image</td><td>No — symbols are hard to recall</td></tr>
+      <tr><td>Easy to type</td><td>Yes — common words, no hunting for @</td><td>No — special chars slow you down</td></tr>
+      <tr><td>Works on all sites</td><td>Yes</td><td>Yes</td></tr>
+      <tr><td>NIST recommended</td><td>Yes — length over complexity</td><td>No — complexity rules are now discouraged</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Why use a passphrase instead of a password?</h2>
+  <p>Traditional password advice — add numbers, symbols, capital letters, make it complex — backfires in practice. It produces passwords that are hard for humans to remember but not actually hard for computers to crack, because humans follow predictable patterns (P@ssw0rd, Summer2024!). Passphrases solve both problems at once:</p>
+  <ul>
+    <li><strong>Easier to remember.</strong> Four random words form a memorable phrase or image. You can say them aloud, write them down on paper, or type them without hunting for the @ key.</li>
+    <li><strong>Statistically stronger.</strong> A 4-word EFF passphrase has about 51 bits of entropy. A 5-word passphrase reaches 64 bits — equivalent to a fully random 10-character password with uppercase, lowercase, digits, and symbols.</li>
+    <li><strong>Resistant to dictionary attacks.</strong> An attacker trying to crack a passphrase must try combinations of whole words, not individual characters. The EFF list has 7,776 words, so a 4-word passphrase has 7,776<sup>4</sup> = over 3.6 trillion possible combinations.</li>
+    <li><strong>Works everywhere.</strong> No special characters required. Every login form accepts plain words, including those that reject symbols or have strict length limits.</li>
+  </ul>
+
+  <h2>How this passphrase generator works</h2>
+  <p>This tool picks words at random from the <strong>EFF large word list</strong> — 7,776 common English words curated by the Electronic Frontier Foundation specifically for this purpose. Words were chosen to be easy to spell, easy to type, and unambiguous when spoken aloud (no words that sound identical to other words).</p>
+  <p>Randomness comes from the <strong>Web Cryptography API</strong> (<code>crypto.getRandomValues</code>), the same secure source used by password managers and cryptographic software. This is a fundamentally different level of randomness than <code>Math.random()</code>, which is suitable for games but not for security. Nothing is sent to any server — generation happens entirely in your browser, and your passphrases are never transmitted or logged.</p>
+
+  <h2>Passphrase best practices</h2>
+  <ul>
+    <li><strong>Use at least 4 words.</strong> Three words gives about 38 bits of entropy, which is technically crackable with enough computing power. Four words (51 bits) is the practical minimum. Five words (64 bits) is comfortable for sensitive accounts.</li>
+    <li><strong>Use a different passphrase for every account.</strong> If one service is breached, your other accounts stay safe. A password manager makes this practical — store your passphrases there and only memorise the master passphrase.</li>
+    <li><strong>Don't choose the words yourself.</strong> Human-chosen "random" words are not random — we gravitate toward familiar combinations. Let the generator choose.</li>
+    <li><strong>Don't use lyrics, quotes, or book titles.</strong> Famous phrases are in attacker word lists. Truly random words are not.</li>
+    <li><strong>Add a number or symbol if required.</strong> Toggle the options above to satisfy sites with complexity requirements without sacrificing memorability.</li>
+  </ul>
+
+  <h2>How to manage your passphrases</h2>
+  <p>You only need to memorise one passphrase: the master passphrase for your password manager. Use a 5 or 6-word passphrase for this — it is the key to everything else, so make it strong. Then generate unique passphrases for every other account and let the password manager store them. You never have to remember (or even see) your other passphrases again. Popular password managers include <strong>1Password</strong>, <strong>Bitwarden</strong> (free and open source), and <strong>Dashlane</strong>.</p>
+  <p>For accounts where you must type the passphrase by hand — a device login, for example — pick a 4 or 5-word passphrase and practise typing it a few times. The regularity of real words makes them much faster to type than symbol-heavy passwords.</p>
+</div>
+<!-- /SLOT:explainer -->
+
+<!-- SLOT:faq -->
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">Is this passphrase generator secure?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes. All generation happens entirely in your browser — nothing is transmitted to any server. The tool uses the Web Cryptography API (<code>crypto.getRandomValues</code>), which is cryptographically secure randomness, not the weaker <code>Math.random()</code>. The word list is the EFF large wordlist, the same standard used by Bitwarden, 1Password, and other professional password managers. Your passphrases never leave your device.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What is entropy and why does it matter?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Entropy (measured in bits) describes how many possible passphrases could be generated with your current settings. Higher bits means more possible combinations and therefore longer to crack. A 4-word EFF passphrase has about 51 bits of entropy; a 5-word passphrase has about 64 bits. Security researchers generally recommend at least 60–80 bits for sensitive accounts. The crack-time estimate shown assumes a very powerful attacker running 1 trillion guesses per second — at 64 bits, that still takes over 18,000 years.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I use a passphrase for banking or work accounts?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes. A 5-word passphrase (64 bits of entropy) is extremely strong — far stronger than a typical password like <code>P@ssw0rd123</code>. Most sites accept passphrases as long as they meet any minimum length requirement. For critical accounts (banking, email, your password manager master password), use 5 or 6 words and enable the number option to satisfy sites that require a digit.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What is the EFF word list?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">The EFF (Electronic Frontier Foundation) large word list is a curated set of 7,776 common, everyday English words designed specifically for creating diceware passphrases. The EFF selected words that are easy to spell, easy to remember, and unambiguous — removing obscure words, offensive terms, and words that sound like other words when spoken aloud. It is the same standard word list used by Bitwarden, 1Password, and other professional password managers.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">How many words should my passphrase have?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">For most accounts, 4 words is a reasonable minimum (51 bits). For sensitive accounts — email, banking, your password manager master password — use 5 words (64 bits) or 6 words (77 bits). Adding a number or symbol increases entropy further. The key advantage of passphrases is that more words means both higher security AND easier to remember, which is the opposite of how traditional password complexity advice works.</div>
+  </div>
+</div>
+<!-- /SLOT:faq -->
+
+<!-- SLOT:who -->
+<div>
+  <h2 class="section-title" style="margin-bottom:14px">Who uses a passphrase generator?</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">Security-conscious users</div><div class="uc-body">Replacing weak or reused passwords with strong unique passphrases for every account — starting with the password manager master password</div></div>
+    <div class="uc"><div class="uc-title">IT administrators</div><div class="uc-body">Setting team password policies that are both secure and usable — passphrases are easier for employees to follow than symbol-heavy requirements</div></div>
+    <div class="uc"><div class="uc-title">Developers</div><div class="uc-body">Generating strong secrets for API keys, service accounts, or encryption keys that need to be typeable and auditable by humans</div></div>
+    <div class="uc"><div class="uc-title">Anyone switching managers</div><div class="uc-body">Setting a strong master password when signing up for a password manager for the first time — the one passphrase worth memorising</div></div>
+  </div>
+</div>
+<!-- /SLOT:who -->
+
+<!-- SLOT:init -->
+<script>
+(function() {
+  // Seed words for instant first render (subset of EFF list)
+  var PP_SEED = ["abacus","abide","ability","ablaze","able","abroad","absence","accent","account","acorn","acquire","acre","acrobat","acting","action","active","actress","aerosol","affair","affirm","afford","afraid","agenda","agent","agile","aging","agony","agreed","ahead","aide","alarm","album","alias","alibi","alike","alive","almost","alone","aloof","always","amaze","amber","ambush","amends","amid","amino","among","amount","ample","amused","anchor","ancient","anger","animal","animate","anime","ankle","anthem","antics","antler","anvil","anyone","anyway","apple","appear","appease","april","apron","aqua","area","argue","arise","armed","army","aroma","arose","around","arrange","arrest","arrive","ascend","ashamed","ashen","ashes","aside","askew","asleep","aspire","atlas","atom","atop","basic","battle","beach","beacon","bear","beast","beauty","beckon","belief","belong","beneath","bestow","beyond","blanket","blast","blaze","blend","bless","blind","block","bloom","blossom","brace","brave","breeze","bridge","bright","bring","brook","brush","bubble","buckle","budget","bundle","burden","cabin","cable","camper","candle","canvas","career","castle","catch","cattle","cause","cease","cellar","chain","chalk","charm","choice","circle","civil","claim","clamp","clear","climb","close","cloud","clover","cluster","comet","coral","cotton","craft","creak","create","crisp","crown","crystal","custom","cycle","dancer","daring","dawn","decide","defend","delight","dense","depth","desert","detail","devote","dinner","direct","diver","divide","domain","dragon","drift","drink","drive","eager","eagle","early","earth","eight","ember","empty","engage","enjoy","entire","entry","equal","escape","event","exact","exist","extra","fable","fabric","facing","falcon","fancy","field","flame","flash","fleet","float","flood","flower","flutter","flying","focus","follow","forest","forge","forth","fossil","found","frame","fresh","front","frosted","frozen","fruit","fully","garden","gather","gentle","giant","given","glider","glimmer","globe","glow","golden","grace","grain","grand","grant","grasp","great","green","greet","guest","guide","hapless","harbor","hardy","harvest","haven","hazard","heart","helpful","hidden","highland","hollow","honest","honor","hope","hover","humble","hunter","impact","inner","insight","intact","island","ivory","jungle","keeper","kneel","known","launch","layer","leader","learn","light","limit","linked","listen","lively","local","lodge","loyal","lunar","magic","maple","march","master","meadow","metal","mirror","misty","modern","moment","mountain","nearby","needle","noble","ocean","orbit","other","panel","paper","parent","patrol","pattern","peace","people","place","planet","plant","plaza","plenty","polish","power","press","pride","prime","proof","prose","proud","pulse","quest","radar","rapid","ready","realm","rebel","record","refuge","relay","river","robust","rocky","royal","rural","scale","scope","scout","search","season","secure","select","sense","serve","settle","seven","silver","simple","skill","solar","solid","solve","south","spark","speak","spirit","stable","staff","stamp","stand","steady","steel","steps","stone","storm","story","stream","strong","study","style","surge","swift","sword","target","timber","tower","trace","trade","trail","train","trust","truly","unity","urban","value","vapor","vault","vigil","vital","vivid","vocal","voice","water","weave","wedge","whole","width","wisdom","world","worry","worth","write","yield","young"];
+
+  var ppWordList = PP_SEED.slice();
+  var ppFullLoaded = false;
+  var ppLoadPromise = null;
+  var ppLoadScheduled = false;
+  var ppLoadTimer = null;
+  var ppUsedSeed = false;
+  var ppCurrentItems = [];
+
+  function ppCryptoRand(max) {
+    var arr = new Uint32Array(1);
+    crypto.getRandomValues(arr);
+    // Avoid modulo bias for small max values relative to 2^32
+    var limit = Math.floor(0x100000000 / max) * max;
+    var r;
+    do { crypto.getRandomValues(arr); r = arr[0]; } while (r >= limit);
+    return r % max;
+  }
+
+  function ppEntropy(wordCount) {
+    return Math.round(wordCount * Math.log2(7776));
+  }
+
+  function ppFmtNum(n) {
+    return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+
+  function ppCrackTime(bits) {
+    // Assumes 1 trillion guesses/second attacker
+    var secs = Math.pow(2, bits) / 1e12;
+    var years = secs / (365.25 * 86400);
+    if (years >= 1e9)  return '~' + ppFmtNum(years / 1e9) + ' billion years';
+    if (years >= 1e6)  return '~' + ppFmtNum(years / 1e6) + ' million years';
+    if (years >= 1000) return '~' + ppFmtNum(years / 1000) + 'k years';
+    if (years >= 1)    return '~' + ppFmtNum(years) + ' years';
+    var days = secs / 86400;
+    if (days >= 1)     return '~' + ppFmtNum(days) + ' days';
+    var hours = secs / 3600;
+    if (hours >= 1)    return '~' + ppFmtNum(hours) + ' hours';
+    var mins = secs / 60;
+    if (mins >= 1)     return '~' + ppFmtNum(mins) + ' minutes';
+    return 'under a minute';
+  }
+
+  function ppStrengthLabel(bits) {
+    if (bits >= 80) return { text: 'Extremely strong', color: '#1D9E75' };
+    if (bits >= 60) return { text: 'Strong', color: '#1D9E75' };
+    if (bits >= 45) return { text: 'Decent — add a word for better security', color: '#D97706' };
+    return { text: 'Weak — use more words', color: '#E24B4A' };
+  }
+
+  function ppApplyCase(words, mode) {
+    if (mode === 'none') return words.slice();
+    if (mode === 'first') return words.map(function(w) { return w.charAt(0).toUpperCase() + w.slice(1); });
+    if (mode === 'upper') return words.map(function(w) { return w.toUpperCase(); });
+    if (mode === 'random') return words.map(function(w) {
+      var idx = ppCryptoRand(w.length);
+      return w.slice(0, idx) + w.charAt(idx).toUpperCase() + w.slice(idx + 1);
+    });
+    return words.slice();
+  }
+
+  function ppRandomDigits() {
+    return String(ppCryptoRand(10)) + String(ppCryptoRand(10));
+  }
+
+  function ppRandomSymbol() {
+    var syms = ['!', '@', '#', '$', '%', '&', '*', '?'];
+    return syms[ppCryptoRand(syms.length)];
+  }
+
+  function ppGetOpts() {
+    var countVal = parseInt(document.getElementById('pp-count')?.value);
+    var wordsVal = parseInt(document.getElementById('pp-words')?.value);
+    var count    = isNaN(countVal) || countVal < 1 ? 5 : Math.min(20, countVal);
+    var wordCount = isNaN(wordsVal) || wordsVal < 3 ? 4 : Math.min(8, wordsVal);
+    var sepSel   = document.getElementById('pp-sep')?.value || 'dash';
+    var customSep = (document.getElementById('pp-custom-sep')?.value || '-').slice(0, 3);
+    var sepMap   = { dash: '-', space: ' ', underscore: '_', period: '.', none: '', custom: customSep };
+    var sep      = sepMap[sepSel] !== undefined ? sepMap[sepSel] : '-';
+    var caps     = document.getElementById('pp-caps')?.value || 'first';
+    var addNum   = document.getElementById('pp-number')?.checked || false;
+    var addSym   = document.getElementById('pp-symbol')?.checked || false;
+    var minLenV  = parseInt(document.getElementById('pp-min-len')?.value);
+    var maxLenV  = parseInt(document.getElementById('pp-max-len')?.value);
+    var minLen   = isNaN(minLenV) || minLenV < 3 ? 4 : Math.min(10, minLenV);
+    var maxLen   = isNaN(maxLenV) || maxLenV < minLen ? Math.max(minLen, 8) : Math.min(12, maxLenV);
+    return { count: count, wordCount: wordCount, sep: sep, caps: caps, addNum: addNum, addSym: addSym, minLen: minLen, maxLen: maxLen };
+  }
+
+  function ppGenerateOne(opts) {
+    var pool = ppWordList.filter(function(w) { return w.length >= opts.minLen && w.length <= opts.maxLen; });
+    if (!pool.length) pool = ppWordList;
+    var picked = [];
+    var seen = {};
+    var attempts = 0;
+    while (picked.length < opts.wordCount && attempts < opts.wordCount * 20) {
+      var w = pool[ppCryptoRand(pool.length)];
+      if (!seen[w]) { seen[w] = true; picked.push(w); }
+      attempts++;
+    }
+    var words = ppApplyCase(picked, opts.caps);
+    if (opts.addNum) {
+      var numPos = ppCryptoRand(words.length);
+      words[numPos] = words[numPos] + ppRandomDigits();
+    }
+    if (opts.addSym) {
+      words[0] = ppRandomSymbol() + words[0];
+    }
+    return words.join(opts.sep);
+  }
+
+  function ppUpdateEntropyBar(opts) {
+    var bits = ppEntropy(opts.wordCount);
+    var strength = ppStrengthLabel(bits);
+    var crackTime = ppCrackTime(bits);
+    var bar  = document.getElementById('pp-entropy-bar');
+    var fill = document.getElementById('pp-entropy-fill');
+    var text = document.getElementById('pp-entropy-text');
+    var sub  = document.getElementById('pp-entropy-sub');
+    if (!bar) return;
+    bar.style.display = 'block';
+    if (fill) { fill.style.width = Math.min(bits / 100, 1) * 100 + '%'; fill.style.background = strength.color; }
+    if (text) { text.textContent = bits + ' bits · ' + strength.text; text.style.color = strength.color; }
+    if (sub)  { sub.textContent = '· estimated crack time: ' + crackTime; }
+  }
+
+  function ppGenerateFn(data, cfg) {
+    ppUsedSeed = !ppFullLoaded;
+    var opts = ppGetOpts();
+    ppUpdateEntropyBar(opts);
+    var results = [];
+    for (var i = 0; i < opts.count; i++) {
+      results.push(ppGenerateOne(opts));
+    }
+    ppCurrentItems = results.slice();
+    return results;
+  }
+
+  function ppRenderItem(item) {
+    var savedArr = [];
+    try { savedArr = JSON.parse(localStorage.getItem('wnr_saved_passphrases') || '[]'); } catch (_) {}
+    var isSaved = savedArr.indexOf(item) !== -1;
+    var safe     = item.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    var safeAttr = item.replace(/"/g, '&quot;');
+    var safeJs   = item.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
+    return '<li class="word-item">'
+      + '<div class="word-left"><div class="pp-phrase">' + safe + '</div><div class="pp-char-count">' + item.length + ' characters</div></div>'
+      + '<div class="word-right">'
+      +   '<button class="icon-btn" title="Copy" onclick="ppCopy(\'' + safeJs + '\',this)">'
+      +     '<svg viewBox="0 0 14 14" fill="none"><rect x="1" y="4" width="9" height="9.5" rx="1.5" stroke="currentColor" stroke-width="1.1"/><path d="M4.5 4V2.5A1.5 1.5 0 016 1h5.5A1.5 1.5 0 0113 2.5v7a1.5 1.5 0 01-1.5 1.5H10" stroke="currentColor" stroke-width="1.1"/></svg>'
+      +   '</button>'
+      +   '<button class="icon-btn' + (isSaved ? ' saved' : '') + '" title="' + (isSaved ? 'Unsave' : 'Save') + '" data-action="save" data-name="' + safeAttr + '">'
+      +     '<svg viewBox="0 0 16 16" fill="none"><path d="M8 13.5S2 9.5 2 5.5A3 3 0 018 4a3 3 0 016 1.5c0 4-6 8-6 8z" stroke="currentColor" stroke-width="1.3" fill="' + (isSaved ? '#E24B4A' : 'none') + '" stroke-linecap="round"/></svg>'
+      +   '</button>'
+      + '</div>'
+      + '</li>';
+  }
+
+  window.ppCopy = function(phrase, btn) {
+    navigator.clipboard?.writeText(phrase);
+    var orig = btn.innerHTML;
+    btn.innerHTML = '<svg viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5 6.5-6.5" stroke="#1D9E75" stroke-width="1.3" stroke-linecap="round"/></svg>';
+    setTimeout(function() { btn.innerHTML = orig; }, 900);
+    WORDINEER.showToast('Copied!');
+  };
+
+  async function ppLoadFull() {
+    if (ppLoadPromise) return ppLoadPromise;
+    ppLoadPromise = (async function() {
+      try {
+        var res = await fetch('/data/eff-words.json', { cache: 'force-cache' });
+        if (!res.ok) throw new Error(res.status);
+        var words = await res.json();
+        if (!Array.isArray(words) || words.length < 100) throw new Error('Invalid word list');
+        ppWordList = words;
+        ppFullLoaded = true;
+        if (ppUsedSeed) document.getElementById('pp-gen-btn')?.click();
+      } catch (_) {
+        ppLoadPromise = null;
+        ppLoadScheduled = false;
+      }
+    })();
+    return ppLoadPromise;
+  }
+
+  function ppScheduleLoad(delay) {
+    if (ppFullLoaded) return;
+    if (ppLoadScheduled) { if (delay > 0 || !ppLoadTimer) return; clearTimeout(ppLoadTimer); }
+    ppLoadScheduled = true;
+    ppLoadTimer = setTimeout(function() {
+      ppLoadTimer = null;
+      var run = function() { ppLoadFull().catch(function(){}); };
+      if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(run, { timeout: 5000 });
+      } else { run(); }
+    }, delay || 0);
+  }
+
+  function ppScheduleAfterLoad() {
+    var go = function() { ppScheduleLoad(2500); };
+    if (document.readyState === 'complete') { go(); }
+    else { window.addEventListener('load', go, { once: true }); }
+  }
+
+  WORDINEER.init({
+    mode:           'custom',
+    data:           ppWordList,
+    renderItem:     ppRenderItem,
+    generateFn:     ppGenerateFn,
+    listId:         'pp-list',
+    countDisplayId: 'pp-count-display',
+    generateBtnId:  'pp-gen-btn',
+    copyAllBtnId:   'pp-copy-all-btn',
+    savedKey:       'wnr_saved_passphrases',
+    savedListId:    'pp-saved-tags'
+  });
+
+  ppScheduleAfterLoad();
+
+  // Input validation + auto-regenerate on change
+  function ppClampInput(id, min, max, def) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.addEventListener('change', function() {
+      var v = parseInt(this.value);
+      if (isNaN(v) || v < min || v > max) this.value = def;
+      ppScheduleLoad(0);
+      document.getElementById('pp-gen-btn')?.click();
+    });
+  }
+  ppClampInput('pp-count', 1, 20, 5);
+  ppClampInput('pp-words', 3, 8, 4);
+
+  // Auto-update results as count/words/length values change
+  document.getElementById('pp-count')?.addEventListener('input', function() {
+    var v = parseInt(this.value);
+    if (isNaN(v)) return;
+    if (v < 1) this.value = 1;
+    if (v > 20) this.value = 20;
+    document.getElementById('pp-gen-btn')?.click();
+  });
+  document.getElementById('pp-words')?.addEventListener('input', function() {
+    var v = parseInt(this.value); if (v >= 3 && v <= 8) document.getElementById('pp-gen-btn')?.click();
+  });
+  ['pp-min-len', 'pp-max-len'].forEach(function(id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.addEventListener('input', function() {
+      var v = parseInt(this.value); if (!isNaN(v)) document.getElementById('pp-gen-btn')?.click();
+    });
+    el.addEventListener('change', function() {
+      var v = parseInt(this.value);
+      if (isNaN(v)) this.value = id === 'pp-min-len' ? '4' : '8';
+      document.getElementById('pp-gen-btn')?.click();
+    });
+  });
+
+  // Custom separator toggle
+  var ppSepSel = document.getElementById('pp-sep');
+  var ppCustomRow = document.getElementById('pp-custom-sep-row');
+  if (ppSepSel && ppCustomRow) {
+    ppSepSel.addEventListener('change', function() {
+      ppCustomRow.classList.toggle('visible', this.value === 'custom');
+      ppScheduleLoad(0);
+      document.getElementById('pp-gen-btn')?.click();
+    });
+    document.getElementById('pp-custom-sep')?.addEventListener('input', function() {
+      document.getElementById('pp-gen-btn')?.click();
+    });
+  }
+
+  // Caps, number, symbol toggles auto-regen
+  ['pp-caps', 'pp-number', 'pp-symbol'].forEach(function(id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.addEventListener('change', function() {
+      ppScheduleLoad(0);
+      document.getElementById('pp-gen-btn')?.click();
+    });
+  });
+
+  // Generate button triggers load
+  document.getElementById('pp-gen-btn')?.addEventListener('click', function() {
+    ppScheduleLoad(0);
+  });
+
+  // Reset button
+  document.getElementById('pp-reset-btn')?.addEventListener('click', function() {
+    ppScheduleLoad(0);
+    document.getElementById('pp-count').value = '5';
+    document.getElementById('pp-words').value = '4';
+    document.getElementById('pp-sep').value = 'dash';
+    if (ppCustomRow) ppCustomRow.classList.remove('visible');
+    document.getElementById('pp-caps').value = 'first';
+    document.getElementById('pp-number').checked = false;
+    document.getElementById('pp-symbol').checked = false;
+    document.getElementById('pp-min-len').value = '4';
+    document.getElementById('pp-max-len').value = '8';
+    document.getElementById('pp-gen-btn').click();
+  });
+
+  // Copy saved
+  document.getElementById('pp-copy-saved-btn')?.addEventListener('click', function() {
+    var tags = document.querySelectorAll('#pp-saved-tags .saved-tag');
+    if (!tags.length) return;
+    var phrases = Array.from(tags).map(function(t) { return t.textContent.replace('×','').trim(); }).filter(Boolean);
+    navigator.clipboard?.writeText(phrases.join('\n'));
+    WORDINEER.showToast('Saved passphrases copied!');
+  });
+
+  // Space key → regenerate
+  document.addEventListener('keydown', function(e) {
+    if ((e.code === 'Space' || e.code === 'Enter') && !['INPUT','SELECT','TEXTAREA','BUTTON'].includes(e.target.tagName)) {
+      ppScheduleLoad(0);
+    }
+  }, true);
+
+  // Mobile options toggle
+  var ppMobToggle = document.getElementById('pp-mobile-toggle');
+  var ppAdvanced  = document.getElementById('pp-advanced');
+  if (ppMobToggle && ppAdvanced) {
+    ppMobToggle.addEventListener('click', function() {
+      var isOpen = ppAdvanced.classList.toggle('is-open');
+      ppMobToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      ppMobToggle.textContent = isOpen ? 'Hide options' : 'More options';
+    });
+  }
+})();
+
+(function bindWordineerMenu(){
+  var mega = document.getElementById("mega");
+  var hbg = document.querySelector(".hamburger");
+  if (!mega || !hbg) return;
+  hbg.onclick = null; hbg.removeAttribute("onclick");
+  hbg.setAttribute("role","button"); hbg.setAttribute("tabindex","0");
+  hbg.setAttribute("aria-controls","mega");
+  hbg.setAttribute("aria-expanded", mega.classList.contains("open") ? "true" : "false");
+  function setMenu(open) { mega.classList.toggle("open",open); hbg.setAttribute("aria-expanded",open?"true":"false"); }
+  function toggleMenu(e) { e.preventDefault(); e.stopPropagation(); setMenu(!mega.classList.contains("open")); }
+  hbg.addEventListener("click",toggleMenu);
+  hbg.addEventListener("keydown",function(e){ if(e.key==="Enter"||e.key===" ") toggleMenu(e); });
+  document.addEventListener("click",function(e){ if(mega.classList.contains("open")&&!mega.contains(e.target)&&!hbg.contains(e.target)) setMenu(false); });
+})();
+</script>
+<!-- /SLOT:init -->

@@ -1,0 +1,479 @@
+<!-- CONFIG
+{
+  "url": "/flip-a-coin-1000-times/",
+  "output": "flip-a-coin-1000-times.html",
+  "type": "tool",
+  "more_tools_key": "more_chance_tools",
+  "more_tools_title": "More number & chance tools",
+  "more_tools_subtitle": "Dice, coin flips, spinners, and more — all free"
+}
+-->
+
+<!-- SLOT:meta -->
+<title>Flip a Coin 1000 Times — Law of Large Numbers Demo | Wordineer</title>
+<meta name="description" content="Flip a coin 1,000 times instantly and see the statistics. Heads/tails split, streak analysis, and deviation from 50/50. The best Law of Large Numbers demonstration online.">
+<link rel="canonical" href="https://wordineer.com/flip-a-coin-1000-times/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wordineer">
+<meta property="og:title" content="Flip a Coin 1000 Times | Wordineer">
+<meta property="og:description" content="1,000 coin flips instantly. Heads/tails split, streak analysis, and deviation from 50/50. The best Law of Large Numbers demonstration online.">
+<meta property="og:url" content="https://wordineer.com/flip-a-coin-1000-times/">
+<meta property="og:image" content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How close to 50/50 should 1,000 coin flips be?",
+      "acceptedAnswer": { "@type": "Answer", "text": "With 1,000 fair coin flips, the standard deviation is √(1000×0.5×0.5) ≈ 15.8. That means roughly 68% of all 1,000-flip runs land between 484 and 516 heads (within 1 SD). About 95% of runs land between 468 and 532 heads (within 2 SD). Results outside that 468–532 range are statistically notable — they occur only about 5% of the time. At 1,000 flips the Law of Large Numbers is clearly visible: the percentage almost always settles within 3–4% of 50%." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the longest streak you can expect in 1,000 flips?",
+      "acceptedAnswer": { "@type": "Answer", "text": "In 1,000 fair coin flips, a streak of 10 or more (all heads or all tails) occurs in virtually every run — the probability exceeds 99%. A streak of 13 or more appears in roughly 50% of runs. This illustrates a key insight: 'suspicious' long patterns appear constantly in large random samples. Our brains flag them as non-random, but they are mathematically inevitable. The streak analysis panel shows your longest heads and tails streaks after each run." }
+    },
+    {
+      "@type": "Question",
+      "name": "What does the Law of Large Numbers mean for coin flips?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The Law of Large Numbers states that as you increase the number of trials, the observed proportion converges toward the true probability. With 10 flips you might see 30% heads; with 100 flips you're more likely to be near 50%; with 1,000 flips — where this tool operates — the result reliably lands within 3–4% of 50% on virtually every run. The convergence becomes visually obvious at 1,000 flips, making it the ideal sample size for a classroom or self-study demonstration." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this coin flip truly random?",
+      "acceptedAnswer": { "@type": "Answer", "text": "This tool uses JavaScript's Math.random(), which is a pseudo-random number generator (PRNG) seeded by the browser's entropy source. It is not cryptographically secure, but it is more than sufficient for probability demonstrations, statistics homework, and classroom exercises. Each flip is an independent 50/50 event with no memory of previous results." }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I flip fewer times?",
+      "acceptedAnswer": { "@type": "Answer", "text": "For 100 flips with a full grid and statistics, use our Flip a Coin 100 Times tool at wordineer.com/flip-a-coin-100-times/. For 10 flips with a coin-by-coin grid, use our Flip a Coin 10 Times tool at wordineer.com/flip-a-coin-10-times/. All tools are free and require no sign-up." }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Flip a Coin 1000 Times",
+  "url": "https://wordineer.com/flip-a-coin-1000-times/",
+  "description": "Flip a coin 1,000 times instantly and see the statistics. Heads/tails split, streak analysis, and deviation from 50/50. The best Law of Large Numbers demonstration online.",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@id": "https://wordineer.com/#organization" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Number &amp; Chance Tools", "item": "https://wordineer.com/number-chance/" },
+    { "@type": "ListItem", "position": 3, "name": "Flip a Coin 1000 Times", "item": "https://wordineer.com/flip-a-coin-1000-times/" }
+  ]
+}
+</script>
+<!-- /SLOT:meta -->
+
+<!-- SLOT:style -->
+<style>
+/* ── Flip a Coin 1000 Times ── */
+.cf1000-wrap { max-width: 620px; margin: 0 auto; padding: 24px 24px 0; }
+.cf1000-card { border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--bg); box-shadow: var(--shadow); padding: 32px 24px 24px; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+
+/* Big tally */
+.cf1000-tally { display: flex; gap: 24px; align-items: center; justify-content: center; }
+.cf1000-tally-item { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.cf1000-tally-count { font-size: clamp(2.5rem, 10vw, 3.5rem); font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; }
+.cf1000-tally-count.heads { color: var(--brand); }
+.cf1000-tally-count.tails { color: var(--text-2); }
+.cf1000-tally-label { font-size: 11px; font-weight: 600; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.07em; }
+.cf1000-tally-sep { font-size: 2rem; color: var(--border); font-weight: 300; }
+
+/* Distribution bar */
+.cf1000-dist { width: 100%; }
+.cf1000-dist-row { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+.cf1000-dist-label { font-size: 11px; font-weight: 600; color: var(--text-3); width: 40px; text-align: right; flex-shrink: 0; }
+.cf1000-dist-track { flex: 1; height: 16px; background: var(--bg-2); border-radius: 3px; overflow: hidden; position: relative; }
+.cf1000-dist-fill-h { height: 100%; background: var(--brand); border-radius: 3px; transition: width 0.4s ease; opacity: 0.85; }
+.cf1000-dist-fill-t { height: 100%; background: var(--bg-3); border-radius: 3px; transition: width 0.4s ease; }
+.cf1000-dist-count { font-size: 11px; color: var(--text-3); width: 30px; flex-shrink: 0; font-variant-numeric: tabular-nums; }
+
+/* 25-column grid of chips */
+.cf1000-grid { display: grid; grid-template-columns: repeat(25, 1fr); gap: 2px; width: 100%; max-width: 500px; }
+.cf1000-chip { aspect-ratio: 1; border-radius: 2px; display: flex; align-items: center; justify-content: center; font-size: 5px; font-weight: 700; }
+.cf1000-chip.heads { background: var(--brand); color: white; }
+.cf1000-chip.tails { background: var(--bg-3); color: var(--text-2); border: 1px solid var(--border); }
+.cf1000-chip.pending { background: var(--bg-2); border: 1px solid var(--border); color: transparent; }
+
+/* Flip button */
+.cf1000-flip-btn { padding: 13px 40px; background: var(--brand); color: white; border: none; border-radius: 10px; font-size: 1.05rem; font-weight: 700; font-family: inherit; cursor: pointer; transition: background 0.15s, transform 0.1s; letter-spacing: -0.01em; }
+.cf1000-flip-btn:hover { background: var(--brand-dark); }
+.cf1000-flip-btn:active { transform: scale(0.97); }
+.cf1000-kbd { font-size: 10px; color: var(--text-3); text-align: center; margin-top: -10px; }
+.cf1000-kbd kbd { background: var(--bg-3); border: 1px solid var(--border); border-radius: 3px; padding: 1px 5px; font-size: 10px; font-family: inherit; }
+
+/* Summary */
+.cf1000-summary { font-size: 13px; color: var(--text-2); text-align: center; min-height: 1.4em; }
+
+/* Streak analysis */
+.cf1000-streaks { width: 100%; display: none; }
+.cf1000-streaks.is-visible { display: block; }
+.cf1000-streak-title { font-size: 10px; font-weight: 700; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 8px; }
+.cf1000-streak-row { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 6px; }
+.cf1000-streak-item { font-size: 12px; color: var(--text-2); }
+.cf1000-streak-item strong { color: var(--text); }
+.cf1000-streak-note { font-size: 11px; color: var(--text-3); font-style: italic; }
+
+/* Actions */
+.cf1000-actions { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+.cf1000-copy-btn { display: flex; align-items: center; gap: 5px; padding: 8px 16px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg); color: var(--text-2); font-size: 12px; font-weight: 600; font-family: inherit; cursor: pointer; transition: background 0.12s; }
+.cf1000-copy-btn:hover { background: var(--bg-2); color: var(--text); }
+.cf1000-copy-btn svg { width: 13px; height: 13px; }
+
+/* Session stats */
+.cf1000-session { width: 100%; display: none; }
+.cf1000-session.is-visible { display: block; }
+.cf1000-session-title { font-size: 10px; font-weight: 700; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 6px; }
+.cf1000-session-text { font-size: 12px; color: var(--text-2); }
+
+@media (max-width: 340px) {
+  .cf1000-wrap { padding: 14px 14px 0; }
+  .cf1000-card { padding: 24px 14px 18px; gap: 14px; }
+  .cf1000-chip { font-size: 4px; }
+}
+</style>
+<!-- /SLOT:style -->
+
+<!-- SLOT:hero -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/number-chance/">Number &amp; Chance Tools</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Flip a Coin 1000 Times</span>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free · No sign-up · Instant
+  </div>
+  <h1>Flip a coin 1,000 times</h1>
+  <p>See the Law of Large Numbers in action. Run 1,000 coin flips instantly and watch the result converge toward 50/50. Includes streak analysis and deviation stats — the most complete coin flip simulator for statistics class.</p>
+</div>
+<!-- /SLOT:hero -->
+
+<!-- SLOT:tool -->
+<div class="cf1000-wrap">
+  <div class="cf1000-card">
+
+    <!-- Big tally -->
+    <div class="cf1000-tally">
+      <div class="cf1000-tally-item">
+        <div class="cf1000-tally-count heads" id="cf1000-heads-count">—</div>
+        <div class="cf1000-tally-label">Heads</div>
+      </div>
+      <div class="cf1000-tally-sep">·</div>
+      <div class="cf1000-tally-item">
+        <div class="cf1000-tally-count tails" id="cf1000-tails-count">—</div>
+        <div class="cf1000-tally-label">Tails</div>
+      </div>
+    </div>
+
+    <!-- Distribution bar (heads vs tails split) -->
+    <div class="cf1000-dist" id="cf1000-dist" style="display:none">
+      <div class="cf1000-dist-row">
+        <div class="cf1000-dist-label">Heads</div>
+        <div class="cf1000-dist-track"><div class="cf1000-dist-fill-h" id="cf1000-bar-h" style="width:0%"></div></div>
+        <div class="cf1000-dist-count" id="cf1000-bar-h-count">0</div>
+      </div>
+      <div class="cf1000-dist-row">
+        <div class="cf1000-dist-label">Tails</div>
+        <div class="cf1000-dist-track"><div class="cf1000-dist-fill-t" id="cf1000-bar-t" style="width:0%"></div></div>
+        <div class="cf1000-dist-count" id="cf1000-bar-t-count">0</div>
+      </div>
+    </div>
+
+    <!-- 25×40 chip grid -->
+    <div class="cf1000-grid" id="cf1000-grid" aria-label="1000 coin flip results">
+      <!-- populated by JS -->
+    </div>
+
+    <!-- Flip button -->
+    <button class="cf1000-flip-btn" id="cf1000-flip-btn" type="button">Run 1,000 Flips</button>
+    <div class="cf1000-kbd">Press <kbd>Space</kbd> or <kbd>Enter</kbd></div>
+
+    <!-- Summary -->
+    <div class="cf1000-summary" id="cf1000-summary" aria-live="polite" aria-atomic="true"></div>
+
+    <!-- Streak analysis -->
+    <div class="cf1000-streaks" id="cf1000-streaks">
+      <div class="cf1000-streak-title">Streak analysis</div>
+      <div class="cf1000-streak-row">
+        <div class="cf1000-streak-item">Longest heads streak: <strong id="cf1000-streak-h">—</strong></div>
+        <div class="cf1000-streak-item">Longest tails streak: <strong id="cf1000-streak-t">—</strong></div>
+      </div>
+      <div class="cf1000-streak-note" id="cf1000-streak-note"></div>
+    </div>
+
+    <!-- Actions -->
+    <div class="cf1000-actions" id="cf1000-actions" style="display:none">
+      <button class="cf1000-copy-btn" id="cf1000-copy-btn" type="button">
+        <svg viewBox="0 0 14 14" fill="none"><rect x="1" y="4" width="9" height="9.5" rx="1.5" stroke="currentColor" stroke-width="1.1"/><path d="M4.5 4V2.5A1.5 1.5 0 016 1h5.5A1.5 1.5 0 0113 2.5v7a1.5 1.5 0 01-1.5 1.5H10" stroke="currentColor" stroke-width="1.1"/></svg>
+        Copy stats
+      </button>
+    </div>
+
+    <!-- Session stats -->
+    <div class="cf1000-session" id="cf1000-session">
+      <div class="cf1000-session-title">Session totals</div>
+      <div class="cf1000-session-text" id="cf1000-session-text"></div>
+    </div>
+
+  </div>
+</div>
+<!-- /SLOT:tool -->
+
+<!-- SLOT:ad_b -->
+<div class="content-wrap" style="margin-top:32px">
+  <div class="ad-rect">
+    <span class="ad-tag">Advertisement · 336×280</span>
+    <div class="ad-rect-img"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4C10.3 4 4 10.3 4 18s6.3 14 14 14 14-6.3 14-14S25.7 4 18 4z" fill="white" opacity=".2"/><path d="M12 18c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="18" r="2.5" fill="white"/></svg></div>
+    <div class="ad-rect-content">
+      <div class="ad-rect-title">Grammarly — write with confidence</div>
+      <div class="ad-rect-body">Grammar, tone &amp; clarity. Used by 30 million people. Works in Google Docs, Gmail, Word and more.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
+    </div>
+  </div>
+</div>
+<!-- /SLOT:ad_b -->
+
+<!-- SLOT:explainer -->
+<div class="explainer">
+  <h2>What does 1,000 coin flips tell you?</h2>
+  <p>One thousand flips is where the Law of Large Numbers becomes impossible to ignore. With 10 flips, a result of 70% heads might seem suspicious; with 100 flips, you're reliably within 10% of 50%; but at 1,000 flips, your result almost always settles within 3–4% of exactly 50%. The convergence is visually striking — run this tool a few times and you'll notice the percentage barely moves between runs. This is the clearest demonstration of why probability predictions grow more reliable with larger samples.</p>
+
+  <h2>How to read the streak analysis</h2>
+  <p>After each run, the streak panel shows the longest consecutive heads run and the longest consecutive tails run. At 1,000 flips, a streak of 10 or more is expected in over 99% of runs — it is virtually guaranteed. A streak of 13 appears in roughly half of all 1,000-flip sequences. This is one of the most counterintuitive findings in probability: the larger your sample, the longer the streaks you should expect, even though the overall percentage stays near 50%. If you see a streak of 10 or 11, that's not a sign of a biased coin — it's exactly what mathematics predicts.</p>
+
+  <h2>Expected deviation at 1,000 flips</h2>
+  <p>With 1,000 flips, the expected deviation follows a binomial distribution with standard deviation σ = √(1000 × 0.5 × 0.5) ≈ 15.8. In practice: getting 484–516 heads is within 1 standard deviation (68% of runs), getting 468–532 heads is within 2 standard deviations (95% of runs), and landing outside the 468–532 range is statistically notable and occurs only about 5% of the time. The summary line after each run tells you whether your result was "very close to 50/50," "within normal range," or a "notable deviation."</p>
+
+  <h2>Classroom uses</h2>
+  <p>At 1,000 flips, classroom demonstrations become powerfully convincing. For a Law of Large Numbers lesson, have each student run one trial — all results will cluster tightly around 50%, making the theorem concrete rather than abstract. For a streak analysis lesson, ask students to predict the longest streak before running and compare to the actual result — nearly everyone underestimates. For a standard deviation exercise, collect all students' heads counts and calculate the mean and spread; with 1,000-flip data, the measured SD will closely match the theoretical σ ≈ 15.8 with even a small class. The density of the chip grid also gives a vivid visual sense of how H and T interleave in a truly random sequence.</p>
+</div>
+<!-- /SLOT:explainer -->
+
+<!-- SLOT:faq -->
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+
+  <details class="faq-item">
+    <summary class="faq-q">How close to 50/50 should 1,000 coin flips be?</summary>
+    <div class="faq-a">With 1,000 fair coin flips, the standard deviation is √(1000×0.5×0.5) ≈ 15.8. Roughly 68% of runs land between 484 and 516 heads (within 1 SD). About 95% of runs land between 468 and 532 heads (within 2 SD). Results outside that range are statistically notable. At this scale, the Law of Large Numbers is clearly visible — the percentage almost always stays within 3–4% of 50%.</div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">What is the longest streak you can expect in 1,000 flips?</summary>
+    <div class="faq-a">In 1,000 fair coin flips, a streak of 10 or more (all heads or all tails) occurs in virtually every run — the probability exceeds 99%. A streak of 13 or more appears in roughly 50% of runs. This illustrates why "suspicious" long patterns appear constantly in large random samples — they are mathematically inevitable, not evidence of bias.</div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">What does the Law of Large Numbers mean?</summary>
+    <div class="faq-a">The Law of Large Numbers states that as you increase the number of trials, the observed proportion converges toward the true probability. With 10 flips you might see 30% heads; with 100 flips you're more likely near 50%; with 1,000 flips — where this tool operates — the result reliably lands within 3–4% of 50% on virtually every run. The convergence becomes visually obvious at this scale.</div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">Is this coin flip truly random?</summary>
+    <div class="faq-a">This tool uses JavaScript's Math.random(), which is a pseudo-random number generator seeded by your browser's entropy source. It is not cryptographically secure, but it is more than sufficient for probability demonstrations, statistics homework, and classroom exercises. Each flip is an independent 50/50 event with no memory of previous results.</div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">How do I flip fewer times?</summary>
+    <div class="faq-a">For 100 flips with full statistics and a grid, try our <a href="/flip-a-coin-100-times/">Flip a Coin 100 Times</a> tool. For 10 flips with a coin-by-coin grid, use our <a href="/flip-a-coin-10-times/">Flip a Coin 10 Times</a> tool. All tools are free and require no sign-up.</div>
+  </details>
+</div>
+<!-- /SLOT:faq -->
+
+<!-- SLOT:who -->
+<div>
+  <h2 class="section-title" style="margin-bottom:14px">Who uses this tool</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">Statistics students</div><div class="uc-body">See the Law of Large Numbers at its most convincing — 1,000 flips makes the convergence toward 50% undeniable. Run multiple trials and watch the cumulative percentage barely shift.</div></div>
+    <div class="uc"><div class="uc-title">Teachers</div><div class="uc-body">Demonstrate standard deviation, streak probability, and the LLN in one tool. Collect student results in a shared spreadsheet to show how the class aggregate hugs 50% even more tightly.</div></div>
+    <div class="uc"><div class="uc-title">Researchers</div><div class="uc-body">Quick sanity-check baseline for binary distribution intuition before running more complex simulations or writing probability proofs.</div></div>
+    <div class="uc"><div class="uc-title">Curious minds</div><div class="uc-body">Want to truly feel what randomness looks like at scale? 1,000 flips — with its guaranteed long streaks and near-perfect 50/50 split — makes the paradox of randomness tangible.</div></div>
+  </div>
+</div>
+<!-- /SLOT:who -->
+
+<!-- SLOT:init -->
+<script>
+const WORDINEER_CF1000 = (() => {
+  const FLIPS = 1000;
+
+  let results = [];
+  let sessionHeads = 0;
+  let sessionTails = 0;
+  let sessionRuns = 0;
+
+  let gridEl, flipBtn, summaryEl, distEl, barH, barT, barHCount, barTCount;
+  let streaksEl, streakH, streakT, streakNote, actionsEl, copyBtn, sessionEl, sessionTextEl;
+  let headsCountEl, tailsCountEl;
+
+  function buildGrid() {
+    gridEl.innerHTML = '';
+    for (let i = 0; i < FLIPS; i++) {
+      const chip = document.createElement('div');
+      chip.className = 'cf1000-chip pending';
+      chip.id = 'cf1000-chip-' + i;
+      gridEl.appendChild(chip);
+    }
+  }
+
+  function runFlips() {
+    results = [];
+    for (let i = 0; i < FLIPS; i++) {
+      results.push(Math.random() < 0.5 ? 'H' : 'T');
+    }
+    renderResults();
+  }
+
+  function renderResults() {
+    const heads = results.filter(r => r === 'H').length;
+    const tails = FLIPS - heads;
+
+    // Update grid chips
+    results.forEach((r, i) => {
+      const chip = document.getElementById('cf1000-chip-' + i);
+      chip.className = 'cf1000-chip ' + (r === 'H' ? 'heads' : 'tails');
+      chip.textContent = r;
+    });
+
+    // Tally counts
+    headsCountEl.textContent = heads;
+    tailsCountEl.textContent = tails;
+
+    // Distribution bar
+    distEl.style.display = '';
+    barH.style.width = (heads / FLIPS * 100) + '%';
+    barT.style.width = (tails / FLIPS * 100) + '%';
+    barHCount.textContent = heads;
+    barTCount.textContent = tails;
+
+    // Summary
+    const pct = Math.round(heads / FLIPS * 100);
+    const deviation = Math.abs(heads - 500);
+    let deviationNote = '';
+    if (deviation <= 15) deviationNote = 'Very close to 50/50!';
+    else if (deviation <= 31) deviationNote = 'Within normal range.';
+    else deviationNote = 'Notable deviation — try again!';
+    summaryEl.textContent = heads + ' heads, ' + tails + ' tails (' + pct + '% heads) · ' + deviationNote;
+
+    // Streaks
+    const { maxH, maxT } = getStreaks(results);
+    streakH.textContent = maxH;
+    streakT.textContent = maxT;
+    if (maxH >= 10 || maxT >= 10) {
+      streakNote.textContent = 'A streak of 10+ is expected in virtually every 1,000-flip run — completely normal.';
+    } else {
+      streakNote.textContent = 'A streak of 10+ is expected in virtually every 1,000-flip run. Shorter streaks this time are unusual.';
+    }
+    streaksEl.classList.add('is-visible');
+
+    // Actions
+    actionsEl.style.display = '';
+
+    // Session
+    sessionHeads += heads;
+    sessionTails += tails;
+    sessionRuns++;
+    if (sessionRuns >= 2) {
+      const total = sessionHeads + sessionTails;
+      const sessionPct = Math.round((sessionHeads / total) * 100);
+      sessionTextEl.textContent = sessionRuns + ' runs · ' + sessionHeads + ' heads / ' + sessionTails + ' tails (' + sessionPct + '% heads across ' + total + ' flips)';
+      sessionEl.classList.add('is-visible');
+    }
+  }
+
+  function getStreaks(arr) {
+    let maxH = 0, maxT = 0, curH = 0, curT = 0;
+    arr.forEach(r => {
+      if (r === 'H') { curH++; maxH = Math.max(maxH, curH); curT = 0; }
+      else { curT++; maxT = Math.max(maxT, curT); curH = 0; }
+    });
+    return { maxH, maxT };
+  }
+
+  function copyStats() {
+    const heads = results.filter(r => r === 'H').length;
+    const tails = FLIPS - heads;
+    const { maxH, maxT } = getStreaks(results);
+    const text = '1000 flips: ' + heads + ' heads / ' + tails + ' tails (' + Math.round(heads / FLIPS * 100) + '%) · Longest heads streak: ' + maxH + ' · Longest tails streak: ' + maxT;
+    navigator.clipboard && navigator.clipboard.writeText(text);
+    const orig = copyBtn.innerHTML;
+    copyBtn.innerHTML = '<svg viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5 6.5-6.5" stroke="#1D9E75" stroke-width="1.3" stroke-linecap="round"/></svg> Copied!';
+    setTimeout(() => { copyBtn.innerHTML = orig; }, 1200);
+    showToast('Copied!');
+  }
+
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    if (!t) return;
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => { t.classList.remove('show'); }, 2000);
+  }
+
+  function init() {
+    gridEl        = document.getElementById('cf1000-grid');
+    flipBtn       = document.getElementById('cf1000-flip-btn');
+    summaryEl     = document.getElementById('cf1000-summary');
+    distEl        = document.getElementById('cf1000-dist');
+    barH          = document.getElementById('cf1000-bar-h');
+    barT          = document.getElementById('cf1000-bar-t');
+    barHCount     = document.getElementById('cf1000-bar-h-count');
+    barTCount     = document.getElementById('cf1000-bar-t-count');
+    streaksEl     = document.getElementById('cf1000-streaks');
+    streakH       = document.getElementById('cf1000-streak-h');
+    streakT       = document.getElementById('cf1000-streak-t');
+    streakNote    = document.getElementById('cf1000-streak-note');
+    actionsEl     = document.getElementById('cf1000-actions');
+    copyBtn       = document.getElementById('cf1000-copy-btn');
+    sessionEl     = document.getElementById('cf1000-session');
+    sessionTextEl = document.getElementById('cf1000-session-text');
+    headsCountEl  = document.getElementById('cf1000-heads-count');
+    tailsCountEl  = document.getElementById('cf1000-tails-count');
+
+    buildGrid();
+
+    flipBtn.addEventListener('click', runFlips);
+    copyBtn.addEventListener('click', copyStats);
+
+    document.addEventListener('keydown', e => {
+      if (['INPUT','SELECT','TEXTAREA','BUTTON'].includes(e.target.tagName)) return;
+      if (e.code === 'Space' || e.code === 'Enter') { e.preventDefault(); runFlips(); }
+    });
+
+    document.querySelectorAll('.faq-item summary').forEach(s => {
+      s.addEventListener('click', e => {
+        e.preventDefault();
+        const item = s.closest('.faq-item');
+        const wasOpen = item.hasAttribute('open');
+        document.querySelectorAll('.faq-item[open]').forEach(i => i.removeAttribute('open'));
+        if (!wasOpen) item.setAttribute('open', '');
+      });
+    });
+  }
+
+  return { init };
+})();
+
+document.addEventListener('DOMContentLoaded', WORDINEER_CF1000.init);
+</script>
+<!-- /SLOT:init -->

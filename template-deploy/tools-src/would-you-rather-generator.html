@@ -1,0 +1,460 @@
+<!-- CONFIG { "url": "/would-you-rather-generator/", "output": "would-you-rather-generator.html", "type": "tool" } -->
+
+<!-- SLOT:meta -->
+<title>Would You Rather Generator — Random Dilemma Questions | Wordineer</title>
+<meta name="description" content="Generate random Would You Rather questions instantly. Filter by Funny, Hard, Deep, Kids, Couples, Work, or Dark. Free, no sign-up, instant results — perfect for parties, icebreakers, and game nights.">
+<link rel="canonical" href="https://wordineer.com/would-you-rather-generator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wordineer">
+<meta property="og:title" content="Would You Rather Generator — Random Dilemma Questions | Wordineer">
+<meta property="og:description" content="Generate random Would You Rather questions — filter by Funny, Hard, Deep, Kids, Couples, Work, or Dark. Free, instant, no sign-up.">
+<meta property="og:url" content="https://wordineer.com/would-you-rather-generator/">
+<meta property="og:image" content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a Would You Rather Generator?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A Would You Rather generator picks random dilemma questions and presents them instantly — each prompt gives two options and you have to choose one. Select a category (Funny, Hard, Deep, Kids, Couples, Work, or Dark), set how many questions you want, and click Generate. The tool tracks what it has already shown and avoids repeats within your session." }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you play Would You Rather?",
+      "acceptedAnswer": { "@type": "Answer", "text": "One player reads the question aloud — for example 'Would you rather always have to speak in rhymes or always have to speak only in questions?' Everyone chooses one option. The interesting part is the discussion: why did you pick that, and what does the choice reveal? There are no wrong answers. The game works with two people or a large group, and rounds can be as quick or as long as you like." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a Would You Rather generator for kids?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Set Category to Kids for age-appropriate dilemmas — flying vs. breathing underwater, pet dragons vs. pet unicorns, time travel vs. teleportation. All Kids content is clean and imagination-focused, with no adult themes." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a Would You Rather generator for couples?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. The Couples category covers relationship dilemmas — big trip vs. many small trips, city life vs. countryside, shared hobbies vs. separate interests. These questions are designed to spark real conversation rather than just laughter, and work well for date nights, long drives, or getting-to-know-each-other sessions." }
+    },
+    {
+      "@type": "Question",
+      "name": "What categories are available?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Seven categories: Funny (silly and absurd), Hard (genuinely difficult dilemmas), Deep (philosophical and introspective), Kids (family-safe imagination questions), Couples (relationship-focused), Work (office and career dilemmas), and Dark (confronting and uncomfortable, for adults). You can also set it to All categories for a mixed round." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use Would You Rather as an icebreaker at work?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. The Work category is specifically designed for professional settings — career dilemmas, management scenarios, and workplace trade-offs that generate genuine discussion without crossing into personal or uncomfortable territory. The Funny category also works well for teams — absurd scenarios are a low-stakes way to get people talking." }
+    },
+    {
+      "@type": "Question",
+      "name": "How many questions should I generate per round?",
+      "acceptedAnswer": { "@type": "Answer", "text": "For a casual game with a small group, 5 questions per round works well. For a large party or a long icebreaker session, generate 8 to 10. If you want each person to have their own prompt to discuss, set the count to match the number of players and generate once per round." }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Would You Rather Generator",
+  "url": "https://wordineer.com/would-you-rather-generator/",
+  "description": "Generate random Would You Rather dilemma questions for parties, icebreakers, and game nights. Filter by category.",
+  "applicationCategory": "GameApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@id": "https://wordineer.com/#organization" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Number &amp; Chance Tools", "item": "https://wordineer.com/number-chance/" },
+    { "@type": "ListItem", "position": 3, "name": "Would You Rather Generator", "item": "https://wordineer.com/would-you-rather-generator/" }
+  ]
+}
+</script>
+<!-- /SLOT:meta -->
+
+<!-- SLOT:style -->
+<style>
+.tool-wrap{max-width:960px;margin:0 auto;padding:24px 24px 0}
+.pic-card{border:1px solid var(--border);border-radius:8px;background:var(--bg);box-shadow:var(--shadow);overflow:hidden}
+.pic-layout{display:grid;grid-template-columns:300px 1fr;min-height:520px}
+.pic-controls{background:var(--bg-2);border-right:1px solid var(--border-2);padding:16px}
+.pic-main{display:flex;flex-direction:column;min-width:0}
+.control-group{margin-bottom:16px}
+.control-label{display:block;font-size:10px;font-weight:700;color:var(--text-3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:7px}
+.seg{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.seg button,.pic-select,.count-input{border:1px solid var(--border);background:var(--bg);color:var(--text-2);border-radius:6px;font:inherit;font-size:12px;font-weight:600;padding:8px 6px;transition:border-color .15s,background .15s,color .15s}
+.seg button{cursor:pointer}
+.seg button.active{background:var(--brand);border-color:var(--brand);color:white}
+.count-input{width:100%;font-size:13px;padding:7px 10px;color:var(--text)}
+.mobile-more-btn{display:none;width:100%;margin-top:8px}
+.options-panel{display:block}
+.pic-select{width:100%;appearance:none}
+.primary-btn{width:100%;border:0;border-radius:6px;background:var(--brand);color:white;font-size:14px;font-weight:700;padding:12px 14px;cursor:pointer}
+.secondary-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.small-btn{border:1px solid var(--border);background:var(--bg);color:var(--text-2);border-radius:6px;font-size:12px;font-weight:600;padding:9px 8px;cursor:pointer}
+.small-btn:hover,.seg button:hover{border-color:var(--brand)}
+.pic-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px;border-bottom:1px solid var(--border-2)}
+.pic-status{font-size:12px;color:var(--text-3)}
+.word-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:16px;list-style:none;margin:0;flex:1}
+.word-card{border:1px solid var(--border);border-radius:8px;padding:14px;background:var(--bg);display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.word-card.hidden .wyr-inner,.word-card.hidden .wyr-cat-badge{filter:blur(7px);user-select:none}
+.wyr-cat-badge{display:inline-block;font-size:10px;font-weight:700;background:var(--brand-light,#EEEDFE);color:var(--brand-dark,#3C3489);border-radius:4px;padding:2px 6px;margin-bottom:8px;text-transform:uppercase;letter-spacing:.04em}
+.wyr-prompt{font-size:10px;font-weight:700;color:var(--text-3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
+.wyr-option{display:flex;align-items:flex-start;gap:8px;margin-bottom:5px}
+.wyr-opt-label{flex:0 0 auto;width:19px;height:19px;border-radius:50%;background:var(--brand);color:white;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.wyr-opt-text{font-size:13px;font-weight:600;color:var(--text);line-height:1.35}
+.wyr-divider{font-size:10px;font-weight:700;color:var(--text-3);text-transform:uppercase;letter-spacing:.06em;margin:4px 0 4px 27px}
+.save-btn{width:30px;height:30px;border:1px solid var(--border);border-radius:6px;background:var(--bg);color:var(--text-3);cursor:pointer;flex:0 0 auto;margin-top:2px}
+.save-btn.saved{background:#fff1f1;color:#d93838;border-color:#f0b8b8}
+.saved-panel{border-top:1px solid var(--border-2);padding:12px 16px;background:var(--bg-2)}
+.saved-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.saved-label{font-size:10px;font-weight:700;color:var(--text-3);text-transform:uppercase;letter-spacing:.06em}
+.saved-list{display:flex;flex-wrap:wrap;gap:6px;min-height:24px}
+.saved-pill{font-size:12px;padding:4px 10px;background:var(--brand-light);color:var(--brand-dark);border-radius:999px;display:flex;align-items:center;gap:6px}
+.saved-pill button{border:0;background:transparent;color:inherit;cursor:pointer;padding:0;font-size:14px;line-height:1}
+.empty-text{font-size:12px;color:var(--text-3);font-style:italic}
+.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:var(--text);color:white;padding:8px 12px;border-radius:6px;font-size:12px;opacity:0;pointer-events:none;transition:opacity .18s;z-index:9999}
+.toast.show{opacity:1}
+.explainer ol,.explainer ul{margin:0 0 10px;padding-left:20px;font-size:14px;color:var(--text-2);line-height:1.7}
+.explainer li{padding-left:2px;margin-bottom:6px}
+.idea-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.idea-tags span{font-size:12px;background:var(--bg-2);border:1px solid var(--border);border-radius:999px;padding:5px 10px;color:var(--text-2)}
+@media(max-width:700px){
+  .tool-wrap{padding:14px 16px 0}
+  .pic-layout{grid-template-columns:1fr}
+  .pic-controls{border-right:0;border-bottom:1px solid var(--border-2)}
+  .word-grid{grid-template-columns:1fr}
+  .mobile-more-btn{display:block}
+  .options-panel{display:none;margin-top:12px}
+  .options-panel.open{display:block;margin-bottom:12px}
+}
+@media print{
+  .nav,.mega,.hero,.pic-controls,.pic-top,.saved-panel,.ad-leaderboard,.content-wrap,.footer{display:none!important}
+  .tool-wrap{max-width:none;padding:0}
+  .pic-card{border:0;box-shadow:none}
+  .pic-layout{display:block}
+  .word-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:0}
+  .word-card{break-inside:avoid;border:1px solid #111}
+}
+</style>
+<!-- /SLOT:style -->
+
+<!-- SLOT:hero -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/number-chance/">Number &amp; Chance Tools</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Would You Rather Generator</span>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free · No sign-up · Instant results
+  </div>
+  <h1>Would You Rather Generator</h1>
+  <p>Generate random Would You Rather dilemma questions in one click — filter by category for parties, icebreakers, date nights, kids, or work sessions.</p>
+</div>
+<!-- /SLOT:hero -->
+
+<!-- SLOT:tool -->
+<div class="tool-wrap" aria-label="Would you rather question generator">
+  <div class="pic-card">
+    <div class="pic-layout">
+      <aside class="pic-controls">
+        <div class="control-group">
+          <label class="control-label" for="count-input">Number of questions</label>
+          <input class="count-input" id="count-input" type="number" min="1" max="10" step="1" value="5" inputmode="numeric">
+          <span id="pic-count-error" style="display:none;font-size:11px;color:#E24B4A;margin-top:4px;">Enter a number from 1 to 10</span>
+          <button class="small-btn mobile-more-btn" type="button" id="more-options-btn" aria-expanded="false" aria-controls="more-options-panel">More options</button>
+        </div>
+        <div class="options-panel" id="more-options-panel">
+          <div class="control-group">
+            <label class="control-label" for="pic-category">Category</label>
+            <select id="pic-category" class="pic-select">
+              <option value="funny">Funny</option>
+              <option value="hard">Hard</option>
+              <option value="deep">Deep</option>
+              <option value="kids">Kids</option>
+              <option value="couples">Couples</option>
+              <option value="work">Work</option>
+              <option value="dark">Dark (adults)</option>
+              <option value="all">All categories</option>
+            </select>
+          </div>
+        </div>
+        <button class="primary-btn" type="button" id="generate-btn">Generate Questions</button>
+        <div class="secondary-actions">
+          <button class="small-btn" type="button" id="copy-btn">Copy list</button>
+          <button class="small-btn" type="button" id="print-btn">Print cards</button>
+          <button class="small-btn" type="button" id="hide-btn">Hide cards</button>
+          <button class="small-btn" type="button" id="clear-btn">Clear saved</button>
+        </div>
+      </aside>
+      <section class="pic-main">
+        <div class="pic-top">
+          <div>
+            <strong>Questions for this round</strong>
+            <div class="pic-status" id="status">5 funny questions generated</div>
+          </div>
+          <button class="small-btn" type="button" id="reset-session-btn">Reset repeats</button>
+        </div>
+        <ul class="word-grid" id="word-grid"></ul>
+        <div class="saved-panel">
+          <div class="saved-top">
+            <span class="saved-label">Saved questions <span id="saved-count">(0)</span></span>
+            <button class="small-btn" type="button" id="copy-saved-btn">Copy saved</button>
+          </div>
+          <div class="saved-list" id="saved-list"><span class="empty-text">Save questions here before you generate the next round.</span></div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+<!-- /SLOT:tool -->
+
+<!-- SLOT:ad_b -->
+<div class="content-wrap" style="margin-top:32px">
+  <div class="ad-rect">
+    <span class="ad-tag">Advertisement · 336×280</span>
+    <div class="ad-rect-img"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4C10.3 4 4 10.3 4 18s6.3 14 14 14 14-6.3 14-14S25.7 4 18 4z" fill="white" opacity=".2"/><path d="M12 18c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="18" r="2.5" fill="white"/></svg></div>
+    <div class="ad-rect-content">
+      <div class="ad-rect-title">Grammarly — write with confidence</div>
+      <div class="ad-rect-body">Grammar, tone &amp; clarity. Used by 30 million people. Works in Google Docs, Gmail, Word and more.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
+    </div>
+  </div>
+</div>
+<!-- /SLOT:ad_b -->
+
+<!-- SLOT:explainer -->
+<div class="explainer">
+  <h2>What is a Would You Rather Generator?</h2>
+  <p>A Would You Rather generator picks random dilemma questions and presents them instantly — no preparation, no blank stares, no scrambling to think of something. Each question gives you two options and forces you to choose one. That forced choice is the whole point. You can't sit on the fence, you can't say "it depends," and you can't pass. Whatever option you pick says something about how you think, what you value, and what you're willing to put up with. That's what makes the conversation interesting.</p>
+  <p>This generator has over 130 hand-curated questions across seven categories — Funny, Hard, Deep, Kids, Couples, Work, and Dark — each built for a different kind of group and situation. Questions are filtered so you don't accidentally serve a dark dilemma to a group of eight-year-olds, or a silly children's prompt to a team of adults in a work meeting. Pick your category, set the count, and you're ready to play in under 10 seconds.</p>
+
+  <h2>Why Use a Would You Rather Generator?</h2>
+  <p>The practical answer: good Would You Rather questions are harder to think of than they look. Most people can come up with three or four before they start repeating themselves or defaulting to the two or three classics that everyone has already heard. A generator gives you consistent, fresh prompts every time, without any prep work from whoever is running the game.</p>
+  <p>The deeper answer is that the game itself is more useful than it first appears. It is one of the few formats where people reveal genuine preferences, values, and personality in a low-stakes way. A question like "would you rather be rich but unknown or famous but broke" or "would you rather always tell the truth no matter the consequence or never be able to tell the truth" tends to produce real answers and real reactions. People find out things about each other that a straightforward conversation would take much longer to surface.</p>
+  <p>For work and professional settings, Would You Rather is one of the best icebreakers available because the questions are hypothetical. Nobody is being asked to disclose anything personal. The Work category sticks to career dilemmas — remote vs. office, feedback vs. no feedback, security vs. growth — that everyone in a professional context can engage with without feeling put on the spot.</p>
+
+  <h2>How It Works</h2>
+  <p>Use the controls on the left to choose a category and set how many questions you want. Click <strong>Generate Questions</strong> and the tool instantly pulls a random set from the selected category. Each card shows both options — A and B — so every player can read them at the same time.</p>
+  <p>The generator tracks which questions you've already seen during your session, so you won't get repeats until you've gone through the full question pool for that category. Once the pool is exhausted, it resets automatically. Click <strong>Reset Repeats</strong> manually any time if you want to start fresh.</p>
+  <p>Use <strong>Hide Cards</strong> to blur all questions at once — useful if you want one person to reveal cards one at a time for the rest of the group. Click the copy button to grab all questions as plain text, or hit Print for a clean two-column card layout with no ads or navigation.</p>
+
+  <h2>Categories — What's in Each One?</h2>
+  <p><strong>Funny</strong> — absurd, silly dilemmas with no right answer. Rhyming speech vs. speaking only in questions. Fingers as long as your legs vs. legs as short as your fingers. These work for any group and are the safest starting point if you don't know the audience well.</p>
+  <p><strong>Hard</strong> — genuine dilemmas that require real thought. Lose your sight or your hearing. True love with no money or all the money in the world with no love. Know the date of your death or the cause. These generate the most discussion, but can slow the pace of a fast-moving party.</p>
+  <p><strong>Deep</strong> — philosophical and introspective. These questions touch on purpose, legacy, freedom, and connection. Best for smaller groups or pairs who want a real conversation rather than a game.</p>
+  <p><strong>Kids</strong> — imagination-first dilemmas about superpowers, pets, adventures, and magic. Completely family-safe. Works from about age 5 upward.</p>
+  <p><strong>Couples</strong> — relationship-focused dilemmas about lifestyle, priorities, and how partners fit together. Useful for date nights and for newer couples who want to explore compatibility in a non-clinical way.</p>
+  <p><strong>Work</strong> — career and workplace dilemmas. Safe for professional settings. Nothing personal, everything hypothetical.</p>
+  <p><strong>Dark</strong> — confronting and uncomfortable. Questions about mortality, loss, betrayal, and difficult truths. For adults who want the game to go somewhere more interesting than the funny category allows.</p>
+
+  <h2>How to Run a Great Round</h2>
+  <p>The mechanics of Would You Rather are simple — read the question, everyone picks A or B — but the quality of the session depends on what happens after the pick. Here's what actually makes rounds good:</p>
+  <ul>
+    <li><strong>Require a reason.</strong> After everyone chooses, go around and have each person explain why. The reasoning is usually more interesting than the choice itself, and it's where the real conversation starts.</li>
+    <li><strong>Match the category to the room.</strong> Start with Funny if the group doesn't know each other well or needs to warm up. Move to Hard or Deep once people are comfortable. Save Dark for smaller groups where everyone already trusts each other.</li>
+    <li><strong>Use Hide Cards for the element of surprise.</strong> Click Hide Cards before you generate, then have each player reveal their own card before reading it aloud. This adds a light sense of ceremony and stops people from answering before the question has been read.</li>
+    <li><strong>Keep it moving.</strong> The worst thing for the game is a question that nobody engages with. If a prompt lands flat, skip it and generate one more. Don't dwell.</li>
+    <li><strong>Save the ones that land.</strong> Use the save button on any question that sparks a good conversation. You'll build a personal shortlist of the best prompts over time.</li>
+  </ul>
+
+  <h2>Would You Rather as a Drinking Game</h2>
+  <p>The game adapts naturally to drinking game format. The simplest version: after everyone reveals their choice, anyone who's in the minority — who chose the less popular option — takes a sip. Ties mean everyone drinks. No further rules needed. Alternatively, use a stricter version where the person who gives the least convincing reason for their choice, as judged by the group, takes a drink. The Funny and Dark categories work best for this format; Hard and Deep tend to slow the pace too much for a drinking game setting.</p>
+
+  <div class="idea-tags">
+    <span>Always speak in rhymes</span><span>Pet dragon or unicorn</span><span>Rich or famous</span><span>Work from anywhere</span><span>Lose your sight or hearing</span>
+  </div>
+</div>
+<!-- /SLOT:explainer -->
+
+<!-- SLOT:faq -->
+<div class="faq">
+  <h2 class="faq-title">Would You Rather FAQs</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">How many questions should I generate per round?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Five questions works well for most groups — enough to keep a round going without dragging. For a large party where people take turns reading out loud, 8 to 10 gives you more variety. For a focused two-person session (like a date night or a long drive), generating 1 or 2 at a time and discussing them fully before generating more tends to produce better conversations than rushing through a big batch.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What category should I start with?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Start with Funny if the group doesn't know each other well, if there are mixed ages, or if you just want to warm up. Funny questions are low-stakes and quick to answer. Once people are comfortable and engaged, switch to Hard or Deep if you want more substance. Save Dark for smaller, close-knit groups where everyone is willing to sit with something uncomfortable.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Is there a Would You Rather generator for kids?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes. The Kids category is built entirely around imagination-based dilemmas — superpowers, fantasy pets, magical objects, and adventure scenarios. Everything in the Kids set is completely family-safe and works for children from about age 5 upward. The Funny category is also fine for kids, though a few questions are more adult-oriented.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I use this as a work icebreaker?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes, the Work category is specifically for professional settings — all questions are about career trade-offs, work preferences, and management scenarios, nothing personal or potentially uncomfortable. The Funny category also works well for teams: absurd hypothetical dilemmas are a safe and effective way to get people talking without anyone feeling put on the spot.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What happens when the tool runs out of questions?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">The generator tracks questions shown during your current session and avoids repeats until you've seen everything in that category. Once the pool is exhausted, it resets automatically so you can keep playing. You can also click Reset Repeats manually at any time to start the avoidance tracking fresh without changing your other settings.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I print the question cards?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes. Click Print Cards to open the browser print dialog. Navigation, controls, and ads are hidden in print view, leaving a clean two-column layout of cards. Cut them out and you have a physical set you can use anywhere — useful for outdoor events, classroom activities, or game nights where you don't want phones on the table.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What's the difference between Hard and Dark?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Hard questions are genuinely difficult dilemmas — the two options are both reasonable but force a real trade-off, like choosing between losing your sight or your hearing, or picking between true love with no money vs. wealth with no love. Dark questions are more emotionally confronting — they involve mortality, loss, betrayal, and uncomfortable truths. Both are for adults, but Dark tends to land differently and works better with people who already know each other well.</div>
+  </div>
+</div>
+<!-- /SLOT:faq -->
+
+<!-- SLOT:who -->
+<div class="section">
+  <h2 class="section-title" style="margin-bottom:14px">Who Uses the Would You Rather Generator?</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">Party hosts</div><div class="uc-body">Use Funny or Hard to keep a large group engaged between activities. Generate a batch before guests arrive, save the best ones, and you have a ready-made round that needs no setup and no paper.</div></div>
+    <div class="uc"><div class="uc-title">Couples and dates</div><div class="uc-body">The Couples and Deep categories are built for two people. Long drives, dinner dates, and slow evenings benefit from questions that open real conversations — not just entertainment but genuine getting-to-know-each-other.</div></div>
+    <div class="uc"><div class="uc-title">Teachers and parents</div><div class="uc-body">The Kids category is a reliable classroom and car-journey tool. Questions about dragons, superpowers, and magic work at any age from about 5 upward, and most kids will keep asking for more.</div></div>
+    <div class="uc"><div class="uc-title">Team leads and facilitators</div><div class="uc-body">The Work category is designed for meetings, workshops, and remote team sessions. All questions are professional and hypothetical — a reliable icebreaker format that works before a presentation or at the start of a team day.</div></div>
+  </div>
+</div>
+<!-- /SLOT:who -->
+
+<!-- SLOT:init -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+(function(){
+  const CAT_LABELS={funny:'Funny',hard:'Hard',deep:'Deep',kids:'Kids',couples:'Couples',work:'Work',dark:'Dark'};
+  const SEED_DATA={
+    funny:[
+      {a:'Always have to speak in rhymes',b:'Always have to speak only in questions'},
+      {a:'Have fingers as long as your legs',b:'Have legs as short as your fingers'},
+      {a:'Only be able to whisper',b:'Only be able to shout'},
+      {a:'Sneeze every time you laugh',b:'Hiccup every time you lie'},
+      {a:'Always have to sing instead of talking',b:'Always have to dance instead of walking'}
+    ],
+    hard:[
+      {a:'Know the exact date of your death but not the cause',b:'Know the cause of your death but not when it happens'},
+      {a:'Be famous but completely broke',b:'Be enormously wealthy but completely unknown'},
+      {a:'Lose all your memories from the past 10 years',b:'Be unable to form any new long-term memories for the next 10 years'},
+      {a:'Have true love and no money your entire life',b:'Have all the money you could want but never find love'},
+      {a:'Lose your sense of sight',b:'Lose your sense of hearing'}
+    ],
+    deep:[
+      {a:'Live forever and watch everyone you love grow old and die',b:'Live a normal lifespan and die alongside the people you love'},
+      {a:'Have the ability to fix your biggest past mistake',b:'See a 10-second clip of your future at any moment you choose'},
+      {a:'Have a life full of adventure and chaos',b:'Have a life of quiet stability and deep contentment'},
+      {a:'Have one true, deep friendship in your life',b:'Have dozens of good but shallow friendships'},
+      {a:'Fall in love with someone who can never love you back',b:'Never experience romantic love at all'}
+    ],
+    kids:[
+      {a:'Be able to fly',b:'Be able to breathe underwater'},
+      {a:'Have a pet dragon',b:'Have a pet unicorn'},
+      {a:'Eat ice cream for every meal',b:'Eat pizza for every meal'},
+      {a:'Have super speed',b:'Have super strength'},
+      {a:'Live in a treehouse',b:'Live on a houseboat'}
+    ],
+    couples:[
+      {a:'Take one big dream trip together',b:'Take 10 small trips to different places over the same time'},
+      {a:'Have a partner who always agrees with you',b:'Have a partner who challenges almost everything you say'},
+      {a:'Share every hobby with your partner',b:'Have completely separate interests and activities'},
+      {a:'Know your partner\'s every thought',b:'Have your partner know your every thought'},
+      {a:'Have matching life goals but very different personalities',b:'Have matching personalities but very different life goals'}
+    ],
+    work:[
+      {a:'Work remotely from anywhere in the world',b:'Work in the most incredible in-person office you can imagine'},
+      {a:'Have a brilliant boss who never gives feedback',b:'Have a poor boss who gives extremely detailed feedback on everything'},
+      {a:'Earn 20 percent more at a job you find average',b:'Earn the same amount at a job you genuinely love'},
+      {a:'Give a presentation to 500 strangers',b:'Have a difficult one-on-one conversation with your manager'},
+      {a:'Have complete job security with limited upward growth',b:'Have unlimited growth potential with no job stability'}
+    ],
+    dark:[
+      {a:'Find out your whole life so far was a vivid dream and you wake up at age 10 with no memory of it',b:'Find out your life is being watched live by millions of people who know everything about you'},
+      {a:'Lose all photos from your life',b:'Lose all music from your life forever'},
+      {a:'Have everyone forget your birthday for the rest of your life',b:'Have everyone remember your birthday but never celebrate it'},
+      {a:'Never be able to apologise for anything',b:'Never be able to forgive anyone for anything'},
+      {a:'Outlive all your friends by 20 years',b:'Be the first person in your friend group to die'}
+    ]
+  };
+  let data=SEED_DATA,fullLoaded=false,loadPromise=null;
+  function loadFull(){if(fullLoaded||loadPromise)return;loadPromise=fetch('/data/would-you-rather.json').then(r=>{if(!r.ok)throw new Error(r.status);return r.json()}).then(raw=>{data=raw;fullLoaded=true}).catch(()=>{loadPromise=null})}
+  function scheduleLoad(){if(fullLoaded)return;if('requestIdleCallback' in window)requestIdleCallback(loadFull,{timeout:4000});else setTimeout(loadFull,200)}
+  window.addEventListener('load',scheduleLoad,{once:true});
+  const state={count:5,category:'funny',current:[],saved:[],seen:new Set(),hidden:false};
+  const $=id=>document.getElementById(id),grid=$('word-grid'),status=$('status'),savedList=$('saved-list'),savedCount=$('saved-count'),toast=$('toast');
+  const picCountInput=$('count-input'),picCountError=$('pic-count-error');
+  function showToast(txt){toast.textContent=txt;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),1600)}
+  function filtered(){
+    const pool=[];
+    const cats=state.category==='all'?Object.keys(data):[state.category];
+    cats.forEach(cat=>{(data[cat]||[]).forEach(q=>pool.push({...q,cat}))});
+    return pool;
+  }
+  function generate(){
+    loadFull();
+    let pool=filtered().filter(item=>!state.seen.has(item.a));
+    if(!pool.length&&state.seen.size){state.seen.clear();pool=filtered()}
+    if(!pool.length){state.current=[];renderCards();return}
+    const chosen=[];
+    while(chosen.length<state.count&&pool.length){const idx=Math.floor(Math.random()*pool.length);const item=pool.splice(idx,1)[0];chosen.push(item);state.seen.add(item.a)}
+    state.current=chosen;renderCards();
+  }
+  function renderCards(){
+    if(!state.current.length){grid.innerHTML='<li style="grid-column:1/-1;padding:24px;text-align:center;color:var(--text-3)">No questions found — try a different category or click Generate</li>';status.textContent='No questions found';return}
+    grid.innerHTML=state.current.map((item,i)=>{
+      const saved=state.saved.some(s=>s.a===item.a);
+      return`<li class="word-card${state.hidden?' hidden':''}"><div style="flex:1;min-width:0"><div class="wyr-cat-badge">${CAT_LABELS[item.cat]||item.cat}</div><div class="wyr-prompt">Would you rather…</div><div class="wyr-inner"><div class="wyr-option"><span class="wyr-opt-label">A</span><span class="wyr-opt-text">${item.a}</span></div><div class="wyr-divider">or</div><div class="wyr-option"><span class="wyr-opt-label">B</span><span class="wyr-opt-text">${item.b}</span></div></div></div><button class="save-btn${saved?' saved':''}" type="button" data-idx="${i}" aria-label="Save question">♥</button></li>`
+    }).join('');
+    const cLabel=state.category==='all'?'all categories':(CAT_LABELS[state.category]||state.category);
+    status.textContent=`${state.current.length} ${cLabel} question${state.current.length!==1?'s':''} generated`
+  }
+  function renderSaved(){
+    savedCount.textContent=`(${state.saved.length})`;
+    savedList.innerHTML=state.saved.length?state.saved.map((item,i)=>{const short=item.a.length>35?item.a.slice(0,32)+'…':item.a;return`<span class="saved-pill">${short}<button type="button" data-si="${i}" aria-label="Remove">×</button></span>`}).join(''):'<span class="empty-text">Save questions here before you generate the next round.</span>'
+  }
+  function copyText(text,emptyMsg){if(!text){showToast(emptyMsg);return}if(navigator.clipboard)navigator.clipboard.writeText(text).then(()=>showToast('Copied'));else showToast('Copy not available')}
+  document.addEventListener('click',e=>{
+    const saveBtn=e.target.closest('[data-idx]');
+    if(saveBtn){const idx=parseInt(saveBtn.dataset.idx);const item=state.current[idx];if(!item)return;const ei=state.saved.findIndex(s=>s.a===item.a);if(ei>=0)state.saved.splice(ei,1);else state.saved.push(item);renderSaved();renderCards();return}
+    const removeBtn=e.target.closest('[data-si]');
+    if(removeBtn){state.saved.splice(parseInt(removeBtn.dataset.si),1);renderSaved();renderCards();return}
+    const faq=e.target.closest('.faq-q');if(faq)faq.closest('.faq-item').classList.toggle('open');
+  });
+  picCountInput.addEventListener('input',e=>{const v=parseInt(e.target.value);const invalid=isNaN(v)||v<1||v>10;picCountError.style.display=invalid?'block':'none';picCountInput.style.borderColor=invalid?'#E24B4A':'';if(!invalid){state.count=v;generate()}});
+  picCountInput.addEventListener('change',()=>{const v=parseInt(picCountInput.value);const invalid=isNaN(v)||v<1||v>10;picCountError.style.display=invalid?'block':'none';picCountInput.style.borderColor=invalid?'#E24B4A':''});
+  $('more-options-btn').addEventListener('click',e=>{const panel=$('more-options-panel');const open=panel.classList.toggle('open');e.target.setAttribute('aria-expanded',open?'true':'false');e.target.textContent=open?'Fewer options':'More options'});
+  $('pic-category').addEventListener('change',e=>{state.category=e.target.value;state.seen.clear();generate()});
+  $('generate-btn').addEventListener('click',()=>{loadFull();generate()});
+  $('copy-btn').addEventListener('click',()=>copyText(state.current.map((item,i)=>`${i+1}. Would you rather...\n   A: ${item.a}\n   B: ${item.b}`).join('\n\n'),'No questions to copy'));
+  $('copy-saved-btn').addEventListener('click',()=>copyText(state.saved.map((item,i)=>`${i+1}. Would you rather...\n   A: ${item.a}\n   B: ${item.b}`).join('\n\n'),'No saved questions'));
+  $('print-btn').addEventListener('click',()=>window.print());
+  $('clear-btn').addEventListener('click',()=>{state.saved=[];renderSaved();renderCards();showToast('Saved questions cleared')});
+  $('hide-btn').addEventListener('click',e=>{state.hidden=!state.hidden;e.target.textContent=state.hidden?'Reveal cards':'Hide cards';renderCards()});
+  $('reset-session-btn').addEventListener('click',()=>{state.seen.clear();showToast('Repeat history reset')});
+  generate();renderSaved();
+})();
+
+(function bindWordineerMenu(){
+  const mega=document.getElementById("mega");
+  const hbg=document.querySelector(".hamburger");
+  if(!mega||!hbg)return;
+  hbg.onclick=null;
+  hbg.removeAttribute("onclick");
+  hbg.setAttribute("role","button");
+  hbg.setAttribute("tabindex","0");
+  hbg.setAttribute("aria-controls","mega");
+  hbg.setAttribute("aria-expanded",mega.classList.contains("open")?"true":"false");
+  function setMenu(open){mega.classList.toggle("open",open);hbg.setAttribute("aria-expanded",open?"true":"false")}
+  function toggleMenu(e){e.preventDefault();e.stopPropagation();setMenu(!mega.classList.contains("open"))}
+  hbg.addEventListener("click",toggleMenu);
+  hbg.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" ")toggleMenu(e)});
+  document.addEventListener("click",e=>{if(mega.classList.contains("open")&&!mega.contains(e.target)&&!hbg.contains(e.target))setMenu(false)});
+})();
+</script>
+<!-- /SLOT:init -->

@@ -1,0 +1,397 @@
+<!-- CONFIG
+{
+  "url": "/magic-8-ball/",
+  "output": "magic-8-ball.html",
+  "type": "tool",
+  "more_tools_key": "more_chance_tools",
+  "more_tools_title": "More number & chance tools",
+  "more_tools_subtitle": "Dice, coin flips, spinners, and more — all free"
+}
+-->
+
+<!-- SLOT:meta -->
+<title>Magic 8 Ball — Ask a Question, Get an Answer | Wordineer</title>
+<meta name="description" content="Ask the Magic 8 Ball any yes/no question and get one of 20 classic answers instantly. Free online Magic 8 Ball — no sign-up needed.">
+<link rel="canonical" href="https://wordineer.com/magic-8-ball/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wordineer">
+<meta property="og:title" content="Magic 8 Ball | Wordineer">
+<meta property="og:description" content="Ask the Magic 8 Ball any yes/no question and get one of 20 classic answers instantly. Free online Magic 8 Ball — no sign-up needed.">
+<meta property="og:url" content="https://wordineer.com/magic-8-ball/">
+<meta property="og:image" content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What are the 20 Magic 8 Ball answers?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The 20 classic Magic 8 Ball responses are: Positive (10): It is certain, It is decidedly so, Without a doubt, Yes definitely, You may rely on it, As I see it yes, Most likely, Outlook good, Yes, Signs point to yes. Neutral (5): Reply hazy try again, Ask again later, Better not tell you now, Cannot predict now, Concentrate and ask again. Negative (5): Don't count on it, My reply is no, My sources say no, Outlook not so good, Very doubtful." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the Magic 8 Ball random?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. This digital Magic 8 Ball uses Math.random() with equal weighting across all 20 responses. Each answer has exactly a 5% chance of appearing on any given shake — the same probability as a physical 20-sided die." }
+    },
+    {
+      "@type": "Question",
+      "name": "What questions can I ask the Magic 8 Ball?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes/no questions work best with the Magic 8 Ball. Examples: 'Will I get the job?', 'Should I go to the party?', 'Is this a good idea?'. Open-ended questions like 'What should I do?' don't have meaningful answers from the 20 fixed responses — the Magic 8 Ball is designed to give a directional yes, no, or neutral answer." }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the Magic 8 Ball work?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The original Magic 8 Ball toy was invented in 1950. It contains a 20-sided icosahedral die floating in dark blue liquid inside a black plastic ball. Each face of the die is printed with one of 20 responses. When you shake the ball and turn it over, the die floats to the top window and reveals an answer. This digital version replicates the same 20 classic responses with equal probability weighting using JavaScript's Math.random()." }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Magic 8 Ball",
+  "url": "https://wordineer.com/magic-8-ball/",
+  "description": "Ask the Magic 8 Ball any yes/no question and get one of 20 classic answers instantly. Free online Magic 8 Ball — no sign-up needed.",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@id": "https://wordineer.com/#organization" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Number &amp; Chance Tools", "item": "https://wordineer.com/number-chance/" },
+    { "@type": "ListItem", "position": 3, "name": "Magic 8 Ball", "item": "https://wordineer.com/magic-8-ball/" }
+  ]
+}
+</script>
+<!-- /SLOT:meta -->
+
+<!-- SLOT:style -->
+<style>
+/* ── Magic 8 Ball ── */
+.m8b-wrap { max-width: 480px; margin: 0 auto; padding: 24px 24px 0; }
+.m8b-card { border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--bg); box-shadow: var(--shadow); padding: 32px 24px 28px; display: flex; flex-direction: column; align-items: center; gap: 24px; }
+
+/* 8-ball SVG container */
+.m8b-ball-wrap { position: relative; width: 180px; height: 180px; cursor: pointer; }
+.m8b-ball { width: 180px; height: 180px; border-radius: 50%; background: radial-gradient(circle at 38% 35%, #444, #000); box-shadow: 0 8px 32px rgba(0,0,0,0.35), inset 0 2px 6px rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; transition: transform 0.15s; }
+.m8b-ball:hover { transform: scale(1.03); }
+.m8b-ball.is-shaking { animation: m8b-shake 0.5s ease; }
+@keyframes m8b-shake {
+  0%,100% { transform: rotate(0deg); }
+  15% { transform: rotate(-8deg) scale(1.04); }
+  35% { transform: rotate(8deg) scale(1.04); }
+  55% { transform: rotate(-5deg); }
+  75% { transform: rotate(5deg); }
+}
+/* Triangle window */
+.m8b-window { width: 90px; height: 90px; border-radius: 50%; background: #1a1a2e; border: 3px solid #2d2d5e; display: flex; align-items: center; justify-content: center; position: relative; }
+.m8b-eight { position: absolute; top: 6px; left: 50%; transform: translateX(-50%); font-size: 18px; font-weight: 900; color: #3c3489; opacity: 0.6; font-family: serif; }
+.m8b-answer-wrap { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 8px; }
+.m8b-answer-text { font-size: 9.5px; font-weight: 700; color: var(--brand); text-align: center; line-height: 1.3; opacity: 0; transition: opacity 0.3s; text-transform: uppercase; letter-spacing: 0.02em; }
+.m8b-answer-text.is-visible { opacity: 1; }
+
+/* Answer display below ball */
+.m8b-answer-display { font-size: 1.1rem; font-weight: 700; color: var(--text); text-align: center; min-height: 1.6em; }
+.m8b-answer-display.positive { color: #1D9E75; }
+.m8b-answer-display.neutral { color: var(--text-2); }
+.m8b-answer-display.negative { color: #DC2626; }
+
+/* Shake button */
+.m8b-shake-btn { padding: 13px 40px; background: var(--brand); color: white; border: none; border-radius: 10px; font-size: 1.05rem; font-weight: 700; font-family: inherit; cursor: pointer; transition: background 0.15s, transform 0.1s; }
+.m8b-shake-btn:hover { background: var(--brand-dark); }
+.m8b-shake-btn:active { transform: scale(0.97); }
+.m8b-kbd { font-size: 10px; color: var(--text-3); text-align: center; margin-top: -12px; }
+.m8b-kbd kbd { background: var(--bg-3); border: 1px solid var(--border); border-radius: 3px; padding: 1px 5px; font-size: 10px; font-family: inherit; }
+
+/* Category badge */
+.m8b-category { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 3px 10px; border-radius: 999px; display: none; }
+.m8b-category.is-visible { display: inline-block; }
+.m8b-category.positive { background: #D1FAE5; color: #065F46; }
+.m8b-category.neutral { background: var(--bg-2); color: var(--text-3); border: 1px solid var(--border); }
+.m8b-category.negative { background: #FEE2E2; color: #991B1B; }
+
+/* Copy button */
+.m8b-copy-btn { display: none; align-items: center; gap: 5px; padding: 7px 14px; border: 1px solid var(--border); border-radius: 7px; background: var(--bg); color: var(--text-2); font-size: 12px; font-weight: 600; font-family: inherit; cursor: pointer; transition: background 0.12s; }
+.m8b-copy-btn.is-visible { display: flex; }
+.m8b-copy-btn:hover { background: var(--bg-2); color: var(--text); }
+.m8b-copy-btn svg { width: 12px; height: 12px; }
+
+/* Session stats */
+.m8b-stats { width: 100%; display: none; }
+.m8b-stats.is-visible { display: block; }
+.m8b-stats-title { font-size: 10px; font-weight: 700; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 8px; }
+.m8b-stats-row { display: flex; gap: 12px; flex-wrap: wrap; }
+.m8b-stat { font-size: 12px; color: var(--text-2); }
+.m8b-stat strong { color: var(--text); }
+
+@media (max-width: 480px) {
+  .m8b-wrap { padding: 14px 14px 0; }
+  .m8b-card { padding: 24px 16px 22px; gap: 18px; }
+}
+</style>
+<!-- /SLOT:style -->
+
+<!-- SLOT:hero -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/number-chance/">Number &amp; Chance Tools</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Magic 8 Ball</span>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free · No sign-up · Instant
+  </div>
+  <h1>Magic 8 Ball online</h1>
+  <p>Ask any yes/no question, then click the Magic 8 Ball or press Space to reveal your answer. All 20 classic responses included — from "It is certain" to "Very doubtful."</p>
+</div>
+<!-- /SLOT:hero -->
+
+<!-- SLOT:tool -->
+<div class="m8b-wrap">
+  <div class="m8b-card">
+    <!-- 8-ball -->
+    <div class="m8b-ball-wrap" id="m8b-ball-wrap" role="button" tabindex="0" aria-label="Shake the Magic 8 Ball">
+      <div class="m8b-ball" id="m8b-ball">
+        <div class="m8b-window">
+          <span class="m8b-eight">8</span>
+          <div class="m8b-answer-wrap">
+            <div class="m8b-answer-text" id="m8b-answer-text">Click to ask</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Answer display -->
+    <div class="m8b-answer-display" id="m8b-answer-display" aria-live="polite" aria-atomic="true">Ask your question, then shake.</div>
+
+    <!-- Category badge -->
+    <span class="m8b-category" id="m8b-category"></span>
+
+    <!-- Shake button -->
+    <button class="m8b-shake-btn" id="m8b-shake-btn" type="button">Shake the 8 Ball</button>
+    <div class="m8b-kbd">Press <kbd>Space</kbd> or <kbd>Enter</kbd></div>
+
+    <!-- Copy -->
+    <button class="m8b-copy-btn" id="m8b-copy-btn" type="button">
+      <svg viewBox="0 0 14 14" fill="none"><rect x="1" y="4" width="9" height="9.5" rx="1.5" stroke="currentColor" stroke-width="1.1"/><path d="M4.5 4V2.5A1.5 1.5 0 016 1h5.5A1.5 1.5 0 0113 2.5v7a1.5 1.5 0 01-1.5 1.5H10" stroke="currentColor" stroke-width="1.1"/></svg>
+      Copy answer
+    </button>
+
+    <!-- Session stats (after 3+ shakes) -->
+    <div class="m8b-stats" id="m8b-stats">
+      <div class="m8b-stats-title">Session</div>
+      <div class="m8b-stats-row">
+        <div class="m8b-stat">Positive: <strong id="m8b-pos-count">0</strong></div>
+        <div class="m8b-stat">Neutral: <strong id="m8b-neu-count">0</strong></div>
+        <div class="m8b-stat">Negative: <strong id="m8b-neg-count">0</strong></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /SLOT:tool -->
+
+<!-- SLOT:ad_b -->
+<div class="content-wrap" style="margin-top:32px">
+  <div class="ad-rect">
+    <span class="ad-tag">Advertisement · 336×280</span>
+    <div class="ad-rect-img"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4C10.3 4 4 10.3 4 18s6.3 14 14 14 14-6.3 14-14S25.7 4 18 4z" fill="white" opacity=".2"/><path d="M12 18c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="18" r="2.5" fill="white"/></svg></div>
+    <div class="ad-rect-content">
+      <div class="ad-rect-title">Grammarly — write with confidence</div>
+      <div class="ad-rect-body">Grammar, tone &amp; clarity. Used by 30 million people. Works in Google Docs, Gmail, Word and more.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
+    </div>
+  </div>
+</div>
+<!-- /SLOT:ad_b -->
+
+<!-- SLOT:explainer -->
+<div class="explainer">
+  <h2>How does the Magic 8 Ball work?</h2>
+  <p>The original Magic 8 Ball toy, invented in 1950, contains a 20-sided icosahedral die floating in dark blue liquid. Each face is printed with one of 20 responses — 10 positive, 5 neutral, and 5 negative. When you shake the ball, the die floats to the top window and reveals an answer. This digital version replicates the same 20 classic responses with equal probability weighting: each response has exactly a 5% chance of appearing on any given shake.</p>
+  <h2>The 20 classic responses</h2>
+  <p><strong>Positive (50%):</strong> It is certain · It is decidedly so · Without a doubt · Yes definitely · You may rely on it · As I see it, yes · Most likely · Outlook good · Yes · Signs point to yes</p>
+  <p><strong>Neutral (25%):</strong> Reply hazy, try again · Ask again later · Better not tell you now · Cannot predict now · Concentrate and ask again</p>
+  <p><strong>Negative (25%):</strong> Don't count on it · My reply is no · My sources say no · Outlook not so good · Very doubtful</p>
+  <h2>Tips for asking the Magic 8 Ball</h2>
+  <p>The Magic 8 Ball is designed for yes/no questions. Think of your question clearly before shaking — the toy tradition is to hold it in your hands, concentrate on your question, then turn it over to reveal the answer. Questions like "Will I get the job?" or "Should I go to the party?" work well. Open-ended questions like "What should I do?" don't have meaningful answers from the 20 responses.</p>
+</div>
+<!-- /SLOT:explainer -->
+
+<!-- SLOT:faq -->
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+
+  <details class="faq-item">
+    <summary class="faq-q">What are the 20 Magic 8 Ball answers?</summary>
+    <div class="faq-a">There are 20 classic responses: <strong>Positive (10):</strong> It is certain, It is decidedly so, Without a doubt, Yes definitely, You may rely on it, As I see it yes, Most likely, Outlook good, Yes, Signs point to yes. <strong>Neutral (5):</strong> Reply hazy try again, Ask again later, Better not tell you now, Cannot predict now, Concentrate and ask again. <strong>Negative (5):</strong> Don't count on it, My reply is no, My sources say no, Outlook not so good, Very doubtful.</div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">Is the Magic 8 Ball random?</summary>
+    <div class="faq-a">Yes. This digital Magic 8 Ball uses JavaScript's Math.random() with equal weighting across all 20 responses. Each answer has exactly a 5% chance of appearing on any given shake — the same probability distribution as a physical 20-sided die floating in a toy ball.</div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">What questions can I ask the Magic 8 Ball?</summary>
+    <div class="faq-a">Yes/no questions work best. Examples: "Will I get the job?", "Should I go to the party?", "Is this a good idea?", "Will it rain tomorrow?". Open-ended questions like "What should I do?" don't have meaningful answers from the 20 fixed responses — the Magic 8 Ball is designed to give a directional yes, no, or neutral answer to a specific question.</div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">How does the Magic 8 Ball work?</summary>
+    <div class="faq-a">The original Magic 8 Ball toy was invented in 1950 by Mattel. It contains a 20-sided icosahedral die floating in dark blue liquid inside a black plastic ball shaped like a billiard 8 ball. Each face of the die is printed with one of 20 responses. When you shake the ball and turn it over, the die floats to the top window and reveals an answer. This digital version replicates the same 20 classic responses using Math.random() with equal probability weighting.</div>
+  </details>
+</div>
+<!-- /SLOT:faq -->
+
+<!-- SLOT:who -->
+<div>
+  <h2 class="section-title" style="margin-bottom:14px">Who uses this tool</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">Decision makers</div><div class="uc-body">Use the Magic 8 Ball to break ties between two options you're genuinely undecided about — sometimes an external nudge is all you need.</div></div>
+    <div class="uc"><div class="uc-title">Game players</div><div class="uc-body">Add a Magic 8 Ball mechanic to tabletop games or icebreaker activities — let fate decide who goes first or which team chooses their topic.</div></div>
+    <div class="uc"><div class="uc-title">Teachers</div><div class="uc-body">Classroom icebreaker or writing prompt starter — students ask a question and write a story based on the answer they receive.</div></div>
+    <div class="uc"><div class="uc-title">Curious minds</div><div class="uc-body">Consult the oracle for fun — sometimes you just want a mystical random answer to a question you've been overthinking.</div></div>
+  </div>
+</div>
+<!-- /SLOT:who -->
+
+<!-- SLOT:init -->
+<script>
+const WORDINEER_M8B = (() => {
+  const RESPONSES = [
+    { text: 'It is certain', cat: 'positive' },
+    { text: 'It is decidedly so', cat: 'positive' },
+    { text: 'Without a doubt', cat: 'positive' },
+    { text: 'Yes definitely', cat: 'positive' },
+    { text: 'You may rely on it', cat: 'positive' },
+    { text: 'As I see it, yes', cat: 'positive' },
+    { text: 'Most likely', cat: 'positive' },
+    { text: 'Outlook good', cat: 'positive' },
+    { text: 'Yes', cat: 'positive' },
+    { text: 'Signs point to yes', cat: 'positive' },
+    { text: 'Reply hazy, try again', cat: 'neutral' },
+    { text: 'Ask again later', cat: 'neutral' },
+    { text: 'Better not tell you now', cat: 'neutral' },
+    { text: 'Cannot predict now', cat: 'neutral' },
+    { text: 'Concentrate and ask again', cat: 'neutral' },
+    { text: "Don't count on it", cat: 'negative' },
+    { text: 'My reply is no', cat: 'negative' },
+    { text: 'My sources say no', cat: 'negative' },
+    { text: 'Outlook not so good', cat: 'negative' },
+    { text: 'Very doubtful', cat: 'negative' }
+  ];
+
+  let shaking = false;
+  let lastResponse = null;
+  let counts = { positive: 0, neutral: 0, negative: 0 };
+  let totalShakes = 0;
+
+  let ballEl, answerTextEl, answerDisplayEl, categoryEl, shakeBtn, copyBtn, statsEl;
+  let posCount, neuCount, negCount;
+
+  function shake() {
+    if (shaking) return;
+    shaking = true;
+
+    // Hide current answer
+    answerTextEl.classList.remove('is-visible');
+    answerDisplayEl.textContent = '…';
+    answerDisplayEl.className = 'm8b-answer-display';
+    categoryEl.className = 'm8b-category';
+
+    // Shake animation
+    ballEl.classList.add('is-shaking');
+
+    setTimeout(function() {
+      ballEl.classList.remove('is-shaking');
+      const r = RESPONSES[Math.floor(Math.random() * RESPONSES.length)];
+      lastResponse = r;
+
+      answerTextEl.textContent = r.text;
+      answerTextEl.classList.add('is-visible');
+      answerDisplayEl.textContent = r.text;
+      answerDisplayEl.className = 'm8b-answer-display ' + r.cat;
+
+      const catLabels = { positive: 'Positive', neutral: 'Neutral', negative: 'Negative' };
+      categoryEl.textContent = catLabels[r.cat];
+      categoryEl.className = 'm8b-category ' + r.cat + ' is-visible';
+
+      copyBtn.classList.add('is-visible');
+
+      counts[r.cat]++;
+      totalShakes++;
+
+      if (totalShakes >= 3) {
+        posCount.textContent = counts.positive;
+        neuCount.textContent = counts.neutral;
+        negCount.textContent = counts.negative;
+        statsEl.classList.add('is-visible');
+      }
+
+      shaking = false;
+    }, 600);
+  }
+
+  function copyAnswer() {
+    if (!lastResponse) return;
+    navigator.clipboard && navigator.clipboard.writeText('Magic 8 Ball says: ' + lastResponse.text);
+    const orig = copyBtn.innerHTML;
+    copyBtn.innerHTML = '<svg viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5 6.5-6.5" stroke="#1D9E75" stroke-width="1.3" stroke-linecap="round"/></svg> Copied!';
+    setTimeout(function() { copyBtn.innerHTML = orig; }, 1200);
+    const t = document.getElementById('toast');
+    if (t) { t.textContent = 'Copied!'; t.classList.add('show'); setTimeout(function() { t.classList.remove('show'); }, 2000); }
+  }
+
+  function init() {
+    ballEl          = document.getElementById('m8b-ball');
+    answerTextEl    = document.getElementById('m8b-answer-text');
+    answerDisplayEl = document.getElementById('m8b-answer-display');
+    categoryEl      = document.getElementById('m8b-category');
+    shakeBtn        = document.getElementById('m8b-shake-btn');
+    copyBtn         = document.getElementById('m8b-copy-btn');
+    statsEl         = document.getElementById('m8b-stats');
+    posCount        = document.getElementById('m8b-pos-count');
+    neuCount        = document.getElementById('m8b-neu-count');
+    negCount        = document.getElementById('m8b-neg-count');
+
+    const ballWrap = document.getElementById('m8b-ball-wrap');
+    ballWrap.addEventListener('click', shake);
+    ballWrap.addEventListener('keydown', function(e) { if (e.code === 'Space' || e.code === 'Enter') { e.preventDefault(); shake(); } });
+    shakeBtn.addEventListener('click', shake);
+    copyBtn.addEventListener('click', copyAnswer);
+
+    document.addEventListener('keydown', function(e) {
+      if (['INPUT','SELECT','TEXTAREA','BUTTON'].includes(e.target.tagName)) return;
+      if (e.code === 'Space' || e.code === 'Enter') { e.preventDefault(); shake(); }
+    });
+
+    document.querySelectorAll('.faq-item summary').forEach(function(s) {
+      s.addEventListener('click', function(e) {
+        e.preventDefault();
+        const item = s.closest('.faq-item');
+        const wasOpen = item.hasAttribute('open');
+        document.querySelectorAll('.faq-item[open]').forEach(function(i) { i.removeAttribute('open'); });
+        if (!wasOpen) item.setAttribute('open', '');
+      });
+    });
+  }
+
+  return { init: init };
+})();
+
+document.addEventListener('DOMContentLoaded', WORDINEER_M8B.init);
+</script>
+<!-- /SLOT:init -->

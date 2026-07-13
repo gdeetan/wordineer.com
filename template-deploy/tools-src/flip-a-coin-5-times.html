@@ -1,0 +1,453 @@
+<!-- CONFIG
+{
+  "url": "/flip-a-coin-5-times/",
+  "output": "flip-a-coin-5-times.html",
+  "type": "tool",
+  "more_tools_key": "more_chance_tools",
+  "more_tools_title": "More number & chance tools",
+  "more_tools_subtitle": "Dice, coin flips, spinners, and more — all free"
+}
+-->
+
+<!-- SLOT:meta -->
+<title>Flip a Coin 5 Times — Free Online Multi-Flip | Wordineer</title>
+<meta name="description" content="Flip a virtual coin 5 times and see all results instantly. Tally, streak tracker, and copy results. Free, no sign-up.">
+<link rel="canonical" href="https://wordineer.com/flip-a-coin-5-times/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wordineer">
+<meta property="og:title" content="Flip a Coin 5 Times | Wordineer">
+<meta property="og:description" content="Run 5 coin flips and see every result. Heads/tails tally, streak tracker, and copy results.">
+<meta property="og:url" content="https://wordineer.com/flip-a-coin-5-times/">
+<meta property="og:image" content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does 'flip a coin 5 times' show about probability?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Flipping a coin 5 times is a compact probability demonstration. Each flip is an independent 50/50 event, so there are 32 possible outcomes in total — each with a 1/32 chance. The most common split is 3 heads / 2 tails or 2 heads / 3 tails, each occurring about 31.25% of the time. Run this tool repeatedly and watch the session percentage converge toward 50% as your sample size grows." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the most common heads/tails split in 5 flips?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The most common outcomes are a 3/2 split — either 3 heads and 2 tails, or 2 heads and 3 tails. Each of those splits happens about 31.25% of the time, so combined they account for roughly 62.5% of all 5-flip trials. An extreme outcome like all 5 heads or all 5 tails has only a 1-in-32 chance — rare but possible, which is why the streak tracker lights up when it happens." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Gambler's Fallacy?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The Gambler's Fallacy is the mistaken belief that past random events influence future ones. If you flip heads five times in a row, it can feel like tails is 'due' — but each flip is completely independent. The coin has no memory. The probability of heads on the next flip is always exactly 50%, regardless of what came before. This tool shows a reminder when a streak of 5 or more occurs to illustrate this point." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I flip more than 5 times?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. For 10 flips at once, use our Flip a Coin 10 Times tool at wordineer.com/flip-a-coin-10-times/. For 100 flips with full statistics, try wordineer.com/flip-a-coin-100-times/. All tools are free and require no sign-up." }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I export the results for my homework?",
+      "acceptedAnswer": { "@type": "Answer", "text": "After flipping, click 'Copy results' to copy the full sequence (e.g. 5 flips: HHTTH — 3 heads, 2 tails) to your clipboard. Paste it directly into a spreadsheet, homework document, or stats software. The session stats panel also shows cumulative totals across multiple runs so you can track your experiment without any manual counting." }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Flip a Coin 5 Times",
+  "url": "https://wordineer.com/flip-a-coin-5-times/",
+  "description": "Flip a virtual coin 5 times and see all results instantly. Tally, streak tracker, and copy results.",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@id": "https://wordineer.com/#organization" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Number &amp; Chance Tools", "item": "https://wordineer.com/number-chance/" },
+    { "@type": "ListItem", "position": 3, "name": "Flip a Coin 5 Times", "item": "https://wordineer.com/flip-a-coin-5-times/" }
+  ]
+}
+</script>
+<!-- /SLOT:meta -->
+
+<!-- SLOT:style -->
+<style>
+/* ── Flip a Coin 5 Times ── */
+.cf5-wrap { max-width: 600px; margin: 0 auto; padding: 24px 24px 0; }
+.cf5-card { border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--bg); box-shadow: var(--shadow); padding: 32px 24px 24px; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+
+/* Tally display */
+.cf5-tally { display: flex; gap: 24px; align-items: center; justify-content: center; }
+.cf5-tally-item { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.cf5-tally-count { font-size: clamp(2.5rem, 10vw, 3.5rem); font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; }
+.cf5-tally-count.heads { color: var(--brand); }
+.cf5-tally-count.tails { color: var(--text-2); }
+.cf5-tally-label { font-size: 11px; font-weight: 600; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.07em; }
+.cf5-tally-sep { font-size: 2rem; color: var(--border); font-weight: 300; }
+
+/* Flip grid — 5 coin chips in a row */
+.cf5-grid { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.cf5-coin { width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--border); background: var(--bg-2); display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; color: var(--text-3); transition: all 0.15s; }
+.cf5-coin.heads { background: var(--brand); border-color: var(--brand); color: white; }
+.cf5-coin.tails { background: var(--bg-3); border-color: var(--border-2); color: var(--text-2); }
+.cf5-coin.pending { background: var(--bg-2); border-color: var(--border); color: var(--text-3); }
+
+/* Flip button */
+.cf5-flip-btn { padding: 13px 40px; background: var(--brand); color: white; border: none; border-radius: 10px; font-size: 1.05rem; font-weight: 700; font-family: inherit; cursor: pointer; transition: background 0.15s, transform 0.1s; letter-spacing: -0.01em; }
+.cf5-flip-btn:hover { background: var(--brand-dark); }
+.cf5-flip-btn:active { transform: scale(0.97); }
+.cf5-kbd { font-size: 10px; color: var(--text-3); text-align: center; margin-top: -10px; }
+.cf5-kbd kbd { background: var(--bg-3); border: 1px solid var(--border); border-radius: 3px; padding: 1px 5px; font-size: 10px; font-family: inherit; }
+
+/* Summary line */
+.cf5-summary { font-size: 13px; color: var(--text-2); text-align: center; min-height: 1.4em; }
+
+/* Streak panel */
+.cf5-streaks { width: 100%; display: none; }
+.cf5-streaks.is-visible { display: block; }
+.cf5-streak-title { font-size: 10px; font-weight: 700; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 8px; }
+.cf5-streak-row { display: flex; gap: 16px; flex-wrap: wrap; }
+.cf5-streak-item { font-size: 12px; color: var(--text-2); }
+.cf5-streak-item strong { color: var(--text); }
+
+/* Gamblers fallacy note */
+.cf5-fallacy { font-size: 11px; color: var(--text-3); background: var(--bg-2); border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; width: 100%; box-sizing: border-box; display: none; }
+.cf5-fallacy.is-visible { display: block; }
+
+/* Copy & flip-again row */
+.cf5-actions { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+.cf5-copy-btn { display: flex; align-items: center; gap: 5px; padding: 8px 16px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg); color: var(--text-2); font-size: 12px; font-weight: 600; font-family: inherit; cursor: pointer; transition: background 0.12s; }
+.cf5-copy-btn:hover { background: var(--bg-2); color: var(--text); }
+.cf5-copy-btn svg { width: 13px; height: 13px; }
+
+/* Session stats */
+.cf5-session { width: 100%; display: none; }
+.cf5-session.is-visible { display: block; }
+.cf5-session-title { font-size: 10px; font-weight: 700; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 6px; }
+.cf5-session-text { font-size: 12px; color: var(--text-2); }
+
+@media (max-width: 480px) {
+  .cf5-wrap { padding: 14px 14px 0; }
+  .cf5-card { padding: 24px 16px 18px; gap: 16px; }
+  .cf5-coin { width: 38px; height: 38px; font-size: 12px; }
+}
+</style>
+<!-- /SLOT:style -->
+
+<!-- SLOT:hero -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/number-chance/">Number &amp; Chance Tools</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Flip a Coin 5 Times</span>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free · No sign-up · Instant
+  </div>
+  <h1>Flip a coin 5 times</h1>
+  <p>Run 5 coin flips at once and see every result instantly. Tracks heads vs. tails tally, longest streak, and lets you copy the full sequence for quick decisions or classroom demos.</p>
+</div>
+<!-- /SLOT:hero -->
+
+<!-- SLOT:tool -->
+<div class="cf5-wrap">
+  <div class="cf5-card">
+
+    <!-- Tally -->
+    <div class="cf5-tally">
+      <div class="cf5-tally-item">
+        <div class="cf5-tally-count heads" id="cf5-heads-count">—</div>
+        <div class="cf5-tally-label">Heads</div>
+      </div>
+      <div class="cf5-tally-sep">·</div>
+      <div class="cf5-tally-item">
+        <div class="cf5-tally-count tails" id="cf5-tails-count">—</div>
+        <div class="cf5-tally-label">Tails</div>
+      </div>
+    </div>
+
+    <!-- 5 coin grid -->
+    <div class="cf5-grid" id="cf5-grid" aria-label="5 coin flip results">
+      <!-- 5 coins generated by JS -->
+    </div>
+
+    <!-- Flip button -->
+    <button class="cf5-flip-btn" id="cf5-flip-btn" type="button">Flip All 5</button>
+    <div class="cf5-kbd">Press <kbd>Space</kbd> or <kbd>Enter</kbd></div>
+
+    <!-- Summary line -->
+    <div class="cf5-summary" id="cf5-summary" aria-live="polite" aria-atomic="true"></div>
+
+    <!-- Streak panel (shown after flip) -->
+    <div class="cf5-streaks" id="cf5-streaks">
+      <div class="cf5-streak-title">Streaks this run</div>
+      <div class="cf5-streak-row">
+        <div class="cf5-streak-item">Longest heads streak: <strong id="cf5-streak-h">—</strong></div>
+        <div class="cf5-streak-item">Longest tails streak: <strong id="cf5-streak-t">—</strong></div>
+      </div>
+    </div>
+
+    <!-- Gamblers fallacy note (shown when a streak ≥ 5) -->
+    <div class="cf5-fallacy" id="cf5-fallacy">
+      Reminder: each flip is independent. A streak of heads doesn't make the next flip more likely to be tails — the coin has no memory.
+    </div>
+
+    <!-- Action row -->
+    <div class="cf5-actions" id="cf5-actions" style="display:none">
+      <button class="cf5-copy-btn" id="cf5-copy-btn" type="button">
+        <svg viewBox="0 0 14 14" fill="none"><rect x="1" y="4" width="9" height="9.5" rx="1.5" stroke="currentColor" stroke-width="1.1"/><path d="M4.5 4V2.5A1.5 1.5 0 016 1h5.5A1.5 1.5 0 0113 2.5v7a1.5 1.5 0 01-1.5 1.5H10" stroke="currentColor" stroke-width="1.1"/></svg>
+        Copy results
+      </button>
+    </div>
+
+    <!-- Session stats (shown after 2+ runs) -->
+    <div class="cf5-session" id="cf5-session">
+      <div class="cf5-session-title">Session totals</div>
+      <div class="cf5-session-text" id="cf5-session-text"></div>
+    </div>
+
+  </div>
+</div>
+<!-- /SLOT:tool -->
+
+<!-- SLOT:ad_b -->
+<div class="content-wrap" style="margin-top:32px">
+  <div class="ad-rect">
+    <span class="ad-tag">Advertisement · 336×280</span>
+    <div class="ad-rect-img"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4C10.3 4 4 10.3 4 18s6.3 14 14 14 14-6.3 14-14S25.7 4 18 4z" fill="white" opacity=".2"/><path d="M12 18c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="18" r="2.5" fill="white"/></svg></div>
+    <div class="ad-rect-content">
+      <div class="ad-rect-title">Grammarly — write with confidence</div>
+      <div class="ad-rect-body">Grammar, tone &amp; clarity. Used by 30 million people. Works in Google Docs, Gmail, Word and more.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
+    </div>
+  </div>
+</div>
+<!-- /SLOT:ad_b -->
+
+<!-- SLOT:explainer -->
+<div class="explainer">
+  <h2>Why flip a coin 5 times?</h2>
+  <p>Five flips is one of the most useful small-sample probability experiments you can run. There are exactly 32 possible outcomes, each equally likely at 1/32, making the math clean and easy to verify by hand. The most common result is a 3/2 split — three heads and two tails, or two heads and three tails — each occurring about 31.25% of the time, which means combined they account for roughly 62.5% of all trials. Classroom teachers use 5-flip trials to introduce combinatorics and Pascal's triangle before scaling up to larger experiments. For quick decisions, a best-of-5 approach gives a decisive majority outcome without dragging out the process.</p>
+
+  <h2>Streak tracker and the Gambler's Fallacy</h2>
+  <p>After every flip, this tool calculates the longest consecutive heads streak and the longest consecutive tails streak in that run. When either streak reaches 5 — meaning all five flips landed the same way, a 1-in-32 event — a note appears reminding you of the Gambler's Fallacy. The Gambler's Fallacy is the common but mistaken belief that a long streak makes the opposite outcome "due." In reality, each flip is a completely independent 50/50 event. The coin has no memory of previous flips. A run of 5 heads does not increase the probability of tails on the next flip — it's still exactly 50%. Seeing this in a live tool makes the concept stick far better than reading about it.</p>
+
+  <h2>Classroom and probability uses</h2>
+  <p>Statistics teachers use repeated 5-flip trials to demonstrate binomial distributions in action. Because there are only 32 possible outcomes, students can map every result to Pascal's triangle row 5 and verify the theoretical probabilities against their experimental data. When the whole class pools their results, the combined percentage converges toward 50% — a live demonstration of the law of large numbers. The session stats panel accumulates totals across multiple runs so students can watch the percentage home in on 50% as the sample size grows. Copy-paste the sequence into a shared spreadsheet and each student contributes a row of real experimental data in seconds.</p>
+
+  <h2>How to copy and export results</h2>
+  <p>Click "Copy results" after any flip to copy the full sequence to your clipboard in a format ready to paste: for example, <em>5 flips: HHTTH — 3 heads, 2 tails</em>. Paste it into Google Sheets, Excel, a homework document, or a chat message. For multi-run analysis, the session totals panel at the bottom of the tool keeps a running count of all heads and tails across every flip in your current session, along with the overall percentage — no manual tallying needed.</p>
+</div>
+<!-- /SLOT:explainer -->
+
+<!-- SLOT:faq -->
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+
+  <details class="faq-item">
+    <summary class="faq-q">What does "flip a coin 5 times" show about probability?</summary>
+    <div class="faq-a">Flipping a coin 5 times is a compact probability demonstration. Each flip is an independent 50/50 event, so there are 32 possible outcomes in total — each with a 1/32 chance. The most common split is 3 heads / 2 tails or 2 heads / 3 tails, each occurring about 31.25% of the time. Run this tool repeatedly and watch the session percentage converge toward 50% as your sample size grows.</div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">What is the most common heads/tails split in 5 flips?</summary>
+    <div class="faq-a">The most common outcomes are a 3/2 split — either 3 heads and 2 tails, or 2 heads and 3 tails. Each of those splits happens about 31.25% of the time, so combined they account for roughly 62.5% of all 5-flip trials. An extreme result like all 5 heads or all 5 tails has only a 1-in-32 chance — rare, but entirely possible. Keep flipping and you'll eventually see it.</div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">What is the Gambler's Fallacy?</summary>
+    <div class="faq-a">The Gambler's Fallacy is the mistaken belief that past random events influence future ones. If you flip heads five times in a row, it can feel like tails is "due" — but each flip is completely independent. The coin has no memory. The probability of heads on the next flip is always exactly 50%, no matter what came before. This tool shows a reminder when a streak of 5 or more appears to illustrate this live.</div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">Can I flip more than 5 times?</summary>
+    <div class="faq-a">Yes. For 10 flips at once, try our <a href="/flip-a-coin-10-times/">Flip a Coin 10 Times</a> tool. For 100 flips with full statistics, use <a href="/flip-a-coin-100-times/">Flip a Coin 100 Times</a>. All tools are free and require no sign-up.</div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">How do I export the results for my homework?</summary>
+    <div class="faq-a">After flipping, click "Copy results" to copy the full sequence (e.g. <em>5 flips: HHTTH — 3 heads, 2 tails</em>) to your clipboard. Paste it directly into a spreadsheet, document, or stats software. The session stats panel also shows cumulative totals across multiple runs so you can track your experiment without any manual counting.</div>
+  </details>
+</div>
+<!-- /SLOT:faq -->
+
+<!-- SLOT:who -->
+<div>
+  <h2 class="section-title" style="margin-bottom:14px">Who uses this tool</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">Statistics students</div><div class="uc-body">Map 5-flip results to Pascal's triangle row 5 and verify theoretical probabilities against experimental data — the 32 possible outcomes make manual verification practical.</div></div>
+    <div class="uc"><div class="uc-title">Teachers</div><div class="uc-body">Run a live classroom probability demo in seconds. Copy-paste sequences into a shared spreadsheet and have every student contribute a row of real experimental data to observe the law of large numbers.</div></div>
+    <div class="uc"><div class="uc-title">Decision makers</div><div class="uc-body">Break ties with a best-of-5 approach when a single flip feels too arbitrary. The majority result (at least 3 out of 5) gives a clear, decisive outcome.</div></div>
+    <div class="uc"><div class="uc-title">Game players</div><div class="uc-body">Use for multi-round fair outcomes — determining starting order, generating random binary sequences for tabletop events, or settling quick disputes with a majority-wins rule.</div></div>
+  </div>
+</div>
+<!-- /SLOT:who -->
+
+<!-- SLOT:init -->
+<script>
+const WORDINEER_CF5 = (() => {
+  const FLIPS = 5;
+
+  let results = [];
+  let sessionHeads = 0;
+  let sessionTails = 0;
+  let sessionRuns = 0;
+  let hasFlipped = false;
+
+  // DOM refs
+  let gridEl, flipBtn, summaryEl, streaksEl, streakH, streakT;
+  let fallacyEl, actionsEl, copyBtn, sessionEl, sessionTextEl;
+  let headsCountEl, tailsCountEl;
+
+  // Build the 5 coin slots
+  function buildGrid() {
+    gridEl.innerHTML = '';
+    for (let i = 0; i < FLIPS; i++) {
+      const coin = document.createElement('div');
+      coin.className = 'cf5-coin pending';
+      coin.id = 'cf5-coin-' + i;
+      coin.textContent = '?';
+      gridEl.appendChild(coin);
+    }
+  }
+
+  function flipAll() {
+    results = [];
+    for (let i = 0; i < FLIPS; i++) {
+      results.push(Math.random() < 0.5 ? 'H' : 'T');
+    }
+    hasFlipped = true;
+    renderResults();
+  }
+
+  function renderResults() {
+    const heads = results.filter(function(r) { return r === 'H'; }).length;
+    const tails = FLIPS - heads;
+
+    // Update coin grid
+    results.forEach(function(r, i) {
+      const coin = document.getElementById('cf5-coin-' + i);
+      coin.className = 'cf5-coin ' + (r === 'H' ? 'heads' : 'tails');
+      coin.textContent = r === 'H' ? 'H' : 'T';
+    });
+
+    // Update tally
+    headsCountEl.textContent = heads;
+    tailsCountEl.textContent = tails;
+
+    // Summary
+    const pct = Math.round((heads / FLIPS) * 100);
+    summaryEl.textContent = heads + ' heads, ' + tails + ' tails — ' + pct + '% heads this run';
+
+    // Streaks
+    const streaks = getStreaks(results);
+    streakH.textContent = streaks.maxH;
+    streakT.textContent = streaks.maxT;
+    streaksEl.classList.add('is-visible');
+
+    // Gamblers fallacy note if streak >= 5
+    if (streaks.maxH >= 5 || streaks.maxT >= 5) {
+      fallacyEl.classList.add('is-visible');
+    } else {
+      fallacyEl.classList.remove('is-visible');
+    }
+
+    // Actions row
+    actionsEl.style.display = '';
+
+    // Session stats
+    sessionHeads += heads;
+    sessionTails += tails;
+    sessionRuns++;
+    if (sessionRuns >= 2) {
+      const total = sessionHeads + sessionTails;
+      const sessionPct = Math.round((sessionHeads / total) * 100);
+      sessionTextEl.textContent = sessionRuns + ' runs · ' + sessionHeads + ' heads / ' + sessionTails + ' tails (' + sessionPct + '% heads)';
+      sessionEl.classList.add('is-visible');
+    }
+  }
+
+  function getStreaks(arr) {
+    let maxH = 0, maxT = 0, curH = 0, curT = 0;
+    arr.forEach(function(r) {
+      if (r === 'H') { curH++; maxH = Math.max(maxH, curH); curT = 0; }
+      else { curT++; maxT = Math.max(maxT, curT); curH = 0; }
+    });
+    return { maxH: maxH, maxT: maxT };
+  }
+
+  function copyResults() {
+    const sequence = results.join('');
+    const heads = results.filter(function(r) { return r === 'H'; }).length;
+    const tails = FLIPS - heads;
+    const text = '5 flips: ' + sequence + ' — ' + heads + ' heads, ' + tails + ' tails';
+    navigator.clipboard && navigator.clipboard.writeText(text);
+    const orig = copyBtn.innerHTML;
+    copyBtn.innerHTML = '<svg viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5 6.5-6.5" stroke="#1D9E75" stroke-width="1.3" stroke-linecap="round"/></svg> Copied!';
+    setTimeout(function() { copyBtn.innerHTML = orig; }, 1200);
+    showToast('Copied!');
+  }
+
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    if (!t) return;
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(function() { t.classList.remove('show'); }, 2000);
+  }
+
+  function init() {
+    gridEl        = document.getElementById('cf5-grid');
+    flipBtn       = document.getElementById('cf5-flip-btn');
+    summaryEl     = document.getElementById('cf5-summary');
+    streaksEl     = document.getElementById('cf5-streaks');
+    streakH       = document.getElementById('cf5-streak-h');
+    streakT       = document.getElementById('cf5-streak-t');
+    fallacyEl     = document.getElementById('cf5-fallacy');
+    actionsEl     = document.getElementById('cf5-actions');
+    copyBtn       = document.getElementById('cf5-copy-btn');
+    sessionEl     = document.getElementById('cf5-session');
+    sessionTextEl = document.getElementById('cf5-session-text');
+    headsCountEl  = document.getElementById('cf5-heads-count');
+    tailsCountEl  = document.getElementById('cf5-tails-count');
+
+    buildGrid();
+
+    flipBtn.addEventListener('click', flipAll);
+    copyBtn.addEventListener('click', copyResults);
+
+    document.addEventListener('keydown', function(e) {
+      if (['INPUT','SELECT','TEXTAREA','BUTTON'].includes(e.target.tagName)) return;
+      if (e.code === 'Space' || e.code === 'Enter') { e.preventDefault(); flipAll(); }
+    });
+
+    document.querySelectorAll('.faq-item summary').forEach(function(s) {
+      s.addEventListener('click', function(e) {
+        e.preventDefault();
+        const item = s.closest('.faq-item');
+        const wasOpen = item.hasAttribute('open');
+        document.querySelectorAll('.faq-item[open]').forEach(function(i) { i.removeAttribute('open'); });
+        if (!wasOpen) item.setAttribute('open', '');
+      });
+    });
+  }
+
+  return { init: init };
+})();
+
+document.addEventListener('DOMContentLoaded', WORDINEER_CF5.init);
+</script>
+<!-- /SLOT:init -->

@@ -1,0 +1,342 @@
+<!-- CONFIG
+{
+  "url": "/flip-3-coins/",
+  "output": "flip-3-coins.html",
+  "type": "tool",
+  "more_tools_key": "more_chance_tools",
+  "more_tools_title": "More number & chance tools",
+  "more_tools_subtitle": "Dice, coin flips, spinners, and more — all free"
+}
+-->
+
+<!-- SLOT:meta -->
+<title>Flip 3 Coins — All Results Instantly | Wordineer</title>
+<meta name="description" content="Flip 3 coins at once and see all results simultaneously. Tracks all 8 outcomes across your session. Free, no sign-up, works on any device.">
+<link rel="canonical" href="https://wordineer.com/flip-3-coins/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wordineer">
+<meta property="og:title" content="Flip 3 Coins | Wordineer">
+<meta property="og:description" content="Flip 3 coins at once and see all results simultaneously. Tracks all 8 outcomes across your session. Free, no sign-up, works on any device.">
+<meta property="og:url" content="https://wordineer.com/flip-3-coins/">
+<meta property="og:image" content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What are the possible outcomes of flipping 3 coins?",
+      "acceptedAnswer": { "@type": "Answer", "text": "There are 8 possible outcomes (2³): HHH, HHT, HTH, THH, HTT, THT, TTH, and TTT. Each outcome is equally likely with a probability of 1/8 = 12.5%. This makes three-coin flips a classic introduction to sample spaces and elementary probability — large enough to be interesting but small enough to list exhaustively." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the most common result when flipping 3 coins?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Every individual outcome has the same 12.5% probability, but grouping by heads count reveals a pattern: 0 heads (TTT) = 12.5%, 1 head (HTT, THT, TTH) = 37.5%, 2 heads (HHT, HTH, THH) = 37.5%, 3 heads (HHH) = 12.5%. The 'majority' outcomes — 1 or 2 heads — account for 75% of all flips combined, while the extremes (all-same) occur only 25% of the time total. These counts (1-3-3-1) match the third row of Pascal's Triangle." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the probability of getting all heads with 3 coins?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The probability of getting all heads (HHH) is 1/8 = 12.5%, or 1 in 8. Since each coin flip is an independent 50/50 event, you multiply the probabilities: 0.5 × 0.5 × 0.5 = 0.125. The same logic applies to all tails (TTT) — also 1 in 8." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the probability of at least 2 heads in 3 flips?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The probability of getting at least 2 heads is P(2 heads) + P(3 heads) = 3/8 + 1/8 = 4/8 = 50%. There are 3 ways to get exactly 2 heads (HHT, HTH, THH) and 1 way to get 3 heads (HHH), out of 8 equally likely outcomes. This means 'majority heads' and 'majority tails' are both exactly 50% likely — a useful result for majority-rules decision-making." }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Flip 3 Coins",
+  "url": "https://wordineer.com/flip-3-coins/",
+  "description": "Flip 3 coins at once and see all results simultaneously. Tracks all 8 outcomes across your session.",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@id": "https://wordineer.com/#organization" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Number &amp; Chance Tools", "item": "https://wordineer.com/number-chance/" },
+    { "@type": "ListItem", "position": 3, "name": "Flip 3 Coins", "item": "https://wordineer.com/flip-3-coins/" }
+  ]
+}
+</script>
+<!-- /SLOT:meta -->
+
+<!-- SLOT:style -->
+<style>
+/* ── Flip 3 Coins ── */
+.cf3-wrap { max-width: 540px; margin: 0 auto; padding: 24px 24px 0; }
+.cf3-card { border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--bg); box-shadow: var(--shadow); padding: 32px 24px 24px; display: flex; flex-direction: column; align-items: center; gap: 24px; }
+.cf3-coins { display: flex; gap: 14px; align-items: flex-end; justify-content: center; }
+.cf3-coin-wrap { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.cf3-coin { width: 68px; height: 68px; border-radius: 50%; border: 3px solid var(--border); background: var(--bg-2); display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: var(--text-3); transition: all 0.2s; }
+.cf3-coin.heads { background: var(--brand); border-color: var(--brand); color: white; }
+.cf3-coin.tails { background: var(--bg-3); border-color: var(--border-2); color: var(--text-2); }
+.cf3-coin-label { font-size: 10px; font-weight: 600; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.07em; }
+.cf3-coins-sep { font-size: 1.2rem; color: var(--border); margin-bottom: 28px; }
+.cf3-result { font-size: 1.05rem; font-weight: 700; color: var(--text); text-align: center; min-height: 1.5em; }
+.cf3-flip-btn { padding: 13px 40px; background: var(--brand); color: white; border: none; border-radius: 10px; font-size: 1.05rem; font-weight: 700; font-family: inherit; cursor: pointer; transition: background 0.15s, transform 0.1s; letter-spacing: -0.01em; }
+.cf3-flip-btn:hover { background: var(--brand-dark); }
+.cf3-flip-btn:active { transform: scale(0.97); }
+.cf3-kbd { font-size: 10px; color: var(--text-3); text-align: center; margin-top: -12px; }
+.cf3-kbd kbd { background: var(--bg-3); border: 1px solid var(--border); border-radius: 3px; padding: 1px 5px; font-size: 10px; font-family: inherit; }
+.cf3-tally { width: 100%; }
+.cf3-tally-title { font-size: 10px; font-weight: 700; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 10px; }
+.cf3-tally-grid { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 6px; }
+.cf3-tally-item { border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; background: var(--bg-2); display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.cf3-tally-item.highlight { border-color: var(--brand); background: var(--bg); }
+.cf3-tally-outcome { font-size: 12px; font-weight: 700; color: var(--text); font-family: monospace; }
+.cf3-tally-count { font-size: 14px; font-weight: 700; color: var(--text-2); font-variant-numeric: tabular-nums; }
+.cf3-copy-btn { display: none; align-items: center; gap: 5px; padding: 8px 16px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg); color: var(--text-2); font-size: 12px; font-weight: 600; font-family: inherit; cursor: pointer; transition: background 0.12s; }
+.cf3-copy-btn.is-visible { display: flex; }
+.cf3-copy-btn:hover { background: var(--bg-2); color: var(--text); }
+.cf3-copy-btn svg { width: 13px; height: 13px; }
+@media (max-width: 480px) {
+  .cf3-wrap { padding: 14px 14px 0; }
+  .cf3-card { padding: 24px 14px 18px; gap: 18px; }
+  .cf3-coin { width: 56px; height: 56px; font-size: 17px; }
+  .cf3-coins { gap: 8px; }
+  .cf3-tally-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+<!-- /SLOT:style -->
+
+<!-- SLOT:hero -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/number-chance/">Number &amp; Chance Tools</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Flip 3 Coins</span>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free · No sign-up · Instant
+  </div>
+  <h1>Flip 3 coins at once</h1>
+  <p>Flip three coins simultaneously and see all results at once. Tracks all 8 possible outcomes — from HHH to TTT — across your session so you can watch the probabilities converge in real time.</p>
+</div>
+<!-- /SLOT:hero -->
+
+<!-- SLOT:tool -->
+<div class="cf3-wrap">
+  <div class="cf3-card">
+    <div class="cf3-coins">
+      <div class="cf3-coin-wrap">
+        <div class="cf3-coin" id="cf3-coin-1">?</div>
+        <div class="cf3-coin-label">Coin 1</div>
+      </div>
+      <div class="cf3-coins-sep">+</div>
+      <div class="cf3-coin-wrap">
+        <div class="cf3-coin" id="cf3-coin-2">?</div>
+        <div class="cf3-coin-label">Coin 2</div>
+      </div>
+      <div class="cf3-coins-sep">+</div>
+      <div class="cf3-coin-wrap">
+        <div class="cf3-coin" id="cf3-coin-3">?</div>
+        <div class="cf3-coin-label">Coin 3</div>
+      </div>
+    </div>
+    <div class="cf3-result" id="cf3-result" aria-live="polite" aria-atomic="true">Click to flip all 3 coins</div>
+    <button class="cf3-flip-btn" id="cf3-flip-btn" type="button">Flip All 3</button>
+    <div class="cf3-kbd">Press <kbd>Space</kbd> or <kbd>Enter</kbd></div>
+    <div class="cf3-tally" id="cf3-tally" style="display:none">
+      <div class="cf3-tally-title">Session outcomes</div>
+      <div class="cf3-tally-grid">
+        <div class="cf3-tally-item" id="cf3-tally-hhh"><span class="cf3-tally-outcome">HHH</span><span class="cf3-tally-count" id="cf3-count-hhh">0</span></div>
+        <div class="cf3-tally-item" id="cf3-tally-hht"><span class="cf3-tally-outcome">HHT</span><span class="cf3-tally-count" id="cf3-count-hht">0</span></div>
+        <div class="cf3-tally-item" id="cf3-tally-hth"><span class="cf3-tally-outcome">HTH</span><span class="cf3-tally-count" id="cf3-count-hth">0</span></div>
+        <div class="cf3-tally-item" id="cf3-tally-thh"><span class="cf3-tally-outcome">THH</span><span class="cf3-tally-count" id="cf3-count-thh">0</span></div>
+        <div class="cf3-tally-item" id="cf3-tally-htt"><span class="cf3-tally-outcome">HTT</span><span class="cf3-tally-count" id="cf3-count-htt">0</span></div>
+        <div class="cf3-tally-item" id="cf3-tally-tht"><span class="cf3-tally-outcome">THT</span><span class="cf3-tally-count" id="cf3-count-tht">0</span></div>
+        <div class="cf3-tally-item" id="cf3-tally-tth"><span class="cf3-tally-outcome">TTH</span><span class="cf3-tally-count" id="cf3-count-tth">0</span></div>
+        <div class="cf3-tally-item" id="cf3-tally-ttt"><span class="cf3-tally-outcome">TTT</span><span class="cf3-tally-count" id="cf3-count-ttt">0</span></div>
+      </div>
+    </div>
+    <button class="cf3-copy-btn" id="cf3-copy-btn" type="button">
+      <svg viewBox="0 0 14 14" fill="none"><rect x="1" y="4" width="9" height="9.5" rx="1.5" stroke="currentColor" stroke-width="1.1"/><path d="M4.5 4V2.5A1.5 1.5 0 016 1h5.5A1.5 1.5 0 0113 2.5v7a1.5 1.5 0 01-1.5 1.5H10" stroke="currentColor" stroke-width="1.1"/></svg>
+      Copy result
+    </button>
+  </div>
+</div>
+<!-- /SLOT:tool -->
+
+<!-- SLOT:ad_b -->
+<div class="content-wrap" style="margin-top:32px">
+  <div class="ad-rect">
+    <span class="ad-tag">Advertisement · 336×280</span>
+    <div class="ad-rect-img"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4C10.3 4 4 10.3 4 18s6.3 14 14 14 14-6.3 14-14S25.7 4 18 4z" fill="white" opacity=".2"/><path d="M12 18c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="18" r="2.5" fill="white"/></svg></div>
+    <div class="ad-rect-content">
+      <div class="ad-rect-title">Grammarly — write with confidence</div>
+      <div class="ad-rect-body">Grammar, tone &amp; clarity. Used by 30 million people. Works in Google Docs, Gmail, Word and more.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
+    </div>
+  </div>
+</div>
+<!-- /SLOT:ad_b -->
+
+<!-- SLOT:explainer -->
+<div class="explainer">
+  <h2>What happens when you flip 3 coins?</h2>
+  <p>Three coins produce 2³ = 8 equally likely outcomes: HHH, HHT, HTH, THH, HTT, THT, TTH, and TTT. Each has exactly a 12.5% probability. This makes three-coin flips the first scenario where listing all outcomes by hand is manageable but non-trivial — the perfect step up from two-coin probability problems. The session tally in this tool tracks all 8 outcomes so you can watch each converge toward 12.5% over many trials.</p>
+  <h2>Most and least likely groupings</h2>
+  <p>While each individual outcome is equally likely at 12.5%, grouping by number of heads reveals an important pattern: getting exactly 0 heads (TTT) = 12.5%, exactly 1 head (HTT, THT, TTH) = 37.5%, exactly 2 heads (HHT, HTH, THH) = 37.5%, exactly 3 heads (HHH) = 12.5%. The row 1-3-3-1 from Pascal's Triangle gives the number of ways to get each count. The "balanced" outcomes — 1 or 2 heads — account for 75% of all flips combined, while the extremes (all-same) occur only 25% of the time total.</p>
+  <h2>Classroom and game uses</h2>
+  <p>Three-coin flips are a staple of probability curricula for introducing sample spaces with 8 outcomes, Pascal's Triangle, and binomial distributions. For games, three coins provide an eight-way random selector, a "majority wins" mechanic (2+ heads vs. 2+ tails for a binary choice), or a graduated luck roll where HHH is the jackpot outcome. The session tally makes probability experiments instant without any dice or spreadsheet setup.</p>
+</div>
+<!-- /SLOT:explainer -->
+
+<!-- SLOT:faq -->
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+
+  <details class="faq-item">
+    <summary class="faq-q">What are the possible outcomes of flipping 3 coins?</summary>
+    <div class="faq-a">There are 8 possible outcomes (2³): HHH, HHT, HTH, THH, HTT, THT, TTH, and TTT. Each outcome is equally likely with a probability of 1/8 = 12.5%. This makes three-coin flips a classic introduction to sample spaces — large enough to be interesting but small enough to list exhaustively by hand.</div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">What is the most common result when flipping 3 coins?</summary>
+    <div class="faq-a">Every individual outcome has the same 12.5% probability, but grouping by heads count shows that 1 head (HTT, THT, TTH) and 2 heads (HHT, HTH, THH) are each 37.5% likely — far more common than all-heads (12.5%) or all-tails (12.5%). The "majority" outcomes of 1 or 2 heads account for 75% of all flips combined, while all-same outcomes occur only 25% of the time.</div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">What is the probability of getting all heads with 3 coins?</summary>
+    <div class="faq-a">The probability of getting all heads (HHH) is 1/8 = 12.5%, or 1 in 8. Since each coin flip is an independent 50/50 event, you multiply the probabilities: 0.5 × 0.5 × 0.5 = 0.125. The same applies to all tails (TTT) — also 1 in 8. Run this tool enough times and both will appear roughly equally.</div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">What is the probability of at least 2 heads in 3 flips?</summary>
+    <div class="faq-a">The probability of getting at least 2 heads is P(2 heads) + P(3 heads) = 3/8 + 1/8 = 4/8 = 50%. There are 3 ways to get exactly 2 heads (HHT, HTH, THH) and 1 way to get 3 heads (HHH), out of 8 equally likely outcomes. This means "majority heads" and "majority tails" are both exactly 50% likely — making three coins a perfectly fair majority-rules decision tool.</div>
+  </details>
+</div>
+<!-- /SLOT:faq -->
+
+<!-- SLOT:who -->
+<div>
+  <h2 class="section-title" style="margin-bottom:14px">Who uses this tool</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">Students</div><div class="uc-body">Build intuition for 8-outcome sample spaces — flip many times and watch each outcome trend toward its expected 12.5% frequency.</div></div>
+    <div class="uc"><div class="uc-title">Teachers</div><div class="uc-body">Live Pascal's Triangle demo — show that the 1-3-3-1 row maps exactly to outcomes with 0, 1, 2, and 3 heads respectively.</div></div>
+    <div class="uc"><div class="uc-title">Game designers</div><div class="uc-body">Eight-way random selection with no dice required — assign each outcome to an event and flip for instant results.</div></div>
+    <div class="uc"><div class="uc-title">Decision makers</div><div class="uc-body">Use the majority rule — 2 or more heads means yes. Three-way confirmation adds an extra layer of fairness to big decisions.</div></div>
+  </div>
+</div>
+<!-- /SLOT:who -->
+
+<!-- SLOT:init -->
+<script>
+const WORDINEER_CF3 = (() => {
+  const OUTCOMES = ['hhh','hht','hth','thh','htt','tht','tth','ttt'];
+  let counts = {};
+  OUTCOMES.forEach(function(k) { counts[k] = 0; });
+  let totalFlips = 0;
+  let lastResult = '';
+
+  let coin1El, coin2El, coin3El, resultEl, flipBtn, tallyEl, copyBtn;
+
+  function flip() {
+    const r1 = Math.random() < 0.5 ? 'H' : 'T';
+    const r2 = Math.random() < 0.5 ? 'H' : 'T';
+    const r3 = Math.random() < 0.5 ? 'H' : 'T';
+
+    [coin1El, coin2El, coin3El].forEach(function(el) {
+      el.className = 'cf3-coin';
+      el.textContent = '?';
+    });
+
+    setTimeout(function() {
+      coin1El.className = 'cf3-coin ' + (r1 === 'H' ? 'heads' : 'tails');
+      coin2El.className = 'cf3-coin ' + (r2 === 'H' ? 'heads' : 'tails');
+      coin3El.className = 'cf3-coin ' + (r3 === 'H' ? 'heads' : 'tails');
+      coin1El.textContent = r1;
+      coin2El.textContent = r2;
+      coin3El.textContent = r3;
+
+      const outcome = (r1 + r2 + r3).toLowerCase();
+      lastResult = r1 + r2 + r3;
+      const labels = { H: 'Heads', T: 'Tails' };
+      resultEl.textContent = labels[r1] + ' + ' + labels[r2] + ' + ' + labels[r3];
+
+      counts[outcome]++;
+      totalFlips++;
+
+      if (totalFlips >= 2) {
+        tallyEl.style.display = '';
+        OUTCOMES.forEach(function(k) {
+          document.getElementById('cf3-count-' + k).textContent = counts[k];
+          document.getElementById('cf3-tally-' + k).classList.toggle('highlight', k === outcome);
+        });
+      }
+
+      copyBtn.classList.add('is-visible');
+    }, 80);
+  }
+
+  function copyResult() {
+    if (!lastResult) return;
+    const labels = { H: 'Heads', T: 'Tails' };
+    const text = 'Flip 3 coins: ' + labels[lastResult[0]] + ' + ' + labels[lastResult[1]] + ' + ' + labels[lastResult[2]] + ' (' + lastResult + ')';
+    navigator.clipboard && navigator.clipboard.writeText(text);
+    const orig = copyBtn.innerHTML;
+    copyBtn.innerHTML = '<svg viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5 6.5-6.5" stroke="#1D9E75" stroke-width="1.3" stroke-linecap="round"/></svg> Copied!';
+    setTimeout(function() { copyBtn.innerHTML = orig; }, 1200);
+    showToast('Copied!');
+  }
+
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    if (!t) return;
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(function() { t.classList.remove('show'); }, 2000);
+  }
+
+  function init() {
+    coin1El  = document.getElementById('cf3-coin-1');
+    coin2El  = document.getElementById('cf3-coin-2');
+    coin3El  = document.getElementById('cf3-coin-3');
+    resultEl = document.getElementById('cf3-result');
+    flipBtn  = document.getElementById('cf3-flip-btn');
+    tallyEl  = document.getElementById('cf3-tally');
+    copyBtn  = document.getElementById('cf3-copy-btn');
+
+    flipBtn.addEventListener('click', flip);
+    copyBtn.addEventListener('click', copyResult);
+
+    document.addEventListener('keydown', function(e) {
+      if (['INPUT','SELECT','TEXTAREA','BUTTON'].includes(e.target.tagName)) return;
+      if (e.code === 'Space' || e.code === 'Enter') { e.preventDefault(); flip(); }
+    });
+
+    document.querySelectorAll('.faq-item summary').forEach(function(s) {
+      s.addEventListener('click', function(e) {
+        e.preventDefault();
+        const item = s.closest('.faq-item');
+        const wasOpen = item.hasAttribute('open');
+        document.querySelectorAll('.faq-item[open]').forEach(function(i) { i.removeAttribute('open'); });
+        if (!wasOpen) item.setAttribute('open', '');
+      });
+    });
+  }
+
+  return { init: init };
+})();
+
+document.addEventListener('DOMContentLoaded', WORDINEER_CF3.init);
+</script>
+<!-- /SLOT:init -->

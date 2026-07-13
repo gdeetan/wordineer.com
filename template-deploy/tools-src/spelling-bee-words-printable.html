@@ -25,6 +25,7 @@
 
 <!-- SLOT:style -->
 <style>
+.hero h1 { font-size: clamp(18px, 2.2vw, 32px); max-width: none; }
 .sb-wrap { max-width: 960px; margin: 0 auto; padding: 24px 24px 40px; }
 .sb-wrap h2, .sb-wrap h3 { font-family: 'DM Serif Display', serif; font-weight: 400; }
 .sb-controls { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; align-items: center; }
@@ -68,6 +69,14 @@
 }
 .speak-btn:hover { color: #4f46e5; border-color: #4f46e5; }
 @media print { .speak-btn { display: none !important; } }
+
+/* ── Classroom Mode ── */
+.classroom-btn { background: var(--bg-2); border: 1px solid var(--border); color: var(--text-2); border-radius: 7px; padding: 6px 12px; font-size: 12px; font-weight: 600; font-family: inherit; cursor: pointer; transition: background .15s, color .15s; }
+.classroom-btn:hover { border-color: var(--brand); color: var(--brand); }
+.classroom-btn.is-on { background: #1a1a2e; color: #fff; border-color: #1a1a2e; }
+body.is-classroom header, body.is-classroom nav, body.is-classroom .breadcrumb, body.is-classroom .hero, body.is-classroom .explainer, body.is-classroom .faq, body.is-classroom .who, body.is-classroom footer, body.is-classroom .ad, body.is-classroom [class*="ad-"], body.is-classroom .more-tools, body.is-classroom .saved-section { display: none !important; }
+body.is-classroom .tool-wrap { max-width: 100%; border-radius: 0; box-shadow: none; }
+body.is-classroom .results-col { min-height: 100vh; }
 </style>
 <!-- /SLOT:style -->
 
@@ -105,6 +114,7 @@
       <option value="easy">Easy only</option>
     </select>
     <button class="print-btn" onclick="window.print()">🖨 Print / Save as PDF</button>
+    <button class="classroom-btn" id="sb-classroom-btn">⊞ Classroom</button>
   </div>
   <div class="legend">
     <span class="legend-item"><span class="legend-dot" style="background:#ef4444"></span> Hard</span>
@@ -184,6 +194,28 @@ function speakWord(evt, word) {
   fetch('/data/spelling-bee-consolidated.json')
     .then(function(r) { return r.json(); })
     .then(function(d) { DATA = d; refresh(); });
+
+  // Classroom mode
+  (function () {
+    var btn = document.getElementById('sb-classroom-btn');
+    function setClassroom(on) {
+      document.body.classList.toggle('is-classroom', on);
+      if (btn) {
+        btn.classList.toggle('is-on', on);
+        btn.textContent = on ? '✕ Exit Classroom' : '⊞ Classroom';
+      }
+      var url = new URL(window.location.href);
+      if (on) url.searchParams.set('mode', 'classroom');
+      else url.searchParams.delete('mode');
+      history.replaceState(null, '', url.toString());
+    }
+    if (btn) btn.addEventListener('click', function () {
+      setClassroom(!document.body.classList.contains('is-classroom'));
+    });
+    if (new URLSearchParams(window.location.search).get('mode') === 'classroom') {
+      setClassroom(true);
+    }
+  }());
 })();
 document.querySelectorAll('.faq-item').forEach(function(item){var q=item.querySelector('.faq-q');if(!q)return;q.addEventListener('click',function(){item.classList.toggle('open');});});
 </script>

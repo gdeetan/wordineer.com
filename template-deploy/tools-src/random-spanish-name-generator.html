@@ -1,0 +1,341 @@
+<!-- CONFIG { "url": "/random-spanish-name-generator/", "output": "random-spanish-name-generator.html", "type": "tool", "more_tools_key": "name_generator_tools", "more_tools_subtitle": "Every name generator you need, all free" } -->
+
+<!-- SLOT:meta -->
+<title>1,000+ Random Spanish Names - Full Names, Surnames &amp; Meanings | Wordineer</title>
+<meta name="description" content="Generate random Spanish names for characters, stories, and worldbuilding. Filter by gender, name type, style, surname structure, and starting letter. Free, fast, and no sign-up.">
+<link rel="canonical" href="https://wordineer.com/random-spanish-name-generator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wordineer">
+<meta property="og:title" content="1,000+ Random Spanish Names | Wordineer">
+<meta property="og:description" content="Generate Spain-style first names, surnames, and full names with meanings, compound given names, and two-surname options.">
+<meta property="og:url" content="https://wordineer.com/random-spanish-name-generator/">
+<meta property="og:image" content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Are these real Spanish names?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The tool uses real Spain-style given names and surnames, then combines them for brainstorming and character use. A generated combination may match a real person by coincidence, but the page is not an identity generator." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I generate Spanish names with two surnames?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Choose Two-surname full name to generate a Spain-style full name with two surnames, or use the Surname structure filter on Full name to explore one-surname and two-surname formats." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between full name and two-surname full name?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Full name can generate a standard Spanish-style full name and can be narrowed with the Surname structure filter. Two-surname full name always produces a given name followed by two surnames." }
+    },
+    {
+      "@type": "Question",
+      "name": "How is this different from the random name generator?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The generic random name generator covers many origins. This page uses a Spain-focused dataset, compound-name support, and two-surname rules so the output feels more consistent for Spanish character naming." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this tool create fake identities?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. It only generates names. It does not create addresses, phone numbers, passwords, document numbers, or other identity details." }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Random Spanish Name Generator",
+  "url": "https://wordineer.com/random-spanish-name-generator/",
+  "description": "Generate random Spanish names for characters, stories, and worldbuilding. Filter by gender, name type, style, surname structure, and starting letter. Free, fast, and no sign-up.",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@id": "https://wordineer.com/#organization" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Name Generators", "item": "https://wordineer.com/name-generators/" },
+    { "@type": "ListItem", "position": 3, "name": "Random Spanish Name Generator", "item": "https://wordineer.com/random-spanish-name-generator/" }
+  ]
+}
+</script>
+<!-- /SLOT:meta -->
+
+<!-- SLOT:style -->
+<style>
+.tool-wrap  { max-width:960px; margin:0 auto; padding:24px 24px 0; }
+.tool-card  { border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg); box-shadow:var(--shadow); }
+.tool-split { display:flex; }
+.ctrl { width:220px; flex-shrink:0; padding:18px; border-right:1px solid var(--border-2); background:var(--bg-2); }
+.ctrl-row   { margin-bottom:14px; }
+.ctrl-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; display:block; margin-bottom:5px; }
+.ctrl-row input, .ctrl-row select { width:100%; padding:7px 10px; font-size:13px; font-family:inherit; border:1px solid var(--border); border-radius:7px; background:var(--bg); color:var(--text); appearance:none; outline:none; transition:border-color .15s; }
+.ctrl-row input:focus, .ctrl-row select:focus { border-color:var(--brand); }
+.ctrl-row select:disabled { opacity:.6; cursor:not-allowed; }
+.def-row    { display:flex; align-items:center; gap:8px; margin-bottom:14px; }
+.def-row label { font-size:12px; color:var(--text-2); cursor:pointer; }
+.toggle     { position:relative; width:32px; height:18px; flex-shrink:0; }
+.toggle input { opacity:0; width:0; height:0; }
+.toggle-sl  { position:absolute; cursor:pointer; inset:0; background:var(--border); border-radius:9px; transition:.2s; }
+.toggle input:checked + .toggle-sl { background:var(--brand); }
+.toggle-sl::before { content:''; position:absolute; width:14px; height:14px; left:2px; top:2px; background:white; border-radius:50%; transition:.2s; }
+.toggle input:checked + .toggle-sl::before { transform:translateX(14px); }
+.gen-btn    { width:100%; padding:10px 14px; background:var(--brand); color:white; border:none; border-radius:8px; font-size:14px; font-weight:600; font-family:inherit; cursor:pointer; transition:background .15s,transform .1s; letter-spacing:-.01em; }
+.gen-btn:hover { background:var(--brand-dark); }
+.gen-btn:active { transform:scale(.98); }
+.reset-btn  { display:block; width:100%; text-align:center; font-size:11px; color:var(--text-3); margin-top:8px; cursor:pointer; text-decoration:underline; text-underline-offset:2px; border:none; background:none; font-family:inherit; }
+.kbd        { text-align:center; font-size:10px; color:var(--text-3); margin-top:6px; }
+.kbd kbd    { background:var(--bg-3); border:1px solid var(--border); border-radius:3px; padding:1px 5px; font-size:10px; font-family:inherit; }
+.words-panel { flex:1; display:flex; flex-direction:column; overflow:hidden; }
+.words-top { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 16px; border-bottom:1px solid var(--border-2); }
+.words-count { font-size:12px; color:var(--text-3); }
+.words-actions { display:flex; gap:6px; flex-wrap:wrap; justify-content:flex-end; }
+.act-btn    { font-size:12px; padding:5px 11px; border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:background .12s; }
+.act-btn:hover { background:var(--bg-2); }
+.word-list  { flex:1; overflow-y:auto; list-style:none; padding:0 16px; margin:0; }
+.word-item  { display:flex; align-items:flex-start; justify-content:space-between; padding:12px 0; border-bottom:1px solid var(--border-2); gap:10px; animation:fadeIn .2s ease; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:none} }
+.word-item:last-child { border-bottom:none; }
+.word-left  { flex:1; min-width:0; }
+.word-right { display:flex; align-items:flex-start; gap:4px; padding-top:2px; flex-shrink:0; }
+.icon-btn   { width:28px; height:28px; display:flex; align-items:center; justify-content:center; background:transparent; border:none; cursor:pointer; border-radius:5px; color:var(--text-3); transition:background .12s,color .12s; }
+.icon-btn:hover { background:var(--bg-2); color:var(--text); }
+.icon-btn svg { width:14px; height:14px; }
+.icon-btn.saved { color:#E24B4A; }
+.saved-section { border-top:1px solid var(--border); padding:12px 14px; background:var(--bg); }
+.saved-top { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:8px; }
+.saved-label { font-size:12px; font-weight:700; color:var(--text); }
+.saved-copy { border:1px solid var(--border); background:var(--bg); color:var(--brand); border-radius:7px; padding:5px 9px; font-size:11px; font-weight:600; cursor:pointer; }
+.saved-tags { display:flex; gap:5px; flex-wrap:wrap; min-height:22px; }
+.saved-tag { display:inline-flex; align-items:center; gap:4px; background:#F0F2FF; color:var(--brand); border-radius:999px; padding:4px 8px; font-size:11px; font-weight:600; }
+.saved-tag-remove { cursor:pointer; opacity:.65; }
+.saved-empty { color:var(--text-3); font-size:12px; }
+.word-text { font-size:17px; font-weight:600; color:var(--text); line-height:1.25; }
+.sng-meaning { font-size:12px; color:var(--text-2); margin-top:4px; line-height:1.45; }
+.sng-note { font-size:12px; color:var(--text-3); margin-top:4px; line-height:1.45; }
+.sng-chips { display:flex; flex-wrap:wrap; gap:5px; margin-top:6px; }
+.sng-chip { display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; padding:2px 7px; border-radius:999px; background:#FFF6DA; color:#8A5200; }
+.sng-chip--gender { background:#EEF9F1; color:#1F7A4E; }
+.sng-chip--style { background:#FAEFE6; color:#9A4C1A; }
+.sng-chip--type { background:#FDEBEC; color:#A33E47; }
+.sng-no-results .word-text { color:var(--text-2); }
+.ng-mobile-toggle { display:none; width:100%; margin:-2px 0 14px; padding:9px 12px; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--brand); font-size:13px; font-weight:600; font-family:inherit; cursor:pointer; }
+.ng-advanced { display:block; }
+@media (max-width: 760px) {
+  .hero--tool .hero-copy p { display:none; }
+  .tool-wrap { padding:16px 14px 0; }
+  .tool-split { display:block; }
+  .ctrl { width:100%; border-right:none; border-bottom:1px solid var(--border-2); }
+  .ng-mobile-toggle { display:block; margin:10px 0 14px; }
+  .reset-btn, .kbd { display:none; }
+  .ng-advanced { display:none; }
+  .ng-advanced.is-open { display:block; }
+}
+</style>
+<!-- /SLOT:style -->
+
+<!-- SLOT:hero -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/name-generators/">Name Generators</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Random Spanish Name Generator</span>
+  </div>
+</div>
+<section class="hero hero--tool">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <span class="hero-badge">Free &middot; No sign-up &middot; Instant</span>
+      <h1>1,000+ Random Spanish Names</h1>
+      <p>Generate Spain-style first names, surnames, and full names with meanings, compound given names, and two-surname options for writers and character creators.</p>
+    </div>
+  </div>
+</section>
+<!-- /SLOT:hero -->
+
+<!-- SLOT:tool -->
+<main class="tool-wrap">
+  <section class="tool-card" aria-label="Random Spanish name generator">
+    <div class="tool-split">
+      <div class="ctrl">
+        <div class="ctrl-row">
+          <label class="ctrl-label" for="sng-count">Number of names</label>
+          <input type="number" id="sng-count" value="10" min="1" max="50" inputmode="numeric">
+          <span class="sng-count-error" id="sng-count-error" style="display:none;font-size:11px;color:#E24B4A;margin-top:4px;">Enter a number from 1 to 50</span>
+        </div>
+
+        <button type="button" class="ng-mobile-toggle" id="sng-mobile-toggle" aria-expanded="false" aria-controls="sng-advanced">More options</button>
+
+        <div class="ng-advanced" id="sng-advanced">
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="sng-gender">Gender</label>
+            <select id="sng-gender">
+              <option value="any">Any</option>
+              <option value="f">Female</option>
+              <option value="m">Male</option>
+            </select>
+          </div>
+
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="sng-type">Name type</label>
+            <select id="sng-type">
+              <option value="full">Full name</option>
+              <option value="first" selected>First name</option>
+              <option value="last">Last name</option>
+              <option value="compound-first">Compound first name</option>
+              <option value="two-surname-full">Two-surname full name</option>
+            </select>
+          </div>
+
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="sng-style">Style</label>
+            <select id="sng-style">
+              <option value="any">Any style</option>
+              <option value="classic">Classic</option>
+              <option value="modern">Modern</option>
+              <option value="traditional">Traditional</option>
+              <option value="saint-inspired">Saint-inspired</option>
+              <option value="nature-inspired">Nature-inspired</option>
+            </select>
+          </div>
+
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="sng-surname-structure">Surname structure</label>
+            <select id="sng-surname-structure">
+              <option value="any">Any structure</option>
+              <option value="one">One surname</option>
+              <option value="two">Two surnames</option>
+            </select>
+          </div>
+
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="sng-letter">Starts with</label>
+            <select id="sng-letter">
+              <option value="any">Any letter</option>
+              <option value="a">A</option><option value="b">B</option><option value="c">C</option><option value="d">D</option>
+              <option value="e">E</option><option value="f">F</option><option value="g">G</option><option value="h">H</option>
+              <option value="i">I</option><option value="j">J</option><option value="k">K</option><option value="l">L</option>
+              <option value="m">M</option><option value="n">N</option><option value="o">O</option><option value="p">P</option>
+              <option value="q">Q</option><option value="r">R</option><option value="s">S</option><option value="t">T</option>
+              <option value="u">U</option><option value="v">V</option><option value="w">W</option><option value="x">X</option>
+              <option value="y">Y</option><option value="z">Z</option>
+            </select>
+          </div>
+
+          <div class="def-row">
+            <label class="toggle" aria-label="Show meanings"><input type="checkbox" id="sng-defs" checked><span class="toggle-sl"></span></label>
+            <label for="sng-defs">Show meanings</label>
+          </div>
+        </div>
+
+        <button class="gen-btn" id="sng-gen-btn">Generate names</button>
+        <button class="reset-btn" id="sng-reset-btn">Reset options</button>
+        <div class="kbd">Press <kbd>Space</kbd> to regenerate</div>
+      </div>
+
+      <div class="words-panel">
+        <div class="words-top">
+          <span class="words-count" id="sng-count-display">Generating...</span>
+          <div class="words-actions">
+            <button class="act-btn" id="sng-copy-all-btn">Copy all</button>
+            <button type="button" class="act-btn" id="sng-regen-btn" onclick="document.getElementById('sng-gen-btn')?.click()">Regenerate</button>
+          </div>
+        </div>
+        <ul class="word-list" id="sng-list"></ul>
+      </div>
+    </div>
+
+    <div class="saved-section">
+      <div class="saved-top">
+        <span class="saved-label">Saved names</span>
+        <button class="saved-copy" id="sng-copy-saved-btn">Copy saved</button>
+      </div>
+      <div class="saved-tags" id="sng-saved-tags">
+        <span class="saved-empty">Click the heart on any name to save it here</span>
+      </div>
+    </div>
+  </section>
+</main>
+<!-- /SLOT:tool -->
+
+<!-- SLOT:explainer -->
+<div class="explainer">
+  <h2>What is a random Spanish name generator?</h2>
+  <p>A random Spanish name generator creates Spain-style first names, surnames, and full names from a dedicated dataset instead of pulling from a generic global list. This version is built for writers, game masters, and anyone who wants names that feel more grounded in Spanish naming patterns, including compound given names and two-surname full names.</p>
+
+  <h2>How it works</h2>
+  <p>Choose how many names you want, then adjust the filters. You can switch between first names, surnames, compound given names, and full names, narrow the gender or style, and control whether full names use one surname or two. When you change a filter, the results refresh automatically so you can compare directions quickly.</p>
+  <p>You can copy the whole list, save favorites, or hide the meaning lines if you want a cleaner scan of the names only.</p>
+
+  <h2>How Spanish names are structured</h2>
+  <p>Spanish names often use one or two given names followed by one or two surnames. In Spain, a full legal-style name commonly includes a paternal surname followed by a maternal surname. That structure gives Spanish full names a different rhythm from the simple first-name-plus-last-name format that many English-language tools assume.</p>
+
+  <h2>Why some Spanish names use two surnames</h2>
+  <p>Two surnames are a practical part of Spanish naming tradition, not just a stylistic flourish. If you need names that feel closer to Spain-based real-world conventions, the two-surname full-name option is one of the most useful differences between this page and generic name generators.</p>
+
+  <h2>Why use a Spain-specific generator?</h2>
+  <p>A dedicated Spanish generator works better when the data and filters match the naming habits of the culture. A broad <a href="/random-name-generator/">random name generator</a> is useful for general brainstorming, but a Spain-first page can support compound names, saint-inspired traditions, accent-aware spelling, and two-surname combinations in a way that a generic dataset usually cannot.</p>
+
+  <h2>Ways writers can use the tool</h2>
+  <p>Use it for realistic contemporary characters, historical fiction, tabletop NPCs, pen names, classroom writing prompts, and worldbuilding that borrows from Iberian naming patterns. The meaning lines also help when you want a name to quietly reinforce a character’s tone or role.</p>
+</div>
+<!-- /SLOT:explainer -->
+
+<!-- SLOT:faq -->
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">Are these real Spanish names?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">The tool uses real Spain-style given names and surnames, then combines them for brainstorming and character use. A generated combination may match a real person by coincidence, but the page is not an identity generator.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I generate Spanish names with two surnames?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes. Choose Two-surname full name to force a Spain-style full name with two surnames, or use the Surname structure filter on Full name to explore one-surname and two-surname formats.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What is the difference between full name and two-surname full name?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Full name gives you the standard generator path and can be narrowed with the Surname structure filter. Two-surname full name always outputs a given name followed by two surnames.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I use these names for characters?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes. The page is designed for fiction, games, roleplaying, and other creative projects where you want Spanish names that feel more culturally specific than a generic random list.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">How is this different from the random name generator?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">The generic random name generator covers many origins. This page uses a Spain-focused dataset, compound-name support, and two-surname rules so the output feels more consistent for Spanish character naming.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Does this tool create fake identities?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">No. It only generates names. It does not create addresses, phone numbers, passwords, document numbers, or other identity details.</div>
+  </div>
+</div>
+<!-- /SLOT:faq -->
+
+<!-- SLOT:who -->
+<div>
+  <h2 class="section-title" style="margin-bottom:14px">Who uses this tool</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">Writers</div><div class="uc-body">Build Spain-style character names for novels, scripts, historical fiction, and worldbuilding.</div></div>
+    <div class="uc"><div class="uc-title">Game masters</div><div class="uc-body">Generate Spanish-inspired NPC names quickly for tabletop campaigns and setting notes.</div></div>
+    <div class="uc"><div class="uc-title">Teachers</div><div class="uc-body">Make sample names for creative writing, language class prompts, and cultural context activities.</div></div>
+    <div class="uc"><div class="uc-title">Name brainstormers</div><div class="uc-body">Compare first names, surnames, compound names, and two-surname formats in one place.</div></div>
+  </div>
+</div>
+<!-- /SLOT:who -->
+
+<!-- SLOT:init -->
+<script src="/scripts/spanish-name-generator.js?v=1"></script>
+<script>
+if (window.initSpanishNameGenerator) window.initSpanishNameGenerator();
+</script>
+<!-- /SLOT:init -->
