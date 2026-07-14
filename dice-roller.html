@@ -1,4 +1,4 @@
-<!-- build: 2026-07-14T01:06:04Z -->
+<!-- build: 2026-07-14T06:55:51Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,7 +57,7 @@
     }, { once: true });
   })(window, document);
 </script>
-<script src="https://analytics.ahrefs.com/analytics.js" data-key="XRPtSc+OVtIRm6fwBuI7iA" async></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="XRPtSc+0VtlRm6fwBuI7iA" async></script>
 <meta name='impact-site-verification' value='32715504-1cfb-4324-bfc7-ae4cfa1591ea'>
 <link rel="preload" href="/fonts/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -175,10 +175,10 @@
   display: inline-flex; align-items: center; gap: 5px;
   padding: 7px 12px; font-size: 13px; font-weight: 600; font-family: inherit;
   border: 1.5px solid var(--border); border-radius: 7px; background: var(--bg);
-  color: var(--text-2); cursor: pointer; transition: all .12s; line-height: 1;
+  color: var(--text-2); cursor: pointer; transition: transform .12s, background .12s, border-color .12s, color .12s, box-shadow .12s; line-height: 1;
 }
-.dr-die-btn:hover { border-color: var(--brand); color: var(--brand); background: var(--brand-light); }
-.dr-die-btn.active { border-color: var(--brand); background: var(--brand); color: #fff; }
+.dr-die-btn:hover { border-color: var(--brand); color: var(--brand); background: var(--brand-light); transform: translateY(-1px); }
+.dr-die-btn.active { border-color: var(--brand); background: var(--brand); color: #fff; box-shadow: 0 6px 16px rgba(60,52,137,.18); }
 .dr-btn-icon { width: 15px; height: 15px; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linejoin: round; }
 
 /* Quantity */
@@ -206,48 +206,96 @@
 .dr-roll-btn {
   padding: 9px 28px; font-size: 15px; font-weight: 700; font-family: inherit;
   background: var(--brand); color: #fff; border: none; border-radius: 8px;
-  cursor: pointer; transition: background .12s; white-space: nowrap;
+  cursor: pointer; transition: transform .12s, background .12s, opacity .12s; white-space: nowrap;
 }
 .dr-roll-btn:hover { background: var(--brand-dark, #2a2475); }
 .dr-roll-btn:active { transform: scale(.97); }
+.dr-roll-btn:disabled { cursor: wait; opacity: .78; transform: none; }
 
 /* ── Result area ── */
-.dr-result-area { padding: 28px 20px 22px; text-align: center; min-height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; }
+.dr-result-area { padding: 28px 20px 22px; text-align: center; min-height: 172px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
 .dr-roll-label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--text-3); margin-bottom: 2px; }
-.dr-dice-row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+.dr-dice-row { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; align-items: center; perspective: 760px; }
 
-/* ── d6 face — classic pip layout ── */
-.dr-die-face { display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+/* ── Dice faces ── */
+.dr-die-face {
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  filter: drop-shadow(0 10px 12px rgba(25,20,70,.12));
+}
+.dr-die-shell {
+  width: 82px; height: 82px; display: flex; align-items: center; justify-content: center;
+  animation: dr-land .22s ease both;
+}
+
+/* ── d6 cube ── */
+.dr-d6-stage {
+  width: 72px; height: 72px; position: relative; perspective: 620px;
+}
+.dr-d6-stage::after {
+  content: ""; position: absolute; left: 10px; right: 10px; bottom: -13px; height: 12px;
+  border-radius: 50%; background: rgba(20,16,58,.18); filter: blur(7px);
+  transform: scaleX(.92);
+}
+.dr-d6-cube {
+  width: 72px; height: 72px; position: relative; transform-style: preserve-3d;
+  transform: var(--dr-final, rotateX(0deg) rotateY(0deg));
+  animation: dr-cube-roll .9s cubic-bezier(.17,.84,.32,1.03) both;
+}
 .dr-d6-face {
-  width: 72px; height: 72px; border-radius: 12px;
-  background: #fff; border: 2px solid var(--border);
-  box-shadow: 0 3px 8px rgba(0,0,0,.1), inset 0 1px 2px rgba(255,255,255,.6);
+  position: absolute; inset: 0; border-radius: 12px;
+  background: linear-gradient(145deg, #fff 0%, #f7f7fb 58%, #eceaf7 100%);
+  border: 1px solid rgba(60,52,137,.22);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.95), inset 0 -8px 18px rgba(60,52,137,.08);
+  backface-visibility: hidden;
 }
 .dr-d6-grid {
-  width: 52px; height: 52px;
+  width: 52px; height: 52px; margin: 8px;
   display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(3, 1fr);
   padding: 3px; gap: 2px;
 }
 .dr-pip { border-radius: 50%; background: var(--brand); margin: auto; visibility: hidden; width: 11px; height: 11px; }
 .dr-pip.on { visibility: visible; }
+.dr-d6-side-1 { transform: rotateY(0deg) translateZ(36px); }
+.dr-d6-side-2 { transform: rotateY(90deg) translateZ(36px); }
+.dr-d6-side-3 { transform: rotateY(180deg) translateZ(36px); }
+.dr-d6-side-4 { transform: rotateY(-90deg) translateZ(36px); }
+.dr-d6-side-5 { transform: rotateX(90deg) translateZ(36px); }
+.dr-d6-side-6 { transform: rotateX(-90deg) translateZ(36px); }
 
 /* ── Polygon dice face (d4, d8, d10, d12, d20) ── */
-.dr-poly-face { width: 72px; height: 72px; }
+.dr-poly-face {
+  width: 72px; height: 72px;
+  transform-origin: 50% 58%;
+  animation: dr-poly-roll .72s cubic-bezier(.18,.86,.24,1.08) both;
+}
 .dr-poly-svg { width: 72px; height: 72px; overflow: visible; }
-.dr-poly-shape { fill: var(--brand-light, #eeedf8); stroke: var(--brand); stroke-width: 3.5; stroke-linejoin: round; }
+.dr-poly-shape { fill: var(--brand-light, #eeedf8); stroke: var(--brand); stroke-width: 3.5; stroke-linejoin: round; filter: drop-shadow(0 8px 9px rgba(60,52,137,.16)); }
 .dr-poly-text { text-anchor: middle; font-weight: 800; fill: var(--brand); font-family: inherit; }
+.dr-poly-face.is-rolling .dr-poly-text { opacity: .35; }
 
 /* ── Roll animation ── */
-@keyframes dr-tumble {
-  0%   { transform: rotate(-40deg) scale(0.4); opacity: 0; }
-  18%  { transform: rotate(20deg) scale(1.2); opacity: 1; }
-  36%  { transform: rotate(-12deg) scale(0.92); }
-  52%  { transform: rotate(7deg) scale(1.06); }
-  68%  { transform: rotate(-4deg) scale(0.98); }
-  82%  { transform: rotate(2deg) scale(1.01); }
-  100% { transform: rotate(0deg) scale(1); opacity: 1; }
+@keyframes dr-cube-roll {
+  0%   { transform: rotateX(-35deg) rotateY(25deg) rotateZ(-8deg) scale(.78); }
+  34%  { transform: rotateX(510deg) rotateY(380deg) rotateZ(18deg) scale(1.1); }
+  68%  { transform: rotateX(820deg) rotateY(650deg) rotateZ(-10deg) scale(.96); }
+  100% { transform: var(--dr-final, rotateX(0deg) rotateY(0deg)) scale(1); }
 }
-.dr-die-face { animation: dr-tumble 0.6s cubic-bezier(.22,.68,0,1.1) both; }
+@keyframes dr-poly-roll {
+  0%   { transform: translateY(-18px) rotateX(58deg) rotateZ(-46deg) scale(.58); opacity: .15; }
+  28%  { transform: translateY(5px) rotateX(-30deg) rotateZ(28deg) scale(1.14); opacity: 1; }
+  55%  { transform: translateY(-4px) rotateX(24deg) rotateZ(-18deg) scale(.96); }
+  78%  { transform: translateY(1px) rotateX(-10deg) rotateZ(8deg) scale(1.03); }
+  100% { transform: translateY(0) rotateX(0deg) rotateZ(0deg) scale(1); opacity: 1; }
+}
+@keyframes dr-land {
+  0% { transform: translateY(-2px); }
+  100% { transform: translateY(0); }
+}
+@keyframes dr-history-in {
+  0% { transform: translateY(-5px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+.dr-history-item:first-of-type { animation: dr-history-in .22s ease both; }
 
 /* Total */
 .dr-total { font-size: 13px; color: var(--text-3); }
@@ -283,11 +331,24 @@
   .dr-row { gap: 10px; }
   .dr-die-btn { padding: 6px 9px; font-size: 12px; }
   .dr-roll-btn { padding: 9px 20px; font-size: 14px; }
-  .dr-d6-face { width: 60px; height: 60px; }
+  .dr-die-shell { width: 68px; height: 68px; }
+  .dr-d6-stage, .dr-d6-cube { width: 60px; height: 60px; }
+  .dr-d6-side-1 { transform: rotateY(0deg) translateZ(30px); }
+  .dr-d6-side-2 { transform: rotateY(90deg) translateZ(30px); }
+  .dr-d6-side-3 { transform: rotateY(180deg) translateZ(30px); }
+  .dr-d6-side-4 { transform: rotateY(-90deg) translateZ(30px); }
+  .dr-d6-side-5 { transform: rotateX(90deg) translateZ(30px); }
+  .dr-d6-side-6 { transform: rotateX(-90deg) translateZ(30px); }
   .dr-poly-face, .dr-poly-svg { width: 60px; height: 60px; }
-  .dr-d6-grid { width: 44px; height: 44px; }
+  .dr-d6-grid { width: 44px; height: 44px; margin: 5px; }
   .dr-pip { width: 9px; height: 9px; }
   .dr-history-wrap, .dr-stats { padding-left: 14px; padding-right: 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dr-die-btn, .dr-roll-btn, .dr-die-shell, .dr-d6-cube, .dr-poly-face, .dr-history-item:first-of-type {
+    animation: none !important;
+    transition: none !important;
+  }
 }
 </style>
 </head>
@@ -664,6 +725,7 @@
     sides: 4,
     qty: 1,
     isCustom: false,
+    rolling: false,
     history: [],
     stats: { count: 0, sum: 0, high: null, low: null }
   };
@@ -695,26 +757,55 @@
     20: { pts: '50,8 92,86 8,86',               ty: 67 }
   };
 
+  var D6_FINALS = {
+    1: 'rotateX(0deg) rotateY(0deg)',
+    2: 'rotateX(0deg) rotateY(-90deg)',
+    3: 'rotateX(0deg) rotateY(180deg)',
+    4: 'rotateX(0deg) rotateY(90deg)',
+    5: 'rotateX(-90deg) rotateY(0deg)',
+    6: 'rotateX(90deg) rotateY(0deg)'
+  };
+
+  var prefersReducedMotion = window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function d6FaceMarkup(value) {
+    var active = D6_PIPS[value] || [];
+    var dots = '';
+    for (var i = 1; i <= 9; i++) {
+      dots += '<div class="dr-pip' + (active.indexOf(i) !== -1 ? ' on' : '') + '"></div>';
+    }
+    return '<div class="dr-d6-face dr-d6-side-' + value + '"><div class="dr-d6-grid">' + dots + '</div></div>';
+  }
+
   /* ── Build a die face element ── */
-  function renderFace(val, sides) {
+  function renderFace(val, sides, rolling, idx) {
     var wrapper = document.createElement('div');
     if (sides === 6) {
-      var active = D6_PIPS[val] || [];
-      var dots = '';
-      for (var i = 1; i <= 9; i++) {
-        dots += '<div class="dr-pip' + (active.indexOf(i) !== -1 ? ' on' : '') + '"></div>';
-      }
-      wrapper.innerHTML = '<div class="dr-die-face dr-d6-face"><div class="dr-d6-grid">' + dots + '</div></div>';
+      var faces = '';
+      for (var faceVal = 1; faceVal <= 6; faceVal++) faces += d6FaceMarkup(faceVal);
+      wrapper.innerHTML =
+        '<div class="dr-die-shell">' +
+        '<div class="dr-d6-stage">' +
+        '<div class="dr-d6-cube" style="--dr-final:' + (D6_FINALS[val] || D6_FINALS[1]) + '">' + faces + '</div>' +
+        '</div></div>';
     } else {
       var def = POLY_DEFS[sides] || { pts: '50,8 90,37 75,84 25,84 10,37', ty: 57 };
       var fs = val >= 100 ? 17 : val >= 10 ? 24 : 30;
+      var shown = rolling ? '?' : val;
+      var rollingClass = rolling ? ' is-rolling' : '';
       wrapper.innerHTML =
-        '<div class="dr-die-face dr-poly-face">' +
+        '<div class="dr-die-shell">' +
+        '<div class="dr-die-face dr-poly-face' + rollingClass + '">' +
         '<svg class="dr-poly-svg" viewBox="0 0 100 100">' +
         '<polygon points="' + def.pts + '" class="dr-poly-shape"/>' +
-        '<text x="50" y="' + def.ty + '" class="dr-poly-text" font-size="' + fs + '">' + val + '</text>' +
-        '</svg></div>';
+        '<text x="50" y="' + def.ty + '" class="dr-poly-text" font-size="' + fs + '">' + shown + '</text>' +
+        '</svg></div></div>';
     }
+    wrapper.firstChild.style.animationDelay = (idx * 0.06) + 's';
+    wrapper.firstChild.querySelectorAll('.dr-d6-cube,.dr-poly-face').forEach(function(el) {
+      el.style.animationDelay = (idx * 0.06) + 's';
+    });
     return wrapper.firstChild;
   }
 
@@ -765,6 +856,8 @@
 
   /* ── Roll ── */
   function roll() {
+    if (state.rolling) return;
+
     var sides = state.sides;
     if (state.isCustom) {
       var v = parseInt(customInput.value, 10);
@@ -776,45 +869,60 @@
     for (var i = 0; i < state.qty; i++) results.push(randInt(sides));
     var total = results.reduce(function(a, b) { return a + b; }, 0);
     var label = state.qty + 'd' + sides;
+    var rollDelay = prefersReducedMotion ? 0 : 920 + (state.qty - 1) * 60;
 
     /* Show result area */
+    state.rolling = true;
+    rollBtn.disabled = true;
+    rollBtn.textContent = 'Rolling...';
     placeholder.style.display = 'none';
     rollLabel.style.display = 'block';
     rollLabel.textContent = 'Rolling ' + label;
     diceRow.style.display = 'flex';
-    totalEl.style.display = 'block';
+    totalEl.style.display = 'none';
 
-    /* Render dice faces with staggered tumble animation */
+    /* Render dice faces with staggered roll animation */
     diceRow.innerHTML = '';
     results.forEach(function(r, idx) {
-      var face = renderFace(r, sides);
-      face.style.animationDelay = (idx * 0.1) + 's';
-      diceRow.appendChild(face);
+      diceRow.appendChild(renderFace(r, sides, true, idx));
     });
 
-    /* Total line */
-    if (state.qty > 1) {
-      totalEl.innerHTML = 'Total: <strong>' + total + '</strong><span class="dr-total-label">(' + label + ')</span>';
-    } else {
-      totalEl.innerHTML = '<strong>' + total + '</strong><span class="dr-total-label">' + label + '</span>';
-    }
+    window.setTimeout(function() {
+      diceRow.innerHTML = '';
+      results.forEach(function(r, idx) {
+        diceRow.appendChild(renderFace(r, sides, false, idx));
+      });
+      diceRow.querySelectorAll('.dr-d6-cube,.dr-poly-face,.dr-die-shell').forEach(function(el) {
+        el.style.animation = 'none';
+      });
 
-    /* Stats */
-    state.stats.count++;
-    state.stats.sum += total;
-    if (state.stats.high === null || total > state.stats.high) state.stats.high = total;
-    if (state.stats.low  === null || total < state.stats.low)  state.stats.low  = total;
-    statsBar.style.display = 'flex';
-    statCount.textContent = state.stats.count;
-    statSum.textContent   = state.stats.sum;
-    statHigh.textContent  = state.stats.high;
-    statLow.textContent   = state.stats.low;
+      if (state.qty > 1) {
+        totalEl.innerHTML = 'Total: <strong>' + total + '</strong><span class="dr-total-label">(' + label + ')</span>';
+      } else {
+        totalEl.innerHTML = '<strong>' + total + '</strong><span class="dr-total-label">' + label + '</span>';
+      }
+      totalEl.style.display = 'block';
+      rollLabel.textContent = 'Rolled ' + label;
 
-    /* History */
-    var valsStr = results.length > 1 ? results.join(', ') : '';
-    state.history.unshift({ label: label, vals: valsStr, total: total });
-    if (state.history.length > 20) state.history.pop();
-    renderHistory();
+      state.stats.count++;
+      state.stats.sum += total;
+      if (state.stats.high === null || total > state.stats.high) state.stats.high = total;
+      if (state.stats.low  === null || total < state.stats.low)  state.stats.low  = total;
+      statsBar.style.display = 'flex';
+      statCount.textContent = state.stats.count;
+      statSum.textContent   = state.stats.sum;
+      statHigh.textContent  = state.stats.high;
+      statLow.textContent   = state.stats.low;
+
+      var valsStr = results.length > 1 ? results.join(', ') : '';
+      state.history.unshift({ label: label, vals: valsStr, total: total });
+      if (state.history.length > 20) state.history.pop();
+      renderHistory();
+
+      state.rolling = false;
+      rollBtn.disabled = false;
+      rollBtn.textContent = 'Roll';
+    }, rollDelay);
   }
 
   function renderHistory() {
@@ -845,6 +953,7 @@
   });
 
   clearBtn.addEventListener('click', function() {
+    if (state.rolling) return;
     state.history = [];
     state.stats = { count: 0, sum: 0, high: null, low: null };
     statsBar.style.display = 'none';
