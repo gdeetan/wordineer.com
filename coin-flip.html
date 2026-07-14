@@ -1,4 +1,4 @@
-<!-- build: 2026-07-14T01:06:04Z -->
+<!-- build: 2026-07-14T07:13:30Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,7 +57,7 @@
     }, { once: true });
   })(window, document);
 </script>
-<script src="https://analytics.ahrefs.com/analytics.js" data-key="XRPtSc+OVtIRm6fwBuI7iA" async></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="XRPtSc+0VtlRm6fwBuI7iA" async></script>
 <meta name='impact-site-verification' value='32715504-1cfb-4324-bfc7-ae4cfa1591ea'>
 <link rel="preload" href="/fonts/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -168,9 +168,29 @@
 
 /* Coin display */
 .cf-coin-stage {
-  perspective: 600px;
+  perspective: 900px;
   width: 160px;
   height: 160px;
+  position: relative;
+}
+
+.cf-coin-stage::after {
+  content: "";
+  position: absolute;
+  left: 18%;
+  right: 18%;
+  bottom: -14px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(28, 30, 44, 0.22);
+  filter: blur(9px);
+  transform: scaleX(1);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  z-index: 0;
+}
+
+.cf-coin-stage.is-flipping::after {
+  animation: cf-shadow 1.15s cubic-bezier(0.18, 0.72, 0.22, 1) forwards;
 }
 
 .cf-coin {
@@ -180,16 +200,28 @@
   transform-style: preserve-3d;
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: default;
+  z-index: 1;
 }
 
 .cf-coin.is-flipping {
-  animation: cf-spin 0.7s ease-out forwards;
+  animation: cf-spin 1.15s cubic-bezier(0.18, 0.72, 0.22, 1) forwards;
 }
 
 @keyframes cf-spin {
-  0%   { transform: rotateY(0deg); }
-  40%  { transform: rotateY(720deg); }
-  100% { transform: rotateY(var(--cf-final-rot, 720deg)); }
+  0%   { transform: translateY(0) rotateX(0deg) rotateY(0deg) rotateZ(-4deg); }
+  18%  { transform: translateY(-34px) rotateX(16deg) rotateY(540deg) rotateZ(7deg); }
+  46%  { transform: translateY(-48px) rotateX(-10deg) rotateY(1260deg) rotateZ(-5deg); }
+  72%  { transform: translateY(-9px) rotateX(7deg) rotateY(calc(var(--cf-final-rot, 720deg) - 64deg)) rotateZ(3deg); }
+  88%  { transform: translateY(3px) rotateX(-3deg) rotateY(calc(var(--cf-final-rot, 720deg) + 14deg)) rotateZ(-1deg); }
+  100% { transform: translateY(0) rotateX(0deg) rotateY(var(--cf-final-rot, 720deg)) rotateZ(0deg); }
+}
+
+@keyframes cf-shadow {
+  0%   { opacity: 0.38; transform: scaleX(1); }
+  24%  { opacity: 0.13; transform: scaleX(0.58); }
+  56%  { opacity: 0.1; transform: scaleX(0.45); }
+  86%  { opacity: 0.32; transform: scaleX(1.14); }
+  100% { opacity: 0.28; transform: scaleX(1); }
 }
 
 .cf-face {
@@ -201,23 +233,55 @@
   justify-content: center;
   backface-visibility: hidden;
   user-select: none;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 32% 24%, rgba(255,255,255,0.98), rgba(255,255,255,0.34) 18%, transparent 34%),
+    radial-gradient(circle at 68% 74%, rgba(91,96,110,0.34), transparent 36%),
+    linear-gradient(145deg, #f8fafc 0%, #d5dbe2 34%, #9ea7b1 62%, #f3f5f7 100%);
+  border: 1px solid #aab2bd;
+  box-shadow:
+    inset 0 0 0 5px #c5ccd4,
+    inset 0 0 0 9px #eef2f5,
+    inset 0 0 0 12px #aeb7c1,
+    inset 10px 12px 22px rgba(255,255,255,0.5),
+    inset -13px -16px 24px rgba(59,65,75,0.28),
+    0 14px 26px rgba(17,24,39,0.22);
+}
+
+.cf-face::before {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border-radius: 50%;
+  border: 2px dashed rgba(92, 102, 115, 0.55);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.7);
+}
+
+.cf-face::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: linear-gradient(105deg, transparent 18%, rgba(255,255,255,0.38) 34%, transparent 51%);
+  mix-blend-mode: screen;
+  pointer-events: none;
 }
 
 .cf-face-heads {
-  background: radial-gradient(circle at 38% 38%, #ffe88a, #f5c518 55%, #c8960c);
-  box-shadow: inset 0 -4px 12px rgba(0,0,0,0.18), 0 4px 16px rgba(0,0,0,0.22);
   transform: rotateY(0deg);
 }
 
 .cf-face-tails {
-  background: radial-gradient(circle at 38% 38%, #e8e8e8, #c0c0c0 55%, #909090);
-  box-shadow: inset 0 -4px 12px rgba(0,0,0,0.18), 0 4px 16px rgba(0,0,0,0.22);
   transform: rotateY(180deg);
 }
 
 .cf-face svg {
-  width: 80px;
-  height: 80px;
+  width: 132px;
+  height: 132px;
+  position: relative;
+  z-index: 1;
+  color: #4e5967;
+  filter: drop-shadow(0 1px 0 rgba(255,255,255,0.72));
 }
 
 /* Result label */
@@ -353,7 +417,7 @@
   transform-style: preserve-3d;
 }
 .cf-mini-coin.is-flipping {
-  animation: cf-spin var(--cf-dur, 0.55s) ease-out var(--cf-delay, 0s) forwards;
+  animation: cf-spin var(--cf-dur, 0.82s) cubic-bezier(0.18, 0.72, 0.22, 1) var(--cf-delay, 0s) forwards;
 }
 .cf-mini-face {
   position: absolute;
@@ -364,18 +428,38 @@
   justify-content: center;
   backface-visibility: hidden;
   user-select: none;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 32% 24%, rgba(255,255,255,0.98), rgba(255,255,255,0.32) 18%, transparent 34%),
+    linear-gradient(145deg, #f8fafc 0%, #d5dbe2 36%, #9ea7b1 64%, #f3f5f7 100%);
+  border: 1px solid #aab2bd;
+  box-shadow:
+    inset 0 0 0 3px #c5ccd4,
+    inset 0 0 0 5px #eef2f5,
+    inset 0 0 0 7px #aeb7c1,
+    inset -7px -8px 12px rgba(59,65,75,0.24),
+    0 5px 12px rgba(17,24,39,0.2);
+}
+.cf-mini-face::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  border: 1px dashed rgba(92, 102, 115, 0.55);
 }
 .cf-mini-face-heads {
-  background: radial-gradient(circle at 38% 38%, #ffe88a, #f5c518 55%, #c8960c);
-  box-shadow: inset 0 -3px 8px rgba(0,0,0,0.18), 0 3px 10px rgba(0,0,0,0.22);
   transform: rotateY(0deg);
 }
 .cf-mini-face-tails {
-  background: radial-gradient(circle at 38% 38%, #e8e8e8, #c0c0c0 55%, #909090);
-  box-shadow: inset 0 -3px 8px rgba(0,0,0,0.18), 0 3px 10px rgba(0,0,0,0.22);
   transform: rotateY(180deg);
 }
-.cf-mini-face svg { width: 35px; height: 35px; }
+.cf-mini-face svg {
+  width: 56px;
+  height: 56px;
+  position: relative;
+  z-index: 1;
+  color: #4e5967;
+}
 
 /* History section */
 .cf-history-section {
@@ -523,16 +607,24 @@
         <div class="cf-coin" id="cf-coin">
           <!-- Heads face -->
           <div class="cf-face cf-face-heads" id="cf-face-heads">
-            <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="40" cy="40" r="36" stroke="#c8960c" stroke-width="2" stroke-dasharray="4 3"/>
-              <text x="40" y="48" text-anchor="middle" font-size="22" font-weight="700" fill="#7a5800" font-family="Georgia,serif">H</text>
+            <svg viewBox="0 0 132 132" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="66" cy="66" r="54" stroke="currentColor" stroke-width="1.5" opacity="0.55"/>
+              <text x="66" y="30" text-anchor="middle" font-size="11" font-weight="800" letter-spacing="2.4" fill="currentColor" font-family="Arial,sans-serif">LIBERTY</text>
+              <path d="M71 36c-16 3-28 17-28 34 0 13 7 24 18 30-8-2-17-6-23-13-8-9-10-22-5-34 5-13 17-22 31-23 3 0 5 2 7 6Z" fill="currentColor" opacity="0.2"/>
+              <path d="M73 37c9 6 15 17 15 30 0 18-12 32-28 35 8-8 12-18 12-31 0-13-4-24-11-33 4-2 8-2 12-1Z" fill="currentColor" opacity="0.32"/>
+              <path d="M56 44c7-7 19-8 27-2M47 62c6 2 13 2 20-1M48 78c8 7 20 9 31 4" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity="0.48"/>
+              <text x="66" y="116" text-anchor="middle" font-size="13" font-weight="900" letter-spacing="1.6" fill="currentColor" font-family="Arial,sans-serif">HEADS</text>
             </svg>
           </div>
           <!-- Tails face -->
           <div class="cf-face cf-face-tails" id="cf-face-tails">
-            <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="40" cy="40" r="36" stroke="#888" stroke-width="2" stroke-dasharray="4 3"/>
-              <text x="40" y="48" text-anchor="middle" font-size="22" font-weight="700" fill="#444" font-family="Georgia,serif">T</text>
+            <svg viewBox="0 0 132 132" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="66" cy="66" r="54" stroke="currentColor" stroke-width="1.5" opacity="0.55"/>
+              <text x="66" y="30" text-anchor="middle" font-size="10" font-weight="800" letter-spacing="2" fill="currentColor" font-family="Arial,sans-serif">UNITED STATES</text>
+              <path d="M32 73c15-13 26-20 34-20s19 7 34 20" stroke="currentColor" stroke-width="4" stroke-linecap="round" opacity="0.42"/>
+              <path d="M66 39l7 18 20 1-16 11 6 19-17-11-17 11 6-19-16-11 20-1 7-18Z" fill="currentColor" opacity="0.28"/>
+              <path d="M48 82c10 6 26 6 36 0M43 91c14 10 32 10 46 0" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity="0.44"/>
+              <text x="66" y="116" text-anchor="middle" font-size="13" font-weight="900" letter-spacing="1.6" fill="currentColor" font-family="Arial,sans-serif">TAILS</text>
             </svg>
           </div>
         </div>
@@ -853,10 +945,11 @@
     resultLabel.className = 'cf-result-label is-hidden';
 
     // Set CSS variable for final rotation: heads = 0 mod 360, tails = 180
-    const baseSpins = 720; // 2 full rotations
+    const baseSpins = 1440 + (secureFlip() ? 360 : 0); // 4-5 full rotations
     const finalRot  = isHeads ? baseSpins : baseSpins + 180;
     coinEl.style.setProperty('--cf-final-rot', finalRot + 'deg');
 
+    coinStageEl.classList.add('is-flipping');
     coinEl.classList.remove('is-flipping');
     // Force reflow
     void coinEl.offsetWidth;
@@ -865,6 +958,7 @@
     coinEl.addEventListener('animationend', function handler() {
       coinEl.removeEventListener('animationend', handler);
       coinEl.classList.remove('is-flipping');
+      coinStageEl.classList.remove('is-flipping');
       // Lock coin face via CSS transform
       coinEl.style.transform = 'rotateY(' + (isHeads ? 0 : 180) + 'deg)';
 
@@ -911,9 +1005,9 @@
       resultLabel.className = 'cf-result-label is-hidden';
       multiEl.style.display = 'none';
 
-      var DUR = 550, STAGGER = 60;
-      var HEADS_SVG = '<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="40" r="36" stroke="#c8960c" stroke-width="2" stroke-dasharray="4 3"/><text x="40" y="48" text-anchor="middle" font-size="22" font-weight="700" fill="#7a5800" font-family="Georgia,serif">H</text></svg>';
-      var TAILS_SVG = '<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="40" r="36" stroke="#888" stroke-width="2" stroke-dasharray="4 3"/><text x="40" y="48" text-anchor="middle" font-size="22" font-weight="700" fill="#444" font-family="Georgia,serif">T</text></svg>';
+      var DUR = 820, STAGGER = 70;
+      var HEADS_SVG = '<svg viewBox="0 0 132 132" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="66" cy="66" r="54" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><path d="M71 36c-16 3-28 17-28 34 0 13 7 24 18 30-8-2-17-6-23-13-8-9-10-22-5-34 5-13 17-22 31-23 3 0 5 2 7 6Z" fill="currentColor" opacity="0.2"/><path d="M73 37c9 6 15 17 15 30 0 18-12 32-28 35 8-8 12-18 12-31 0-13-4-24-11-33 4-2 8-2 12-1Z" fill="currentColor" opacity="0.32"/><text x="66" y="113" text-anchor="middle" font-size="18" font-weight="900" fill="currentColor" font-family="Arial,sans-serif">H</text></svg>';
+      var TAILS_SVG = '<svg viewBox="0 0 132 132" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="66" cy="66" r="54" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><path d="M32 73c15-13 26-20 34-20s19 7 34 20" stroke="currentColor" stroke-width="4" stroke-linecap="round" opacity="0.42"/><path d="M66 39l7 18 20 1-16 11 6 19-17-11-17 11 6-19-16-11 20-1 7-18Z" fill="currentColor" opacity="0.28"/><text x="66" y="113" text-anchor="middle" font-size="18" font-weight="900" fill="currentColor" font-family="Arial,sans-serif">T</text></svg>';
 
       results.forEach(function(r, i) {
         var isHeads = r === 'heads';
@@ -925,7 +1019,7 @@
         coin.className = 'cf-mini-coin';
         coin.style.setProperty('--cf-delay', (i * STAGGER) + 'ms');
         coin.style.setProperty('--cf-dur', DUR + 'ms');
-        coin.style.setProperty('--cf-final-rot', (isHeads ? 720 : 900) + 'deg');
+        coin.style.setProperty('--cf-final-rot', ((isHeads ? 1080 : 1260) + (i % 2 ? 360 : 0)) + 'deg');
 
         var hf = document.createElement('div');
         hf.className = 'cf-mini-face cf-mini-face-heads';
@@ -964,7 +1058,8 @@
       resultLabel.className = 'cf-result-label is-hidden';
       multiEl.style.display = 'none';
 
-      coinEl.style.setProperty('--cf-final-rot', '720deg');
+      coinStageEl.classList.add('is-flipping');
+      coinEl.style.setProperty('--cf-final-rot', '1440deg');
       coinEl.classList.remove('is-flipping');
       void coinEl.offsetWidth;
       coinEl.classList.add('is-flipping');
@@ -972,6 +1067,7 @@
       coinEl.addEventListener('animationend', function handler() {
         coinEl.removeEventListener('animationend', handler);
         coinEl.classList.remove('is-flipping');
+        coinStageEl.classList.remove('is-flipping');
         coinEl.style.transform = 'rotateY(0deg)';
         showChips(results);
         updateStats();
