@@ -1,4 +1,4 @@
-<!-- build: 2026-07-14T07:21:11Z -->
+<!-- build: 2026-07-14T07:38:54Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -183,16 +183,31 @@
 .cf100-dist-row { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
 .cf100-dist-label { font-size: 11px; font-weight: 600; color: var(--text-3); width: 40px; text-align: right; flex-shrink: 0; }
 .cf100-dist-track { flex: 1; height: 16px; background: var(--bg-2); border-radius: 3px; overflow: hidden; position: relative; }
-.cf100-dist-fill-h { height: 100%; background: var(--brand); border-radius: 3px; transition: width 0.4s ease; opacity: 0.85; }
-.cf100-dist-fill-t { height: 100%; background: var(--bg-3); border-radius: 3px; transition: width 0.4s ease; }
+.cf100-dist-track::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.45), transparent); transform: translateX(-100%); }
+.cf100-dist.is-running .cf100-dist-track::after { animation: cf100-sweep 0.8s ease-in-out infinite; }
+.cf100-dist-fill-h { height: 100%; background: linear-gradient(90deg, var(--brand), #756df0); border-radius: 3px; transition: width 0.65s cubic-bezier(0.2,0.8,0.2,1); opacity: 0.9; }
+.cf100-dist-fill-t { height: 100%; background: linear-gradient(90deg, #e7e8ee, #c4c8d4); border-radius: 3px; transition: width 0.65s cubic-bezier(0.2,0.8,0.2,1); }
 .cf100-dist-count { font-size: 11px; color: var(--text-3); width: 24px; flex-shrink: 0; font-variant-numeric: tabular-nums; }
 
 /* 10×10 grid of chips */
 .cf100-grid { display: grid; grid-template-columns: repeat(10, 1fr); gap: 3px; width: 100%; max-width: 380px; }
-.cf100-chip { aspect-ratio: 1; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 700; }
+.cf100-chip { aspect-ratio: 1; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 700; transition: transform 0.18s ease, opacity 0.18s ease; }
 .cf100-chip.heads { background: var(--brand); color: white; }
 .cf100-chip.tails { background: var(--bg-3); color: var(--text-2); border: 1px solid var(--border); }
 .cf100-chip.pending { background: var(--bg-2); border: 1px solid var(--border); color: transparent; }
+.cf100-grid.is-running .cf100-chip { animation: cf100-chip-pulse 0.56s ease-in-out infinite alternate; animation-delay: calc((var(--i, 0) % 20) * 18ms); }
+.cf100-chip.is-revealing { animation: cf100-chip-reveal 0.45s cubic-bezier(0.18,0.72,0.22,1) both; animation-delay: calc((var(--i, 0) % 25) * 18ms); }
+@keyframes cf100-chip-pulse {
+  from { opacity: 0.45; transform: scale(0.82); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes cf100-chip-reveal {
+  0% { opacity: 0; transform: translateY(-8px) rotateY(80deg) scale(0.7); }
+  100% { opacity: 1; transform: translateY(0) rotateY(0deg) scale(1); }
+}
+@keyframes cf100-sweep {
+  to { transform: translateX(100%); }
+}
 
 /* Flip button */
 .cf100-flip-btn { padding: 13px 40px; background: var(--brand); color: white; border: none; border-radius: 10px; font-size: 1.05rem; font-weight: 700; font-family: inherit; cursor: pointer; transition: background 0.15s, transform 0.1s; letter-spacing: -0.01em; }
@@ -595,16 +610,33 @@ const WORDINEER_CF100 = (() => {
       const chip = document.createElement('div');
       chip.className = 'cf100-chip pending';
       chip.id = 'cf100-chip-' + i;
+      chip.style.setProperty('--i', i);
       gridEl.appendChild(chip);
     }
   }
 
   function runFlips() {
+    if (flipBtn.disabled) return;
+    flipBtn.disabled = true;
     results = [];
     for (let i = 0; i < FLIPS; i++) {
       results.push(Math.random() < 0.5 ? 'H' : 'T');
     }
-    renderResults();
+    summaryEl.textContent = 'Simulating 100 flips...';
+    distEl.style.display = '';
+    distEl.classList.add('is-running');
+    gridEl.classList.add('is-running');
+    gridEl.querySelectorAll('.cf100-chip').forEach((chip, i) => {
+      chip.className = 'cf100-chip pending';
+      chip.style.setProperty('--i', i);
+      chip.textContent = '';
+    });
+    setTimeout(() => {
+      renderResults();
+      distEl.classList.remove('is-running');
+      gridEl.classList.remove('is-running');
+      flipBtn.disabled = false;
+    }, 720);
   }
 
   function renderResults() {
@@ -614,7 +646,8 @@ const WORDINEER_CF100 = (() => {
     // Update grid chips
     results.forEach((r, i) => {
       const chip = document.getElementById('cf100-chip-' + i);
-      chip.className = 'cf100-chip ' + (r === 'H' ? 'heads' : 'tails');
+      chip.className = 'cf100-chip ' + (r === 'H' ? 'heads' : 'tails') + (i < 25 ? ' is-revealing' : '');
+      chip.style.setProperty('--i', i);
       chip.textContent = r;
     });
 
