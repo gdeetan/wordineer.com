@@ -1,1457 +1,375 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  sitemap.xml — Wordineer
-  ========================
-  STATUS KEY:
-    ACTIVE   → included in <urlset>, Google will index
-    STANDBY  → commented out, not submitted to Google yet
-              Uncomment each block when the page is live and ready.
--->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <!-- ✅ ACTIVE — Homepage / Random Word Generator -->
   <url>
     <loc>https://wordineer.com/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <changefreq>weekly</changefreq>
   </url>
-
-  <!-- ✅ ACTIVE — Word Tool / Random Sentence Generator -->
-  <url>
-    <loc>https://wordineer.com/random-sentence-generator/</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-
-  <!-- ✅ ACTIVE — Word Tool / Random Letter Generator -->
-  <url>
-    <loc>https://wordineer.com/random-letter-generator/</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-
-  <!-- ✅ ACTIVE — Word Tool / Word Scramble -->
-  <url>
-    <loc>https://wordineer.com/word-scramble/</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-
-  <!-- ✅ ACTIVE — Word Tool / Word Unscramble -->
-  <url>
-    <loc>https://wordineer.com/word-unscramble/</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-
-  <!-- ✅ ACTIVE — Word Tool / Random Name Generator -->
-  <url>
-    <loc>https://wordineer.com/random-name-generator/</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-
-  <!-- ✅ ACTIVE — Word Tool / Word of the Day -->
-  <url>
-    <loc>https://wordineer.com/word-of-the-day/</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-
-  <!-- ✅ ACTIVE — Word Tool / Passphrase Generator -->
-  <url>
-    <loc>https://wordineer.com/passphrase-generator/</loc>
-    <priority>0.7</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-
-  <!-- ✅ ACTIVE — Name Tool / Random American Name Generator -->
-  <url>
-    <loc>https://wordineer.com/random-american-name-generator/</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-
-  <!-- ✅ ACTIVE — Name Tool / Random Japanese Name Generator -->
-  <url>
-    <loc>https://wordineer.com/random-japanese-name-generator/</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-
-  <!-- ✅ ACTIVE — Name Tool / Random British Name Generator -->
-  <url>
-    <loc>https://wordineer.com/random-british-name-generator/</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-
-  <!-- ✅ ACTIVE — Name Tool / Random Filipino Name Generator -->
-  <url>
-    <loc>https://wordineer.com/random-filipino-name-generator/</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-
-  <!-- ✅ ACTIVE — Name Tool / Random Korean Name Generator -->
-  <url>
-    <loc>https://wordineer.com/random-korean-name-generator/</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-
-  <!-- ✅ ACTIVE — Name Tool / Random Vietnamese Name Generator -->
-  <url>
-    <loc>https://wordineer.com/random-vietnamese-name-generator/</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-
-  <!-- ✅ ACTIVE — Name Tool / Random Thai Name Generator -->
-  <url>
-    <loc>https://wordineer.com/random-thai-name-generator/</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-
-  <!-- ✅ ACTIVE — Name Tool / Random Indian Name Generator -->
-  <url>
-    <loc>https://wordineer.com/random-indian-name-generator/</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-
-  <!-- ✅ ACTIVE — Name Tool / Random Chinese Name Generator -->
-  <url>
-    <loc>https://wordineer.com/random-chinese-name-generator/</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-
-  <!-- ✅ ACTIVE — Name Tool / Random Scottish Name Generator -->
-  <url>
-    <loc>https://wordineer.com/random-scottish-name-generator/</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-
-  <!-- ✅ ACTIVE — Name Tool / Random Russian Name Generator -->
-  <url>
-    <loc>https://wordineer.com/random-russian-name-generator/</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-
-  <!-- ✅ ACTIVE — Name Tool / Random French Name Generator -->
-  <url>
-    <loc>https://wordineer.com/random-french-name-generator/</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-
-  <!-- ✅ ACTIVE — Name Tool / Random Irish Name Generator -->
-  <url>
-    <loc>https://wordineer.com/random-irish-name-generator/</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-
-  <!-- ✅ ACTIVE — Name Tool / Random German Name Generator -->
-  <url>
-    <loc>https://wordineer.com/random-german-name-generator/</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-
-  <!-- ✅ ACTIVE — Name Tool / Random Spanish Name Generator -->
-  <url>
-    <loc>https://wordineer.com/random-spanish-name-generator/</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-
-  <!-- ✅ ACTIVE — Name Tool / Random Greek Name Generator -->
-  <url>
-    <loc>https://wordineer.com/random-greek-name-generator/</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-
-  <!-- ✅ ACTIVE — Name Tool / Random Italian Name Generator -->
-  <url>
-    <loc>https://wordineer.com/random-italian-name-generator/</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-
-  <!-- ✅ ACTIVE — Name Tool / Random Norwegian Name Generator -->
-  <url>
-    <loc>https://wordineer.com/random-norwegian-name-generator/</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-
-  <!-- ✅ ACTIVE — Name Tool / Random Dutch Name Generator -->
-  <url>
-    <loc>https://wordineer.com/random-dutch-name-generator/</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-
-  <!-- ✅ ACTIVE — Name Tool / Random Danish Name Generator -->
-  <url>
-    <loc>https://wordineer.com/random-danish-name-generator/</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-
-  <!-- ✅ ACTIVE — Name Tool / Random English Name Generator -->
-  <url>
-    <loc>https://wordineer.com/random-english-name-generator/</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-
-  <!-- ✅ ACTIVE — Name Tool / Random Polish Name Generator -->
-  <url>
-    <loc>https://wordineer.com/random-polish-name-generator/</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-
-  <!-- ✅ ACTIVE — Name Tool / Random Mexican Name Generator -->
-  <url>
-    <loc>https://wordineer.com/random-mexican-name-generator/</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-
-  <!-- ✅ ACTIVE — Name Tool / Random Arabic Name Generator -->
-  <url>
-    <loc>https://wordineer.com/random-arabic-name-generator/</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-
-  <!-- ✅ ACTIVE — Name Tool / Random Dominican Name Generator -->
-  <url>
-    <loc>https://wordineer.com/random-dominican-name-generator/</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-
-  <!-- ✅ ACTIVE — Name Tool / Random Turkish Name Generator -->
-  <url>
-    <loc>https://wordineer.com/random-turkish-name-generator/</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-
-
-  <!-- ✅ Landing pages -->
   <url>
     <loc>https://wordineer.com/word-tools/</loc>
-    <priority>0.8</priority>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
-
+  <url>
+    <loc>https://wordineer.com/random-sentence-generator/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordineer.com/word-counter/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordineer.com/random-words-starting-with/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <url>
     <loc>https://wordineer.com/name-generators/</loc>
-    <priority>0.8</priority>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
-
   <url>
-    <loc>https://wordineer.com/number-chance/</loc>
-    <priority>0.8</priority>
+    <loc>https://wordineer.com/random-spanish-name-generator/</loc>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
-
   <url>
-    <loc>https://wordineer.com/words-that-start-with/</loc>
-    <priority>0.8</priority>
+    <loc>https://wordineer.com/random-italian-name-generator/</loc>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
-
   <url>
-    <loc>https://wordineer.com/account-tools/</loc>
-    <priority>0.8</priority>
+    <loc>https://wordineer.com/random-japanese-name-generator/</loc>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
-
+  <url>
+    <loc>https://wordineer.com/random-american-name-generator/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
   <url>
     <loc>https://wordineer.com/other-generators/</loc>
-    <priority>0.8</priority>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>weekly</changefreq>
-  </url>
-
-  <!-- ✅ Active - Word Tool / Random 8 Letter Word Generator -->
-  <url>
-    <loc>https://wordineer.com/random-8-letter-word-generator/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/8-letter-words-starting-with-a/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://wordineer.com/8-letter-words-starting-with-b/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
+    <loc>https://wordineer.com/account-tools/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://wordineer.com/8-letter-words-starting-with-c/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
+    <loc>https://wordineer.com/username-generator/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordineer.com/8-letter-words-starting-with-d/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
+    <loc>https://wordineer.com/password-generator/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordineer.com/8-letter-words-starting-with-e/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
+    <loc>https://wordineer.com/passphrase-generator/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordineer.com/8-letter-words-starting-with-f/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
+    <loc>https://wordineer.com/random-pin-generator/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordineer.com/8-letter-words-starting-with-g/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
+    <loc>https://wordineer.com/number-chance/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://wordineer.com/8-letter-words-starting-with-h/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
+    <loc>https://wordineer.com/coin-flip/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordineer.com/8-letter-words-starting-with-i/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
+    <loc>https://wordineer.com/random-number-generator/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordineer.com/8-letter-words-starting-with-j/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
+    <loc>https://wordineer.com/dice-roller/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordineer.com/8-letter-words-starting-with-k/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
+    <loc>https://wordineer.com/wheel-of-names/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
-  
-  <!-- ✅ Active - Word Tool / Random 7 Letter Word Generator -->
   <url>
-    <loc>https://wordineer.com/random-7-letter-word-generator/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
+    <loc>https://wordineer.com/spelling-bee-words/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
-
   <url>
-    <loc>https://wordineer.com/7-letter-words-starting-with-a/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
+    <loc>https://wordineer.com/common-5-letter-words/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
-
   <url>
-    <loc>https://wordineer.com/7-letter-words-starting-with-b/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
+    <loc>https://wordineer.com/etymology-100-common-words/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
-
   <url>
-    <loc>https://wordineer.com/7-letter-words-starting-with-c/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
+    <loc>https://wordineer.com/esl-vocabulary-cefr/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
-  
   <url>
-    <loc>https://wordineer.com/7-letter-words-starting-with-d/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
+    <loc>https://wordineer.com/random-quote-generator/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
-  
   <url>
-    <loc>https://wordineer.com/7-letter-words-starting-with-e/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
+    <loc>https://wordineer.com/random-wordle-generator/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
-  
   <url>
-    <loc>https://wordineer.com/7-letter-words-starting-with-f/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
+    <loc>https://wordineer.com/wordle-helper/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
-  
   <url>
-    <loc>https://wordineer.com/7-letter-words-starting-with-g/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
+    <loc>https://wordineer.com/best-wordle-starting-words/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
-  
   <url>
-    <loc>https://wordineer.com/7-letter-words-starting-with-h/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
+    <loc>https://wordineer.com/random-noun-generator/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
-  
   <url>
-    <loc>https://wordineer.com/7-letter-words-starting-with-i/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
+    <loc>https://wordineer.com/random-verb-generator/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
-  
   <url>
-    <loc>https://wordineer.com/7-letter-words-starting-with-j/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
+    <loc>https://wordineer.com/random-adjective-generator/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
-
   <url>
-    <loc>https://wordineer.com/7-letter-words-starting-with-k/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
+    <loc>https://wordineer.com/random-adverb-generator/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
-
-  <url>
-    <loc>https://wordineer.com/7-letter-words-starting-with-l/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-  
-  <url>
-    <loc>https://wordineer.com/7-letter-words-starting-with-m/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/7-letter-words-starting-with-n/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/7-letter-words-starting-with-o/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/7-letter-words-starting-with-p/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/7-letter-words-starting-with-q/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/7-letter-words-starting-with-r/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/7-letter-words-starting-with-s/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/7-letter-words-starting-with-t/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/7-letter-words-starting-with-u/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/7-letter-words-starting-with-v/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/7-letter-words-starting-with-w/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/7-letter-words-starting-with-x/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/7-letter-words-starting-with-y/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/7-letter-words-starting-with-z/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <!-- ✅ Active - Word Tool / Random 6 Letter Word Generator -->
   <url>
     <loc>https://wordineer.com/random-6-letter-word-generator/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
-
-  <url>
-    <loc>https://wordineer.com/6-letter-words-starting-with-a/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
   <url>
     <loc>https://wordineer.com/6-letter-words-starting-with-b/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
-
-  <url>
-    <loc>https://wordineer.com/6-letter-words-starting-with-c/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/6-letter-words-starting-with-d/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/6-letter-words-starting-with-e/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/6-letter-words-starting-with-f/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/6-letter-words-starting-with-g/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/6-letter-words-starting-with-h/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/6-letter-words-starting-with-i/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/6-letter-words-starting-with-x/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/6-letter-words-starting-with-y/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/6-letter-words-starting-with-z/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/6-letter-words-starting-with-j/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-  
-  <url>
-    <loc>https://wordineer.com/6-letter-words-starting-with-k/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-  
-  <url>
-    <loc>https://wordineer.com/6-letter-words-starting-with-l/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-  
-  <url>
-    <loc>https://wordineer.com/6-letter-words-starting-with-m/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-
   <url>
     <loc>https://wordineer.com/6-letter-words-starting-with-o/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://wordineer.com/6-letter-words-starting-with-p/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-  <url>
-    <loc>https://wordineer.com/6-letter-words-starting-with-q/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-  <url>
-    <loc>https://wordineer.com/6-letter-words-starting-with-r/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-  <url>
-    <loc>https://wordineer.com/6-letter-words-starting-with-s/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-  <url>
-    <loc>https://wordineer.com/6-letter-words-starting-with-t/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-  <url>
-    <loc>https://wordineer.com/6-letter-words-starting-with-u/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-  <url>
-    <loc>https://wordineer.com/6-letter-words-starting-with-v/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-  <url>
-    <loc>https://wordineer.com/6-letter-words-starting-with-w/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://wordineer.com/6-letter-words-starting-with-n/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-  
-  <!-- ✅ Active - Word Tool / Random 5 Letter Word Generator -->
-  <url>
-    <loc>https://wordineer.com/random-5-letter-word-generator/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/5-letter-words-starting-with-a/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/5-letter-words-starting-with-b/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/5-letter-words-starting-with-c/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/5-letter-words-starting-with-d/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/5-letter-words-starting-with-e/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/5-letter-words-starting-with-f/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/5-letter-words-starting-with-g/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/5-letter-words-starting-with-h/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/5-letter-words-starting-with-i/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/5-letter-words-starting-with-j/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/5-letter-words-starting-with-k/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/5-letter-words-starting-with-l/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/5-letter-words-starting-with-m/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/5-letter-words-starting-with-n/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/5-letter-words-starting-with-o/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/5-letter-words-starting-with-p/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/5-letter-words-starting-with-q/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/5-letter-words-starting-with-r/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/5-letter-words-starting-with-s/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/5-letter-words-starting-with-t/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/5-letter-words-starting-with-u/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/5-letter-words-starting-with-v/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/5-letter-words-starting-with-w/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/5-letter-words-starting-with-x/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/5-letter-words-starting-with-y/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/5-letter-words-starting-with-z/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <!-- ✅ Active - Word Tool / Random 4 Letter Word Generator -->
-  <url>
-    <loc>https://wordineer.com/random-4-letter-word-generator/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/4-letter-words-starting-with-a/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/4-letter-words-starting-with-b/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/4-letter-words-starting-with-c/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/4-letter-words-starting-with-d/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/4-letter-words-starting-with-e/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/4-letter-words-starting-with-f/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/4-letter-words-starting-with-g/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/4-letter-words-starting-with-h/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/4-letter-words-starting-with-i/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/4-letter-words-starting-with-j/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/4-letter-words-starting-with-k/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/4-letter-words-starting-with-l/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/4-letter-words-starting-with-m/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/4-letter-words-starting-with-n/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/4-letter-words-starting-with-o/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/4-letter-words-starting-with-p/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/4-letter-words-starting-with-q/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/4-letter-words-starting-with-r/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/4-letter-words-starting-with-s/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/4-letter-words-starting-with-t/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/4-letter-words-starting-with-u/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/4-letter-words-starting-with-v/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/4-letter-words-starting-with-w/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/4-letter-words-starting-with-x/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/4-letter-words-starting-with-y/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/4-letter-words-starting-with-z/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <!-- ✅ Active - Word Tool / Random 3 Letter Word Generator -->
-  <url>
-    <loc>https://wordineer.com/random-3-letter-word-generator/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/3-letter-words-starting-with-a/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/3-letter-words-starting-with-b/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/3-letter-words-starting-with-c/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/3-letter-words-starting-with-d/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/3-letter-words-starting-with-e/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/3-letter-words-starting-with-f/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/3-letter-words-starting-with-g/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/3-letter-words-starting-with-i/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/3-letter-words-starting-with-j/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/3-letter-words-starting-with-k/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/3-letter-words-starting-with-l/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/3-letter-words-starting-with-m/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/3-letter-words-starting-with-n/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/3-letter-words-starting-with-o/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/3-letter-words-starting-with-p/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/3-letter-words-starting-with-q/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/3-letter-words-starting-with-r/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/3-letter-words-starting-with-s/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/3-letter-words-starting-with-t/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/3-letter-words-starting-with-u/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/3-letter-words-starting-with-v/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/3-letter-words-starting-with-w/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <!-- ✅ Active - Word Tool / Random Noun Generator -->
-  <url>
-    <loc>https://wordineer.com/random-noun-generator/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <!-- ✅ Active - Word Tool / Random Verb Generator -->
-  <url>
-    <loc>https://wordineer.com/random-verb-generator/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <!-- ✅ Active - Word Tool / Random Adjective Generator -->
-  <url>
-    <loc>https://wordineer.com/random-adjective-generator/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <!-- ✅ Active - Word Tool / Random Words Starting With -->
-  <url>
-    <loc>https://wordineer.com/random-words-starting-with/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <!-- ✅ Active - Word Tool / Random Adverb Generator -->
-  <url>
-    <loc>https://wordineer.com/random-adverb-generator/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <!-- ✅ Active - Word Tool / Random Weird Words -->
-  <url>
-    <loc>https://wordineer.com/random-weird-words/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <!-- ✅ Active - Word Tool / Random Wordle Generator -->
-  <url>
-    <loc>https://wordineer.com/random-wordle-generator/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <!-- ✅ Active - Word Tool / Wordle Game -->
-  <url>
-    <loc>https://wordineer.com/wordle-game/</loc>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
-
-  <!-- ✅ Active - Word Tool / Pictionary Word Generator -->
   <url>
-    <loc>https://wordineer.com/pictionary-word-generator/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <!-- ✅ Active - Word Tool / Pictionary Phrase Generator -->
-  <url>
-    <loc>https://wordineer.com/pictionary-phrase-generator/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <!-- ✅ Active - Word Tool / Charades Generator -->
-  <url>
-    <loc>https://wordineer.com/charades-generator/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <!-- ✅ Active - Word Tool / Christmas Charades Generator -->
-  <url>
-    <loc>https://wordineer.com/christmas-charades-generator/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <!-- ✅ Active - Word Tool / Acronym Maker -->
-  <url>
-    <loc>https://wordineer.com/acronym-maker/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <!-- ✅ Active - Word Tool / Spelling Bee Words -->
-  <url>
-    <loc>https://wordineer.com/spelling-bee-words/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <!-- ✅ Active - Word Tool / Spelling Bee Words (Elementary) -->
-  <url>
-    <loc>https://wordineer.com/spelling-bee-words-elementary/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <!-- ✅ Active - Word Tool / Spelling Bee Words for Kindergarten -->
-  <url>
-    <loc>https://wordineer.com/spelling-bee-words-kindergarten/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <!-- ✅ Active - Word Tool / Spelling Bee Words for 2nd Grade -->
-  <url>
-    <loc>https://wordineer.com/spelling-bee-words-2nd-grade/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <!-- ✅ Active - Word Tool / Spelling Bee Words for 3rd Grade -->
-  <url>
-    <loc>https://wordineer.com/spelling-bee-words-3rd-grade/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <!-- ✅ Active - Word Tool / Spelling Bee Words for 4th Grade -->
-  <url>
-    <loc>https://wordineer.com/spelling-bee-words-4th-grade/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <!-- ✅ Active - Word Tool / Spelling Bee Words for 5th Grade -->
-  <url>
-    <loc>https://wordineer.com/spelling-bee-words-5th-grade/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <!-- ✅ Active - Word Tool / Spelling Bee Words for 6th Grade -->
-  <url>
-    <loc>https://wordineer.com/spelling-bee-words-6th-grade/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <!-- ✅ Active - Word Tool / Spelling Bee Words for 7th Grade -->
-  <url>
-    <loc>https://wordineer.com/spelling-bee-words-7th-grade/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-  
-  <!-- ✅ Static / Utility pages -->
-  <url>
-    <loc>https://wordineer.com/about/</loc>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/privacy/</loc>
-    <priority>0.3</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/affiliate-disclosure/</loc>
-    <priority>0.2</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-</urlset>
-
-
-<!-- ═══════════════════════════════════════════════════════════
-     STANDBY PAGES — Uncomment each <url> block when page is live
-     ═══════════════════════════════════════════════════════════ -->
-
-<!--
-  ── WORD TOOLS ──────────────────────────────────────────────
-
-  <url>
-    <loc>https://wordineer.com/random-sentence-generator/</loc>
-    <priority>0.9</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/random-letter-generator/</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/word-scramble/</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/word-of-the-day/</loc>
-    <priority>0.8</priority>
-    <changefreq>daily</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/passphrase-generator/</loc>
+    <loc>https://wordineer.com/random-7-letter-word-generator/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.7</priority>
-    <changefreq>monthly</changefreq>
   </url>
-
-
-  ── NAME GENERATORS ─────────────────────────────────────────
-
+  <url>
+    <loc>https://wordineer.com/random-8-letter-word-generator/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
   <url>
     <loc>https://wordineer.com/random-name-generator/</loc>
-    <priority>0.9</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/username-generator/</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/fantasy-name-generator/</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/baby-name-finder/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.7</priority>
-    <changefreq>monthly</changefreq>
   </url>
-
   <url>
-    <loc>https://wordineer.com/pet-name-generator/</loc>
+    <loc>https://wordineer.com/random-english-name-generator/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.7</priority>
-    <changefreq>monthly</changefreq>
   </url>
-
-
-  ── NUMBER & CHANCE ─────────────────────────────────────────
-
-  <url>
-    <loc>https://wordineer.com/random-number-generator/</loc>
-    <priority>0.9</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/dice-roller/</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/coin-flip/</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/lucky-number/</loc>
-    <priority>0.7</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/list-shuffler/</loc>
-    <priority>0.7</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-
-
-  ── GAMES & FUN ─────────────────────────────────────────────
-
   <url>
     <loc>https://wordineer.com/pictionary-word-generator/</loc>
-    <priority>0.9</priority>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
-
+  <url>
+    <loc>https://wordineer.com/random-4-letter-word-generator/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordineer.com/3-letter-words/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordineer.com/random-weird-words/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordineer.com/word-scramble/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordineer.com/word-unscramble/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordineer.com/pictionary-topic-generator/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordineer.com/pictionary-phrase-generator/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordineer.com/never-have-i-ever-generator/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordineer.com/would-you-rather-generator/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordineer.com/truth-or-dare-generator/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
   <url>
     <loc>https://wordineer.com/charades-generator/</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/truth-or-dare/</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/would-you-rather/</loc>
-    <priority>0.7</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://wordineer.com/story-prompts/</loc>
-    <priority>0.7</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-
-
-  ── STATIC / UTILITY PAGES ──────────────────────────────────
-
-  
-
-  <url>
-    <loc>https://wordineer.com/blog/</loc>
-    <priority>0.5</priority>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
-
-
--->
+  <url>
+    <loc>https://wordineer.com/crossword-puzzle-generator/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordineer.com/word-of-the-day/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordineer.com/sight-words-generator/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordineer.com/wordle-answers/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordineer.com/random-words-starting-with/a/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://wordineer.com/random-words-starting-with/s/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://wordineer.com/random-words-starting-with/q/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://wordineer.com/memorable-password-generator/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+</urlset>
