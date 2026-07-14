@@ -463,9 +463,8 @@
   chips.forEach(function(c){
     c.addEventListener('click', function(){
       navigator.clipboard.writeText(c.dataset.word).catch(function(){});
-      var orig = c.textContent;
-      c.textContent = '✓ ' + orig;
-      setTimeout(function(){ c.textContent = orig; }, 900);
+      c.textContent = '✓ ' + c.dataset.word;
+      setTimeout(function(){ c.textContent = c.dataset.word; }, 900);
     });
   });
 
