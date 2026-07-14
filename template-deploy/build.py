@@ -133,6 +133,21 @@ def build_sitemap(data):
                 continue
             add(tool.get('href', ''), 0.5, 'monthly')
 
+    for tool in data.get('vocabulary_tools', []):
+        if tool.get('status') in ('planned', 'standby', 'coming_soon'):
+            continue
+        add(tool.get('href', ''), 0.7, 'weekly')
+
+    for tool in data.get('spelling_bee_tools', []):
+        if tool.get('status') in ('planned', 'standby', 'coming_soon'):
+            continue
+        add(tool.get('href', ''), 0.7, 'weekly')
+
+    for tool in data.get('sight_words_tools', []):
+        if tool.get('status') in ('planned', 'standby', 'coming_soon'):
+            continue
+        add(tool.get('href', ''), 0.7, 'weekly')
+
     lines = [
         '<?xml version="1.0" encoding="UTF-8"?>',
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
