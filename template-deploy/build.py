@@ -74,6 +74,21 @@ def copy_redirects():
     print('  copied → _redirects into output/')
 
 
+def copy_static_pages():
+    """Copy standalone static pages (404.html, etc.) into output/ and wordineer-deploy/."""
+    deploy_dir = os.path.join(ROOT, '..', 'wordineer-deploy')
+    static_files = ['404.html']
+    for fname in static_files:
+        src = os.path.join(ROOT, fname)
+        if not os.path.isfile(src):
+            print(f'  warning → template-deploy/{fname} not found, skipping')
+            continue
+        shutil.copy2(src, os.path.join(OUT_DIR, fname))
+        if os.path.isdir(deploy_dir):
+            shutil.copy2(src, os.path.join(deploy_dir, fname))
+        print(f'  copied → {fname} into output/ + wordineer-deploy/')
+
+
 def build_sitemap(data):
     """Generate sitemap.xml from tools.json live entries and write to output/ and wordineer-deploy/."""
     today = datetime.now(timezone.utc).strftime('%Y-%m-%d')
@@ -470,6 +485,7 @@ def main():
     copy_data_assets()
     copy_script_assets()
     copy_redirects()
+    copy_static_pages()
     build_sitemap(data)
 
     print(f'\nDone! Output is in:  {OUT_DIR}/')
