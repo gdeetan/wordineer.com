@@ -220,7 +220,7 @@
 <p>The pattern matters for users of this dictionary: if you're looking for currently alive slang, filter by Trending and Current. If you're curious about the mainstream-crossover zone, look at Established terms — they're still alive but broadly understood.</p>
 
 <h2>A brief history of youth slang</h2>
-<p>The anxiety that young people are corrupting the language is at least as old as recorded written complaints about it. Every generation invents slang; every older generation worries about it. The 1920s gave English the <em>bee's knees</em>, <em>the cat's pajamas</em>, and <em>the bees's knees</em> — absurdist superlatives that meant excellent or admirable. The 1950s teenagers said things were <em>cool</em> and <em>groovy</em> (the latter borrowed from jazz culture). The 1960s added <em>far out</em>, <em>dig</em> (to understand or appreciate), and <em>bread</em> (money). The 1980s brought <em>rad</em>, <em>gnarly</em>, and <em>tubular</em> from California surf and skate culture. The 1990s gave us <em>phat</em>, <em>chill</em>, and <em>bling</em>. The 2010s had <em>on fleek</em>, <em>bae</em>, and <em>twerk</em>.</p>
+<p>The anxiety that young people are corrupting the language is at least as old as recorded written complaints about it. Every generation invents slang; every older generation worries about it. The 1920s gave English the <em>bee's knees</em>, <em>the cat's pajamas</em>, and <em>the cat's meow</em> — absurdist superlatives that meant excellent or admirable. The 1950s teenagers said things were <em>cool</em> and <em>groovy</em> (the latter borrowed from jazz culture). The 1960s added <em>far out</em>, <em>dig</em> (to understand or appreciate), and <em>bread</em> (money). The 1980s brought <em>rad</em>, <em>gnarly</em>, and <em>tubular</em> from California surf and skate culture. The 1990s gave us <em>phat</em>, <em>chill</em>, and <em>bling</em>. The 2010s had <em>on fleek</em>, <em>bae</em>, and <em>twerk</em>.</p>
 <p>What makes Gen Z slang distinctive is not that it exists — youth slang always has — but the rate at which it cycles. A 1960s hippie could use <em>groovy</em> for a decade before it felt dated. A Gen Z term can peak and retire in six months. This is almost entirely driven by algorithmic culture: the same mechanism that spreads a word globally in 48 hours also exposes it to mockery, parody, and overuse at the same speed. When a word becomes ubiquitous — when it appears in brand tweets and local news segments — the coolness premium that made it slang evaporates almost immediately.</p>
 <p>This acceleration doesn't mean Gen Z slang is shallow. Some terms — <em>rizz</em>, <em>slay</em>, <em>based</em>, <em>no cap</em> — have shown real staying power because they fill genuine semantic gaps or carry nuances that existing vocabulary doesn't cover as precisely. Language that fills a gap survives; language that was purely fashionable doesn't. For more on how words get coined and spread, the <a href="/word-of-the-day/">word of the day</a> tool and our <a href="/cool-words/">cool words list</a> both trace etymology and usage history for words that have already made the full journey into lasting English.</p>
 
@@ -332,10 +332,11 @@
     },
 
     formatAdded: function(added) {
-      if (!added) return '';
+      if (!added || added.indexOf('-') === -1) return '';
       var parts = added.split('-');
       var months = ['','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-      return months[+parts[1]] + ' ' + parts[0];
+      var label = months[+parts[1]];
+      return label ? label + ' ' + parts[0] : '';
     },
 
     cardHTML: function(e) {
