@@ -258,6 +258,12 @@
   color: var(--text-3);
   font-style: italic;
 }
+
+@media (max-width: 480px) {
+  .pg-row { flex-wrap: wrap; }
+  .pg-row-label { min-width: auto; width: 100%; padding-top: 0; }
+  .pg-controls { gap: 8px; }
+}
 </style>
 <!-- /SLOT:style -->
 
@@ -535,25 +541,20 @@
     var templates = (fullData || SEED).templates;
     var tpl = templates[Math.floor(Math.random() * templates.length)];
 
-    var text = tpl
+    var text;
+    if (!state.includeTwist) {
+      // Remove the twist sentence before substituting, while the {twist} token is still present
+      text = tpl.replace(/[^.!?]*\{twist\}[^.!?]*[.!?]\s*/g, '').trim();
+    } else {
+      text = tpl;
+    }
+
+    text = text
       .replace('{protagonist}', current.protagonist ? current.protagonist.text : '')
       .replace('{setting}', current.setting ? current.setting.text : '')
       .replace('{conflict}', current.conflict ? current.conflict.text : '')
       .replace('{complication}', current.complication ? current.complication.text : '')
       .replace('{twist}', current.twist ? current.twist.text : '');
-
-    if (!state.includeTwist) {
-      text = text.replace(/[^.!?]*\{twist\}[^.!?]*[.!?]\s*/g, '').trim();
-      // Also remove any remaining twist references if substitution already happened
-      // Remove the twist sentence by finding the last period and trimming trailing twist content
-      // Simpler: rebuild without twist sentence
-      var twistText = current.twist ? current.twist.text : '';
-      if (twistText) {
-        // Remove sentence containing twist text
-        var escapedTwist = twistText.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-        text = text.replace(new RegExp('[^.!?]*' + escapedTwist + '[^.!?]*[.!?]\\s*', 'g'), '').trim();
-      }
-    }
 
     assembledEl.textContent = text;
   }
@@ -629,6 +630,7 @@
   document.querySelectorAll('.pg-lock-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
       var key = btn.getAttribute('data-key');
+      if (!locks[key] && !current[key]) return; // can't lock an empty slot
       locks[key] = !locks[key];
       if (locks[key]) {
         btn.classList.add('locked');
