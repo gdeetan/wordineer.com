@@ -30,7 +30,13 @@ function load(filename) {
     errors++;
     return null;
   }
-  return JSON.parse(fs.readFileSync(fp, 'utf8'));
+  try {
+    return JSON.parse(fs.readFileSync(fp, 'utf8'));
+  } catch (e) {
+    console.error(`FAIL: ${fp} has invalid JSON: ${e.message}`);
+    errors++;
+    return null;
+  }
 }
 
 // --- scattergories.json ---
@@ -42,6 +48,11 @@ if (sc) {
     errors++;
   } else {
     console.log(`  OK lists: ${sc.lists.length} (each has ${sc.lists.map(l=>l.length).join(',')} categories)`);
+  }
+  const badLists = sc.lists.filter(l => !Array.isArray(l));
+  if (badLists.length > 0) {
+    console.error(`FAIL scattergories: ${badLists.length} list(s) are not arrays`);
+    errors++;
   }
   const themes = ['classic','kids','adults','holiday','food','pop-culture','hard'];
   for (const t of themes) {
@@ -59,6 +70,11 @@ if (sc) {
 console.log('\n=== catchphrase.json ===');
 const cp = load('catchphrase.json');
 if (cp) {
+  const badEntries = cp.filter(item => !item.category || !item.difficulty);
+  if (badEntries.length > 0) {
+    console.error(`FAIL catchphrase: ${badEntries.length} entries missing category or difficulty`);
+    errors++;
+  }
   const categories = ['everyday','actions','places','people','food','entertainment','idioms','hard'];
   const difficulties = ['easy','medium','hard'];
   check('catchphrase category', cp, i => i.category, categories);
@@ -77,8 +93,8 @@ if (ctd) {
   const intensities = ['sweet','fun','romantic','spicy'];
   for (const intensity of intensities) {
     const group = (ctd[intensity] || {});
-    const truths = (group.truth || []);
-    const dares = (group.dare || []);
+    const truths = Array.isArray(group.truth) ? group.truth : [];
+    const dares = Array.isArray(group.dare) ? group.dare : [];
     if (truths.length < MIN_COUNT) {
       console.error(`FAIL couples[${intensity}].truth: only ${truths.length} (need ${MIN_COUNT}+)`);
       errors++;
