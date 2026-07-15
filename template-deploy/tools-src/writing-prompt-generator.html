@@ -333,6 +333,8 @@
   <li><strong>Don't discard something because it feels wrong.</strong> A poetry prompt used as a journal exercise, or a what-if used as a character backstory, is perfectly valid. The type label is a suggestion, not a restriction.</li>
 </ul>
 
+<p>Looking for a more structured starting point? Try the <a href="/plot-generator/">Plot Generator</a> for a full story blueprint: protagonist, setting, conflict, complication, and twist.</p>
+
 </div>
 <!-- /SLOT:explainer -->
 
@@ -445,8 +447,13 @@
     while (next === currentPrompt && pool.length > 1);
     currentPrompt = next;
     document.getElementById('wp-prompt-text').textContent = next.text;
-    document.getElementById('wp-prompt-meta').innerHTML =
-      '<span>' + next.type.replace(/-/g,' ') + '</span><span>' + next.genre + '</span><span>' + next.audience + '</span>';
+    var meta = document.getElementById('wp-prompt-meta');
+    meta.innerHTML = '';
+    [next.type.replace(/-/g,' '), next.genre, next.audience].forEach(function(label){
+      var s = document.createElement('span');
+      s.textContent = label;
+      meta.appendChild(s);
+    });
   }
 
   function renderTimer() {
@@ -496,12 +503,21 @@
     if (!panel || !list) return;
     panel.style.display = saved.length ? '' : 'none';
     count.textContent = saved.length;
-    list.innerHTML = saved.map(function(p, i){
-      return '<li class="wp-saved-item"><span>' + p.text + '</span><button onclick="wpRemoveSaved(' + i + ')" title="Remove">\xd7</button></li>';
-    }).join('');
+    list.innerHTML = '';
+    saved.forEach(function(p, i){
+      var li = document.createElement('li');
+      li.className = 'wp-saved-item';
+      var sp = document.createElement('span');
+      sp.textContent = p.text;
+      var btn = document.createElement('button');
+      btn.title = 'Remove';
+      btn.textContent = '\xd7';
+      btn.addEventListener('click', function(){ saved.splice(i, 1); renderSaved(); });
+      li.appendChild(sp);
+      li.appendChild(btn);
+      list.appendChild(li);
+    });
   }
-
-  window.wpRemoveSaved = function(i) { saved.splice(i,1); renderSaved(); };
 
   document.getElementById('wp-new-btn').addEventListener('click', newPrompt);
   document.getElementById('wp-copy-btn').addEventListener('click', function(){
