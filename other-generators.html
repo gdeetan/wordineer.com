@@ -1,4 +1,4 @@
-<!-- build: 2026-07-14T07:21:11Z -->
+<!-- build: 2026-07-15T07:20:46Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -209,6 +209,51 @@
   color: var(--text-2);
   margin: 0 0 14px;
 }
+.hub-search {
+  position: relative;
+  margin: 20px auto 0;
+  max-width: 480px;
+}
+.hub-search__input {
+  width: 100%;
+  padding: 10px 38px 10px 14px;
+  border: 1.5px solid var(--border-2, #d0d0d5);
+  border-radius: 8px;
+  background: var(--bg, #fff);
+  color: var(--text);
+  font-size: 15px;
+  outline: none;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+}
+.hub-search__input:focus {
+  border-color: var(--brand, #4A3FD4);
+  box-shadow: 0 0 0 3px rgba(74,63,212,.12);
+}
+.hub-search__clear {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-3, #888);
+  font-size: 15px;
+  padding: 4px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+.hub-search__empty {
+  display: none;
+  padding: 20px 0 4px;
+  color: var(--text-2);
+  font-size: 15px;
+}
+@media (max-width: 600px) {
+  .hub-search { max-width: 100%; }
+}
 </style>
 </head>
 
@@ -304,6 +349,21 @@
   </div>
   <h1>Fantasy, pet & creative name generators</h1>
   <p>Fictional characters don't need real-world names. Find D&D names, fantasy heroes, pet names, band names, business branding tools, and writing helpers all in one place.</p>
+  <div class="hub-search">
+    <input
+      type="search"
+      id="hub-search-input"
+      class="hub-search__input"
+      placeholder="Search generators..."
+      aria-label="Search generators"
+      autocomplete="off"
+      spellcheck="false">
+    <button
+      class="hub-search__clear"
+      id="hub-search-clear"
+      aria-label="Clear search"
+      hidden>✕</button>
+  </div>
 </div>
 <div class="content-wrap">
   <div class="section">
@@ -678,6 +738,60 @@
       setMenu(false);
     }
   }, true);
+})();
+</script>
+<script>
+(function() {
+  var input = document.getElementById('hub-search-input');
+  var clearBtn = document.getElementById('hub-search-clear');
+  if (!input) return;
+
+  var sections = document.querySelectorAll('.name-section');
+
+  var empty = document.createElement('p');
+  empty.className = 'hub-search__empty';
+  empty.textContent = 'No matching tools found.';
+  var firstSection = sections[0];
+  if (firstSection) firstSection.parentNode.insertBefore(empty, firstSection);
+
+  function filter() {
+    var q = input.value.trim().toLowerCase();
+    clearBtn.hidden = !q;
+    var totalVisible = 0;
+
+    sections.forEach(function(section) {
+      var cards = section.querySelectorAll('.tool-item');
+      var sectionVisible = 0;
+
+      cards.forEach(function(card) {
+        var name = (card.querySelector('.tool-name') || {}).textContent || '';
+        var desc = (card.querySelector('.tool-desc') || {}).textContent || '';
+        var match = !q || name.toLowerCase().includes(q) || desc.toLowerCase().includes(q);
+        card.style.display = match ? '' : 'none';
+        if (match) sectionVisible++;
+      });
+
+      section.style.display = sectionVisible > 0 ? '' : 'none';
+      totalVisible += sectionVisible;
+    });
+
+    empty.style.display = (q && totalVisible === 0) ? 'block' : 'none';
+  }
+
+  input.addEventListener('input', filter);
+
+  clearBtn.addEventListener('click', function() {
+    input.value = '';
+    filter();
+    input.focus();
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && input.value) {
+      input.value = '';
+      filter();
+    }
+  });
 })();
 </script>
 
