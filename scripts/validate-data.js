@@ -110,5 +110,64 @@ if (ctd) {
   }
 }
 
+// --- writing-prompts.json ---
+console.log('\n=== writing-prompts.json ===');
+const wp = load('writing-prompts.json');
+if (wp) {
+  const types = ['story-starter','journal','dialogue','first-line','what-if','poetry'];
+  const genres = ['general','fantasy','scifi','romance','mystery','horror','literary'];
+  const audiences = ['adults','teens','kids'];
+  const lengths = ['quick','deep'];
+  check('wp type', wp, i => i.type, types);
+  check('wp genre', wp, i => i.genre, genres);
+  check('wp audience', wp, i => i.audience, audiences);
+  check('wp length', wp, i => i.length, lengths);
+  console.log(`  Total prompts: ${wp.length}`);
+  if (wp.length < 300) {
+    console.error(`FAIL writing-prompts: only ${wp.length} entries (need 300+)`);
+    errors++;
+  }
+}
+
+// --- plot-generator.json ---
+console.log('\n=== plot-generator.json ===');
+const pg = load('plot-generator.json');
+if (pg) {
+  const genres = ['fantasy','scifi','mystery','romance','thriller','literary','comedy'];
+  const components = ['protagonists','settings','conflicts','complications','twists','themes'];
+  for (const comp of components) {
+    const items = pg[comp] || [];
+    if (items.length < 10) {
+      console.error(`FAIL plot[${comp}]: only ${items.length} entries (need 10+)`);
+      errors++;
+    } else {
+      console.log(`  OK plot[${comp}]: ${items.length} entries`);
+    }
+    // Check genre tags
+    check(`plot[${comp}] genre`, items, i => i.genre, genres);
+  }
+  // Validate template assembly: try 10 random assemblies
+  const templates = pg.templates || [];
+  if (templates.length < 4) {
+    console.error(`FAIL plot templates: only ${templates.length} (need 4+)`);
+    errors++;
+  } else {
+    console.log(`  OK templates: ${templates.length}`);
+    // Print 3 sample assemblies for human review
+    console.log('\n  --- Sample plot assemblies ---');
+    for (let i = 0; i < 3; i++) {
+      const pick = arr => arr[Math.floor(Math.random() * arr.length)];
+      const t = templates[Math.floor(Math.random() * templates.length)];
+      const result = t
+        .replace('{protagonist}', pick(pg.protagonists || []).text || '?')
+        .replace('{setting}', pick(pg.settings || []).text || '?')
+        .replace('{conflict}', pick(pg.conflicts || []).text || '?')
+        .replace('{complication}', pick(pg.complications || []).text || '?')
+        .replace('{twist}', pick(pg.twists || []).text || '?');
+      console.log(`  ${i + 1}. ${result}\n`);
+    }
+  }
+}
+
 console.log(`\n${errors === 0 ? '✓ All checks passed' : `✗ ${errors} error(s) found`}`);
 process.exit(errors > 0 ? 1 : 0);
