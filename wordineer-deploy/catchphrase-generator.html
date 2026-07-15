@@ -1,4 +1,4 @@
-<!-- build: 2026-07-15T05:19:54Z -->
+<!-- build: 2026-07-15T05:28:14Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -116,21 +116,34 @@
 <link rel="stylesheet" href="/styles/global.css?v=14">
 <style>
 .cp-wrap{max-width:960px;margin:0 auto;padding:24px 16px}
-.cp-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow)}
+.cp-card{background:var(--bg);border:1px solid var(--border);border-radius:8px;overflow:hidden;box-shadow:var(--shadow)}
+/* shared form controls */
+.small-btn{border:1px solid var(--border);background:var(--bg);color:var(--text-2);border-radius:6px;font-size:12px;font-weight:600;padding:9px 8px;cursor:pointer;transition:border-color .15s}
+.small-btn:hover{border-color:var(--brand)}
+/* word display */
 .cp-display-block{padding:48px 32px 32px;text-align:center;border-bottom:1px solid var(--border-2)}
 .cp-word{font-family:'DM Serif Display',serif;font-size:52px;line-height:1.1;color:var(--text);margin-bottom:16px;min-height:70px;cursor:pointer}
-.cp-next-btn{background:var(--brand);color:#fff;border:none;border-radius:var(--radius);font-size:18px;font-weight:600;padding:16px 48px;cursor:pointer;width:100%;max-width:360px;margin:0 auto;display:block}
-.cp-next-btn:active{opacity:.85}
+.cp-next-btn{background:var(--brand);color:#fff;border:none;border-radius:6px;font-size:18px;font-weight:600;padding:16px 48px;cursor:pointer;width:100%;max-width:360px;margin:0 auto;display:block;transition:opacity .15s}
+.cp-next-btn:hover{opacity:.9}
 .cp-tap-hint{color:var(--text-3);font-size:13px;margin-top:12px}
+/* controls row */
 .cp-controls{padding:16px 20px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;border-bottom:1px solid var(--border-2)}
 .cp-filter-group{display:flex;align-items:center;gap:8px}
-.cp-filter-group label{font-size:12px;color:var(--text-2);font-weight:600}
-.cp-filter-group select{padding:6px 10px;border:1px solid var(--border);border-radius:6px;font-size:13px;background:var(--bg);color:var(--text)}
+.cp-filter-group label{font-size:12px;color:var(--text-2);font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+.cp-filter-group select{padding:7px 10px;border:1px solid var(--border);border-radius:6px;font-size:12px;font-weight:600;background:var(--bg);color:var(--text-2);font-family:inherit;appearance:none}
+/* timer */
 .cp-timer-block{display:flex;align-items:center;gap:8px;margin-left:auto}
-.cp-timer-display{font-family:'DM Serif Display',serif;font-size:28px;min-width:60px;text-align:center;color:var(--text)}
+.cp-timer-display{font-size:28px;font-weight:700;min-width:60px;text-align:center;color:var(--text);font-variant-numeric:tabular-nums}
 .cp-timer--warning{color:var(--amber)}
 .cp-timer--critical{color:#c0392b}
 .cp-timer-btns{display:flex;gap:4px}
+/* duration chips */
+.cp-dur-chips{display:flex;gap:4px}
+.cp-dur-chips button{padding:7px 8px;border:1px solid var(--border);border-radius:6px;font-size:12px;font-weight:600;font-family:inherit;background:var(--bg);color:var(--text-2);cursor:pointer;transition:border-color .15s,background .15s,color .15s}
+.cp-dur-chips button:hover{border-color:var(--brand)}
+.cp-dur-chips button.active{background:var(--brand);border-color:var(--brand);color:white}
+.cp-pool-count{font-size:12px;color:var(--text-3);padding:8px 20px 0}
+/* score tracker */
 .cp-score-block{padding:16px 20px;display:flex;gap:24px;align-items:center}
 .cp-team{display:flex;align-items:center;gap:12px}
 .cp-team-label{font-weight:600;font-size:14px;color:var(--text)}
@@ -139,10 +152,9 @@
 .cp-score-btns button{border:1px solid var(--border);border-radius:4px;background:var(--bg);cursor:pointer;font-size:14px;line-height:1;padding:4px 8px}
 .cp-score-btns button:hover{border-color:var(--brand);color:var(--brand)}
 .cp-reset-score{margin-left:auto}
-.cp-dur-chips{display:flex;gap:4px}
-.cp-dur-chips button{padding:4px 8px;border:1px solid var(--border);border-radius:6px;font-size:12px;background:var(--bg);color:var(--text-2);cursor:pointer}
-.cp-dur-chips button.active{border-color:var(--brand);color:var(--brand)}
-.cp-pool-count{font-size:12px;color:var(--text-3);padding:8px 20px 0}
+/* explainer */
+.explainer ol,.explainer ul{margin:0 0 10px;padding-left:20px;font-size:14px;color:var(--text-2);line-height:1.7}
+.explainer li{padding-left:2px;margin-bottom:6px}
 @media(max-width:600px){
   .cp-word{font-size:38px}
   .cp-controls{flex-direction:column;align-items:flex-start}
@@ -395,7 +407,7 @@
 </div>
   <div class="divider"></div>
 
-<div>
+<div class="section">
   <h2 class="section-title" style="margin-bottom:14px">Who uses the Catchphrase generator</h2>
   <div class="uc-grid">
     <div class="uc"><div class="uc-title">Party hosts</div><div class="uc-body">Get the Catchphrase experience without finding the physical game — open the page and start playing instantly</div></div>
@@ -403,7 +415,7 @@
     <div class="uc"><div class="uc-title">Families</div><div class="uc-body">Great for kids old enough to give verbal clues (roughly age 8+) and adults who want something livelier than trivia</div></div>
     <div class="uc"><div class="uc-title">Game night hosts</div><div class="uc-body">Use the Hard category for competitive groups or Everyday for a relaxed mixed-age crowd with no setup required</div></div>
   </div>
-  <p style="margin-top:18px;font-size:14px;color:var(--text-2)">Also try: <a href="/scattergories-generator/">Scattergories Generator</a>, <a href="/charades-generator/">Charades Generator</a>, <a href="/pictionary-word-generator/">Pictionary Generator</a>, <a href="/truth-or-dare-generator/">Truth or Dare Generator</a>, <a href="/would-you-rather-generator/">Would You Rather Generator</a>.</p>
+  <p style="margin-top:14px">Want a letter-and-category game instead? Try the <a href="/scattergories-generator/">Scattergories Generator</a> — roll a letter, fill in 12 categories, race the timer.</p>
 </div>
 
 
