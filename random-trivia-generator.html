@@ -1,0 +1,659 @@
+<!-- build: 2026-07-15T11:23:58Z -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.adsbygoogle = window.adsbygoogle || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  (function(w, d) {
+    var loaded = false;
+    var cfg = {
+      analyticsId: 'G-7DWH3EGM3Z',
+      adsClient: 'ca-pub-7200956978416233',
+      delay: 10000
+    };
+
+    function loadScript(src, attrs) {
+      var s = d.createElement('script');
+      s.async = true;
+      s.src = src;
+      if (attrs) {
+        Object.keys(attrs).forEach(function(key) {
+          s.setAttribute(key, attrs[key]);
+        });
+      }
+      d.head.appendChild(s);
+    }
+
+    function loadMarketing() {
+      if (loaded) return;
+      loaded = true;
+      gtag('js', new Date());
+      gtag('config', cfg.analyticsId);
+      loadScript('https://www.googletagmanager.com/gtag/js?id=' + cfg.analyticsId);
+      loadScript(
+        'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + cfg.adsClient,
+        { crossorigin: 'anonymous' }
+      );
+    }
+
+    function idleLoad() {
+      if ('requestIdleCallback' in w) {
+        w.requestIdleCallback(loadMarketing, { timeout: 5000 });
+      } else {
+        w.setTimeout(loadMarketing, cfg.delay);
+      }
+    }
+
+    ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function(eventName) {
+      w.addEventListener(eventName, loadMarketing, { once: true, passive: true });
+    });
+    w.addEventListener('load', function() {
+      w.setTimeout(idleLoad, cfg.delay);
+    }, { once: true });
+  })(window, document);
+</script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="XRPtSc+0VtlRm6fwBuI7iA" async></script>
+<meta name='impact-site-verification' value='32715504-1cfb-4324-bfc7-ae4cfa1591ea'>
+<link rel="preload" href="/fonts/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-sans-italic-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://wordineer.com/#website",
+      "name": "Wordineer",
+      "url": "https://wordineer.com",
+      "description": "Free online word tools for writers, students, and word game players — random word generator, name generators, word scramble, sentence generator, and more.",
+      "publisher": { "@id": "https://wordineer.com/#organization" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://wordineer.com/#organization",
+      "name": "Wordineer",
+      "url": "https://wordineer.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://wordineer.com/logo.png",
+        "width": 1254,
+        "height": 1254
+      },
+      "description": "Wordineer provides free online word tools for writers, students, and word game players."
+    }
+  ]
+}
+</script>
+<title>Random Trivia Generator — Trivia Questions & Answers</title>
+<meta name="description" content="Generate random trivia questions with answers. Flashcard mode, quiz mode, and host mode. Filter by category and difficulty. Free, no sign-up.">
+<link rel="canonical" href="https://wordineer.com/random-trivia-generator/">
+<meta property="og:title" content="Random Trivia Generator — Trivia Questions & Answers">
+<meta property="og:description" content="300+ trivia questions in flashcard, quiz, and host modes. Filter by category and difficulty. Free, instant, no account.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"What modes does the trivia generator have?","acceptedAnswer":{"@type":"Answer","text":"There are three modes: Flashcard (question then tap to reveal), Quiz (multiple choice with score tracking), and Host (large text with keyboard navigation for trivia nights)."}},
+    {"@type":"Question","name":"Can I filter by category?","acceptedAnswer":{"@type":"Answer","text":"Yes. Filter by history, geography, science, entertainment, sports, food, words & language, or general knowledge."}},
+    {"@type":"Question","name":"How does quiz mode work?","acceptedAnswer":{"@type":"Answer","text":"Quiz mode shows 4 answer choices per question. You play 10-question rounds and see your score at the end. Use keyboard shortcuts 1-4 to answer and Enter to advance."}},
+    {"@type":"Question","name":"What is host mode?","acceptedAnswer":{"@type":"Answer","text":"Host mode displays questions in large text designed for a TV or projector screen. Use Space to reveal the answer and the right arrow key to advance — no mouse needed."}},
+    {"@type":"Question","name":"Will questions repeat?","acceptedAnswer":{"@type":"Answer","text":"Questions won't repeat within a session. Once all filtered questions have been shown, the pool resets."}}
+  ]
+}
+</script>
+<meta property="og:image" content="https://wordineer.com/og-default.jpg">
+
+<link rel="stylesheet" href="/styles/global.css?v=14">
+<style>
+.tv-wrap{max-width:860px;margin:0 auto;padding:24px 16px}
+.tv-card{background:var(--bg);border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
+.tv-mode-tabs{display:flex;border-bottom:1px solid var(--border-2)}
+.tv-mode-tab{flex:1;padding:12px;text-align:center;font-size:13px;font-weight:600;color:var(--text-2);cursor:pointer;border:none;background:none;border-bottom:2px solid transparent;transition:color .15s,border-color .15s}
+.tv-mode-tab.active{color:var(--brand);border-bottom-color:var(--brand)}
+.tv-filters{padding:12px 16px;display:flex;flex-wrap:wrap;gap:10px;border-bottom:1px solid var(--border-2);align-items:center}
+.tv-filter-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3)}
+.tv-cat-chips{display:flex;flex-wrap:wrap;gap:4px}
+.tv-chip{padding:5px 10px;border:1px solid var(--border);border-radius:20px;font-size:12px;font-weight:600;cursor:pointer;background:var(--bg);color:var(--text-2);transition:border-color .15s,background .15s,color .15s;user-select:none}
+.tv-chip.active{background:var(--brand);border-color:var(--brand);color:#fff}
+.tv-diff-select{padding:6px 10px;border:1px solid var(--border);border-radius:6px;font-size:12px;font-weight:600;background:var(--bg);color:var(--text-2);font-family:inherit;appearance:none;cursor:pointer}
+.tv-display{padding:40px 32px 32px;min-height:200px;text-align:center;border-bottom:1px solid var(--border-2)}
+.tv-question{font-family:'DM Serif Display',serif;font-size:22px;line-height:1.5;color:var(--text);margin-bottom:24px}
+.tv-answer{font-size:18px;font-weight:600;color:var(--brand);display:none;margin-bottom:16px}
+.tv-answer.visible{display:block}
+.tv-reveal-btn{border:1px solid var(--border);background:var(--bg-2);color:var(--text-2);border-radius:6px;font-size:14px;font-weight:600;padding:10px 20px;cursor:pointer;transition:border-color .15s}
+.tv-reveal-btn:hover{border-color:var(--brand);color:var(--brand)}
+.tv-options{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px;text-align:left}
+.tv-opt{border:1px solid var(--border);background:var(--bg-2);border-radius:8px;padding:12px 14px;cursor:pointer;font-size:15px;font-weight:500;color:var(--text);transition:border-color .15s,background .15s;display:flex;align-items:center;gap:10px}
+.tv-opt:hover:not([disabled]){border-color:var(--brand)}
+.tv-opt.correct{border-color:#16a34a;background:#f0fdf4;color:#15803d}
+.tv-opt.wrong{border-color:#dc2626;background:#fef2f2;color:#dc2626}
+.tv-opt[disabled]{cursor:default}
+.tv-opt-key{width:22px;height:22px;border-radius:4px;background:var(--border);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--text-2);flex-shrink:0}
+.tv-quiz-score{font-size:14px;font-weight:600;color:var(--text-2);margin-bottom:16px}
+.tv-round-end{text-align:center;padding:20px 0}
+.tv-round-end h3{font-family:'DM Serif Display',serif;font-size:28px;color:var(--text);margin-bottom:8px}
+.tv-round-end p{color:var(--text-2);font-size:15px;margin-bottom:16px}
+.tv-host-wrap .tv-question{font-size:32px}
+.tv-host-wrap .tv-answer{font-size:24px}
+.tv-host-hint{font-size:12px;color:var(--text-3);margin-top:8px}
+.tv-bottom{padding:16px;display:flex;gap:8px;align-items:center;justify-content:space-between}
+.tv-next-btn{background:var(--brand);color:#fff;border:none;border-radius:6px;font-size:15px;font-weight:600;padding:11px 28px;cursor:pointer;transition:opacity .15s}
+.tv-next-btn:hover{opacity:.9}
+.tv-actions{display:flex;gap:6px}
+.tv-btn{border:1px solid var(--border);background:var(--bg);color:var(--text-2);border-radius:6px;font-size:12px;font-weight:600;padding:8px 12px;cursor:pointer;transition:border-color .15s,color .15s}
+.tv-btn:hover{border-color:var(--brand);color:var(--brand)}
+.tv-btn.saved{color:var(--brand);border-color:var(--brand)}
+.tv-pool{font-size:12px;color:var(--text-3);padding:0 16px 10px}
+.tv-sample-qa{margin-top:8px}
+.tv-sample-qa h3{font-size:16px;font-weight:700;margin-bottom:12px}
+.tv-sample-qa dl{display:grid;gap:12px}
+.tv-sample-qa dt{font-weight:600;font-size:14px;color:var(--text)}
+.tv-sample-qa dd{margin:2px 0 0;color:var(--text-2);font-size:13px;padding-left:12px;border-left:2px solid var(--brand)}
+@media(max-width:600px){
+  .tv-options{grid-template-columns:1fr}
+  .tv-display{padding:28px 16px 24px}
+  .tv-question{font-size:18px}
+  .tv-host-wrap .tv-question{font-size:24px}
+  .tv-filters{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+
+<body>
+<nav class="nav">
+  <a class="nav-logo" href="/">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 15 15" fill="none"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </div>
+    Wordineer
+  </a>
+  <div class="nav-links">
+    <a href="/word-tools/">Tools</a>
+    <a href="/blog/">Blog</a>
+  </div>
+  <div>
+    <button class="hamburger" type="button" aria-label="All tools" aria-controls="mega" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mega" id="mega">
+  <div class="mega-inner">
+    <div class="mega-col">
+      <div class="mega-cat">Writing &amp; Vocabulary</div>
+      <a class="mega-link" href="/">Random Word Generator</a>
+      <a class="mega-link" href="/random-sentence-generator/">Random Sentence Generator</a>
+      <a class="mega-link" href="/lorem-ipsum-generator/">Lorem Ipsum Generator</a>
+      <a class="mega-link" href="/word-counter/">Word Counter</a>
+      <a class="mega-link mega-link--view-all" href="/word-tools/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Browse by Letter</div>
+      <a class="mega-link" href="/random-words-starting-with/">Random Words Starting With (A–Z)</a>
+      <a class="mega-link" href="/random-words-starting-with/a">Random Words Starting with A</a>
+      <a class="mega-link" href="/random-words-starting-with/s">Random Words Starting with S</a>
+      <a class="mega-link" href="/random-words-starting-with/q">Random Words Starting with Q</a>
+      <a class="mega-link mega-link--view-all" href="/random-words-starting-with/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Names by Origin</div>
+      <a class="mega-link" href="/random-spanish-name-generator/">Spanish Name Generator</a>
+      <a class="mega-link" href="/random-italian-name-generator/">Italian Name Generator</a>
+      <a class="mega-link" href="/random-japanese-name-generator/">Japanese Name Generator</a>
+      <a class="mega-link" href="/random-american-name-generator/">American Name Generator</a>
+      <a class="mega-link mega-link--view-all" href="/name-generators/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Other Name Generators</div>
+      <a class="mega-link" href="/character-name-generator/">Character Name Generator</a>
+      <a class="mega-link" href="/fantasy-name-generator/">Fantasy Name Generator</a>
+      <a class="mega-link" href="/business-name-generator/">Business Name Generator</a>
+      <a class="mega-link" href="/band-name-generator/">Band Name Generator</a>
+      <a class="mega-link mega-link--view-all" href="/other-generators/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Account &amp; Security</div>
+      <a class="mega-link" href="/username-generator/">Username Generator</a>
+      <a class="mega-link" href="/password-generator/">Password Generator</a>
+      <a class="mega-link" href="/passphrase-generator/">Passphrase Generator</a>
+      <a class="mega-link" href="/random-pin-generator/">Random PIN Generator</a>
+      <a class="mega-link mega-link--view-all" href="/account-tools/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Games &amp; fun</div>
+      <a class="mega-link" href="/coin-flip/">Flip a Coin</a>
+      <a class="mega-link" href="/random-number-generator/">Number Generator</a>
+      <a class="mega-link" href="/dice-roller/">Dice Roller</a>
+      <a class="mega-link" href="/wheel-of-names/">Wheel of Names</a>
+      <a class="mega-link mega-link--view-all" href="/number-chance/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Learn & Resources</div>
+      <a class="mega-link" href="/spelling-bee-words/">Spelling Bee Words</a>
+      <a class="mega-link" href="/common-5-letter-words/">Common 5-Letter Words</a>
+      <a class="mega-link" href="/etymology-100-common-words/">Etymology Guide</a>
+      <a class="mega-link" href="/esl-vocabulary-cefr/">ESL Vocabulary (CEFR)</a>
+    </div>
+  </div>
+</div>
+
+
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/word-tools/">Word Tools</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Random Trivia Generator</span>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free · No sign-up · 300+ questions
+  </div>
+  <h1>Random Trivia Generator</h1>
+  <p>Trivia questions with answers — flashcard mode, multiple-choice quiz, and host mode for trivia night. Filter by category and difficulty.</p>
+</div>
+<div class="tv-wrap" aria-label="Trivia question generator">
+  <div class="tv-card" id="tv-card">
+    <div class="tv-mode-tabs">
+      <button class="tv-mode-tab active" data-mode="flashcard">Flashcard</button>
+      <button class="tv-mode-tab" data-mode="quiz">Quiz</button>
+      <button class="tv-mode-tab" data-mode="host">Host Mode</button>
+    </div>
+    <div class="tv-filters">
+      <span class="tv-filter-label">Category</span>
+      <div class="tv-cat-chips" id="tv-cats">
+        <button class="tv-chip active" data-cat="all">All</button>
+        <button class="tv-chip" data-cat="history">History</button>
+        <button class="tv-chip" data-cat="geography">Geography</button>
+        <button class="tv-chip" data-cat="science">Science</button>
+        <button class="tv-chip" data-cat="entertainment">Entertainment</button>
+        <button class="tv-chip" data-cat="sports">Sports</button>
+        <button class="tv-chip" data-cat="food">Food</button>
+        <button class="tv-chip" data-cat="words">Words</button>
+        <button class="tv-chip" data-cat="general">General</button>
+      </div>
+      <select class="tv-diff-select" id="tv-diff">
+        <option value="all">All difficulties</option>
+        <option value="easy">Easy</option>
+        <option value="medium">Medium</option>
+        <option value="hard">Hard</option>
+      </select>
+    </div>
+    <div class="tv-display" id="tv-display">
+      <div class="tv-question" id="tv-question">Press "Next question" to start</div>
+      <div class="tv-answer" id="tv-answer"></div>
+      <div class="tv-options" id="tv-options" style="display:none"></div>
+      <button class="tv-reveal-btn" id="tv-reveal-btn" style="display:none">Reveal answer</button>
+      <div class="tv-quiz-score" id="tv-quiz-score" style="display:none"></div>
+      <div class="tv-host-hint" id="tv-host-hint" style="display:none">Space = reveal · → = next</div>
+    </div>
+    <div class="tv-bottom">
+      <button class="tv-next-btn" id="tv-next-btn">Next question</button>
+      <div class="tv-actions">
+        <button class="tv-btn" id="tv-copy-btn">Copy Q&amp;A</button>
+        <button class="tv-btn" id="tv-heart-btn">♥ Save</button>
+      </div>
+    </div>
+    <div class="tv-pool" id="tv-pool"></div>
+  </div>
+</div>
+<div class="content-wrap" style="margin-top:32px">
+  <div class="ad-rect">
+    <span class="ad-tag">Advertisement · 336×280</span>
+    <div class="ad-rect-img"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4C10.3 4 4 10.3 4 18s6.3 14 14 14 14-6.3 14-14S25.7 4 18 4z" fill="white" opacity=".2"/><path d="M12 18c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="18" r="2.5" fill="white"/></svg></div>
+    <div class="ad-rect-content">
+      <div class="ad-rect-title">Grammarly — write with confidence</div>
+      <div class="ad-rect-body">Grammar, tone &amp; clarity. Used by 30 million people.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
+    </div>
+  </div>
+</div>
+<div class="content-wrap">
+  <div class="section">
+    <h2 class="section-title">More word game generators</h2>
+    <p class="section-sub">Free tools for game night</p>
+    <div class="tools-grid">
+      <a class="tool-item" href="/random-quote-generator/"><div class="tool-icon" style="background:#FBEAF0"><svg viewBox="0 0 13 13" fill="none"><path d="M3 4.5h3.5M3 8.5h4.5" stroke="#A13B63" stroke-width="1.1" stroke-linecap="round"/><path d="M8.2 3.5h1.4v2.1c0 .5.4.9.9.9H11v1.4H9.6c-1.2 0-2.1-.9-2.1-2.1z" fill="#A13B63"/><path d="M2.2 5.2h1.4V7c0 .5.4.9.9.9h.4v1.4h-.4C3.3 9.3 2.2 8.2 2.2 7z" fill="#A13B63"/></svg></div><div class="tool-name">Random Quote Generator</div><div class="tool-desc">Random quotes with filters for topic, author, tone, length, favorites, and image cards.</div></a>
+      <a class="tool-item" href="/random-wordle-generator/"><div class="tool-icon" style="background:#E8F4FE"><svg viewBox="0 0 13 13" fill="none"><rect x='2' y='2' width='3.5' height='3.5' rx='0.5' fill='#2B7FD4'/><rect x='7.5' y='2' width='3.5' height='3.5' rx='0.5' fill='#2B7FD4' opacity='.4'/><rect x='2' y='7.5' width='3.5' height='3.5' rx='0.5' fill='#2B7FD4' opacity='.4'/><rect x='7.5' y='7.5' width='3.5' height='3.5' rx='0.5' fill='#2B7FD4'/></svg></div><div class="tool-name">Random Wordle Generator</div><div class="tool-desc">Random 5-letter words for Wordle. Filter by difficulty and letter.</div></a>
+      <a class="tool-item" href="/wordle-helper/"><div class="tool-icon" style="background:#E1F5EE"><svg viewBox="0 0 13 13" fill="none"><rect x='2' y='2' width='3.5' height='3.5' rx='0.5' fill='#1D9E75'/><rect x='7.5' y='2' width='3.5' height='3.5' rx='0.5' fill='#BA7517'/><rect x='2' y='7.5' width='3.5' height='3.5' rx='0.5' fill='none' stroke='#9a9a94' stroke-width='1'/><rect x='7.5' y='7.5' width='3.5' height='3.5' rx='0.5' fill='#1D9E75'/></svg></div><div class="tool-name">Wordle Helper</div><div class="tool-desc">Entropy-ranked solver — enter your clues and get the single best next guess, not just a filtered list.</div></a>
+      <a class="tool-item" href="/best-wordle-starting-words/"><div class="tool-icon" style="background:#E6F1FB"><svg viewBox="0 0 13 13" fill="none"><rect x='2' y='9' width='1.5' height='3' rx='0.3' fill='#185FA5'/><rect x='4.5' y='6.5' width='1.5' height='5.5' rx='0.3' fill='#185FA5'/><rect x='7' y='4' width='1.5' height='8' rx='0.3' fill='#185FA5'/><rect x='9.5' y='2' width='1.5' height='10' rx='0.3' fill='#185FA5'/></svg></div><div class="tool-name">Best Wordle Starting Words</div><div class="tool-desc">Top 100 openers ranked by Shannon entropy — original analysis, 10,000-game benchmark, downloadable data.</div></a>
+      <a class="tool-item" href="/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="#534AB7" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="tool-name">Random word</div><div class="tool-desc">Filter by type, difficulty, length</div></a>
+      <a class="tool-item" href="/random-noun-generator/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h9M2 7h6M2 10h8" stroke="#534AB7" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="tool-name">Random Noun Generator</div><div class="tool-desc">Generate random nouns — filter by type (abstract, concrete, proper, collective) and difficulty.</div></a>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div>
+    <h2 class="section-title">Other tools</h2>
+    <p class="section-sub">Numbers, names, games and more</p>
+    <div class="other-grid">
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3h9M2 6.5h7M2 10h5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Writing &amp; Vocabulary</div><a class="other-link" href="/">Random Word Generator</a><a class="other-link" href="/random-sentence-generator/">Random Sentence Generator</a><a class="other-link" href="/random-paragraph-generator/">Random Paragraph Generator</a><a class="other-link" href="/word-counter/">Word Counter</a><a class="other-link other-link--view-all" href="/word-tools/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h3.5M2 7h9M2 10h6" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Browse by Letter</div><a class="other-link" href="/random-words-starting-with/">Random Words Starting With (A–Z)</a><a class="other-link" href="/random-words-starting-with/a">Random Words Starting with A</a><a class="other-link" href="/random-words-starting-with/s">Random Words Starting with S</a><a class="other-link" href="/random-words-starting-with/q">Random Words Starting with Q</a><a class="other-link other-link--view-all" href="/random-words-starting-with/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4.5" r="2.5" stroke="currentColor" stroke-width="1"/><path d="M1.5 11.5c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Names by Origin</div><a class="other-link" href="/random-spanish-name-generator/">Spanish Name Generator</a><a class="other-link" href="/random-italian-name-generator/">Italian Name Generator</a><a class="other-link" href="/random-japanese-name-generator/">Japanese Name Generator</a><a class="other-link" href="/random-american-name-generator/">American Name Generator</a><a class="other-link other-link--view-all" href="/name-generators/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="1.5" width="9" height="10" rx="1" stroke="currentColor" stroke-width="1"/><path d="M4 4.5h5M4 6.5h5M4 8.5h3" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Other Name Generators</div><a class="other-link" href="/character-name-generator/">Character Name Generator</a><a class="other-link" href="/fantasy-name-generator/">Fantasy Name Generator</a><a class="other-link" href="/business-name-generator/">Business Name Generator</a><a class="other-link" href="/band-name-generator/">Band Name Generator</a><a class="other-link other-link--view-all" href="/other-generators/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="3.5" y="5.5" width="6" height="5" rx="1" stroke="currentColor" stroke-width="1"/><path d="M5 5.5V4a1.5 1.5 0 013 0v1.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Account &amp; Security</div><a class="other-link" href="/username-generator/">Username Generator</a><a class="other-link" href="/password-generator/">Password Generator</a><a class="other-link" href="/passphrase-generator/">Passphrase Generator</a><a class="other-link" href="/instagram-username-generator/">Instagram Username Generator</a><a class="other-link other-link--view-all" href="/account-tools/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="1" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="1" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/></svg>Games &amp; fun</div><a class="other-link" href="/pictionary-phrase-generator/">Pictionary Phrase Generator</a><a class="other-link" href="/wordle-helper/">Wordle Helper</a><a class="other-link" href="/coin-flip/">Coin Flip</a><a class="other-link" href="/dice-roller/">Dice Roller</a><a class="other-link other-link--view-all" href="/number-chance/">View all →</a></div>
+    </div>
+  </div>
+
+  <div class="ad-rect">
+    <span class="ad-tag">Advertisement · 336×280</span>
+    <div class="ad-rect-img"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4C10.3 4 4 10.3 4 18s6.3 14 14 14 14-6.3 14-14S25.7 4 18 4z" fill="white" opacity=".2"/><path d="M12 18c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="18" r="2.5" fill="white"/></svg></div>
+    <div class="ad-rect-content">
+      <div class="ad-rect-title">Grammarly — write with confidence</div>
+      <div class="ad-rect-body">Instantly improve grammar, spelling, clarity, and tone. Works everywhere you write online.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
+    </div>
+  </div>
+  <div class="divider"></div>
+
+<div class="explainer">
+  <h2>How to run a trivia night</h2>
+  <p>Good trivia nights run on pacing. Keep rounds to 10 questions, mix difficulties within each round, and give teams 10–15 seconds per question before moving on. Reading questions aloud while teams write answers — rather than shouting them out — prevents faster groups from dominating.</p>
+  <p>Use <strong>Host Mode</strong> for larger rooms — it displays questions in large text you can mirror to a TV or projector, and keyboard shortcuts (Space to reveal, → to advance) let you run the whole session hands-free.</p>
+  <h2>Sample trivia questions</h2>
+  <div class="tv-sample-qa" id="tv-static-samples">
+    <dl>
+      <div><dt>What is the only letter that does not appear in any U.S. state name?</dt><dd>Q</dd></div>
+      <div><dt>Which planet has the most moons in our solar system?</dt><dd>Saturn</dd></div>
+      <div><dt>What word means both a window covering and something that makes you unable to see?</dt><dd>Blind</dd></div>
+      <div><dt>In what year did the Berlin Wall fall?</dt><dd>1989</dd></div>
+      <div><dt>What is the world's largest ocean?</dt><dd>The Pacific Ocean</dd></div>
+      <div><dt>Which fruit has its seeds on the outside?</dt><dd>Strawberry</dd></div>
+      <div><dt>What does the word "serendipity" mean?</dt><dd>A happy accident or discovery</dd></div>
+      <div><dt>How many sides does a heptagon have?</dt><dd>Seven</dd></div>
+      <div><dt>What sport is played at Wimbledon?</dt><dd>Tennis</dd></div>
+      <div><dt>What country invented pizza?</dt><dd>Italy</dd></div>
+    </dl>
+  </div>
+</div>
+  <div class="divider"></div>
+
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">What modes does the trivia generator have?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Three modes: Flashcard (question then tap to reveal the answer), Quiz (4-choice multiple choice with a running score and 10-question rounds), and Host Mode (large text with keyboard navigation for trivia nights on a big screen).</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">How does quiz mode scoring work?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Quiz mode runs in 10-question rounds. Each correct answer scores one point. After 10 questions you see your total score and can start a new round with a fresh set of questions.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I filter by category?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes — choose from History, Geography, Science, Entertainment, Sports, Food, Words & Language, or General. You can also filter by difficulty (Easy, Medium, Hard).</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What is host mode?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Host mode switches to large text for projector or TV display. Use Space to reveal the answer and the right arrow key to advance — ideal for running trivia nights without touching the mouse.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Will questions repeat?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Questions won't repeat within a session. Once the entire filtered pool has been shown, it resets automatically.</div>
+  </div>
+</div>
+  <div class="divider"></div>
+
+<div class="section">
+  <h2 class="section-title" style="margin-bottom:14px">Who uses the trivia generator</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">Trivia night hosts</div><div class="uc-body">Run a full evening in Host Mode — large text on the screen, keyboard-only control, no printed sheets needed</div></div>
+    <div class="uc"><div class="uc-title">Teachers</div><div class="uc-body">Use Quiz Mode for low-stakes in-class review — students compete individually while you read questions aloud</div></div>
+    <div class="uc"><div class="uc-title">Students</div><div class="uc-body">Flashcard mode turns trivia into a self-study tool — see the question, guess the answer, then reveal</div></div>
+    <div class="uc"><div class="uc-title">Party hosts</div><div class="uc-body">Filter to a single category for themed parties — food trivia at a dinner party, sports trivia at a watch event</div></div>
+  </div>
+  <p style="margin-top:14px">Also try: <a href="/word-of-the-day/">Word of the Day</a> for vocabulary building, or <a href="/random-word-generator/">Random Word Generator</a> to expand your vocabulary.</p>
+</div>
+
+
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="ad-footer-strip" style="margin-bottom:24px">
+      <span class="ad-tag">Advertisement · 468×60</span>
+      <div class="ad-fs-text"><strong>Grammarly Premium</strong> — Vocabulary suggestions, tone detector, full-sentence rewrites.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-footer-strip-cta">Try free</a>
+    </div>
+    <div class="footer-grid">
+      <div><div class="footer-col-title">Writing &amp; Vocabulary</div><a class="footer-link" href="/">Random Word Generator</a><a class="footer-link" href="/random-sentence-generator/">Random Sentence Generator</a><a class="footer-link" href="/lorem-ipsum-generator/">Lorem Ipsum Generator</a><a class="footer-link" href="/word-counter/">Word Counter</a><a class="footer-link footer-link--view-all" href="/word-tools/">View all →</a></div>
+      <div><div class="footer-col-title">Browse by Letter</div><a class="footer-link" href="/random-words-starting-with/">Random Words Starting With (A–Z)</a><a class="footer-link" href="/random-words-starting-with/a">Random Words Starting with A</a><a class="footer-link" href="/random-words-starting-with/s">Random Words Starting with S</a><a class="footer-link" href="/random-words-starting-with/q">Random Words Starting with Q</a><a class="footer-link footer-link--view-all" href="/random-words-starting-with/">View all →</a></div>
+      <div><div class="footer-col-title">Names by Origin</div><a class="footer-link" href="/random-spanish-name-generator/">Spanish Name Generator</a><a class="footer-link" href="/random-italian-name-generator/">Italian Name Generator</a><a class="footer-link" href="/random-japanese-name-generator/">Japanese Name Generator</a><a class="footer-link" href="/random-american-name-generator/">American Name Generator</a><a class="footer-link footer-link--view-all" href="/name-generators/">View all →</a></div>
+      <div><div class="footer-col-title">Other Name Generators</div><a class="footer-link" href="/character-name-generator/">Character Name Generator</a><a class="footer-link" href="/fantasy-name-generator/">Fantasy Name Generator</a><a class="footer-link" href="/business-name-generator/">Business Name Generator</a><a class="footer-link" href="/band-name-generator/">Band Name Generator</a><a class="footer-link footer-link--view-all" href="/other-generators/">View all →</a></div>
+      <div><div class="footer-col-title">Account &amp; Security</div><a class="footer-link" href="/password-generator/">Password Generator</a><a class="footer-link" href="/passphrase-generator/">Passphrase Generator</a><a class="footer-link" href="/memorable-password-generator/">Memorable Password Generator</a><a class="footer-link" href="/username-generator/">Username Generator</a><a class="footer-link footer-link--view-all" href="/account-tools/">View all →</a></div>
+      <div><div class="footer-col-title">Games &amp; fun</div><a class="footer-link" href="/coin-flip/">Flip a Coin</a><a class="footer-link" href="/random-number-generator/">Number Generator</a><a class="footer-link" href="/dice-roller/">Dice Roller</a><a class="footer-link" href="/wheel-of-names/">Wheel of Names</a><a class="footer-link footer-link--view-all" href="/number-chance/">View all →</a></div>
+      <div><div class="footer-col-title">Learn & Resources</div><a class="footer-link" href="/spelling-bee-words/">Spelling Bee Words</a><a class="footer-link" href="/common-5-letter-words/">Common 5-Letter Words</a><a class="footer-link" href="/etymology-100-common-words/">Etymology Guide</a><a class="footer-link" href="/esl-vocabulary-cefr/">ESL Vocabulary (CEFR)</a></div>
+    </div>
+    <div class="footer-bottom">
+      <div style="display:flex;align-items:center;gap:7px">
+        <div class="nav-logo-icon" style="width:22px;height:22px;border-radius:5px"><svg viewBox="0 0 15 15" fill="none" style="width:12px;height:12px"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <span style="font-size:14px;font-weight:600;color:var(--text)">Wordineer</span>
+      </div>
+      <span class="footer-copy">© 2026 Wordineer · Free word tools for everyone</span>
+      <div class="footer-meta"><a href="/about/">About</a><a href="/blog/">Blog</a><a href="/affiliate-disclosure/">Affiliate disclosure</a><a href="/privacy/">Privacy</a></div>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="/scripts/tool-engine.js?v=27"></script>
+<script>
+(function bindSharedWordineerMenu() {
+  const mega = document.getElementById('mega');
+  const hbg = document.querySelector('.hamburger');
+  if (!mega || !hbg) return;
+  if (hbg.dataset.menuBound === '1') return;
+  hbg.dataset.menuBound = '1';
+  hbg.onclick = null;
+  if (hbg.getAttribute('onclick')) hbg.removeAttribute('onclick');
+
+  function setMenu(open) {
+    mega.classList.toggle('open', open);
+    hbg.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+
+  setMenu(mega.classList.contains('open'));
+
+  hbg.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+    setMenu(!mega.classList.contains('open'));
+  }, true);
+
+  hbg.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+      setMenu(!mega.classList.contains('open'));
+    }
+  }, true);
+
+  document.addEventListener('click', function(e) {
+    if (mega.classList.contains('open') && !mega.contains(e.target) && !hbg.contains(e.target)) {
+      setMenu(false);
+    }
+  }, true);
+})();
+</script>
+
+<script>
+(function(){
+'use strict';
+var SEED=[
+  {id:1,q:"What is the only letter not in any U.S. state name?",a:"Q",options:["Q","Z","X","J"],category:"words",difficulty:"medium"},
+  {id:2,q:"Which planet has the most moons?",a:"Saturn",options:["Saturn","Jupiter","Uranus","Neptune"],category:"science",difficulty:"easy"},
+  {id:3,q:"In what year did World War II end?",a:"1945",options:["1945","1943","1944","1946"],category:"history",difficulty:"easy"},
+  {id:4,q:"What is the world's largest ocean?",a:"Pacific",options:["Pacific","Atlantic","Indian","Arctic"],category:"geography",difficulty:"easy"},
+  {id:5,q:"What sport is played at Wimbledon?",a:"Tennis",options:["Tennis","Squash","Badminton","Cricket"],category:"sports",difficulty:"easy"},
+  {id:6,q:"Which fruit has seeds on the outside?",a:"Strawberry",options:["Strawberry","Raspberry","Blackberry","Blueberry"],category:"food",difficulty:"easy"},
+  {id:7,q:"What does 'serendipity' mean?",a:"A happy accident or discovery",options:["A happy accident or discovery","A state of deep sadness","An act of bravery","A form of meditation"],category:"words",difficulty:"medium"},
+  {id:8,q:"How many sides does a heptagon have?",a:"Seven",options:["Seven","Six","Eight","Five"],category:"science",difficulty:"easy"},
+  {id:9,q:"What language has the most native speakers worldwide?",a:"Mandarin Chinese",options:["Mandarin Chinese","Spanish","English","Hindi"],category:"general",difficulty:"medium"},
+  {id:10,q:"Who painted the Mona Lisa?",a:"Leonardo da Vinci",options:["Leonardo da Vinci","Michelangelo","Raphael","Caravaggio"],category:"history",difficulty:"easy"},
+  {id:11,q:"What is the capital of Australia?",a:"Canberra",options:["Canberra","Sydney","Melbourne","Brisbane"],category:"geography",difficulty:"medium"},
+  {id:12,q:"What is the chemical symbol for gold?",a:"Au",options:["Au","Ag","Fe","Cu"],category:"science",difficulty:"medium"},
+  {id:13,q:"Which country is credited with inventing pizza?",a:"Italy",options:["Italy","Greece","France","Spain"],category:"food",difficulty:"easy"},
+  {id:14,q:"What does 'seize the day' translate from in Latin?",a:"Carpe diem",options:["Carpe diem","Veni vidi vici","Ad astra","In situ"],category:"words",difficulty:"easy"},
+  {id:15,q:"How many players are on a soccer team on the field?",a:"11",options:["11","9","10","12"],category:"sports",difficulty:"easy"}
+];
+var fullData=null,pool=[],seen=new Set(),current=null,saved=[],mode='flashcard',revealed=false;
+var quiz={score:0,count:0,answered:false};
+var filters={cat:'all',diff:'all'};
+try{saved=JSON.parse(sessionStorage.getItem('tv_saved')||'[]');}catch(e){}
+
+function shuffle(arr){var a=arr.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+function buildPool(){
+  var src=fullData||SEED;
+  pool=src.filter(function(q){return(filters.cat==='all'||q.category===filters.cat)&&(filters.diff==='all'||q.difficulty===filters.diff);});
+  seen=new Set();updatePool();
+}
+function updatePool(){var el=document.getElementById('tv-pool');if(el)el.textContent=(pool.length-seen.size)+' questions remaining';}
+
+function next(){
+  var avail=pool.filter(function(q){return!seen.has(q.id);});
+  if(!avail.length){seen=new Set();avail=pool.slice();}
+  if(!avail.length)return;
+  current=avail[Math.floor(Math.random()*avail.length)];
+  seen.add(current.id);
+  revealed=false;
+  quiz.answered=false;
+  if(mode==='quiz')quiz.count++;
+  render();updatePool();
+}
+
+function showRoundEnd(){
+  var display=document.getElementById('tv-display');
+  display.innerHTML='<div class="tv-round-end"><h3>'+quiz.score+'/10</h3><p>'+(quiz.score>=8?'Excellent!':quiz.score>=5?'Good job!':'Keep practicing!')+' <a href="#" id="tv-new-round" style="color:var(--brand)">Play again</a></p></div>';
+  document.getElementById('tv-new-round').addEventListener('click',function(e){e.preventDefault();quiz.score=0;quiz.count=0;resetDisplay();next();});
+}
+
+function resetDisplay(){
+  var d=document.getElementById('tv-display');
+  d.innerHTML='<div class="tv-question" id="tv-question"></div><div class="tv-answer" id="tv-answer"></div><div class="tv-options" id="tv-options" style="display:none"></div><button class="tv-reveal-btn" id="tv-reveal-btn" style="display:none">Reveal answer</button><div class="tv-quiz-score" id="tv-quiz-score" style="display:none"></div><div class="tv-host-hint" id="tv-host-hint" style="display:none">Space = reveal · → = next</div>';
+  document.getElementById('tv-reveal-btn').addEventListener('click',revealAnswer);
+}
+
+function render(){
+  if(!current)return;
+  var qEl=document.getElementById('tv-question');
+  var aEl=document.getElementById('tv-answer');
+  var optsEl=document.getElementById('tv-options');
+  var revBtn=document.getElementById('tv-reveal-btn');
+  var scoreEl=document.getElementById('tv-quiz-score');
+  var hostHint=document.getElementById('tv-host-hint');
+  if(!qEl)return;
+  qEl.textContent=current.q;
+  aEl.textContent=current.a;
+  aEl.classList.remove('visible');
+  document.getElementById('tv-card').classList.toggle('tv-host-wrap',mode==='host');
+  if(mode==='flashcard'){
+    optsEl.style.display='none';revBtn.style.display='inline-block';
+    if(scoreEl)scoreEl.style.display='none';if(hostHint)hostHint.style.display='none';
+    revBtn.textContent='Reveal answer';
+  } else if(mode==='quiz'){
+    optsEl.style.display='grid';revBtn.style.display='none';
+    if(scoreEl){scoreEl.style.display='block';scoreEl.textContent='Score: '+quiz.score+' / '+quiz.count;}
+    if(hostHint)hostHint.style.display='none';
+    renderOptions();
+  } else {
+    optsEl.style.display='none';revBtn.style.display='inline-block';revBtn.textContent='Reveal answer (Space)';
+    if(scoreEl)scoreEl.style.display='none';if(hostHint)hostHint.style.display='block';
+  }
+  var heartBtn=document.getElementById('tv-heart-btn');
+  if(heartBtn){heartBtn.classList.toggle('saved',saved.indexOf(current.id)>-1);heartBtn.textContent=saved.indexOf(current.id)>-1?'♥ Saved':'♥ Save';}
+}
+
+function renderOptions(){
+  var optsEl=document.getElementById('tv-options');
+  if(!optsEl||!current||!current.options)return;
+  var shuffled=shuffle(current.options);
+  optsEl.innerHTML=shuffled.map(function(opt,i){
+    return'<button class="tv-opt" data-opt="'+opt.replace(/"/g,'&quot;')+'"><span class="tv-opt-key">'+(i+1)+'</span>'+opt+'</button>';
+  }).join('');
+  optsEl.querySelectorAll('.tv-opt').forEach(function(btn){
+    btn.addEventListener('click',function(){selectOption(btn.dataset.opt);});
+  });
+}
+
+function selectOption(val){
+  if(quiz.answered)return;
+  quiz.answered=true;
+  var correct=val===current.a;
+  if(correct)quiz.score++;
+  document.querySelectorAll('.tv-opt').forEach(function(btn){
+    btn.disabled=true;
+    if(btn.dataset.opt===current.a)btn.classList.add('correct');
+    else if(btn.dataset.opt===val&&!correct)btn.classList.add('wrong');
+  });
+  var scoreEl=document.getElementById('tv-quiz-score');
+  if(scoreEl)scoreEl.textContent='Score: '+quiz.score+' / '+quiz.count;
+  if(quiz.count>=10)setTimeout(showRoundEnd,1200);
+}
+
+function revealAnswer(){
+  revealed=true;
+  var aEl=document.getElementById('tv-answer');
+  if(aEl)aEl.classList.add('visible');
+  var revBtn=document.getElementById('tv-reveal-btn');
+  if(revBtn)revBtn.style.display='none';
+}
+
+document.getElementById('tv-next-btn').addEventListener('click',next);
+document.getElementById('tv-reveal-btn').addEventListener('click',revealAnswer);
+document.getElementById('tv-copy-btn').addEventListener('click',function(){
+  if(!current)return;
+  navigator.clipboard&&navigator.clipboard.writeText('Q: '+current.q+'\nA: '+current.a);
+});
+document.getElementById('tv-heart-btn').addEventListener('click',function(){
+  if(!current)return;
+  var idx=saved.indexOf(current.id);
+  if(idx>-1)saved.splice(idx,1);else saved.push(current.id);
+  try{sessionStorage.setItem('tv_saved',JSON.stringify(saved));}catch(e){}
+  render();
+});
+document.querySelectorAll('.tv-mode-tab').forEach(function(tab){
+  tab.addEventListener('click',function(){
+    document.querySelectorAll('.tv-mode-tab').forEach(function(t){t.classList.remove('active');});
+    tab.classList.add('active');mode=tab.dataset.mode;
+    if(mode==='quiz'){quiz.score=0;quiz.count=0;}
+    render();
+  });
+});
+document.getElementById('tv-cats').addEventListener('click',function(e){
+  var chip=e.target.closest('.tv-chip');if(!chip)return;
+  document.querySelectorAll('.tv-chip').forEach(function(c){c.classList.remove('active');});
+  chip.classList.add('active');filters.cat=chip.dataset.cat;buildPool();
+});
+document.getElementById('tv-diff').addEventListener('change',function(e){filters.diff=e.target.value;buildPool();});
+document.addEventListener('keydown',function(e){
+  if(e.target.tagName==='INPUT'||e.target.tagName==='SELECT'||e.target.tagName==='TEXTAREA')return;
+  if(e.key===' '||e.key==='Spacebar'){e.preventDefault();if(!revealed)revealAnswer();return;}
+  if(e.key==='ArrowRight'){e.preventDefault();next();return;}
+  if(mode==='quiz'&&!quiz.answered){
+    var k={'1':0,'2':1,'3':2,'4':3}[e.key];
+    if(k!==undefined){var opts=document.querySelectorAll('.tv-opt');if(opts[k])selectOption(opts[k].dataset.opt);}
+  }
+});
+buildPool();
+fetch('/data/trivia.json').then(function(r){return r.ok?r.json():null;}).then(function(d){if(d){fullData=d;buildPool();}}).catch(function(){});
+})();
+</script>
+</body>
+</html>

@@ -61,8 +61,37 @@ https://www.wordineer.com/*    https://wordineer.com/:splat         301
 /words-that-start-with/y/    /random-words-starting-with/y    301
 /words-that-start-with/z/    /random-words-starting-with/z    301
 /other-generators.html    /other-generators/    301
+/coin-flip.html    /coin-flip/    301
+/flip-a-coin-10-times    /flip-a-coin-10-times/    301
+/flip-a-coin-100-times    /flip-a-coin-100-times/    301
+/flip-a-coin-5-times    /flip-a-coin-5-times/    301
+/flip-a-coin-1000-times    /flip-a-coin-1000-times/    301
+/flip-2-coins    /flip-2-coins/    301
+/flip-3-coins    /flip-3-coins/    301
+/random-number-1-200    /random-number-1-200/    301
 
 # Pretty URL fallbacks
+/coin-flip/    /coin-flip.html    200
+/flip-a-coin-10-times/    /flip-a-coin-10-times.html    200
+/flip-a-coin-100-times/    /flip-a-coin-100-times.html    200
+/flip-a-coin-5-times/    /flip-a-coin-5-times.html    200
+/flip-a-coin-1000-times/    /flip-a-coin-1000-times.html    200
+/flip-2-coins/    /flip-2-coins.html    200
+/flip-3-coins/    /flip-3-coins.html    200
+/random-number-1-200/    /random-number-1-200.html    200
+/random-number-1-100/    /random-number-1-100.html    200
+/random-number-1-20/    /random-number-1-20.html    200
+/random-number-1-50/    /random-number-1-50.html    200
+/random-number-1-6/    /random-number-1-6.html    200
+/random-number-1-1000/    /random-number-1-1000.html    200
+/pick-a-number-1-20/    /pick-a-number-1-20.html    200
+/random-number-1-4/    /random-number-1-4.html    200
+/random-number-1-8/    /random-number-1-8.html    200
+/random-number-1-3/    /random-number-1-3.html    200
+/random-number-1-25/    /random-number-1-25.html    200
+/random-number-1-30/    /random-number-1-30.html    200
+/random-number-1-10    /random-number-1-10/    301
+/random-number-1-10/    /random-number-1-10.html    200
 /charades-generator/    /charades-generator.html    200
 /pictionary-word-generator/    /pictionary-word-generator.html    200
 /random-american-name-generator/    /random-american-name-generator.html    200
@@ -135,6 +164,14 @@ https://www.wordineer.com/*    https://wordineer.com/:splat         301
 /random-weird-words/    /random-weird-words.html    200
 /random-wordle-generator.html    /random-wordle-generator/    301
 /random-wordle-generator/    /random-wordle-generator.html    200
+/wordle-helper    /wordle-helper/    301
+/wordle-helper.html    /wordle-helper/    301
+/wordle-helper/    /wordle-helper.html    200
+/wordle-answers    /wordle-answers/    301
+/wordle-answers.html    /wordle-answers/    301
+/wordle-answers/    /wordle-answers.html    200
+/best-wordle-starting-words.html    /best-wordle-starting-words/    301
+/best-wordle-starting-words/    /best-wordle-starting-words.html    200
 /wordle-game/    /wordle-game.html    200
 /other-generators/    /other-generators.html    200
 /5-letter-words-starting-with-b.html    /5-letter-words-starting-with-b/    301
@@ -270,17 +307,6 @@ https://www.wordineer.com/*    https://wordineer.com/:splat         301
 /random-6-letter-word-generator.html    /random-6-letter-word-generator/    301
 /random-7-letter-word-generator.html    /random-7-letter-word-generator/    301
 /random-8-letter-word-generator.html    /random-8-letter-word-generator/    301
-/8-letter-words-starting-with-a.html    /8-letter-words-starting-with-a/    301
-/8-letter-words-starting-with-b.html    /8-letter-words-starting-with-b/    301
-/8-letter-words-starting-with-c.html    /8-letter-words-starting-with-c/    301
-/8-letter-words-starting-with-d.html    /8-letter-words-starting-with-d/    301
-/8-letter-words-starting-with-e.html    /8-letter-words-starting-with-e/    301
-/8-letter-words-starting-with-f.html    /8-letter-words-starting-with-f/    301
-/8-letter-words-starting-with-h.html    /8-letter-words-starting-with-h/    301
-/8-letter-words-starting-with-g.html    /8-letter-words-starting-with-g/    301
-/8-letter-words-starting-with-i.html    /8-letter-words-starting-with-i/    301
-/8-letter-words-starting-with-j.html    /8-letter-words-starting-with-j/    301
-/8-letter-words-starting-with-k.html    /8-letter-words-starting-with-k/    301
 /random-adjective-generator.html    /random-adjective-generator/    301
 /random-adverb-generator.html    /random-adverb-generator/    301
 /random-noun-generator.html    /random-noun-generator/    301
@@ -303,6 +329,9 @@ https://www.wordineer.com/*    https://wordineer.com/:splat         301
 /spelling-bee-words-kindergarten.html    /spelling-bee-words-kindergarten/    301
 /spelling-bee-words-kindergarten/    /spelling-bee-words-kindergarten.html    200
 /spelling-bee-words-kindergarten    /spelling-bee-words-kindergarten/    301
+/spelling-bee-words-1st-grade.html    /spelling-bee-words-1st-grade/    301
+/spelling-bee-words-1st-grade/    /spelling-bee-words-1st-grade.html    200
+/spelling-bee-words-1st-grade    /spelling-bee-words-1st-grade/    301
 
 # 3-letter-words-starting-with — missing letters
 /3-letter-words-starting-with-a.html    /3-letter-words-starting-with-a/    301
@@ -335,17 +364,6 @@ https://www.wordineer.com/*    https://wordineer.com/:splat         301
 # 5-letter-words-starting-with — missing letters
 /5-letter-words-starting-with-a.html    /5-letter-words-starting-with-a/    301
 /5-letter-words-starting-with-a/    /5-letter-words-starting-with-a.html    200
-/8-letter-words-starting-with-a/    /8-letter-words-starting-with-a.html    200
-/8-letter-words-starting-with-b/    /8-letter-words-starting-with-b.html    200
-/8-letter-words-starting-with-c/    /8-letter-words-starting-with-c.html    200
-/8-letter-words-starting-with-d/    /8-letter-words-starting-with-d.html    200
-/8-letter-words-starting-with-e/    /8-letter-words-starting-with-e.html    200
-/8-letter-words-starting-with-f/    /8-letter-words-starting-with-f.html    200
-/8-letter-words-starting-with-h/    /8-letter-words-starting-with-h.html    200
-/8-letter-words-starting-with-g/    /8-letter-words-starting-with-g.html    200
-/8-letter-words-starting-with-i/    /8-letter-words-starting-with-i.html    200
-/8-letter-words-starting-with-j/    /8-letter-words-starting-with-j.html    200
-/8-letter-words-starting-with-k/    /8-letter-words-starting-with-k.html    200
 /7-letter-words-starting-with-a.html    /7-letter-words-starting-with-a/    301
 /7-letter-words-starting-with-a/    /7-letter-words-starting-with-a.html    200
 /7-letter-words-starting-with-b.html    /7-letter-words-starting-with-b/    301
@@ -392,12 +410,8 @@ https://www.wordineer.com/*    https://wordineer.com/:splat         301
 /7-letter-words-starting-with-v/    /7-letter-words-starting-with-v.html    200
 /7-letter-words-starting-with-w.html    /7-letter-words-starting-with-w/    301
 /7-letter-words-starting-with-w/    /7-letter-words-starting-with-w.html    200
-/7-letter-words-starting-with-x.html    /7-letter-words-starting-with-x/    301
-/7-letter-words-starting-with-x/    /7-letter-words-starting-with-x.html    200
 /7-letter-words-starting-with-y.html    /7-letter-words-starting-with-y/    301
 /7-letter-words-starting-with-y/    /7-letter-words-starting-with-y.html    200
-/7-letter-words-starting-with-z.html    /7-letter-words-starting-with-z/    301
-/7-letter-words-starting-with-z/    /7-letter-words-starting-with-z.html    200
 /6-letter-words-starting-with-a.html    /6-letter-words-starting-with-a/    301
 /6-letter-words-starting-with-a/    /6-letter-words-starting-with-a.html    200
 /6-letter-words-starting-with-b.html    /6-letter-words-starting-with-b/    301
@@ -482,3 +496,99 @@ https://www.wordineer.com/*    https://wordineer.com/:splat         301
 /5-letter-words-starting-with-y/    /5-letter-words-starting-with-y.html    200
 /5-letter-words-starting-with-z.html    /5-letter-words-starting-with-z/    301
 /5-letter-words-starting-with-z/    /5-letter-words-starting-with-z.html    200
+
+# SAT vocabulary cluster
+/sat-vocabulary-words.html    /sat-vocabulary-words/    301
+/sat-vocabulary-words/    /sat-vocabulary-words.html    200
+/sat-words-list.html    /sat-words-list/    301
+/sat-words-list/    /sat-words-list.html    200
+/hardest-sat-words.html    /hardest-sat-words/    301
+/hardest-sat-words/    /hardest-sat-words.html    200
+
+# Sight words — Dolch and Fry
+/dolch-sight-words.html    /dolch-sight-words/    301
+/dolch-sight-words/    /dolch-sight-words.html    200
+/fry-sight-words.html    /fry-sight-words/    301
+/fry-sight-words/    /fry-sight-words.html    200
+
+# Word Counter
+/word-counter.html    /word-counter/    301
+/word-counter/    /word-counter.html    200
+
+# Wheel of Names
+/wheel-of-names    /wheel-of-names/    301
+/wheel-of-names/    /wheel-of-names.html    200
+
+# Wave 3 tools
+/magic-8-ball    /magic-8-ball/    301
+/magic-8-ball/    /magic-8-ball.html    200
+/lottery-number-generator    /lottery-number-generator/    301
+/lottery-number-generator/    /lottery-number-generator.html    200
+/powerball-number-generator    /powerball-number-generator/    301
+/powerball-number-generator/    /powerball-number-generator.html    200
+/raffle-number-generator    /raffle-number-generator/    301
+/raffle-number-generator/    /raffle-number-generator.html    200
+/random-even-number-generator    /random-even-number-generator/    301
+/random-even-number-generator/    /random-even-number-generator.html    200
+/random-odd-number-generator    /random-odd-number-generator/    301
+/random-odd-number-generator/    /random-odd-number-generator.html    200
+/rock-paper-scissors    /rock-paper-scissors/    301
+/rock-paper-scissors/    /rock-paper-scissors.html    200
+/weighted-random-number-generator    /weighted-random-number-generator/    301
+/weighted-random-number-generator/    /weighted-random-number-generator.html    200
+/random-number-wheel-1-10    /random-number-wheel-1-10/    301
+/random-number-wheel-1-10/    /random-number-wheel-1-10.html    200
+/random-number-wheel-1-50    /random-number-wheel-1-50/    301
+/random-number-wheel-1-50/    /random-number-wheel-1-50.html    200
+/username-generator.html    /username-generator/    301
+/username-generator/    /username-generator.html    200
+/cool-username-generator.html    /cool-username-generator/    301
+/cool-username-generator/    /cool-username-generator.html    200
+/aesthetic-username-generator.html    /aesthetic-username-generator/    301
+/aesthetic-username-generator/    /aesthetic-username-generator.html    200
+/funny-username-generator.html    /funny-username-generator/    301
+/funny-username-generator/    /funny-username-generator.html    200
+/instagram-username-generator.html    /instagram-username-generator/    301
+/instagram-username-generator/    /instagram-username-generator.html    200
+/discord-username-generator.html    /discord-username-generator/    301
+/discord-username-generator/    /discord-username-generator.html    200
+/tiktok-username-generator.html    /tiktok-username-generator/    301
+/tiktok-username-generator/    /tiktok-username-generator.html    200
+/cute-username-generator.html    /cute-username-generator/    301
+/cute-username-generator/    /cute-username-generator.html    200
+/roblox-username-generator.html    /roblox-username-generator/    301
+/roblox-username-generator/    /roblox-username-generator.html    200
+/youtube-username-generator.html    /youtube-username-generator/    301
+/youtube-username-generator/    /youtube-username-generator.html    200
+/reddit-username-generator.html    /reddit-username-generator/    301
+/reddit-username-generator/    /reddit-username-generator.html    200
+/xbox-username-generator.html    /xbox-username-generator/    301
+/xbox-username-generator/    /xbox-username-generator.html    200
+/gmail-username-generator.html    /gmail-username-generator/    301
+/gmail-username-generator/    /gmail-username-generator.html    200
+/fortnite-username-generator.html    /fortnite-username-generator/    301
+/fortnite-username-generator/    /fortnite-username-generator.html    200
+/valorant-username-generator.html    /valorant-username-generator/    301
+/valorant-username-generator/    /valorant-username-generator.html    200
+/anime-username-generator.html    /anime-username-generator/    301
+/anime-username-generator/    /anime-username-generator.html    200
+/fantasy-username-generator.html    /fantasy-username-generator/    301
+/fantasy-username-generator/    /fantasy-username-generator.html    200
+/kawaii-username-generator.html    /kawaii-username-generator/    301
+/kawaii-username-generator/    /kawaii-username-generator.html    200
+/edgy-username-generator.html    /edgy-username-generator/    301
+/edgy-username-generator/    /edgy-username-generator.html    200
+/girl-username-generator.html    /girl-username-generator/    301
+/girl-username-generator/    /girl-username-generator.html    200
+/boy-username-generator.html    /boy-username-generator/    301
+/boy-username-generator/    /boy-username-generator.html    200
+/female-username-generator.html    /female-username-generator/    301
+/female-username-generator/    /female-username-generator.html    200
+/8-character-password-generator.html    /8-character-password-generator/    301
+/8-character-password-generator/    /8-character-password-generator.html    200
+/10-character-password-generator.html    /10-character-password-generator/    301
+/10-character-password-generator/    /10-character-password-generator.html    200
+/12-character-password-generator.html    /12-character-password-generator/    301
+/12-character-password-generator/    /12-character-password-generator.html    200
+/diceware-passphrase-generator.html    /diceware-passphrase-generator/    301
+/diceware-passphrase-generator/    /diceware-passphrase-generator.html    200
