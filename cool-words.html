@@ -1,4 +1,4 @@
-<!-- build: 2026-07-14T07:55:02Z -->
+<!-- build: 2026-07-15T00:37:31Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -587,7 +587,7 @@
 
     load: function () {
       if (CW.data.length) return;
-      fetch('/data/interesting-words-data.json')
+      fetch('/data/cool-words.json')
         .then(function(r){ return r.json(); })
         .then(function(d){
           CW.data = Array.isArray(d) ? d : [];

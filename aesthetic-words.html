@@ -1,4 +1,4 @@
-<!-- build: 2026-07-14T07:55:02Z -->
+<!-- build: 2026-07-15T00:37:31Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -333,7 +333,6 @@
       <button class="cw-cat-btn active" data-cat="aesthetic" aria-pressed="true">Aesthetic</button>
       <button class="cw-cat-btn" data-cat="beautiful" aria-pressed="false">Beautiful</button>
       <button class="cw-cat-btn" data-cat="unique" aria-pressed="false">Unique</button>
-      <button class="cw-cat-btn" data-cat="funny" aria-pressed="false">Funny</button>
       <button class="cw-cat-btn" data-cat="dark" aria-pressed="false">Dark</button>
       <button class="cw-cat-btn" data-cat="nature" aria-pressed="false">Nature</button>
       <button class="cw-cat-btn" data-cat="science" aria-pressed="false">Science</button>
@@ -582,7 +581,7 @@
 
     load: function () {
       if (AW.data.length) return;
-      fetch('/data/interesting-words-data.json')
+      fetch('/data/aesthetic-words.json')
         .then(function(r){ return r.json(); })
         .then(function(d){
           AW.data = Array.isArray(d) ? d : [];
