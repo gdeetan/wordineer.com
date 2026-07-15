@@ -46,7 +46,7 @@ const BW = (() => {
       return;
     }
     tb.innerHTML = rows.map(r => `
-      <tr class="${r.rank <= 3 ? 'bw-top' : ''}">
+      <tr>
         <td class="bw-rank">${r.rank}</td>
         <td class="bw-word">${r.word}</td>
         <td class="bw-bits">${r.entropy_bits.toFixed(4)}</td>
