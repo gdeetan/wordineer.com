@@ -1,0 +1,790 @@
+<!-- build: 2026-07-15T05:05:01Z -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.adsbygoogle = window.adsbygoogle || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  (function(w, d) {
+    var loaded = false;
+    var cfg = {
+      analyticsId: 'G-7DWH3EGM3Z',
+      adsClient: 'ca-pub-7200956978416233',
+      delay: 10000
+    };
+
+    function loadScript(src, attrs) {
+      var s = d.createElement('script');
+      s.async = true;
+      s.src = src;
+      if (attrs) {
+        Object.keys(attrs).forEach(function(key) {
+          s.setAttribute(key, attrs[key]);
+        });
+      }
+      d.head.appendChild(s);
+    }
+
+    function loadMarketing() {
+      if (loaded) return;
+      loaded = true;
+      gtag('js', new Date());
+      gtag('config', cfg.analyticsId);
+      loadScript('https://www.googletagmanager.com/gtag/js?id=' + cfg.analyticsId);
+      loadScript(
+        'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + cfg.adsClient,
+        { crossorigin: 'anonymous' }
+      );
+    }
+
+    function idleLoad() {
+      if ('requestIdleCallback' in w) {
+        w.requestIdleCallback(loadMarketing, { timeout: 5000 });
+      } else {
+        w.setTimeout(loadMarketing, cfg.delay);
+      }
+    }
+
+    ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function(eventName) {
+      w.addEventListener(eventName, loadMarketing, { once: true, passive: true });
+    });
+    w.addEventListener('load', function() {
+      w.setTimeout(idleLoad, cfg.delay);
+    }, { once: true });
+  })(window, document);
+</script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="XRPtSc+0VtlRm6fwBuI7iA" async></script>
+<meta name='impact-site-verification' value='32715504-1cfb-4324-bfc7-ae4cfa1591ea'>
+<link rel="preload" href="/fonts/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-sans-italic-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://wordineer.com/#website",
+      "name": "Wordineer",
+      "url": "https://wordineer.com",
+      "description": "Free online word tools for writers, students, and word game players — random word generator, name generators, word scramble, sentence generator, and more.",
+      "publisher": { "@id": "https://wordineer.com/#organization" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://wordineer.com/#organization",
+      "name": "Wordineer",
+      "url": "https://wordineer.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://wordineer.com/logo.png",
+        "width": 1254,
+        "height": 1254
+      },
+      "description": "Wordineer provides free online word tools for writers, students, and word game players."
+    }
+  ]
+}
+</script>
+<title>Random PIN Generator — Free 4 to 12 Digit PINs | Wordineer</title>
+<meta name="description" content="Generate a truly random PIN code instantly. Choose 4 to 12 digits, block repeats and sequential runs, and get cryptographically secure results — all in your browser with nothing sent to any server.">
+<link rel="canonical" href="https://wordineer.com/random-pin-generator/">
+<meta property="og:type"        content="website">
+<meta property="og:site_name"   content="Wordineer">
+<meta property="og:title"       content="Random PIN Generator | Wordineer">
+<meta property="og:description" content="Generate a truly random PIN code instantly. 4 to 12 digits, no-repeat and no-sequential options, cryptographically secure. Runs in your browser — nothing transmitted anywhere.">
+<meta property="og:url"         content="https://wordineer.com/random-pin-generator/">
+<meta property="og:image"       content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the most secure PIN length?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Eight digits is the strongest option most systems support. A random 8-digit PIN has 100 million possible combinations, compared to 10,000 for a 4-digit PIN. When a system only allows 4 digits, randomness matters most — avoid any pattern, birthday, or number with personal meaning." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is a 4-digit PIN actually safe?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Against real-world attacks, yes — provided the system enforces a lockout after a few wrong guesses. ATM cards and phone lock screens typically lock after 3 to 10 failed attempts. A random 4-digit PIN under those conditions is practically secure. The risk rises when a PIN is the only barrier with no lockout, such as a document password or an unprotected keypad." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this tool store or transmit my PINs?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. The PIN generation runs entirely inside your browser using JavaScript and the Web Cryptography API. Nothing is sent to any server. The history shown on the page lives only in browser memory and disappears when you close or reload the tab. There is no database, no log, and no analytics capturing what you generate." }
+    },
+    {
+      "@type": "Question",
+      "name": "What makes a PIN weak?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The most common weak patterns are: repeated digits (1111, 2222, 0000), ascending or descending sequences (1234, 9876), mirror patterns (1221, 1001), years (1990, 2001), and birthdays formatted as MMDD or DDMM. Research on leaked PIN databases consistently shows these patterns dominate human-chosen PINs, making them the first guesses any attacker tries." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use letters in a PIN?",
+      "acceptedAnswer": { "@type": "Answer", "text": "By definition a PIN is numeric. If a system accepts letters and numbers, it is usually called a passcode — and combining both significantly increases the number of possible combinations. This tool generates pure numeric PINs, which is what the vast majority of ATMs, phones, safes, and door locks require." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between a PIN and a password?",
+      "acceptedAnswer": { "@type": "Answer", "text": "PINs are short, numeric codes — typically 4 to 8 digits — designed for systems with physical lockout protection. Passwords are longer and can use letters, numbers, and symbols, giving them far more possible combinations. PINs work well for ATMs and phone lock screens because the hardware limits guessing attempts. For online accounts, always use a full password or passphrase instead of a PIN." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does turning on no-repeat actually make a PIN more secure?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Slightly — it removes the obvious weak combinations like 1111 and removes some guessable patterns. More practically, it also prevents any individual digit from appearing twice, which rules out a portion of the most commonly guessed PINs. The improvement is modest but costs nothing. For most purposes, generating a truly random PIN (with or without no-repeat) is the significant improvement over picking one yourself." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this for my bank card or ATM PIN?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. A randomly generated PIN is always a better choice than one you pick yourself. Bank cards are protected by a 3-attempt lockout before the card is blocked, so even a 4-digit random PIN provides strong real-world security. Generate one here, memorize it or store it in a password manager, and never write it on or near the card." }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Random PIN Generator",
+  "url": "https://wordineer.com/random-pin-generator/",
+  "description": "Generate cryptographically secure random PIN codes from 4 to 12 digits. No-repeat and no-sequential options. Runs entirely in your browser — nothing transmitted.",
+  "applicationCategory": "SecurityApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@id": "https://wordineer.com/#organization" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Account Tools", "item": "https://wordineer.com/account-tools/" },
+    { "@type": "ListItem", "position": 3, "name": "Random PIN Generator", "item": "https://wordineer.com/random-pin-generator/" }
+  ]
+}
+</script>
+
+
+<link rel="stylesheet" href="/styles/global.css?v=14">
+<style>
+/* ── Layout — matches password-generator exactly ── */
+.tool-wrap  { max-width:960px; margin:0 auto; padding:24px 24px 0; }
+.tool-card  { border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg); box-shadow:var(--shadow); }
+.tool-split { display:flex; }
+
+/* Controls panel */
+.ctrl       { width:220px; flex-shrink:0; padding:18px; border-right:1px solid var(--border-2); background:var(--bg-2); }
+.ctrl-row   { margin-bottom:14px; }
+.ctrl-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; display:block; margin-bottom:5px; }
+.def-row    { display:flex; align-items:center; gap:8px; margin-bottom:10px; }
+.def-lbl    { font-size:12px; color:var(--text-2); cursor:pointer; line-height:1.4; }
+.toggle     { position:relative; width:32px; height:18px; flex-shrink:0; }
+.toggle input { opacity:0; width:0; height:0; }
+.toggle-sl  { position:absolute; cursor:pointer; inset:0; background:var(--border); border-radius:9px; transition:.2s; }
+.toggle input:checked + .toggle-sl { background:var(--brand); }
+.toggle-sl::before { content:''; position:absolute; width:14px; height:14px; left:2px; top:2px; background:white; border-radius:50%; transition:.2s; }
+.toggle input:checked + .toggle-sl::before { transform:translateX(14px); }
+.gen-btn    { width:100%; padding:10px 14px; background:var(--brand); color:white; border:none; border-radius:8px; font-size:14px; font-weight:600; font-family:inherit; cursor:pointer; transition:background .15s,transform .1s; letter-spacing:-.01em; }
+.gen-btn:hover { background:var(--brand-dark); }
+.gen-btn:active { transform:scale(.98); }
+.kbd        { text-align:center; font-size:10px; color:var(--text-3); margin-top:6px; }
+.kbd kbd    { background:var(--bg-3); border:1px solid var(--border); border-radius:3px; padding:1px 5px; font-size:10px; font-family:inherit; }
+
+/* Length slider */
+.range-row  { display:flex; align-items:center; gap:8px; }
+.range-row input[type="range"] { flex:1; accent-color:var(--brand); cursor:pointer; }
+.range-val  { font-size:13px; font-weight:700; color:var(--text); min-width:22px; text-align:right; }
+
+/* PIN preset length pills */
+.pin-presets { display:flex; gap:5px; margin-top:8px; }
+.pin-preset  { flex:1; padding:4px 0; background:var(--bg-3); border:1px solid var(--border); border-radius:6px; font-size:12px; font-weight:700; color:var(--text-2); cursor:pointer; font-family:inherit; transition:background .12s,border-color .12s; }
+.pin-preset:hover { background:var(--bg); }
+.pin-preset.active { background:var(--brand); color:white; border-color:var(--brand); }
+
+/* Quantity row */
+.qty-row    { display:flex; align-items:center; gap:10px; margin-top:6px; }
+.qty-btn    { width:26px; height:26px; background:var(--bg-3); border:1px solid var(--border); border-radius:6px; font-size:15px; font-weight:600; color:var(--text-2); cursor:pointer; font-family:inherit; display:flex; align-items:center; justify-content:center; transition:background .12s; line-height:1; padding:0; }
+.qty-btn:hover { background:var(--bg); }
+#pin-qty-val { font-size:14px; font-weight:700; color:var(--text); min-width:18px; text-align:center; }
+
+/* Output panel */
+.words-panel { flex:1; display:flex; flex-direction:column; overflow:hidden; min-height:320px; }
+.words-top   { display:flex; align-items:center; justify-content:space-between; padding:12px 16px; border-bottom:1px solid var(--border-2); }
+.words-count { font-size:12px; color:var(--text-3); }
+.act-btn     { font-size:12px; padding:5px 11px; border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:background .12s; }
+.act-btn:hover { background:var(--bg-2); }
+.word-list   { flex:1; overflow-y:auto; list-style:none; padding:0 16px; margin:0; }
+.word-item   { display:flex; align-items:center; justify-content:space-between; padding:9px 0; border-bottom:1px solid var(--border-2); gap:10px; animation:fadeIn .2s ease; }
+.word-item:last-child { border-bottom:none; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:none} }
+
+/* PIN output */
+.pw-output-wrap { padding:20px 18px 16px; border-bottom:1px solid var(--border-2); }
+.pw-output      { font-size:26px; font-weight:500; letter-spacing:.12em; color:var(--text); font-family:monospace; word-break:break-all; min-height:32px; line-height:1.3; }
+.pw-actions     { display:flex; gap:8px; padding:10px 16px; border-bottom:1px solid var(--border-2); flex-wrap:wrap; }
+.pw-privacy     { display:flex; align-items:center; gap:5px; padding:7px 16px; font-size:11px; color:var(--text-3); border-bottom:1px solid var(--border-2); background:var(--bg-2); }
+.pw-privacy svg { flex-shrink:0; }
+.pin-hist-text  { font-family:monospace; font-size:14px; font-weight:600; letter-spacing:.08em; color:var(--text); flex:1; min-width:0; }
+.pw-toast       { position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(10px); background:#1a1a1a; color:white; font-size:13px; font-weight:600; padding:10px 18px; border-radius:8px; opacity:0; transition:opacity .2s,transform .2s; pointer-events:none; z-index:999; }
+.pw-toast.show  { opacity:1; transform:translateX(-50%) translateY(0); }
+</style>
+</head>
+
+<body>
+<nav class="nav">
+  <a class="nav-logo" href="/">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 15 15" fill="none"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </div>
+    Wordineer
+  </a>
+  <div class="nav-links">
+    <a href="/word-tools/">Tools</a>
+    <a href="/blog/">Blog</a>
+  </div>
+  <div>
+    <button class="hamburger" type="button" aria-label="All tools" aria-controls="mega" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mega" id="mega">
+  <div class="mega-inner">
+    <div class="mega-col">
+      <div class="mega-cat">Writing &amp; Vocabulary</div>
+      <a class="mega-link" href="/">Random Word Generator</a>
+      <a class="mega-link" href="/random-sentence-generator/">Random Sentence Generator</a>
+      <a class="mega-link" href="/random-paragraph-generator/">Random Paragraph Generator</a>
+      <a class="mega-link" href="/word-counter/">Word Counter</a>
+      <a class="mega-link mega-link--view-all" href="/word-tools/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Browse by Letter</div>
+      <a class="mega-link" href="/random-words-starting-with/">Random Words Starting With (A–Z)</a>
+      <a class="mega-link" href="/random-words-starting-with/a">Random Words Starting with A</a>
+      <a class="mega-link" href="/random-words-starting-with/s">Random Words Starting with S</a>
+      <a class="mega-link" href="/random-words-starting-with/q">Random Words Starting with Q</a>
+      <a class="mega-link mega-link--view-all" href="/random-words-starting-with/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Names by Origin</div>
+      <a class="mega-link" href="/random-spanish-name-generator/">Spanish Name Generator</a>
+      <a class="mega-link" href="/random-italian-name-generator/">Italian Name Generator</a>
+      <a class="mega-link" href="/random-japanese-name-generator/">Japanese Name Generator</a>
+      <a class="mega-link" href="/random-american-name-generator/">American Name Generator</a>
+      <a class="mega-link mega-link--view-all" href="/name-generators/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Other Name Generators</div>
+      <a class="mega-link" href="/character-name-generator/">Character Name Generator</a>
+      <a class="mega-link" href="/fantasy-name-generator/">Fantasy Name Generator</a>
+      <a class="mega-link" href="/business-name-generator/">Business Name Generator</a>
+      <a class="mega-link" href="/band-name-generator/">Band Name Generator</a>
+      <a class="mega-link mega-link--view-all" href="/other-generators/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Account &amp; Security</div>
+      <a class="mega-link" href="/username-generator/">Username Generator</a>
+      <a class="mega-link" href="/password-generator/">Password Generator</a>
+      <a class="mega-link" href="/passphrase-generator/">Passphrase Generator</a>
+      <a class="mega-link active" href="/random-pin-generator/">Random PIN Generator</a>
+      <a class="mega-link mega-link--view-all" href="/account-tools/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Games &amp; fun</div>
+      <a class="mega-link" href="/coin-flip/">Flip a Coin</a>
+      <a class="mega-link" href="/random-number-generator/">Number Generator</a>
+      <a class="mega-link" href="/dice-roller/">Dice Roller</a>
+      <a class="mega-link" href="/wheel-of-names/">Wheel of Names</a>
+      <a class="mega-link mega-link--view-all" href="/number-chance/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Learn & Resources</div>
+      <a class="mega-link" href="/spelling-bee-words/">Spelling Bee Words</a>
+      <a class="mega-link" href="/common-5-letter-words/">Common 5-Letter Words</a>
+      <a class="mega-link" href="/etymology-100-common-words/">Etymology Guide</a>
+      <a class="mega-link" href="/esl-vocabulary-cefr/">ESL Vocabulary (CEFR)</a>
+    </div>
+  </div>
+</div>
+
+
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/account-tools/">Account Tools</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Random PIN Generator</span>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free · No sign-up · Instant
+  </div>
+  <h1>Random PIN Generator</h1>
+  <p>Generate a cryptographically secure PIN in one click. Set your length, block repeated digits or sequential runs, and generate up to ten at a time — everything runs in your browser and is never transmitted anywhere.</p>
+</div>
+<div class="tool-wrap">
+  <div class="tool-card">
+    <div class="tool-split">
+
+      <!-- Left: Controls -->
+      <div class="ctrl">
+
+        <div class="ctrl-row">
+          <label class="ctrl-label" for="pin-length">Length: <span id="pin-length-val" style="text-transform:none;letter-spacing:0;color:var(--text)">4</span></label>
+          <div class="range-row">
+            <input type="range" id="pin-length" min="4" max="12" value="4">
+          </div>
+          <div class="pin-presets">
+            <button class="pin-preset active" data-len="4">4</button>
+            <button class="pin-preset" data-len="6">6</button>
+            <button class="pin-preset" data-len="8">8</button>
+          </div>
+        </div>
+
+        <div class="ctrl-row">
+          <span class="ctrl-label">Quantity</span>
+          <div class="qty-row">
+            <button class="qty-btn" id="pin-qty-minus" aria-label="Decrease quantity">−</button>
+            <span id="pin-qty-val">1</span>
+            <button class="qty-btn" id="pin-qty-plus" aria-label="Increase quantity">+</button>
+          </div>
+        </div>
+
+        <div class="def-row">
+          <label class="toggle"><input type="checkbox" id="pin-norepeat"><span class="toggle-sl"></span></label>
+          <span class="def-lbl">No repeat digits</span>
+        </div>
+        <div class="def-row" style="margin-bottom:20px">
+          <label class="toggle"><input type="checkbox" id="pin-noseq"><span class="toggle-sl"></span></label>
+          <span class="def-lbl">No sequential (1-2-3, 9-8-7)</span>
+        </div>
+
+        <button class="gen-btn" id="pin-gen-btn">Generate PIN</button>
+        <p class="kbd">Press <kbd>Enter</kbd> or <kbd>Space</kbd> to refresh</p>
+      </div>
+
+      <!-- Right: Output -->
+      <div class="words-panel">
+        <div class="pw-output-wrap">
+          <div class="pw-output" id="pin-output" aria-live="polite" aria-label="Generated PIN">—</div>
+        </div>
+
+        <div class="pw-actions">
+          <button class="act-btn" id="pin-copy-btn">⧉ Copy</button>
+          <button class="act-btn" id="pin-copy-all-btn" style="display:none">⧉ Copy All</button>
+          <button class="act-btn" id="pin-regen-btn">↻ Regenerate</button>
+        </div>
+
+        <div class="pw-privacy">
+          <svg viewBox="0 0 13 13" fill="none" width="12" height="12"><path d="M6.5 1.5L2 3.5v3c0 2.5 1.9 4.8 4.5 5.5C9.1 11.3 11 9 11 6.5v-3L6.5 1.5z" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/></svg>
+          Generated in your browser — never transmitted to any server
+        </div>
+
+        <div class="words-top">
+          <span class="words-count" id="pin-hist-label">Recent PINs</span>
+        </div>
+        <ul class="word-list" id="pin-hist-list" aria-label="Recent PINs"></ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="pw-toast" id="pin-toast" role="status" aria-live="polite">Copied!</div>
+<!-- Ad placeholder: reserved for future affiliate opportunity -->
+<div class="content-wrap">
+  <div class="section">
+    <h2 class="section-title">More account tools</h2>
+    <p class="section-sub">Password generators, passphrase tools, and more — all free</p>
+    <div class="tools-grid">
+      <a class="tool-item" href="/username-generator/"><div class="tool-icon" style="background:#EEF6E8"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4.5" r="1.8" stroke="#2B6B3E" stroke-width="1"/><path d="M3 10.5c0-2 1.6-3.5 3.5-3.5s3.5 1.5 3.5 3.5" stroke="#2B6B3E" stroke-width="1" stroke-linecap="round"/></svg></div><div class="tool-name">Username Generator</div><div class="tool-desc">Generate unique usernames by style, seed word, and format.</div></a>
+      <a class="tool-item" href="/cool-username-generator/"><div class="tool-icon" style="background:#EEF6E8"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4.5" r="1.8" stroke="#2B6B3E" stroke-width="1"/><path d="M3 10.5c0-2 1.6-3.5 3.5-3.5s3.5 1.5 3.5 3.5" stroke="#2B6B3E" stroke-width="1" stroke-linecap="round"/><path d="M10.5 1.5L9.5 3h1L9 4.5" stroke="#2B6B3E" stroke-width=".9" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="tool-name">Cool Username Generator</div><div class="tool-desc">Confident power-word handles for gaming and social.</div></a>
+      <a class="tool-item" href="/aesthetic-username-generator/"><div class="tool-icon" style="background:#EEF6E8"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4.5" r="1.8" stroke="#2B6B3E" stroke-width="1"/><path d="M3 10.5c0-2 1.6-3.5 3.5-3.5s3.5 1.5 3.5 3.5" stroke="#2B6B3E" stroke-width="1" stroke-linecap="round"/><path d="M10 2v1.5M10 2h1.5M10 2h-1.5M10 2v-.5" stroke="#2B6B3E" stroke-width=".8" stroke-linecap="round"/></svg></div><div class="tool-name">Aesthetic Username Generator</div><div class="tool-desc">Cottagecore, dark academia, VSCO, cyberpunk, and more.</div></a>
+      <a class="tool-item" href="/funny-username-generator/"><div class="tool-icon" style="background:#EEF6E8"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4.5" r="1.8" stroke="#2B6B3E" stroke-width="1"/><path d="M3 10.5c0-2 1.6-3.5 3.5-3.5s3.5 1.5 3.5 3.5" stroke="#2B6B3E" stroke-width="1" stroke-linecap="round"/><path d="M9 2.5c.8 0 1.5.5 1.5 1.2" stroke="#2B6B3E" stroke-width=".9" stroke-linecap="round"/></svg></div><div class="tool-name">Funny Username Generator</div><div class="tool-desc">Puns, alliteration, and absurd combos that actually land.</div></a>
+      <a class="tool-item" href="/cute-username-generator/"><div class="tool-icon" style="background:#EEF6E8"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4.5" r="1.8" stroke="#2B6B3E" stroke-width="1"/><path d="M3 10.5c0-2 1.6-3.5 3.5-3.5s3.5 1.5 3.5 3.5" stroke="#2B6B3E" stroke-width="1" stroke-linecap="round"/><path d="M9.2 2.8c.2-.3.6-.3.8 0 .2.3 0 .6-.3.9l-.5.4-.5-.4c-.3-.3-.5-.6-.3-.9.2-.3.6-.3.8 0z" fill="#2B6B3E"/></svg></div><div class="tool-name">Cute Username Generator</div><div class="tool-desc">Playful names that feel friendly — boba, mochi, and more.</div></a>
+      <a class="tool-item" href="/instagram-username-generator/"><div class="tool-icon" style="background:#FAEEDA"><svg viewBox="0 0 13 13" fill="none"><rect x="4" y="1.5" width="5" height="10" rx="1.5" stroke="#854F0B" stroke-width="1.1"/><circle cx="6.5" cy="10.5" r=".6" fill="#854F0B"/><line x1="5.5" y1="3" x2="7.5" y2="3" stroke="#854F0B" stroke-width=".8" stroke-linecap="round"/></svg></div><div class="tool-name">Instagram Username Generator</div><div class="tool-desc">Handles tuned for Instagram's 30-char limit and culture.</div></a>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div>
+    <h2 class="section-title">Other tools</h2>
+    <p class="section-sub">Numbers, names, games and more</p>
+    <div class="other-grid">
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3h9M2 6.5h7M2 10h5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Writing &amp; Vocabulary</div><a class="other-link" href="/">Random Word Generator</a><a class="other-link" href="/random-sentence-generator/">Random Sentence Generator</a><a class="other-link" href="/random-paragraph-generator/">Random Paragraph Generator</a><a class="other-link" href="/word-counter/">Word Counter</a><a class="other-link other-link--view-all" href="/word-tools/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h3.5M2 7h9M2 10h6" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Browse by Letter</div><a class="other-link" href="/random-words-starting-with/">Random Words Starting With (A–Z)</a><a class="other-link" href="/random-words-starting-with/a">Random Words Starting with A</a><a class="other-link" href="/random-words-starting-with/s">Random Words Starting with S</a><a class="other-link" href="/random-words-starting-with/q">Random Words Starting with Q</a><a class="other-link other-link--view-all" href="/random-words-starting-with/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4.5" r="2.5" stroke="currentColor" stroke-width="1"/><path d="M1.5 11.5c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Names by Origin</div><a class="other-link" href="/random-spanish-name-generator/">Spanish Name Generator</a><a class="other-link" href="/random-italian-name-generator/">Italian Name Generator</a><a class="other-link" href="/random-japanese-name-generator/">Japanese Name Generator</a><a class="other-link" href="/random-american-name-generator/">American Name Generator</a><a class="other-link other-link--view-all" href="/name-generators/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="1.5" width="9" height="10" rx="1" stroke="currentColor" stroke-width="1"/><path d="M4 4.5h5M4 6.5h5M4 8.5h3" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Other Name Generators</div><a class="other-link" href="/character-name-generator/">Character Name Generator</a><a class="other-link" href="/fantasy-name-generator/">Fantasy Name Generator</a><a class="other-link" href="/business-name-generator/">Business Name Generator</a><a class="other-link" href="/band-name-generator/">Band Name Generator</a><a class="other-link other-link--view-all" href="/other-generators/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="3.5" y="5.5" width="6" height="5" rx="1" stroke="currentColor" stroke-width="1"/><path d="M5 5.5V4a1.5 1.5 0 013 0v1.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Account &amp; Security</div><a class="other-link" href="/username-generator/">Username Generator</a><a class="other-link" href="/password-generator/">Password Generator</a><a class="other-link" href="/passphrase-generator/">Passphrase Generator</a><a class="other-link" href="/instagram-username-generator/">Instagram Username Generator</a><a class="other-link other-link--view-all" href="/account-tools/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="1" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="1" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/></svg>Games &amp; fun</div><a class="other-link" href="/pictionary-phrase-generator/">Pictionary Phrase Generator</a><a class="other-link" href="/wordle-helper/">Wordle Helper</a><a class="other-link" href="/coin-flip/">Coin Flip</a><a class="other-link" href="/dice-roller/">Dice Roller</a><a class="other-link other-link--view-all" href="/number-chance/">View all →</a></div>
+    </div>
+  </div>
+
+  <div class="ad-rect">
+    <span class="ad-tag">Advertisement · 336×280</span>
+    <div class="ad-rect-img"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4C10.3 4 4 10.3 4 18s6.3 14 14 14 14-6.3 14-14S25.7 4 18 4z" fill="white" opacity=".2"/><path d="M12 18c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="18" r="2.5" fill="white"/></svg></div>
+    <div class="ad-rect-content">
+      <div class="ad-rect-title">Grammarly — write with confidence</div>
+      <div class="ad-rect-body">Instantly improve grammar, spelling, clarity, and tone. Works everywhere you write online.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
+    </div>
+  </div>
+  <div class="divider"></div>
+
+<div class="explainer">
+  <h2>What is a Random PIN Generator?</h2>
+  <p>A PIN — Personal Identification Number — is a short numeric code used to confirm that you are who you say you are. It shows up on your phone's lock screen, your bank card at an ATM, the keypad on a hotel room safe, your voicemail system, and various apps that want a quick way to verify access. Unlike a password, a PIN is usually just 4 to 8 digits and numeric only.</p>
+  <p>The problem is that people don't choose PINs randomly. They choose PINs they can remember — and the ones easiest to remember are also the easiest to guess. Research on leaked PIN databases consistently turns up the same short list at the top: 1234, 0000, 1111, 1212, 7777. More than 10% of all PINs in breach data are one of those five. Choose your PIN yourself and there's a real chance you're picking something that appears on every attacker's guess list.</p>
+  <p>A random PIN generator removes the human bias completely. This tool generates PINs using <code>crypto.getRandomValues()</code>, the browser's cryptographically secure random number source — the same one used to establish HTTPS connections. It runs entirely in your browser. Nothing you generate here is transmitted to any server, stored in any database, or logged anywhere.</p>
+
+  <h2>Why Use a Random PIN Generator?</h2>
+  <p>The short version: humans are bad at choosing random numbers, and the consequences of a guessable PIN are real.</p>
+  <p>When you pick a PIN yourself, you're drawing from a much smaller pool than you think. You avoid numbers that feel obviously weak (0000, 1234) but reach for numbers that feel random without being random — a former phone number, the last four digits of an address, a year that matters to you. These are all patterns. Attackers who specialize in PIN cracking maintain lists of tens of thousands of commonly chosen PINs ordered by how frequently they appear in breach data. Your "creative" 4-digit PIN has likely been used by thousands of other people before you.</p>
+  <p>A truly random 4-digit PIN has 10,000 possible combinations, all equally likely. Against a system that enforces a 3-attempt lockout — which is standard for ATM cards, iPhones, and most modern devices — even an attacker who knows your PIN length has essentially no chance of guessing yours before getting locked out. A 6-digit PIN jumps to 1,000,000 possibilities. An 8-digit PIN gives you 100 million. Every added digit multiplies the search space by ten.</p>
+  <p>The moment you choose a PIN yourself, you're no longer drawing from the full 10,000-combination pool. You're effectively drawing from a much smaller biased pool of "things people typically pick." A generator draws from the full pool every single time.</p>
+
+  <h2>How It Works</h2>
+  <p>This tool uses <code>window.crypto.getRandomValues()</code>, the Web Cryptography API built into every modern browser. This is not <code>Math.random()</code>. <code>Math.random()</code> is a pseudo-random number generator designed for performance, not security. It uses a deterministic algorithm seeded from a small entropy source — a determined attacker who knows the algorithm and the seed can predict its output. <code>crypto.getRandomValues()</code> draws from the operating system's entropy pool, which is seeded from hardware events, timing differences, and other sources that are genuinely unpredictable.</p>
+  <p>When generating a standard PIN, the tool uses rejection sampling: it draws random bytes, maps them to digits 0–9, and discards any byte values that would create a statistical bias (values 250–255 in an 8-bit byte). This ensures every digit is equally likely at every position.</p>
+  <p>When <em>no-repeat</em> mode is on, the tool takes a different approach. It creates a list of digits 0 through 9 and shuffles them using a Fisher-Yates shuffle driven by cryptographic random numbers, then takes the first N digits from the shuffled list. This guarantees that every possible arrangement of N distinct digits is exactly equally likely — it's the same method used in cryptographic key generation, not a shortcut.</p>
+  <p>When <em>no sequential</em> mode is on, the tool checks each result for three or more consecutive ascending or descending digits (1-2-3, 5-6-7, 9-8-7, etc.) and regenerates if found. This adds no measurable delay and the loop completes in well under a millisecond for all supported lengths.</p>
+
+  <h2>Best Practices for PINs</h2>
+  <p><strong>Use a different PIN for each account.</strong> The same PIN on your phone, your bank card, your building keypad, and your home safe means one compromised context exposes everything. They take seconds to generate and a password manager to store — there's no good reason to reuse them.</p>
+  <p><strong>Use the longest PIN the system supports.</strong> Most people default to 4 digits because that's the minimum. When you have a choice, 6 digits (1 million combinations) is meaningfully stronger than 4 (10,000). Eight digits gives 100 million. For anything protecting significant assets — a device with sensitive data, a safe with important documents — use the maximum length available.</p>
+  <p><strong>Don't write your PIN on or near the thing it protects.</strong> A PIN on a sticky note in your wallet — or taped to the back of a keypad — defeats the entire point. If you genuinely can't memorize it, store it in a password manager, not on paper attached to the device.</p>
+  <p><strong>Avoid using PINs where passwords are available.</strong> A 4-digit PIN has at most 10,000 possible values. A 16-character password using letters, numbers, and symbols has trillions. For online accounts that allow a full password, use one. PINs are appropriate where hardware-enforced lockout policies compensate for the short length — ATMs, phones, safes.</p>
+
+  <h2>How to Manage PINs</h2>
+  <p>The same logic that applies to passwords applies to PINs: you cannot reliably remember dozens of unique, random numeric codes without help. A few practical options:</p>
+  <p><strong>Password manager.</strong> Bitwarden, 1Password, and similar tools let you store notes or custom fields alongside credentials. Create an entry labeled "Phone PIN" or "ATM card PIN" and store the generated code there. The password manager itself is protected by your master password — a passphrase you've memorized — so you only have one thing to remember.</p>
+  <p><strong>Memorization for high-use PINs.</strong> For PINs you enter many times a day — your phone, your primary bank card — it's worth committing them to memory. Generate a random PIN here, then enter it deliberately 20 to 30 times over two to three days. Muscle memory builds quickly and reliably. Once memorized, delete it from wherever you stored it temporarily.</p>
+  <p><strong>Know when to change.</strong> Change a PIN when you suspect it was observed (shoulder surfing is real), when the system reports failed unlock attempts, or when someone who knew the PIN no longer should. There's no reason to change PINs on a schedule if none of these conditions apply — the "change it every 90 days" rule made sense for system administrators in the 1990s and has since been abandoned by most security guidance, including NIST.</p>
+</div>
+  <div class="divider"></div>
+
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">What is the most secure PIN length?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Eight digits is the strongest option most systems support. A random 8-digit PIN has 100 million possible combinations, compared to 10,000 for a 4-digit PIN. When a system only allows 4 digits, randomness matters most — avoid any pattern, birthday, or number with personal meaning.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Is a 4-digit PIN actually safe?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Against real-world attacks, yes — provided the system enforces a lockout after a few wrong guesses. ATM cards and phone lock screens typically lock after 3 to 10 failed attempts. A random 4-digit PIN under those conditions is practically secure. The risk rises when a PIN is the only barrier with no lockout policy, such as a document password or an unprotected keypad with no attempt limit.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Does this tool store or transmit my PINs?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">No. The generation runs entirely inside your browser using JavaScript and the Web Cryptography API. Nothing is sent to any server. The history shown on the page lives only in browser memory and disappears when you close or reload the tab. There is no database, no log file, and no analytics capturing what you generate here.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What makes a PIN weak?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">The most common weak patterns: repeated digits (1111, 2222, 0000), ascending or descending sequences (1234, 9876), mirror patterns (1221, 1001), calendar years (1990, 2001), and birthdays formatted as MMDD or DDMM. Research on leaked PIN datasets shows these patterns dominate human-chosen PINs and are the first guesses any targeted attacker tries. A randomly generated PIN has none of these patterns by design.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I use letters in a PIN?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">By definition a PIN is numeric. If a system accepts letters and numbers, it is usually called a passcode — and adding letters significantly increases the number of possible combinations, making it much harder to crack. This tool generates pure numeric PINs, which is what the vast majority of ATMs, phones, safes, and door locks require.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What is the difference between a PIN and a password?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">PINs are short, numeric codes — typically 4 to 8 digits — designed for systems where hardware enforces a limited number of guessing attempts. Passwords are longer and use letters, numbers, and symbols, which gives them far more possible combinations. PINs work well for ATMs and phone lock screens because the hardware compensates for their brevity by blocking brute-force. For online accounts that accept a full password, always use one instead of a short numeric code.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Does turning on no-repeat actually make a PIN more secure?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Marginally in terms of raw combinations, but more meaningfully by eliminating obvious weak patterns. Combinations like 1111, 2222, and 0000 are among the most commonly guessed PINs. No-repeat removes all of them. The bigger security gain is simply using a randomly generated PIN at all — that alone removes your number from the top-10 guess lists that account for a disproportionate share of real-world PIN compromises.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I use this for my bank card or ATM PIN?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes, and it's a good idea. A randomly generated PIN is always better than one you choose yourself. Bank cards are protected by a 3-attempt lockout before the card is blocked, so a random 4-digit PIN provides strong real-world security. Generate one here, commit it to memory or store it in a password manager, and never write it on the card or keep it in the same wallet.</div>
+  </div>
+</div>
+  <div class="divider"></div>
+
+<div>
+  <h2 class="section-title" style="margin-bottom:14px">Who uses a random PIN generator?</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">Phone lock screens</div><div class="uc-body">Anyone setting up a new phone or changing their lock screen PIN who wants something genuinely random rather than a birthday or repeating digit</div></div>
+    <div class="uc"><div class="uc-title">Banking &amp; ATM</div><div class="uc-body">People activating a new card or resetting a PIN who want to move away from the patterns — years, anniversaries — that appear most often in leaked data</div></div>
+    <div class="uc"><div class="uc-title">Door locks &amp; safes</div><div class="uc-body">Homeowners setting up smart locks, keypad deadbolts, or combination safes who want a code that isn't the manufacturer default or anything guessable</div></div>
+    <div class="uc"><div class="uc-title">App access codes</div><div class="uc-body">Users setting up PIN-protected apps — banking apps, authenticators, secure note apps — that ask for a numeric code separate from the device lock screen</div></div>
+    <div class="uc"><div class="uc-title">IT &amp; admin staff</div><div class="uc-body">Generating temporary access codes for building systems, shared devices, or guest accounts where a random, non-memorable PIN needs to be issued quickly</div></div>
+  </div>
+</div>
+
+
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="ad-footer-strip" style="margin-bottom:24px">
+      <span class="ad-tag">Advertisement · 468×60</span>
+      <div class="ad-fs-text"><strong>Grammarly Premium</strong> — Vocabulary suggestions, tone detector, full-sentence rewrites.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-footer-strip-cta">Try free</a>
+    </div>
+    <div class="footer-grid">
+      <div><div class="footer-col-title">Writing &amp; Vocabulary</div><a class="footer-link" href="/">Random Word Generator</a><a class="footer-link" href="/random-sentence-generator/">Random Sentence Generator</a><a class="footer-link" href="/random-paragraph-generator/">Random Paragraph Generator</a><a class="footer-link" href="/word-counter/">Word Counter</a><a class="footer-link footer-link--view-all" href="/word-tools/">View all →</a></div>
+      <div><div class="footer-col-title">Browse by Letter</div><a class="footer-link" href="/random-words-starting-with/">Random Words Starting With (A–Z)</a><a class="footer-link" href="/random-words-starting-with/a">Random Words Starting with A</a><a class="footer-link" href="/random-words-starting-with/s">Random Words Starting with S</a><a class="footer-link" href="/random-words-starting-with/q">Random Words Starting with Q</a><a class="footer-link footer-link--view-all" href="/random-words-starting-with/">View all →</a></div>
+      <div><div class="footer-col-title">Names by Origin</div><a class="footer-link" href="/random-spanish-name-generator/">Spanish Name Generator</a><a class="footer-link" href="/random-italian-name-generator/">Italian Name Generator</a><a class="footer-link" href="/random-japanese-name-generator/">Japanese Name Generator</a><a class="footer-link" href="/random-american-name-generator/">American Name Generator</a><a class="footer-link footer-link--view-all" href="/name-generators/">View all →</a></div>
+      <div><div class="footer-col-title">Other Name Generators</div><a class="footer-link" href="/character-name-generator/">Character Name Generator</a><a class="footer-link" href="/fantasy-name-generator/">Fantasy Name Generator</a><a class="footer-link" href="/business-name-generator/">Business Name Generator</a><a class="footer-link" href="/band-name-generator/">Band Name Generator</a><a class="footer-link footer-link--view-all" href="/other-generators/">View all →</a></div>
+      <div><div class="footer-col-title">Account &amp; Security</div><a class="footer-link" href="/password-generator/">Password Generator</a><a class="footer-link" href="/passphrase-generator/">Passphrase Generator</a><a class="footer-link" href="/memorable-password-generator/">Memorable Password Generator</a><a class="footer-link" href="/username-generator/">Username Generator</a><a class="footer-link footer-link--view-all" href="/account-tools/">View all →</a></div>
+      <div><div class="footer-col-title">Games &amp; fun</div><a class="footer-link" href="/coin-flip/">Flip a Coin</a><a class="footer-link" href="/random-number-generator/">Number Generator</a><a class="footer-link" href="/dice-roller/">Dice Roller</a><a class="footer-link" href="/wheel-of-names/">Wheel of Names</a><a class="footer-link footer-link--view-all" href="/number-chance/">View all →</a></div>
+      <div><div class="footer-col-title">Learn & Resources</div><a class="footer-link" href="/spelling-bee-words/">Spelling Bee Words</a><a class="footer-link" href="/common-5-letter-words/">Common 5-Letter Words</a><a class="footer-link" href="/etymology-100-common-words/">Etymology Guide</a><a class="footer-link" href="/esl-vocabulary-cefr/">ESL Vocabulary (CEFR)</a></div>
+    </div>
+    <div class="footer-bottom">
+      <div style="display:flex;align-items:center;gap:7px">
+        <div class="nav-logo-icon" style="width:22px;height:22px;border-radius:5px"><svg viewBox="0 0 15 15" fill="none" style="width:12px;height:12px"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <span style="font-size:14px;font-weight:600;color:var(--text)">Wordineer</span>
+      </div>
+      <span class="footer-copy">© 2026 Wordineer · Free word tools for everyone</span>
+      <div class="footer-meta"><a href="/about/">About</a><a href="/blog/">Blog</a><a href="/affiliate-disclosure/">Affiliate disclosure</a><a href="/privacy/">Privacy</a></div>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="/scripts/tool-engine.js?v=27"></script>
+<script>
+(function bindSharedWordineerMenu() {
+  const mega = document.getElementById('mega');
+  const hbg = document.querySelector('.hamburger');
+  if (!mega || !hbg) return;
+  if (hbg.dataset.menuBound === '1') return;
+  hbg.dataset.menuBound = '1';
+  hbg.onclick = null;
+  if (hbg.getAttribute('onclick')) hbg.removeAttribute('onclick');
+
+  function setMenu(open) {
+    mega.classList.toggle('open', open);
+    hbg.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+
+  setMenu(mega.classList.contains('open'));
+
+  hbg.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+    setMenu(!mega.classList.contains('open'));
+  }, true);
+
+  hbg.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+      setMenu(!mega.classList.contains('open'));
+    }
+  }, true);
+
+  document.addEventListener('click', function(e) {
+    if (mega.classList.contains('open') && !mega.contains(e.target) && !hbg.contains(e.target)) {
+      setMenu(false);
+    }
+  }, true);
+})();
+</script>
+
+<script>
+(function () {
+
+  function cryptoRandBelow(max) {
+    var cap = Math.floor(256 / max) * max;
+    var buf = new Uint8Array(1);
+    do { crypto.getRandomValues(buf); } while (buf[0] >= cap);
+    return buf[0] % max;
+  }
+
+  function shuffledDigits() {
+    var arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+    for (var i = 9; i > 0; i--) {
+      var j = cryptoRandBelow(i + 1);
+      var t = arr[i]; arr[i] = arr[j]; arr[j] = t;
+    }
+    return arr;
+  }
+
+  function hasSequential(pin) {
+    for (var i = 0; i < pin.length - 2; i++) {
+      var a = +pin[i], b = +pin[i + 1], c = +pin[i + 2];
+      if (b - a === 1 && c - b === 1) return true;
+      if (a - b === 1 && b - c === 1) return true;
+    }
+    return false;
+  }
+
+  function generateOnePin(len, noRepeat, noSeq) {
+    for (var attempt = 0; attempt < 500; attempt++) {
+      var pin;
+      if (noRepeat && len <= 10) {
+        pin = shuffledDigits().slice(0, len).join('');
+      } else {
+        pin = '';
+        while (pin.length < len) {
+          var buf = new Uint8Array(Math.ceil((len - pin.length) * 2) + 4);
+          crypto.getRandomValues(buf);
+          var cap = 250;
+          for (var i = 0; i < buf.length && pin.length < len; i++) {
+            if (buf[i] < cap) pin += (buf[i] % 10);
+          }
+        }
+      }
+      if (!noSeq || !hasSequential(pin)) return pin;
+    }
+    return generateOnePin(len, noRepeat, false);
+  }
+
+  var pinHistory = [];
+  var currentBatch = [];
+  var qty = 1;
+
+  function escH(s) {
+    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  function renderHistory() {
+    var list = document.getElementById('pin-hist-list');
+    list.innerHTML = '';
+    pinHistory.forEach(function (p) {
+      var li = document.createElement('li');
+      li.className = 'word-item';
+      li.innerHTML = '<span class="pin-hist-text">' + escH(p) + '</span>'
+        + '<button class="act-btn" style="flex-shrink:0" data-pin="' + escH(p) + '">Copy</button>';
+      list.appendChild(li);
+    });
+  }
+
+  function fallbackCopy(text) {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.cssText = 'position:fixed;opacity:0;pointer-events:none';
+    document.body.appendChild(ta);
+    ta.focus();
+    ta.select();
+    try { document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  function copyText(text) {
+    var toast = document.getElementById('pin-toast');
+    function showToast() {
+      toast.classList.add('show');
+      setTimeout(function () { toast.classList.remove('show'); }, 1800);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(showToast).catch(function () {
+        fallbackCopy(text); showToast();
+      });
+    } else {
+      fallbackCopy(text); showToast();
+    }
+  }
+
+  function render() {
+    var len     = parseInt(document.getElementById('pin-length').value, 10);
+    var noRep   = document.getElementById('pin-norepeat').checked;
+    var noSeq   = document.getElementById('pin-noseq').checked;
+    var out     = document.getElementById('pin-output');
+    var copyAll = document.getElementById('pin-copy-all-btn');
+
+    currentBatch = [];
+    for (var i = 0; i < qty; i++) {
+      currentBatch.push(generateOnePin(len, noRep, noSeq));
+    }
+
+    out.textContent = currentBatch[0];
+
+    copyAll.style.display = qty > 1 ? '' : 'none';
+
+    var newPins = currentBatch.slice().reverse();
+    newPins.forEach(function (p) {
+      pinHistory.unshift(p);
+    });
+    if (pinHistory.length > 10) pinHistory = pinHistory.slice(0, 10);
+
+    var label = document.getElementById('pin-hist-label');
+    label.textContent = qty > 1 ? 'Generated (' + qty + ')' : 'Recent PINs';
+
+    renderHistory();
+  }
+
+  function updatePresetButtons(len) {
+    document.querySelectorAll('.pin-preset').forEach(function (btn) {
+      btn.classList.toggle('active', +btn.dataset.len === len);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var slider = document.getElementById('pin-length');
+    var valEl  = document.getElementById('pin-length-val');
+    var qtyEl  = document.getElementById('pin-qty-val');
+
+    slider.addEventListener('input', function () {
+      valEl.textContent = slider.value;
+      updatePresetButtons(+slider.value);
+      render();
+    });
+
+    document.querySelectorAll('.pin-preset').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var l = +btn.dataset.len;
+        slider.value = l;
+        valEl.textContent = l;
+        updatePresetButtons(l);
+        render();
+      });
+    });
+
+    document.getElementById('pin-qty-minus').addEventListener('click', function () {
+      if (qty > 1) { qty--; qtyEl.textContent = qty; render(); }
+    });
+    document.getElementById('pin-qty-plus').addEventListener('click', function () {
+      if (qty < 10) { qty++; qtyEl.textContent = qty; render(); }
+    });
+
+    document.getElementById('pin-norepeat').addEventListener('change', render);
+    document.getElementById('pin-noseq').addEventListener('change', render);
+
+    document.getElementById('pin-gen-btn').addEventListener('click', render);
+    document.getElementById('pin-regen-btn').addEventListener('click', render);
+
+    document.getElementById('pin-copy-btn').addEventListener('click', function () {
+      var pin = document.getElementById('pin-output').textContent;
+      if (pin && pin !== '—') copyText(pin);
+    });
+
+    document.getElementById('pin-copy-all-btn').addEventListener('click', function () {
+      if (currentBatch.length) copyText(currentBatch.join('\n'));
+    });
+
+    document.getElementById('pin-hist-list').addEventListener('click', function (e) {
+      var btn = e.target.closest('[data-pin]');
+      if (btn) copyText(btn.dataset.pin);
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.target !== document.body) return;
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); render(); }
+    });
+
+    render();
+  });
+}());
+</script>
+</body>
+</html>

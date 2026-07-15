@@ -1,0 +1,11 @@
+# robots.txt — Wordineer
+# https://wordineer.com/robots.txt
+# Updated: 2026-07-14
+
+User-agent: *
+Allow: /
+
+# Block Cloudflare internal paths only
+Disallow: /cdn-cgi/
+
+Sitemap: https://wordineer.com/sitemap.xml

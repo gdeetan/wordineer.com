@@ -1,0 +1,803 @@
+<!-- build: 2026-07-15T05:05:01Z -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.adsbygoogle = window.adsbygoogle || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  (function(w, d) {
+    var loaded = false;
+    var cfg = {
+      analyticsId: 'G-7DWH3EGM3Z',
+      adsClient: 'ca-pub-7200956978416233',
+      delay: 10000
+    };
+
+    function loadScript(src, attrs) {
+      var s = d.createElement('script');
+      s.async = true;
+      s.src = src;
+      if (attrs) {
+        Object.keys(attrs).forEach(function(key) {
+          s.setAttribute(key, attrs[key]);
+        });
+      }
+      d.head.appendChild(s);
+    }
+
+    function loadMarketing() {
+      if (loaded) return;
+      loaded = true;
+      gtag('js', new Date());
+      gtag('config', cfg.analyticsId);
+      loadScript('https://www.googletagmanager.com/gtag/js?id=' + cfg.analyticsId);
+      loadScript(
+        'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + cfg.adsClient,
+        { crossorigin: 'anonymous' }
+      );
+    }
+
+    function idleLoad() {
+      if ('requestIdleCallback' in w) {
+        w.requestIdleCallback(loadMarketing, { timeout: 5000 });
+      } else {
+        w.setTimeout(loadMarketing, cfg.delay);
+      }
+    }
+
+    ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function(eventName) {
+      w.addEventListener(eventName, loadMarketing, { once: true, passive: true });
+    });
+    w.addEventListener('load', function() {
+      w.setTimeout(idleLoad, cfg.delay);
+    }, { once: true });
+  })(window, document);
+</script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="XRPtSc+0VtlRm6fwBuI7iA" async></script>
+<meta name='impact-site-verification' value='32715504-1cfb-4324-bfc7-ae4cfa1591ea'>
+<link rel="preload" href="/fonts/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-sans-italic-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://wordineer.com/#website",
+      "name": "Wordineer",
+      "url": "https://wordineer.com",
+      "description": "Free online word tools for writers, students, and word game players — random word generator, name generators, word scramble, sentence generator, and more.",
+      "publisher": { "@id": "https://wordineer.com/#organization" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://wordineer.com/#organization",
+      "name": "Wordineer",
+      "url": "https://wordineer.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://wordineer.com/logo.png",
+        "width": 1254,
+        "height": 1254
+      },
+      "description": "Wordineer provides free online word tools for writers, students, and word game players."
+    }
+  ]
+}
+</script>
+<title>Wordle Helper — Free Solver &amp; Best Starting Words | Wordineer</title>
+<meta name="description" content="Free Wordle helper — no sign-up, no paywall. Enter your guesses and clue colors to get the single best next word, ranked by information theory. Or use Practice Mode to try it now.">
+<link rel="canonical" href="https://wordineer.com/wordle-helper/">
+<meta property="og:type"        content="website">
+<meta property="og:site_name"   content="Wordineer">
+<meta property="og:title"       content="Wordle Helper — Free Solver &amp; Best Starting Words | Wordineer">
+<meta property="og:description" content="Enter your Wordle clues and get the single best next guess, ranked by how much it narrows the field. Free, no sign-up, no paywall.">
+<meta property="og:url"         content="https://wordineer.com/wordle-helper/">
+<meta property="og:image"       content="https://wordineer.com/assets/og-wordle-helper.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How does the Wordle Helper work?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Enter each of your guesses and tap the tiles to set the colors Wordle gave you (green for correct position, yellow for wrong position, grey for not in the word). Click Analyze and the tool tests every remaining candidate word to find the one that splits the remaining pool most evenly — the same idea used by NYT's WordleBot, measured in bits of information (Shannon entropy). The top-ranked word is shown as your best next guess." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this the official Wordle solver from the New York Times?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. This is an independent, free tool with no connection to the New York Times or the official Wordle game. NYT's WordleBot is a paid feature; this tool is free with no account required." }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the best starting words for Wordle?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Our information-theory analysis ranks TRACE #1 (5.989 bits), SLATE #2 (5.949 bits), and SNARE #3 (5.933 bits). All three cover common letters with no repeats and give you maximum information from your first guess. See the full ranked list at wordineer.com/best-wordle-starting-words/." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Practice Mode?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Practice Mode lets you use the Wordle Helper without an active game open anywhere. The tool picks a random secret word, you type your guesses, and it colors the tiles automatically — just like a real Wordle. An optional hint panel shows the best next guess after each guess. The word is random, not today's Wordle answer." }
+    },
+    {
+      "@type": "Question",
+      "name": "How is this different from other Wordle solvers?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Most Wordle solver tools just show a filtered list of remaining words. This tool also ranks every remaining candidate by Shannon entropy and recommends the single best next guess — the word most likely to narrow down the answer fastest. Practice Mode also lets first-time visitors understand and trust the tool without needing an active Wordle game open." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is using a Wordle solver cheating?",
+      "acceptedAnswer": { "@type": "Answer", "text": "That depends on how you play. The tool can't see today's answer — it only knows what your color results tell it, the same information you have. Many players use it after solving to review their choices, the same way NYT's own WordleBot works. Others use it mid-game to learn strategy. Where you draw the line is personal — playing with a solver is still playing." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the Wordle Helper support colorblind mode?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Click the colorblind toggle at the top of the tool to switch the tile colors to blue (correct position) and orange (wrong position), matching the convention used by Wordle's own colorblind setting." }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Wordle Helper",
+  "url": "https://wordineer.com/wordle-helper/",
+  "description": "Free Wordle solver — enter your clue colors and get the single best next guess, ranked by Shannon entropy.",
+  "applicationCategory": "GameApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@id": "https://wordineer.com/#organization" }
+}
+</script>
+
+
+<link rel="stylesheet" href="/styles/global.css?v=14">
+<style>
+/* ── Wordle Helper Styles ── */
+
+/* Tile state colors — CSS vars only, no hardcoded Wordle/NYT hex values */
+.wh-tile[data-state="2"]      { background:var(--green);  border-color:var(--green);  color:#fff; }
+.wh-tile[data-state="1"]      { background:var(--amber);  border-color:var(--amber);  color:#fff; }
+.wh-tile[data-state="0"]      { background:var(--bg-3);   border-color:var(--bg-3);   color:var(--text-3); }
+.wh-grid-tile[data-state="2"] { background:var(--green);  border-color:var(--green);  color:#fff; }
+.wh-grid-tile[data-state="1"] { background:var(--amber);  border-color:var(--amber);  color:#fff; }
+.wh-grid-tile[data-state="0"] { background:var(--bg-3);   border-color:var(--bg-3);   color:var(--text-3); }
+
+/* Colorblind mode — blue = correct position, orange = wrong position */
+.wh-wrap.wh-colorblind .wh-tile[data-state="2"],
+.wh-wrap.wh-colorblind .wh-grid-tile[data-state="2"] { background:var(--blue);  border-color:var(--blue);  color:#fff; }
+.wh-wrap.wh-colorblind .wh-tile[data-state="1"],
+.wh-wrap.wh-colorblind .wh-grid-tile[data-state="1"] { background:#D97706; border-color:#D97706; color:#fff; }
+
+/* Colorblind toggle button */
+.wh-cb-toggle {
+  padding:5px 12px; font-size:12px; font-weight:600; font-family:inherit;
+  border:1px solid var(--border); border-radius:999px;
+  background:var(--bg); color:var(--text-2); cursor:pointer;
+  transition:background .12s, border-color .12s, color .12s;
+  display:flex; align-items:center; gap:5px;
+}
+.wh-cb-toggle:hover { background:var(--bg-2); border-color:var(--text-3); }
+.wh-cb-toggle.active { background:var(--blue-light); border-color:var(--blue); color:var(--blue); }
+
+/* Wrap */
+.wh-wrap { max-width:640px; margin:0 auto; padding:20px 20px 0; }
+
+/* How-it-works strip */
+.wh-how { display:flex; gap:16px; padding:14px 16px; background:var(--bg-2);
+           border:1px solid var(--border-2); border-radius:var(--radius-lg); margin-bottom:12px; }
+.wh-how-step { flex:1; text-align:center; }
+.wh-how-num  { width:24px; height:24px; border-radius:50%; background:var(--brand-light);
+               color:var(--brand); display:inline-flex; align-items:center; justify-content:center;
+               font-size:12px; font-weight:700; margin-bottom:5px; }
+.wh-how-label { font-size:12px; color:var(--text-2); line-height:1.3; }
+.wh-nyt-note  { font-size:11px; color:var(--text-3); text-align:center; margin-bottom:14px; }
+.wh-nyt-note a { color:var(--text-3); }
+
+/* Tab bar */
+.wh-tabs { display:flex; border-bottom:2px solid var(--border-2); margin-bottom:20px; }
+.wh-tab  { padding:10px 18px; font-size:14px; font-weight:600; cursor:pointer; border:none;
+           background:none; color:var(--text-2); font-family:inherit;
+           border-bottom:2px solid transparent; margin-bottom:-2px;
+           transition:color .15s, border-color .15s; }
+.wh-tab.active { color:var(--brand); border-bottom-color:var(--brand); }
+.wh-panel { display:none; }
+.wh-panel.active { display:block; }
+
+/* Guess rows (solve tab) */
+.wh-guess-row { display:flex; align-items:center; gap:8px; margin-bottom:10px; }
+.wh-tile-row  { display:flex; gap:5px; }
+.wh-tile { width:40px; height:40px; display:flex; align-items:center; justify-content:center;
+           font-size:18px; font-weight:700; border:2px solid var(--border); border-radius:4px;
+           text-transform:uppercase; cursor:pointer; user-select:none;
+           transition:background .12s, border-color .12s; color:var(--text); }
+
+/* Best-guess card */
+.wh-best { background:var(--green-light); border:1px solid var(--green);
+           border-radius:var(--radius-lg); padding:14px 16px; margin-bottom:16px; }
+.wh-best-lbl  { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.06em;
+                color:var(--green-dark); margin-bottom:4px; }
+.wh-best-word { font-size:28px; font-weight:700; color:var(--green-dark);
+                letter-spacing:.06em; text-transform:uppercase; }
+.wh-best-bits { font-size:12px; color:var(--green-dark); margin-top:3px; opacity:.8; }
+
+/* Starter chips */
+.wh-chips { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:16px; }
+.wh-chip  { padding:5px 11px; border:1px solid var(--border); border-radius:999px;
+            font-size:12px; font-weight:600; cursor:pointer; background:var(--bg);
+            color:var(--text-2); text-transform:uppercase; font-family:inherit;
+            transition:background .12s, border-color .12s, color .12s; }
+.wh-chip:hover { background:var(--brand-light); border-color:var(--brand); color:var(--brand); }
+
+/* Candidate list */
+.wh-cands-hdr  { display:flex; justify-content:space-between; align-items:center;
+                 padding:10px 14px; background:var(--bg-2); cursor:pointer;
+                 font-size:13px; font-weight:600; color:var(--text);
+                 border:1px solid var(--border-2); border-radius:var(--radius); }
+.wh-cands-body { display:none; padding:10px 14px;
+                 border:1px solid var(--border-2); border-top:none;
+                 border-radius:0 0 var(--radius) var(--radius); }
+.wh-cands-body.open { display:block; }
+.wh-cands-grid { display:flex; flex-wrap:wrap; gap:6px; }
+.wh-cand-word  { font-size:13px; font-weight:500; text-transform:uppercase;
+                 color:var(--text-2); background:var(--bg-3); border-radius:5px;
+                 padding:3px 8px; }
+.wh-cand-word.top { color:var(--brand); background:var(--brand-light); }
+
+/* Practice grid */
+.wh-grid      { display:flex; flex-direction:column; gap:5px; align-items:center;
+                margin-bottom:16px; }
+.wh-grid-row  { display:flex; gap:5px; }
+.wh-grid-tile { width:52px; height:52px; display:flex; align-items:center;
+                justify-content:center; font-size:22px; font-weight:700;
+                border:2px solid var(--border); border-radius:3px;
+                text-transform:uppercase; color:var(--text);
+                transition:background .12s, border-color .12s; }
+.wh-grid-tile.filled { border-color:var(--text-3); }
+
+/* Input error */
+.wh-guess-input.error { border-color:#E24B4A !important; }
+.wh-input-error { font-size:11px; color:#E24B4A; min-height:16px; margin-top:2px; }
+
+/* Disclaimer */
+.wh-disclaimer { font-size:11px; color:var(--text-3); text-align:center; padding:10px 0 0; }
+
+/* Buttons — match site-wide tool button style */
+.gen-btn {
+  display:block; width:100%; padding:12px 18px;
+  background:var(--brand); color:#fff; border:none;
+  border-radius:var(--radius); font-size:15px; font-weight:700;
+  font-family:inherit; cursor:pointer; text-align:center;
+  transition:background .15s;
+}
+.gen-btn:hover { background:var(--brand-dark); }
+.gen-btn:active { background:var(--brand-dark); }
+.reset-btn {
+  display:block; width:100%; padding:9px 18px;
+  background:none; color:var(--text-3); border:1px solid var(--border-2);
+  border-radius:var(--radius); font-size:13px; font-weight:600;
+  font-family:inherit; cursor:pointer; text-align:center;
+  transition:background .15s, color .15s;
+}
+.reset-btn:hover { background:var(--bg-2); color:var(--text); }
+
+@media(max-width:540px) {
+  .wh-how { flex-direction:column; gap:10px; }
+  .wh-how-step { display:flex; align-items:flex-start; gap:10px; text-align:left; }
+  .wh-tile { width:34px; height:34px; font-size:15px; }
+  .wh-grid-tile { width:44px; height:44px; font-size:18px; }
+  .wh-best-word { font-size:22px; }
+  .wh-tab { padding:8px 12px; font-size:13px; }
+}
+</style>
+</head>
+
+<body>
+<nav class="nav">
+  <a class="nav-logo" href="/">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 15 15" fill="none"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </div>
+    Wordineer
+  </a>
+  <div class="nav-links">
+    <a href="/word-tools/">Tools</a>
+    <a href="/blog/">Blog</a>
+  </div>
+  <div>
+    <button class="hamburger" type="button" aria-label="All tools" aria-controls="mega" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mega" id="mega">
+  <div class="mega-inner">
+    <div class="mega-col">
+      <div class="mega-cat">Writing &amp; Vocabulary</div>
+      <a class="mega-link" href="/">Random Word Generator</a>
+      <a class="mega-link" href="/random-sentence-generator/">Random Sentence Generator</a>
+      <a class="mega-link" href="/random-paragraph-generator/">Random Paragraph Generator</a>
+      <a class="mega-link" href="/word-counter/">Word Counter</a>
+      <a class="mega-link mega-link--view-all" href="/word-tools/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Browse by Letter</div>
+      <a class="mega-link" href="/random-words-starting-with/">Random Words Starting With (A–Z)</a>
+      <a class="mega-link" href="/random-words-starting-with/a">Random Words Starting with A</a>
+      <a class="mega-link" href="/random-words-starting-with/s">Random Words Starting with S</a>
+      <a class="mega-link" href="/random-words-starting-with/q">Random Words Starting with Q</a>
+      <a class="mega-link mega-link--view-all" href="/random-words-starting-with/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Names by Origin</div>
+      <a class="mega-link" href="/random-spanish-name-generator/">Spanish Name Generator</a>
+      <a class="mega-link" href="/random-italian-name-generator/">Italian Name Generator</a>
+      <a class="mega-link" href="/random-japanese-name-generator/">Japanese Name Generator</a>
+      <a class="mega-link" href="/random-american-name-generator/">American Name Generator</a>
+      <a class="mega-link mega-link--view-all" href="/name-generators/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Other Name Generators</div>
+      <a class="mega-link" href="/character-name-generator/">Character Name Generator</a>
+      <a class="mega-link" href="/fantasy-name-generator/">Fantasy Name Generator</a>
+      <a class="mega-link" href="/business-name-generator/">Business Name Generator</a>
+      <a class="mega-link" href="/band-name-generator/">Band Name Generator</a>
+      <a class="mega-link mega-link--view-all" href="/other-generators/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Account &amp; Security</div>
+      <a class="mega-link" href="/username-generator/">Username Generator</a>
+      <a class="mega-link" href="/password-generator/">Password Generator</a>
+      <a class="mega-link" href="/passphrase-generator/">Passphrase Generator</a>
+      <a class="mega-link" href="/random-pin-generator/">Random PIN Generator</a>
+      <a class="mega-link mega-link--view-all" href="/account-tools/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Games &amp; fun</div>
+      <a class="mega-link" href="/coin-flip/">Flip a Coin</a>
+      <a class="mega-link" href="/random-number-generator/">Number Generator</a>
+      <a class="mega-link" href="/dice-roller/">Dice Roller</a>
+      <a class="mega-link" href="/wheel-of-names/">Wheel of Names</a>
+      <a class="mega-link mega-link--view-all" href="/number-chance/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Learn & Resources</div>
+      <a class="mega-link" href="/spelling-bee-words/">Spelling Bee Words</a>
+      <a class="mega-link" href="/common-5-letter-words/">Common 5-Letter Words</a>
+      <a class="mega-link" href="/etymology-100-common-words/">Etymology Guide</a>
+      <a class="mega-link" href="/esl-vocabulary-cefr/">ESL Vocabulary (CEFR)</a>
+    </div>
+  </div>
+</div>
+
+
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/word-tools/">Word Tools</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Wordle Helper</span>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free · No sign-up · Best next guess — not just a list
+  </div>
+  <h1>Wordle Helper</h1>
+  <p>Enter your guesses and their color results to get the single best next word to try — ranked by how much it narrows down the answer. Or switch to Practice Mode to try the tool without an active game.</p>
+  <p style="font-size:12px;color:var(--text-3);margin-top:8px">Built by Garrick Dee · Methodology updated July 2026 · Word list updated July 2026</p>
+</div>
+<div class="wh-wrap">
+
+  <div style="display:flex;justify-content:flex-end;margin-bottom:10px">
+    <button class="wh-cb-toggle" id="wh-cb-toggle" aria-pressed="false" title="Toggle colorblind-friendly tile colors">
+      <svg viewBox="0 0 14 14" fill="none" width="12" height="12"><circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1.2"/><path d="M7 4v3l2 1.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+      Colorblind mode
+    </button>
+  </div>
+
+  <!-- Persistent how-it-works strip — always visible, never collapsed -->
+  <div class="wh-how" aria-label="How to use Wordle Helper">
+    <div class="wh-how-step">
+      <div class="wh-how-num">1</div>
+      <div class="wh-how-label">Pick a starting word below or type your own first guess</div>
+    </div>
+    <div class="wh-how-step">
+      <div class="wh-how-num">2</div>
+      <div class="wh-how-label">Play it in your Wordle and note the colors it gives back</div>
+    </div>
+    <div class="wh-how-step">
+      <div class="wh-how-num">3</div>
+      <div class="wh-how-label">Click each tile here to set those colors, then Analyze</div>
+    </div>
+  </div>
+  <!-- Tab bar -->
+  <div class="wh-tabs" role="tablist">
+    <button class="wh-tab active" id="wh-tab-solve" role="tab"
+            aria-selected="true" aria-controls="wh-panel-solve">Solve My Game</button>
+    <button class="wh-tab" id="wh-tab-practice" role="tab"
+            aria-selected="false" aria-controls="wh-panel-practice">Practice Mode</button>
+  </div>
+
+  <!-- ═══ TAB A: SOLVE MY GAME ═══ -->
+  <div class="wh-panel active" id="wh-panel-solve" role="tabpanel" aria-labelledby="wh-tab-solve">
+
+    <p style="font-size:12px;color:var(--text-3);margin-bottom:8px">Popular opening words — click to pre-fill:</p>
+    <div class="wh-chips" id="wh-chips"></div>
+
+    <p style="font-size:12px;color:var(--text-2);margin-bottom:8px">
+      After typing a guess, click each tile to cycle its color:
+      <span style="display:inline-block;width:12px;height:12px;border-radius:2px;background:var(--bg-3);vertical-align:middle;margin:0 2px"></span> grey (not in word) →
+      <span style="display:inline-block;width:12px;height:12px;border-radius:2px;background:var(--green);vertical-align:middle;margin:0 2px"></span> green (correct) →
+      <span style="display:inline-block;width:12px;height:12px;border-radius:2px;background:var(--amber);vertical-align:middle;margin:0 2px"></span> yellow (wrong position)
+    </p>
+
+    <div id="wh-solve-rows"></div>
+
+    <div style="display:flex;gap:10px;align-items:center;margin-bottom:8px;flex-wrap:wrap">
+      <button class="gen-btn" id="wh-add-guess" style="width:auto;padding:9px 18px">+ Add guess</button>
+      <button class="gen-btn" id="wh-analyze" style="flex:1;min-width:120px">Analyze →</button>
+    </div>
+    <div class="wh-input-error" id="wh-solve-error"></div>
+
+    <div id="wh-results" style="display:none;margin-top:16px">
+      <div class="wh-best">
+        <div class="wh-best-lbl">Best next guess</div>
+        <div class="wh-best-word" id="wh-best-word"></div>
+        <div class="wh-best-bits" id="wh-best-bits"></div>
+      </div>
+      <div class="wh-cands-hdr" id="wh-cands-hdr" aria-expanded="false">
+        <span id="wh-cands-count">Possible answers: —</span>
+        <svg class="faq-chevron" viewBox="0 0 16 16" fill="none" width="16" height="16">
+          <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="wh-cands-body" id="wh-cands-body">
+        <div class="wh-cands-grid" id="wh-cands-grid"></div>
+      </div>
+    </div>
+
+    <button class="reset-btn" id="wh-solve-reset" style="margin-top:14px">Reset all guesses</button>
+    <div class="wh-disclaimer">Not affiliated with the New York Times or the official Wordle game.</div>
+  </div>
+
+  <!-- ═══ TAB B: PRACTICE MODE ═══ -->
+  <div class="wh-panel" id="wh-panel-practice" role="tabpanel" aria-labelledby="wh-tab-practice">
+
+    <p style="font-size:13px;color:var(--text-2);margin-bottom:16px">
+      The tool picks a random secret word. Type your guesses — it colors the tiles automatically and suggests your best next move after each one. No active game needed.
+    </p>
+
+    <div class="wh-grid" id="wh-prac-grid"></div>
+
+    <div class="wh-best" id="wh-prac-suggest" style="display:none">
+      <div class="wh-best-lbl">Hint — best next guess</div>
+      <div class="wh-best-word" id="wh-prac-best"></div>
+      <div class="wh-best-bits" id="wh-prac-bits"></div>
+    </div>
+
+    <div id="wh-prac-input-row" style="display:flex;gap:16px;margin-bottom:6px">
+      <input type="text" id="wh-prac-input" maxlength="5" placeholder="CRANE"
+             autocomplete="off" autocorrect="off" spellcheck="false"
+             style="flex:1;padding:9px 12px;font-size:16px;font-weight:600;text-transform:uppercase;
+                    border:1px solid var(--border);border-radius:var(--radius);letter-spacing:.08em;
+                    outline:none;font-family:inherit;color:var(--text);background:var(--bg)">
+      <button class="gen-btn" id="wh-prac-submit" style="width:auto;padding:9px 20px">Submit</button>
+    </div>
+    <div class="wh-input-error" id="wh-prac-error"></div>
+
+    <div id="wh-prac-result" style="display:none;text-align:center;padding:16px 0">
+      <div id="wh-prac-result-msg"
+           style="font-size:18px;font-weight:700;color:var(--text);line-height:1.3;margin-bottom:12px"></div>
+      <button class="gen-btn" id="wh-prac-new" style="width:auto;padding:9px 22px">New game</button>
+    </div>
+
+    <div class="wh-disclaimer">Practice Mode uses a random word — not today's Wordle answer. Not affiliated with the New York Times.</div>
+  </div>
+
+</div><!-- /wh-wrap -->
+<div class="content-wrap" style="margin-top:32px">
+  <div class="ad-rect">
+    <span class="ad-tag">Advertisement · 336×280</span>
+    <div class="ad-rect-img"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4C10.3 4 4 10.3 4 18s6.3 14 14 14 14-6.3 14-14S25.7 4 18 4z" fill="white" opacity=".2"/><path d="M12 18c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="18" r="2.5" fill="white"/></svg></div>
+    <div class="ad-rect-content">
+      <div class="ad-rect-title">Grammarly — write with confidence</div>
+      <div class="ad-rect-body">Grammar, tone &amp; clarity. Used by 30 million people. Works in Google Docs, Gmail, Word and more.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
+    </div>
+  </div>
+</div>
+<div class="content-wrap">
+  <div class="section">
+    <h2 class="section-title">More word tools</h2>
+    <p class="section-sub">Every word generator you need, all free</p>
+    <div class="tools-grid">
+      <a class="tool-item" href="/random-quote-generator/"><div class="tool-icon" style="background:#FBEAF0"><svg viewBox="0 0 13 13" fill="none"><path d="M3 4.5h3.5M3 8.5h4.5" stroke="#A13B63" stroke-width="1.1" stroke-linecap="round"/><path d="M8.2 3.5h1.4v2.1c0 .5.4.9.9.9H11v1.4H9.6c-1.2 0-2.1-.9-2.1-2.1z" fill="#A13B63"/><path d="M2.2 5.2h1.4V7c0 .5.4.9.9.9h.4v1.4h-.4C3.3 9.3 2.2 8.2 2.2 7z" fill="#A13B63"/></svg></div><div class="tool-name">Random Quote Generator</div><div class="tool-desc">Random quotes with filters for topic, author, tone, length, favorites, and image cards.</div></a>
+      <a class="tool-item" href="/random-wordle-generator/"><div class="tool-icon" style="background:#E8F4FE"><svg viewBox="0 0 13 13" fill="none"><rect x='2' y='2' width='3.5' height='3.5' rx='0.5' fill='#2B7FD4'/><rect x='7.5' y='2' width='3.5' height='3.5' rx='0.5' fill='#2B7FD4' opacity='.4'/><rect x='2' y='7.5' width='3.5' height='3.5' rx='0.5' fill='#2B7FD4' opacity='.4'/><rect x='7.5' y='7.5' width='3.5' height='3.5' rx='0.5' fill='#2B7FD4'/></svg></div><div class="tool-name">Random Wordle Generator</div><div class="tool-desc">Random 5-letter words for Wordle. Filter by difficulty and letter.</div></a>
+      <a class="tool-item" href="/best-wordle-starting-words/"><div class="tool-icon" style="background:#E6F1FB"><svg viewBox="0 0 13 13" fill="none"><rect x='2' y='9' width='1.5' height='3' rx='0.3' fill='#185FA5'/><rect x='4.5' y='6.5' width='1.5' height='5.5' rx='0.3' fill='#185FA5'/><rect x='7' y='4' width='1.5' height='8' rx='0.3' fill='#185FA5'/><rect x='9.5' y='2' width='1.5' height='10' rx='0.3' fill='#185FA5'/></svg></div><div class="tool-name">Best Wordle Starting Words</div><div class="tool-desc">Top 100 openers ranked by Shannon entropy — original analysis, 10,000-game benchmark, downloadable data.</div></a>
+      <a class="tool-item" href="/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="#534AB7" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="tool-name">Random word</div><div class="tool-desc">Filter by type, difficulty, length</div></a>
+      <a class="tool-item" href="/random-noun-generator/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h9M2 7h6M2 10h8" stroke="#534AB7" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="tool-name">Random Noun Generator</div><div class="tool-desc">Generate random nouns — filter by type (abstract, concrete, proper, collective) and difficulty.</div></a>
+      <a class="tool-item" href="/random-verb-generator/"><div class="tool-icon" style="background:#EEF6FE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h9M2 7h7M2 10h5" stroke="#2B6CB0" stroke-width="1.3" stroke-linecap="round"/><path d="M10 9l2 1.5-2 1.5" stroke="#2B6CB0" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="tool-name">Random Verb Generator</div><div class="tool-desc">Generate random verbs — filter by type (action, linking, auxiliary, modal) and difficulty.</div></a>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div>
+    <h2 class="section-title">Other tools</h2>
+    <p class="section-sub">Numbers, names, games and more</p>
+    <div class="other-grid">
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3h9M2 6.5h7M2 10h5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Writing &amp; Vocabulary</div><a class="other-link" href="/">Random Word Generator</a><a class="other-link" href="/random-sentence-generator/">Random Sentence Generator</a><a class="other-link" href="/random-paragraph-generator/">Random Paragraph Generator</a><a class="other-link" href="/word-counter/">Word Counter</a><a class="other-link other-link--view-all" href="/word-tools/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h3.5M2 7h9M2 10h6" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Browse by Letter</div><a class="other-link" href="/random-words-starting-with/">Random Words Starting With (A–Z)</a><a class="other-link" href="/random-words-starting-with/a">Random Words Starting with A</a><a class="other-link" href="/random-words-starting-with/s">Random Words Starting with S</a><a class="other-link" href="/random-words-starting-with/q">Random Words Starting with Q</a><a class="other-link other-link--view-all" href="/random-words-starting-with/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4.5" r="2.5" stroke="currentColor" stroke-width="1"/><path d="M1.5 11.5c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Names by Origin</div><a class="other-link" href="/random-spanish-name-generator/">Spanish Name Generator</a><a class="other-link" href="/random-italian-name-generator/">Italian Name Generator</a><a class="other-link" href="/random-japanese-name-generator/">Japanese Name Generator</a><a class="other-link" href="/random-american-name-generator/">American Name Generator</a><a class="other-link other-link--view-all" href="/name-generators/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="1.5" width="9" height="10" rx="1" stroke="currentColor" stroke-width="1"/><path d="M4 4.5h5M4 6.5h5M4 8.5h3" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Other Name Generators</div><a class="other-link" href="/character-name-generator/">Character Name Generator</a><a class="other-link" href="/fantasy-name-generator/">Fantasy Name Generator</a><a class="other-link" href="/business-name-generator/">Business Name Generator</a><a class="other-link" href="/band-name-generator/">Band Name Generator</a><a class="other-link other-link--view-all" href="/other-generators/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="3.5" y="5.5" width="6" height="5" rx="1" stroke="currentColor" stroke-width="1"/><path d="M5 5.5V4a1.5 1.5 0 013 0v1.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Account &amp; Security</div><a class="other-link" href="/username-generator/">Username Generator</a><a class="other-link" href="/password-generator/">Password Generator</a><a class="other-link" href="/passphrase-generator/">Passphrase Generator</a><a class="other-link" href="/instagram-username-generator/">Instagram Username Generator</a><a class="other-link other-link--view-all" href="/account-tools/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="1" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="1" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/></svg>Games &amp; fun</div><a class="other-link" href="/pictionary-phrase-generator/">Pictionary Phrase Generator</a><a class="other-link" href="/wordle-helper/">Wordle Helper</a><a class="other-link" href="/coin-flip/">Coin Flip</a><a class="other-link" href="/dice-roller/">Dice Roller</a><a class="other-link other-link--view-all" href="/number-chance/">View all →</a></div>
+    </div>
+  </div>
+
+  <div class="ad-rect">
+    <span class="ad-tag">Advertisement · 336×280</span>
+    <div class="ad-rect-img"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4C10.3 4 4 10.3 4 18s6.3 14 14 14 14-6.3 14-14S25.7 4 18 4z" fill="white" opacity=".2"/><path d="M12 18c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="18" r="2.5" fill="white"/></svg></div>
+    <div class="ad-rect-content">
+      <div class="ad-rect-title">Grammarly — write with confidence</div>
+      <div class="ad-rect-body">Instantly improve grammar, spelling, clarity, and tone. Works everywhere you write online.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
+    </div>
+  </div>
+  <div class="divider"></div>
+
+<div class="explainer">
+  <h2>How to use the Wordle Helper</h2>
+  <p>Open your Wordle game (NYT, a clone, or anywhere you play), enter your first guess there, then come back here. Type the same word into the first row, then click each tile to match the color Wordle gave you — grey for a letter not in the word, green for correct position, yellow for the letter is in the word but in the wrong spot. Click Analyze and the tool finds your best next guess.</p>
+  <p>If you don't have an active game open, switch to <strong>Practice Mode</strong> — the tool picks a random word and auto-colors your tiles so you can see exactly how the solver works in real time.</p>
+
+  <h2>How the recommendation works</h2>
+  <p>After each guess, the tool filters the candidate pool down to only words consistent with every clue you've entered. It then tests each remaining candidate as a hypothetical next guess: for every possible answer, what pattern would this guess produce? The word that creates the most evenly spread distribution of outcomes gets the highest score. This is Shannon entropy — the same principle NYT's WordleBot uses internally, measured in bits of information. The word that gives you the most information on average is shown as your best next guess.</p>
+  <p>In practical terms: a guess that could produce 20 different outcome patterns is more valuable than one that only produces 3, because it narrows down the field more aggressively no matter what the answer turns out to be.</p>
+  <p>In our benchmark of 10,000 simulated games (Python seed 42, playing the top-ranked suggestion every turn), the solver solved <strong>100% of games</strong> in 6 or fewer guesses, averaging <strong>3.02 guesses</strong>. <a href="/best-wordle-starting-words/">See the full analysis and comparison table →</a></p>
+
+  <h2>Why we don't use the original 2,309-word answer list</h2>
+  <p>When Wordle was originally independent, its answer list was public and several solvers memorised it. NYT has since changed the list and continues to edit it — so any tool claiming to know the exact answer pool is outdated. This helper ranks candidates by real-world word frequency instead of relying on a static list, which makes it more robust as the game evolves.</p>
+
+  <h2>Starting word strategy</h2>
+  <p>The starting-word chip picker lists well-known high-coverage openers. The best starting words test common letters — E, A, R, I, O, T, N, S — without repeating any of them. Our entropy analysis ranks <strong>TRACE #1</strong> (5.989 bits), SLATE #2, and SNARE #3. CRANE and RAISE are also strong choices. Click any chip to pre-fill it into the first row. For the full ranked list of 100 openers with downloadable data, see <a href="/best-wordle-starting-words/">Best Wordle Starting Words</a>.</p>
+
+  <div style="background:var(--bg-2);border:1px solid var(--border-2);border-radius:var(--radius-lg);padding:18px 20px;margin:24px 0">
+    <h3 style="font-size:14px;font-weight:700;color:var(--text);margin:0 0 8px">Link or cite this tool</h3>
+    <div style="font-size:13px;color:var(--text-2);background:var(--bg);border:1px solid var(--border-2);border-radius:var(--radius);padding:9px 12px;margin-bottom:10px;font-family:monospace;line-height:1.5">Wordineer Wordle Helper — wordineer.com/wordle-helper/ — Free solver ranked by Shannon entropy, no sign-up required.</div>
+    <a href="/best-wordle-starting-words/" style="font-size:13px;font-weight:600;color:var(--brand)">View full methodology and entropy data →</a>
+  </div>
+
+  <details style="margin:24px 0;background:var(--bg-2);border:1px solid var(--border-2);border-radius:var(--radius-lg);padding:14px 18px">
+    <summary style="font-size:14px;font-weight:700;color:var(--text);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center">
+      Updates
+      <svg viewBox="0 0 16 16" fill="none" width="14"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </summary>
+    <ul style="font-size:13px;color:var(--text-2);margin:12px 0 0;padding-left:18px;line-height:1.7">
+      <li><strong>July 2026</strong> — Added colorblind mode (blue/orange tiles); published entropy analysis of 715 starting words with 10,000-game benchmark; updated top opener recommendation to TRACE.</li>
+      <li><strong>June 2026</strong> — Added Practice Mode: play a full Wordle against a random secret word directly in the tool, with per-guess entropy hints.</li>
+      <li><strong>June 2026</strong> — Launched with Shannon entropy ranking, probe-word optimization for large candidate pools, and 18 curated starting word chips.</li>
+    </ul>
+  </details>
+
+  <h2>Related tools</h2>
+  <p>For the full entropy-ranked list of best starting words with downloadable data, see <a href="/best-wordle-starting-words/">Best Wordle Starting Words</a>. To play a full self-contained Wordle game rather than get solving help, try the <a href="/wordle-game/">Wordle game</a> on Wordineer. For a random 5-letter word to practice with, the <a href="/random-wordle-generator/">random Wordle word generator</a> picks one instantly with filters for difficulty. For a drawing-based word game, the <a href="/pictionary-word-generator/">Pictionary word generator</a> offers category-filtered prompts.</p>
+  <!-- scrabble-word-finder: add link here once /scrabble-word-finder/ page ships -->
+</div>
+  <div class="divider"></div>
+
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <div class="faq-item open">
+    <div class="faq-q">
+      <span class="faq-q-text">How does the Wordle Helper work?</span>
+      <svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </div>
+    <div class="faq-a">Enter each of your guesses and tap the tiles to set the colors Wordle gave you (green for correct position, yellow for wrong position, grey for not in the word). Click Analyze and the tool tests every remaining candidate word to find the one that splits the remaining pool most evenly — the same idea used by NYT's WordleBot, measured in bits of information (Shannon entropy). The top-ranked word is shown as your best next guess.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">
+      <span class="faq-q-text">Is this the official Wordle solver from the New York Times?</span>
+      <svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </div>
+    <div class="faq-a">No. This is an independent, free tool with no connection to the New York Times or the official Wordle game. NYT's WordleBot is a paid feature; this tool is free with no account required.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">
+      <span class="faq-q-text">What are the best starting words for Wordle?</span>
+      <svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </div>
+    <div class="faq-a">Our information-theory analysis ranks TRACE #1 (5.989 bits of information), SLATE #2, and SNARE #3. All cover common letters with no repeats, giving you maximum information from your first guess. See the <a href="/best-wordle-starting-words/">full ranked list of 100 openers</a> with a downloadable CSV and 10,000-game benchmark data.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">
+      <span class="faq-q-text">What is Practice Mode?</span>
+      <svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </div>
+    <div class="faq-a">Practice Mode lets you use the Wordle Helper without an active game open anywhere. The tool picks a random secret word, you type your guesses, and it colors the tiles automatically — just like a real Wordle. An optional hint panel shows the best next guess after each guess. The word is random, not today's Wordle answer.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">
+      <span class="faq-q-text">How is this different from other Wordle solvers?</span>
+      <svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </div>
+    <div class="faq-a">Most Wordle solver tools just show a filtered list of remaining words. This tool also ranks every remaining candidate by Shannon entropy and recommends the single best next guess — the word most likely to narrow down the answer fastest. Practice Mode also lets first-time visitors understand and trust the tool without needing an active Wordle game open.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">
+      <span class="faq-q-text">Is using a Wordle solver cheating?</span>
+      <svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </div>
+    <div class="faq-a">That depends on how you play. This tool can't see today's answer — it only knows what your color results tell it, the same information you have. Many players use it after solving to review their choices, the same way NYT's own WordleBot works. Others use it mid-game to learn strategy. Where you draw the line is personal — playing with a solver is still playing.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">
+      <span class="faq-q-text">Does the Wordle Helper support colorblind mode?</span>
+      <svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </div>
+    <div class="faq-a">Yes — click the "Colorblind mode" button at the top of the tool to switch tile colors to blue (correct position) and orange (wrong position), matching the convention used by Wordle's own colorblind setting. Your preference is saved for the session.</div>
+  </div>
+</div>
+  <div class="divider"></div>
+
+<div>
+  <h2 class="section-title" style="margin-bottom:14px">Who uses the Wordle Helper</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">Streak-savers</div><div class="uc-body">Stuck on a hard puzzle with your streak on the line? Enter your guesses and get the best next move — no cheating required, just smarter strategy.</div></div>
+    <div class="uc"><div class="uc-title">Beginners</div><div class="uc-body">New to Wordle and not sure where to start? The starting-word chips and Practice Mode let you learn how the game works before playing competitively.</div></div>
+    <div class="uc"><div class="uc-title">Teachers</div><div class="uc-body">Use Wordle in the classroom as a vocabulary tool. The solver shows how logical deduction narrows possibilities — a great puzzle-thinking exercise. See also: <a href="/spelling-bee-words/">Spelling Bee Words</a>.</div></div>
+    <div class="uc"><div class="uc-title">Data-curious players</div><div class="uc-body">Interested in how information theory applies to word games? The entropy score next to each suggestion shows exactly why one word beats another in terms of information gained.</div></div>
+  </div>
+</div>
+
+
+<div class="related-tools">
+  <h3 class="related-title">Related tools &amp; guides</h3>
+  <div class="related-links">
+    <a class="related-link" href="/common-5-letter-words/">common 5-letter words — letter frequency analysis</a>
+    <a class="related-link" href="/best-wordle-starting-words/">best Wordle starting words, ranked</a>
+    <a class="related-link" href="/wordle-answers/">every Wordle answer — searchable archive</a>
+  </div>
+</div>
+
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="ad-footer-strip" style="margin-bottom:24px">
+      <span class="ad-tag">Advertisement · 468×60</span>
+      <div class="ad-fs-text"><strong>Grammarly Premium</strong> — Vocabulary suggestions, tone detector, full-sentence rewrites.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-footer-strip-cta">Try free</a>
+    </div>
+    <div class="footer-grid">
+      <div><div class="footer-col-title">Writing &amp; Vocabulary</div><a class="footer-link" href="/">Random Word Generator</a><a class="footer-link" href="/random-sentence-generator/">Random Sentence Generator</a><a class="footer-link" href="/random-paragraph-generator/">Random Paragraph Generator</a><a class="footer-link" href="/word-counter/">Word Counter</a><a class="footer-link footer-link--view-all" href="/word-tools/">View all →</a></div>
+      <div><div class="footer-col-title">Browse by Letter</div><a class="footer-link" href="/random-words-starting-with/">Random Words Starting With (A–Z)</a><a class="footer-link" href="/random-words-starting-with/a">Random Words Starting with A</a><a class="footer-link" href="/random-words-starting-with/s">Random Words Starting with S</a><a class="footer-link" href="/random-words-starting-with/q">Random Words Starting with Q</a><a class="footer-link footer-link--view-all" href="/random-words-starting-with/">View all →</a></div>
+      <div><div class="footer-col-title">Names by Origin</div><a class="footer-link" href="/random-spanish-name-generator/">Spanish Name Generator</a><a class="footer-link" href="/random-italian-name-generator/">Italian Name Generator</a><a class="footer-link" href="/random-japanese-name-generator/">Japanese Name Generator</a><a class="footer-link" href="/random-american-name-generator/">American Name Generator</a><a class="footer-link footer-link--view-all" href="/name-generators/">View all →</a></div>
+      <div><div class="footer-col-title">Other Name Generators</div><a class="footer-link" href="/character-name-generator/">Character Name Generator</a><a class="footer-link" href="/fantasy-name-generator/">Fantasy Name Generator</a><a class="footer-link" href="/business-name-generator/">Business Name Generator</a><a class="footer-link" href="/band-name-generator/">Band Name Generator</a><a class="footer-link footer-link--view-all" href="/other-generators/">View all →</a></div>
+      <div><div class="footer-col-title">Account &amp; Security</div><a class="footer-link" href="/password-generator/">Password Generator</a><a class="footer-link" href="/passphrase-generator/">Passphrase Generator</a><a class="footer-link" href="/memorable-password-generator/">Memorable Password Generator</a><a class="footer-link" href="/username-generator/">Username Generator</a><a class="footer-link footer-link--view-all" href="/account-tools/">View all →</a></div>
+      <div><div class="footer-col-title">Games &amp; fun</div><a class="footer-link" href="/coin-flip/">Flip a Coin</a><a class="footer-link" href="/random-number-generator/">Number Generator</a><a class="footer-link" href="/dice-roller/">Dice Roller</a><a class="footer-link" href="/wheel-of-names/">Wheel of Names</a><a class="footer-link footer-link--view-all" href="/number-chance/">View all →</a></div>
+      <div><div class="footer-col-title">Learn & Resources</div><a class="footer-link" href="/spelling-bee-words/">Spelling Bee Words</a><a class="footer-link" href="/common-5-letter-words/">Common 5-Letter Words</a><a class="footer-link" href="/etymology-100-common-words/">Etymology Guide</a><a class="footer-link" href="/esl-vocabulary-cefr/">ESL Vocabulary (CEFR)</a></div>
+    </div>
+    <div class="footer-bottom">
+      <div style="display:flex;align-items:center;gap:7px">
+        <div class="nav-logo-icon" style="width:22px;height:22px;border-radius:5px"><svg viewBox="0 0 15 15" fill="none" style="width:12px;height:12px"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <span style="font-size:14px;font-weight:600;color:var(--text)">Wordineer</span>
+      </div>
+      <span class="footer-copy">© 2026 Wordineer · Free word tools for everyone</span>
+      <div class="footer-meta"><a href="/about/">About</a><a href="/blog/">Blog</a><a href="/affiliate-disclosure/">Affiliate disclosure</a><a href="/privacy/">Privacy</a></div>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="/scripts/tool-engine.js?v=27"></script>
+<script>
+(function bindSharedWordineerMenu() {
+  const mega = document.getElementById('mega');
+  const hbg = document.querySelector('.hamburger');
+  if (!mega || !hbg) return;
+  if (hbg.dataset.menuBound === '1') return;
+  hbg.dataset.menuBound = '1';
+  hbg.onclick = null;
+  if (hbg.getAttribute('onclick')) hbg.removeAttribute('onclick');
+
+  function setMenu(open) {
+    mega.classList.toggle('open', open);
+    hbg.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+
+  setMenu(mega.classList.contains('open'));
+
+  hbg.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+    setMenu(!mega.classList.contains('open'));
+  }, true);
+
+  hbg.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+      setMenu(!mega.classList.contains('open'));
+    }
+  }, true);
+
+  document.addEventListener('click', function(e) {
+    if (mega.classList.contains('open') && !mega.contains(e.target) && !hbg.contains(e.target)) {
+      setMenu(false);
+    }
+  }, true);
+})();
+</script>
+
+<script src="/scripts/wordle-engine.js?v=2"></script>
+<script>
+// Colorblind mode toggle — persisted in sessionStorage
+(function() {
+  const btn  = document.getElementById('wh-cb-toggle');
+  const wrap = document.querySelector('.wh-wrap');
+  if (!btn || !wrap) return;
+  const active = sessionStorage.getItem('wh-colorblind') === '1';
+  if (active) { wrap.classList.add('wh-colorblind'); btn.classList.add('active'); btn.setAttribute('aria-pressed','true'); }
+  btn.addEventListener('click', function() {
+    const on = wrap.classList.toggle('wh-colorblind');
+    btn.classList.toggle('active', on);
+    btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    sessionStorage.setItem('wh-colorblind', on ? '1' : '0');
+  });
+})();
+
+WORDLE_HELPER.init({
+  tabSolveId:      'wh-tab-solve',
+  tabPracticeId:   'wh-tab-practice',
+  panelSolveId:    'wh-panel-solve',
+  panelPracticeId: 'wh-panel-practice',
+  chipsId:         'wh-chips',
+  solveRowsId:     'wh-solve-rows',
+  addGuessBtnId:   'wh-add-guess',
+  analyseBtnId:    'wh-analyze',
+  solveErrorId:    'wh-solve-error',
+  resultsId:       'wh-results',
+  bestWordId:      'wh-best-word',
+  bestBitsId:      'wh-best-bits',
+  candsCountId:    'wh-cands-count',
+  candsHdrId:      'wh-cands-hdr',
+  candsBodyId:     'wh-cands-body',
+  candsGridId:     'wh-cands-grid',
+  solveResetId:    'wh-solve-reset',
+  pracGridId:      'wh-prac-grid',
+  pracSuggestId:   'wh-prac-suggest',
+  pracBestId:      'wh-prac-best',
+  pracBitsId:      'wh-prac-bits',
+  pracInputId:     'wh-prac-input',
+  pracSubmitId:    'wh-prac-submit',
+  pracErrorId:     'wh-prac-error',
+  pracResultId:    'wh-prac-result',
+  pracResultMsgId: 'wh-prac-result-msg',
+  pracNewId:       'wh-prac-new',
+  pracInputRowId:  'wh-prac-input-row',
+  starters: ['TRACE','SLATE','SNARE','ARISE','ALERT','CRANE','IRATE','TRADE','STALE','ALTER',
+             'RAISE','STARE','TEARS','SANER','LATER','AROSE','CRATE','SNARE','LEAST','CLOSE'],
+  collapseThreshold: 30,
+});
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => q.closest('.faq-item').classList.toggle('open'));
+});
+</script>
+</body>
+</html>
