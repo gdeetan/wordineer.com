@@ -166,6 +166,51 @@
   color: var(--text-2);
   margin: 0 0 14px;
 }
+.hub-search {
+  position: relative;
+  margin: 20px auto 0;
+  max-width: 480px;
+}
+.hub-search__input {
+  width: 100%;
+  padding: 10px 38px 10px 14px;
+  border: 1.5px solid var(--border-2, #d0d0d5);
+  border-radius: 8px;
+  background: var(--bg, #fff);
+  color: var(--text);
+  font-size: 15px;
+  outline: none;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+}
+.hub-search__input:focus {
+  border-color: var(--brand, #4A3FD4);
+  box-shadow: 0 0 0 3px rgba(74,63,212,.12);
+}
+.hub-search__clear {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-3, #888);
+  font-size: 15px;
+  padding: 4px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+.hub-search__empty {
+  display: none;
+  padding: 20px 0 4px;
+  color: var(--text-2);
+  font-size: 15px;
+}
+@media (max-width: 600px) {
+  .hub-search { max-width: 100%; }
+}
 </style>
 <!-- /SLOT:style -->
 
@@ -184,6 +229,21 @@
   </div>
   <h1>Free word tools</h1>
   <p>Browse every word tool on Wordineer in one place. The full collection — random word generators, word games, vocabulary builders, and writing tools — grouped by what you're trying to do.</p>
+  <div class="hub-search">
+    <input
+      type="search"
+      id="hub-search-input"
+      class="hub-search__input"
+      placeholder="Search word tools..."
+      aria-label="Search word tools"
+      autocomplete="off"
+      spellcheck="false">
+    <button
+      class="hub-search__clear"
+      id="hub-search-clear"
+      aria-label="Clear search"
+      hidden>✕</button>
+  </div>
 </div>
 <!-- /SLOT:hero -->
 
@@ -325,11 +385,11 @@
           <div class="tool-desc">Random quotes with filters, favorites, and shareable image cards.</div>
         </a>
 
-        <div class="tool-item tool-item--soon">
+        <a class="tool-item" href="/lorem-ipsum-generator/">
           <div class="tool-icon" style="background:#F5F3FF"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3.5h9M2 5.5h9M2 7.5h9M2 9.5h5.5" stroke="#4A3FD4" stroke-width=".9" stroke-linecap="round"/></svg></div>
-          <div class="tool-name">Lorem Ipsum Generator <span class="soon-badge">Coming soon</span></div>
-          <div class="tool-desc">Placeholder text in any length you need.</div>
-        </div>
+          <div class="tool-name">Lorem Ipsum Generator</div>
+          <div class="tool-desc">Placeholder text in paragraphs, HTML, or Markdown — with readable English mode.</div>
+        </a>
 
         <a class="tool-item" href="/word-counter/">
           <div class="tool-icon" style="background:#EAF0F6"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3.5h9M2 6h6M2 8.5h7.5" stroke="#2F4F6F" stroke-width=".9" stroke-linecap="round"/><path d="M9.5 7l1.5 1.5-1.5 1.5" stroke="#2F4F6F" stroke-width=".9" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -441,17 +501,17 @@
           <div class="tool-desc">Truth or dare questions for couples, from sweet to romantic.</div>
         </a>
 
-        <div class="tool-item tool-item--soon">
+        <a class="tool-item" href="/random-trivia-generator/">
           <div class="tool-icon" style="background:#EAF0F6"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="5.5" r="2" stroke="#2F4F6F" stroke-width=".9"/><path d="M5.5 5.5h2M6.5 4.5v2" stroke="#2F4F6F" stroke-width=".7" stroke-linecap="round"/><path d="M3 10.5h7M4 9h5" stroke="#2F4F6F" stroke-width=".85" stroke-linecap="round"/></svg></div>
-          <div class="tool-name">Random Trivia Generator <span class="soon-badge">Coming soon</span></div>
-          <div class="tool-desc">Trivia questions on any topic for trivia nights.</div>
-        </div>
+          <div class="tool-name">Random Trivia Generator</div>
+          <div class="tool-desc">300+ trivia Q&amp;As in flashcard, quiz, and host modes. Filter by category.</div>
+        </a>
 
-        <div class="tool-item tool-item--soon">
+        <a class="tool-item" href="/random-dad-jokes/">
           <div class="tool-icon" style="background:#FFF3E0"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="4" stroke="#B85C00" stroke-width=".9"/><path d="M4.5 7.5c.5 1.2 4 1.2 4.5 0" stroke="#B85C00" stroke-width=".9" stroke-linecap="round"/><circle cx="4.8" cy="5.5" r=".65" fill="#B85C00"/><circle cx="8.2" cy="5.5" r=".65" fill="#B85C00"/></svg></div>
-          <div class="tool-name">Random Dad Jokes <span class="soon-badge">Coming soon</span></div>
-          <div class="tool-desc">Groan-worthy puns and one-liners for the whole family.</div>
-        </div>
+          <div class="tool-name">Random Dad Jokes</div>
+          <div class="tool-desc">250+ clean, groan-worthy dad jokes with punchline reveal and topic filters.</div>
+        </a>
 
       </div>
     </div>
@@ -770,6 +830,60 @@
       setMenu(false);
     }
   }, true);
+})();
+</script>
+<script>
+(function() {
+  var input = document.getElementById('hub-search-input');
+  var clearBtn = document.getElementById('hub-search-clear');
+  if (!input) return;
+
+  var sections = document.querySelectorAll('.name-section');
+
+  var empty = document.createElement('p');
+  empty.className = 'hub-search__empty';
+  empty.textContent = 'No matching tools found.';
+  var firstSection = sections[0];
+  if (firstSection) firstSection.parentNode.insertBefore(empty, firstSection);
+
+  function filter() {
+    var q = input.value.trim().toLowerCase();
+    clearBtn.hidden = !q;
+    var totalVisible = 0;
+
+    sections.forEach(function(section) {
+      var cards = section.querySelectorAll('.tool-item');
+      var sectionVisible = 0;
+
+      cards.forEach(function(card) {
+        var name = (card.querySelector('.tool-name') || {}).textContent || '';
+        var desc = (card.querySelector('.tool-desc') || {}).textContent || '';
+        var match = !q || name.toLowerCase().includes(q) || desc.toLowerCase().includes(q);
+        card.style.display = match ? '' : 'none';
+        if (match) sectionVisible++;
+      });
+
+      section.style.display = sectionVisible > 0 ? '' : 'none';
+      totalVisible += sectionVisible;
+    });
+
+    empty.style.display = (q && totalVisible === 0) ? 'block' : 'none';
+  }
+
+  input.addEventListener('input', filter);
+
+  clearBtn.addEventListener('click', function() {
+    input.value = '';
+    filter();
+    input.focus();
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && input.value) {
+      input.value = '';
+      filter();
+    }
+  });
 })();
 </script>
 <!-- /SLOT:content -->

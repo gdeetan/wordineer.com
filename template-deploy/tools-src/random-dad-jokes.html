@@ -1,0 +1,329 @@
+<!-- CONFIG
+{
+  "type": "tool",
+  "url": "/random-dad-jokes/",
+  "output": "random-dad-jokes.html",
+  "more_tools_key": "more_word_tools",
+  "more_tools_title": "More word game generators",
+  "more_tools_subtitle": "Free tools for game night"
+}
+-->
+
+<!-- SLOT:meta -->
+<title>Random Dad Jokes — Clean Dad Joke Generator</title>
+<meta name="description" content="Generate random dad jokes instantly. Filter by topic, reveal punchlines, copy and share. 250+ clean, family-safe jokes. No sign-up needed.">
+<link rel="canonical" href="https://wordineer.com/random-dad-jokes/">
+<meta property="og:title" content="Random Dad Jokes — Clean Dad Joke Generator">
+<meta property="og:description" content="250+ clean dad jokes with punchline reveal, topic filters, copy and share. Free, instant, no account.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"What makes something a dad joke?","acceptedAnswer":{"@type":"Answer","text":"A dad joke is a short pun or wordplay gag that's intentionally corny or obvious. The humor comes from the groan it produces — the worse the pun, the better the dad joke."}},
+    {"@type":"Question","name":"Are these jokes family-safe?","acceptedAnswer":{"@type":"Answer","text":"Yes. Every joke in this generator is clean and family-safe, appropriate for kids and adults alike."}},
+    {"@type":"Question","name":"Can I filter by topic?","acceptedAnswer":{"@type":"Answer","text":"Yes — filter by food, animals, work, science, sports, seasonal, or general topics using the dropdown."}},
+    {"@type":"Question","name":"How do I share a joke?","acceptedAnswer":{"@type":"Answer","text":"Use the Share button to send via your device's native share sheet, or Copy to grab the text directly."}},
+    {"@type":"Question","name":"Will jokes repeat?","acceptedAnswer":{"@type":"Answer","text":"Jokes won't repeat until the full filtered pool is exhausted, then the pool resets automatically."}}
+  ]
+}
+</script>
+<!-- /SLOT:meta -->
+
+<!-- SLOT:style -->
+<style>
+.dj-wrap{max-width:680px;margin:0 auto;padding:24px 16px}
+.dj-card{background:var(--bg);border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
+.dj-body{padding:40px 32px 32px;text-align:center;border-bottom:1px solid var(--border-2);min-height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px}
+.dj-question{font-family:'DM Serif Display',serif;font-size:24px;line-height:1.4;color:var(--text)}
+.dj-answer{font-size:18px;color:var(--brand);font-weight:600;line-height:1.4;display:none}
+.dj-answer.visible{display:block}
+.dj-oneliner{font-family:'DM Serif Display',serif;font-size:22px;line-height:1.5;color:var(--text)}
+.dj-reveal-btn{background:var(--bg-2);border:1px solid var(--border);color:var(--text-2);border-radius:6px;font-size:14px;font-weight:600;padding:10px 20px;cursor:pointer;transition:border-color .15s}
+.dj-reveal-btn:hover{border-color:var(--brand);color:var(--brand)}
+.dj-controls{padding:16px 20px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;border-bottom:1px solid var(--border-2)}
+.dj-filter-group{display:flex;align-items:center;gap:8px}
+.dj-filter-group label{font-size:12px;color:var(--text-2);font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+.dj-filter-group select{padding:7px 10px;border:1px solid var(--border);border-radius:6px;font-size:12px;font-weight:600;background:var(--bg);color:var(--text-2);font-family:inherit;appearance:none;cursor:pointer}
+.dj-actions{display:flex;gap:6px;margin-left:auto}
+.dj-btn{border:1px solid var(--border);background:var(--bg);color:var(--text-2);border-radius:6px;font-size:12px;font-weight:600;padding:8px 12px;cursor:pointer;transition:border-color .15s,color .15s;display:flex;align-items:center;gap:5px}
+.dj-btn:hover{border-color:var(--brand);color:var(--brand)}
+.dj-btn.saved{color:var(--brand);border-color:var(--brand)}
+.dj-next-row{padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.dj-next-btn{background:var(--brand);color:#fff;border:none;border-radius:6px;font-size:16px;font-weight:600;padding:12px 32px;cursor:pointer;transition:opacity .15s;flex:1;max-width:260px}
+.dj-next-btn:hover{opacity:.9}
+.dj-groan{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-3)}
+.dj-groan-stars{display:flex;gap:2px}
+.dj-groan-star{font-size:18px;cursor:pointer;line-height:1;color:var(--border);transition:color .1s;user-select:none}
+.dj-groan-star.lit{color:#f59e0b}
+.dj-pool{font-size:12px;color:var(--text-3);padding:0 20px 10px}
+.dj-bestof{margin-top:8px}
+.dj-bestof h2{font-size:20px;margin-bottom:16px}
+.dj-bestof dl{display:grid;gap:16px}
+.dj-bestof dt{font-weight:700;color:var(--text);font-size:15px;margin:0}
+.dj-bestof dd{margin:4px 0 0;color:var(--text-2);font-size:14px;border-left:3px solid var(--brand);padding-left:10px}
+@media(max-width:600px){
+  .dj-body{padding:28px 20px 24px}
+  .dj-question,.dj-oneliner{font-size:20px}
+  .dj-controls{flex-direction:column;align-items:flex-start}
+  .dj-actions{margin-left:0}
+}
+</style>
+<!-- /SLOT:style -->
+
+<!-- SLOT:hero -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/word-tools/">Word Tools</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Random Dad Jokes</span>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free · No sign-up · Family safe
+  </div>
+  <h1>Random Dad Jokes</h1>
+  <p>Generate clean, groan-worthy dad jokes instantly. Filter by topic, reveal punchlines at your own pace, and share with one tap.</p>
+</div>
+<!-- /SLOT:hero -->
+
+<!-- SLOT:tool -->
+<div class="dj-wrap" aria-label="Dad joke generator">
+  <div class="dj-card">
+    <div class="dj-body" id="dj-body">
+      <div class="dj-question" id="dj-question">Tap "Next joke" to start</div>
+      <div class="dj-answer" id="dj-answer"></div>
+      <button class="dj-reveal-btn" id="dj-reveal-btn" style="display:none">Show punchline</button>
+    </div>
+    <div class="dj-controls">
+      <div class="dj-filter-group">
+        <label for="dj-topic">Topic</label>
+        <select id="dj-topic">
+          <option value="all">All topics</option>
+          <option value="food">Food</option>
+          <option value="animals">Animals</option>
+          <option value="work">Work</option>
+          <option value="science">Science</option>
+          <option value="sports">Sports</option>
+          <option value="seasonal">Seasonal</option>
+          <option value="general">General</option>
+        </select>
+      </div>
+      <div class="dj-actions">
+        <button class="dj-btn" id="dj-copy-btn">
+          <svg viewBox="0 0 16 16" fill="none" width="13" height="13"><rect x="5" y="5" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M11 5V3.5A1.5 1.5 0 009.5 2H3.5A1.5 1.5 0 002 3.5v6A1.5 1.5 0 003.5 11H5" stroke="currentColor" stroke-width="1.3"/></svg>
+          Copy
+        </button>
+        <button class="dj-btn" id="dj-share-btn">
+          <svg viewBox="0 0 16 16" fill="none" width="13" height="13"><circle cx="12" cy="3" r="1.5" stroke="currentColor" stroke-width="1.3"/><circle cx="12" cy="13" r="1.5" stroke="currentColor" stroke-width="1.3"/><circle cx="4" cy="8" r="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M10.5 3.9L5.5 7.1M10.5 12.1L5.5 8.9" stroke="currentColor" stroke-width="1.3"/></svg>
+          Share
+        </button>
+        <button class="dj-btn" id="dj-heart-btn">♥ Save</button>
+      </div>
+    </div>
+    <div class="dj-next-row">
+      <button class="dj-next-btn" id="dj-next-btn">Next joke</button>
+      <div class="dj-groan">
+        <span style="font-size:11px;text-transform:uppercase;letter-spacing:.05em">Groan level</span>
+        <div class="dj-groan-stars" id="dj-groan-stars">
+          <span class="dj-groan-star" data-v="1">😐</span>
+          <span class="dj-groan-star" data-v="2">🙄</span>
+          <span class="dj-groan-star" data-v="3">😩</span>
+          <span class="dj-groan-star" data-v="4">🤦</span>
+          <span class="dj-groan-star" data-v="5">💀</span>
+        </div>
+      </div>
+    </div>
+    <div class="dj-pool" id="dj-pool"></div>
+  </div>
+</div>
+<!-- /SLOT:tool -->
+
+<!-- SLOT:ad_b -->
+<div class="content-wrap" style="margin-top:32px">
+  <div class="ad-rect">
+    <span class="ad-tag">Advertisement · 336×280</span>
+    <div class="ad-rect-img"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4C10.3 4 4 10.3 4 18s6.3 14 14 14 14-6.3 14-14S25.7 4 18 4z" fill="white" opacity=".2"/><path d="M12 18c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="18" r="2.5" fill="white"/></svg></div>
+    <div class="ad-rect-content">
+      <div class="ad-rect-title">Grammarly — write with confidence</div>
+      <div class="ad-rect-body">Grammar, tone &amp; clarity. Used by 30 million people.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
+    </div>
+  </div>
+</div>
+<!-- /SLOT:ad_b -->
+
+<!-- SLOT:explainer -->
+<div class="explainer">
+  <h2>What makes a great dad joke?</h2>
+  <p>A dad joke lives or dies by its pun. The best ones use a single word that sounds like something else — a homophone trick so obvious that you groan out loud. That groan is the whole point. Unlike a stand-up punchline, a dad joke doesn't try to surprise you; it telegraphs exactly where it's going and makes you cringe anyway.</p>
+  <p>The format usually comes in two flavors: the question-and-answer ("Why did the bicycle fall over? It was two-tired.") and the one-liner that sneaks up on you mid-sentence. Both follow the same rule: maximum wordplay, minimum setup.</p>
+  <h2>Best dad jokes — curated picks</h2>
+  <div class="dj-bestof">
+    <dl>
+      <div><dt>Why don't scientists trust atoms?</dt><dd>Because they make up everything.</dd></div>
+      <div><dt>I'm reading a book about anti-gravity.</dt><dd>It's impossible to put down.</dd></div>
+      <div><dt>Why did the scarecrow win an award?</dt><dd>Because he was outstanding in his field.</dd></div>
+      <div><dt>I only know 25 letters of the alphabet.</dt><dd>I don't know y.</dd></div>
+      <div><dt>Why can't you give Elsa a balloon?</dt><dd>Because she'll let it go.</dd></div>
+      <div><dt>What do you call cheese that isn't yours?</dt><dd>Nacho cheese.</dd></div>
+      <div><dt>I used to hate facial hair.</dt><dd>But then it grew on me.</dd></div>
+      <div><dt>What do you call a fish without eyes?</dt><dd>A fsh.</dd></div>
+      <div><dt>Why did the math book look so sad?</dt><dd>Because it had too many problems.</dd></div>
+      <div><dt>I'm on a seafood diet.</dt><dd>I see food and I eat it.</dd></div>
+    </dl>
+  </div>
+</div>
+<!-- /SLOT:explainer -->
+
+<!-- SLOT:faq -->
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">What makes something a dad joke?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">A dad joke is a short, intentionally corny pun or wordplay gag. The humor is in the groan — it's obvious, it telegraphs the punchline, and it makes people roll their eyes. The worse the pun, the better the dad joke.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Are these jokes family-safe?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes — every joke is clean and appropriate for all ages, including kids. No adult humor, no edgy content.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I filter jokes by topic?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes. Use the topic filter to narrow jokes to food, animals, work, science, sports, seasonal occasions, or general topics.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Will jokes repeat?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Jokes won't repeat within a session until the entire filtered pool is exhausted. Then the pool resets and starts again.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What is the groan meter?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">The groan meter lets you rate how painful each joke is — from 😐 (barely a groan) to 💀 (maximum dad energy). Your ratings are saved locally for the session.</div>
+  </div>
+</div>
+<!-- /SLOT:faq -->
+
+<!-- SLOT:who -->
+<div class="section">
+  <h2 class="section-title" style="margin-bottom:14px">Who uses the dad joke generator</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">Parents</div><div class="uc-body">Never run out of material. Fresh dad jokes daily, filtered to the right topic for the moment</div></div>
+    <div class="uc"><div class="uc-title">Teachers</div><div class="uc-body">Warm up a class with a groan-worthy pun — a reliably low-stakes way to get everyone's attention</div></div>
+    <div class="uc"><div class="uc-title">Comedians in training</div><div class="uc-body">Study the structure of a clean pun before building your own. Simplicity is harder than it looks</div></div>
+    <div class="uc"><div class="uc-title">Party hosts</div><div class="uc-body">Break the ice or fill a lull with a joke that everyone can participate in — no age restriction needed</div></div>
+  </div>
+  <p style="margin-top:14px">Looking for more game-night content? Try the <a href="/would-you-rather-generator/">Would You Rather Generator</a>, <a href="/truth-or-dare-generator/">Truth or Dare Generator</a>, or <a href="/charades-generator/">Charades Generator</a>.</p>
+</div>
+<!-- /SLOT:who -->
+
+<!-- SLOT:init -->
+<script>
+(function(){
+'use strict';
+var SEED=[
+  {id:1,q:"Why don't scientists trust atoms?",a:"Because they make up everything.",topic:"science",format:"qa"},
+  {id:2,text:"I used to hate facial hair but then it grew on me.",topic:"general",format:"oneliner"},
+  {id:3,q:"Why did the scarecrow win an award?",a:"Because he was outstanding in his field.",topic:"work",format:"qa"},
+  {id:4,q:"What do you call cheese that isn't yours?",a:"Nacho cheese.",topic:"food",format:"qa"},
+  {id:5,q:"Why can't you give Elsa a balloon?",a:"Because she'll let it go.",topic:"general",format:"qa"},
+  {id:6,text:"I'm reading a book about anti-gravity. It's impossible to put down.",topic:"science",format:"oneliner"},
+  {id:7,q:"What do you call a fish without eyes?",a:"A fsh.",topic:"animals",format:"qa"},
+  {id:8,q:"Why did the math book look sad?",a:"Because it had too many problems.",topic:"science",format:"qa"},
+  {id:9,text:"I'm on a seafood diet. I see food and I eat it.",topic:"food",format:"oneliner"},
+  {id:10,q:"What do you call a bear with no teeth?",a:"A gummy bear.",topic:"animals",format:"qa"},
+  {id:11,q:"Why did the bicycle fall over?",a:"Because it was two-tired.",topic:"sports",format:"qa"},
+  {id:12,text:"I only know 25 letters of the alphabet. I don't know y.",topic:"general",format:"oneliner"},
+  {id:13,q:"What do you call a sleeping dinosaur?",a:"A dino-snore.",topic:"animals",format:"qa"},
+  {id:14,q:"Why don't eggs tell jokes?",a:"They'd crack each other up.",topic:"food",format:"qa"},
+  {id:15,text:"I would tell you a construction joke but I'm still working on it.",topic:"work",format:"oneliner"}
+];
+var fullData=null,pool=[],seen=new Set(),current=null,revealed=false,saved=[],groanRatings={};
+try{saved=JSON.parse(sessionStorage.getItem('dj_saved')||'[]');}catch(e){}
+try{groanRatings=JSON.parse(sessionStorage.getItem('dj_groan')||'{}');}catch(e){}
+var state={topic:'all'};
+
+function buildPool(){
+  var src=fullData||SEED;
+  pool=src.filter(function(j){return state.topic==='all'||j.topic===state.topic;});
+  seen=new Set();
+  updatePool();
+}
+function updatePool(){
+  var el=document.getElementById('dj-pool');
+  if(el)el.textContent=(pool.length-seen.size)+' jokes remaining';
+}
+function render(){
+  if(!current)return;
+  var qEl=document.getElementById('dj-question');
+  var aEl=document.getElementById('dj-answer');
+  var revBtn=document.getElementById('dj-reveal-btn');
+  if(current.format==='qa'){
+    qEl.textContent=current.q;
+    aEl.textContent=current.a;
+    aEl.classList.toggle('visible',revealed);
+    revBtn.style.display=revealed?'none':'inline-block';
+  } else {
+    qEl.textContent=current.text;
+    aEl.textContent='';
+    aEl.classList.remove('visible');
+    revBtn.style.display='none';
+  }
+  var heartBtn=document.getElementById('dj-heart-btn');
+  var isSaved=saved.indexOf(current.id)>-1;
+  heartBtn.textContent=isSaved?'♥ Saved':'♥ Save';
+  heartBtn.classList.toggle('saved',isSaved);
+  var rating=groanRatings[current.id]||0;
+  document.querySelectorAll('.dj-groan-star').forEach(function(s){
+    s.classList.toggle('lit',parseInt(s.dataset.v)<=rating);
+  });
+}
+function next(){
+  var avail=pool.filter(function(j){return!seen.has(j.id);});
+  if(!avail.length){seen=new Set();avail=pool.slice();}
+  if(!avail.length)return;
+  current=avail[Math.floor(Math.random()*avail.length)];
+  seen.add(current.id);
+  revealed=false;
+  render();
+  updatePool();
+}
+function getJokeText(){
+  if(!current)return'';
+  if(current.format==='qa')return current.q+(revealed?' '+current.a:'');
+  return current.text;
+}
+document.getElementById('dj-next-btn').addEventListener('click',next);
+document.getElementById('dj-reveal-btn').addEventListener('click',function(){revealed=true;render();});
+document.getElementById('dj-copy-btn').addEventListener('click',function(){
+  var txt=getJokeText();if(!txt)return;
+  navigator.clipboard&&navigator.clipboard.writeText(txt);
+});
+document.getElementById('dj-share-btn').addEventListener('click',function(){
+  var txt=getJokeText();if(!txt)return;
+  if(navigator.share){navigator.share({title:'Dad Joke',text:txt});}
+  else{navigator.clipboard&&navigator.clipboard.writeText(txt);}
+});
+document.getElementById('dj-heart-btn').addEventListener('click',function(){
+  if(!current)return;
+  var idx=saved.indexOf(current.id);
+  if(idx>-1)saved.splice(idx,1);else saved.push(current.id);
+  try{sessionStorage.setItem('dj_saved',JSON.stringify(saved));}catch(e){}
+  render();
+});
+document.getElementById('dj-topic').addEventListener('change',function(e){state.topic=e.target.value;buildPool();});
+document.getElementById('dj-groan-stars').addEventListener('click',function(e){
+  var star=e.target.closest('.dj-groan-star');
+  if(!star||!current)return;
+  var v=parseInt(star.dataset.v);
+  groanRatings[current.id]=v;
+  try{sessionStorage.setItem('dj_groan',JSON.stringify(groanRatings));}catch(e){}
+  render();
+});
+buildPool();
+fetch('/data/dad-jokes.json').then(function(r){return r.ok?r.json():null;}).then(function(d){if(d){fullData=d;buildPool();}}).catch(function(){});
+})();
+</script>
+<!-- /SLOT:init -->

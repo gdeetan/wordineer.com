@@ -1,0 +1,366 @@
+<!-- CONFIG
+{
+  "type": "tool",
+  "url": "/lorem-ipsum-generator/",
+  "output": "lorem-ipsum-generator.html",
+  "more_tools_key": "more_word_tools",
+  "more_tools_title": "More writing tools",
+  "more_tools_subtitle": "Free generators for writers and designers"
+}
+-->
+
+<!-- SLOT:meta -->
+<title>Lorem Ipsum Generator — Placeholder Text Generator</title>
+<meta name="description" content="Generate lorem ipsum placeholder text — paragraphs, sentences, words, characters, or HTML. Classic Latin, readable English, or word soup. Free, instant, no sign-up.">
+<link rel="canonical" href="https://wordineer.com/lorem-ipsum-generator/">
+<meta property="og:title" content="Lorem Ipsum Generator — Placeholder Text Generator">
+<meta property="og:description" content="Paragraphs, sentences, words, characters, or list items. Classic Latin, readable English filler, or word soup. Copy as plain text, HTML, or Markdown.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"What is lorem ipsum?","acceptedAnswer":{"@type":"Answer","text":"Lorem ipsum is placeholder text used in design and publishing to fill space before real content is available. It comes from a passage in Cicero's 'de Finibus Bonorum et Malorum' written around 45 BC, scrambled so it reads as nonsense Latin."}},
+    {"@type":"Question","name":"How do I get 3 paragraphs of lorem ipsum?","acceptedAnswer":{"@type":"Answer","text":"Set the unit to Paragraphs, enter 3 in the count field, and click Generate. You can copy the result as plain text, HTML p-tags, or Markdown."}},
+    {"@type":"Question","name":"What is the difference between Classic Latin, Readable English, and Word Soup?","acceptedAnswer":{"@type":"Answer","text":"Classic Latin uses the traditional lorem ipsum word bank. Readable English assembles real English sentences for contexts where pseudo-Latin would confuse stakeholders. Word Soup pulls random words of varied lengths — useful for testing typography and line breaks."}},
+    {"@type":"Question","name":"Can I get lorem ipsum as HTML?","acceptedAnswer":{"@type":"Answer","text":"Yes. Switch to the HTML tab to get output wrapped in paragraph or list-item tags, ready to paste into your markup."}},
+    {"@type":"Question","name":"What does the URL parameter do?","acceptedAnswer":{"@type":"Answer","text":"You can bookmark a specific configuration with URL params: ?unit=paragraphs&count=3&format=html&mode=latin. The page restores that state on load."}}
+  ]
+}
+</script>
+<!-- /SLOT:meta -->
+
+<!-- SLOT:style -->
+<style>
+.li-wrap{max-width:860px;margin:0 auto;padding:24px 16px}
+.li-card{background:var(--bg);border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
+.li-controls{padding:16px 20px;display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;border-bottom:1px solid var(--border-2)}
+.li-ctrl-group{display:flex;flex-direction:column;gap:5px}
+.li-ctrl-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3)}
+.li-seg{display:flex;flex-wrap:wrap;gap:3px}
+.li-seg button{padding:7px 12px;border:1px solid var(--border);border-radius:6px;font-size:12px;font-weight:600;background:var(--bg);color:var(--text-2);cursor:pointer;font-family:inherit;transition:border-color .15s,background .15s,color .15s}
+.li-seg button.active{background:var(--brand);border-color:var(--brand);color:#fff}
+.li-seg button:hover:not(.active){border-color:var(--brand);color:var(--brand)}
+.li-count-input{padding:8px 10px;border:1px solid var(--border);border-radius:6px;font-size:14px;font-weight:600;width:70px;background:var(--bg);color:var(--text);font-family:inherit;text-align:center}
+.li-toggle{display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;color:var(--text-2)}
+.li-toggle input[type=checkbox]{width:16px;height:16px;cursor:pointer;accent-color:var(--brand)}
+.li-mode-row{padding:10px 20px;display:flex;flex-wrap:wrap;gap:6px;border-bottom:1px solid var(--border-2);align-items:center}
+.li-mode-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);margin-right:4px}
+.li-gen-row{padding:12px 20px;border-bottom:1px solid var(--border-2)}
+.li-gen-btn{background:var(--brand);color:#fff;border:none;border-radius:6px;font-size:15px;font-weight:600;padding:12px 32px;cursor:pointer;transition:opacity .15s}
+.li-gen-btn:hover{opacity:.9}
+.li-format-tabs{display:flex;border-bottom:1px solid var(--border-2)}
+.li-fmt-tab{padding:10px 16px;font-size:13px;font-weight:600;color:var(--text-2);cursor:pointer;border:none;background:none;border-bottom:2px solid transparent;transition:color .15s,border-color .15s}
+.li-fmt-tab.active{color:var(--brand);border-bottom-color:var(--brand)}
+.li-output-area{position:relative;padding:4px 0 0}
+.li-textarea{width:100%;min-height:180px;border:none;border-bottom:1px solid var(--border-2);padding:16px 20px;font-size:13px;font-family:monospace;resize:vertical;background:var(--bg);color:var(--text);box-sizing:border-box;line-height:1.6}
+.li-textarea:focus{outline:none}
+.li-copy-row{padding:10px 16px;display:flex;justify-content:flex-end;gap:8px;border-bottom:1px solid var(--border-2)}
+.li-btn{border:1px solid var(--border);background:var(--bg);color:var(--text-2);border-radius:6px;font-size:12px;font-weight:600;padding:8px 14px;cursor:pointer;transition:border-color .15s,color .15s}
+.li-btn:hover{border-color:var(--brand);color:var(--brand)}
+.li-preview-header{padding:10px 16px 0;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.li-preview-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3)}
+.li-font-row{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text-2)}
+.li-font-row input[type=range]{width:80px;accent-color:var(--brand)}
+.li-preview-body{padding:16px 20px 24px;color:var(--text-2);line-height:1.8;min-height:80px}
+.li-preview-body p{margin:0 0 12px}
+.li-preview-body p:last-child{margin-bottom:0}
+.li-preview-body ul{margin:0 0 12px;padding-left:20px}
+@media(max-width:600px){
+  .li-controls{flex-direction:column;align-items:flex-start}
+  .li-seg{flex-wrap:wrap}
+}
+</style>
+<!-- /SLOT:style -->
+
+<!-- SLOT:hero -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/word-tools/">Word Tools</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Lorem Ipsum Generator</span>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free · All formats · No sign-up
+  </div>
+  <h1>Lorem Ipsum Generator</h1>
+  <p>Generate placeholder text in paragraphs, sentences, words, characters, or list items. Copy as plain text, HTML, or Markdown — or switch to readable English filler.</p>
+</div>
+<!-- /SLOT:hero -->
+
+<!-- SLOT:tool -->
+<div class="li-wrap" aria-label="Lorem ipsum generator">
+  <div class="li-card">
+    <div class="li-controls">
+      <div class="li-ctrl-group">
+        <span class="li-ctrl-label">Unit</span>
+        <div class="li-seg" id="li-unit-seg">
+          <button class="active" data-unit="paragraphs">Paragraphs</button>
+          <button data-unit="sentences">Sentences</button>
+          <button data-unit="words">Words</button>
+          <button data-unit="characters">Characters</button>
+          <button data-unit="list-items">List items</button>
+        </div>
+      </div>
+      <div class="li-ctrl-group">
+        <span class="li-ctrl-label">Count</span>
+        <input type="number" class="li-count-input" id="li-count" value="3" min="1" max="500">
+      </div>
+      <div class="li-ctrl-group">
+        <span class="li-ctrl-label">Para length</span>
+        <div class="li-seg" id="li-len-seg">
+          <button data-len="short">Short</button>
+          <button class="active" data-len="medium">Medium</button>
+          <button data-len="long">Long</button>
+        </div>
+      </div>
+      <label class="li-toggle">
+        <input type="checkbox" id="li-classic-start" checked>
+        Start with "Lorem ipsum…"
+      </label>
+    </div>
+    <div class="li-mode-row">
+      <span class="li-mode-label">Text mode</span>
+      <div class="li-seg" id="li-mode-seg">
+        <button class="active" data-mode="latin">Classic Latin</button>
+        <button data-mode="english">Readable English</button>
+        <button data-mode="wordsoup">Word Soup</button>
+      </div>
+    </div>
+    <div class="li-gen-row">
+      <button class="li-gen-btn" id="li-gen-btn">Generate</button>
+    </div>
+    <div class="li-format-tabs">
+      <button class="li-fmt-tab active" data-fmt="plain">Plain text</button>
+      <button class="li-fmt-tab" data-fmt="html">HTML</button>
+      <button class="li-fmt-tab" data-fmt="markdown">Markdown</button>
+    </div>
+    <div class="li-output-area">
+      <textarea class="li-textarea" id="li-textarea" readonly placeholder="Click Generate to create placeholder text…"></textarea>
+    </div>
+    <div class="li-copy-row">
+      <button class="li-btn" id="li-copy-btn">Copy</button>
+    </div>
+    <div class="li-preview-header">
+      <span class="li-preview-label">Preview</span>
+      <div class="li-font-row">
+        <span>Font size</span>
+        <input type="range" id="li-font-size" min="12" max="24" value="16">
+        <span id="li-font-size-val">16px</span>
+      </div>
+    </div>
+    <div class="li-preview-body" id="li-preview-body"></div>
+  </div>
+</div>
+<!-- /SLOT:tool -->
+
+<!-- SLOT:ad_b -->
+<div class="content-wrap" style="margin-top:32px">
+  <div class="ad-rect">
+    <span class="ad-tag">Advertisement · 336×280</span>
+    <div class="ad-rect-img"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4C10.3 4 4 10.3 4 18s6.3 14 14 14 14-6.3 14-14S25.7 4 18 4z" fill="white" opacity=".2"/><path d="M12 18c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="18" r="2.5" fill="white"/></svg></div>
+    <div class="ad-rect-content">
+      <div class="ad-rect-title">Grammarly — write with confidence</div>
+      <div class="ad-rect-body">Grammar, tone &amp; clarity. Used by 30 million people.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
+    </div>
+  </div>
+</div>
+<!-- /SLOT:ad_b -->
+
+<!-- SLOT:explainer -->
+<div class="explainer">
+  <h2>What is lorem ipsum?</h2>
+  <p>Lorem ipsum text traces back to Cicero's philosophical work <em>de Finibus Bonorum et Malorum</em>, written around 45 BC. A typesetter in the 1500s scrambled a passage from that text — starting with "Lorem ipsum dolor sit amet" — to create filler copy that looks like Latin but doesn't carry any meaning. Because it's meaningless, it lets reviewers focus on layout and typography rather than being distracted by real content.</p>
+  <h2>When to use placeholder text — and when not to</h2>
+  <p>Lorem ipsum is the right call when you're testing font choices, spacing, or grid structure and real content isn't available yet. It's the wrong call when you're testing whether copy fits, evaluating how readers will scan the page, or showing mockups to stakeholders who'll fixate on the fake Latin. For those cases, switch to <strong>Readable English</strong> mode to get real sentences that still function as filler.</p>
+  <h2>Dev tip: built-in lorem ipsum in your editor</h2>
+  <p>If you use VS Code or JetBrains IDEs, you already have lorem ipsum built in. Type <code>lorem</code> in an HTML file and hit Tab — Emmet expands it to a paragraph automatically. This generator is useful when you need a specific word count, HTML output, multiple formats, or an alternative to the classic Latin.</p>
+</div>
+<!-- /SLOT:explainer -->
+
+<!-- SLOT:faq -->
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">What is lorem ipsum?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Lorem ipsum is placeholder text derived from Cicero's "de Finibus" (45 BC), scrambled so it looks like Latin but carries no meaning. It's used in design and publishing to fill space before real content is ready.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">How do I generate 3 paragraphs of lorem ipsum?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Set the unit to "Paragraphs", enter 3 in the count field, and click Generate. Copy as plain text, HTML, or Markdown using the format tabs.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I get lorem ipsum as HTML?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes — switch to the HTML tab to get output wrapped in &lt;p&gt; tags (or &lt;ul&gt;&lt;li&gt; for list items), ready to paste directly into markup.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What is Word Soup mode?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Word Soup pulls random real English words of varied lengths to create filler that tests how your typography handles a mix of short and long words — useful for stress-testing line breaks and kerning.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What URL parameters does this generator support?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">You can bookmark a specific configuration: ?unit=paragraphs&amp;count=3&amp;format=html&amp;mode=latin. The page restores that state on load — useful for devs who want a repeatable setup.</div>
+  </div>
+</div>
+<!-- /SLOT:faq -->
+
+<!-- SLOT:who -->
+<div class="section">
+  <h2 class="section-title" style="margin-bottom:14px">Who uses the lorem ipsum generator</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">Web designers</div><div class="uc-body">Fill mockups and wireframes without getting distracted by real copy — focus on layout, type, and spacing</div></div>
+    <div class="uc"><div class="uc-title">Developers</div><div class="uc-body">Get HTML-ready placeholder paragraphs or list items to paste directly into templates during development</div></div>
+    <div class="uc"><div class="uc-title">Content strategists</div><div class="uc-body">Use Readable English mode for stakeholder mockups — pseudo-Latin confuses non-technical reviewers</div></div>
+    <div class="uc"><div class="uc-title">Print designers</div><div class="uc-body">Generate exact word or character counts to test column widths, widow lines, and page flow</div></div>
+  </div>
+  <p style="margin-top:14px">Also try: <a href="/random-sentence-generator/">Random Sentence Generator</a>, <a href="/random-paragraph-generator/">Random Paragraph Generator</a>, or <a href="/word-counter/">Word Counter</a>.</p>
+</div>
+<!-- /SLOT:who -->
+
+<!-- SLOT:init -->
+<script>
+(function(){
+'use strict';
+var LATIN_WORDS='lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam quis nostrud exercitation ullamco laboris nisi aliquip ex ea commodo consequat duis aute irure reprehenderit voluptate velit esse cillum fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt culpa officia deserunt mollit anim id est laborum'.split(' ');
+var LOREM_START='Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
+var englishSentences=null,soupWords=null;
+var state={unit:'paragraphs',count:3,len:'medium',mode:'latin',fmt:'plain',classicStart:true};
+var PARA_LENS={short:[2,4],medium:[4,7],long:[7,12]};
+var SENT_LENS={short:[5,9],medium:[9,16],long:[16,26]};
+
+function rand(min,max){return min+Math.floor(Math.random()*(max-min+1));}
+function capitalize(s){return s.charAt(0).toUpperCase()+s.slice(1);}
+function rLatin(){return LATIN_WORDS[Math.floor(Math.random()*LATIN_WORDS.length)];}
+function latinSentence(){
+  var n=rand(SENT_LENS[state.len][0],SENT_LENS[state.len][1]);
+  var w=[];for(var i=0;i<n;i++)w.push(rLatin());
+  return capitalize(w.join(' '))+'.';}
+function latinParagraph(){
+  var n=rand(PARA_LENS[state.len][0],PARA_LENS[state.len][1]);
+  var s=[];for(var i=0;i<n;i++)s.push(latinSentence());return s.join(' ');}
+
+function englishSentence(){
+  if(englishSentences&&englishSentences.length)return englishSentences[Math.floor(Math.random()*englishSentences.length)];
+  return latinSentence();}
+function englishParagraph(){
+  var n=rand(PARA_LENS[state.len][0],PARA_LENS[state.len][1]);
+  var s=[];for(var i=0;i<n;i++)s.push(englishSentence());return s.join(' ');}
+
+function soupWord(){
+  if(soupWords&&soupWords.length){var e=soupWords[Math.floor(Math.random()*soupWords.length)];return typeof e==='string'?e:(e.w||e);}
+  return rLatin();}
+function soupSentence(){
+  var n=rand(SENT_LENS[state.len][0],SENT_LENS[state.len][1]);
+  var w=[];for(var i=0;i<n;i++)w.push(soupWord());return capitalize(w.join(' '))+'.';}
+function soupParagraph(){
+  var n=rand(PARA_LENS[state.len][0],PARA_LENS[state.len][1]);
+  var s=[];for(var i=0;i<n;i++)s.push(soupSentence());return s.join(' ');}
+
+function getParagraph(){return state.mode==='english'?englishParagraph():state.mode==='wordsoup'?soupParagraph():latinParagraph();}
+function getSentence(){return state.mode==='english'?englishSentence():state.mode==='wordsoup'?soupSentence():latinSentence();}
+function getWord(){
+  if(state.mode==='wordsoup')return soupWord();
+  if(state.mode==='english'&&englishSentences){
+    var pool=englishSentences.join(' ').split(/\s+/);
+    return pool[Math.floor(Math.random()*pool.length)].replace(/[^a-zA-Z'-]/g,'')||rLatin();}
+  return rLatin();}
+
+function generate(){
+  var count=Math.max(1,parseInt(document.getElementById('li-count').value)||3);
+  var parts=[];
+  if(state.unit==='paragraphs'){
+    for(var i=0;i<count;i++)parts.push(getParagraph());
+    if(state.classicStart&&parts.length>0&&state.mode==='latin'){
+      var rest=parts[0].replace(/^[^.]+\./,'').trim();
+      parts[0]=LOREM_START+(rest?' '+rest:'');}
+  } else if(state.unit==='sentences'){
+    for(var i=0;i<count;i++)parts.push(getSentence());
+    if(state.classicStart&&parts.length>0&&state.mode==='latin')parts[0]=LOREM_START;
+  } else if(state.unit==='words'){
+    var words=[];for(var i=0;i<count;i++)words.push(getWord());
+    parts=[words.join(' ')];
+  } else if(state.unit==='characters'){
+    var chars='';
+    while(chars.replace(/\s/g,'').length<count)chars+=' '+getWord();
+    parts=[chars.trim().slice(0,count)];
+  } else if(state.unit==='list-items'){
+    for(var i=0;i<count;i++)parts.push(getSentence());
+  }
+  return parts;}
+
+function formatOutput(parts){
+  if(state.unit==='list-items'){
+    if(state.fmt==='html')return'<ul>\n'+parts.map(function(p){return'  <li>'+p+'</li>';}).join('\n')+'\n</ul>';
+    if(state.fmt==='markdown')return parts.map(function(p){return'- '+p;}).join('\n');
+    return parts.join('\n');}
+  if(state.fmt==='html')return parts.map(function(p){return'<p>'+p+'</p>';}).join('\n');
+  if(state.fmt==='markdown')return parts.join('\n\n');
+  return parts.join('\n\n');}
+
+function updatePreview(parts){
+  var body=document.getElementById('li-preview-body');if(!body)return;
+  if(state.unit==='list-items'){body.innerHTML='<ul>'+parts.map(function(p){return'<li>'+p+'</li>';}).join('')+'</ul>';}
+  else{body.innerHTML=parts.map(function(p){return'<p>'+p+'</p>';}).join('');}}
+
+function doGenerate(){
+  var parts=generate();
+  document.getElementById('li-textarea').value=formatOutput(parts);
+  updatePreview(parts);serializeURL();}
+
+function serializeURL(){
+  var params=new URLSearchParams({unit:state.unit,count:document.getElementById('li-count').value,format:state.fmt,mode:state.mode});
+  history.replaceState(null,'','?'+params.toString());}
+
+function parseURL(){
+  var params=new URLSearchParams(location.search);
+  if(params.get('unit'))state.unit=params.get('unit');
+  if(params.get('count'))document.getElementById('li-count').value=params.get('count');
+  if(params.get('format'))state.fmt=params.get('format');
+  if(params.get('mode'))state.mode=params.get('mode');
+  document.querySelectorAll('#li-unit-seg button').forEach(function(b){b.classList.toggle('active',b.dataset.unit===state.unit);});
+  document.querySelectorAll('#li-mode-seg button').forEach(function(b){b.classList.toggle('active',b.dataset.mode===state.mode);});
+  document.querySelectorAll('.li-fmt-tab').forEach(function(b){b.classList.toggle('active',b.dataset.fmt===state.fmt);});}
+
+document.getElementById('li-gen-btn').addEventListener('click',doGenerate);
+document.getElementById('li-copy-btn').addEventListener('click',function(){
+  var ta=document.getElementById('li-textarea');if(!ta.value)return;
+  navigator.clipboard&&navigator.clipboard.writeText(ta.value);});
+document.getElementById('li-unit-seg').addEventListener('click',function(e){
+  var btn=e.target.closest('button');if(!btn||!btn.dataset.unit)return;
+  document.querySelectorAll('#li-unit-seg button').forEach(function(b){b.classList.remove('active');});
+  btn.classList.add('active');state.unit=btn.dataset.unit;});
+document.getElementById('li-len-seg').addEventListener('click',function(e){
+  var btn=e.target.closest('button');if(!btn||!btn.dataset.len)return;
+  document.querySelectorAll('#li-len-seg button').forEach(function(b){b.classList.remove('active');});
+  btn.classList.add('active');state.len=btn.dataset.len;});
+document.getElementById('li-mode-seg').addEventListener('click',function(e){
+  var btn=e.target.closest('button');if(!btn||!btn.dataset.mode)return;
+  document.querySelectorAll('#li-mode-seg button').forEach(function(b){b.classList.remove('active');});
+  btn.classList.add('active');state.mode=btn.dataset.mode;});
+document.querySelectorAll('.li-fmt-tab').forEach(function(tab){
+  tab.addEventListener('click',function(){
+    document.querySelectorAll('.li-fmt-tab').forEach(function(t){t.classList.remove('active');});
+    tab.classList.add('active');state.fmt=tab.dataset.fmt;
+    var parts=generate();document.getElementById('li-textarea').value=formatOutput(parts);});});
+document.getElementById('li-classic-start').addEventListener('change',function(e){state.classicStart=e.target.checked;});
+document.getElementById('li-font-size').addEventListener('input',function(e){
+  var v=e.target.value;
+  document.getElementById('li-font-size-val').textContent=v+'px';
+  document.getElementById('li-preview-body').style.fontSize=v+'px';});
+
+fetch('/data/sentences.json').then(function(r){return r.ok?r.json():null;}).then(function(d){
+  if(!d)return;
+  if(Array.isArray(d))englishSentences=d.map(function(item){return typeof item==='string'?item:(item.text||item.sentence||'');}).filter(Boolean);
+}).catch(function(){});
+fetch('/data/words.json').then(function(r){return r.ok?r.json():null;}).then(function(d){if(d)soupWords=d;}).catch(function(){});
+
+parseURL();doGenerate();
+})();
+</script>
+<!-- /SLOT:init -->
