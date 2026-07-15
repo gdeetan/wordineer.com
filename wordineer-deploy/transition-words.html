@@ -1,4 +1,4 @@
-<!-- build: 2026-07-14T07:54:13Z -->
+<!-- build: 2026-07-15T06:26:32Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -163,6 +163,8 @@
 .rs-search:focus { outline:none; border-color:var(--brand,#3C3489); }
 .rs-count { font-size:.85rem; color:var(--text-3,#9a9a94); white-space:nowrap; }
 .tw-func-groups { display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:1.5rem; }
+.act-btn { padding:.45rem 1.1rem; border:1px solid var(--border,#e4e4e2); border-radius:8px; background:var(--bg-2,#f4f4f2); color:var(--text); font-size:.875rem; font-family:inherit; cursor:pointer; transition:background .15s,border-color .15s,color .15s; }
+.act-btn:hover { background:var(--brand,#3C3489); color:#fff; border-color:var(--brand,#3C3489); }
 .tw-func-btn { padding:.35rem .85rem; border:1px solid var(--border,#e4e4e2); border-radius:20px; background:none; font-size:.85rem; font-family:inherit; cursor:pointer; transition:background .15s,border-color .15s,color .15s; }
 .tw-func-btn.active { background:var(--brand,#3C3489); color:#fff; border-color:var(--brand,#3C3489); }
 .rs-group { margin-bottom:1.75rem; }
@@ -295,152 +297,7 @@
       <button class="tw-func-btn" data-func="example" aria-pressed="false">Example</button>
       <button class="tw-func-btn" data-func="conclusion" aria-pressed="false">Conclusion</button>
     </div>
-    <div id="tw-word-list">
-
-      <div class="rs-group" data-group="addition">
-        <div class="rs-group-label">Addition</div>
-        <div class="rs-chips">
-          <span class="rs-chip" data-word="also" data-func="addition">also</span>
-          <span class="rs-chip" data-word="furthermore" data-func="addition">furthermore</span>
-          <span class="rs-chip" data-word="moreover" data-func="addition">moreover</span>
-          <span class="rs-chip" data-word="in addition" data-func="addition">in addition</span>
-          <span class="rs-chip" data-word="additionally" data-func="addition">additionally</span>
-          <span class="rs-chip" data-word="besides" data-func="addition">besides</span>
-          <span class="rs-chip" data-word="likewise" data-func="addition">likewise</span>
-          <span class="rs-chip" data-word="similarly" data-func="addition">similarly</span>
-          <span class="rs-chip" data-word="equally important" data-func="addition">equally important</span>
-          <span class="rs-chip" data-word="not only that" data-func="addition">not only that</span>
-          <span class="rs-chip" data-word="on top of that" data-func="addition">on top of that</span>
-          <span class="rs-chip" data-word="what's more" data-func="addition">what's more</span>
-          <span class="rs-chip" data-word="along with" data-func="addition">along with</span>
-          <span class="rs-chip" data-word="as well as" data-func="addition">as well as</span>
-          <span class="rs-chip" data-word="coupled with" data-func="addition">coupled with</span>
-        </div>
-      </div>
-
-      <div class="rs-group" data-group="contrast">
-        <div class="rs-group-label">Contrast</div>
-        <div class="rs-chips">
-          <span class="rs-chip" data-word="however" data-func="contrast">however</span>
-          <span class="rs-chip" data-word="nevertheless" data-func="contrast">nevertheless</span>
-          <span class="rs-chip" data-word="on the other hand" data-func="contrast">on the other hand</span>
-          <span class="rs-chip" data-word="yet" data-func="contrast">yet</span>
-          <span class="rs-chip" data-word="although" data-func="contrast">although</span>
-          <span class="rs-chip" data-word="even though" data-func="contrast">even though</span>
-          <span class="rs-chip" data-word="despite" data-func="contrast">despite</span>
-          <span class="rs-chip" data-word="in contrast" data-func="contrast">in contrast</span>
-          <span class="rs-chip" data-word="conversely" data-func="contrast">conversely</span>
-          <span class="rs-chip" data-word="still" data-func="contrast">still</span>
-          <span class="rs-chip" data-word="that said" data-func="contrast">that said</span>
-          <span class="rs-chip" data-word="while" data-func="contrast">while</span>
-          <span class="rs-chip" data-word="whereas" data-func="contrast">whereas</span>
-          <span class="rs-chip" data-word="by comparison" data-func="contrast">by comparison</span>
-          <span class="rs-chip" data-word="then again" data-func="contrast">then again</span>
-          <span class="rs-chip" data-word="at the same time" data-func="contrast">at the same time</span>
-          <span class="rs-chip" data-word="on the contrary" data-func="contrast">on the contrary</span>
-        </div>
-      </div>
-
-      <div class="rs-group" data-group="cause">
-        <div class="rs-group-label">Cause and Effect</div>
-        <div class="rs-chips">
-          <span class="rs-chip" data-word="therefore" data-func="cause">therefore</span>
-          <span class="rs-chip" data-word="consequently" data-func="cause">consequently</span>
-          <span class="rs-chip" data-word="as a result" data-func="cause">as a result</span>
-          <span class="rs-chip" data-word="thus" data-func="cause">thus</span>
-          <span class="rs-chip" data-word="hence" data-func="cause">hence</span>
-          <span class="rs-chip" data-word="for this reason" data-func="cause">for this reason</span>
-          <span class="rs-chip" data-word="due to" data-func="cause">due to</span>
-          <span class="rs-chip" data-word="because of" data-func="cause">because of</span>
-          <span class="rs-chip" data-word="accordingly" data-func="cause">accordingly</span>
-          <span class="rs-chip" data-word="it follows that" data-func="cause">it follows that</span>
-          <span class="rs-chip" data-word="so" data-func="cause">so</span>
-          <span class="rs-chip" data-word="given this" data-func="cause">given this</span>
-          <span class="rs-chip" data-word="this means that" data-func="cause">this means that</span>
-          <span class="rs-chip" data-word="leads to" data-func="cause">leads to</span>
-        </div>
-      </div>
-
-      <div class="rs-group" data-group="sequence">
-        <div class="rs-group-label">Sequence</div>
-        <div class="rs-chips">
-          <span class="rs-chip" data-word="first" data-func="sequence">first</span>
-          <span class="rs-chip" data-word="second" data-func="sequence">second</span>
-          <span class="rs-chip" data-word="third" data-func="sequence">third</span>
-          <span class="rs-chip" data-word="then" data-func="sequence">then</span>
-          <span class="rs-chip" data-word="next" data-func="sequence">next</span>
-          <span class="rs-chip" data-word="after that" data-func="sequence">after that</span>
-          <span class="rs-chip" data-word="subsequently" data-func="sequence">subsequently</span>
-          <span class="rs-chip" data-word="finally" data-func="sequence">finally</span>
-          <span class="rs-chip" data-word="meanwhile" data-func="sequence">meanwhile</span>
-          <span class="rs-chip" data-word="previously" data-func="sequence">previously</span>
-          <span class="rs-chip" data-word="before" data-func="sequence">before</span>
-          <span class="rs-chip" data-word="following" data-func="sequence">following</span>
-          <span class="rs-chip" data-word="to begin with" data-func="sequence">to begin with</span>
-          <span class="rs-chip" data-word="lastly" data-func="sequence">lastly</span>
-          <span class="rs-chip" data-word="to conclude" data-func="sequence">to conclude</span>
-        </div>
-      </div>
-
-      <div class="rs-group" data-group="emphasis">
-        <div class="rs-group-label">Emphasis</div>
-        <div class="rs-chips">
-          <span class="rs-chip" data-word="indeed" data-func="emphasis">indeed</span>
-          <span class="rs-chip" data-word="in fact" data-func="emphasis">in fact</span>
-          <span class="rs-chip" data-word="above all" data-func="emphasis">above all</span>
-          <span class="rs-chip" data-word="certainly" data-func="emphasis">certainly</span>
-          <span class="rs-chip" data-word="undoubtedly" data-func="emphasis">undoubtedly</span>
-          <span class="rs-chip" data-word="especially" data-func="emphasis">especially</span>
-          <span class="rs-chip" data-word="particularly" data-func="emphasis">particularly</span>
-          <span class="rs-chip" data-word="notably" data-func="emphasis">notably</span>
-          <span class="rs-chip" data-word="most importantly" data-func="emphasis">most importantly</span>
-          <span class="rs-chip" data-word="it is worth noting" data-func="emphasis">it is worth noting</span>
-          <span class="rs-chip" data-word="without doubt" data-func="emphasis">without doubt</span>
-          <span class="rs-chip" data-word="clearly" data-func="emphasis">clearly</span>
-          <span class="rs-chip" data-word="of course" data-func="emphasis">of course</span>
-          <span class="rs-chip" data-word="to be sure" data-func="emphasis">to be sure</span>
-          <span class="rs-chip" data-word="significantly" data-func="emphasis">significantly</span>
-        </div>
-      </div>
-
-      <div class="rs-group" data-group="example">
-        <div class="rs-group-label">Example</div>
-        <div class="rs-chips">
-          <span class="rs-chip" data-word="for example" data-func="example">for example</span>
-          <span class="rs-chip" data-word="for instance" data-func="example">for instance</span>
-          <span class="rs-chip" data-word="such as" data-func="example">such as</span>
-          <span class="rs-chip" data-word="namely" data-func="example">namely</span>
-          <span class="rs-chip" data-word="in other words" data-func="example">in other words</span>
-          <span class="rs-chip" data-word="that is" data-func="example">that is</span>
-          <span class="rs-chip" data-word="to illustrate" data-func="example">to illustrate</span>
-          <span class="rs-chip" data-word="including" data-func="example">including</span>
-          <span class="rs-chip" data-word="specifically" data-func="example">specifically</span>
-          <span class="rs-chip" data-word="to demonstrate" data-func="example">to demonstrate</span>
-          <span class="rs-chip" data-word="like" data-func="example">like</span>
-          <span class="rs-chip" data-word="as shown by" data-func="example">as shown by</span>
-          <span class="rs-chip" data-word="as evidenced by" data-func="example">as evidenced by</span>
-        </div>
-      </div>
-
-      <div class="rs-group" data-group="conclusion">
-        <div class="rs-group-label">Conclusion</div>
-        <div class="rs-chips">
-          <span class="rs-chip" data-word="in conclusion" data-func="conclusion">in conclusion</span>
-          <span class="rs-chip" data-word="to summarize" data-func="conclusion">to summarize</span>
-          <span class="rs-chip" data-word="in summary" data-func="conclusion">in summary</span>
-          <span class="rs-chip" data-word="overall" data-func="conclusion">overall</span>
-          <span class="rs-chip" data-word="ultimately" data-func="conclusion">ultimately</span>
-          <span class="rs-chip" data-word="in short" data-func="conclusion">in short</span>
-          <span class="rs-chip" data-word="as shown above" data-func="conclusion">as shown above</span>
-          <span class="rs-chip" data-word="to recap" data-func="conclusion">to recap</span>
-          <span class="rs-chip" data-word="in closing" data-func="conclusion">in closing</span>
-          <span class="rs-chip" data-word="all in all" data-func="conclusion">all in all</span>
-          <span class="rs-chip" data-word="taken together" data-func="conclusion">taken together</span>
-          <span class="rs-chip" data-word="in the final analysis" data-func="conclusion">in the final analysis</span>
-        </div>
-      </div>
-
-    </div>
+    <div id="tw-word-list"></div>
     <p class="rs-no-results" id="tw-no-results" style="display:none">No words match your search. Try a shorter term.</p>
     <dl class="rs-seo-list" id="tw-seo-list">
       <dt>however</dt><dd>Introduces a contrast or exception to what was just stated</dd>
@@ -547,56 +404,56 @@
   <h2 class="faq-title">Frequently asked questions</h2>
 
   <div class="faq-item open">
-    <button class="faq-q" aria-expanded="true"><span class="faq-q-text">What are transition words in an essay?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+    <div class="faq-q"><span class="faq-q-text">What are transition words in an essay?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
     <div class="faq-a"><p>Transition words are words and phrases that connect sentences, paragraphs, and ideas — signaling how one thought relates to the next. Common examples include <em>however</em> (contrast), <em>therefore</em> (conclusion), <em>furthermore</em> (addition), and <em>for example</em> (illustration). They guide readers through the logical structure of an argument without requiring them to infer the connections themselves.</p></div>
   </div>
 
   <div class="faq-item">
-    <button class="faq-q" aria-expanded="false"><span class="faq-q-text">What are the best transition words to start a paragraph?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+    <div class="faq-q"><span class="faq-q-text">What are the best transition words to start a paragraph?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
     <div class="faq-a"><p>The best transition word depends on the logical relationship to the previous paragraph. For adding a supporting point: <em>Furthermore,</em> <em>In addition,</em> or <em>Moreover.</em> For contrast: <em>However,</em> <em>Nevertheless,</em> or <em>On the other hand.</em> For a causal connection: <em>Therefore,</em> <em>Consequently,</em> or <em>As a result.</em> For the final paragraph: <em>In conclusion,</em> <em>To summarize,</em> or <em>Ultimately.</em> Choose based on what your paragraph is actually doing, not just for variety.</p></div>
   </div>
 
   <div class="faq-item">
-    <button class="faq-q" aria-expanded="false"><span class="faq-q-text">What is a good transition word for contrast?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+    <div class="faq-q"><span class="faq-q-text">What is a good transition word for contrast?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
     <div class="faq-a"><p>For formal essays, <em>however</em> and <em>nevertheless</em> are the strongest contrast transitions. For acknowledging an opposing view before refuting it, <em>while</em> and <em>even though</em> are useful subordinators that can open a sentence with the concession. For a softer pivot, <em>that said</em> and <em>then again</em> introduce a nuance without fully contradicting the previous point. Filter the tool by "Contrast" above to see all options at once.</p></div>
   </div>
 
   <div class="faq-item">
-    <button class="faq-q" aria-expanded="false"><span class="faq-q-text">What transition words should I avoid?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+    <div class="faq-q"><span class="faq-q-text">What transition words should I avoid?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
     <div class="faq-a"><p>Avoid using any transition word so frequently that it becomes a reflex rather than a choice — "furthermore disease" is the classic example. Also avoid using transitions that don't accurately describe the relationship between your sentences: "therefore" when there is no logical conclusion, "however" when there is no genuine contrast. Starting every paragraph with the same transition is a structural problem, not just a stylistic one.</p></div>
   </div>
 
   <div class="faq-item">
-    <button class="faq-q" aria-expanded="false"><span class="faq-q-text">What are transition words for conclusion?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+    <div class="faq-q"><span class="faq-q-text">What are transition words for conclusion?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
     <div class="faq-a"><p>The strongest conclusion transitions are <em>in conclusion</em>, <em>to summarize</em>, <em>in summary</em>, <em>ultimately</em>, and <em>overall</em>. For a more sophisticated register, try <em>taken together</em>, <em>in the final analysis</em>, or <em>as the evidence suggests</em>. Avoid "in conclusion" if you want to vary from the most predictable option — <em>ultimately</em> or <em>all in all</em> can feel fresher while serving the same function.</p></div>
   </div>
 
   <div class="faq-item">
-    <button class="faq-q" aria-expanded="false"><span class="faq-q-text">How many transition words should I use per paragraph?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+    <div class="faq-q"><span class="faq-q-text">How many transition words should I use per paragraph?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
     <div class="faq-a"><p>There's no fixed number, but a good baseline is one strong transition per paragraph — usually at the opening sentence that connects to the previous paragraph — and then additional smaller connectors within the paragraph as needed. If you find yourself starting every sentence with a transition word, the paragraph structure probably needs work. Transitions should feel like bridges, not scaffolding that props up every sentence independently.</p></div>
   </div>
 
 </div>
   <div class="divider"></div>
 
-<div class="who">
-  <h2>Who uses this tool?</h2>
-  <div class="who-grid">
-    <div class="who-card">
-      <div class="who-title">High school and college students</div>
-      <div class="who-body">Writing essays that need to flow logically from introduction through body paragraphs to conclusion. The function-based filters make it easy to find the right transition for a specific paragraph — without defaulting to the same three words every time.</div>
+<div>
+  <h2 class="section-title" style="margin-bottom:14px">Who uses this tool?</h2>
+  <div class="uc-grid">
+    <div class="uc">
+      <div class="uc-title">High school and college students</div>
+      <div class="uc-body">Writing essays that need to flow logically from introduction through body paragraphs to conclusion. The function-based filters make it easy to find the right transition for a specific paragraph — without defaulting to the same three words every time.</div>
     </div>
-    <div class="who-card">
-      <div class="who-title">ESL learners</div>
-      <div class="who-body">Understanding how English uses explicit logical connectors to signal argument structure. The organized groups reveal which words serve the same function, helping learners choose between formal options like "nevertheless" and casual alternatives like "still."</div>
+    <div class="uc">
+      <div class="uc-title">ESL learners</div>
+      <div class="uc-body">Understanding how English uses explicit logical connectors to signal argument structure. The organized groups reveal which words serve the same function, helping learners choose between formal options like "nevertheless" and casual alternatives like "still."</div>
     </div>
-    <div class="who-card">
-      <div class="who-title">Content writers</div>
-      <div class="who-body">Structuring blog posts and articles that move smoothly from point to point. Good transitions reduce bounce rate by keeping readers oriented — they know where the argument is going and feel rewarded for following it to the end.</div>
+    <div class="uc">
+      <div class="uc-title">Content writers</div>
+      <div class="uc-body">Structuring blog posts and articles that move smoothly from point to point. Good transitions reduce bounce rate by keeping readers oriented — they know where the argument is going and feel rewarded for following it to the end.</div>
     </div>
-    <div class="who-card">
-      <div class="who-title">Teachers</div>
-      <div class="who-body">Sharing with students as a printable or on-screen writing resource. The function-based categories directly map to the structural lessons of paragraph writing — addition, contrast, cause and effect — making this a natural complement to essay structure lessons.</div>
+    <div class="uc">
+      <div class="uc-title">Teachers</div>
+      <div class="uc-body">Sharing with students as a printable or on-screen writing resource. The function-based categories directly map to the structural lessons of paragraph writing — addition, contrast, cause and effect — making this a natural complement to essay structure lessons.</div>
     </div>
   </div>
 </div>
@@ -677,12 +534,24 @@
 
 <script>
 (function(){
+  var FILTERS = {
+    funcs: [
+      { key: 'addition',   label: 'Addition' },
+      { key: 'contrast',   label: 'Contrast' },
+      { key: 'cause',      label: 'Cause and Effect' },
+      { key: 'sequence',   label: 'Sequence' },
+      { key: 'emphasis',   label: 'Emphasis' },
+      { key: 'example',    label: 'Example' },
+      { key: 'conclusion', label: 'Conclusion' }
+    ]
+  };
+
   var activeFunc = 'all';
-  var chips = Array.from(document.querySelectorAll('.rs-chip'));
-  var groups = Array.from(document.querySelectorAll('.rs-group'));
+  var chips = [];
+  var groups = [];
   var countEl = document.getElementById('tw-count');
   var noResults = document.getElementById('tw-no-results');
-  document.getElementById('tw-seo-list').style.display = 'none';
+  var wordList = document.getElementById('tw-word-list');
 
   function updateCount() {
     var n = chips.filter(function(c){ return !c.classList.contains('rs-hidden'); }).length;
@@ -703,6 +572,48 @@
     });
     updateCount();
   }
+
+  function buildGroups(data) {
+    var byFunc = {};
+    data.forEach(function(e){ (byFunc[e.func] = byFunc[e.func] || []).push(e); });
+    wordList.innerHTML = '';
+    FILTERS.funcs.forEach(function(f){
+      var entries = byFunc[f.key] || [];
+      if (!entries.length) return;
+      var grp = document.createElement('div');
+      grp.className = 'rs-group';
+      grp.dataset.group = f.key;
+      grp.innerHTML = '<div class="rs-group-label">' + f.label + '</div><div class="rs-chips"></div>';
+      var chipsEl = grp.querySelector('.rs-chips');
+      entries.forEach(function(e){
+        var sp = document.createElement('span');
+        sp.className = 'rs-chip';
+        sp.dataset.word = e.w;
+        sp.dataset.func = e.func;
+        sp.textContent = e.w;
+        sp.addEventListener('click', function(){
+          navigator.clipboard.writeText(e.w).catch(function(){});
+          sp.textContent = '✓ ' + e.w;
+          setTimeout(function(){ sp.textContent = e.w; }, 900);
+        });
+        chipsEl.appendChild(sp);
+      });
+      wordList.appendChild(grp);
+    });
+    chips = Array.from(wordList.querySelectorAll('.rs-chip'));
+    groups = Array.from(wordList.querySelectorAll('.rs-group'));
+    filterChips();
+  }
+
+  fetch('/data/transition-words.json')
+    .then(function(r){ return r.json(); })
+    .then(function(data){
+      document.getElementById('tw-seo-list').style.display = 'none';
+      buildGroups(data);
+    })
+    .catch(function(){
+      countEl.textContent = 'Could not load words.';
+    });
 
   document.getElementById('tw-func-btns').addEventListener('click', function(e){
     var btn = e.target.closest('.tw-func-btn');
@@ -731,21 +642,11 @@
     setTimeout(function(){ btn.textContent = 'Copy visible list'; }, 1500);
   });
 
-  chips.forEach(function(c){
-    c.addEventListener('click', function(){
-      navigator.clipboard.writeText(c.dataset.word).catch(function(){});
-      c.textContent = '✓ ' + c.dataset.word;
-      setTimeout(function(){ c.textContent = c.dataset.word; }, 900);
-    });
-  });
-
   document.querySelectorAll('.faq-q').forEach(function(btn){
     btn.addEventListener('click', function(){
       btn.setAttribute('aria-expanded', btn.closest('.faq-item').classList.toggle('open'));
     });
   });
-
-  updateCount();
 }());
 </script>
 </body>

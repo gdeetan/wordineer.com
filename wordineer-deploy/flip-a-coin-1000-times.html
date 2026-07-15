@@ -1,4 +1,4 @@
-<!-- build: 2026-07-13T11:05:34Z -->
+<!-- build: 2026-07-15T06:26:32Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,6 +57,7 @@
     }, { once: true });
   })(window, document);
 </script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="XRPtSc+0VtlRm6fwBuI7iA" async></script>
 <meta name='impact-site-verification' value='32715504-1cfb-4324-bfc7-ae4cfa1591ea'>
 <link rel="preload" href="/fonts/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -182,16 +183,31 @@
 .cf1000-dist-row { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
 .cf1000-dist-label { font-size: 11px; font-weight: 600; color: var(--text-3); width: 40px; text-align: right; flex-shrink: 0; }
 .cf1000-dist-track { flex: 1; height: 16px; background: var(--bg-2); border-radius: 3px; overflow: hidden; position: relative; }
-.cf1000-dist-fill-h { height: 100%; background: var(--brand); border-radius: 3px; transition: width 0.4s ease; opacity: 0.85; }
-.cf1000-dist-fill-t { height: 100%; background: var(--bg-3); border-radius: 3px; transition: width 0.4s ease; }
+.cf1000-dist-track::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.45), transparent); transform: translateX(-100%); }
+.cf1000-dist.is-running .cf1000-dist-track::after { animation: cf1000-sweep 0.8s ease-in-out infinite; }
+.cf1000-dist-fill-h { height: 100%; background: linear-gradient(90deg, var(--brand), #756df0); border-radius: 3px; transition: width 0.75s cubic-bezier(0.2,0.8,0.2,1); opacity: 0.9; }
+.cf1000-dist-fill-t { height: 100%; background: linear-gradient(90deg, #e7e8ee, #c4c8d4); border-radius: 3px; transition: width 0.75s cubic-bezier(0.2,0.8,0.2,1); }
 .cf1000-dist-count { font-size: 11px; color: var(--text-3); width: 30px; flex-shrink: 0; font-variant-numeric: tabular-nums; }
 
 /* 25-column grid of chips */
 .cf1000-grid { display: grid; grid-template-columns: repeat(25, 1fr); gap: 2px; width: 100%; max-width: 500px; }
-.cf1000-chip { aspect-ratio: 1; border-radius: 2px; display: flex; align-items: center; justify-content: center; font-size: 5px; font-weight: 700; }
+.cf1000-chip { aspect-ratio: 1; border-radius: 2px; display: flex; align-items: center; justify-content: center; font-size: 5px; font-weight: 700; transition: opacity 0.15s ease, transform 0.15s ease; }
 .cf1000-chip.heads { background: var(--brand); color: white; }
 .cf1000-chip.tails { background: var(--bg-3); color: var(--text-2); border: 1px solid var(--border); }
 .cf1000-chip.pending { background: var(--bg-2); border: 1px solid var(--border); color: transparent; }
+.cf1000-grid.is-running .cf1000-chip { animation: cf1000-grid-noise 0.5s ease-in-out infinite alternate; animation-delay: calc((var(--i, 0) % 40) * 8ms); }
+.cf1000-chip.is-sample { animation: cf1000-sample-pop 0.36s cubic-bezier(0.18,0.72,0.22,1) both; animation-delay: calc((var(--i, 0) % 30) * 10ms); }
+@keyframes cf1000-grid-noise {
+  from { opacity: 0.35; transform: scale(0.88); }
+  to { opacity: 0.9; transform: scale(1); }
+}
+@keyframes cf1000-sample-pop {
+  0% { opacity: 0; transform: scale(0.55); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@keyframes cf1000-sweep {
+  to { transform: translateX(100%); }
+}
 
 /* Flip button */
 .cf1000-flip-btn { padding: 13px 40px; background: var(--brand); color: white; border: none; border-radius: 10px; font-size: 1.05rem; font-weight: 700; font-family: inherit; cursor: pointer; transition: background 0.15s, transform 0.1s; letter-spacing: -0.01em; }
@@ -593,16 +609,33 @@ const WORDINEER_CF1000 = (() => {
       const chip = document.createElement('div');
       chip.className = 'cf1000-chip pending';
       chip.id = 'cf1000-chip-' + i;
+      chip.style.setProperty('--i', i);
       gridEl.appendChild(chip);
     }
   }
 
   function runFlips() {
+    if (flipBtn.disabled) return;
+    flipBtn.disabled = true;
     results = [];
     for (let i = 0; i < FLIPS; i++) {
       results.push(Math.random() < 0.5 ? 'H' : 'T');
     }
-    renderResults();
+    summaryEl.textContent = 'Running 1,000-flip simulation...';
+    distEl.style.display = '';
+    distEl.classList.add('is-running');
+    gridEl.classList.add('is-running');
+    gridEl.querySelectorAll('.cf1000-chip').forEach((chip, i) => {
+      chip.className = 'cf1000-chip pending';
+      chip.style.setProperty('--i', i);
+      chip.textContent = '';
+    });
+    setTimeout(() => {
+      renderResults();
+      distEl.classList.remove('is-running');
+      gridEl.classList.remove('is-running');
+      flipBtn.disabled = false;
+    }, 760);
   }
 
   function renderResults() {
@@ -612,7 +645,8 @@ const WORDINEER_CF1000 = (() => {
     // Update grid chips
     results.forEach((r, i) => {
       const chip = document.getElementById('cf1000-chip-' + i);
-      chip.className = 'cf1000-chip ' + (r === 'H' ? 'heads' : 'tails');
+      chip.className = 'cf1000-chip ' + (r === 'H' ? 'heads' : 'tails') + (i < 60 ? ' is-sample' : '');
+      chip.style.setProperty('--i', i);
       chip.textContent = r;
     });
 
