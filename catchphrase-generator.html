@@ -1,4 +1,4 @@
-<!-- build: 2026-07-15T05:05:01Z -->
+<!-- build: 2026-07-15T05:05:00Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -95,80 +95,59 @@
   ]
 }
 </script>
-<title>500 Hardest Spelling Bee Words by Grade Level (Free Printable) | Wordineer</title>
-<meta name="description" content="The 500 hardest spelling bee words for grades K–7, organized by grade. Filter by grade and difficulty, then print a clean PDF. Free for teachers and parents.">
-<meta property="og:title" content="500 Hardest Spelling Bee Words — Free Printable by Grade | Wordineer">
-<meta property="og:description" content="Filter and print the 500 hardest spelling bee competition words by grade K–7. Clean PDF printout with no login required.">
-<meta property="og:url" content="https://wordineer.com/spelling-bee-words-printable/">
-<link rel="canonical" href="https://wordineer.com/spelling-bee-words-printable/">
+<title>Catchphrase Generator — Random Words for the Catchphrase Game</title>
+<meta name="description" content="Free Catchphrase word generator. Get random words and phrases, filter by category and difficulty, and use the built-in timer. No account needed.">
+<link rel="canonical" href="https://wordineer.com/catchphrase-generator/">
+<meta property="og:title" content="Catchphrase Generator — Random Words for the Catchphrase Game">
+<meta property="og:description" content="Free Catchphrase word generator with categories, difficulty filter, timer, and score tracker.">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "Spelling Bee Words Printable",
-  "url": "https://wordineer.com/spelling-bee-words-printable/",
-  "description": "Filter and print the 500 hardest spelling bee words by grade K-7. Free for teachers and parents.",
-  "applicationCategory": "EducationApplication",
-  "operatingSystem": "Any",
-  "offers": { "@type": "Offer", "price": "0" }
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"How do you play Catchphrase?","acceptedAnswer":{"@type":"Answer","text":"Players sit in a circle alternating teams. The active player sees the word and gives verbal clues until their team guesses it, then passes to the next player. When the timer runs out, the team holding the device loses the round. Keep score and play to 7 points."}},
+    {"@type":"Question","name":"Can I filter words by category or difficulty?","acceptedAnswer":{"@type":"Answer","text":"Yes. Use the category filter (everyday, actions, places, people, food, entertainment, idioms, hard) and difficulty filter (easy, medium, hard) to customize the word pool for your group."}},
+    {"@type":"Question","name":"Will words repeat?","acceptedAnswer":{"@type":"Answer","text":"Words won't repeat until the entire filtered pool is exhausted. Once every word has been shown, the pool resets automatically."}}
+  ]
 }
 </script>
 <meta property="og:image" content="https://wordineer.com/og-default.jpg">
 
 <link rel="stylesheet" href="/styles/global.css?v=14">
 <style>
-.hero h1 { font-size: clamp(18px, 2.2vw, 32px); max-width: none; }
-.sb-wrap { max-width: 960px; margin: 0 auto; padding: 24px 24px 40px; }
-.sb-wrap h2, .sb-wrap h3 { font-family: 'DM Serif Display', serif; font-weight: 400; }
-.sb-controls { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; align-items: center; }
-.sb-controls select { padding: 7px 10px; font-size: 13px; border: 1px solid var(--border); border-radius: 7px; background: var(--bg); color: var(--text); font-family: inherit; }
-.print-btn { padding: 9px 18px; background: var(--brand); color: white; border: none; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; font-family: inherit; }
-.print-btn:hover { background: var(--brand-dark); }
-.result-count { font-size: 12px; color: var(--text-3); margin-bottom: 12px; }
-.word-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; }
-.word-card { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; }
-.word-card.diff-hard { border-left: 3px solid #ef4444; }
-.word-card.diff-medium { border-left: 3px solid #f59e0b; }
-.word-card.diff-easy { border-left: 3px solid #22c55e; }
-.word-card .word { font-size: 16px; font-weight: 700; margin-bottom: 3px; }
-.word-card .meta { font-size: 10px; text-transform: uppercase; letter-spacing: .06em; color: var(--text-3); font-weight: 600; }
-.legend { display: flex; gap: 16px; margin-bottom: 14px; flex-wrap: wrap; }
-.legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-2); }
-.legend-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
-@media print {
-  .sb-controls, .legend, header, nav, footer, .more-tools, .ad, h1 + p { display: none !important; }
-  .sb-wrap { padding: 0; }
-  .word-grid { grid-template-columns: repeat(3, 1fr); gap: 5px; }
-  .word-card { break-inside: avoid; border-radius: 0; padding: 8px 10px; }
-  .word-card .word { font-size: 13px; }
-  .word-card .meta { font-size: 9px; }
-  body { font-size: 11px; }
+.cp-wrap{max-width:960px;margin:0 auto;padding:24px 16px}
+.cp-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow)}
+.cp-display-block{padding:48px 32px 32px;text-align:center;border-bottom:1px solid var(--border-2)}
+.cp-word{font-family:'DM Serif Display',serif;font-size:52px;line-height:1.1;color:var(--text);margin-bottom:16px;min-height:70px;cursor:pointer}
+.cp-next-btn{background:var(--brand);color:#fff;border:none;border-radius:var(--radius);font-size:18px;font-weight:600;padding:16px 48px;cursor:pointer;width:100%;max-width:360px;margin:0 auto;display:block}
+.cp-next-btn:active{opacity:.85}
+.cp-tap-hint{color:var(--text-3);font-size:13px;margin-top:12px}
+.cp-controls{padding:16px 20px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;border-bottom:1px solid var(--border-2)}
+.cp-filter-group{display:flex;align-items:center;gap:8px}
+.cp-filter-group label{font-size:12px;color:var(--text-2);font-weight:600}
+.cp-filter-group select{padding:6px 10px;border:1px solid var(--border);border-radius:6px;font-size:13px;background:var(--bg);color:var(--text)}
+.cp-timer-block{display:flex;align-items:center;gap:8px;margin-left:auto}
+.cp-timer-display{font-family:'DM Serif Display',serif;font-size:28px;min-width:60px;text-align:center;color:var(--text)}
+.cp-timer--warning{color:var(--amber)}
+.cp-timer--critical{color:#c0392b}
+.cp-timer-btns{display:flex;gap:4px}
+.cp-score-block{padding:16px 20px;display:flex;gap:24px;align-items:center}
+.cp-team{display:flex;align-items:center;gap:12px}
+.cp-team-label{font-weight:600;font-size:14px;color:var(--text)}
+.cp-score-val{font-family:'DM Serif Display',serif;font-size:32px;color:var(--brand);min-width:40px;text-align:center}
+.cp-score-btns{display:flex;flex-direction:column;gap:2px}
+.cp-score-btns button{border:1px solid var(--border);border-radius:4px;background:var(--bg);cursor:pointer;font-size:14px;line-height:1;padding:4px 8px}
+.cp-score-btns button:hover{border-color:var(--brand);color:var(--brand)}
+.cp-reset-score{margin-left:auto}
+.cp-dur-chips{display:flex;gap:4px}
+.cp-dur-chips button{padding:4px 8px;border:1px solid var(--border);border-radius:6px;font-size:12px;background:var(--bg);color:var(--text-2);cursor:pointer}
+.cp-dur-chips button.active{border-color:var(--brand);color:var(--brand)}
+.cp-pool-count{font-size:12px;color:var(--text-3);padding:8px 20px 0}
+@media(max-width:600px){
+  .cp-word{font-size:38px}
+  .cp-controls{flex-direction:column;align-items:flex-start}
+  .cp-timer-block{margin-left:0}
 }
-@media (max-width: 600px) { .sb-controls { flex-direction: column; align-items: stretch; } }
-.explainer h2, .explainer h3 { font-family: 'DM Serif Display', serif; font-weight: 400; }
-.speak-btn {
-  background: none;
-  border: 1px solid #d1d5db;
-  border-radius: 5px;
-  padding: 3px 5px;
-  cursor: pointer;
-  color: #9ca3af;
-  display: inline-flex;
-  align-items: center;
-  margin-left: 4px;
-  vertical-align: middle;
-  transition: color .15s, border-color .15s;
-}
-.speak-btn:hover { color: #4f46e5; border-color: #4f46e5; }
-@media print { .speak-btn { display: none !important; } }
-
-/* ── Classroom Mode ── */
-.classroom-btn { background: var(--bg-2); border: 1px solid var(--border); color: var(--text-2); border-radius: 7px; padding: 6px 12px; font-size: 12px; font-weight: 600; font-family: inherit; cursor: pointer; transition: background .15s, color .15s; }
-.classroom-btn:hover { border-color: var(--brand); color: var(--brand); }
-.classroom-btn.is-on { background: #1a1a2e; color: #fff; border-color: #1a1a2e; }
-body.is-classroom header, body.is-classroom nav, body.is-classroom .breadcrumb, body.is-classroom .hero, body.is-classroom .explainer, body.is-classroom .faq, body.is-classroom .who, body.is-classroom footer, body.is-classroom .ad, body.is-classroom [class*="ad-"], body.is-classroom .more-tools, body.is-classroom .saved-section { display: none !important; }
-body.is-classroom .tool-wrap { max-width: 100%; border-radius: 0; box-shadow: none; }
-body.is-classroom .results-col { min-height: 100vh; }
 </style>
 </head>
 
@@ -251,58 +230,93 @@ body.is-classroom .results-col { min-height: 100vh; }
 </div>
 
 
-<div class="breadcrumb">
-  <div class="breadcrumb-inner">
-    <a href="/">Wordineer</a>
-    <span class="breadcrumb-sep">›</span>
-    <a href="/word-tools/">Word Tools</a>
-    <span class="breadcrumb-sep">›</span>
-    <span aria-current="page">Spelling Bee Words Printable</span>
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/"><span itemprop="name">Home</span></a><meta itemprop="position" content="1"></li>
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/word-tools/"><span itemprop="name">Word tools</span></a><meta itemprop="position" content="2"></li>
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><span itemprop="name">Catchphrase Generator</span><meta itemprop="position" content="3"></li>
+  </ol>
+</nav>
+<h1>Catchphrase Generator</h1>
+<p>Get random words and phrases for the Catchphrase game. Filter by category, set the timer, and track scores — all in one screen.</p>
+<div class="cp-wrap" aria-label="Catchphrase generator">
+  <div class="cp-card">
+    <div class="cp-display-block">
+      <div class="cp-word" id="cp-word">Tap Next to start</div>
+      <button class="cp-next-btn" id="cp-next-btn">Next word</button>
+      <p class="cp-tap-hint">Or tap the word to advance</p>
+    </div>
+    <div class="cp-controls">
+      <div class="cp-filter-group">
+        <label for="cp-category">Category</label>
+        <select id="cp-category">
+          <option value="all">All</option>
+          <option value="everyday">Everyday</option>
+          <option value="actions">Actions</option>
+          <option value="places">Places</option>
+          <option value="people">People</option>
+          <option value="food">Food</option>
+          <option value="entertainment">Entertainment</option>
+          <option value="idioms">Idioms</option>
+          <option value="hard">Hard</option>
+        </select>
+      </div>
+      <div class="cp-filter-group">
+        <label for="cp-difficulty">Difficulty</label>
+        <select id="cp-difficulty">
+          <option value="all">All</option>
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+      </div>
+      <div class="cp-timer-block">
+        <div class="cp-dur-chips">
+          <button data-cp-dur="30">30s</button>
+          <button data-cp-dur="60" class="active">60s</button>
+          <button data-cp-dur="90">90s</button>
+        </div>
+        <div class="cp-timer-display" id="cp-timer-display">1:00</div>
+        <div class="cp-timer-btns">
+          <button class="small-btn" id="cp-timer-start">Start</button>
+          <button class="small-btn" id="cp-timer-reset">Reset</button>
+        </div>
+      </div>
+    </div>
+    <div class="cp-pool-count" id="cp-pool-count"></div>
+    <div class="cp-score-block">
+      <div class="cp-team">
+        <span class="cp-team-label">Team 1</span>
+        <span class="cp-score-val" id="cp-score-1">0</span>
+        <div class="cp-score-btns">
+          <button onclick="cpScore(1,1)">+</button>
+          <button onclick="cpScore(1,-1)">−</button>
+        </div>
+      </div>
+      <div class="cp-team">
+        <span class="cp-team-label">Team 2</span>
+        <span class="cp-score-val" id="cp-score-2">0</span>
+        <div class="cp-score-btns">
+          <button onclick="cpScore(2,1)">+</button>
+          <button onclick="cpScore(2,-1)">−</button>
+        </div>
+      </div>
+      <button class="small-btn cp-reset-score" id="cp-reset-score">Reset scores</button>
+    </div>
   </div>
-</div>
-<div class="hero">
-  <h1>500 Hardest Spelling Bee Words — Free Printable by Grade</h1>
-  <p>The toughest spelling bee competition words for grades K–7, curated from competitive word lists. Filter by grade and difficulty, then print a clean word list for home practice or classroom use.</p>
-</div>
-<div class="sb-wrap">
-  <div class="sb-controls">
-    <select id="grade-filter">
-      <option value="">All grades (K–7)</option>
-      <option value="k">Kindergarten</option>
-      <option value="3rd">3rd grade</option>
-      <option value="5th">5th grade</option>
-      <option value="6th">6th grade</option>
-      <option value="7th">7th grade</option>
-    </select>
-    <select id="diff-filter">
-      <option value="">All difficulties</option>
-      <option value="hard">Hard only</option>
-      <option value="medium">Medium only</option>
-      <option value="easy">Easy only</option>
-    </select>
-    <button class="print-btn" onclick="window.print()">🖨 Print / Save as PDF</button>
-    <button class="classroom-btn" id="sb-classroom-btn">⊞ Classroom</button>
-  </div>
-  <div class="legend">
-    <span class="legend-item"><span class="legend-dot" style="background:#ef4444"></span> Hard</span>
-    <span class="legend-item"><span class="legend-dot" style="background:#f59e0b"></span> Medium</span>
-    <span class="legend-item"><span class="legend-dot" style="background:#22c55e"></span> Easy</span>
-  </div>
-  <div class="result-count" id="result-count"></div>
-  <div class="word-grid" id="word-grid"></div>
 </div>
 
 <div class="content-wrap">
   <div class="section">
-    <h2 class="section-title">More spelling &amp; vocabulary tools</h2>
-    <p class="section-sub">Free practice tools for every grade level</p>
+    <h2 class="section-title">More word game generators</h2>
+    <p class="section-sub">Free tools for game night</p>
     <div class="tools-grid">
-      <a class="tool-item" href="/spelling-bee-words/"><div class="tool-icon" style="background:#F5F3FF"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h9M2 7h11M2 10h7" stroke="#7C3AED" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="tool-name">Spelling Bee Words</div><div class="tool-desc">Generate spelling bee word lists for any grade K–Adult with definitions, difficulty filters, and printable output.</div></a>
-      <a class="tool-item" href="/spelling-bee-words-elementary/"><div class="tool-icon" style="background:#FEF9EC"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h9M2 7h11M2 10h7" stroke="#C07B00" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="tool-name">Spelling Bee Words (Elementary)</div><div class="tool-desc">K–5 spelling bee words with Practice Mode for parent-led home sessions. Filter by individual grade and difficulty.</div></a>
-      <a class="tool-item" href="/spelling-bee-words-kindergarten/"><div class="tool-icon" style="background:#FFF3E0"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h9M2 7h7M2 10h5" stroke="#C07B00" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="tool-name">Spelling Bee Words (Kindergarten)</div><div class="tool-desc">Simple, age-appropriate spelling bee words for kindergarteners — short, phonetic, and printable.</div></a>
-      <a class="tool-item" href="/spelling-bee-words-1st-grade/"><div class="tool-icon" style="background:#FFF3E0"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h9M2 7h7.5M2 10h5.5" stroke="#C07B00" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="tool-name">Spelling Bee Words (1st Grade)</div><div class="tool-desc">1st grade spelling bee words for 6–7 year olds — phonetic words with blends, digraphs, and Practice Mode.</div></a>
-      <a class="tool-item" href="/spelling-bee-words-2nd-grade/"><div class="tool-icon" style="background:#E0F5EF"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h9M2 7h8M2 10h6" stroke="#0F8060" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="tool-name">Spelling Bee Words (2nd Grade)</div><div class="tool-desc">Grade 2 spelling bee words with definitions and difficulty tiers for early elementary practice.</div></a>
-      <a class="tool-item" href="/spelling-bee-words-3rd-grade/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="#534AB7" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="tool-name">Spelling Bee Words (3rd Grade)</div><div class="tool-desc">Grade 3 spelling bee words with definitions, difficulty tiers, and etymology badges.</div></a>
+      <a class="tool-item" href="/random-quote-generator/"><div class="tool-icon" style="background:#FBEAF0"><svg viewBox="0 0 13 13" fill="none"><path d="M3 4.5h3.5M3 8.5h4.5" stroke="#A13B63" stroke-width="1.1" stroke-linecap="round"/><path d="M8.2 3.5h1.4v2.1c0 .5.4.9.9.9H11v1.4H9.6c-1.2 0-2.1-.9-2.1-2.1z" fill="#A13B63"/><path d="M2.2 5.2h1.4V7c0 .5.4.9.9.9h.4v1.4h-.4C3.3 9.3 2.2 8.2 2.2 7z" fill="#A13B63"/></svg></div><div class="tool-name">Random Quote Generator</div><div class="tool-desc">Random quotes with filters for topic, author, tone, length, favorites, and image cards.</div></a>
+      <a class="tool-item" href="/random-wordle-generator/"><div class="tool-icon" style="background:#E8F4FE"><svg viewBox="0 0 13 13" fill="none"><rect x='2' y='2' width='3.5' height='3.5' rx='0.5' fill='#2B7FD4'/><rect x='7.5' y='2' width='3.5' height='3.5' rx='0.5' fill='#2B7FD4' opacity='.4'/><rect x='2' y='7.5' width='3.5' height='3.5' rx='0.5' fill='#2B7FD4' opacity='.4'/><rect x='7.5' y='7.5' width='3.5' height='3.5' rx='0.5' fill='#2B7FD4'/></svg></div><div class="tool-name">Random Wordle Generator</div><div class="tool-desc">Random 5-letter words for Wordle. Filter by difficulty and letter.</div></a>
+      <a class="tool-item" href="/wordle-helper/"><div class="tool-icon" style="background:#E1F5EE"><svg viewBox="0 0 13 13" fill="none"><rect x='2' y='2' width='3.5' height='3.5' rx='0.5' fill='#1D9E75'/><rect x='7.5' y='2' width='3.5' height='3.5' rx='0.5' fill='#BA7517'/><rect x='2' y='7.5' width='3.5' height='3.5' rx='0.5' fill='none' stroke='#9a9a94' stroke-width='1'/><rect x='7.5' y='7.5' width='3.5' height='3.5' rx='0.5' fill='#1D9E75'/></svg></div><div class="tool-name">Wordle Helper</div><div class="tool-desc">Entropy-ranked solver — enter your clues and get the single best next guess, not just a filtered list.</div></a>
+      <a class="tool-item" href="/best-wordle-starting-words/"><div class="tool-icon" style="background:#E6F1FB"><svg viewBox="0 0 13 13" fill="none"><rect x='2' y='9' width='1.5' height='3' rx='0.3' fill='#185FA5'/><rect x='4.5' y='6.5' width='1.5' height='5.5' rx='0.3' fill='#185FA5'/><rect x='7' y='4' width='1.5' height='8' rx='0.3' fill='#185FA5'/><rect x='9.5' y='2' width='1.5' height='10' rx='0.3' fill='#185FA5'/></svg></div><div class="tool-name">Best Wordle Starting Words</div><div class="tool-desc">Top 100 openers ranked by Shannon entropy — original analysis, 10,000-game benchmark, downloadable data.</div></a>
+      <a class="tool-item" href="/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="#534AB7" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="tool-name">Random word</div><div class="tool-desc">Filter by type, difficulty, length</div></a>
+      <a class="tool-item" href="/random-noun-generator/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h9M2 7h6M2 10h8" stroke="#534AB7" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="tool-name">Random Noun Generator</div><div class="tool-desc">Generate random nouns — filter by type (abstract, concrete, proper, collective) and difficulty.</div></a>
     </div>
   </div>
   <div class="divider"></div>
@@ -330,48 +344,31 @@ body.is-classroom .results-col { min-height: 100vh; }
   </div>
   <div class="divider"></div>
 
-<section class="explainer">
-  <h2>How to use this list</h2>
-  <p>Filter to your child's or student's grade and difficulty level, then click <strong>Print / Save as PDF</strong>. In your browser's print dialog, choose "Save as PDF" for a clean printable file. No email or signup required.</p>
-  <p>For home practice: cover the word and read it aloud, asking the student to spell it. For classrooms: the 3-column print layout fits neatly on letter-size paper with 50–80 words per page.</p>
-  <h2>About these words</h2>
-  <p>These 500 words are selected from our grade-level spelling bee tools — drawn from competitive spelling bee word lists and school district vocabulary standards. Words marked Hard appear most often in actual competition rounds at that grade level and involve challenging letter combinations, Latin roots, or unusual patterns.</p>
-</section>
+<h2>How to play Catchphrase</h2>
+<p>Players sit in a circle with two alternating teams. The player holding the device sees a word or phrase and gives verbal clues — no acting, no spelling, no saying part of the phrase — until their team guesses it correctly. Then they pass the device to the next player on the opposing team. When the timer runs out, the team currently holding the device loses a point. First team to 7 wins.</p>
+<h2>Tips for better games</h2>
+<ul>
+  <li><strong>Filter by age group:</strong> Use "Everyday" and "Food" for mixed ages, "Hard" for competitive groups.</li>
+  <li><strong>Accelerating tension:</strong> The 60-second timer creates natural pressure. Try 30 seconds for more chaos.</li>
+  <li><strong>Remote play:</strong> Share your screen and designate one person to tap "Next" when a word is guessed.</li>
+</ul>
   <div class="divider"></div>
 
-<div class="faq">
-  <h2 class="faq-title">Frequently asked questions</h2>
-  <div class="faq-item open">
-    <div class="faq-q"><span class="faq-q-text">How do I save this as a PDF?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Click "Print / Save as PDF," then in your browser's print dialog change the destination from your printer to "Save as PDF." On Mac: File → Print → PDF dropdown in the lower left. On Windows: select "Microsoft Print to PDF" as the printer.</div>
-  </div>
-  <div class="faq-item">
-    <div class="faq-q"><span class="faq-q-text">Are these the official Scripps National Spelling Bee words?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">These words represent competitive spelling bee word lists at each grade level but are not the official Scripps list (which is not released publicly before the competition). They are curated from school district lists, past competition reports, and grade-level vocabulary standards.</div>
-  </div>
-  <div class="faq-item">
-    <div class="faq-q"><span class="faq-q-text">How many words should a student practice per session?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">15 words per 10–15 minute session is the sweet spot for most students. Daily short sessions beat long infrequent ones. In the final week before competition, increase to 25–30 words per session, focusing on the Hard words for the student's grade.</div>
-  </div>
-  <div class="faq-item">
-    <div class="faq-q"><span class="faq-q-text">Can I use this in my classroom?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Yes — completely free for classroom use. Filter to your grade, print, and distribute. The print layout is designed for classroom handouts. If your school uses a specific district word list, use the difficulty filters to narrow to the words most likely to appear in your local competition.</div>
-  </div>
-</div>
+<h2>Frequently asked questions</h2>
+<details><summary>How do you play Catchphrase?</summary><p>Players alternate between two teams in a circle. The active player clues their team into the word without saying it, then passes the device when their team guesses. When the timer ends, the team holding the device loses that round.</p></details>
+<details><summary>Will words repeat during a session?</summary><p>No. Words won't repeat until the full filtered pool is exhausted. Once every word has appeared, the pool resets automatically.</p></details>
+<details><summary>Can I filter words by category?</summary><p>Yes — choose from Everyday, Actions, Places, People, Food, Entertainment, Idioms, or Hard. You can also filter by difficulty level to tailor the game to your group.</p></details>
+<details><summary>What does the timer do?</summary><p>The timer counts down from 30, 60, or 90 seconds. A beep warns when 10 seconds remain, and a triple beep signals time's up. The team holding the device when the timer ends loses the round.</p></details>
   <div class="divider"></div>
 
+<h2>Who uses this</h2>
+<ul>
+  <li><strong>Party hosts</strong> who want the Catchphrase experience without finding the physical game</li>
+  <li><strong>Remote teams</strong> looking for a fast, no-prep icebreaker on video calls</li>
+  <li><strong>Families</strong> with kids old enough to give verbal clues (roughly age 8+)</li>
+</ul>
+<p>Also try: <a href="/scattergories-generator/">Scattergories Generator</a>, <a href="/charades-generator/">Charades Generator</a>, <a href="/pictionary-word-generator/">Pictionary Generator</a>, <a href="/truth-or-dare-generator/">Truth or Dare Generator</a>, <a href="/would-you-rather-generator/">Would You Rather Generator</a>.</p>
 
-
-
-<div class="related-tools">
-  <h3 class="related-title">Related tools &amp; guides</h3>
-  <div class="related-links">
-    <a class="related-link" href="/spelling-bee-words/">spelling bee words — full grade hub</a>
-    <a class="related-link" href="/spelling-bee-words-5th-grade/">5th grade spelling bee words</a>
-    <a class="related-link" href="/spelling-bee-words-6th-grade/">6th grade spelling bee words</a>
-    <a class="related-link" href="/etymology-100-common-words/">etymology guide — why words are spelled this way</a>
-  </div>
-</div>
 
 </div>
 
@@ -447,64 +444,60 @@ body.is-classroom .results-col { min-height: 100vh; }
 </script>
 
 <script>
-function speakWord(evt, word) {
-  evt.stopPropagation();
-  if (!window.speechSynthesis) return;
-  window.speechSynthesis.cancel();
-  var u = new SpeechSynthesisUtterance(word);
-  u.lang = 'en-US';
-  window.speechSynthesis.speak(u);
-}
 (function(){
-  var DATA = [];
-  var GRADE_LABELS = {k:'Kindergarten','3rd':'3rd grade','5th':'5th grade','6th':'6th grade','7th':'7th grade'};
-
-  function refresh() {
-    var grade = document.getElementById('grade-filter').value;
-    var diff = document.getElementById('diff-filter').value;
-    var rows = DATA.filter(function(r) {
-      return (!grade || r.grade === grade) && (!diff || r.diff === diff);
-    });
-    document.getElementById('result-count').textContent = rows.length + ' words';
-    document.getElementById('word-grid').innerHTML = rows.map(function(r) {
-      var label = GRADE_LABELS[r.grade] || (r.grade + ' grade');
-      return '<div class="word-card diff-' + r.diff + '">' +
-        '<div class="word">' + r.w + '<button class="speak-btn" data-word="' + r.w.replace(/"/g,'&quot;') + '" onclick="speakWord(event,this.dataset.word)" title="Hear pronunciation" aria-label="Speak word"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="14" height="14"><path d="M9.547 3.062A.75.75 0 0110 3.75v12.5a.75.75 0 01-1.21.59l-3.63-2.895H3.5A1.5 1.5 0 012 12.444V7.556A1.5 1.5 0 013.5 6.056h1.66l3.63-2.895a.75.75 0 01.757-.099zM13.78 6.22a.75.75 0 011.06 0A6.75 6.75 0 0116.5 10a6.75 6.75 0 01-1.66 4.5.75.75 0 01-1.14-.976A5.25 5.25 0 0015 10a5.25 5.25 0 00-1.3-3.524.75.75 0 010-1.256z"/></svg></button></div>' +
-        '<div class="meta">' + label + ' · ' + r.diff + '</div>' +
-        '</div>';
-    }).join('');
-  }
-
-  document.getElementById('grade-filter').addEventListener('change', refresh);
-  document.getElementById('diff-filter').addEventListener('change', refresh);
-
-  fetch('/data/spelling-bee-consolidated.json')
-    .then(function(r) { return r.json(); })
-    .then(function(d) { DATA = d; refresh(); });
-
-  // Classroom mode
-  (function () {
-    var btn = document.getElementById('sb-classroom-btn');
-    function setClassroom(on) {
-      document.body.classList.toggle('is-classroom', on);
-      if (btn) {
-        btn.classList.toggle('is-on', on);
-        btn.textContent = on ? '✕ Exit Classroom' : '⊞ Classroom';
-      }
-      var url = new URL(window.location.href);
-      if (on) url.searchParams.set('mode', 'classroom');
-      else url.searchParams.delete('mode');
-      history.replaceState(null, '', url.toString());
-    }
-    if (btn) btn.addEventListener('click', function () {
-      setClassroom(!document.body.classList.contains('is-classroom'));
-    });
-    if (new URLSearchParams(window.location.search).get('mode') === 'classroom') {
-      setClassroom(true);
-    }
-  }());
+'use strict';
+var SEED=[
+  {text:'Alarm clock',category:'everyday',difficulty:'easy'},
+  {text:'Traffic jam',category:'everyday',difficulty:'easy'},
+  {text:'Comfort zone',category:'everyday',difficulty:'medium'},
+  {text:'Double standard',category:'everyday',difficulty:'hard'},
+  {text:'Juggling',category:'actions',difficulty:'easy'},
+  {text:'Parallel parking',category:'actions',difficulty:'medium'},
+  {text:'Improvising',category:'actions',difficulty:'hard'},
+  {text:'Bus stop',category:'places',difficulty:'easy'},
+  {text:'Amusement park',category:'places',difficulty:'easy'},
+  {text:'Farmers market',category:'places',difficulty:'medium'},
+  {text:'Celebrity',category:'people',difficulty:'easy'},
+  {text:'Mechanic',category:'people',difficulty:'medium'},
+  {text:'Ventriloquist',category:'people',difficulty:'hard'},
+  {text:'Lunchbox',category:'food',difficulty:'easy'},
+  {text:'Guacamole',category:'food',difficulty:'medium'},
+  {text:'Tiramisu',category:'food',difficulty:'hard'},
+  {text:'Plot twist',category:'entertainment',difficulty:'medium'},
+  {text:'Cliffhanger',category:'entertainment',difficulty:'medium'},
+  {text:'Break a leg',category:'idioms',difficulty:'easy'},
+  {text:'Spill the beans',category:'idioms',difficulty:'easy'},
+  {text:'Bite the bullet',category:'idioms',difficulty:'medium'},
+  {text:'Burning the midnight oil',category:'idioms',difficulty:'hard'},
+  {text:'Archipelago',category:'hard',difficulty:'hard'},
+  {text:'Quantum leap',category:'hard',difficulty:'hard'}
+];
+var fullData=null;
+var pool=[];
+var seen=new Set();
+var scores=[0,0];
+var state={category:'all',difficulty:'all',timerSecs:60,timerDuration:60,activeDur:60,running:false,interval:null};
+var audioCtx=null;
+function getCtx(){if(!audioCtx){try{audioCtx=new(window.AudioContext||window.webkitAudioContext)();}catch(e){}}return audioCtx;}
+function beep(freq,dur){var ctx=getCtx();if(!ctx)return;try{var osc=ctx.createOscillator();var gain=ctx.createGain();osc.connect(gain);gain.connect(ctx.destination);osc.frequency.value=freq;gain.gain.setValueAtTime(0.25,ctx.currentTime);gain.gain.exponentialRampToValueAtTime(0.001,ctx.currentTime+dur);osc.start();osc.stop(ctx.currentTime+dur);}catch(e){}}
+function buildPool(){var src=fullData||SEED;pool=src.filter(function(item){return(state.category==='all'||item.category===state.category)&&(state.difficulty==='all'||item.difficulty===state.difficulty);});seen=new Set();updatePoolCount();}
+function updatePoolCount(){var el=document.getElementById('cp-pool-count');if(el)el.textContent=(pool.length-seen.size)+' words remaining in pool';}
+function nextWord(){var avail=pool.filter(function(item){return!seen.has(item.text);});if(!avail.length){seen=new Set();avail=pool.slice();}if(!avail.length){document.getElementById('cp-word').textContent='No words match filters';return;}var item=avail[Math.floor(Math.random()*avail.length)];seen.add(item.text);document.getElementById('cp-word').textContent=item.text;updatePoolCount();}
+function renderTimer(){var m=Math.floor(state.timerSecs/60);var s=state.timerSecs%60;var el=document.getElementById('cp-timer-display');if(!el)return;el.textContent=m>0?m+':'+(s<10?'0':'')+s:String(s);el.classList.toggle('cp-timer--warning',state.timerSecs<=10&&state.timerSecs>5);el.classList.toggle('cp-timer--critical',state.timerSecs<=5);}
+function startTimer(){if(state.running){clearInterval(state.interval);state.running=false;document.getElementById('cp-timer-start').textContent='Start';return;}if(state.timerSecs<=0)state.timerSecs=state.timerDuration;state.running=true;document.getElementById('cp-timer-start').textContent='Pause';state.interval=setInterval(function(){state.timerSecs--;renderTimer();if(state.timerSecs>0&&state.timerSecs<=10)beep(880,0.08);if(state.timerSecs<=0){clearInterval(state.interval);state.running=false;document.getElementById('cp-timer-start').textContent='Start';beep(440,0.3);setTimeout(function(){beep(440,0.3);},350);setTimeout(function(){beep(440,0.5);},700);}},1000);}
+window.cpScore=function(team,delta){scores[team-1]=Math.max(0,scores[team-1]+delta);document.getElementById('cp-score-'+team).textContent=scores[team-1];};
+document.getElementById('cp-next-btn').addEventListener('click',nextWord);
+document.getElementById('cp-word').addEventListener('click',nextWord);
+document.getElementById('cp-category').addEventListener('change',function(e){state.category=e.target.value;buildPool();});
+document.getElementById('cp-difficulty').addEventListener('change',function(e){state.difficulty=e.target.value;buildPool();});
+document.getElementById('cp-timer-start').addEventListener('click',startTimer);
+document.getElementById('cp-timer-reset').addEventListener('click',function(){clearInterval(state.interval);state.running=false;state.timerSecs=state.timerDuration;renderTimer();document.getElementById('cp-timer-start').textContent='Start';});
+document.getElementById('cp-reset-score').addEventListener('click',function(){scores=[0,0];document.getElementById('cp-score-1').textContent='0';document.getElementById('cp-score-2').textContent='0';});
+document.querySelectorAll('[data-cp-dur]').forEach(function(btn){btn.addEventListener('click',function(){state.activeDur=+btn.dataset.cpDur;state.timerDuration=state.activeDur;if(!state.running){state.timerSecs=state.timerDuration;renderTimer();}document.querySelectorAll('[data-cp-dur]').forEach(function(b){b.classList.toggle('active',+b.dataset.cpDur===state.activeDur);});});});
+fetch('/data/catchphrase.json').then(function(r){return r.ok?r.json():null;}).then(function(d){if(d){fullData=d;buildPool();}}).catch(function(){});
+buildPool();
+renderTimer();
 })();
-document.querySelectorAll('.faq-item').forEach(function(item){var q=item.querySelector('.faq-q');if(!q)return;q.addEventListener('click',function(){item.classList.toggle('open');});});
 </script>
 </body>
 </html>
