@@ -1,0 +1,438 @@
+<!-- CONFIG
+{
+  "url": "/random-words-starting-with/o",
+  "output": "random-words-starting-with/o.html",
+  "type": "tool",
+  "more_tools_key": "more_word_tools"
+}
+-->
+
+<!-- SLOT:meta -->
+<title>Random Words Starting With O — Generator &amp; Definitions | Wordineer</title>
+<meta name="description" content="Generate random words starting with O. Filter by part of speech, difficulty, and word length. Definitions included. Free.">
+<link rel="canonical" href="https://wordineer.com/random-words-starting-with/o">
+<meta property="og:type"        content="website">
+<meta property="og:site_name"   content="Wordineer">
+<meta property="og:title"       content="Random Words Starting With O | Wordineer">
+<meta property="og:description" content="Generate random O words with definitions. Filter by POS, difficulty, length.">
+<meta property="og:url"         content="https://wordineer.com/random-words-starting-with/o">
+<meta property="og:image"       content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Random Words Starting With O",
+  "url": "https://wordineer.com/random-words-starting-with/o",
+  "description": "Generate random English words starting with O. Filter by part of speech, difficulty, and length.",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@id": "https://wordineer.com/#organization" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What are strong O words for writing?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Ominous is more precise than 'threatening' or 'dark' — it specifically suggests something bad is about to happen. Opulent describes great wealth displayed lavishly, more specific than 'rich' or 'luxurious'. Obstinate means stubbornly refusing to change — stronger than 'stubborn' in formal contexts. Ostracize means to exclude someone from a group or community, a precise social term with no single-word synonym. Oblique means not straight or direct — useful for both literal angles and indirect communication. Oblivion names a state of being completely forgotten or unconscious, irreplaceable in both literal and metaphorical use." }
+    },
+    {
+      "@type": "Question",
+      "name": "What O words are good for Scrabble?",
+      "acceptedAnswer": { "@type": "Answer", "text": "O is worth 1 point in Scrabble, but as one of the most common vowels it is essential for building words across the board. Short plays like oak, oar, and odd fill tight spaces efficiently. O is also a valid two-letter word in Scrabble. Medium plays like orbit, onset, and oxide work well in mid-game positions. Filter to longer O words here to find high-scoring plays that combine O with less common tiles." }
+    },
+    {
+      "@type": "Question",
+      "name": "What does the ob- prefix mean in English?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The Latin prefix ob- means 'against', 'toward', or 'over', and it generates a large family of formal English words. Obstruct means to block against, obscure means to cover over, obstinate means standing against change, and oblique means slanting away from the direct path. This prefix is especially productive in legal, medical, and academic vocabulary, where precision matters most. Recognizing ob- helps decode unfamiliar words and makes O's formal vocabulary more accessible." }
+    },
+    {
+      "@type": "Question",
+      "name": "What are 5-letter O words for Wordle?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Strong Wordle starters with O include onset, orbit, order, other, and offer — these cover useful vowel and consonant combinations. Words like olive, otter, and outer test common letter patterns. Use the 5-letter filter here to generate a focused practice list. O-starting words are moderately common in Wordle puzzles, making them solid opening moves when you want to test the O position and common consonants in one guess." }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I find advanced O words?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Use the Difficulty filter and select 'Advanced' to see only the challenging O words like obstinate, ominous, opulent, and ostracize. These words typically appear on standardized tests and in formal or literary writing. You can combine the difficulty filter with Part of Speech to find advanced O adjectives, verbs, or nouns specifically. Copy your results to study them or incorporate them directly into writing projects." }
+    }
+  ]
+}
+</script>
+<!-- /SLOT:meta -->
+
+<!-- SLOT:style -->
+<style>
+.tool-wrap  { max-width:960px; margin:0 auto; padding:10px 24px 0; }
+.tool-card  { border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg); box-shadow:var(--shadow); }
+.tool-split { display:flex; }
+.ctrl       { width:220px; flex-shrink:0; padding:18px; border-right:1px solid var(--border-2); background:var(--bg-2); }
+.ctrl-row   { margin-bottom:14px; }
+.ctrl-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; display:block; margin-bottom:5px; }
+.ctrl-row input, .ctrl-row select { width:100%; padding:7px 10px; font-size:13px; font-family:inherit; border:1px solid var(--border); border-radius:7px; background:var(--bg); color:var(--text); appearance:none; outline:none; transition:border-color .15s; }
+.ctrl-row input:focus, .ctrl-row select:focus { border-color:var(--brand); }
+.count-error { display:none; font-size:11px; color:#E24B4A; margin-top:4px; }
+.count-error.show { display:block; }
+.ctrl-row input.input-error { border-color:#E24B4A !important; }
+.letter-row { display:flex; gap:6px; }
+.letter-row input { text-transform:uppercase; text-align:center; }
+.starting-chip { display:inline-flex; align-items:center; gap:6px; background:var(--brand); color:white; font-size:12px; font-weight:700; padding:5px 10px; border-radius:6px; margin-bottom:14px; }
+.starting-chip-letter { font-size:16px; font-family:'DM Serif Display',serif; }
+.size-opts  { display:flex; gap:10px; margin-bottom:6px; }
+.size-opt   { display:flex; align-items:center; gap:4px; font-size:12px; color:var(--text-2); cursor:pointer; }
+.size-opt input { accent-color:var(--brand); cursor:pointer; }
+.size-ctrls { display:flex; gap:5px; }
+.size-ctrls select { flex:0 0 60%; font-size:12px; padding:6px 8px; min-width:0; }
+.size-ctrls input  { flex:0 0 calc(40% - 5px); font-size:12px; padding:6px 8px; text-align:center; min-width:0; width:auto; }
+.def-row    { display:flex; align-items:center; gap:8px; margin-bottom:14px; }
+.def-row label { font-size:12px; color:var(--text-2); cursor:pointer; }
+.toggle     { position:relative; width:32px; height:18px; flex-shrink:0; }
+.toggle input { opacity:0; width:0; height:0; }
+.toggle-sl  { position:absolute; cursor:pointer; inset:0; background:var(--border); border-radius:9px; transition:.2s; }
+.toggle input:checked + .toggle-sl { background:var(--brand); }
+.toggle-sl::before { content:''; position:absolute; width:14px; height:14px; left:2px; top:2px; background:white; border-radius:50%; transition:.2s; }
+.toggle input:checked + .toggle-sl::before { transform:translateX(14px); }
+.gen-btn    { width:100%; padding:10px 14px; background:var(--brand); color:white; border:none; border-radius:8px; font-size:14px; font-weight:600; font-family:inherit; cursor:pointer; transition:background .15s,transform .1s; letter-spacing:-.01em; }
+.gen-btn:hover { background:var(--brand-dark); }
+.gen-btn:active { transform:scale(.98); }
+.reset-btn  { display:block; width:100%; text-align:center; font-size:11px; color:var(--text-3); margin-top:8px; cursor:pointer; text-decoration:underline; text-underline-offset:2px; border:none; background:none; font-family:inherit; }
+.kbd        { text-align:center; font-size:10px; color:var(--text-3); margin-top:6px; }
+.kbd kbd    { background:var(--bg-3); border:1px solid var(--border); border-radius:3px; padding:1px 5px; font-size:10px; font-family:inherit; }
+.words-panel { flex:1; display:flex; flex-direction:column; overflow:hidden; min-height:320px; }
+.words-top  { display:flex; align-items:center; justify-content:space-between; padding:12px 16px; border-bottom:1px solid var(--border-2); }
+.words-count { font-size:12px; color:var(--text-3); }
+.words-actions { display:flex; gap:6px; }
+.act-btn    { font-size:12px; padding:5px 11px; border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:background .12s; }
+.act-btn:hover { background:var(--bg-2); }
+.word-list  { flex:1; overflow-y:auto; list-style:none; padding:0 16px; }
+.word-item  { display:flex; align-items:flex-start; justify-content:space-between; padding:10px 0; border-bottom:1px solid var(--border-2); gap:10px; animation:fadeIn .2s ease; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:none} }
+.word-item:last-child { border-bottom:none; }
+.word-left  { flex:1; }
+.word-text  { font-size:20px; font-weight:500; color:var(--text); line-height:1.2; letter-spacing:-.02em; }
+.word-pos   { font-size:11px; color:var(--text-3); margin-top:1px; font-style:italic; }
+.word-def   { font-size:12px; color:var(--text-2); margin-top:3px; line-height:1.4; }
+.word-right { display:flex; align-items:center; gap:4px; padding-top:3px; flex-shrink:0; }
+.icon-btn   { width:28px; height:28px; display:flex; align-items:center; justify-content:center; background:transparent; border:none; cursor:pointer; border-radius:5px; color:var(--text-3); transition:background .12s, color .12s; }
+.icon-btn:hover { background:var(--bg-2); color:var(--text); }
+.icon-btn svg { width:14px; height:14px; }
+.icon-btn.saved { color:#E24B4A; }
+.icon-btn.saved svg path { fill:#E24B4A; }
+.saved-section { border-top:1px solid var(--border); padding:12px 14px; background:var(--bg); }
+.saved-top { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:8px; }
+.saved-label { font-size:12px; font-weight:700; color:var(--text); }
+.saved-copy { border:1px solid var(--border); background:var(--bg); color:var(--brand); border-radius:7px; padding:5px 9px; font-size:11px; font-weight:600; cursor:pointer; }
+.saved-tags { display:flex; gap:5px; flex-wrap:wrap; min-height:22px; }
+.saved-tag { display:inline-flex; align-items:center; gap:4px; background:#F0F2FF; color:var(--brand); border-radius:999px; padding:4px 8px; font-size:11px; font-weight:600; }
+.saved-tag-remove { cursor:pointer; opacity:.65; }
+.saved-tag-remove:hover { opacity:1; }
+.saved-empty { color:var(--text-3); font-size:12px; }
+.mobile-more-toggle { display:none; width:100%; margin:-2px 0 14px; padding:9px 12px; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--brand); font-size:13px; font-weight:600; font-family:inherit; cursor:pointer; }
+.advanced-options { display:block; }
+.size-opt { position:relative; gap:7px; }
+.size-opt input { position:absolute; opacity:0; pointer-events:none; }
+.size-tick { width:18px; height:18px; border:1px solid var(--border); border-radius:5px; background:var(--bg); display:inline-flex; align-items:center; justify-content:center; transition:background .15s, border-color .15s; flex-shrink:0; }
+.size-tick::after { content:'✓'; font-size:13px; font-weight:700; color:white; line-height:1; opacity:0; transform:scale(.7); transition:opacity .15s, transform .15s; }
+.size-opt input:checked + .size-tick { background:var(--brand); border-color:var(--brand); }
+.size-opt input:checked + .size-tick::after { opacity:1; transform:scale(1); }
+.size-opt:hover .size-tick { border-color:var(--brand); }
+@media(max-width:700px){
+  .tool-wrap { padding:14px 16px 0; }
+  .tool-card { border-radius:12px; }
+  .ctrl { padding:16px; }
+  .mobile-more-toggle { display:block; }
+  .advanced-options { display:none; }
+  .advanced-options.is-open { display:block; }
+  .ctrl-row:first-child { margin-bottom:12px; }
+  .gen-btn { margin-top:0; }
+  .reset-btn, .kbd { display:none; }
+  .words-top { padding:10px 16px; }
+  .word-list { max-height:420px; overflow-y:auto; }
+  .word-text { font-size:19px; }
+  .tool-split { flex-direction:column; }
+  .ctrl { width:100%; border-right:none; border-bottom:1px solid var(--border-2); }
+  .size-ctrls select { flex:0 0 50%; }
+  .size-ctrls input  { flex:0 0 calc(50% - 5px); }
+}
+.az-section { margin-top:24px; }
+.az-section h2 { font-family:'DM Serif Display',serif; font-size:20px; font-weight:400; margin:0 0 8px; color:var(--text); }
+.az-section p  { font-size:14px; color:var(--text-2); margin:0 0 14px; line-height:1.6; }
+.az-links   { display:flex; flex-wrap:wrap; gap:6px; }
+.az-link    { display:inline-flex; align-items:center; justify-content:center; width:38px; height:38px; border:1px solid var(--border); border-radius:8px; font-size:14px; font-weight:600; color:var(--text-2); text-decoration:none; transition:background .12s, border-color .12s, color .12s; background:var(--bg); }
+.az-link:hover { background:var(--bg-2); border-color:var(--brand); color:var(--brand); }
+.az-link.active { background:var(--brand); border-color:var(--brand); color:white; }
+@media(max-width:700px){ .az-link { width:34px; height:34px; font-size:13px; } }
+</style>
+<!-- /SLOT:style -->
+
+<!-- SLOT:hero -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/word-tools/">Word Tools</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/random-words-starting-with/">Random Words Starting With</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">O</span>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free · No sign-up · Instant
+  </div>
+  <h1>206 Random Words Starting With O</h1>
+  <p>O carries some of the most expressive and unusual vocabulary in English. The Latin prefix ob- (against, toward, or over) generates a wide family of formal words: obstruct, obscure, obstinate, and oblique. The Greek prefix omni- (all) gives omniscient and omnipotent. Beyond prefixes, O delivers words with strong character: ominous, opulent, ostracize, and oblivion each name something that simpler words cannot capture. This dataset of 206 words spans easy everyday terms like open, order, and offer through to advanced vocabulary with precise meanings. Filter by difficulty, part of speech, or word length to find the O word you need.</p>
+</div>
+<!-- /SLOT:hero -->
+
+<!-- SLOT:tool -->
+<div class="tool-wrap">
+  <div class="tool-card">
+    <div class="tool-split">
+
+      <div class="ctrl">
+        <div class="ctrl-row">
+          <label class="ctrl-label" for="ctrl-count">Number of words</label>
+          <input type="number" id="ctrl-count" value="10" min="1" max="50" inputmode="numeric" aria-describedby="count-error">
+          <span class="count-error" id="count-error">Enter a number from 1 to 50</span>
+        </div>
+
+        <div class="starting-chip" aria-label="Words filtered to start with O">
+          <span>Starting with</span>
+          <span class="starting-chip-letter">O</span>
+        </div>
+
+        <button type="button" class="mobile-more-toggle" id="mobile-more-toggle" aria-expanded="false" aria-controls="advanced-options">More filters</button>
+        <div class="advanced-options" id="advanced-options">
+
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="ctrl-type">Word type</label>
+            <select id="ctrl-type">
+              <option value="all">All types</option>
+              <option value="noun">Nouns only</option>
+              <option value="adjective">Adjectives only</option>
+              <option value="verb">Verbs only</option>
+              <option value="adverb">Adverbs only</option>
+            </select>
+          </div>
+
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="ctrl-diff">Difficulty</label>
+            <select id="ctrl-diff">
+              <option value="all">All levels</option>
+              <option value="easy">Easy (common)</option>
+              <option value="medium">Medium</option>
+              <option value="hard">Advanced</option>
+            </select>
+          </div>
+
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="ctrl-last">Last letter</label>
+            <div class="letter-row">
+              <input type="text" id="ctrl-last" maxlength="1" placeholder="e.g. N" aria-label="Last letter">
+            </div>
+          </div>
+
+          <div class="ctrl-row">
+            <span class="ctrl-label">Word length</span>
+            <div class="size-opts">
+              <label class="size-opt"><input type="radio" name="sizeby" value="letters" checked><span class="size-tick" aria-hidden="true"></span><span>Letters</span></label>
+              <label class="size-opt"><input type="radio" name="sizeby" value="syllables"><span class="size-tick" aria-hidden="true"></span><span>Syllables</span></label>
+            </div>
+            <div class="size-ctrls">
+              <select id="ctrl-size-cond" aria-label="Word length rule"><option>Any length</option><option>Equals</option><option>At least</option><option>At most</option></select>
+              <input id="ctrl-size-val" type="number" placeholder="-" min="1" max="20" aria-label="Word length value">
+            </div>
+          </div>
+
+          <div class="def-row">
+            <label class="toggle" aria-label="Show definitions"><input type="checkbox" id="ctrl-defs" checked><span class="toggle-sl"></span></label>
+            <label for="ctrl-defs">Show definitions</label>
+          </div>
+
+        </div>
+
+        <button class="gen-btn" id="word-gen-btn">Generate O words</button>
+        <button class="reset-btn" onclick="WORDINEER.reset()">Reset filters</button>
+        <div class="kbd">Press <kbd>Space</kbd> to regenerate</div>
+      </div>
+
+      <div class="words-panel">
+        <div class="words-top">
+          <span class="words-count" id="word-count">Generating…</span>
+          <div class="words-actions">
+            <button class="act-btn" onclick="WORDINEER.copyAll()">Copy all</button>
+            <button class="act-btn" id="word-regen-btn">Regenerate</button>
+          </div>
+        </div>
+        <ul class="word-list" id="word-list"></ul>
+      </div>
+
+    </div>
+
+    <div class="saved-section">
+      <div class="saved-top">
+        <span class="saved-label">Saved words <span id="saved-count" style="font-weight:400;opacity:.7">(0)</span></span>
+        <span class="saved-copy" onclick="WORDINEER.copySaved()">Copy saved</span>
+      </div>
+      <div class="saved-tags" id="saved-tags">
+        <span class="saved-empty">Click the heart on any word to save it here</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="tool-wrap" style="padding-top:0">
+  <div class="az-section">
+    <h2>Browse random words by letter</h2>
+    <p>Every letter A–Z has its own generator page with filters for difficulty, part of speech, and word length.</p>
+    <div class="az-links">
+      <a class="az-link" href="/random-words-starting-with/a">A</a>
+      <a class="az-link" href="/random-words-starting-with/b">B</a>
+      <a class="az-link" href="/random-words-starting-with/c">C</a>
+      <a class="az-link" href="/random-words-starting-with/d">D</a>
+      <a class="az-link" href="/random-words-starting-with/e">E</a>
+      <a class="az-link" href="/random-words-starting-with/f">F</a>
+      <a class="az-link" href="/random-words-starting-with/g">G</a>
+      <a class="az-link" href="/random-words-starting-with/h">H</a>
+      <a class="az-link" href="/random-words-starting-with/i">I</a>
+      <a class="az-link" href="/random-words-starting-with/j">J</a>
+      <a class="az-link" href="/random-words-starting-with/k">K</a>
+      <a class="az-link" href="/random-words-starting-with/l">L</a>
+      <a class="az-link" href="/random-words-starting-with/m">M</a>
+      <a class="az-link" href="/random-words-starting-with/n">N</a>
+      <a class="az-link active" href="/random-words-starting-with/o" aria-current="page">O</a>
+      <a class="az-link" href="/random-words-starting-with/p">P</a>
+      <a class="az-link" href="/random-words-starting-with/q">Q</a>
+      <a class="az-link" href="/random-words-starting-with/r">R</a>
+      <a class="az-link" href="/random-words-starting-with/s">S</a>
+      <a class="az-link" href="/random-words-starting-with/t">T</a>
+      <a class="az-link" href="/random-words-starting-with/u">U</a>
+      <a class="az-link" href="/random-words-starting-with/v">V</a>
+      <a class="az-link" href="/random-words-starting-with/w">W</a>
+      <a class="az-link" href="/random-words-starting-with/x">X</a>
+      <a class="az-link" href="/random-words-starting-with/y">Y</a>
+      <a class="az-link" href="/random-words-starting-with/z">Z</a>
+    </div>
+  </div>
+</div>
+<!-- /SLOT:tool -->
+
+<!-- SLOT:explainer -->
+<div class="explainer">
+  <h2>The ob- prefix and O's formal vocabulary</h2>
+  <p>The Latin prefix ob- means "against", "toward", or "over", and it generates a large family of formal English words: obstruct (to block against), obscure (to cover over), obstinate (standing against), oblique (slanting away), and oblivion (a state of forgetting). The Greek prefix omni- (all) gave omniscient (knowing all) and omnipotent (all-powerful). This prefix productivity makes O essential for formal, legal, and academic vocabulary.</p>
+  <h2>O words worth using in your writing</h2>
+  <p>Ominous means suggesting that something bad is about to happen — more precise than "threatening" or "dark". Opulent describes great wealth displayed lavishly — more specific than "rich" or "luxurious". Obstinate means stubbornly refusing to change — stronger than "stubborn" in formal contexts. Ostracize means to exclude someone from a group or community — no single-word synonym captures this social exclusion as precisely. Oblique means not straight or direct — useful for describing both literal angles and indirect communication. Oblivion names a state of being completely forgotten or unconscious — irreplaceable in both literal and metaphorical use.</p>
+  <h2>O in word games</h2>
+  <p>O is worth 1 point in Scrabble, and as one of the most common vowels, it is essential for building words across the board. Short plays like oak, oar, and odd fill tight spaces efficiently. O appears as a valid two-letter word in Scrabble. Five-letter O words like onset, orbit, order, and other are practical Wordle starters. O's vowel status makes it crucial for creating long words and connecting consonant clusters in crosswords.</p>
+</div>
+<!-- /SLOT:explainer -->
+
+<!-- SLOT:faq -->
+<div class="faq">
+  <h2 class="faq-title">Questions about O words</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">What are strong O words for writing?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Ominous is more precise than "threatening" or "dark" — it specifically suggests something bad is imminent. Opulent describes great wealth displayed lavishly, more specific than "rich". Obstinate means stubbornly refusing to change — stronger than "stubborn" in formal or literary contexts. Ostracize names social exclusion from a group with no close single-word synonym, and oblique covers both literal angles and indirect communication with equal precision.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What O words are good for Scrabble?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">O is worth 1 point in Scrabble, but its value lies in how often it connects higher-scoring tiles. Short plays like oak, oar, and odd fill tight spaces efficiently, while O itself is a valid two-letter word. Medium plays like orbit, onset, and oxide work well in mid-game positions. Filter by letter count here to find longer O words that combine with less common tiles for stronger scores.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What does the ob- prefix mean in English?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">The Latin prefix ob- means "against", "toward", or "over", and generates a large family of formal words including obstruct, obscure, obstinate, oblique, and oblivion. It is especially productive in legal, medical, and academic vocabulary where precise shades of meaning matter. Recognizing ob- makes it easier to decode unfamiliar words and builds a stronger command of O's formal register. The Greek prefix omni- (all) adds another productive family: omniscient, omnipotent, and omnivore.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What are 5-letter O words for Wordle?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Strong Wordle starters with O include onset, orbit, order, other, and offer — these cover useful vowel and consonant combinations. Words like olive, otter, and outer test common letter patterns. Use the 5-letter filter here to generate a focused practice list. O-starting words are moderately common in Wordle puzzles, making them solid opening moves when you want to confirm or rule out the O position quickly.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">How do I find advanced O words?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Use the Difficulty filter and select "Advanced" to see only the challenging O words like obstinate, ominous, opulent, and ostracize. These words typically appear on standardized tests and in formal or literary writing. You can combine the difficulty filter with Part of Speech to find advanced O adjectives, verbs, or nouns specifically. Copy your results to study them or use them directly in writing projects.</div>
+  </div>
+</div>
+<!-- /SLOT:faq -->
+
+<!-- SLOT:who -->
+<div>
+  <h2 class="section-title" style="margin-bottom:14px">Who finds this useful</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">Writers</div><div class="uc-body">O offers formal and precise vocabulary for complex ideas that everyday synonyms cannot capture. Ominous, opulent, and obstinate each describe qualities with a specificity that "threatening", "rich", or "stubborn" lack. Ostracize is the only single word in English for social exclusion from a group, and oblique covers both literal and figurative indirectness. Oblivion names a state of total forgetting that is genuinely irreplaceable in both literal and metaphorical writing.</div></div>
+    <div class="uc"><div class="uc-title">Students</div><div class="uc-body">Obstinate, ominous, opulent, and omniscient appear on standardized tests including the SAT and ACT. Filter to "Advanced" difficulty to focus on the academic O vocabulary most likely to appear on exams. Definitions here are kept short for faster recall during test preparation. The ob- and omni- prefix families are also valuable for etymology sections of vocabulary tests, since recognizing a prefix often unlocks the meaning of an unfamiliar word.</div></div>
+    <div class="uc"><div class="uc-title">Word game players</div><div class="uc-body">O is worth 1 point in Scrabble but is essential as one of the most common vowels for building and connecting words. Short plays like oak, oar, and odd fill tight spaces, while O itself is a valid two-letter Scrabble word. Five-letter O words like onset, orbit, order, and other are solid Wordle practice starters. The syllable filter helps with crossword planning and identifying longer words that bridge consonant clusters across the board.</div></div>
+    <div class="uc"><div class="uc-title">Teachers</div><div class="uc-body">Generate a set of O words at a specific difficulty and copy them with one click for vocabulary worksheets. The difficulty filter roughly maps to grade level — easy for grades 1–2 (open, order, other, over), medium for grades 3–4, hard for grades 5–6. Use these lists for spelling practice, reading comprehension exercises, or vocabulary quizzes. The ob- prefix also makes a natural lesson topic for language arts, giving students a transferable tool for decoding unfamiliar vocabulary.</div></div>
+  </div>
+</div>
+<!-- /SLOT:who -->
+
+<!-- SLOT:init -->
+<script>
+WORDINEER.init({
+  listId:         'word-list',
+  countId:        'ctrl-count',
+  countDisplayId: 'word-count',
+  typeId:         'ctrl-type',
+  diffId:         'ctrl-diff',
+  lastId:         'ctrl-last',
+  defsId:         'ctrl-defs',
+  sizeCondId:     'ctrl-size-cond',
+  sizeValId:      'ctrl-size-val',
+  dataUrl:        '/data/words-starting-with-o.json'
+});
+
+(function(){
+  var count = document.getElementById('ctrl-count');
+  var toggle = document.getElementById('mobile-more-toggle');
+  var advanced = document.getElementById('advanced-options');
+
+  function setCountError(show) {
+    var err = document.getElementById('count-error');
+    if (err) err.classList.toggle('show', show);
+    if (count) count.classList.toggle('input-error', show);
+  }
+
+  function validateAndGenerate() {
+    var raw = parseInt(count ? count.value : '10', 10);
+    if (isNaN(raw) || raw < 1 || raw > 50) { setCountError(true); return; }
+    setCountError(false);
+    WORDINEER.generate();
+  }
+
+  var genBtn = document.getElementById('word-gen-btn');
+  var regenBtn = document.getElementById('word-regen-btn');
+  if (genBtn) genBtn.addEventListener('click', validateAndGenerate);
+  if (regenBtn) regenBtn.addEventListener('click', validateAndGenerate);
+  if (count) count.addEventListener('input', validateAndGenerate);
+
+  ['ctrl-type','ctrl-diff','ctrl-size-cond'].forEach(function(id){
+    var el = document.getElementById(id);
+    if (el) el.addEventListener('change', validateAndGenerate);
+  });
+
+  ['ctrl-last','ctrl-size-val'].forEach(function(id){
+    var el = document.getElementById(id);
+    if (el) el.addEventListener('input', validateAndGenerate);
+  });
+
+  document.querySelectorAll('input[name="sizeby"]').forEach(function(el){
+    el.addEventListener('change', validateAndGenerate);
+  });
+
+  if (toggle && advanced) {
+    toggle.addEventListener('click', function(){
+      var isOpen = advanced.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      toggle.textContent = isOpen ? 'Hide filters' : 'More filters';
+    });
+  }
+})();
+</script>
+<!-- /SLOT:init -->
