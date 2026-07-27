@@ -9,12 +9,12 @@
 <!-- SLOT:meta -->
 <title>Fantasy, Pet & Creative Name Generators | Wordineer</title>
 <meta name="description" content="Generate fictional names for fantasy characters, D&D parties, pets, bands, businesses, and more. Free creative name generators organized by category.">
-<link rel="canonical" href="https://wordineer.com/other-generators/">
+<link rel="canonical" href="https://wordineer.com/other-generators">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Wordineer">
 <meta property="og:title" content="Fantasy, Pet & Creative Name Generators | Wordineer">
 <meta property="og:description" content="Fantasy characters, D&D names, pet generators, band names, business branding tools, and creative writing helpers. Free, no sign-up.">
-<meta property="og:url" content="https://wordineer.com/other-generators/">
+<meta property="og:url" content="https://wordineer.com/other-generators">
 <meta property="og:image" content="https://wordineer.com/og-image.png">
 <!-- /SLOT:meta -->
 
@@ -121,6 +121,51 @@
   color: var(--text-2);
   margin: 0 0 14px;
 }
+.hub-search {
+  position: relative;
+  margin: 20px auto 0;
+  max-width: 480px;
+}
+.hub-search__input {
+  width: 100%;
+  padding: 10px 38px 10px 14px;
+  border: 1.5px solid var(--border-2, #d0d0d5);
+  border-radius: 8px;
+  background: var(--bg, #fff);
+  color: var(--text);
+  font-size: 15px;
+  outline: none;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+}
+.hub-search__input:focus {
+  border-color: var(--brand, #4A3FD4);
+  box-shadow: 0 0 0 3px rgba(74,63,212,.12);
+}
+.hub-search__clear {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-3, #888);
+  font-size: 15px;
+  padding: 4px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+.hub-search__empty {
+  display: none;
+  padding: 20px 0 4px;
+  color: var(--text-2);
+  font-size: 15px;
+}
+@media (max-width: 600px) {
+  .hub-search { max-width: 100%; }
+}
 </style>
 <!-- /SLOT:style -->
 
@@ -139,6 +184,21 @@
   </div>
   <h1>Fantasy, pet & creative name generators</h1>
   <p>Fictional characters don't need real-world names. Find D&D names, fantasy heroes, pet names, band names, business branding tools, and writing helpers all in one place.</p>
+  <div class="hub-search">
+    <input
+      type="search"
+      id="hub-search-input"
+      class="hub-search__input"
+      placeholder="Search generators..."
+      aria-label="Search generators"
+      autocomplete="off"
+      spellcheck="false">
+    <button
+      class="hub-search__clear"
+      id="hub-search-clear"
+      aria-label="Clear search"
+      hidden>✕</button>
+  </div>
 </div>
 <!-- /SLOT:hero -->
 
@@ -176,7 +236,7 @@
           <div class="tool-desc">Legendary and heroic names for noble characters.</div>
           <span class="soon-badge">Coming soon</span>
         </div>
-        <div class="tool-item tool-item--soon">
+        <a class="tool-item" href="/character-name-generator/">
           <div class="tool-icon" style="background:#E8F0FF">
             <svg viewBox="0 0 13 13" fill="none">
               <rect x="1.7" y="2.6" width="9.6" height="7.8" rx="1.3" fill="#4A7BA7" stroke="#2F5C8C" stroke-width=".8"/>
@@ -186,8 +246,7 @@
           </div>
           <div class="tool-name">Character Name Generator</div>
           <div class="tool-desc">Names for any fictional character or protagonist.</div>
-          <span class="soon-badge">Coming soon</span>
-        </div>
+        </a>
         <div class="tool-item tool-item--soon">
           <div class="tool-icon" style="background:#FFF0E8">
             <svg viewBox="0 0 13 13" fill="none">
@@ -200,7 +259,7 @@
           <div class="tool-desc">Wizard and witch names in the Potterverse style.</div>
           <span class="soon-badge">Coming soon</span>
         </div>
-        <div class="tool-item tool-item--soon">
+        <a class="tool-item" href="/fantasy-name-generator/">
           <div class="tool-icon" style="background:#F5E6FF">
             <svg viewBox="0 0 13 13" fill="none">
               <rect x="1.7" y="2.6" width="9.6" height="7.8" rx="1.3" fill="#9D4EDD" stroke="#7A2FA0" stroke-width=".8"/>
@@ -210,8 +269,7 @@
           </div>
           <div class="tool-name">Fantasy Name Generator</div>
           <div class="tool-desc">Original fantasy names for any magical world.</div>
-          <span class="soon-badge">Coming soon</span>
-        </div>
+        </a>
         <div class="tool-item tool-item--soon">
           <div class="tool-icon" style="background:#FFE8EA">
             <svg viewBox="0 0 13 13" fill="none">
@@ -267,7 +325,7 @@
       <h2 class="section-title">Pets & Animals</h2>
       <p class="section-sub">Dog, cat, and fish name generators for your furry and scaly friends</p>
       <div class="tools-grid">
-        <div class="tool-item tool-item--soon">
+        <a class="tool-item" href="/dog-name-generator/">
           <div class="tool-icon" style="background:#FFF4E6">
             <svg viewBox="0 0 13 13" fill="none">
               <rect x="1.7" y="2.6" width="9.6" height="7.8" rx="1.3" fill="#D2691E" stroke="#A0522D" stroke-width=".8"/>
@@ -277,9 +335,8 @@
           </div>
           <div class="tool-name">Dog Name Generator</div>
           <div class="tool-desc">Perfect names for puppies and dogs of all sizes.</div>
-          <span class="soon-badge">Coming soon</span>
-        </div>
-        <div class="tool-item tool-item--soon">
+        </a>
+        <a class="tool-item" href="/cat-name-generator/">
           <div class="tool-icon" style="background:#FFF0E6">
             <svg viewBox="0 0 13 13" fill="none">
               <rect x="1.7" y="2.6" width="9.6" height="7.8" rx="1.3" fill="#FF8C42" stroke="#FF6B1A" stroke-width=".8"/>
@@ -291,8 +348,7 @@
           </div>
           <div class="tool-name">Cat Name Generator</div>
           <div class="tool-desc">Cute and quirky names for cats and kittens.</div>
-          <span class="soon-badge">Coming soon</span>
-        </div>
+        </a>
         <div class="tool-item tool-item--soon">
           <div class="tool-icon" style="background:#E0F4FF">
             <svg viewBox="0 0 13 13" fill="none">
@@ -358,7 +414,7 @@
       <h2 class="section-title">Business & Brand Names</h2>
       <p class="section-sub">Startup, trademark, enterprise, and e-commerce naming tools</p>
       <div class="tools-grid">
-        <div class="tool-item tool-item--soon">
+        <a class="tool-item" href="/business-name-generator/">
           <div class="tool-icon" style="background:#E8F4FF">
             <svg viewBox="0 0 13 13" fill="none">
               <rect x="1.7" y="2.6" width="9.6" height="7.8" rx="1.3" fill="#1E5A96" stroke="#144070" stroke-width=".8"/>
@@ -368,8 +424,7 @@
           </div>
           <div class="tool-name">Business Name Generator</div>
           <div class="tool-desc">Creative names for startups and new ventures.</div>
-          <span class="soon-badge">Coming soon</span>
-        </div>
+        </a>
         <div class="tool-item tool-item--soon">
           <div class="tool-icon" style="background:#FFF0E8">
             <svg viewBox="0 0 13 13" fill="none">
@@ -516,6 +571,60 @@
       setMenu(false);
     }
   }, true);
+})();
+</script>
+<script>
+(function() {
+  var input = document.getElementById('hub-search-input');
+  var clearBtn = document.getElementById('hub-search-clear');
+  if (!input) return;
+
+  var sections = document.querySelectorAll('.name-section');
+
+  var empty = document.createElement('p');
+  empty.className = 'hub-search__empty';
+  empty.textContent = 'No matching tools found.';
+  var firstSection = sections[0];
+  if (firstSection) firstSection.parentNode.insertBefore(empty, firstSection);
+
+  function filter() {
+    var q = input.value.trim().toLowerCase();
+    clearBtn.hidden = !q;
+    var totalVisible = 0;
+
+    sections.forEach(function(section) {
+      var cards = section.querySelectorAll('.tool-item');
+      var sectionVisible = 0;
+
+      cards.forEach(function(card) {
+        var name = (card.querySelector('.tool-name') || {}).textContent || '';
+        var desc = (card.querySelector('.tool-desc') || {}).textContent || '';
+        var match = !q || name.toLowerCase().includes(q) || desc.toLowerCase().includes(q);
+        card.style.display = match ? '' : 'none';
+        if (match) sectionVisible++;
+      });
+
+      section.style.display = sectionVisible > 0 ? '' : 'none';
+      totalVisible += sectionVisible;
+    });
+
+    empty.style.display = (q && totalVisible === 0) ? 'block' : 'none';
+  }
+
+  input.addEventListener('input', filter);
+
+  clearBtn.addEventListener('click', function() {
+    input.value = '';
+    filter();
+    input.focus();
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && input.value) {
+      input.value = '';
+      filter();
+    }
+  });
 })();
 </script>
 <!-- /SLOT:content -->
