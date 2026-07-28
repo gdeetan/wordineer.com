@@ -1,4 +1,4 @@
-<!-- build: 2026-07-28T01:04:39Z -->
+<!-- build: 2026-07-28T01:12:42Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -619,10 +619,11 @@
     return 'The ' + loc + ' ' + base;
   }
 
-  function generate() {
+  var currentItems = [];
+
+  function pickItems() {
     var context = document.getElementById('bn-context').value;
     var tone = document.getElementById('bn-tone').value;
-    var useLocation = document.getElementById('bn-location').checked;
     var pool = NAMES.filter(function(x) {
       if (context !== 'any' && x.context !== context && x.context !== 'any') return false;
       if (tone !== 'any' && x.tone !== tone) return false;
@@ -630,28 +631,29 @@
     });
     if (pool.length < 5) pool = NAMES.filter(function(x) { return (context==='any'||x.context===context||x.context==='any'); });
     if (pool.length < 5) pool = NAMES;
-    return shuffle(pool).slice(0, 10).map(function(item) {
-      return { displayName: buildDisplayName(item, useLocation), tag: item.tag, baseName: item.n };
-    });
+    currentItems = shuffle(pool).slice(0, 10);
   }
 
   function render() {
-    var items = generate();
+    var useLocation = document.getElementById('bn-location').checked;
     var list = document.getElementById('bn-list');
     list.innerHTML='';
-    items.forEach(function(item, i) {
-      var isSaved=!!saved[item.displayName];
+    currentItems.forEach(function(item, i) {
+      var displayName = buildDisplayName(item, useLocation);
+      var isSaved=!!saved[item.n];
       var li=document.createElement('li'); li.className='bn-item';
-      li.innerHTML='<span class="bn-num">'+(i+1)+'</span><span class="bn-name-wrap"><span class="bn-name">'+escH(item.displayName)+'</span><span class="bn-tag">'+escH(item.tag)+'</span></span><div class="bn-btns"><button class="icon-btn bn-save-btn'+(isSaved?' saved':'')+'" data-name="'+escH(item.displayName)+'" title="'+(isSaved?'Unsave':'Save')+'" aria-label="Save '+escH(item.displayName)+'"><svg viewBox="0 0 16 16" fill="none"><path d="M8 13.5S2 9.5 2 5.5A3 3 0 018 4a3 3 0 016 1.5c0 4-6 8-6 8z" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/></svg></button><button class="icon-btn bn-copy-btn" data-name="'+escH(item.displayName)+'" title="Copy" aria-label="Copy '+escH(item.displayName)+'"><svg viewBox="0 0 14 14" fill="none"><rect x="1" y="4" width="9" height="9.5" rx="1.5" stroke="currentColor" stroke-width="1.1"/><path d="M4.5 4V2.5A1.5 1.5 0 016 1h5.5A1.5 1.5 0 0113 2.5v7a1.5 1.5 0 01-1.5 1.5H10" stroke="currentColor" stroke-width="1.1"/></svg></button></div>';
+      li.innerHTML='<span class="bn-num">'+(i+1)+'</span><span class="bn-name-wrap"><span class="bn-name">'+escH(displayName)+'</span><span class="bn-tag">'+escH(item.tag)+'</span></span><div class="bn-btns"><button class="icon-btn bn-save-btn'+(isSaved?' saved':'')+'" data-name="'+escH(item.n)+'" title="'+(isSaved?'Unsave':'Save')+'" aria-label="Save '+escH(displayName)+'"><svg viewBox="0 0 16 16" fill="none"><path d="M8 13.5S2 9.5 2 5.5A3 3 0 018 4a3 3 0 016 1.5c0 4-6 8-6 8z" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/></svg></button><button class="icon-btn bn-copy-btn" data-name="'+escH(displayName)+'" title="Copy" aria-label="Copy '+escH(displayName)+'"><svg viewBox="0 0 14 14" fill="none"><rect x="1" y="4" width="9" height="9.5" rx="1.5" stroke="currentColor" stroke-width="1.1"/><path d="M4.5 4V2.5A1.5 1.5 0 016 1h5.5A1.5 1.5 0 0113 2.5v7a1.5 1.5 0 01-1.5 1.5H10" stroke="currentColor" stroke-width="1.1"/></svg></button></div>';
       list.appendChild(li);
     });
   }
 
+  function generateAndRender() { pickItems(); render(); }
+
   document.addEventListener('DOMContentLoaded', function () {
-    render();
-    document.getElementById('bn-gen-btn').addEventListener('click', render);
-    document.getElementById('bn-regen-btn').addEventListener('click', render);
-    ['bn-context','bn-tone'].forEach(function(id) { document.getElementById(id).addEventListener('change', render); });
+    generateAndRender();
+    document.getElementById('bn-gen-btn').addEventListener('click', generateAndRender);
+    document.getElementById('bn-regen-btn').addEventListener('click', generateAndRender);
+    ['bn-context','bn-tone'].forEach(function(id) { document.getElementById(id).addEventListener('change', generateAndRender); });
     document.getElementById('bn-location').addEventListener('change', render);
     document.addEventListener('keydown', function(e) { if (e.target===document.body&&e.key==='Enter') { e.preventDefault(); render(); } });
     document.getElementById('bn-list').addEventListener('click', function(e) { var c=e.target.closest('.bn-copy-btn'); if (c) { copyText(c.dataset.name); return; } var s=e.target.closest('.bn-save-btn'); if (s) { toggleSave(s.dataset.name, s); } });
