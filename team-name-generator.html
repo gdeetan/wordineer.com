@@ -1,4 +1,4 @@
-<!-- build: 2026-07-28T01:12:42Z -->
+<!-- build: 2026-07-28T01:24:34Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -613,7 +613,7 @@
   function toggleSave(name, btn) { if (saved[name]) { delete saved[name]; btn.classList.remove('saved'); btn.title='Save'; } else { saved[name]=true; btn.classList.add('saved'); btn.title='Unsave'; } renderSaved(); }
 
   function buildDisplayName(item, useLocation) {
-    if (!useLocation || !item.loc) return item.n;
+    if (!useLocation) return item.n;
     var loc = pick(LOCATIONS);
     var base = item.n.replace(/^The /, '');
     return 'The ' + loc + ' ' + base;
