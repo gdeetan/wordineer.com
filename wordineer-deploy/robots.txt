@@ -5,7 +5,8 @@
 User-agent: *
 Allow: /
 
-# Block Cloudflare internal paths only
+# Block Cloudflare internal paths and JSON data files
 Disallow: /cdn-cgi/
+Disallow: /data/
 
 Sitemap: https://wordineer.com/sitemap.xml
