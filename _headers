@@ -5,17 +5,12 @@
   Cache-Control: public, max-age=31536000, immutable
   Access-Control-Allow-Origin: *
 
-# words.json: cache for 7 days, serve stale for 1 day while revalidating
-/data/words.json
+# data/*.json: cache for 7 days, block search engine indexing
+/data/*
   Cache-Control: public, max-age=604800, stale-while-revalidate=86400
   Content-Type: application/json; charset=utf-8
   Vary: Accept-Encoding
-
-# names.json: cache for 7 days, serve stale for 1 day while revalidating
-/data/names.json
-  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
-  Content-Type: application/json; charset=utf-8
-  Vary: Accept-Encoding
+  X-Robots-Tag: noindex, nofollow
 
 # Scripts: cache for 1 year — bump ?v= param in HTML when files change
 /scripts/*
