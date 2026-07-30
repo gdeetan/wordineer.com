@@ -1,4 +1,4 @@
-<!-- build: 2026-07-29T12:20:38Z -->
+<!-- build: 2026-07-29T12:10:32Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -95,21 +95,121 @@
   ]
 }
 </script>
-<title>Privacy Policy | Wordineer</title>
-<meta name="description" content="Plain-language explanation of what data Wordineer collects, why, and your rights under GDPR and CCPA.">
-<link rel="canonical" href="https://wordineer.com/privacy">
+<title>Wordineer Data &amp; Press Kit — Open Datasets &amp; Brand Assets</title>
+<meta name="description" content="Download Wordineer's open word datasets: core word list, dictionary, spelling bee words by grade, Gen Z slang, names, and more. CC BY 4.0 licence.">
+<link rel="canonical" href="https://wordineer.com/data/">
 <meta property="og:type"        content="website">
 <meta property="og:site_name"   content="Wordineer">
-<meta property="og:title"       content="Privacy Policy | Wordineer">
-<meta property="og:description" content="Plain-language explanation of what data we collect, why, and your rights.">
-<meta property="og:url"         content="https://wordineer.com/privacy">
+<meta property="og:title"       content="Wordineer Data &amp; Press Kit">
+<meta property="og:description" content="Open word datasets and brand assets from Wordineer. Free to use under CC BY 4.0.">
+<meta property="og:url"         content="https://wordineer.com/data/">
 <meta property="og:image"       content="https://wordineer.com/og-image.png">
+
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "Wordineer Core Word List",
+    "description": "~8,000 curated English words with part of speech, difficulty level (easy/medium/hard), and concise definition. Built via a Python pipeline using NLTK and WordNet, then hand-curated for quality.",
+    "url": "https://wordineer.com/data/",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "creator": {"@type": "Person", "name": "Garrick Dee"},
+    "dateModified": "2025-05-19",
+    "distribution": [{
+      "@type": "DataDownload",
+      "encodingFormat": "application/json",
+      "contentUrl": "https://wordineer.com/data/words.json"
+    }]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "Wordineer Dictionary",
+    "description": "English definitions lookup table used to power Wordineer's word tools. Derived from WordNet via a Python extraction pipeline.",
+    "url": "https://wordineer.com/data/",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "creator": {"@type": "Person", "name": "Garrick Dee"},
+    "dateModified": "2025-05-19",
+    "distribution": [{
+      "@type": "DataDownload",
+      "encodingFormat": "application/json",
+      "contentUrl": "https://wordineer.com/data/dictionary.json"
+    }]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "Wordineer Spelling Bee Words by Grade (K–7)",
+    "description": "Age-appropriate spelling bee word lists for kindergarten through 7th grade, each with definitions and difficulty tags. Curated for classroom use.",
+    "url": "https://wordineer.com/data/",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "creator": {"@type": "Person", "name": "Garrick Dee"},
+    "dateModified": "2025-06-04",
+    "distribution": [
+      {"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "https://wordineer.com/data/spelling-bee-words-kindergarten.json"},
+      {"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "https://wordineer.com/data/spelling-bee-1st-grade.json"},
+      {"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "https://wordineer.com/data/spelling-bee-2nd-grade.json"},
+      {"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "https://wordineer.com/data/spelling-bee-3rd-grade.json"},
+      {"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "https://wordineer.com/data/spelling-bee-4th-grade.json"},
+      {"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "https://wordineer.com/data/spelling-bee-5th-grade.json"},
+      {"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "https://wordineer.com/data/spelling-bee-6th-grade.json"},
+      {"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "https://wordineer.com/data/spelling-bee-7th-grade.json"}
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "Wordineer Gen Z Slang Dictionary",
+    "description": "Curated list of Gen Z slang terms with plain-English definitions, usage examples, and approximate first-use dates.",
+    "url": "https://wordineer.com/data/",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "creator": {"@type": "Person", "name": "Garrick Dee"},
+    "dateModified": "2025-07-14",
+    "distribution": [{
+      "@type": "DataDownload",
+      "encodingFormat": "application/json",
+      "contentUrl": "https://wordineer.com/data/gen-z-slang-data.json"
+    }]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "Wordineer Wordle Opening Word Rankings",
+    "description": "Performance data for valid five-letter Wordle opening words, ranked by average guesses to solution.",
+    "url": "https://wordineer.com/data/",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "creator": {"@type": "Person", "name": "Garrick Dee"},
+    "dateModified": "2025-06-24",
+    "distribution": [{
+      "@type": "DataDownload",
+      "encodingFormat": "application/json",
+      "contentUrl": "https://wordineer.com/data/wordle-openers.json"
+    }]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "Wordineer SAT Vocabulary List",
+    "description": "High-frequency SAT vocabulary words with definitions, example sentences, and difficulty ratings. Built for students and educators.",
+    "url": "https://wordineer.com/data/",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "creator": {"@type": "Person", "name": "Garrick Dee"},
+    "dateModified": "2025-06-25",
+    "distribution": [{
+      "@type": "DataDownload",
+      "encodingFormat": "application/json",
+      "contentUrl": "https://wordineer.com/data/sat-vocab-data.json"
+    }]
+  }
+]
+</script>
 
 
 <link rel="stylesheet" href="/styles/global.css?v=14">
 <style>
 .prose-wrap {
-  max-width: 680px;
+  max-width: 720px;
   margin: 0 auto;
   padding: 32px 24px 64px;
 }
@@ -117,33 +217,15 @@
   font-size: 18px;
   font-weight: 700;
   color: var(--text);
-  margin: 32px 0 10px;
+  margin: 40px 0 10px;
   letter-spacing: -.02em;
 }
 .prose h2:first-child { margin-top: 0; }
-.prose h3 {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--text);
-  margin: 20px 0 8px;
-  text-transform: uppercase;
-  letter-spacing: .04em;
-}
 .prose p {
   font-size: 15px;
   line-height: 1.7;
   color: var(--text-2);
   margin: 0 0 14px;
-}
-.prose ul {
-  margin: 0 0 14px;
-  padding-left: 20px;
-}
-.prose li {
-  font-size: 15px;
-  line-height: 1.7;
-  color: var(--text-2);
-  margin-bottom: 8px;
 }
 .prose a {
   color: var(--brand);
@@ -151,46 +233,107 @@
   text-underline-offset: 3px;
 }
 .prose a:hover { color: var(--brand-dark); }
-.prose address {
-  font-style: normal;
-  font-size: 15px;
+
+/* Boilerplate block */
+.boilerplate {
+  background: var(--surface-2, #f5f5f7);
+  border-left: 3px solid var(--brand);
+  border-radius: 6px;
+  padding: 16px 20px;
+  margin: 0 0 32px;
+  font-size: 14px;
   line-height: 1.7;
   color: var(--text-2);
+  font-style: italic;
 }
-.page-meta {
-  font-size: 13px;
-  color: var(--text-3);
-  margin-bottom: 28px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid var(--border);
+
+/* Logo assets */
+.logo-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 0 0 32px;
 }
-.docs-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 13px;
-  margin: 12px 0 20px;
+.logo-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 24px;
+  border: 1px solid var(--border, #e0e0e0);
+  border-radius: 8px;
+  min-width: 140px;
+  text-decoration: none !important;
 }
-.docs-table th {
-  text-align: left;
-  padding: 8px 12px;
-  background: var(--bg-2);
-  color: var(--text);
-  font-weight: 600;
-  border-bottom: 2px solid var(--border);
-}
-.docs-table td {
-  padding: 8px 12px;
+.logo-card:hover { border-color: var(--brand); }
+.logo-card img { height: 48px; width: auto; }
+.logo-card span {
+  font-size: 12px;
   color: var(--text-2);
-  border-bottom: 1px solid var(--border-2);
-  vertical-align: top;
+  font-style: normal;
+  text-decoration: none;
 }
-.docs-table tr:last-child td { border-bottom: none; }
+.logo-card-dark {
+  background: #1a1a2e;
+}
+
+/* Dataset table */
+.dataset-list { display: flex; flex-direction: column; gap: 20px; margin: 0 0 32px; }
+.dataset-card {
+  border: 1px solid var(--border, #e0e0e0);
+  border-radius: 10px;
+  padding: 20px 22px;
+}
+.dataset-card h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 6px;
+}
+.dataset-card p {
+  font-size: 14px;
+  margin: 0 0 12px;
+}
+.dataset-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  font-size: 13px;
+  color: var(--text-2);
+  margin-bottom: 12px;
+}
+.dataset-meta span strong { color: var(--text); }
+.dataset-dl {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--brand);
+  text-decoration: none;
+  border: 1px solid var(--brand);
+  border-radius: 6px;
+  padding: 5px 12px;
+  margin-right: 8px;
+}
+.dataset-dl:hover { background: var(--brand); color: #fff; }
+
+/* Licence */
+.licence-box {
+  background: var(--surface-2, #f5f5f7);
+  border-radius: 8px;
+  padding: 18px 20px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-2);
+  margin: 0 0 32px;
+}
+.licence-box strong { color: var(--text); }
 
 @media (max-width: 600px) {
   .prose-wrap { padding: 24px 16px 48px; }
   .prose h2 { font-size: 16px; }
-  .docs-table { font-size: 12px; }
-  .docs-table th, .docs-table td { padding: 6px 8px; }
+  .logo-row { gap: 12px; }
 }
 </style>
 </head>
@@ -275,178 +418,130 @@
 <div class="hero">
   <div class="hero-badge">
     <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
-    Legal
+    Open data &amp; press
   </div>
-  <h1>Privacy Policy</h1>
-  <p>Plain-language explanation of what data we collect, why, and your rights.</p>
+  <h1>Wordineer Data &amp; Press Kit</h1>
+  <p>Datasets, brand assets, and boilerplate for journalists, researchers, and developers. Everything is free to use under CC BY 4.0.</p>
 </div>
 <div class="prose-wrap">
   <article class="prose">
 
-    <p class="page-meta">
-      <strong>Effective date:</strong> April 1, 2025 &nbsp;·&nbsp;
-      <strong>Last updated:</strong> May 6, 2026
-    </p>
+    <h2>About Wordineer</h2>
+    <div class="boilerplate">
+      Wordineer (wordineer.com) is a free, ad-supported collection of online word and language tools built by Garrick Dee. Originally created as a vocabulary resource for his homeschooled son, Wordineer has grown into a suite of generators, word lists, and text utilities used by writers, students, educators, and developers. All core tools are free with no account required. Word data is produced through a Python pipeline drawing on NLTK and WordNet, then curated by hand for accuracy and usability.
+    </div>
 
+    <h2>Logo &amp; Brand Assets</h2>
+    <div class="logo-row">
+      <a class="logo-card" href="/logo.svg" download>
+        <img src="/logo.svg" alt="Wordineer logo SVG">
+        <span>SVG — light</span>
+      </a>
+      <a class="logo-card" href="/logo.png" download>
+        <img src="/logo.png" alt="Wordineer logo PNG">
+        <span>PNG — light</span>
+      </a>
+    </div>
+    <p>Use these assets in articles, tools directories, and app stores. Do not alter the logo or use it to imply endorsement.</p>
+
+    <h2>Datasets</h2>
+    <p>All datasets are served directly from <code>wordineer.com/data/</code> and are free to download, build upon, or republish under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> with attribution.</p>
+
+    <div class="dataset-list">
+
+      <div class="dataset-card">
+        <h3>Core Word List</h3>
+        <p>~8,000 curated English words, each with part of speech, difficulty level (easy / medium / hard), and a concise definition. The backbone of Wordineer's random word generator.</p>
+        <div class="dataset-meta">
+          <span><strong>Format:</strong> JSON</span>
+          <span><strong>Size:</strong> ~809 KB</span>
+          <span><strong>Methodology:</strong> Python + NLTK / WordNet, hand-curated</span>
+          <span><strong>Updated:</strong> May 2025</span>
+          <span><strong>Licence:</strong> CC BY 4.0</span>
+        </div>
+        <a class="dataset-dl" href="/data/words.json" download>Download JSON</a>
+      </div>
+
+      <div class="dataset-card">
+        <h3>English Dictionary</h3>
+        <p>Definitions lookup table for tens of thousands of English words. Used to power in-tool definitions across the site. Extracted from WordNet via a Python pipeline.</p>
+        <div class="dataset-meta">
+          <span><strong>Format:</strong> JSON</span>
+          <span><strong>Size:</strong> ~2.4 MB</span>
+          <span><strong>Methodology:</strong> WordNet extraction via Python</span>
+          <span><strong>Updated:</strong> May 2025</span>
+          <span><strong>Licence:</strong> CC BY 4.0</span>
+        </div>
+        <a class="dataset-dl" href="/data/dictionary.json" download>Download JSON</a>
+      </div>
+
+      <div class="dataset-card">
+        <h3>Spelling Bee Words by Grade (K–7)</h3>
+        <p>Age-appropriate spelling bee word lists for kindergarten through 7th grade, each entry with a definition and difficulty tag. Built for educators running classroom spelling bees.</p>
+        <div class="dataset-meta">
+          <span><strong>Format:</strong> JSON (one file per grade)</span>
+          <span><strong>Grades:</strong> K, 1st–7th</span>
+          <span><strong>Updated:</strong> June 2025</span>
+          <span><strong>Licence:</strong> CC BY 4.0</span>
+        </div>
+        <a class="dataset-dl" href="/data/spelling-bee-words-kindergarten.json" download>Kindergarten</a>
+        <a class="dataset-dl" href="/data/spelling-bee-1st-grade.json" download>1st Grade</a>
+        <a class="dataset-dl" href="/data/spelling-bee-2nd-grade.json" download>2nd Grade</a>
+        <a class="dataset-dl" href="/data/spelling-bee-3rd-grade.json" download>3rd Grade</a>
+        <a class="dataset-dl" href="/data/spelling-bee-4th-grade.json" download>4th Grade</a>
+        <a class="dataset-dl" href="/data/spelling-bee-5th-grade.json" download>5th Grade</a>
+        <a class="dataset-dl" href="/data/spelling-bee-6th-grade.json" download>6th Grade</a>
+        <a class="dataset-dl" href="/data/spelling-bee-7th-grade.json" download>7th Grade</a>
+      </div>
+
+      <div class="dataset-card">
+        <h3>Gen Z Slang Dictionary</h3>
+        <p>Curated Gen Z slang terms with plain-English definitions, usage examples, and approximate era of use. Updated regularly as new terms emerge.</p>
+        <div class="dataset-meta">
+          <span><strong>Format:</strong> JSON</span>
+          <span><strong>Size:</strong> ~37 KB</span>
+          <span><strong>Updated:</strong> July 2025</span>
+          <span><strong>Licence:</strong> CC BY 4.0</span>
+        </div>
+        <a class="dataset-dl" href="/data/gen-z-slang-data.json" download>Download JSON</a>
+      </div>
+
+      <div class="dataset-card">
+        <h3>SAT Vocabulary List</h3>
+        <p>High-frequency SAT vocabulary words with definitions, example sentences, and difficulty ratings. Used to power Wordineer's SAT prep tools.</p>
+        <div class="dataset-meta">
+          <span><strong>Format:</strong> JSON</span>
+          <span><strong>Size:</strong> ~95 KB</span>
+          <span><strong>Updated:</strong> June 2025</span>
+          <span><strong>Licence:</strong> CC BY 4.0</span>
+        </div>
+        <a class="dataset-dl" href="/data/sat-vocab-data.json" download>Download JSON</a>
+      </div>
+
+      <div class="dataset-card">
+        <h3>Wordle Opening Word Rankings</h3>
+        <p>Valid five-letter Wordle opening words ranked by average guesses to solution. Useful for Wordle strategy analysis and NLP research.</p>
+        <div class="dataset-meta">
+          <span><strong>Format:</strong> JSON</span>
+          <span><strong>Size:</strong> ~4 KB</span>
+          <span><strong>Updated:</strong> June 2025</span>
+          <span><strong>Licence:</strong> CC BY 4.0</span>
+        </div>
+        <a class="dataset-dl" href="/data/wordle-openers.json" download>Download JSON</a>
+      </div>
+
+    </div>
+
+    <h2>Licence</h2>
+    <div class="licence-box">
+      <strong>Creative Commons Attribution 4.0 International (CC BY 4.0).</strong> You are free to share and adapt these datasets for any purpose, including commercially, as long as you give appropriate credit to <strong>Wordineer (wordineer.com)</strong>. A link back to this page or to the specific tool is appreciated and helps keep the datasets free. See the full licence at <a href="https://creativecommons.org/licenses/by/4.0/">creativecommons.org/licenses/by/4.0/</a>.
+    </div>
+
+    <h2>Contact</h2>
     <p>
-      This Privacy Policy explains how Wordineer ("we," "us," or "our") collects,
-      uses, and protects information when you visit <a href="https://wordineer.com">wordineer.com</a>
-      or use our tools. We've written it to be as readable as possible — not as a legal obstacle.
+      For data questions, interview requests, or partnership enquiries:<br>
+      <a href="mailto:garrick@wordineer.com">garrick@wordineer.com</a>
     </p>
-
-    <h2>1. Information We Collect</h2>
-
-    <h3>1.1 Information You Give Us</h3>
-    <p>We collect information you voluntarily provide, such as:</p>
-    <ul>
-      <li>Your email address, if you contact us.</li>
-      <li>Messages you send via our contact form or email.</li>
-    </ul>
-    <p>We do not require you to create an account to use Wordineer's tools.</p>
-
-    <h3>1.2 Information Collected Automatically</h3>
-    <p>When you visit Wordineer, our servers and third-party services may automatically collect:</p>
-    <ul>
-      <li><strong>Log data:</strong> Your IP address, browser type, operating system, referring URL, and the pages you visit. Retained for up to 30 days for security and debugging.</li>
-      <li><strong>Usage data:</strong> Which tools you use and how often, in aggregate (not tied to you personally).</li>
-      <li><strong>Cookies and local storage:</strong> We use a minimal set of cookies. See Section 4 below.</li>
-    </ul>
-
-    <h3>1.3 Text You Enter Into Our Tools</h3>
-    <p>
-      When you use tools like the Word Count analyzer or Random Word Generator, the text you enter
-      is processed to generate your result. <strong>We do not store, log, or analyze the specific
-      text you submit to our tools.</strong> Input is discarded immediately after the result is returned.
-      Some tools may send a generated or searched word to third-party language services as described
-      in Section 3.4.
-    </p>
-
-    <h2>2. How We Use Your Information</h2>
-    <p>We use the information we collect to:</p>
-    <ul>
-      <li>Provide, maintain, and improve our tools.</li>
-      <li>Respond to your support requests and emails.</li>
-      <li>Monitor for abuse, spam, and security threats.</li>
-      <li>Analyze aggregate usage trends to decide which tools to build next.</li>
-      <li>Comply with legal obligations.</li>
-    </ul>
-    <p>We do not sell your personal information to third parties. Ever.</p>
-
-    <h2>3. Third-Party Services</h2>
-    <p>Wordineer uses a limited number of trusted third-party services that may process data on our behalf:</p>
-
-    <h3>3.1 Google AdSense</h3>
-    <p>
-      We display ads served by Google AdSense. Google may use cookies and device identifiers
-      to serve personalized ads based on your browsing history across sites. You can opt out via
-      <a href="https://adssettings.google.com" rel="noopener noreferrer" target="_blank">Google Ads Settings</a>
-      or <a href="https://aboutads.info" rel="noopener noreferrer" target="_blank">aboutads.info</a>.
-    </p>
-
-    <h3>3.2 Grammarly (Affiliate Links)</h3>
-    <p>
-      Some pages on Wordineer contain affiliate links to Grammarly. If you click these links,
-      Grammarly may place cookies on your device to track the referral. Their data practices are
-      governed by <a href="https://www.grammarly.com/privacy-policy" rel="noopener noreferrer" target="_blank">Grammarly's Privacy Policy</a>.
-      We do not receive any personal information about you from Grammarly as a result of affiliate clicks.
-    </p>
-
-    <h3>3.3 Analytics</h3>
-    <p>
-      We use privacy-respecting analytics (without cross-site tracking or fingerprinting) to understand
-      aggregate traffic patterns. No personally identifiable information is passed to our analytics provider.
-    </p>
-
-    <h3>3.4 Language and Dictionary Services</h3>
-    <p>
-      Some word tools may request definitions, related words, or dictionary data from third-party
-      language services, including Datamuse, Free Dictionary API, Wordnik, and Merriam-Webster.
-      These requests may send the generated or searched word, along with standard technical data
-      such as your IP address and browser information, directly to those providers. We use these
-      services only to return word suggestions or definitions.
-    </p>
-
-    <h3>3.5 Hosting &amp; Infrastructure</h3>
-    <p>
-      Our site is hosted on infrastructure providers that comply with industry security standards.
-      These providers process data only as directed by us and are bound by data processing agreements.
-    </p>
-
-    <h2>4. Cookies</h2>
-    <p>Wordineer uses the following types of cookies:</p>
-    <table class="docs-table">
-      <thead>
-        <tr><th>Cookie Type</th><th>Purpose</th><th>Duration</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Strictly necessary</td><td>Session management, CSRF protection</td><td>Session</td></tr>
-        <tr><td>Preferences</td><td>Remembering your tool settings (e.g., dark mode)</td><td>1 year</td></tr>
-        <tr><td>Analytics</td><td>Aggregate page view counting</td><td>30 days</td></tr>
-        <tr><td>Advertising (Google AdSense)</td><td>Ad personalization and frequency capping</td><td>Up to 2 years</td></tr>
-      </tbody>
-    </table>
-    <p>
-      You can control cookies through your browser settings. Disabling cookies may affect the
-      functionality of some tools.
-    </p>
-
-    <h2>5. Your Rights</h2>
-    <p>Depending on your location, you may have the following rights:</p>
-    <ul>
-      <li><strong>Access:</strong> Request a copy of the personal data we hold about you.</li>
-      <li><strong>Correction:</strong> Ask us to correct inaccurate or incomplete data.</li>
-      <li><strong>Deletion:</strong> Request that we delete your personal data.</li>
-      <li><strong>Objection / Opt-out:</strong> Object to our processing of your data for certain purposes.</li>
-      <li><strong>Data portability:</strong> Request your data in a machine-readable format.</li>
-      <li><strong>Withdraw consent:</strong> Where processing is based on consent, you may withdraw it at any time.</li>
-    </ul>
-    <p>
-      To exercise any of these rights, email
-      <a href="mailto:privacy@wordineer.com">privacy@wordineer.com</a>.
-      We will respond within 30 days.
-    </p>
-
-    <h2>6. Children's Privacy</h2>
-    <p>
-      Wordineer is not directed at children under 13. We do not knowingly collect personal
-      information from children under 13. If you believe a child has provided us with personal
-      information, please contact us and we will promptly delete it.
-    </p>
-
-    <h2>7. Data Retention</h2>
-    <p>
-      We retain personal data only as long as necessary for the purposes described in this policy,
-      or as required by law. Contact emails are retained only as long as needed to respond to your
-      request and handle related follow-up.
-    </p>
-
-    <h2>8. International Data Transfers</h2>
-    <p>
-      If you are visiting from the EU, EEA, or United Kingdom, your data may be transferred to
-      and processed in countries outside your region. We take appropriate safeguards to ensure
-      such transfers comply with applicable data protection laws.
-    </p>
-
-    <h2>9. Security</h2>
-    <p>
-      We implement industry-standard security measures including HTTPS/TLS encryption, access
-      controls, and regular security reviews. No transmission over the internet is 100% secure,
-      but we take it seriously.
-    </p>
-
-    <h2>10. Changes to This Policy</h2>
-    <p>
-      We may update this Privacy Policy from time to time. We will update the "Last updated"
-      date at the top of this page. Continued use of Wordineer after changes become effective
-      constitutes acceptance of the updated policy.
-    </p>
-
-    <h2>11. Contact</h2>
-    <p>If you have questions, concerns, or requests related to this Privacy Policy:</p>
-    <address>
-      Wordineer<br>
-      <a href="mailto:privacy@wordineer.com">privacy@wordineer.com</a>
-    </address>
 
   </article>
 </div>
@@ -476,7 +571,7 @@
         <span style="font-size:14px;font-weight:600;color:var(--text)">Wordineer</span>
       </div>
       <span class="footer-copy">© 2026 Wordineer · Free word tools for everyone</span>
-      <div class="footer-meta"><a href="/about/">About</a><a href="/press-kit/">Data &amp; Press</a><a href="/affiliate-disclosure/">Affiliate disclosure</a><a href="/privacy/">Privacy</a></div>
+      <div class="footer-meta"><a href="/about/">About</a><a href="/data/">Data &amp; Press</a><a href="/affiliate-disclosure/">Affiliate disclosure</a><a href="/privacy/">Privacy</a></div>
     </div>
   </div>
 </footer>
