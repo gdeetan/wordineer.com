@@ -1,0 +1,144 @@
+<!-- CONFIG
+{
+  "url": "/embed/",
+  "output": "embed.html",
+  "type": "content"
+}
+-->
+
+<!-- SLOT:meta -->
+<title>Embed Free Word Tools — Wordineer</title>
+<meta name="description" content="Add free word generator tools to your website with a single iframe. No API key, no tracking, no cost. Embed Wordineer's Random Word Generator, Wordle Helper, or Spelling Bee word list in minutes.">
+<link rel="canonical" href="https://wordineer.com/embed/">
+<!-- /SLOT:meta -->
+
+<!-- SLOT:style -->
+<style>
+.embed-cards { display: flex; flex-direction: column; gap: 2rem; max-width: 860px; margin: 0 auto; padding: 1rem; }
+.embed-card { border: 1px solid #e5e5e5; border-radius: 8px; padding: 1.5rem; }
+.embed-card h2 { margin-top: 0; }
+.embed-preview iframe { width: 100%; height: 420px; border: 1px solid #e5e5e5; border-radius: 6px; display: block; margin-bottom: 1rem; }
+.snippet-wrap { position: relative; }
+.snippet-wrap textarea { width: 100%; height: 80px; font-family: monospace; font-size: 0.8rem; padding: 0.5rem; border: 1px solid #ccc; border-radius: 4px; resize: none; box-sizing: border-box; }
+.copy-btn { margin-top: 0.5rem; padding: 0.4rem 1rem; cursor: pointer; }
+.embed-terms { max-width: 860px; margin: 2rem auto; padding: 0 1rem; font-size: 0.9rem; color: #555; }
+.embed-selling-points { max-width: 860px; margin: 0 auto 2rem; padding: 0 1rem; }
+.embed-selling-points ul { padding-left: 1.25rem; margin: 0.5rem 0; }
+.embed-selling-points li { margin-bottom: 0.4rem; font-size: 0.95rem; }
+.autoresize-section { max-width: 860px; margin: 0 auto 2rem; padding: 0 1rem; }
+.autoresize-section details { border: 1px solid #e5e5e5; border-radius: 6px; padding: 0.75rem 1rem; }
+.autoresize-section summary { cursor: pointer; font-weight: 600; font-size: 0.95rem; }
+.autoresize-section textarea { width: 100%; height: 120px; font-family: monospace; font-size: 0.8rem; padding: 0.5rem; border: 1px solid #ccc; border-radius: 4px; resize: none; box-sizing: border-box; margin-top: 0.75rem; }
+</style>
+<!-- /SLOT:style -->
+
+<!-- SLOT:hero -->
+<section class="hero-content">
+  <h1>Embed Free Word Tools</h1>
+  <p>Add any Wordineer tool to your site in seconds — one line of HTML, no account needed.</p>
+</section>
+<!-- /SLOT:hero -->
+
+<!-- SLOT:content -->
+<div class="embed-selling-points">
+  <ul>
+    <li><strong>Free to embed</strong> — no API key, no account required</li>
+    <li><strong>No tracking scripts</strong> inside the iframe</li>
+    <li><strong>Keep the attribution link</strong> — it's how we keep the tools free</li>
+    <li><strong>Works everywhere</strong> — WordPress, Squarespace, Webflow, raw HTML</li>
+  </ul>
+</div>
+
+<div class="embed-cards">
+
+  <!-- Card: Random Word Generator -->
+  <div class="embed-card">
+    <h2>Random Word Generator</h2>
+    <p>Generate random English words with filters for part of speech, difficulty, and more.</p>
+    <div class="embed-preview">
+      <iframe src="https://wordineer.com/embed/random-word-generator/"
+              width="100%" height="420" style="border:1px solid #e5e5e5;border-radius:6px"
+              loading="lazy" title="Random Word Generator by Wordineer"></iframe>
+    </div>
+    <div class="snippet-wrap">
+      <textarea id="snippet-random-word-generator" readonly><iframe src="https://wordineer.com/embed/random-word-generator/"
+        width="100%" height="520" style="border:1px solid #e5e5e5;border-radius:8px"
+        loading="lazy" title="Random Word Generator by Wordineer"></iframe></textarea>
+      <button class="copy-btn" data-target="snippet-random-word-generator">Copy snippet</button>
+    </div>
+  </div>
+
+  <!-- Card: Wordle Helper -->
+  <div class="embed-card">
+    <h2>Wordle Helper</h2>
+    <p>Find valid Wordle guesses by entering known letters and patterns.</p>
+    <div class="embed-preview">
+      <iframe src="https://wordineer.com/embed/wordle-helper/"
+              width="100%" height="420" style="border:1px solid #e5e5e5;border-radius:6px"
+              loading="lazy" title="Wordle Helper by Wordineer"></iframe>
+    </div>
+    <div class="snippet-wrap">
+      <textarea id="snippet-wordle-helper" readonly><iframe src="https://wordineer.com/embed/wordle-helper/"
+        width="100%" height="520" style="border:1px solid #e5e5e5;border-radius:8px"
+        loading="lazy" title="Wordle Helper by Wordineer"></iframe></textarea>
+      <button class="copy-btn" data-target="snippet-wordle-helper">Copy snippet</button>
+    </div>
+  </div>
+
+  <!-- Card: Spelling Bee Word List -->
+  <div class="embed-card">
+    <h2>Spelling Bee Word List</h2>
+    <p>Browse and practice words organized for spelling bee preparation.</p>
+    <div class="embed-preview">
+      <iframe src="https://wordineer.com/embed/spelling-bee-word-list/"
+              width="100%" height="420" style="border:1px solid #e5e5e5;border-radius:6px"
+              loading="lazy" title="Spelling Bee Word List by Wordineer"></iframe>
+    </div>
+    <div class="snippet-wrap">
+      <textarea id="snippet-spelling-bee-word-list" readonly><iframe src="https://wordineer.com/embed/spelling-bee-word-list/"
+        width="100%" height="520" style="border:1px solid #e5e5e5;border-radius:8px"
+        loading="lazy" title="Spelling Bee Word List by Wordineer"></iframe></textarea>
+      <button class="copy-btn" data-target="snippet-spelling-bee-word-list">Copy snippet</button>
+    </div>
+  </div>
+
+</div>
+
+<div class="autoresize-section">
+  <details>
+    <summary>Enable auto-resize (optional)</summary>
+    <p style="font-size:0.9rem;margin:0.75rem 0 0;">Add this script once per page to let the iframe resize automatically to its content height:</p>
+    <textarea id="snippet-autoresize" readonly><script>
+window.addEventListener('message', function(e) {
+  if (e.data && e.data.wordineerHeight) {
+    var iframe = document.querySelector('iframe[src*="wordineer.com/embed"]');
+    if (iframe) iframe.style.height = e.data.wordineerHeight + 'px';
+  }
+});
+</script></textarea>
+    <button class="copy-btn" data-target="snippet-autoresize">Copy snippet</button>
+  </details>
+</div>
+
+<div class="embed-terms">
+  <h2 style="font-size:1rem;margin-bottom:0.5rem;">Licence &amp; terms</h2>
+  <ul style="padding-left:1.25rem;margin:0;">
+    <li>Free to embed on any website</li>
+    <li>Keep the "Powered by Wordineer" attribution link visible</li>
+    <li>Do not modify the embed URL or strip attribution</li>
+  </ul>
+</div>
+
+<script>
+document.querySelectorAll('.copy-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var id = btn.getAttribute('data-target');
+    var text = document.getElementById(id).value || document.getElementById(id).textContent;
+    navigator.clipboard.writeText(text).then(function() {
+      btn.textContent = 'Copied!';
+      setTimeout(function() { btn.textContent = 'Copy snippet'; }, 2000);
+    });
+  });
+});
+</script>
+<!-- /SLOT:content -->
