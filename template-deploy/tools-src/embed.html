@@ -137,6 +137,9 @@ document.querySelectorAll('.copy-btn').forEach(function(btn) {
     navigator.clipboard.writeText(text).then(function() {
       btn.textContent = 'Copied!';
       setTimeout(function() { btn.textContent = 'Copy snippet'; }, 2000);
+    }).catch(function() {
+      btn.textContent = 'Copy failed';
+      setTimeout(function() { btn.textContent = 'Copy snippet'; }, 2000);
     });
   });
 });

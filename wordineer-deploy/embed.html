@@ -1,4 +1,4 @@
-<!-- build: 2026-07-30T10:41:54Z -->
+<!-- build: 2026-07-30T10:46:13Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -296,6 +296,9 @@ document.querySelectorAll('.copy-btn').forEach(function(btn) {
     var text = document.getElementById(id).value || document.getElementById(id).textContent;
     navigator.clipboard.writeText(text).then(function() {
       btn.textContent = 'Copied!';
+      setTimeout(function() { btn.textContent = 'Copy snippet'; }, 2000);
+    }).catch(function() {
+      btn.textContent = 'Copy failed';
       setTimeout(function() { btn.textContent = 'Copy snippet'; }, 2000);
     });
   });
