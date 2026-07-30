@@ -84,13 +84,13 @@ def build_embed_page(src_path, cfg, slots, slug):
         '</script>'
     )
 
-    # Strip affiliate blocks from embed pages
+    # Strip affiliate blocks and ad sidebars from embed pages
     tool_html = slots['tool']
-    # Match opening <div class="...aff-nudge..."> and find the matching closing </div>
-    def strip_aff_nudge(html):
-        pattern = r'<div[^>]*class="[^"]*aff-nudge[^"]*"[^>]*>(?:(?!<div[^>]*class="[^"]*aff-nudge[^"]*")[^<]|<(?!/?div)[^>]*|</?div[^>]*(?:class="[^"]*aff-nudge[^"]*")[^>]*>)*?(?:</div>)'
-        # Simpler approach: find and remove the entire aff-nudge block using balanced matching
-        match = re.search(r'<div[^>]*class="[^"]*aff-nudge[^"]*"[^>]*>', html)
+
+    def strip_div_by_class(html, class_name):
+        """Remove divs with a specific class name using balanced depth tracking."""
+        # Find opening <div class="...{class_name}...">
+        match = re.search(rf'<div[^>]*class="[^"]*{re.escape(class_name)}[^"]*"[^>]*>', html)
         if not match:
             return html
         start = match.start()
@@ -110,7 +110,9 @@ def build_embed_page(src_path, cfg, slots, slug):
                     return html[:start] + html[close+6:]
                 pos = close + 6
         return html
-    tool_html = strip_aff_nudge(tool_html)
+
+    tool_html = strip_div_by_class(tool_html, 'aff-nudge')
+    tool_html = strip_div_by_class(tool_html, 'ad-sidebar')
 
     build_stamp = f'<!-- build: {datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")} -->\n'
 
