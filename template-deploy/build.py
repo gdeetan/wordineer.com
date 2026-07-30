@@ -84,6 +84,34 @@ def build_embed_page(src_path, cfg, slots, slug):
         '</script>'
     )
 
+    # Strip affiliate blocks from embed pages
+    tool_html = slots['tool']
+    # Match opening <div class="...aff-nudge..."> and find the matching closing </div>
+    def strip_aff_nudge(html):
+        pattern = r'<div[^>]*class="[^"]*aff-nudge[^"]*"[^>]*>(?:(?!<div[^>]*class="[^"]*aff-nudge[^"]*")[^<]|<(?!/?div)[^>]*|</?div[^>]*(?:class="[^"]*aff-nudge[^"]*")[^>]*>)*?(?:</div>)'
+        # Simpler approach: find and remove the entire aff-nudge block using balanced matching
+        match = re.search(r'<div[^>]*class="[^"]*aff-nudge[^"]*"[^>]*>', html)
+        if not match:
+            return html
+        start = match.start()
+        depth = 1
+        pos = match.end()
+        while depth > 0 and pos < len(html):
+            close = html.find('</div>', pos)
+            if close == -1:
+                break
+            open_next = html.find('<div', pos)
+            if open_next != -1 and open_next < close:
+                depth += 1
+                pos = open_next + 4
+            else:
+                depth -= 1
+                if depth == 0:
+                    return html[:start] + html[close+6:]
+                pos = close + 6
+        return html
+    tool_html = strip_aff_nudge(tool_html)
+
     build_stamp = f'<!-- build: {datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")} -->\n'
 
     page = '\n'.join([
@@ -97,7 +125,7 @@ def build_embed_page(src_path, cfg, slots, slug):
         embed_style,
         '</head>',
         '<body>',
-        slots['tool'],
+        tool_html,
         attribution,
         auto_height,
         slots['init'],
