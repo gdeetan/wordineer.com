@@ -57,6 +57,11 @@ def build_embed_page(src_path, cfg, slots, slug):
     title_match = re.search(r'<title>(.*?)</title>', slots['meta'], re.DOTALL)
     title_text = title_match.group(1).strip() if title_match else 'Wordineer Tool'
 
+    # Extract CSS version from head.html
+    head_src = read(os.path.join(TMPL_DIR, 'head.html'))
+    css_link_match = re.search(r'href="(/styles/global\.css[^"]*)"', head_src)
+    css_href = css_link_match.group(1) if css_link_match else '/styles/global.css'
+
     embed_style = (
         '<style>\n'
         'body { margin: 0; padding: 8px; box-sizing: border-box; }\n'
@@ -123,7 +128,7 @@ def build_embed_page(src_path, cfg, slots, slug):
         '<meta charset="UTF-8">',
         '<meta name="viewport" content="width=device-width, initial-scale=1.0">',
         f'<title>{title_text}</title>',
-        '<link rel="stylesheet" href="/styles/global.css?v=14">',
+        f'<link rel="stylesheet" href="{css_href}">',
         embed_style,
         '</head>',
         '<body>',
