@@ -33,6 +33,83 @@ def write(path, content):
     with open(path, 'w', encoding='utf-8') as f:
         f.write(content)
 
+def copy_embed_pages():
+    """Copy output/embed/ tree into wordineer-deploy/embed/."""
+    embed_out = os.path.join(OUT_DIR, 'embed')
+    if not os.path.isdir(embed_out):
+        print('  no embed pages to copy')
+        return
+    deploy_dir = os.path.join(ROOT, '..', 'wordineer-deploy')
+    if not os.path.isdir(deploy_dir):
+        print('  warning → wordineer-deploy/ not found, skipping embed copy')
+        return
+    embed_deploy = os.path.join(deploy_dir, 'embed')
+    if os.path.exists(embed_deploy):
+        shutil.rmtree(embed_deploy)
+    shutil.copytree(embed_out, embed_deploy)
+    slugs = os.listdir(embed_out)
+    print(f'  copied → embed/{" embed/".join(slugs)} into wordineer-deploy/embed/')
+
+
+def build_embed_page(src_path, cfg, slots, slug):
+    """Generate a minimal iframe-embeddable page for a tool."""
+    # Extract <title> text from meta slot
+    title_match = re.search(r'<title>(.*?)</title>', slots['meta'], re.DOTALL)
+    title_text = title_match.group(1).strip() if title_match else 'Wordineer Tool'
+
+    embed_style = (
+        '<style>\n'
+        'body { margin: 0; padding: 8px; box-sizing: border-box; }\n'
+        '.embed-attrib { text-align: center; font-size: 0.75rem; color: #888; margin: 8px 0 4px; }\n'
+        + (slots['style'] + '\n' if slots['style'] else '') +
+        '</style>'
+    )
+
+    attribution = (
+        '<p class="embed-attrib">\n'
+        '  Powered by <a href="https://wordineer.com/?utm_source=embed&utm_medium=iframe"\n'
+        '  target="_blank" rel="noopener">Wordineer</a>\n'
+        '</p>'
+    )
+
+    auto_height = (
+        '<script>\n'
+        '(function () {\n'
+        '  function send() {\n'
+        '    parent.postMessage({ wordineerHeight: document.body.scrollHeight }, \'*\');\n'
+        '  }\n'
+        '  window.addEventListener(\'load\', send);\n'
+        '  new ResizeObserver(send).observe(document.body);\n'
+        '})();\n'
+        '</script>'
+    )
+
+    build_stamp = f'<!-- build: {datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")} -->\n'
+
+    page = '\n'.join([
+        build_stamp + '<!DOCTYPE html>',
+        '<html lang="en">',
+        '<head>',
+        '<meta charset="UTF-8">',
+        '<meta name="viewport" content="width=device-width, initial-scale=1.0">',
+        f'<title>{title_text}</title>',
+        '<link rel="stylesheet" href="/styles/global.css?v=14">',
+        embed_style,
+        '</head>',
+        '<body>',
+        slots['tool'],
+        attribution,
+        auto_height,
+        slots['init'],
+        '</body>',
+        '</html>',
+    ])
+
+    out_path = os.path.join(OUT_DIR, 'embed', slug, 'index.html')
+    write(out_path, page)
+    print(f'  built → embed/{slug}/index.html  [embed]')
+
+
 def copy_data_assets():
     """Mirror deploy JSON assets into output/ so template previews can fetch /data/*.json."""
     if not os.path.isdir(DEPLOY_DATA_DIR):
@@ -481,6 +558,11 @@ def build_page(src_path, data):
     write(out_path, page)
     print(f'  built → {output_file}  [{page_type}]')
 
+    # Also generate embed page if flagged
+    if cfg.get('embed'):
+        embed_slug = cfg.get('embed_slug') or output_file.replace('.html', '')
+        build_embed_page(src_path, cfg, slots, embed_slug)
+
 
 # ── main ─────────────────────────────────────────────────────────────────────
 
@@ -501,6 +583,7 @@ def main():
     copy_script_assets()
     copy_redirects()
     copy_static_pages()
+    copy_embed_pages()
     build_sitemap(data)
 
     print(f'\nDone! Output is in:  {OUT_DIR}/')
