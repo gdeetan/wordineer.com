@@ -1,4 +1,4 @@
-<!-- build: 2026-07-29T12:20:38Z -->
+<!-- build: 2026-07-30T08:07:16Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -163,7 +163,7 @@
 </script>
 
 
-<link rel="stylesheet" href="/styles/global.css?v=14">
+<link rel="stylesheet" href="/styles/global.css?v=15">
 <style>
 .tool-wrap  { max-width:960px; margin:0 auto; padding:24px 24px 0; }
 .tool-card  { border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg); box-shadow:var(--shadow); }
@@ -246,6 +246,16 @@
   <div class="nav-links">
     <a href="/word-tools/">Tools</a>
   </div>
+  <div class="nav-search-wrap" id="nav-search-wrap">
+    <button class="nav-search-icon" id="nav-search-btn" type="button" aria-label="Search tools">
+      <svg viewBox="0 0 16 16" fill="none" width="15" height="15"><circle cx="6.5" cy="6.5" r="4" stroke="currentColor" stroke-width="1.5"/><path d="M10 10l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </button>
+    <div class="nav-search-expand" id="nav-search-expand" hidden>
+      <input class="nav-search-input" id="nav-search-input" type="search" placeholder="Search tools…" autocomplete="off" spellcheck="false" role="combobox" aria-expanded="false" aria-controls="nav-search-listbox" aria-autocomplete="list" aria-activedescendant="">
+      <button class="nav-search-clear" id="nav-search-clear" type="button" aria-label="Clear search" hidden>×</button>
+      <ul class="nav-search-dropdown" id="nav-search-listbox" role="listbox" hidden></ul>
+    </div>
+  </div>
   <div>
     <button class="hamburger" type="button" aria-label="All tools" aria-controls="mega" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -254,6 +264,10 @@
 </nav>
 <div class="mega" id="mega">
   <div class="mega-inner">
+    <div class="mega-search-wrap">
+      <input class="mega-search-input" id="mega-search-input" type="search" placeholder="Search tools…" autocomplete="off" spellcheck="false" role="combobox" aria-expanded="false" aria-controls="mega-search-listbox" aria-autocomplete="list" aria-activedescendant="">
+      <ul class="mega-search-dropdown" id="mega-search-listbox" role="listbox" hidden></ul>
+    </div>
     <div class="mega-col">
       <div class="mega-cat">Writing &amp; Vocabulary</div>
       <a class="mega-link" href="/">Random Word Generator</a>
@@ -558,6 +572,7 @@
 <div class="toast" id="toast"></div>
 
 <script src="/scripts/tool-engine.js?v=27"></script>
+<script>window.WORDINEER_TOOLS=[{"href":"/","name":"Random Word Generator","cat":"Writing & Vocabulary"},{"href":"/random-sentence-generator/","name":"Random Sentence Generator","cat":"Writing & Vocabulary"},{"href":"/lorem-ipsum-generator/","name":"Lorem Ipsum Generator","cat":"Writing & Vocabulary"},{"href":"/word-counter/","name":"Word Counter","cat":"Writing & Vocabulary"},{"href":"/random-words-starting-with/","name":"Random Words Starting With (A–Z)","cat":"Browse by Letter"},{"href":"/random-words-starting-with/a","name":"Words Starting With A","cat":"Browse by Letter"},{"href":"/random-words-starting-with/b","name":"Words Starting With B","cat":"Browse by Letter"},{"href":"/random-words-starting-with/e","name":"Words Starting With E","cat":"Browse by Letter"},{"href":"/random-spanish-name-generator/","name":"Spanish Name Generator","cat":"Names by Origin"},{"href":"/random-italian-name-generator/","name":"Italian Name Generator","cat":"Names by Origin"},{"href":"/random-japanese-name-generator/","name":"Japanese Name Generator","cat":"Names by Origin"},{"href":"/random-american-name-generator/","name":"American Name Generator","cat":"Names by Origin"},{"href":"/character-name-generator/","name":"Character Name Generator","cat":"Other Name Generators"},{"href":"/fantasy-name-generator/","name":"Fantasy Name Generator","cat":"Other Name Generators"},{"href":"/business-name-generator/","name":"Business Name Generator","cat":"Other Name Generators"},{"href":"/band-name-generator/","name":"Band Name Generator","cat":"Other Name Generators"},{"href":"/username-generator/","name":"Username Generator","cat":"Account & Security"},{"href":"/password-generator/","name":"Password Generator","cat":"Account & Security"},{"href":"/passphrase-generator/","name":"Passphrase Generator","cat":"Account & Security"},{"href":"/random-pin-generator/","name":"Random PIN Generator","cat":"Account & Security"},{"href":"/coin-flip/","name":"Flip a Coin","cat":"Games & fun"},{"href":"/random-number-generator/","name":"Number Generator","cat":"Games & fun"},{"href":"/dice-roller/","name":"Dice Roller","cat":"Games & fun"},{"href":"/wheel-of-names/","name":"Wheel of Names","cat":"Games & fun"},{"href":"/spelling-bee-words/","name":"Spelling Bee Words","cat":"Learn & Resources"},{"href":"/common-5-letter-words/","name":"Common 5-Letter Words","cat":"Learn & Resources"},{"href":"/etymology-100-common-words/","name":"Etymology Guide","cat":"Learn & Resources"},{"href":"/esl-vocabulary-cefr/","name":"ESL Vocabulary (CEFR)","cat":"Learn & Resources"},{"href":"/spelling-bee-words-elementary/","name":"Spelling Bee Words (Elementary)","cat":"Spelling Bee"},{"href":"/spelling-bee-words-kindergarten/","name":"Spelling Bee Words (Kindergarten)","cat":"Spelling Bee"},{"href":"/spelling-bee-words-1st-grade/","name":"Spelling Bee Words (1st Grade)","cat":"Spelling Bee"},{"href":"/spelling-bee-words-2nd-grade/","name":"Spelling Bee Words (2nd Grade)","cat":"Spelling Bee"},{"href":"/spelling-bee-words-3rd-grade/","name":"Spelling Bee Words (3rd Grade)","cat":"Spelling Bee"},{"href":"/spelling-bee-words-4th-grade/","name":"Spelling Bee Words (4th Grade)","cat":"Spelling Bee"},{"href":"/spelling-bee-words-5th-grade/","name":"Spelling Bee Words (5th Grade)","cat":"Spelling Bee"},{"href":"/spelling-bee-words-6th-grade/","name":"Spelling Bee Words (6th Grade)","cat":"Spelling Bee"},{"href":"/spelling-bee-words-7th-grade/","name":"Spelling Bee Words (7th Grade)","cat":"Spelling Bee"},{"href":"/spelling-bee-words-printable/","name":"Spelling Bee Words Printable","cat":"Spelling Bee"},{"href":"/sat-vocabulary-words/","name":"SAT Vocabulary Words","cat":"Vocabulary"},{"href":"/sat-words-list/","name":"SAT Words List","cat":"Vocabulary"},{"href":"/hardest-sat-words/","name":"Hardest SAT Words","cat":"Vocabulary"},{"href":"/word-of-the-day/","name":"Word of the Day","cat":"Vocabulary"},{"href":"/random-weird-words/","name":"Random Weird Words","cat":"Vocabulary"},{"href":"/cool-words/","name":"Cool Words","cat":"Vocabulary"},{"href":"/aesthetic-words/","name":"Aesthetic Words","cat":"Vocabulary"},{"href":"/beautiful-english-words/","name":"Beautiful English Words","cat":"Vocabulary"},{"href":"/unique-words-with-meaning/","name":"Unique Words With Meaning","cat":"Vocabulary"},{"href":"/big-words-to-sound-smart/","name":"Big Words to Sound Smart","cat":"Vocabulary"},{"href":"/gen-z-slang/","name":"Gen Z Slang Dictionary","cat":"Vocabulary"},{"href":"/words-to-replace-said/","name":"Words to Replace Said","cat":"Vocabulary"},{"href":"/transition-words/","name":"Transition Words","cat":"Vocabulary"},{"href":"/random-quote-generator/","name":"Random Quote Generator","cat":"Word Tools"},{"href":"/random-wordle-generator/","name":"Random Wordle Generator","cat":"Word Tools"},{"href":"/wordle-helper/","name":"Wordle Helper","cat":"Word Tools"},{"href":"/best-wordle-starting-words/","name":"Best Wordle Starting Words","cat":"Word Tools"},{"href":"/random-noun-generator/","name":"Random Noun Generator","cat":"Word Tools"},{"href":"/random-verb-generator/","name":"Random Verb Generator","cat":"Word Tools"},{"href":"/random-adjective-generator/","name":"Random Adjective Generator","cat":"Word Tools"},{"href":"/random-adverb-generator/","name":"Random Adverb Generator","cat":"Word Tools"},{"href":"/random-6-letter-word-generator/","name":"6 Letter Word Generator","cat":"Word Tools"},{"href":"/6-letter-words-starting-with-b/","name":"6 Letter Words Starting With B","cat":"Word Tools"},{"href":"/6-letter-words-starting-with-o/","name":"6 Letter Words Starting With O","cat":"Word Tools"},{"href":"/6-letter-words-starting-with-p/","name":"6 Letter Words Starting With P","cat":"Word Tools"},{"href":"/6-letter-words-starting-with-n/","name":"6 Letter Words Starting With N","cat":"Word Tools"},{"href":"/random-7-letter-word-generator/","name":"7 Letter Word Generator","cat":"Word Tools"},{"href":"/random-8-letter-word-generator/","name":"8 Letter Word Generator","cat":"Word Tools"},{"href":"/random-name-generator/","name":"Random name","cat":"Word Tools"},{"href":"/random-english-name-generator/","name":"Random English Name","cat":"Word Tools"},{"href":"/pictionary-word-generator/","name":"Pictionary Word Generator","cat":"Word Tools"},{"href":"/random-4-letter-word-generator/","name":"4 Letter Word Generator","cat":"Word Tools"},{"href":"/3-letter-words/","name":"3 Letter Words","cat":"Word Tools"},{"href":"/word-scramble/","name":"Word Scramble","cat":"Word Tools"},{"href":"/word-unscramble/","name":"Word Unscramble","cat":"Word Tools"},{"href":"/pictionary-topic-generator/","name":"Pictionary topic generator","cat":"Word Tools"},{"href":"/pictionary-phrase-generator/","name":"Pictionary phrase generator","cat":"Word Tools"},{"href":"/never-have-i-ever-generator/","name":"Never Have I Ever Generator","cat":"Word Tools"},{"href":"/would-you-rather-generator/","name":"Would You Rather Generator","cat":"Word Tools"},{"href":"/truth-or-dare-generator/","name":"Truth or Dare Generator","cat":"Word Tools"},{"href":"/charades-generator/","name":"Charades Generator","cat":"Word Tools"},{"href":"/scattergories-generator/","name":"Scattergories Generator","cat":"Word Tools"},{"href":"/catchphrase-generator/","name":"Catchphrase Generator","cat":"Word Tools"},{"href":"/couples-truth-or-dare-generator/","name":"Couples Truth or Dare","cat":"Word Tools"},{"href":"/crossword-puzzle-generator/","name":"Crossword Puzzle Generator","cat":"Word Tools"},{"href":"/sight-words-generator/","name":"Sight Words Generator","cat":"Word Tools"},{"href":"/wordle-answers/","name":"Wordle Answer Archive","cat":"Word Tools"},{"href":"/writing-prompt-generator/","name":"Writing Prompt Generator","cat":"Word Tools"},{"href":"/acronym-maker/","name":"Acronym Generator","cat":"Word Tools"},{"href":"/plot-generator/","name":"Plot Generator","cat":"Word Tools"},{"href":"/random-trivia-generator/","name":"Random Trivia Generator","cat":"Word Tools"},{"href":"/random-dad-jokes/","name":"Random Dad Jokes","cat":"Word Tools"},{"href":"/random-number-1-100/","name":"Random Number 1–100","cat":"Chance & Games"},{"href":"/random-number-1-10/","name":"Random Number 1–10","cat":"Chance & Games"},{"href":"/flip-a-coin-10-times/","name":"Flip a Coin 10 Times","cat":"Chance & Games"},{"href":"/flip-a-coin-100-times/","name":"Flip a Coin 100 Times","cat":"Chance & Games"},{"href":"/random-letter-generator/","name":"Random Letter Generator","cat":"Chance & Games"},{"href":"/random-number-1-20/","name":"Random Number 1–20","cat":"Chance & Games"},{"href":"/random-number-1-50/","name":"Random Number 1–50","cat":"Chance & Games"},{"href":"/random-number-1-6/","name":"Random Number 1–6","cat":"Chance & Games"},{"href":"/random-number-1-1000/","name":"Random Number 1–1000","cat":"Chance & Games"},{"href":"/pick-a-number-1-20/","name":"Pick a Number 1–20","cat":"Chance & Games"},{"href":"/random-number-1-4/","name":"Random Number 1–4","cat":"Chance & Games"},{"href":"/random-number-1-8/","name":"Random Number 1–8","cat":"Chance & Games"},{"href":"/random-number-1-3/","name":"Random Number 1–3","cat":"Chance & Games"},{"href":"/random-number-1-25/","name":"Random Number 1–25","cat":"Chance & Games"},{"href":"/random-number-1-30/","name":"Random Number 1–30","cat":"Chance & Games"},{"href":"/flip-a-coin-5-times/","name":"Flip a Coin 5 Times","cat":"Chance & Games"},{"href":"/flip-a-coin-1000-times/","name":"Flip a Coin 1000 Times","cat":"Chance & Games"},{"href":"/flip-2-coins/","name":"Flip 2 Coins","cat":"Chance & Games"},{"href":"/flip-3-coins/","name":"Flip 3 Coins","cat":"Chance & Games"},{"href":"/random-number-1-200/","name":"Random Number 1–200","cat":"Chance & Games"},{"href":"/magic-8-ball/","name":"Magic 8 Ball","cat":"Chance & Games"},{"href":"/rock-paper-scissors/","name":"Rock Paper Scissors","cat":"Chance & Games"},{"href":"/powerball-number-generator/","name":"Powerball Number Generator","cat":"Chance & Games"},{"href":"/lottery-number-generator/","name":"Lottery Number Generator","cat":"Chance & Games"},{"href":"/raffle-number-generator/","name":"Raffle Number Generator","cat":"Chance & Games"},{"href":"/random-even-number-generator/","name":"Random Even Number Generator","cat":"Chance & Games"},{"href":"/random-odd-number-generator/","name":"Random Odd Number Generator","cat":"Chance & Games"},{"href":"/weighted-random-number-generator/","name":"Weighted Random Number Generator","cat":"Chance & Games"},{"href":"/random-number-wheel-1-10/","name":"Random Number Wheel 1–10","cat":"Chance & Games"},{"href":"/random-number-wheel-1-50/","name":"Random Number Wheel 1–50","cat":"Chance & Games"},{"href":"/cool-username-generator/","name":"Cool Username Generator","cat":"Account & Security"},{"href":"/aesthetic-username-generator/","name":"Aesthetic Username Generator","cat":"Account & Security"},{"href":"/funny-username-generator/","name":"Funny Username Generator","cat":"Account & Security"},{"href":"/cute-username-generator/","name":"Cute Username Generator","cat":"Account & Security"},{"href":"/instagram-username-generator/","name":"Instagram Username Generator","cat":"Account & Security"},{"href":"/discord-username-generator/","name":"Discord Username Generator","cat":"Account & Security"},{"href":"/tiktok-username-generator/","name":"TikTok Username Generator","cat":"Account & Security"},{"href":"/roblox-username-generator/","name":"Roblox Username Generator","cat":"Account & Security"},{"href":"/reddit-username-generator/","name":"Reddit Username Generator","cat":"Account & Security"},{"href":"/xbox-username-generator/","name":"Xbox Username Generator","cat":"Account & Security"},{"href":"/youtube-username-generator/","name":"YouTube Username Generator","cat":"Account & Security"},{"href":"/gmail-username-generator/","name":"Gmail Username Generator","cat":"Account & Security"},{"href":"/fortnite-username-generator/","name":"Fortnite Username Generator","cat":"Account & Security"},{"href":"/valorant-username-generator/","name":"Valorant Username Generator","cat":"Account & Security"},{"href":"/anime-username-generator/","name":"Anime Username Generator","cat":"Account & Security"},{"href":"/fantasy-username-generator/","name":"Fantasy Username Generator","cat":"Account & Security"},{"href":"/kawaii-username-generator/","name":"Kawaii Username Generator","cat":"Account & Security"},{"href":"/edgy-username-generator/","name":"Edgy Username Generator","cat":"Account & Security"},{"href":"/girl-username-generator/","name":"Girl Username Generator","cat":"Account & Security"},{"href":"/boy-username-generator/","name":"Boy Username Generator","cat":"Account & Security"},{"href":"/female-username-generator/","name":"Female Username Generator","cat":"Account & Security"},{"href":"/8-character-password-generator/","name":"8 Character Password Generator","cat":"Account & Security"},{"href":"/10-character-password-generator/","name":"10 Character Password Generator","cat":"Account & Security"},{"href":"/diceware-passphrase-generator/","name":"Diceware Passphrase Generator","cat":"Account & Security"},{"href":"/memorable-password-generator/","name":"Memorable Password Generator","cat":"Account & Security"},{"href":"/easy-to-remember-password-generator/","name":"Easy to Remember Password Generator","cat":"Account & Security"},{"href":"/12-character-password-generator/","name":"12 Character Password Generator","cat":"Account & Security"},{"href":"/account-tools/","name":"More account tools","cat":"Account & Security"},{"href":"/sight-words-kindergarten/","name":"Kindergarten Sight Words","cat":"Sight Words"},{"href":"/sight-words-1st-grade/","name":"First Grade Sight Words","cat":"Sight Words"},{"href":"/sight-words-2nd-grade/","name":"Second Grade Sight Words","cat":"Sight Words"},{"href":"/sight-words-3rd-grade/","name":"Third Grade Sight Words","cat":"Sight Words"},{"href":"/dolch-sight-words/","name":"Dolch Sight Words","cat":"Sight Words"},{"href":"/fry-sight-words/","name":"Fry Sight Words","cat":"Sight Words"},{"href":"/random-british-name-generator/","name":"Random British Name","cat":"Name Generators"},{"href":"/random-filipino-name-generator/","name":"Random Filipino Name","cat":"Name Generators"},{"href":"/random-arabic-name-generator/","name":"Random Arabic Name","cat":"Name Generators"},{"href":"/random-turkish-name-generator/","name":"Random Turkish Name","cat":"Name Generators"},{"href":"/random-polish-name-generator/","name":"Random Polish Name","cat":"Name Generators"},{"href":"/random-dominican-name-generator/","name":"Random Dominican Name","cat":"Name Generators"},{"href":"/name-generators/","name":"More Name Tools","cat":"Name Generators"},{"href":"/random-paragraph-generator/","name":"Random Paragraph Generator","cat":"Writing & Vocabulary"},{"href":"/dog-name-generator/","name":"Dog Name Generator","cat":"Pets & Animals"},{"href":"/cat-name-generator/","name":"Cat Name Generator","cat":"Pets & Animals"},{"href":"/fish-name-generator/","name":"Fish Name Generator","cat":"Pets & Animals"},{"href":"/elf-name-generator/","name":"Elf Name Generator","cat":"Fantasy & Story Names"},{"href":"/hero-name-generator/","name":"Hero Name Generator","cat":"Fantasy & Story Names"},{"href":"/villain-name-generator/","name":"Villain Name Generator","cat":"Fantasy & Story Names"},{"href":"/barbarian-name-generator/","name":"Barbarian Name Generator","cat":"Fantasy & Story Names"},{"href":"/musician-name-generator/","name":"Musician Name Generator","cat":"Bands, Music & Teams"},{"href":"/team-name-generator/","name":"Team Name Generator","cat":"Bands, Music & Teams"}];</script>
 <script>
 (function bindSharedWordineerMenu() {
   const mega = document.getElementById('mega');
@@ -596,6 +611,187 @@
       setMenu(false);
     }
   }, true);
+
+  // Expose setMenu so search can close the mega panel after navigation
+  window._wordineerSetMenu = setMenu;
+})();
+
+(function bindSearchCombobox() {
+  var tools = window.WORDINEER_TOOLS || [];
+
+  function search(q) {
+    if (!q) return [];
+    var lq = q.toLowerCase();
+    var nameHits = [], catHits = [];
+    for (var i = 0; i < tools.length; i++) {
+      var t = tools[i];
+      var inName = t.name.toLowerCase().indexOf(lq) !== -1;
+      var inCat  = t.cat.toLowerCase().indexOf(lq) !== -1;
+      if (inName) nameHits.push(t);
+      else if (inCat) catHits.push(t);
+      if (nameHits.length + catHits.length >= 8) break;
+    }
+    return nameHits.concat(catHits).slice(0, 8);
+  }
+
+  function highlight(text, q) {
+    if (!q) return escHtml(text);
+    var li = text.toLowerCase().indexOf(q.toLowerCase());
+    if (li === -1) return escHtml(text);
+    return escHtml(text.slice(0, li)) +
+      '<strong class="nav-search-hl">' + escHtml(text.slice(li, li + q.length)) + '</strong>' +
+      escHtml(text.slice(li + q.length));
+  }
+
+  function escHtml(s) {
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function bindInstance(inputEl, dropEl, clearEl, prefix, opts) {
+    opts = opts || {};
+    var results = [];
+    var activeIdx = -1;
+
+    function render(q) {
+      results = search(q);
+      activeIdx = -1;
+      inputEl.setAttribute('aria-expanded', results.length ? 'true' : 'false');
+      inputEl.setAttribute('aria-activedescendant', '');
+      if (!results.length) {
+        if (q) {
+          dropEl.innerHTML = '<li class="nav-search-empty">No results match…</li>';
+          dropEl.removeAttribute('hidden');
+        } else {
+          dropEl.setAttribute('hidden', '');
+          dropEl.innerHTML = '';
+        }
+        return;
+      }
+      var html = '';
+      for (var i = 0; i < results.length; i++) {
+        var r = results[i];
+        html += '<li role="option" id="' + prefix + '-opt-' + i + '" aria-selected="false">' +
+          '<a class="nav-search-item" href="' + escHtml(r.href) + '">' +
+          '<span class="nav-search-item-name">' + highlight(r.name, q) + '</span>' +
+          '<span class="nav-search-item-cat">' + escHtml(r.cat) + '</span>' +
+          '</a></li>';
+      }
+      dropEl.innerHTML = html;
+      dropEl.removeAttribute('hidden');
+    }
+
+    function setActive(idx) {
+      var items = dropEl.querySelectorAll('[role=option]');
+      if (activeIdx >= 0 && items[activeIdx]) {
+        items[activeIdx].setAttribute('aria-selected', 'false');
+      }
+      activeIdx = idx;
+      if (activeIdx >= 0 && items[activeIdx]) {
+        items[activeIdx].setAttribute('aria-selected', 'true');
+        items[activeIdx].scrollIntoView({ block: 'nearest' });
+        inputEl.setAttribute('aria-activedescendant', prefix + '-opt-' + activeIdx);
+      } else {
+        inputEl.setAttribute('aria-activedescendant', '');
+      }
+    }
+
+    function close() {
+      dropEl.setAttribute('hidden', '');
+      dropEl.innerHTML = '';
+      inputEl.setAttribute('aria-expanded', 'false');
+      inputEl.setAttribute('aria-activedescendant', '');
+      results = [];
+      activeIdx = -1;
+    }
+
+    inputEl.addEventListener('input', function() {
+      var q = inputEl.value;
+      if (clearEl) clearEl[q ? 'removeAttribute' : 'setAttribute']('hidden', '');
+      render(q);
+    });
+
+    inputEl.addEventListener('keydown', function(e) {
+      var count = results.length;
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        setActive(Math.min(activeIdx + 1, count - 1));
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        setActive(Math.max(activeIdx - 1, 0));
+      } else if (e.key === 'Enter') {
+        if (activeIdx >= 0 && results[activeIdx]) {
+          window.location.href = results[activeIdx].href;
+          if (opts.onNavigate) opts.onNavigate();
+        }
+      } else if (e.key === 'Escape') {
+        inputEl.value = '';
+        if (clearEl) clearEl.setAttribute('hidden', '');
+        close();
+      } else if (e.key === 'Tab') {
+        close();
+      }
+    });
+
+    document.addEventListener('mousedown', function(e) {
+      var wrap = inputEl.closest('.nav-search-wrap, .mega-search-wrap');
+      if (wrap && !wrap.contains(e.target)) close();
+    });
+
+    if (clearEl) {
+      clearEl.addEventListener('mousedown', function(e) { e.preventDefault(); });
+      clearEl.addEventListener('click', function() {
+        inputEl.value = '';
+        clearEl.setAttribute('hidden', '');
+        close();
+        inputEl.focus();
+      });
+    }
+  }
+
+  // Desktop nav search
+  var navInput  = document.getElementById('nav-search-input');
+  var navDrop   = document.getElementById('nav-search-listbox');
+  var navClear  = document.getElementById('nav-search-clear');
+  var navBtn    = document.getElementById('nav-search-btn');
+  var navExpand = document.getElementById('nav-search-expand');
+
+  if (navInput && navDrop && navBtn && navExpand) {
+    bindInstance(navInput, navDrop, navClear, 'nav');
+    navBtn.addEventListener('click', function() {
+      var isHidden = navExpand.hasAttribute('hidden');
+      if (isHidden) {
+        navExpand.removeAttribute('hidden');
+        navInput.focus();
+        navBtn.setAttribute('aria-expanded', 'true');
+      } else {
+        navExpand.setAttribute('hidden', '');
+        navInput.value = '';
+        if (navClear) navClear.setAttribute('hidden', '');
+        navBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+    // Close expand when clicking outside the whole nav-search-wrap
+    document.addEventListener('mousedown', function(e) {
+      var wrap = document.getElementById('nav-search-wrap');
+      if (wrap && !wrap.contains(e.target) && !navExpand.hasAttribute('hidden')) {
+        navExpand.setAttribute('hidden', '');
+        navInput.value = '';
+        if (navClear) navClear.setAttribute('hidden', '');
+        navBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  // Mobile mega-menu search
+  var megaInput = document.getElementById('mega-search-input');
+  var megaDrop  = document.getElementById('mega-search-listbox');
+  if (megaInput && megaDrop) {
+    bindInstance(megaInput, megaDrop, null, 'mega', {
+      onNavigate: function() {
+        if (window._wordineerSetMenu) window._wordineerSetMenu(false);
+      }
+    });
+  }
 })();
 </script>
 
