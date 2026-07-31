@@ -1,4 +1,4 @@
-<!-- build: 2026-07-31T06:44:48Z -->
+<!-- build: 2026-07-31T11:06:47Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -203,15 +203,8 @@
 /* Winner overlay */
 .won-winner { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 900; align-items: center; justify-content: center; }
 .won-winner.is-visible { display: flex; }
-.won-winner-card { background: var(--bg); border-radius: 18px; padding: 36px 40px; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.3); max-width: 380px; width: 90%; position: relative; }
-.won-confetti { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
-.won-confetti-piece { position: absolute; bottom: -22px; width: 9px; height: 14px; border-radius: 2px; opacity: 0; animation: won-confetti-burst 2.4s cubic-bezier(.16,.78,.3,1) forwards; }
-@keyframes won-confetti-burst {
-  0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(0deg) scale(.85); }
-  10% { opacity: 1; }
-  48% { opacity: 1; transform: translate3d(var(--won-drift), var(--won-rise), 0) rotate(calc(var(--won-spin) * .58)) scale(1); }
-  100% { opacity: 0; transform: translate3d(calc(var(--won-drift) * 1.35), 105vh, 0) rotate(var(--won-spin)) scale(.9); }
-}
+.won-winner-card { background: var(--bg); border-radius: 18px; padding: 36px 40px; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.3); max-width: 380px; width: 90%; position: relative; z-index: 1; }
+.won-confetti { position: absolute; inset: 0; pointer-events: none; width: 100%; height: 100%; }
 .won-winner-label { font-size: 12px; font-weight: 700; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; }
 .won-winner-name { font-size: clamp(1.8rem, 7vw, 2.8rem); font-weight: 800; color: var(--text); margin-bottom: 24px; line-height: 1.1; word-break: break-word; }
 .won-winner-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
@@ -384,7 +377,7 @@
 
 <!-- Winner overlay -->
 <div class="won-winner" id="won-winner" role="dialog" aria-modal="true" aria-labelledby="won-winner-name" tabindex="-1">
-  <div class="won-confetti" id="won-confetti" aria-hidden="true"></div>
+  <canvas class="won-confetti" id="won-confetti" aria-hidden="true"></canvas>
   <div class="won-winner-card">
     <div class="won-winner-label">&#127881; Winner</div>
     <div class="won-winner-name" id="won-winner-name"></div>
@@ -604,6 +597,7 @@ const WORDINEER_WON = (() => {
   let audioCtx = null;
   let lastTickIndex = -1;
   let lastTickAt = 0;
+  let confettiRafId = null;
 
   // DOM refs
   let canvas, ctx, spinBtn, textarea, nameCountEl;
@@ -714,59 +708,156 @@ const WORDINEER_WON = (() => {
     playTone(720, 0.035, 'triangle', 0.035, 0);
   }
 
+  function scheduleClap(ac, startTime, gainValue) {
+    const duration = 0.09;
+    const samples = Math.floor(ac.sampleRate * duration);
+    const buf = ac.createBuffer(1, samples, ac.sampleRate);
+    const data = buf.getChannelData(0);
+    for (let i = 0; i < samples; i++) data[i] = Math.random() * 2 - 1;
+    const source = ac.createBufferSource();
+    const filter = ac.createBiquadFilter();
+    const gain = ac.createGain();
+    source.buffer = buf;
+    filter.type = 'bandpass';
+    filter.frequency.value = 2200;
+    filter.Q.value = 2.5;
+    gain.gain.setValueAtTime(0.0001, startTime);
+    gain.gain.exponentialRampToValueAtTime(gainValue, startTime + 0.002);
+    gain.gain.exponentialRampToValueAtTime(0.0001, startTime + 0.07);
+    source.connect(filter);
+    filter.connect(gain);
+    gain.connect(ac.destination);
+    source.start(startTime);
+    source.stop(startTime + duration);
+  }
+
   function playCheer() {
     const ac = ensureAudio();
     if (!ac) return;
-    const duration = 1.9;
+
+    // Clapping layer: 6 bursts spaced 280ms apart
+    for (let i = 0; i < 6; i++) {
+      const t = ac.currentTime + 0.05 + i * 0.28;
+      const gainValue = 0.12 * Math.pow(0.65, i);
+      scheduleClap(ac, t, gainValue);
+    }
+
+    // Crowd roar: 5 frequency bands, slower attack, longer duration
+    const duration = 2.5;
     const samples = Math.floor(ac.sampleRate * duration);
     const buffer = ac.createBuffer(1, samples, ac.sampleRate);
     const data = buffer.getChannelData(0);
     for (let i = 0; i < samples; i++) {
       const t = i / samples;
-      const attack = Math.min(1, t / 0.12);
-      const tail = Math.pow(1 - t, 0.42);
-      const wave = Math.sin(i * 0.031) * 0.18 + Math.sin(i * 0.047) * 0.12;
-      data[i] = ((Math.random() * 2 - 1) * 0.7 + wave) * attack * tail * 0.38;
+      const attack = Math.min(1, t / 0.18);
+      const tail = Math.pow(1 - t, 0.4);
+      data[i] = (Math.random() * 2 - 1) * attack * tail * 0.4;
     }
 
-    [520, 780, 1160].forEach((freq, i) => {
+    const bands = [
+      { freq: 200,  Q: 0.5, gain: 0.08 },
+      { freq: 500,  Q: 0.6, gain: 0.06 },
+      { freq: 1000, Q: 0.7, gain: 0.05 },
+      { freq: 2500, Q: 0.9, gain: 0.035 },
+      { freq: 5000, Q: 1.2, gain: 0.02 }
+    ];
+
+    const now = ac.currentTime;
+    bands.forEach((b, i) => {
       const source = ac.createBufferSource();
-      const band = ac.createBiquadFilter();
+      const filter = ac.createBiquadFilter();
       const gain = ac.createGain();
       source.buffer = buffer;
-      band.type = 'bandpass';
-      band.frequency.value = freq;
-      band.Q.value = i === 0 ? 0.7 : 1.1;
-      gain.gain.setValueAtTime(0.0001, ac.currentTime);
-      gain.gain.exponentialRampToValueAtTime(i === 0 ? 0.09 : 0.045, ac.currentTime + 0.12);
-      gain.gain.exponentialRampToValueAtTime(0.0001, ac.currentTime + duration);
-      source.connect(band);
-      band.connect(gain);
+      filter.type = 'bandpass';
+      filter.frequency.value = b.freq;
+      filter.Q.value = b.Q;
+      gain.gain.setValueAtTime(0.0001, now);
+      gain.gain.exponentialRampToValueAtTime(b.gain, now + 0.18);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+      source.connect(filter);
+      filter.connect(gain);
       gain.connect(ac.destination);
-      source.start(ac.currentTime + i * 0.035);
+      source.start(now + i * 0.02);
+      source.stop(now + duration);
     });
 
+    // Fanfare tones (unchanged)
     playTone(392, 0.14, 'triangle', 0.03, 0.02);
     playTone(523.25, 0.16, 'triangle', 0.028, 0.16);
     playTone(659.25, 0.22, 'triangle', 0.03, 0.31);
   }
 
   function launchConfetti() {
-    if (!confettiEl) return;
-    const colors = ['#5B46D4', '#E53E3E', '#38A169', '#D69E2E', '#3182CE', '#D53F8C', '#2C7A7B'];
-    confettiEl.innerHTML = '';
-    for (let i = 0; i < 70; i++) {
-      const piece = document.createElement('span');
-      piece.className = 'won-confetti-piece';
-      piece.style.left = Math.random() * 100 + '%';
-      piece.style.background = colors[i % colors.length];
-      piece.style.animationDelay = Math.random() * 0.38 + 's';
-      piece.style.setProperty('--won-drift', (Math.random() * 320 - 160) + 'px');
-      piece.style.setProperty('--won-rise', -(Math.random() * 42 + 38) + 'vh');
-      piece.style.setProperty('--won-spin', (Math.random() * 900 - 450) + 'deg');
-      confettiEl.appendChild(piece);
+    const cvs = confettiEl;
+    if (!cvs || !cvs.getContext) return;
+    if (confettiRafId) { cancelAnimationFrame(confettiRafId); confettiRafId = null; }
+
+    const dpr = window.devicePixelRatio || 1;
+    const W = window.innerWidth;
+    const H = window.innerHeight;
+    cvs.width = W * dpr;
+    cvs.height = H * dpr;
+    const cCtx = cvs.getContext('2d');
+    cCtx.scale(dpr, dpr);
+
+    const colors = ['#5B46D4','#E53E3E','#38A169','#D69E2E','#3182CE','#D53F8C','#2C7A7B','#FF6B35','#9B59B6'];
+    const pieces = [];
+    for (let i = 0; i < 120; i++) {
+      const roll = Math.random();
+      const shape = roll < 0.5 ? 'rect' : roll < 0.75 ? 'circle' : 'ribbon';
+      pieces.push({
+        x: Math.random() * W,
+        y: Math.random() * 20 - 20,
+        vx: (Math.random() - 0.5) * 8,
+        vy: -(Math.random() * 6 + 8),
+        rotation: Math.random() * Math.PI * 2,
+        spinRate: (Math.random() - 0.5) * 0.18,
+        shape,
+        w: shape === 'ribbon' ? (Math.random() * 2 + 3) : (Math.random() * 5 + 6),
+        h: shape === 'ribbon' ? (Math.random() * 6 + 14) : (Math.random() * 6 + 8),
+        r: Math.random() * 3 + 3,
+        color: colors[i % colors.length],
+        alpha: 1
+      });
     }
-    setTimeout(() => { confettiEl.innerHTML = ''; }, 2900);
+
+    const endTime = performance.now() + 3000;
+
+    function tick(now) {
+      cCtx.clearRect(0, 0, W, H);
+      let anyVisible = false;
+      pieces.forEach(p => {
+        p.vy += 0.35;
+        p.vx += (Math.random() - 0.5) * 0.04;
+        p.x += p.vx;
+        p.y += p.vy;
+        p.rotation += p.spinRate;
+        p.alpha = Math.max(0, 1 - Math.max(0, (p.y - H * 0.7) / (H * 0.3)));
+        if (p.alpha <= 0) return;
+        anyVisible = true;
+        cCtx.save();
+        cCtx.globalAlpha = p.alpha;
+        cCtx.fillStyle = p.color;
+        cCtx.translate(p.x, p.y);
+        cCtx.rotate(p.rotation);
+        if (p.shape === 'circle') {
+          cCtx.beginPath();
+          cCtx.arc(0, 0, p.r, 0, Math.PI * 2);
+          cCtx.fill();
+        } else {
+          cCtx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+        }
+        cCtx.restore();
+      });
+      if (anyVisible && now < endTime) {
+        confettiRafId = requestAnimationFrame(tick);
+      } else {
+        cCtx.clearRect(0, 0, W, H);
+        confettiRafId = null;
+      }
+    }
+
+    confettiRafId = requestAnimationFrame(tick);
   }
 
   // ─── Spin logic ────────────────────────────────────────────────
@@ -804,15 +895,17 @@ const WORDINEER_WON = (() => {
     const startTime = performance.now();
     const startAngleSaved = currentAngle;
 
+    const K = 6.2;
+    const easeK = 1 - Math.exp(-K);
+
     function spinEase(t) {
-      return 1 - Math.pow(1 - t, 4.25);
+      return (1 - Math.exp(-K * t)) / easeK;
     }
 
     function frame(now) {
       const elapsed = now - startTime;
       const t = Math.min(elapsed / duration, 1);
-      const wobble = t < 1 ? Math.sin(t * Math.PI * 18) * (1 - t) * 0.008 : 0;
-      currentAngle = startAngleSaved + totalRotation * spinEase(t) + wobble;
+      currentAngle = startAngleSaved + totalRotation * spinEase(t);
       drawWheel(currentAngle);
 
       const pointerAngle = normalizeAngle((-Math.PI / 2) - currentAngle);
@@ -822,46 +915,7 @@ const WORDINEER_WON = (() => {
       if (t < 1) {
         requestAnimationFrame(frame);
       } else {
-        settleWheel(startAngleSaved + totalRotation, sliceAngle, winnerName);
-      }
-    }
-
-    requestAnimationFrame(frame);
-  }
-
-  function settleWheel(finalAngle, sliceAngle, winnerName) {
-    const settleDuration = 1500;
-    const settleStart = performance.now();
-    const overshoot = Math.min(0.12, sliceAngle * 0.11) * (Math.random() < 0.5 ? -1 : 1);
-    const correction = -overshoot * 0.38;
-
-    function easeOutCubic(t) {
-      return 1 - Math.pow(1 - t, 3);
-    }
-
-    function easeInOutSine(t) {
-      return -(Math.cos(Math.PI * t) - 1) / 2;
-    }
-
-    function interpolate(a, b, t) {
-      return a + (b - a) * t;
-    }
-
-    function frame(now) {
-      const t = Math.min((now - settleStart) / settleDuration, 1);
-      if (t < 0.46) {
-        currentAngle = interpolate(finalAngle, finalAngle + overshoot, easeOutCubic(t / 0.46));
-      } else if (t < 0.78) {
-        currentAngle = interpolate(finalAngle + overshoot, finalAngle + correction, easeInOutSine((t - 0.46) / 0.32));
-      } else {
-        currentAngle = interpolate(finalAngle + correction, finalAngle, easeOutCubic((t - 0.78) / 0.22));
-      }
-      drawWheel(currentAngle);
-
-      if (t < 1) {
-        requestAnimationFrame(frame);
-      } else {
-        currentAngle = finalAngle;
+        currentAngle = startAngleSaved + totalRotation;
         drawWheel(currentAngle);
         finishSpin(winnerName);
       }
@@ -904,6 +958,7 @@ const WORDINEER_WON = (() => {
 
   function closeWinner() {
     winnerEl.classList.remove('is-visible');
+    if (confettiRafId) { cancelAnimationFrame(confettiRafId); confettiRafId = null; }
   }
 
   function removeAndSpin() {
