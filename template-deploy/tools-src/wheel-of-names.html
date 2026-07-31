@@ -494,6 +494,7 @@ const WORDINEER_WON = (() => {
       { freq: 5000, Q: 1.2, gain: 0.02 }
     ];
 
+    const now = ac.currentTime;
     bands.forEach((b, i) => {
       const source = ac.createBufferSource();
       const filter = ac.createBiquadFilter();
@@ -502,13 +503,14 @@ const WORDINEER_WON = (() => {
       filter.type = 'bandpass';
       filter.frequency.value = b.freq;
       filter.Q.value = b.Q;
-      gain.gain.setValueAtTime(0.0001, ac.currentTime);
-      gain.gain.exponentialRampToValueAtTime(b.gain, ac.currentTime + 0.18);
-      gain.gain.exponentialRampToValueAtTime(0.0001, ac.currentTime + duration);
+      gain.gain.setValueAtTime(0.0001, now);
+      gain.gain.exponentialRampToValueAtTime(b.gain, now + 0.18);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
       source.connect(filter);
       filter.connect(gain);
       gain.connect(ac.destination);
-      source.start(ac.currentTime + i * 0.02);
+      source.start(now + i * 0.02);
+      source.stop(now + duration);
     });
 
     // Fanfare tones (unchanged)
