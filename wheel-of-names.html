@@ -1,4 +1,4 @@
-<!-- build: 2026-07-31T06:38:25Z -->
+<!-- build: 2026-07-31T06:44:48Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -205,11 +205,12 @@
 .won-winner.is-visible { display: flex; }
 .won-winner-card { background: var(--bg); border-radius: 18px; padding: 36px 40px; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.3); max-width: 380px; width: 90%; position: relative; }
 .won-confetti { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
-.won-confetti-piece { position: absolute; top: -18px; width: 9px; height: 14px; border-radius: 2px; opacity: 0; animation: won-confetti-fall 1.7s cubic-bezier(.18,.72,.28,1) forwards; }
-@keyframes won-confetti-fall {
-  0% { opacity: 0; transform: translate3d(0, -24px, 0) rotate(0deg); }
-  12% { opacity: 1; }
-  100% { opacity: 0; transform: translate3d(var(--won-drift), 108vh, 0) rotate(var(--won-spin)); }
+.won-confetti-piece { position: absolute; bottom: -22px; width: 9px; height: 14px; border-radius: 2px; opacity: 0; animation: won-confetti-burst 2.4s cubic-bezier(.16,.78,.3,1) forwards; }
+@keyframes won-confetti-burst {
+  0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(0deg) scale(.85); }
+  10% { opacity: 1; }
+  48% { opacity: 1; transform: translate3d(var(--won-drift), var(--won-rise), 0) rotate(calc(var(--won-spin) * .58)) scale(1); }
+  100% { opacity: 0; transform: translate3d(calc(var(--won-drift) * 1.35), 105vh, 0) rotate(var(--won-spin)) scale(.9); }
 }
 .won-winner-label { font-size: 12px; font-weight: 700; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; }
 .won-winner-name { font-size: clamp(1.8rem, 7vw, 2.8rem); font-weight: 800; color: var(--text); margin-bottom: 24px; line-height: 1.1; word-break: break-word; }
@@ -716,34 +717,38 @@ const WORDINEER_WON = (() => {
   function playCheer() {
     const ac = ensureAudio();
     if (!ac) return;
-    const duration = 1.15;
+    const duration = 1.9;
     const samples = Math.floor(ac.sampleRate * duration);
     const buffer = ac.createBuffer(1, samples, ac.sampleRate);
     const data = buffer.getChannelData(0);
     for (let i = 0; i < samples; i++) {
       const t = i / samples;
-      const swell = Math.sin(Math.PI * t);
-      data[i] = (Math.random() * 2 - 1) * swell * 0.32;
+      const attack = Math.min(1, t / 0.12);
+      const tail = Math.pow(1 - t, 0.42);
+      const wave = Math.sin(i * 0.031) * 0.18 + Math.sin(i * 0.047) * 0.12;
+      data[i] = ((Math.random() * 2 - 1) * 0.7 + wave) * attack * tail * 0.38;
     }
 
-    const source = ac.createBufferSource();
-    const band = ac.createBiquadFilter();
-    const gain = ac.createGain();
-    source.buffer = buffer;
-    band.type = 'bandpass';
-    band.frequency.value = 1200;
-    band.Q.value = 0.75;
-    gain.gain.setValueAtTime(0.0001, ac.currentTime);
-    gain.gain.exponentialRampToValueAtTime(0.08, ac.currentTime + 0.12);
-    gain.gain.exponentialRampToValueAtTime(0.0001, ac.currentTime + duration);
-    source.connect(band);
-    band.connect(gain);
-    gain.connect(ac.destination);
-    source.start();
+    [520, 780, 1160].forEach((freq, i) => {
+      const source = ac.createBufferSource();
+      const band = ac.createBiquadFilter();
+      const gain = ac.createGain();
+      source.buffer = buffer;
+      band.type = 'bandpass';
+      band.frequency.value = freq;
+      band.Q.value = i === 0 ? 0.7 : 1.1;
+      gain.gain.setValueAtTime(0.0001, ac.currentTime);
+      gain.gain.exponentialRampToValueAtTime(i === 0 ? 0.09 : 0.045, ac.currentTime + 0.12);
+      gain.gain.exponentialRampToValueAtTime(0.0001, ac.currentTime + duration);
+      source.connect(band);
+      band.connect(gain);
+      gain.connect(ac.destination);
+      source.start(ac.currentTime + i * 0.035);
+    });
 
-    playTone(392, 0.18, 'triangle', 0.04, 0.05);
-    playTone(523.25, 0.2, 'triangle', 0.04, 0.22);
-    playTone(659.25, 0.28, 'triangle', 0.045, 0.4);
+    playTone(392, 0.14, 'triangle', 0.03, 0.02);
+    playTone(523.25, 0.16, 'triangle', 0.028, 0.16);
+    playTone(659.25, 0.22, 'triangle', 0.03, 0.31);
   }
 
   function launchConfetti() {
@@ -755,12 +760,13 @@ const WORDINEER_WON = (() => {
       piece.className = 'won-confetti-piece';
       piece.style.left = Math.random() * 100 + '%';
       piece.style.background = colors[i % colors.length];
-      piece.style.animationDelay = Math.random() * 0.28 + 's';
-      piece.style.setProperty('--won-drift', (Math.random() * 260 - 130) + 'px');
-      piece.style.setProperty('--won-spin', (Math.random() * 760 - 380) + 'deg');
+      piece.style.animationDelay = Math.random() * 0.38 + 's';
+      piece.style.setProperty('--won-drift', (Math.random() * 320 - 160) + 'px');
+      piece.style.setProperty('--won-rise', -(Math.random() * 42 + 38) + 'vh');
+      piece.style.setProperty('--won-spin', (Math.random() * 900 - 450) + 'deg');
       confettiEl.appendChild(piece);
     }
-    setTimeout(() => { confettiEl.innerHTML = ''; }, 2200);
+    setTimeout(() => { confettiEl.innerHTML = ''; }, 2900);
   }
 
   // ─── Spin logic ────────────────────────────────────────────────
@@ -824,14 +830,32 @@ const WORDINEER_WON = (() => {
   }
 
   function settleWheel(finalAngle, sliceAngle, winnerName) {
-    const settleDuration = 850;
+    const settleDuration = 1500;
     const settleStart = performance.now();
-    const amplitude = Math.min(0.18, sliceAngle * 0.16);
+    const overshoot = Math.min(0.12, sliceAngle * 0.11) * (Math.random() < 0.5 ? -1 : 1);
+    const correction = -overshoot * 0.38;
+
+    function easeOutCubic(t) {
+      return 1 - Math.pow(1 - t, 3);
+    }
+
+    function easeInOutSine(t) {
+      return -(Math.cos(Math.PI * t) - 1) / 2;
+    }
+
+    function interpolate(a, b, t) {
+      return a + (b - a) * t;
+    }
 
     function frame(now) {
       const t = Math.min((now - settleStart) / settleDuration, 1);
-      const decay = Math.pow(1 - t, 2);
-      currentAngle = finalAngle + Math.sin(t * Math.PI * 5.5) * amplitude * decay;
+      if (t < 0.46) {
+        currentAngle = interpolate(finalAngle, finalAngle + overshoot, easeOutCubic(t / 0.46));
+      } else if (t < 0.78) {
+        currentAngle = interpolate(finalAngle + overshoot, finalAngle + correction, easeInOutSine((t - 0.46) / 0.32));
+      } else {
+        currentAngle = interpolate(finalAngle + correction, finalAngle, easeOutCubic((t - 0.78) / 0.22));
+      }
       drawWheel(currentAngle);
 
       if (t < 1) {
