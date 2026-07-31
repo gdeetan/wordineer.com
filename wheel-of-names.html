@@ -1,4 +1,4 @@
-<!-- build: 2026-07-31T06:29:08Z -->
+<!-- build: 2026-07-31T06:38:25Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -204,6 +204,13 @@
 .won-winner { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 900; align-items: center; justify-content: center; }
 .won-winner.is-visible { display: flex; }
 .won-winner-card { background: var(--bg); border-radius: 18px; padding: 36px 40px; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.3); max-width: 380px; width: 90%; position: relative; }
+.won-confetti { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.won-confetti-piece { position: absolute; top: -18px; width: 9px; height: 14px; border-radius: 2px; opacity: 0; animation: won-confetti-fall 1.7s cubic-bezier(.18,.72,.28,1) forwards; }
+@keyframes won-confetti-fall {
+  0% { opacity: 0; transform: translate3d(0, -24px, 0) rotate(0deg); }
+  12% { opacity: 1; }
+  100% { opacity: 0; transform: translate3d(var(--won-drift), 108vh, 0) rotate(var(--won-spin)); }
+}
 .won-winner-label { font-size: 12px; font-weight: 700; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; }
 .won-winner-name { font-size: clamp(1.8rem, 7vw, 2.8rem); font-weight: 800; color: var(--text); margin-bottom: 24px; line-height: 1.1; word-break: break-word; }
 .won-winner-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
@@ -376,6 +383,7 @@
 
 <!-- Winner overlay -->
 <div class="won-winner" id="won-winner" role="dialog" aria-modal="true" aria-labelledby="won-winner-name" tabindex="-1">
+  <div class="won-confetti" id="won-confetti" aria-hidden="true"></div>
   <div class="won-winner-card">
     <div class="won-winner-label">&#127881; Winner</div>
     <div class="won-winner-name" id="won-winner-name"></div>
@@ -600,7 +608,7 @@ const WORDINEER_WON = (() => {
   let canvas, ctx, spinBtn, textarea, nameCountEl;
   let rrStatusEl, shareInput, shareCopyBtn;
   let winnerEl, winnerNameEl, winnerSpinAgainBtn, winnerRemoveBtn, winnerCloseBtn;
-  let historyWrap, historyList;
+  let confettiEl, historyWrap, historyList;
 
   // ─── Canvas drawing ─────────────────────────────────────────────
   function drawWheel(angle) {
@@ -705,11 +713,54 @@ const WORDINEER_WON = (() => {
     playTone(720, 0.035, 'triangle', 0.035, 0);
   }
 
-  function playCelebration() {
-    playTone(523.25, 0.12, 'sine', 0.055, 0);
-    playTone(659.25, 0.12, 'sine', 0.055, 0.1);
-    playTone(783.99, 0.16, 'sine', 0.06, 0.2);
-    playTone(1046.5, 0.28, 'triangle', 0.045, 0.34);
+  function playCheer() {
+    const ac = ensureAudio();
+    if (!ac) return;
+    const duration = 1.15;
+    const samples = Math.floor(ac.sampleRate * duration);
+    const buffer = ac.createBuffer(1, samples, ac.sampleRate);
+    const data = buffer.getChannelData(0);
+    for (let i = 0; i < samples; i++) {
+      const t = i / samples;
+      const swell = Math.sin(Math.PI * t);
+      data[i] = (Math.random() * 2 - 1) * swell * 0.32;
+    }
+
+    const source = ac.createBufferSource();
+    const band = ac.createBiquadFilter();
+    const gain = ac.createGain();
+    source.buffer = buffer;
+    band.type = 'bandpass';
+    band.frequency.value = 1200;
+    band.Q.value = 0.75;
+    gain.gain.setValueAtTime(0.0001, ac.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.08, ac.currentTime + 0.12);
+    gain.gain.exponentialRampToValueAtTime(0.0001, ac.currentTime + duration);
+    source.connect(band);
+    band.connect(gain);
+    gain.connect(ac.destination);
+    source.start();
+
+    playTone(392, 0.18, 'triangle', 0.04, 0.05);
+    playTone(523.25, 0.2, 'triangle', 0.04, 0.22);
+    playTone(659.25, 0.28, 'triangle', 0.045, 0.4);
+  }
+
+  function launchConfetti() {
+    if (!confettiEl) return;
+    const colors = ['#5B46D4', '#E53E3E', '#38A169', '#D69E2E', '#3182CE', '#D53F8C', '#2C7A7B'];
+    confettiEl.innerHTML = '';
+    for (let i = 0; i < 70; i++) {
+      const piece = document.createElement('span');
+      piece.className = 'won-confetti-piece';
+      piece.style.left = Math.random() * 100 + '%';
+      piece.style.background = colors[i % colors.length];
+      piece.style.animationDelay = Math.random() * 0.28 + 's';
+      piece.style.setProperty('--won-drift', (Math.random() * 260 - 130) + 'px');
+      piece.style.setProperty('--won-spin', (Math.random() * 760 - 380) + 'deg');
+      confettiEl.appendChild(piece);
+    }
+    setTimeout(() => { confettiEl.innerHTML = ''; }, 2200);
   }
 
   // ─── Spin logic ────────────────────────────────────────────────
@@ -735,7 +786,8 @@ const WORDINEER_WON = (() => {
     // Target angle: winner segment centered under the top pointer.
     const count = names.length;
     const sliceAngle = (Math.PI * 2) / count;
-    const winnerCenter = globalIdx * sliceAngle + sliceAngle / 2;
+    const winnerOffset = (Math.random() - 0.5) * sliceAngle * 0.58;
+    const winnerCenter = globalIdx * sliceAngle + sliceAngle / 2 + winnerOffset;
     const startAngle = normalizeAngle(currentAngle);
     const targetAngle = normalizeAngle((-Math.PI / 2) - winnerCenter);
     const deltaToTarget = normalizeAngle(targetAngle - startAngle);
@@ -764,32 +816,57 @@ const WORDINEER_WON = (() => {
       if (t < 1) {
         requestAnimationFrame(frame);
       } else {
-        currentAngle = startAngleSaved + totalRotation;
-        drawWheel(currentAngle);
-        spinning = false;
-        spinBtn.disabled = false;
-        showWinner(winnerName);
-
-        // Update round robin pool
-        if (mode === 'rr') {
-          rrPool = rrPool.filter(n => n !== winnerName);
-          updateRRStatus();
-          if (rrPool.length === 0) {
-            // All picked — reshuffle for next round
-            rrPool = [...names];
-            updateRRStatus();
-            showToast('Everyone picked! Starting new round.');
-          }
-        }
-
-        // History
-        history.unshift(winnerName);
-        if (history.length > 20) history.length = 20;
-        updateHistory();
+        settleWheel(startAngleSaved + totalRotation, sliceAngle, winnerName);
       }
     }
 
     requestAnimationFrame(frame);
+  }
+
+  function settleWheel(finalAngle, sliceAngle, winnerName) {
+    const settleDuration = 850;
+    const settleStart = performance.now();
+    const amplitude = Math.min(0.18, sliceAngle * 0.16);
+
+    function frame(now) {
+      const t = Math.min((now - settleStart) / settleDuration, 1);
+      const decay = Math.pow(1 - t, 2);
+      currentAngle = finalAngle + Math.sin(t * Math.PI * 5.5) * amplitude * decay;
+      drawWheel(currentAngle);
+
+      if (t < 1) {
+        requestAnimationFrame(frame);
+      } else {
+        currentAngle = finalAngle;
+        drawWheel(currentAngle);
+        finishSpin(winnerName);
+      }
+    }
+
+    requestAnimationFrame(frame);
+  }
+
+  function finishSpin(winnerName) {
+    spinning = false;
+    spinBtn.disabled = false;
+    showWinner(winnerName);
+
+    // Update round robin pool
+    if (mode === 'rr') {
+      rrPool = rrPool.filter(n => n !== winnerName);
+      updateRRStatus();
+      if (rrPool.length === 0) {
+        // All picked — reshuffle for next round
+        rrPool = [...names];
+        updateRRStatus();
+        showToast('Everyone picked! Starting new round.');
+      }
+    }
+
+    // History
+    history.unshift(winnerName);
+    if (history.length > 20) history.length = 20;
+    updateHistory();
   }
 
   // ─── Winner overlay ────────────────────────────────────────────
@@ -797,7 +874,8 @@ const WORDINEER_WON = (() => {
     winnerNameEl.textContent = name;
     winnerEl.classList.add('is-visible');
     winnerEl.focus();
-    playCelebration();
+    launchConfetti();
+    playCheer();
   }
 
   function closeWinner() {
@@ -928,6 +1006,7 @@ const WORDINEER_WON = (() => {
     winnerSpinAgainBtn = document.getElementById('won-winner-spin-again');
     winnerRemoveBtn    = document.getElementById('won-winner-remove');
     winnerCloseBtn     = document.getElementById('won-winner-close');
+    confettiEl   = document.getElementById('won-confetti');
     historyWrap  = document.getElementById('won-history-wrap');
     historyList  = document.getElementById('won-history-list');
 
