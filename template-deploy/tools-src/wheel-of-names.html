@@ -12,12 +12,12 @@
 <!-- SLOT:meta -->
 <title>Wheel of Names — Free Online Name Picker Spinner | Wordineer</title>
 <meta name="description" content="Free online wheel of names spinner. Paste your class list, spin to pick a random name. Round robin mode, shareable URL, no account needed.">
-<link rel="canonical" href="https://wordineer.com/wheel-of-names/">
+<link rel="canonical" href="https://wordineer.com/wheel-of-names">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Wordineer">
 <meta property="og:title" content="Wheel of Names | Wordineer">
 <meta property="og:description" content="Spin a name picker wheel. Round robin, shareable URL, paste from spreadsheet — free, no account.">
-<meta property="og:url" content="https://wordineer.com/wheel-of-names/">
+<meta property="og:url" content="https://wordineer.com/wheel-of-names">
 <meta property="og:image" content="https://wordineer.com/og-image.png">
 <script type="application/ld+json">
 {
@@ -57,7 +57,7 @@
   "@context": "https://schema.org",
   "@type": "WebApplication",
   "name": "Wheel of Names",
-  "url": "https://wordineer.com/wheel-of-names/",
+  "url": "https://wordineer.com/wheel-of-names",
   "applicationCategory": "UtilityApplication",
   "operatingSystem": "Any",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
@@ -82,9 +82,10 @@
 .won-layout { display: flex; gap: 24px; flex-direction: column; }
 
 /* Canvas spinner */
-.won-canvas-wrap { position: relative; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+.won-canvas-wrap { position: relative; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.won-wheel-stage { position: relative; display: inline-flex; justify-content: center; padding-top: 32px; }
 .won-canvas { border-radius: 50%; display: block; cursor: pointer; }
-.won-pointer { width: 0; height: 0; border-left: 14px solid transparent; border-right: 14px solid transparent; border-top: 28px solid #1a1a2e; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3)); }
+.won-pointer { position: absolute; top: 0; left: 50%; z-index: 2; width: 0; height: 0; transform: translateX(-50%); border-left: 17px solid transparent; border-right: 17px solid transparent; border-top: 32px solid #1a1a2e; filter: drop-shadow(0 3px 5px rgba(0,0,0,0.28)); }
 
 /* Spin button */
 .won-spin-btn { padding: 12px 36px; background: var(--brand); color: white; border: none; border-radius: 10px; font-size: 1rem; font-weight: 700; font-family: inherit; cursor: pointer; transition: background 0.15s, transform 0.1s; }
@@ -118,6 +119,14 @@
 .won-winner { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 900; align-items: center; justify-content: center; }
 .won-winner.is-visible { display: flex; }
 .won-winner-card { background: var(--bg); border-radius: 18px; padding: 36px 40px; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.3); max-width: 380px; width: 90%; position: relative; }
+.won-confetti { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.won-confetti-piece { position: absolute; bottom: -22px; width: 9px; height: 14px; border-radius: 2px; opacity: 0; animation: won-confetti-burst 2.4s cubic-bezier(.16,.78,.3,1) forwards; }
+@keyframes won-confetti-burst {
+  0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(0deg) scale(.85); }
+  10% { opacity: 1; }
+  48% { opacity: 1; transform: translate3d(var(--won-drift), var(--won-rise), 0) rotate(calc(var(--won-spin) * .58)) scale(1); }
+  100% { opacity: 0; transform: translate3d(calc(var(--won-drift) * 1.35), 105vh, 0) rotate(var(--won-spin)) scale(.9); }
+}
 .won-winner-label { font-size: 12px; font-weight: 700; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; }
 .won-winner-name { font-size: clamp(1.8rem, 7vw, 2.8rem); font-weight: 800; color: var(--text); margin-bottom: 24px; line-height: 1.1; word-break: break-word; }
 .won-winner-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
@@ -172,8 +181,10 @@
 
     <!-- Canvas spinner -->
     <div class="won-canvas-wrap">
-      <canvas class="won-canvas" id="won-canvas" width="360" height="360" aria-label="Spinning name wheel"></canvas>
-      <div class="won-pointer" id="won-pointer"></div>
+      <div class="won-wheel-stage">
+        <div class="won-pointer" id="won-pointer"></div>
+        <canvas class="won-canvas" id="won-canvas" width="360" height="360" aria-label="Spinning name wheel"></canvas>
+      </div>
       <button class="won-spin-btn" id="won-spin-btn" type="button">Spin the wheel</button>
       <div class="won-kbd">Press <kbd>Space</kbd> or <kbd>Enter</kbd></div>
     </div>
@@ -214,6 +225,7 @@
 
 <!-- Winner overlay -->
 <div class="won-winner" id="won-winner" role="dialog" aria-modal="true" aria-labelledby="won-winner-name" tabindex="-1">
+  <div class="won-confetti" id="won-confetti" aria-hidden="true"></div>
   <div class="won-winner-card">
     <div class="won-winner-label">&#127881; Winner</div>
     <div class="won-winner-name" id="won-winner-name"></div>
@@ -321,12 +333,15 @@ const WORDINEER_WON = (() => {
   let currentAngle = 0;     // radians, current wheel rotation
   let history = [];         // array of picked names
   let cssSize = 360;        // canvas size in CSS pixels
+  let audioCtx = null;
+  let lastTickIndex = -1;
+  let lastTickAt = 0;
 
   // DOM refs
   let canvas, ctx, spinBtn, textarea, nameCountEl;
   let rrStatusEl, shareInput, shareCopyBtn;
   let winnerEl, winnerNameEl, winnerSpinAgainBtn, winnerRemoveBtn, winnerCloseBtn;
-  let historyWrap, historyList;
+  let confettiEl, historyWrap, historyList;
 
   // ─── Canvas drawing ─────────────────────────────────────────────
   function drawWheel(angle) {
@@ -376,11 +391,11 @@ const WORDINEER_WON = (() => {
       ctx.rotate(start + sliceAngle / 2);
       ctx.textAlign = 'right';
       ctx.fillStyle = 'white';
-      const fontSize = count > 12 ? 10 : count > 6 ? 12 : 14;
+      const fontSize = count > 20 ? 12 : count > 12 ? 14 : count > 6 ? 16 : 18;
       ctx.font = 'bold ' + fontSize + 'px sans-serif';
-      const maxLen = 14;
+      const maxLen = count > 20 ? 10 : count > 12 ? 12 : 16;
       const label = name.length > maxLen ? name.slice(0, maxLen) + '…' : name;
-      ctx.fillText(label, r - 10, 4);
+      ctx.fillText(label, r - 14, 5);
       ctx.restore();
     });
 
@@ -394,6 +409,98 @@ const WORDINEER_WON = (() => {
     ctx.stroke();
   }
 
+  function normalizeAngle(angle) {
+    const full = Math.PI * 2;
+    return ((angle % full) + full) % full;
+  }
+
+  function ensureAudio() {
+    const AudioCtor = window.AudioContext || window.webkitAudioContext;
+    if (!AudioCtor) return null;
+    if (!audioCtx) audioCtx = new AudioCtor();
+    if (audioCtx.state === 'suspended') audioCtx.resume();
+    return audioCtx;
+  }
+
+  function playTone(freq, duration, type, gainValue, delay) {
+    const ac = ensureAudio();
+    if (!ac) return;
+    const start = ac.currentTime + (delay || 0);
+    const osc = ac.createOscillator();
+    const gain = ac.createGain();
+    osc.type = type || 'sine';
+    osc.frequency.setValueAtTime(freq, start);
+    gain.gain.setValueAtTime(0.0001, start);
+    gain.gain.exponentialRampToValueAtTime(gainValue, start + 0.015);
+    gain.gain.exponentialRampToValueAtTime(0.0001, start + duration);
+    osc.connect(gain);
+    gain.connect(ac.destination);
+    osc.start(start);
+    osc.stop(start + duration + 0.02);
+  }
+
+  function playTick(now, index) {
+    if (index === lastTickIndex || now - lastTickAt < 38) return;
+    lastTickIndex = index;
+    lastTickAt = now;
+    playTone(720, 0.035, 'triangle', 0.035, 0);
+  }
+
+  function playCheer() {
+    const ac = ensureAudio();
+    if (!ac) return;
+    const duration = 1.9;
+    const samples = Math.floor(ac.sampleRate * duration);
+    const buffer = ac.createBuffer(1, samples, ac.sampleRate);
+    const data = buffer.getChannelData(0);
+    for (let i = 0; i < samples; i++) {
+      const t = i / samples;
+      const attack = Math.min(1, t / 0.12);
+      const tail = Math.pow(1 - t, 0.42);
+      const wave = Math.sin(i * 0.031) * 0.18 + Math.sin(i * 0.047) * 0.12;
+      data[i] = ((Math.random() * 2 - 1) * 0.7 + wave) * attack * tail * 0.38;
+    }
+
+    [520, 780, 1160].forEach((freq, i) => {
+      const source = ac.createBufferSource();
+      const band = ac.createBiquadFilter();
+      const gain = ac.createGain();
+      source.buffer = buffer;
+      band.type = 'bandpass';
+      band.frequency.value = freq;
+      band.Q.value = i === 0 ? 0.7 : 1.1;
+      gain.gain.setValueAtTime(0.0001, ac.currentTime);
+      gain.gain.exponentialRampToValueAtTime(i === 0 ? 0.09 : 0.045, ac.currentTime + 0.12);
+      gain.gain.exponentialRampToValueAtTime(0.0001, ac.currentTime + duration);
+      source.connect(band);
+      band.connect(gain);
+      gain.connect(ac.destination);
+      source.start(ac.currentTime + i * 0.035);
+    });
+
+    playTone(392, 0.14, 'triangle', 0.03, 0.02);
+    playTone(523.25, 0.16, 'triangle', 0.028, 0.16);
+    playTone(659.25, 0.22, 'triangle', 0.03, 0.31);
+  }
+
+  function launchConfetti() {
+    if (!confettiEl) return;
+    const colors = ['#5B46D4', '#E53E3E', '#38A169', '#D69E2E', '#3182CE', '#D53F8C', '#2C7A7B'];
+    confettiEl.innerHTML = '';
+    for (let i = 0; i < 70; i++) {
+      const piece = document.createElement('span');
+      piece.className = 'won-confetti-piece';
+      piece.style.left = Math.random() * 100 + '%';
+      piece.style.background = colors[i % colors.length];
+      piece.style.animationDelay = Math.random() * 0.38 + 's';
+      piece.style.setProperty('--won-drift', (Math.random() * 320 - 160) + 'px');
+      piece.style.setProperty('--won-rise', -(Math.random() * 42 + 38) + 'vh');
+      piece.style.setProperty('--won-spin', (Math.random() * 900 - 450) + 'deg');
+      confettiEl.appendChild(piece);
+    }
+    setTimeout(() => { confettiEl.innerHTML = ''; }, 2900);
+  }
+
   // ─── Spin logic ────────────────────────────────────────────────
   function spin() {
     if (spinning || names.length < 2) return;
@@ -403,6 +510,9 @@ const WORDINEER_WON = (() => {
 
     spinning = true;
     spinBtn.disabled = true;
+    ensureAudio();
+    lastTickIndex = -1;
+    lastTickAt = 0;
 
     // Pick winner index (within activeNames)
     const winnerIdx = Math.floor(Math.random() * activeNames.length);
@@ -411,61 +521,71 @@ const WORDINEER_WON = (() => {
     // Find the global index of the winner in names[]
     const globalIdx = names.indexOf(winnerName);
 
-    // Target angle: winner segment centered at top (pointing up = -PI/2)
+    // Target angle: winner segment centered under the top pointer.
     const count = names.length;
     const sliceAngle = (Math.PI * 2) / count;
-    const winnerCenter = globalIdx * sliceAngle + sliceAngle / 2;
-    // We want: currentAngle + winnerCenter = -Math.PI/2 + 2*PI*N (for some integer N)
-    // So: targetAngle = -Math.PI/2 - winnerCenter + 2*PI * (5 + random)
-    const extraSpins = 5 + Math.floor(Math.random() * 3);
-    const targetAngle = (-Math.PI / 2) - winnerCenter + Math.PI * 2 * extraSpins;
+    const winnerOffset = (Math.random() - 0.5) * sliceAngle * 0.58;
+    const winnerCenter = globalIdx * sliceAngle + sliceAngle / 2 + winnerOffset;
+    const startAngle = normalizeAngle(currentAngle);
+    const targetAngle = normalizeAngle((-Math.PI / 2) - winnerCenter);
+    const deltaToTarget = normalizeAngle(targetAngle - startAngle);
+    const extraSpins = 6 + Math.floor(Math.random() * 3);
+    const totalRotation = deltaToTarget + Math.PI * 2 * extraSpins;
 
-    // Normalize so we always spin forward
-    let startAngle = currentAngle % (Math.PI * 2);
-    const totalRotation = targetAngle - (startAngle - Math.PI * 2 * Math.floor(startAngle / (Math.PI * 2)));
-
-    const duration = 3500 + Math.random() * 1000; // 3.5-4.5s
+    const duration = 5200 + Math.random() * 1300;
     const startTime = performance.now();
     const startAngleSaved = currentAngle;
 
-    function easeOut(t) {
-      // Cubic ease-out
-      return 1 - Math.pow(1 - t, 3);
+    const K = 6.2;
+    const easeK = 1 - Math.exp(-K);
+
+    function spinEase(t) {
+      return (1 - Math.exp(-K * t)) / easeK;
     }
 
     function frame(now) {
       const elapsed = now - startTime;
       const t = Math.min(elapsed / duration, 1);
-      currentAngle = startAngleSaved + totalRotation * easeOut(t);
+      currentAngle = startAngleSaved + totalRotation * spinEase(t);
       drawWheel(currentAngle);
+
+      const pointerAngle = normalizeAngle((-Math.PI / 2) - currentAngle);
+      const pointerIndex = Math.floor(pointerAngle / sliceAngle);
+      playTick(now, pointerIndex);
 
       if (t < 1) {
         requestAnimationFrame(frame);
       } else {
-        spinning = false;
-        spinBtn.disabled = false;
-        showWinner(winnerName);
-
-        // Update round robin pool
-        if (mode === 'rr') {
-          rrPool = rrPool.filter(n => n !== winnerName);
-          updateRRStatus();
-          if (rrPool.length === 0) {
-            // All picked — reshuffle for next round
-            rrPool = [...names];
-            updateRRStatus();
-            showToast('Everyone picked! Starting new round.');
-          }
-        }
-
-        // History
-        history.unshift(winnerName);
-        if (history.length > 20) history.length = 20;
-        updateHistory();
+        currentAngle = startAngleSaved + totalRotation;
+        drawWheel(currentAngle);
+        finishSpin(winnerName);
       }
     }
 
     requestAnimationFrame(frame);
+  }
+
+  function finishSpin(winnerName) {
+    spinning = false;
+    spinBtn.disabled = false;
+    showWinner(winnerName);
+
+    // Update round robin pool
+    if (mode === 'rr') {
+      rrPool = rrPool.filter(n => n !== winnerName);
+      updateRRStatus();
+      if (rrPool.length === 0) {
+        // All picked — reshuffle for next round
+        rrPool = [...names];
+        updateRRStatus();
+        showToast('Everyone picked! Starting new round.');
+      }
+    }
+
+    // History
+    history.unshift(winnerName);
+    if (history.length > 20) history.length = 20;
+    updateHistory();
   }
 
   // ─── Winner overlay ────────────────────────────────────────────
@@ -473,6 +593,8 @@ const WORDINEER_WON = (() => {
     winnerNameEl.textContent = name;
     winnerEl.classList.add('is-visible');
     winnerEl.focus();
+    launchConfetti();
+    playCheer();
   }
 
   function closeWinner() {
@@ -603,6 +725,7 @@ const WORDINEER_WON = (() => {
     winnerSpinAgainBtn = document.getElementById('won-winner-spin-again');
     winnerRemoveBtn    = document.getElementById('won-winner-remove');
     winnerCloseBtn     = document.getElementById('won-winner-close');
+    confettiEl   = document.getElementById('won-confetti');
     historyWrap  = document.getElementById('won-history-wrap');
     historyList  = document.getElementById('won-history-list');
 
