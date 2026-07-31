@@ -1,4 +1,4 @@
-<!-- build: 2026-07-31T10:23:36Z -->
+<!-- build: 2026-07-31T10:30:43Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -708,38 +708,78 @@ const WORDINEER_WON = (() => {
     playTone(720, 0.035, 'triangle', 0.035, 0);
   }
 
+  function scheduleClap(ac, startTime, gainValue) {
+    const duration = 0.09;
+    const samples = Math.floor(ac.sampleRate * duration);
+    const buf = ac.createBuffer(1, samples, ac.sampleRate);
+    const data = buf.getChannelData(0);
+    for (let i = 0; i < samples; i++) data[i] = Math.random() * 2 - 1;
+    const source = ac.createBufferSource();
+    const filter = ac.createBiquadFilter();
+    const gain = ac.createGain();
+    source.buffer = buf;
+    filter.type = 'bandpass';
+    filter.frequency.value = 2200;
+    filter.Q.value = 2.5;
+    gain.gain.setValueAtTime(0.0001, startTime);
+    gain.gain.exponentialRampToValueAtTime(gainValue, startTime + 0.002);
+    gain.gain.exponentialRampToValueAtTime(0.0001, startTime + 0.07);
+    source.connect(filter);
+    filter.connect(gain);
+    gain.connect(ac.destination);
+    source.start(startTime);
+    source.stop(startTime + duration);
+  }
+
   function playCheer() {
     const ac = ensureAudio();
     if (!ac) return;
-    const duration = 1.9;
+
+    // Clapping layer: 6 bursts spaced 280ms apart
+    for (let i = 0; i < 6; i++) {
+      const t = ac.currentTime + 0.05 + i * 0.28;
+      const gainValue = 0.12 * Math.pow(0.65, i);
+      scheduleClap(ac, t, gainValue);
+    }
+
+    // Crowd roar: 5 frequency bands, slower attack, longer duration
+    const duration = 2.5;
     const samples = Math.floor(ac.sampleRate * duration);
     const buffer = ac.createBuffer(1, samples, ac.sampleRate);
     const data = buffer.getChannelData(0);
     for (let i = 0; i < samples; i++) {
       const t = i / samples;
-      const attack = Math.min(1, t / 0.12);
-      const tail = Math.pow(1 - t, 0.42);
-      const wave = Math.sin(i * 0.031) * 0.18 + Math.sin(i * 0.047) * 0.12;
-      data[i] = ((Math.random() * 2 - 1) * 0.7 + wave) * attack * tail * 0.38;
+      const attack = Math.min(1, t / 0.18);
+      const tail = Math.pow(1 - t, 0.4);
+      data[i] = (Math.random() * 2 - 1) * attack * tail * 0.4;
     }
 
-    [520, 780, 1160].forEach((freq, i) => {
+    const bands = [
+      { freq: 200,  Q: 0.5, gain: 0.08 },
+      { freq: 500,  Q: 0.6, gain: 0.06 },
+      { freq: 1000, Q: 0.7, gain: 0.05 },
+      { freq: 2500, Q: 0.9, gain: 0.035 },
+      { freq: 5000, Q: 1.2, gain: 0.02 }
+    ];
+
+    bands.forEach((b, i) => {
       const source = ac.createBufferSource();
-      const band = ac.createBiquadFilter();
+      const filter = ac.createBiquadFilter();
       const gain = ac.createGain();
       source.buffer = buffer;
-      band.type = 'bandpass';
-      band.frequency.value = freq;
-      band.Q.value = i === 0 ? 0.7 : 1.1;
+      filter.type = 'bandpass';
+      filter.frequency.value = b.freq;
+      filter.Q.value = b.Q;
       gain.gain.setValueAtTime(0.0001, ac.currentTime);
-      gain.gain.exponentialRampToValueAtTime(i === 0 ? 0.09 : 0.045, ac.currentTime + 0.12);
+      gain.gain.exponentialRampToValueAtTime(b.gain, ac.currentTime + 0.18);
       gain.gain.exponentialRampToValueAtTime(0.0001, ac.currentTime + duration);
-      source.connect(band);
-      band.connect(gain);
+      source.connect(filter);
+      filter.connect(gain);
       gain.connect(ac.destination);
-      source.start(ac.currentTime + i * 0.035);
+      source.start(ac.currentTime + i * 0.02);
     });
 
+    // Fanfare tones (unchanged)
     playTone(392, 0.14, 'triangle', 0.03, 0.02);
     playTone(523.25, 0.16, 'triangle', 0.028, 0.16);
     playTone(659.25, 0.22, 'triangle', 0.03, 0.31);
