@@ -1,4 +1,4 @@
-<!-- build: 2026-07-31T00:28:01Z -->
+<!-- build: 2026-07-31T06:29:08Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -167,9 +167,10 @@
 .won-layout { display: flex; gap: 24px; flex-direction: column; }
 
 /* Canvas spinner */
-.won-canvas-wrap { position: relative; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+.won-canvas-wrap { position: relative; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.won-wheel-stage { position: relative; display: inline-flex; justify-content: center; padding-top: 32px; }
 .won-canvas { border-radius: 50%; display: block; cursor: pointer; }
-.won-pointer { width: 0; height: 0; border-left: 14px solid transparent; border-right: 14px solid transparent; border-top: 28px solid #1a1a2e; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3)); }
+.won-pointer { position: absolute; top: 0; left: 50%; z-index: 2; width: 0; height: 0; transform: translateX(-50%); border-left: 17px solid transparent; border-right: 17px solid transparent; border-top: 32px solid #1a1a2e; filter: drop-shadow(0 3px 5px rgba(0,0,0,0.28)); }
 
 /* Spin button */
 .won-spin-btn { padding: 12px 36px; background: var(--brand); color: white; border: none; border-radius: 10px; font-size: 1rem; font-weight: 700; font-family: inherit; cursor: pointer; transition: background 0.15s, transform 0.1s; }
@@ -331,8 +332,10 @@
 
     <!-- Canvas spinner -->
     <div class="won-canvas-wrap">
-      <canvas class="won-canvas" id="won-canvas" width="360" height="360" aria-label="Spinning name wheel"></canvas>
-      <div class="won-pointer" id="won-pointer"></div>
+      <div class="won-wheel-stage">
+        <div class="won-pointer" id="won-pointer"></div>
+        <canvas class="won-canvas" id="won-canvas" width="360" height="360" aria-label="Spinning name wheel"></canvas>
+      </div>
       <button class="won-spin-btn" id="won-spin-btn" type="button">Spin the wheel</button>
       <div class="won-kbd">Press <kbd>Space</kbd> or <kbd>Enter</kbd></div>
     </div>
@@ -589,6 +592,9 @@ const WORDINEER_WON = (() => {
   let currentAngle = 0;     // radians, current wheel rotation
   let history = [];         // array of picked names
   let cssSize = 360;        // canvas size in CSS pixels
+  let audioCtx = null;
+  let lastTickIndex = -1;
+  let lastTickAt = 0;
 
   // DOM refs
   let canvas, ctx, spinBtn, textarea, nameCountEl;
@@ -644,11 +650,11 @@ const WORDINEER_WON = (() => {
       ctx.rotate(start + sliceAngle / 2);
       ctx.textAlign = 'right';
       ctx.fillStyle = 'white';
-      const fontSize = count > 12 ? 10 : count > 6 ? 12 : 14;
+      const fontSize = count > 20 ? 12 : count > 12 ? 14 : count > 6 ? 16 : 18;
       ctx.font = 'bold ' + fontSize + 'px sans-serif';
-      const maxLen = 14;
+      const maxLen = count > 20 ? 10 : count > 12 ? 12 : 16;
       const label = name.length > maxLen ? name.slice(0, maxLen) + '…' : name;
-      ctx.fillText(label, r - 10, 4);
+      ctx.fillText(label, r - 14, 5);
       ctx.restore();
     });
 
@@ -662,6 +668,50 @@ const WORDINEER_WON = (() => {
     ctx.stroke();
   }
 
+  function normalizeAngle(angle) {
+    const full = Math.PI * 2;
+    return ((angle % full) + full) % full;
+  }
+
+  function ensureAudio() {
+    const AudioCtor = window.AudioContext || window.webkitAudioContext;
+    if (!AudioCtor) return null;
+    if (!audioCtx) audioCtx = new AudioCtor();
+    if (audioCtx.state === 'suspended') audioCtx.resume();
+    return audioCtx;
+  }
+
+  function playTone(freq, duration, type, gainValue, delay) {
+    const ac = ensureAudio();
+    if (!ac) return;
+    const start = ac.currentTime + (delay || 0);
+    const osc = ac.createOscillator();
+    const gain = ac.createGain();
+    osc.type = type || 'sine';
+    osc.frequency.setValueAtTime(freq, start);
+    gain.gain.setValueAtTime(0.0001, start);
+    gain.gain.exponentialRampToValueAtTime(gainValue, start + 0.015);
+    gain.gain.exponentialRampToValueAtTime(0.0001, start + duration);
+    osc.connect(gain);
+    gain.connect(ac.destination);
+    osc.start(start);
+    osc.stop(start + duration + 0.02);
+  }
+
+  function playTick(now, index) {
+    if (index === lastTickIndex || now - lastTickAt < 38) return;
+    lastTickIndex = index;
+    lastTickAt = now;
+    playTone(720, 0.035, 'triangle', 0.035, 0);
+  }
+
+  function playCelebration() {
+    playTone(523.25, 0.12, 'sine', 0.055, 0);
+    playTone(659.25, 0.12, 'sine', 0.055, 0.1);
+    playTone(783.99, 0.16, 'sine', 0.06, 0.2);
+    playTone(1046.5, 0.28, 'triangle', 0.045, 0.34);
+  }
+
   // ─── Spin logic ────────────────────────────────────────────────
   function spin() {
     if (spinning || names.length < 2) return;
@@ -671,6 +721,9 @@ const WORDINEER_WON = (() => {
 
     spinning = true;
     spinBtn.disabled = true;
+    ensureAudio();
+    lastTickIndex = -1;
+    lastTickAt = 0;
 
     // Pick winner index (within activeNames)
     const winnerIdx = Math.floor(Math.random() * activeNames.length);
@@ -679,37 +732,40 @@ const WORDINEER_WON = (() => {
     // Find the global index of the winner in names[]
     const globalIdx = names.indexOf(winnerName);
 
-    // Target angle: winner segment centered at top (pointing up = -PI/2)
+    // Target angle: winner segment centered under the top pointer.
     const count = names.length;
     const sliceAngle = (Math.PI * 2) / count;
     const winnerCenter = globalIdx * sliceAngle + sliceAngle / 2;
-    // We want: currentAngle + winnerCenter = -Math.PI/2 + 2*PI*N (for some integer N)
-    // So: targetAngle = -Math.PI/2 - winnerCenter + 2*PI * (5 + random)
-    const extraSpins = 5 + Math.floor(Math.random() * 3);
-    const targetAngle = (-Math.PI / 2) - winnerCenter + Math.PI * 2 * extraSpins;
+    const startAngle = normalizeAngle(currentAngle);
+    const targetAngle = normalizeAngle((-Math.PI / 2) - winnerCenter);
+    const deltaToTarget = normalizeAngle(targetAngle - startAngle);
+    const extraSpins = 6 + Math.floor(Math.random() * 3);
+    const totalRotation = deltaToTarget + Math.PI * 2 * extraSpins;
 
-    // Normalize so we always spin forward
-    let startAngle = currentAngle % (Math.PI * 2);
-    const totalRotation = targetAngle - (startAngle - Math.PI * 2 * Math.floor(startAngle / (Math.PI * 2)));
-
-    const duration = 3500 + Math.random() * 1000; // 3.5-4.5s
+    const duration = 5200 + Math.random() * 1300;
     const startTime = performance.now();
     const startAngleSaved = currentAngle;
 
-    function easeOut(t) {
-      // Cubic ease-out
-      return 1 - Math.pow(1 - t, 3);
+    function spinEase(t) {
+      return 1 - Math.pow(1 - t, 4.25);
     }
 
     function frame(now) {
       const elapsed = now - startTime;
       const t = Math.min(elapsed / duration, 1);
-      currentAngle = startAngleSaved + totalRotation * easeOut(t);
+      const wobble = t < 1 ? Math.sin(t * Math.PI * 18) * (1 - t) * 0.008 : 0;
+      currentAngle = startAngleSaved + totalRotation * spinEase(t) + wobble;
       drawWheel(currentAngle);
+
+      const pointerAngle = normalizeAngle((-Math.PI / 2) - currentAngle);
+      const pointerIndex = Math.floor(pointerAngle / sliceAngle);
+      playTick(now, pointerIndex);
 
       if (t < 1) {
         requestAnimationFrame(frame);
       } else {
+        currentAngle = startAngleSaved + totalRotation;
+        drawWheel(currentAngle);
         spinning = false;
         spinBtn.disabled = false;
         showWinner(winnerName);
@@ -741,6 +797,7 @@ const WORDINEER_WON = (() => {
     winnerNameEl.textContent = name;
     winnerEl.classList.add('is-visible');
     winnerEl.focus();
+    playCelebration();
   }
 
   function closeWinner() {
