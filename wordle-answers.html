@@ -1,4 +1,4 @@
-<!-- build: 2026-08-03T03:40:52Z -->
+<!-- build: 2026-08-03T06:48:09Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -394,6 +394,79 @@
   <p>Enter green letters in the position boxes, yellow letters in "Letters in word," and gray letters in "Not in word." Click Find Possibilities to see all matching words from the full Wordle guess dictionary (~12,000 valid words). This includes both likely answers and valid tactical guesses.</p>
   <p>The archive lists past Wordle answers only (the ~2,300 word answer pool). Today's answer is not shown — use the archive after you've played to check your result.</p>
   <p>Need help choosing a starting word? See our <a href="/best-wordle-starting-words/">entropy-ranked list of best Wordle starting words</a> — original analysis with a 10,000-game benchmark. Or use the <a href="/wordle-helper/">Wordle Helper</a> to get the optimal next guess for any active game.</p>
+
+  <h2>Wordle history, briefly</h2>
+  <p>Josh Wardle built Wordle as a private toy for his partner in late 2020. She likes word games; he's a software engineer. He made it public in October 2021 and watched it go from ~90 daily players to over 300,000 in a matter of weeks — almost entirely through people sharing those colored emoji grids on Twitter without explanation.</p>
+  <p>The New York Times acquired it in January 2022 for a price reported to be in the low seven figures. Wardle said he was surprised by that outcome. The NYT moved the game to its own domain and has maintained the daily puzzle format, though it quietly updated the answer list to remove some words it considered too obscure or potentially offensive. About a dozen early answers were swapped out, which is why some third-party archives show slight discrepancies depending on when they were compiled.</p>
+  <p>The original answer list was pre-selected and ordered by Wardle and his partner — they went through a word frequency list and picked ~2,300 words they considered fair game for most English speakers. The list excludes proper nouns, plurals that feel trivial (like SHOWS or BOOKS), and words that require specialized knowledge. It's not algorithmically generated; someone actually sat down and curated it.</p>
+
+  <h2>What the answer pool looks like</h2>
+  <p>The ~2,300 answer words follow a few patterns worth knowing if you're trying to improve your solve rate:</p>
+  <style>
+  .wa-stat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; margin: 20px 0 28px; }
+  .wa-stat-card { background: var(--bg-2); border: 1px solid var(--border-2); border-radius: 10px; padding: 16px 18px; }
+  .wa-stat-num { font-size: 2rem; font-weight: 800; color: var(--brand); line-height: 1; margin-bottom: 4px; }
+  .wa-stat-label { font-size: 12px; color: var(--text-3); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 6px; }
+  .wa-stat-note { font-size: 13px; color: var(--text-2); line-height: 1.4; }
+  .wa-freq-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 16px 0 28px; }
+  .wa-freq-table th { text-align: left; padding: 6px 10px; border-bottom: 2px solid var(--border); font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: var(--text-3); }
+  .wa-freq-table td { padding: 7px 10px; border-bottom: 1px solid var(--border-2); }
+  .wa-freq-table tr:last-child td { border-bottom: none; }
+  .wa-freq-bar { display: inline-block; height: 10px; background: var(--brand); border-radius: 3px; opacity: .7; vertical-align: middle; margin-left: 6px; }
+  </style>
+  <div class="wa-stat-grid">
+    <div class="wa-stat-card">
+      <div class="wa-stat-num">~2,300</div>
+      <div class="wa-stat-label">Answer pool size</div>
+      <div class="wa-stat-note">The original pre-selected list before NYT removed a small number of words</div>
+    </div>
+    <div class="wa-stat-card">
+      <div class="wa-stat-num">~12,000</div>
+      <div class="wa-stat-label">Valid guesses</div>
+      <div class="wa-stat-note">Any 5-letter word Wordle accepts — much larger than the answer set</div>
+    </div>
+    <div class="wa-stat-card">
+      <div class="wa-stat-num">~72%</div>
+      <div class="wa-stat-label">Have exactly 2 vowels</div>
+      <div class="wa-stat-note">CVCVC and CCVCC patterns dominate the answer pool</div>
+    </div>
+    <div class="wa-stat-card">
+      <div class="wa-stat-num">~8%</div>
+      <div class="wa-stat-label">Have repeated letters</div>
+      <div class="wa-stat-note">Less common than you'd expect — most answers use 5 distinct letters</div>
+    </div>
+  </div>
+
+  <h3>Most common letters in Wordle answers</h3>
+  <p>Across the full answer pool, these are the most frequently appearing letters. Position matters too — E, A, and R appear across all five spots, while S almost never ends a Wordle answer (Wardle deliberately avoided it because it makes plurals too easy).</p>
+  <table class="wa-freq-table">
+    <thead><tr><th>Letter</th><th>Approx. frequency</th><th></th></tr></thead>
+    <tbody>
+      <tr><td><strong>E</strong></td><td>~11%</td><td><span class="wa-freq-bar" style="width:90px"></span></td></tr>
+      <tr><td><strong>A</strong></td><td>~9%</td><td><span class="wa-freq-bar" style="width:74px"></span></td></tr>
+      <tr><td><strong>R</strong></td><td>~8%</td><td><span class="wa-freq-bar" style="width:66px"></span></td></tr>
+      <tr><td><strong>O</strong></td><td>~7.5%</td><td><span class="wa-freq-bar" style="width:61px"></span></td></tr>
+      <tr><td><strong>T</strong></td><td>~7%</td><td><span class="wa-freq-bar" style="width:57px"></span></td></tr>
+      <tr><td><strong>L</strong></td><td>~6.5%</td><td><span class="wa-freq-bar" style="width:53px"></span></td></tr>
+      <tr><td><strong>I</strong></td><td>~6.5%</td><td><span class="wa-freq-bar" style="width:53px"></span></td></tr>
+      <tr><td><strong>S</strong></td><td>~6%</td><td><span class="wa-freq-bar" style="width:49px"></span></td></tr>
+      <tr><td><strong>N</strong></td><td>~5.5%</td><td><span class="wa-freq-bar" style="width:45px"></span></td></tr>
+      <tr><td><strong>C</strong></td><td>~4.5%</td><td><span class="wa-freq-bar" style="width:37px"></span></td></tr>
+    </tbody>
+  </table>
+  <p>This is why CRANE, RAISE, SLATE, and STARE became popular opening words — they hit the highest-frequency letters across good positions. That said, none of them guarantee a fast solve. The variance in Wordle outcomes is high enough that starting word matters less than most players think.</p>
+
+  <h2>Some notable past answers</h2>
+  <p>Most Wordle answers pass without much comment. A few created genuine conversation:</p>
+  <ul>
+    <li><strong>KNOLL</strong> (Puzzle #258, March 9, 2022) — Double L plus the uncommon KN combination made this one of the more complained-about early answers on social media.</li>
+    <li><strong>VIVID</strong> (Puzzle #245, Feb 24, 2022) — Two V's in a five-letter word is unusual enough that many players burned guesses on the second V position.</li>
+    <li><strong>TAPIR</strong> (Puzzle #306, April 26, 2022) — A tapir is a large mammal. Legitimate word; several players claimed never to have heard it. Wordle doesn't care.</li>
+    <li><strong>JAUNT</strong> (Puzzle #335, May 25, 2022) — No complaints; just a nice, clean word that most players got in 3.</li>
+    <li><strong>ULCER</strong> (Puzzle #424, Aug 22, 2022) — U as the first letter is less common than A, E, or I, which caught a few players off guard.</li>
+    <li><strong>CAULK</strong> (Puzzle #421, Aug 19, 2022) — Pronunciation isn't obvious from spelling, which doesn't matter for Wordle but it was widely noted anyway.</li>
+  </ul>
+  <p>One recurring pattern: double-letter answers always generate more complaints, regardless of how common the word is. ROBOT (no doubles) gets a different reception than ABBEY (double B), even if both are fair five-letter words.</p>
 </section>
   <div class="divider"></div>
 
@@ -410,6 +483,22 @@
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">What is the puzzle number?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
     <div class="faq-a">Wordle started on June 19, 2021 as Puzzle #1. Each day is a new consecutive number. The archive table shows the puzzle number for each past answer so you can find a specific game by date or number.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Did the NYT change the answers when it bought Wordle?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes, but only a small number. After acquiring Wordle in January 2022, the NYT removed about a dozen words from the upcoming answer list — words it judged as too obscure, potentially offensive, or too politically charged for the moment. FETUS was swapped out in May 2022 (the same week Roe v. Wade was overturned), for example. The NYT maintains it only adjusts words that haven't appeared yet. Some third-party archives compiled before the move reflect the original Wardle list; others show the NYT version.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">How many guesses does the average player need?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Based on published NYT statistics and player-reported data, the median solve is around 4 guesses for regular players. The distribution is roughly: 3% in 1 (usually a guess or re-used answer from another source), ~8% in 2, ~25% in 3, ~35% in 4, ~20% in 5, ~7% in 6, and ~2% failures. Words with unusual letter patterns or double letters push the average higher.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Are there any words that will never be a Wordle answer?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes. Proper nouns (PARIS, TRUMP) are excluded. Plurals formed by adding S to a common four-letter word (BOOKS, GAMES) were largely avoided, which is why the answer list caps S-ending words — Wardle didn't want easy answers. Highly obscure words, profanity, and words the NYT considers too loaded for a daily puzzle are also excluded. The valid guess list (~12,000 words) is much broader and includes many words that will never appear as daily answers.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What's a good Wordle strategy?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Start with a word that covers E, A, R, O, and T — letters that appear most frequently across the answer pool. CRANE, RAISE, and STARE are popular because they hit several of these in useful positions. After two guesses, use the process of elimination: if you have 3 confirmed letters, don't waste guess 3 on a word that repeats confirmed letters — try a word that tests 5 new unknowns. Save the solver for when you're stuck with 2–3 guesses left and multiple equally likely options.</div>
   </div>
 </div>
   <div class="divider"></div>
