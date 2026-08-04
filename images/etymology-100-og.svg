@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a1560"/>
+      <stop offset="60%" stop-color="#3C3489"/>
+      <stop offset="100%" stop-color="#4A3FD4"/>
+    </linearGradient>
+    <linearGradient id="card1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.12)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0.05)"/>
+    </linearGradient>
+    <linearGradient id="card2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.10)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0.04)"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="18" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <!-- subtle dot grid -->
+    <pattern id="dots" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
+      <circle cx="1.5" cy="1.5" r="1.5" fill="rgba(255,255,255,0.07)"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+
+  <!-- Glow orb top-right -->
+  <ellipse cx="980" cy="80" rx="260" ry="200" fill="#7c6ff7" opacity="0.18" filter="url(#glow)"/>
+  <!-- Glow orb bottom-left -->
+  <ellipse cx="200" cy="560" rx="220" ry="160" fill="#4A3FD4" opacity="0.22" filter="url(#glow)"/>
+
+  <!-- Left accent bar -->
+  <rect x="72" y="170" width="4" height="290" rx="2" fill="rgba(255,255,255,0.25)"/>
+
+  <!-- Badge: Word Origins -->
+  <rect x="88" y="164" width="178" height="30" rx="15" fill="rgba(255,255,255,0.14)" stroke="rgba(255,255,255,0.22)" stroke-width="1"/>
+  <text x="177" y="184" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="700" fill="rgba(255,255,255,0.9)" text-anchor="middle" letter-spacing="1.2">WORD ORIGINS</text>
+
+  <!-- Main headline -->
+  <text x="88" y="270" font-family="Georgia, 'DM Serif Display', serif" font-size="68" font-weight="400" fill="#ffffff" letter-spacing="-2">Etymology of</text>
+  <text x="88" y="352" font-family="Georgia, 'DM Serif Display', serif" font-size="68" font-weight="400" fill="#ffffff" letter-spacing="-2">100 Common</text>
+  <text x="88" y="434" font-family="Georgia, 'DM Serif Display', serif" font-size="68" font-weight="400" fill="#c4bfff" letter-spacing="-2">English Words</text>
+
+  <!-- Subline -->
+  <text x="88" y="490" font-family="DM Sans, system-ui, sans-serif" font-size="20" fill="rgba(255,255,255,0.62)" letter-spacing="0.2">Where did your everyday words really come from?</text>
+
+  <!-- Divider -->
+  <line x1="88" y1="524" x2="480" y2="524" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+
+  <!-- Wordineer logo mark -->
+  <rect x="88" y="540" width="24" height="24" rx="6" fill="#4A3FD4" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+  <text x="100" y="557" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="800" fill="white" text-anchor="middle">W</text>
+  <text x="122" y="558" font-family="DM Sans, system-ui, sans-serif" font-size="14" font-weight="600" fill="rgba(255,255,255,0.75)">wordineer.com</text>
+
+  <!-- === Right side word cards === -->
+
+  <!-- Card: SALARY -->
+  <rect x="680" y="80" width="220" height="110" rx="14" fill="url(#card1)" stroke="rgba(255,255,255,0.16)" stroke-width="1"/>
+  <text x="700" y="118" font-family="Georgia, serif" font-size="28" font-weight="700" fill="#ffffff">salary</text>
+  <!-- badge: Latin -->
+  <rect x="700" y="128" width="54" height="20" rx="10" fill="#7c3aed"/>
+  <text x="727" y="142" font-family="DM Sans, system-ui, sans-serif" font-size="11" font-weight="700" fill="white" text-anchor="middle">LATIN</text>
+  <text x="700" y="175" font-family="DM Sans, system-ui, sans-serif" font-size="13" fill="rgba(255,255,255,0.60)">from sal — "salt"</text>
+
+  <!-- Card: PANIC -->
+  <rect x="920" y="80" width="220" height="110" rx="14" fill="url(#card1)" stroke="rgba(255,255,255,0.16)" stroke-width="1"/>
+  <text x="940" y="118" font-family="Georgia, serif" font-size="28" font-weight="700" fill="#ffffff">panic</text>
+  <!-- badge: Greek -->
+  <rect x="940" y="128" width="56" height="20" rx="10" fill="#0284c7"/>
+  <text x="968" y="142" font-family="DM Sans, system-ui, sans-serif" font-size="11" font-weight="700" fill="white" text-anchor="middle">GREEK</text>
+  <text x="940" y="175" font-family="DM Sans, system-ui, sans-serif" font-size="13" fill="rgba(255,255,255,0.60)">from Pan — Greek god</text>
+
+  <!-- Card: ALGEBRA -->
+  <rect x="680" y="212" width="220" height="110" rx="14" fill="url(#card2)" stroke="rgba(255,255,255,0.13)" stroke-width="1"/>
+  <text x="700" y="250" font-family="Georgia, serif" font-size="28" font-weight="700" fill="#ffffff">algebra</text>
+  <!-- badge: Arabic -->
+  <rect x="700" y="260" width="62" height="20" rx="10" fill="#b45309"/>
+  <text x="731" y="274" font-family="DM Sans, system-ui, sans-serif" font-size="11" font-weight="700" fill="white" text-anchor="middle">ARABIC</text>
+  <text x="700" y="307" font-family="DM Sans, system-ui, sans-serif" font-size="13" fill="rgba(255,255,255,0.60)">al-jabr — "reunion"</text>
+
+  <!-- Card: BERSERK -->
+  <rect x="920" y="212" width="220" height="110" rx="14" fill="url(#card2)" stroke="rgba(255,255,255,0.13)" stroke-width="1"/>
+  <text x="940" y="250" font-family="Georgia, serif" font-size="28" font-weight="700" fill="#ffffff">berserk</text>
+  <!-- badge: Old Norse -->
+  <rect x="940" y="260" width="88" height="20" rx="10" fill="#374151"/>
+  <text x="984" y="274" font-family="DM Sans, system-ui, sans-serif" font-size="11" font-weight="700" fill="white" text-anchor="middle">OLD NORSE</text>
+  <text x="940" y="307" font-family="DM Sans, system-ui, sans-serif" font-size="13" fill="rgba(255,255,255,0.60)">bear-shirt warriors</text>
+
+  <!-- Card: BALLET -->
+  <rect x="680" y="344" width="220" height="110" rx="14" fill="url(#card2)" stroke="rgba(255,255,255,0.10)" stroke-width="1"/>
+  <text x="700" y="382" font-family="Georgia, serif" font-size="28" font-weight="700" fill="#ffffff">ballet</text>
+  <!-- badge: French -->
+  <rect x="700" y="392" width="64" height="20" rx="10" fill="#0f766e"/>
+  <text x="732" y="406" font-family="DM Sans, system-ui, sans-serif" font-size="11" font-weight="700" fill="white" text-anchor="middle">FRENCH</text>
+  <text x="700" y="439" font-family="DM Sans, system-ui, sans-serif" font-size="13" fill="rgba(255,255,255,0.60)">from ballo — "to dance"</text>
+
+  <!-- Card: HAZARD -->
+  <rect x="920" y="344" width="220" height="110" rx="14" fill="url(#card2)" stroke="rgba(255,255,255,0.10)" stroke-width="1"/>
+  <text x="940" y="382" font-family="Georgia, serif" font-size="28" font-weight="700" fill="#ffffff">hazard</text>
+  <!-- badge: Arabic -->
+  <rect x="940" y="392" width="62" height="20" rx="10" fill="#b45309"/>
+  <text x="971" y="406" font-family="DM Sans, system-ui, sans-serif" font-size="11" font-weight="700" fill="white" text-anchor="middle">ARABIC</text>
+  <text x="940" y="439" font-family="DM Sans, system-ui, sans-serif" font-size="13" fill="rgba(255,255,255,0.60)">az-zahr — "the dice"</text>
+
+  <!-- Card: WINDOW -->
+  <rect x="680" y="476" width="220" height="110" rx="14" fill="url(#card2)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+  <text x="700" y="514" font-family="Georgia, serif" font-size="28" font-weight="700" fill="#ffffff">window</text>
+  <!-- badge: Old Norse -->
+  <rect x="700" y="524" width="88" height="20" rx="10" fill="#374151"/>
+  <text x="744" y="538" font-family="DM Sans, system-ui, sans-serif" font-size="11" font-weight="700" fill="white" text-anchor="middle">OLD NORSE</text>
+  <text x="700" y="571" font-family="DM Sans, system-ui, sans-serif" font-size="13" fill="rgba(255,255,255,0.60)">vindauga — "wind eye"</text>
+
+  <!-- Card: MUSCLE -->
+  <rect x="920" y="476" width="220" height="110" rx="14" fill="url(#card2)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+  <text x="940" y="514" font-family="Georgia, serif" font-size="28" font-weight="700" fill="#ffffff">muscle</text>
+  <!-- badge: Latin -->
+  <rect x="940" y="524" width="54" height="20" rx="10" fill="#7c3aed"/>
+  <text x="967" y="538" font-family="DM Sans, system-ui, sans-serif" font-size="11" font-weight="700" fill="white" text-anchor="middle">LATIN</text>
+  <text x="940" y="571" font-family="DM Sans, system-ui, sans-serif" font-size="13" fill="rgba(255,255,255,0.60)">musculus — "little mouse"</text>
+</svg>
