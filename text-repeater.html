@@ -1,4 +1,4 @@
-<!-- build: 2026-08-05T11:27:11Z -->
+<!-- build: 2026-08-05T12:15:33Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -175,7 +175,7 @@
   "description": "Repeat any text or phrase N times with a custom separator. Choose newline, space, comma, or no separator. Free text repeater tool — no sign-up needed."
 }
 </script>
-<link rel="stylesheet" href="/styles/global.css?v=14">
+<link rel="stylesheet" href="/styles/global.css?v=16">
 <style>
 .tr-label { font-size: 0.85rem; font-weight: 600; color: #444; margin-bottom: 5px; display: block; }
 .tr-textarea {
@@ -417,25 +417,23 @@
 </div>
   <div class="divider"></div>
 
-<div>
-  <h2 class="section-title">Frequently asked questions</h2>
-  <div class="faq-list">
-    <details class="faq-item">
-      <summary class="faq-q">What is a text repeater?</summary>
-      <div class="faq-a"><p>A text repeater duplicates a word, phrase, or block of text a chosen number of times and joins the copies with a separator such as a newline, space, or comma.</p></div>
-    </details>
-    <details class="faq-item">
-      <summary class="faq-q">How many times can I repeat text?</summary>
-      <div class="faq-a"><p>You can repeat text up to 500 times. Enter any whole number from 1 to 500 in the repeat count field.</p></div>
-    </details>
-    <details class="faq-item">
-      <summary class="faq-q">What separators are available?</summary>
-      <div class="faq-a"><p>You can choose a newline (each repetition on its own line), a space, a comma, or no separator at all. You can also type any custom separator directly into the separator field.</p></div>
-    </details>
-    <details class="faq-item">
-      <summary class="faq-q">Can I use this to fill placeholder content?</summary>
-      <div class="faq-a"><p>Yes. Designers and developers often use a text repeater to generate filler content for mockups, wireframes, or test inputs without installing any software.</p></div>
-    </details>
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">What is a text repeater?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>A text repeater duplicates a word, phrase, or block of text a chosen number of times and joins the copies with a separator such as a newline, space, or comma.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">How many times can I repeat text?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>You can repeat text up to 500 times. Enter any whole number from 1 to 500 in the repeat count field.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What separators are available?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>You can choose a newline (each repetition on its own line), a space, a comma, or no separator at all. You can also type any custom separator directly into the separator field.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I use this to fill placeholder content?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Yes. Designers and developers often use a text repeater to generate filler content for mockups, wireframes, or test inputs without installing any software.</p></div>
   </div>
 </div>
   <div class="divider"></div>
@@ -595,6 +593,7 @@
   }
   window.trCopy = trCopy;
 })();
+document.querySelectorAll('.faq-q').forEach(function(q){q.addEventListener('click',function(){q.closest('.faq-item').classList.toggle('open');});});
 </script>
 </body>
 </html>

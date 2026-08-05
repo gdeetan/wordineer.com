@@ -1,4 +1,4 @@
-<!-- build: 2026-08-05T12:04:16Z -->
+<!-- build: 2026-08-05T12:15:33Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -365,25 +365,23 @@
 </div>
   <div class="divider"></div>
 
-<div>
-  <h2 class="section-title">Frequently asked questions</h2>
-  <div class="faq-list">
-    <details class="faq-item">
-      <summary class="faq-q">How does the upside down text generator work?</summary>
-      <div class="faq-a"><p>It maps each character to a Unicode equivalent that looks like the upside-down version, then reverses the string so the result reads naturally when physically rotated 180°.</p></div>
-    </details>
-    <details class="faq-item">
-      <summary class="faq-q">Can I paste upside down text into social media?</summary>
-      <div class="faq-a"><p>Yes. The output uses standard Unicode characters supported on all major platforms including Twitter, Instagram, Facebook, TikTok, and Discord.</p></div>
-    </details>
-    <details class="faq-item">
-      <summary class="faq-q">Does it work for all letters?</summary>
-      <div class="faq-a"><p>It covers a–z, A–Z, 0–9, and common punctuation. A handful of uppercase letters have no distinct upside-down glyph and are mapped to their closest Unicode approximation.</p></div>
-    </details>
-    <details class="faq-item">
-      <summary class="faq-q">Is the upside down text generator free?</summary>
-      <div class="faq-a"><p>Completely free with no sign-up required. Conversion happens in your browser — nothing is sent to a server.</p></div>
-    </details>
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">How does the upside down text generator work?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>It maps each character to a Unicode equivalent that looks like the upside-down version, then reverses the string so the result reads naturally when physically rotated 180°.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I paste upside down text into social media?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Yes. The output uses standard Unicode characters supported on all major platforms including Twitter, Instagram, Facebook, TikTok, and Discord.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Does it work for all letters?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>It covers a–z, A–Z, 0–9, and common punctuation. A handful of uppercase letters have no distinct upside-down glyph and are mapped to their closest Unicode approximation.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Is the upside down text generator free?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Completely free with no sign-up required. Conversion happens in your browser — nothing is sent to a server.</p></div>
   </div>
 </div>
   <div class="divider"></div>
@@ -531,6 +529,7 @@
     input.focus();
   });
 })();
+document.querySelectorAll('.faq-q').forEach(function(q){q.addEventListener('click',function(){q.closest('.faq-item').classList.toggle('open');});});
 </script>
 </body>
 </html>

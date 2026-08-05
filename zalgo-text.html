@@ -1,4 +1,4 @@
-<!-- build: 2026-08-05T11:27:11Z -->
+<!-- build: 2026-08-05T12:15:33Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -187,7 +187,7 @@
   "description": "Convert any text into creepy Zalgo glitch art instantly. Adjust intensity from subtle to extreme. Free, no sign-up required."
 }
 </script>
-<link rel="stylesheet" href="/styles/global.css?v=14">
+<link rel="stylesheet" href="/styles/global.css?v=16">
 <style>
 .zalgo-wrap { max-width: 680px; margin: 0 auto; padding: 0 16px 40px; }
 .zalgo-card { background: #fff; border: 1.5px solid #e2e2ea; border-radius: 16px; padding: 24px; }
@@ -384,25 +384,23 @@
 </div>
   <div class="divider"></div>
 
-<div>
-  <h2 class="section-title">Frequently asked questions</h2>
-  <div class="faq-list">
-    <details class="faq-item">
-      <summary class="faq-q">What is Zalgo text?</summary>
-      <div class="faq-a"><p>Zalgo text is regular text with Unicode combining diacritical marks stacked above and below each character, creating a glitchy or corrupted appearance. It works in any standard text field without special software.</p></div>
-    </details>
-    <details class="faq-item">
-      <summary class="faq-q">Can I paste Zalgo text into Discord, Reddit, or Twitter?</summary>
-      <div class="faq-a"><p>Yes. Zalgo text is made of standard Unicode characters and pastes anywhere text is accepted. Some platforms may limit certain combining marks, so the result can vary slightly between apps.</p></div>
-    </details>
-    <details class="faq-item">
-      <summary class="faq-q">What does the intensity slider do?</summary>
-      <div class="faq-a"><p>The slider controls how many combining marks are added per character. Low (1–3) adds a few marks for a subtle glitch. High (8–10) stacks dozens of marks for an extreme, nearly unreadable corrupted look.</p></div>
-    </details>
-    <details class="faq-item">
-      <summary class="faq-q">Is Zalgo text safe to use?</summary>
-      <div class="faq-a"><p>Zalgo text is perfectly safe — it's just Unicode. Very high-intensity Zalgo in older apps can cause minor display lag, so use extreme settings sparingly in professional contexts.</p></div>
-    </details>
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">What is Zalgo text?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Zalgo text is regular text with Unicode combining diacritical marks stacked above and below each character, creating a glitchy or corrupted appearance. It works in any standard text field without special software.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I paste Zalgo text into Discord, Reddit, or Twitter?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Yes. Zalgo text is made of standard Unicode characters and pastes anywhere text is accepted. Some platforms may limit certain combining marks, so the result can vary slightly between apps.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What does the intensity slider do?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>The slider controls how many combining marks are added per character. Low (1–3) adds a few marks for a subtle glitch. High (8–10) stacks dozens of marks for an extreme, nearly unreadable corrupted look.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Is Zalgo text safe to use?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Zalgo text is perfectly safe — it's just Unicode. Very high-intensity Zalgo in older apps can cause minor display lag, so use extreme settings sparingly in professional contexts.</p></div>
   </div>
 </div>
   <div class="divider"></div>
@@ -554,6 +552,7 @@
     output.value='';
   });
 })();
+document.querySelectorAll('.faq-q').forEach(function(q){q.addEventListener('click',function(){q.closest('.faq-item').classList.toggle('open');});});
 </script>
 </body>
 </html>
