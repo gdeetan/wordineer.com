@@ -280,3 +280,10 @@ linear-gradient(180deg, #fbf9ff 0%, #fffdf9 58%, #ffffff 100%)}
 .related-link:hover{color:var(--brand);border-color:rgba(74,63,212,.28);background:var(--brand-light)}
 .related-link:hover::after{opacity:1;transform:translateX(2px)}
 @media(max-width:700px){.related-tools{padding:16px 16px}.related-link{font-size:12px}}
+/* ── Explainer steps ── */
+.explainer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:8px}
+.exp-step{display:flex;flex-direction:row;gap:14px;align-items:flex-start}
+.exp-num{width:28px;height:28px;min-width:28px;border-radius:50%;background:#3C3489;color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.exp-step strong{font-size:14px;font-weight:700;color:var(--text-1);display:block;margin-bottom:4px}
+.exp-step p{font-size:13px;color:var(--text-2);line-height:1.6;margin:0}
+@media(max-width:700px){.explainer-grid{grid-template-columns:1fr;gap:16px}}
