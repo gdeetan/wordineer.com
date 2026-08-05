@@ -1,4 +1,4 @@
-<!-- build: 2026-08-05T12:04:16Z -->
+<!-- build: 2026-08-05T12:15:33Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -376,25 +376,23 @@
 </div>
   <div class="divider"></div>
 
-<div>
-  <h2 class="section-title">Frequently asked questions</h2>
-  <div class="faq-list">
-    <details class="faq-item">
-      <summary class="faq-q">What is a backwards text generator?</summary>
-      <div class="faq-a"><p>A backwards text generator reverses the order of characters or words in a string. "Hello world" becomes "dlrow olleH" in character mode, or "world Hello" in word-reverse mode.</p></div>
-    </details>
-    <details class="faq-item">
-      <summary class="faq-q">What is the difference between reverse characters and reverse words?</summary>
-      <div class="faq-a"><p>Reverse characters flips every character in the entire string. Reverse words keeps each word intact but swaps the order of the words — useful for reversing sentence structure while keeping words readable.</p></div>
-    </details>
-    <details class="faq-item">
-      <summary class="faq-q">Can I paste reversed text into social media?</summary>
-      <div class="faq-a"><p>Yes. The output is plain Unicode text and works anywhere — Twitter, Instagram, Discord, WhatsApp, email, or any text field.</p></div>
-    </details>
-    <details class="faq-item">
-      <summary class="faq-q">Is the backwards text generator free?</summary>
-      <div class="faq-a"><p>Yes, completely free. No account required and no data is sent to any server — all reversal happens in your browser.</p></div>
-    </details>
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">What is a backwards text generator?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>A backwards text generator reverses the order of characters or words in a string. "Hello world" becomes "dlrow olleH" in character mode, or "world Hello" in word-reverse mode.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What is the difference between reverse characters and reverse words?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Reverse characters flips every character in the entire string. Reverse words keeps each word intact but swaps the order of the words — useful for reversing sentence structure while keeping words readable.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I paste reversed text into social media?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Yes. The output is plain Unicode text and works anywhere — Twitter, Instagram, Discord, WhatsApp, email, or any text field.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Is the backwards text generator free?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Yes, completely free. No account required and no data is sent to any server — all reversal happens in your browser.</p></div>
   </div>
 </div>
   <div class="divider"></div>
@@ -554,6 +552,7 @@
     input.focus();
   });
 })();
+document.querySelectorAll('.faq-q').forEach(function(q){q.addEventListener('click',function(){q.closest('.faq-item').classList.toggle('open');});});
 </script>
 </body>
 </html>

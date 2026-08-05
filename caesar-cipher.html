@@ -1,4 +1,4 @@
-<!-- build: 2026-08-05T12:04:16Z -->
+<!-- build: 2026-08-05T12:15:33Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -421,29 +421,27 @@
 </div>
   <div class="divider"></div>
 
-<div>
-  <h2 class="section-title">Frequently asked questions</h2>
-  <div class="faq-list">
-    <details class="faq-item">
-      <summary class="faq-q">What is a Caesar cipher?</summary>
-      <div class="faq-a"><p>A Caesar cipher is one of the oldest encryption techniques. It shifts every letter in the alphabet by a fixed number of positions. For example, with a shift of 3, A becomes D and Z wraps around to C.</p></div>
-    </details>
-    <details class="faq-item">
-      <summary class="faq-q">What is ROT13 and how is it different?</summary>
-      <div class="faq-a"><p>ROT13 is simply a Caesar cipher with a shift of 13. Because the English alphabet has 26 letters, encoding with ROT13 twice returns the original text — it is its own inverse. Click the ROT13 button to set the shift instantly.</p></div>
-    </details>
-    <details class="faq-item">
-      <summary class="faq-q">Does the tool handle uppercase and lowercase letters?</summary>
-      <div class="faq-a"><p>Yes. Uppercase letters shift within A–Z and lowercase letters shift within a–z. Digits, spaces, and punctuation are passed through unchanged.</p></div>
-    </details>
-    <details class="faq-item">
-      <summary class="faq-q">How do I decode a Caesar cipher?</summary>
-      <div class="faq-a"><p>Switch to Decode mode, paste the ciphertext, and set the same shift number that was used when encoding. The original message will appear in the output box immediately.</p></div>
-    </details>
-    <details class="faq-item">
-      <summary class="faq-q">Can I apply multiple shifts in a row?</summary>
-      <div class="faq-a"><p>Yes. After encoding, click Swap to move the output into the input field, change the shift, and encode again. You can chain as many operations as you like.</p></div>
-    </details>
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">What is a Caesar cipher?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>A Caesar cipher is one of the oldest encryption techniques. It shifts every letter in the alphabet by a fixed number of positions. For example, with a shift of 3, A becomes D and Z wraps around to C.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What is ROT13 and how is it different?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>ROT13 is simply a Caesar cipher with a shift of 13. Because the English alphabet has 26 letters, encoding with ROT13 twice returns the original text — it is its own inverse. Click the ROT13 button to set the shift instantly.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Does the tool handle uppercase and lowercase letters?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Yes. Uppercase letters shift within A–Z and lowercase letters shift within a–z. Digits, spaces, and punctuation are passed through unchanged.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">How do I decode a Caesar cipher?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Switch to Decode mode, paste the ciphertext, and set the same shift number that was used when encoding. The original message will appear in the output box immediately.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I apply multiple shifts in a row?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Yes. After encoding, click Swap to move the output into the input field, change the shift, and encode again. You can chain as many operations as you like.</p></div>
   </div>
 </div>
   <div class="divider"></div>
@@ -625,6 +623,7 @@
 
   ccRun();
 })();
+document.querySelectorAll('.faq-q').forEach(function(q){q.addEventListener('click',function(){q.closest('.faq-item').classList.toggle('open');});});
 </script>
 </body>
 </html>
