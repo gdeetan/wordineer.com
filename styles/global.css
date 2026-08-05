@@ -287,3 +287,7 @@ linear-gradient(180deg, #fbf9ff 0%, #fffdf9 58%, #ffffff 100%)}
 .exp-step strong{font-size:14px;font-weight:700;color:var(--text-1);display:block;margin-bottom:4px}
 .exp-step p{font-size:13px;color:var(--text-2);line-height:1.6;margin:0}
 @media(max-width:700px){.explainer-grid{grid-template-columns:1fr;gap:16px}}
+/* ── FAQ: native <details> override ── */
+details[open].faq-item .faq-a{display:block}
+/* ── Tool wrap spacing below hero ── */
+.tool-wrap{padding-top:32px;padding-bottom:8px}
