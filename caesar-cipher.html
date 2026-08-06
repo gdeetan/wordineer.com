@@ -1,4 +1,4 @@
-<!-- build: 2026-08-06T00:46:01Z -->
+<!-- build: 2026-08-06T01:24:48Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -332,6 +332,7 @@
   </div>
   <h1>Caesar Cipher Encoder &amp; Decoder</h1>
   <p>Encode or decode text with a shift cipher. Adjust the shift (1–25), use ROT13, and see a live letter mapping.</p>
+  <p style="font-size:12px;color:var(--text-3);margin-top:8px">Built by Garrick Dee · Last verified August 2026</p>
 </div>
 <div class="tool-wrap">
   <div class="tool-card cc-inner">
@@ -407,15 +408,15 @@
   <div class="explainer-grid">
     <div class="exp-step">
       <div class="exp-num">1</div>
-      <div><strong>Choose a mode</strong><p>Select Encode to encrypt your text or Decode to reverse a cipher back to plain text.</p></div>
+      <div><strong>Decide whether to encode or decode</strong><p>Pick Encode to scramble readable text into cipher, or Decode to reverse a message you've received. You can switch between them without re-entering your text.</p></div>
     </div>
     <div class="exp-step">
       <div class="exp-num">2</div>
-      <div><strong>Set the shift</strong><p>Drag the slider to pick any shift from 1 to 25. The live alphabet bar shows exactly which letter maps to which.</p></div>
+      <div><strong>Pick your shift value</strong><p>Drag the slider anywhere from 1 to 25. The alphabet bar below it shows the complete substitution map — every original letter and its cipher equivalent — so you can verify the mapping at a glance before copying.</p></div>
     </div>
     <div class="exp-step">
       <div class="exp-num">3</div>
-      <div><strong>Copy or swap</strong><p>Copy the output to your clipboard, or hit Swap to feed the output back in and chain another operation.</p></div>
+      <div><strong>Copy the output — or chain it</strong><p>Copy your result with one click. The Swap button feeds the output back into the input field, useful for applying a second shift on top of the first or quickly confirming a round-trip.</p></div>
     </div>
   </div>
 </div>
@@ -443,25 +444,16 @@
     <div class="faq-q"><span class="faq-q-text">Can I apply multiple shifts in a row?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
     <div class="faq-a"><p>Yes. After encoding, click Swap to move the output into the input field, change the shift, and encode again. You can chain as many operations as you like.</p></div>
   </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Why do numbers and punctuation pass through unchanged?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Caesar cipher was designed for the 26-letter Latin alphabet only. Numbers and punctuation marks have no natural "shifted" equivalent in a 26-position rotation, so this tool leaves them as-is — a period stays a period, "7" stays "7". This is standard behavior across Caesar cipher implementations. If you need digits shifted too, you'd need a different cipher scheme where the character set is explicitly extended beyond A–Z.</p></div>
+  </div>
 </div>
   <div class="divider"></div>
 
 <div>
-  <h2 class="section-title" style="margin-bottom:14px">Who uses this tool</h2>
-  <div class="uc-grid">
-    <div class="uc">
-      <div class="uc-title">Puzzle &amp; game designers</div>
-      <div class="uc-body">Create encoded clues for escape rooms, scavenger hunts, or printable puzzle sheets in seconds.</div>
-    </div>
-    <div class="uc">
-      <div class="uc-title">Students &amp; teachers</div>
-      <div class="uc-body">Learn classical cryptography hands-on — encode a message, swap, and decode to see how the cipher works.</div>
-    </div>
-    <div class="uc">
-      <div class="uc-title">Writers &amp; hobbyists</div>
-      <div class="uc-body">Add a layer of mystery to stories, notes, or online posts with a simple shift cipher anyone can decode with the right key.</div>
-    </div>
-  </div>
+  <h2 class="section-title" style="margin-bottom:10px">A typical use</h2>
+  <p style="font-size:15px;line-height:1.75;color:var(--text-2);max-width:640px">An escape room designer runs monthly mystery nights with coded clue cards. She types each clue into the Caesar Cipher tool, sets a shift of 7, and encodes all twelve cards in under five minutes. The shift number itself becomes part of the puzzle — hidden in a separate physical prop the players must find first. She uses the Swap button to verify each decoded message reads correctly before printing, then moves on to the next clue.</p>
 </div>
 
 

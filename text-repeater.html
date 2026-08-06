@@ -1,4 +1,4 @@
-<!-- build: 2026-08-06T00:46:01Z -->
+<!-- build: 2026-08-06T01:24:48Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -320,6 +320,7 @@
   </div>
   <h1>Text Repeater</h1>
   <p>Repeat any word or phrase up to 500 times. Pick your separator and copy the result in one click.</p>
+  <p style="font-size:12px;color:var(--text-3);margin-top:8px">Built by Garrick Dee · Last verified August 2026</p>
 </div>
 <div class="tool-wrap">
   <div class="tool-card tr-inner">
@@ -403,15 +404,15 @@
   <div class="explainer-grid">
     <div class="exp-step">
       <div class="exp-num">1</div>
-      <div><strong>Enter your text</strong><p>Type or paste the word, phrase, or sentence you want to duplicate into the input box.</p></div>
+      <div><strong>Write what you want repeated</strong><p>Paste or type the phrase — a single word, a sentence, an emoji, or a block of text. There's no character limit on the input.</p></div>
     </div>
     <div class="exp-step">
       <div class="exp-num">2</div>
-      <div><strong>Set count and separator</strong><p>Choose how many repetitions you need (up to 500) and pick a separator — newline, space, comma, or none.</p></div>
+      <div><strong>Set the count and separator</strong><p>The repeat count goes up to 500. Separator options are newline (one per line), comma, space, or none (everything run together). A custom separator is also accepted.</p></div>
     </div>
     <div class="exp-step">
       <div class="exp-num">3</div>
-      <div><strong>Copy the result</strong><p>Hit Generate, then copy the output to your clipboard with one click and paste it wherever you need it.</p></div>
+      <div><strong>Generate and copy</strong><p>Click Generate to produce the full output, then Copy to grab it. Paste directly into a code editor, a spreadsheet cell, a test form, or any text field.</p></div>
     </div>
   </div>
 </div>
@@ -435,25 +436,16 @@
     <div class="faq-q"><span class="faq-q-text">Can I use this to fill placeholder content?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
     <div class="faq-a"><p>Yes. Designers and developers often use a text repeater to generate filler content for mockups, wireframes, or test inputs without installing any software.</p></div>
   </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Why does repeated text sometimes paste shorter than expected in certain apps?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Some form inputs apply a maxlength limit silently — they accept the paste but truncate the string without warning. Rich-text editors like Google Docs or Notion may also reformat long repeated blocks, collapsing whitespace or adding paragraph breaks. If the output looks shorter or different after pasting, try pasting into a plain text editor first (Notepad on Windows, TextEdit in plain-text mode on Mac) to verify the full string arrived intact before assuming the tool truncated it.</p></div>
+  </div>
 </div>
   <div class="divider"></div>
 
 <div>
-  <h2 class="section-title" style="margin-bottom:14px">Who uses this tool</h2>
-  <div class="uc-grid">
-    <div class="uc">
-      <div class="uc-title">Developers &amp; QA testers</div>
-      <div class="uc-body">Quickly generate repetitive input strings for testing form validation, character limits, and stress-testing text fields.</div>
-    </div>
-    <div class="uc">
-      <div class="uc-title">Designers &amp; content creators</div>
-      <div class="uc-body">Fill placeholder sections in mockups or wireframes with repeated text to simulate real content before copywriting is ready.</div>
-    </div>
-    <div class="uc">
-      <div class="uc-title">Students &amp; educators</div>
-      <div class="uc-body">Create writing practice sheets, vocabulary drills, or repeated sentence exercises without tedious manual copy-pasting.</div>
-    </div>
-  </div>
+  <h2 class="section-title" style="margin-bottom:10px">A typical use</h2>
+  <p style="font-size:15px;line-height:1.75;color:var(--text-2);max-width:640px">A front-end developer stress-testing a textarea component set the tool to repeat a 20-character phrase 500 times with no separator, producing a 10,000-character string to paste into her form. The input field accepted it fine in Chrome but silently truncated it in Safari — a browser-specific bug she wouldn't have found without a repeatable, exact-length test string she could regenerate instantly while adjusting the component's maxlength attribute.</p>
 </div>
 
 

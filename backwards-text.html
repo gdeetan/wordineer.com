@@ -1,4 +1,4 @@
-<!-- build: 2026-08-06T00:46:01Z -->
+<!-- build: 2026-08-06T01:24:48Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -284,6 +284,7 @@
   </div>
   <h1>Backwards text generator</h1>
   <p>Reverse any text instantly — flip every character or reverse the order of whole words. Copy and paste anywhere.</p>
+  <p style="font-size:12px;color:var(--text-3);margin-top:8px">Built by Garrick Dee · Last verified August 2026</p>
 </div>
 <div class="tool-wrap">
   <div class="tool-card bkt-wrap">
@@ -353,22 +354,22 @@
     <div class="exp-step">
       <div class="exp-num">1</div>
       <div>
-        <strong>Choose your mode</strong>
-        <p>Select <em>Reverse characters</em> to flip every character in the string, or <em>Reverse words</em> to keep words intact while swapping their order.</p>
+        <strong>Pick a reversal mode</strong>
+        <p>Character mode flips the entire string so the last character becomes first — "hello" becomes "olleh". Word mode keeps each word intact and only swaps their order, so sentence structure reverses while individual words stay readable.</p>
       </div>
     </div>
     <div class="exp-step">
       <div class="exp-num">2</div>
       <div>
-        <strong>Type your text</strong>
-        <p>Enter any word, phrase, or paragraph. The reversed result updates live as you type — no button required.</p>
+        <strong>Paste or write in the top field</strong>
+        <p>The reversed output appears in the lower box immediately. Nothing is submitted to a server — both modes run entirely in your browser.</p>
       </div>
     </div>
     <div class="exp-step">
       <div class="exp-num">3</div>
       <div>
-        <strong>Copy &amp; use it</strong>
-        <p>Click Copy and paste your backwards text into social media, messages, puzzles, or any app that accepts text.</p>
+        <strong>Copy the reversed output</strong>
+        <p>Click Copy to grab the result. The characters are standard Unicode and paste correctly into every platform that accepts plain text.</p>
       </div>
     </div>
   </div>
@@ -393,25 +394,16 @@
     <div class="faq-q"><span class="faq-q-text">Is the backwards text generator free?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
     <div class="faq-a"><p>Yes, completely free. No account required and no data is sent to any server — all reversal happens in your browser.</p></div>
   </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Does reversing text affect emoji in the string?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Each emoji is treated as a single unit and moves as a whole during reversal — "Hi 👋" becomes "👋 iH" in character mode, not a broken byte sequence. Multi-character emoji (like those with skin tone modifiers) are also preserved intact, since the tool operates on JavaScript's string representation, which handles emoji sequences as paired surrogate characters rather than individual bytes.</p></div>
+  </div>
 </div>
   <div class="divider"></div>
 
 <div>
-  <h2 class="section-title" style="margin-bottom:14px">Who uses this tool</h2>
-  <div class="uc-grid">
-    <div class="uc">
-      <div class="uc-title">Puzzle &amp; riddle creators</div>
-      <div class="uc-body">Hide answers in backwards text, build word-reversal puzzles, or add a fun challenge layer to trivia games and worksheets.</div>
-    </div>
-    <div class="uc">
-      <div class="uc-title">Social media users</div>
-      <div class="uc-body">Post cryptic reversed messages to tease followers, create engagement-bait captions, or just have fun with a unique text style.</div>
-    </div>
-    <div class="uc">
-      <div class="uc-title">Developers &amp; QA testers</div>
-      <div class="uc-body">Quickly generate reversed strings to test RTL text handling, input validation, and string-processing functions in web apps.</div>
-    </div>
-  </div>
+  <h2 class="section-title" style="margin-bottom:10px">A typical use</h2>
+  <p style="font-size:15px;line-height:1.75;color:var(--text-2);max-width:640px">A QA engineer building a multilingual messaging app needed reversed ASCII strings to test whether the app's string-processing functions preserved character order correctly for non-RTL input. Pasting reversed text — rather than actual Arabic or Hebrew — let him isolate display logic from font-rendering issues, confirming the bug was in the string handling layer before involving the localization team. Character-reverse mode gave him exactly the test input he needed in seconds.</p>
 </div>
 
 
