@@ -1,4 +1,4 @@
-<!-- build: 2026-08-06T01:24:48Z -->
+<!-- build: 2026-08-06T01:44:36Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -148,6 +148,14 @@
         "@type": "Answer",
         "text": "No. The fancy text generator is completely free and requires no sign-up or account. Just type your text and copy any style you like."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "How does strikethrough text work and where can I use it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The strikethrough style applies Unicode combining character U+0336 (combining long stroke overlay) to each letter. Because it is a real Unicode character rather than CSS styling, it pastes into social media bios, Discord messages, Reddit comments, and anywhere plain text is accepted — the strikethrough appears as part of the text itself, not as formatting that might be stripped on paste."
+      }
     }
   ]
 }
@@ -212,6 +220,10 @@
 .copy-btn { background: #f4f4f6; color: #333; border: 1.5px solid #d0d0d8; border-radius: 8px; font-size: 0.85rem; font-weight: 500; cursor: pointer; padding: 6px 16px; transition: background 0.12s, color 0.12s, border-color 0.12s; white-space: nowrap; }
 .copy-btn:hover { background: #ebebf3; }
 .copy-btn.copied { background: #3C3489; color: #fff; border-color: #3C3489; }
+.style-desc { font-size: 0.78rem; line-height: 1.5; color: var(--text-2, #6b7280); margin: 0; }
+.fancy-jumps { font-size: 0.82rem; color: var(--text-3, #888); margin: -8px 0 16px; }
+.fancy-jumps a { color: #3C3489; text-decoration: none; }
+.fancy-jumps a:hover { text-decoration: underline; }
 </style>
 </head>
 
@@ -318,6 +330,7 @@
     <div class="fancy-input-label">Your text</div>
     <input type="text" id="fancy-input" class="fancy-input" placeholder="Type something…" autocomplete="off" spellcheck="false">
   </div>
+  <p class="fancy-jumps">Jump to: <a href="#strikethrough-text">Strikethrough</a> · <a href="#double-struck-text">Double-Struck</a> · <a href="#monospace-text">Monospace</a> · <a href="#fraktur-text">Fraktur</a></p>
   <div class="fancy-grid" id="fancy-grid"></div>
 </div>
 </div>
@@ -395,6 +408,10 @@
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">Do search engines read Unicode styled text as real words?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
     <div class="faq-a"><p>No. Search engines treat Unicode mathematical characters (𝗯𝗼𝗹𝗱, 𝘪𝘵𝘢𝘭𝘪𝘤) as their own code points, not as the Latin letters they resemble visually. A page where "𝗵𝗲𝗹𝗹𝗼" appears in the body won't rank for the word "hello." The same applies to screen readers — some announce "MATHEMATICAL BOLD CAPITAL H" rather than "H." Use styled Unicode for decorative, non-critical copy only.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">How does strikethrough text work and where can I use it?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>The strikethrough style applies Unicode combining character U+0336 (combining long stroke overlay) to each letter. Because it is a real Unicode character rather than CSS styling, it pastes into social media bios, Discord messages, Reddit comments, and anywhere plain text is accepted — the strikethrough appears as part of the text itself, not as formatting that might be stripped on paste.</p></div>
   </div>
 </div>
   <div class="divider"></div>
@@ -521,11 +538,11 @@
     {name:'𝘐𝘵𝘢𝘭𝘪𝘤', fn:function(t){return mathStyle(t,0x1D434,0x1D44E);}},
     {name:'𝑩𝒐𝒍𝒅 𝑰𝒕𝒂𝒍𝒊𝒄', fn:function(t){return mathStyle(t,0x1D468,0x1D482);}},
     {name:'𝒞𝓊𝓇𝓈𝒾𝓋𝑒 Script', fn:function(t){return mathStyle(t,0x1D49C,0x1D4B6);}},
-    {name:'𝔻𝕠𝕦𝕓𝕝𝕖-𝕤𝕥𝕣𝕦𝕔𝕜', fn:function(t){return mathStyle(t,0x1D538,0x1D552);}},
-    {name:'𝔉𝔯𝔞𝔨𝔱𝔲𝔯', fn:function(t){return mathStyle(t,0x1D504,0x1D51E);}},
-    {name:'𝙼𝚘𝚗𝚘𝚜𝚙𝚊𝚌𝚎', fn:function(t){return mathStyle(t,0x1D670,0x1D68A);}},
+    {name:'𝔻𝕠𝕦𝕓𝕝𝕖-𝕤𝕥𝕣𝕦𝕔𝕜', id:'double-struck-text', desc:'The mathematical double-struck alphabet — used in formal notation for number sets like ℝ (reals) and ℤ (integers). Gives a bold, outlined look in social bios without any font installation.', fn:function(t){return mathStyle(t,0x1D538,0x1D552);}},
+    {name:'𝔉𝔯𝔞𝔨𝔱𝔲𝔯', id:'fraktur-text', desc:'Medieval blackletter script — also called Gothic or Old English. The same letterforms appear in tattoo-style lettering, metal band logos, and vintage newspaper mastheads.', fn:function(t){return mathStyle(t,0x1D504,0x1D51E);}},
+    {name:'𝙼𝚘𝚗𝚘𝚜𝚙𝚊𝚌𝚎', id:'monospace-text', desc:'Fixed-width Unicode characters that mimic code or terminal output. Common in Discord and Telegram for a technical aesthetic when a code block would be too heavy.', fn:function(t){return mathStyle(t,0x1D670,0x1D68A);}},
     {name:'ꜱᴍᴀʟʟ ᴄᴀᴘꜱ', fn:smallCaps},
-    {name:'S̶t̶r̶i̶k̶e̶t̶h̶r̶o̶u̶g̶h̶', fn:strikethrough},
+    {name:'S̶t̶r̶i̶k̶e̶t̶h̶r̶o̶u̶g̶h̶', id:'strikethrough-text', desc:'Applies Unicode combining character U+0336 (long stroke overlay) to each letter. Used on social media for corrections, ironic deletions, or crossed-out thoughts you want to stay visible.', fn:strikethrough},
     {name:'Ⓒⓘⓡⓒⓛⓔⓓ', fn:circled}
   ];
 
@@ -536,6 +553,7 @@
   STYLES.forEach(function(style,i){
     var card=document.createElement('div');
     card.className='style-card';
+    if(style.id) card.id=style.id;
 
     var nameEl=document.createElement('div');
     nameEl.className='style-name';
@@ -563,6 +581,7 @@
 
     footer.appendChild(btn);
     card.appendChild(nameEl);
+    if(style.desc){var descEl=document.createElement('p');descEl.className='style-desc';descEl.textContent=style.desc;card.appendChild(descEl);}
     card.appendChild(textEl);
     card.appendChild(footer);
     grid.appendChild(card);
