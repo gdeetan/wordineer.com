@@ -1,4 +1,4 @@
-<!-- build: 2026-08-07T02:30:17Z -->
+<!-- build: 2026-08-07T07:44:31Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -309,7 +309,13 @@
   background: var(--bg-2);
   border-bottom: 1px solid var(--border-2);
   white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
 }
+.fw-table th:hover { color: var(--text-2); }
+.fw-table th::after { content: " ↕"; opacity: .35; font-size: 10px; }
+.fw-table th[aria-sort="ascending"]::after { content: " ↑"; opacity: 1; color: var(--brand); }
+.fw-table th[aria-sort="descending"]::after { content: " ↓"; opacity: 1; color: var(--brand); }
 .fw-table td {
   padding: 8px 14px;
   border-bottom: 1px solid var(--border-2);
@@ -423,8 +429,8 @@
       <div class="mega-cat">For Teachers</div>
       <a class="mega-link" href="/spelling-bee-words/">Spelling Bee Words (K–7)</a>
       <a class="mega-link" href="/sight-words-generator/">Sight Words Generator</a>
-      <a class="mega-link" href="/crossword-puzzle-generator/">Crossword Puzzle Generator</a>
-      <a class="mega-link" href="/writing-prompt-generator/">Writing Prompt Generator</a>
+      <a class="mega-link" href="/word-search-maker/">Word Search Maker</a>
+      <a class="mega-link" href="/hangman/">Hangman Game</a>
       <a class="mega-link mega-link--view-all" href="/teacher-tools/">View all →</a>
     </div>
   </div>
@@ -548,9 +554,9 @@
       <table class="fw-table" id="fw-table">
         <thead>
           <tr>
-            <th>Word</th>
-            <th>Pattern</th>
-            <th>Vowels</th>
+            <th data-col="w" aria-sort="ascending">Word</th>
+            <th data-col="p">Pattern</th>
+            <th data-col="v">Vowels</th>
           </tr>
         </thead>
         <tbody id="fw-tbody"></tbody>
@@ -624,6 +630,8 @@
       return w.split('').map(function(c){return 'aeiouAEIOU'.includes(c)?'V':'C';}).join('');
     }
 
+    var sortCol = 'w', sortDir = 1;
+
     function render(list) {
       var tbody = document.getElementById('fw-tbody');
       var count = document.getElementById('fw-count');
@@ -641,12 +649,35 @@
         var matchQ = !q || r.w.includes(q);
         return matchPat && matchQ;
       });
+      filtered.sort(function(a, b) {
+        var av = a[sortCol], bv = b[sortCol];
+        if (av < bv) return -sortDir;
+        if (av > bv) return sortDir;
+        return 0;
+      });
       render(filtered);
     }
 
+    document.querySelectorAll('.fw-table th[data-col]').forEach(function(th) {
+      th.addEventListener('click', function() {
+        var col = th.getAttribute('data-col');
+        if (sortCol === col) {
+          sortDir = -sortDir;
+        } else {
+          sortCol = col;
+          sortDir = 1;
+        }
+        document.querySelectorAll('.fw-table th[data-col]').forEach(function(t) {
+          t.removeAttribute('aria-sort');
+        });
+        th.setAttribute('aria-sort', sortDir === 1 ? 'ascending' : 'descending');
+        applyFilters();
+      });
+    });
+
     document.getElementById('fw-pattern-filter').addEventListener('change', applyFilters);
     document.getElementById('fw-search').addEventListener('input', applyFilters);
-    render(words);
+    render(words.slice().sort(function(a,b){ return a.w < b.w ? -1 : a.w > b.w ? 1 : 0; }));
   })();
   </script>
 
@@ -667,7 +698,7 @@
       <div><div class="footer-col-title">Account &amp; Security</div><a class="footer-link" href="/password-generator/">Password Generator</a><a class="footer-link" href="/passphrase-generator/">Passphrase Generator</a><a class="footer-link" href="/memorable-password-generator/">Memorable Password Generator</a><a class="footer-link" href="/username-generator/">Username Generator</a><a class="footer-link footer-link--view-all" href="/account-tools/">View all →</a></div>
       <div><div class="footer-col-title">Games &amp; fun</div><a class="footer-link" href="/coin-flip/">Flip a Coin</a><a class="footer-link" href="/random-number-generator/">Number Generator</a><a class="footer-link" href="/dice-roller/">Dice Roller</a><a class="footer-link" href="/wheel-of-names/">Wheel of Names</a><a class="footer-link footer-link--view-all" href="/word-games/">View all →</a></div>
       <div><div class="footer-col-title">Text Tools</div><a class="footer-link" href="/fancy-text-generator/">Fancy Text Generator</a><a class="footer-link" href="/upside-down-text/">Upside Down Text</a><a class="footer-link" href="/caesar-cipher/">Caesar Cipher</a><a class="footer-link" href="/zalgo-text/">Zalgo Text Generator</a><a class="footer-link footer-link--view-all" href="/text-tools/">View all →</a></div>
-      <div><div class="footer-col-title">For Teachers</div><a class="footer-link" href="/spelling-bee-words/">Spelling Bee Words (K–7)</a><a class="footer-link" href="/sight-words-generator/">Sight Words Generator</a><a class="footer-link" href="/crossword-puzzle-generator/">Crossword Puzzle Generator</a><a class="footer-link" href="/writing-prompt-generator/">Writing Prompt Generator</a><a class="footer-link footer-link--view-all" href="/teacher-tools/">View all →</a></div>
+      <div><div class="footer-col-title">For Teachers</div><a class="footer-link" href="/spelling-bee-words/">Spelling Bee Words (K–7)</a><a class="footer-link" href="/sight-words-generator/">Sight Words Generator</a><a class="footer-link" href="/word-search-maker/">Word Search Maker</a><a class="footer-link" href="/hangman/">Hangman Game</a><a class="footer-link footer-link--view-all" href="/teacher-tools/">View all →</a></div>
     </div>
     <div class="footer-bottom">
       <div style="display:flex;align-items:center;gap:7px">
