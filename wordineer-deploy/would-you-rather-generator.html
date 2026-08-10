@@ -1,4 +1,4 @@
-<!-- build: 2026-07-29T04:32:41Z -->
+<!-- build: 2026-08-10T10:56:51Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -172,8 +172,26 @@
 }
 </script>
 
-
-<link rel="stylesheet" href="/styles/global.css?v=14">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Would You Rather Generator — Random Dilemma Questions",
+  "url": "https://wordineer.com/would-you-rather-generator/",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "publisher": {
+    "@id": "https://wordineer.com/#organization"
+  },
+  "description": "Generate random Would You Rather questions instantly. Filter by Funny, Hard, Deep, Kids, Couples, Work, or Dark. Free, no sign-up, instant results — perfect for parties, icebreakers, and game nights."
+}
+</script>
+<link rel="stylesheet" href="/styles/global.css?v=16">
 <style>
 .tool-wrap{max-width:960px;margin:0 auto;padding:24px 24px 0}
 .pic-card{border:1px solid var(--border);border-radius:8px;background:var(--bg);box-shadow:var(--shadow);overflow:hidden}
@@ -268,12 +286,12 @@
       <a class="mega-link mega-link--view-all" href="/word-tools/">View all →</a>
     </div>
     <div class="mega-col">
-      <div class="mega-cat">Browse by Letter</div>
-      <a class="mega-link" href="/random-words-starting-with/">Random Words Starting With (A–Z)</a>
-      <a class="mega-link" href="/random-words-starting-with/a">Words Starting With A</a>
-      <a class="mega-link" href="/random-words-starting-with/b">Words Starting With B</a>
-      <a class="mega-link" href="/random-words-starting-with/e">Words Starting With E</a>
-      <a class="mega-link mega-link--view-all" href="/random-words-starting-with/">View all →</a>
+      <div class="mega-cat">Browse by Letter &amp; Ending</div>
+      <a class="mega-link" href="/random-words-starting-with/">Words Starting With (A–Z)</a>
+      <a class="mega-link" href="/words-ending-with/">Words Ending With (suffixes)</a>
+      <a class="mega-link" href="/random-words-starting-with/s">Words Starting With S</a>
+      <a class="mega-link" href="/words-ending-in-ing/">Words Ending in -ING</a>
+      <a class="mega-link mega-link--view-all" href="/word-lists/">View all →</a>
     </div>
     <div class="mega-col">
       <div class="mega-cat">Names by Origin</div>
@@ -300,23 +318,39 @@
       <a class="mega-link mega-link--view-all" href="/account-tools/">View all →</a>
     </div>
     <div class="mega-col">
-      <div class="mega-cat">Games &amp; fun</div>
-      <a class="mega-link" href="/coin-flip/">Flip a Coin</a>
-      <a class="mega-link" href="/random-number-generator/">Number Generator</a>
+      <div class="mega-cat">Numbers &amp; Random</div>
+      <a class="mega-link" href="/random-number-generator/">Random Number Generator</a>
       <a class="mega-link" href="/dice-roller/">Dice Roller</a>
-      <a class="mega-link" href="/wheel-of-names/">Wheel of Names</a>
-      <a class="mega-link mega-link--view-all" href="/number-chance/">View all →</a>
+      <a class="mega-link" href="/coin-flip/">Flip a Coin</a>
+      <a class="mega-link" href="/random-pin-generator/">Random PIN Generator</a>
+      <a class="mega-link mega-link--view-all" href="/number-tools/">View all →</a>
     </div>
     <div class="mega-col">
-      <div class="mega-cat">Learn & Resources</div>
-      <a class="mega-link" href="/spelling-bee-words/">Spelling Bee Words</a>
-      <a class="mega-link" href="/common-5-letter-words/">Common 5-Letter Words</a>
-      <a class="mega-link" href="/etymology-100-common-words/">Etymology Guide</a>
-      <a class="mega-link" href="/esl-vocabulary-cefr/">ESL Vocabulary (CEFR)</a>
+      <div class="mega-cat">Games &amp; fun</div>
+      <a class="mega-link" href="/coin-flip/">Flip a Coin</a>
+      <a class="mega-link" href="/mad-libs/">Mad Libs Generator</a>
+      <a class="mega-link" href="/dice-roller/">Dice Roller</a>
+      <a class="mega-link" href="/wheel-of-names/">Wheel of Names</a>
+      <a class="mega-link mega-link--view-all" href="/word-games/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Text Tools</div>
+      <a class="mega-link" href="/fancy-text-generator/">Fancy Text Generator</a>
+      <a class="mega-link" href="/upside-down-text/">Upside Down Text</a>
+      <a class="mega-link" href="/caesar-cipher/">Caesar Cipher</a>
+      <a class="mega-link" href="/zalgo-text/">Zalgo Text Generator</a>
+      <a class="mega-link mega-link--view-all" href="/text-tools/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">For Teachers</div>
+      <a class="mega-link" href="/spelling-bee-words/">Spelling Bee Words (K–7)</a>
+      <a class="mega-link" href="/sight-words-generator/">Sight Words Generator</a>
+      <a class="mega-link" href="/word-search-maker/">Word Search Maker</a>
+      <a class="mega-link" href="/hangman/">Hangman Game</a>
+      <a class="mega-link mega-link--view-all" href="/teacher-tools/">View all →</a>
     </div>
   </div>
 </div>
-
 
 <div class="breadcrumb">
   <div class="breadcrumb-inner">
@@ -404,12 +438,12 @@
     <h2 class="section-title">More word tools</h2>
     <p class="section-sub">Every word generator you need, all free</p>
     <div class="tools-grid">
+      <a class="tool-item" href="/rhyming-dictionary/"><div class="tool-icon" style="background:#FFF0FB"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h9M2 7h6M2 10h4" stroke="#9B3CB0" stroke-width="1.3" stroke-linecap="round"/><path d="M10 8.5c1 0 2 .7 2 1.7s-1 1.8-2 1.8-2-.8-2-1.8" stroke="#9B3CB0" stroke-width="1" stroke-linecap="round"/></svg></div><div class="tool-name">Rhyming Dictionary</div><div class="tool-desc">Find perfect rhymes for any word, grouped by syllable count. Filter by part of speech. Great for poetry and songwriting.</div></a>
       <a class="tool-item" href="/random-quote-generator/"><div class="tool-icon" style="background:#FBEAF0"><svg viewBox="0 0 13 13" fill="none"><path d="M3 4.5h3.5M3 8.5h4.5" stroke="#A13B63" stroke-width="1.1" stroke-linecap="round"/><path d="M8.2 3.5h1.4v2.1c0 .5.4.9.9.9H11v1.4H9.6c-1.2 0-2.1-.9-2.1-2.1z" fill="#A13B63"/><path d="M2.2 5.2h1.4V7c0 .5.4.9.9.9h.4v1.4h-.4C3.3 9.3 2.2 8.2 2.2 7z" fill="#A13B63"/></svg></div><div class="tool-name">Random Quote Generator</div><div class="tool-desc">Random quotes with filters for topic, author, tone, length, favorites, and image cards.</div></a>
       <a class="tool-item" href="/random-wordle-generator/"><div class="tool-icon" style="background:#E8F4FE"><svg viewBox="0 0 13 13" fill="none"><rect x='2' y='2' width='3.5' height='3.5' rx='0.5' fill='#2B7FD4'/><rect x='7.5' y='2' width='3.5' height='3.5' rx='0.5' fill='#2B7FD4' opacity='.4'/><rect x='2' y='7.5' width='3.5' height='3.5' rx='0.5' fill='#2B7FD4' opacity='.4'/><rect x='7.5' y='7.5' width='3.5' height='3.5' rx='0.5' fill='#2B7FD4'/></svg></div><div class="tool-name">Random Wordle Generator</div><div class="tool-desc">Random 5-letter words for Wordle. Filter by difficulty and letter.</div></a>
       <a class="tool-item" href="/wordle-helper/"><div class="tool-icon" style="background:#E1F5EE"><svg viewBox="0 0 13 13" fill="none"><rect x='2' y='2' width='3.5' height='3.5' rx='0.5' fill='#1D9E75'/><rect x='7.5' y='2' width='3.5' height='3.5' rx='0.5' fill='#BA7517'/><rect x='2' y='7.5' width='3.5' height='3.5' rx='0.5' fill='none' stroke='#9a9a94' stroke-width='1'/><rect x='7.5' y='7.5' width='3.5' height='3.5' rx='0.5' fill='#1D9E75'/></svg></div><div class="tool-name">Wordle Helper</div><div class="tool-desc">Entropy-ranked solver — enter your clues and get the single best next guess, not just a filtered list.</div></a>
       <a class="tool-item" href="/best-wordle-starting-words/"><div class="tool-icon" style="background:#E6F1FB"><svg viewBox="0 0 13 13" fill="none"><rect x='2' y='9' width='1.5' height='3' rx='0.3' fill='#185FA5'/><rect x='4.5' y='6.5' width='1.5' height='5.5' rx='0.3' fill='#185FA5'/><rect x='7' y='4' width='1.5' height='8' rx='0.3' fill='#185FA5'/><rect x='9.5' y='2' width='1.5' height='10' rx='0.3' fill='#185FA5'/></svg></div><div class="tool-name">Best Wordle Starting Words</div><div class="tool-desc">Top 100 openers ranked by Shannon entropy — original analysis, 10,000-game benchmark, downloadable data.</div></a>
       <a class="tool-item" href="/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="#534AB7" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="tool-name">Random word</div><div class="tool-desc">Filter by type, difficulty, length</div></a>
-      <a class="tool-item" href="/random-noun-generator/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h9M2 7h6M2 10h8" stroke="#534AB7" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="tool-name">Random Noun Generator</div><div class="tool-desc">Generate random nouns — filter by type (abstract, concrete, proper, collective) and difficulty.</div></a>
     </div>
   </div>
   <div class="divider"></div>
@@ -418,14 +452,12 @@
     <p class="section-sub">Numbers, names, games and more</p>
     <div class="other-grid">
       <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3h9M2 6.5h7M2 10h5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Writing &amp; Vocabulary</div><a class="other-link" href="/">Random Word Generator</a><a class="other-link" href="/random-sentence-generator/">Random Sentence Generator</a><a class="other-link" href="/random-paragraph-generator/">Random Paragraph Generator</a><a class="other-link" href="/word-counter/">Word Counter</a><a class="other-link other-link--view-all" href="/word-tools/">View all →</a></div>
-      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h3.5M2 7h9M2 10h6" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Browse by Letter</div><a class="other-link" href="/random-words-starting-with/">Random Words Starting With (A–Z)</a><a class="other-link" href="/random-words-starting-with/a">Words Starting With A</a><a class="other-link" href="/random-words-starting-with/b">Words Starting With B</a><a class="other-link" href="/random-words-starting-with/e">Words Starting With E</a><a class="other-link other-link--view-all" href="/random-words-starting-with/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4h3.5M2 7h9M2 10h6" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Browse by Letter &amp; Ending</div><a class="other-link" href="/random-words-starting-with/">Words Starting With (A–Z)</a><a class="other-link" href="/words-ending-with/">Words Ending With (suffixes)</a><a class="other-link" href="/random-words-starting-with/s">Words Starting With S</a><a class="other-link" href="/words-ending-in-ing/">Words Ending in -ING</a><a class="other-link other-link--view-all" href="/word-lists/">View all →</a></div>
       <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4.5" r="2.5" stroke="currentColor" stroke-width="1"/><path d="M1.5 11.5c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Names by Origin</div><a class="other-link" href="/random-spanish-name-generator/">Spanish Name Generator</a><a class="other-link" href="/random-italian-name-generator/">Italian Name Generator</a><a class="other-link" href="/random-japanese-name-generator/">Japanese Name Generator</a><a class="other-link" href="/random-american-name-generator/">American Name Generator</a><a class="other-link other-link--view-all" href="/name-generators/">View all →</a></div>
       <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="1.5" width="9" height="10" rx="1" stroke="currentColor" stroke-width="1"/><path d="M4 4.5h5M4 6.5h5M4 8.5h3" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Other Name Generators</div><a class="other-link" href="/character-name-generator/">Character Name Generator</a><a class="other-link" href="/fantasy-name-generator/">Fantasy Name Generator</a><a class="other-link" href="/business-name-generator/">Business Name Generator</a><a class="other-link" href="/band-name-generator/">Band Name Generator</a><a class="other-link other-link--view-all" href="/other-generators/">View all →</a></div>
-      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><circle cx="4" cy="4.5" r="1.5" stroke="currentColor" stroke-width="1"/><circle cx="9" cy="4.5" r="1.5" stroke="currentColor" stroke-width="1"/><path d="M2 10c0-2.2 1.8-4 4-4h1c2.2 0 4 1.8 4 4" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Pets &amp; Animals</div><a class="other-link" href="/dog-name-generator/">Dog Name Generator</a><a class="other-link" href="/cat-name-generator/">Cat Name Generator</a><a class="other-link" href="/fish-name-generator/">Fish Name Generator</a><a class="other-link other-link--view-all" href="/other-generators/">View all →</a></div>
-      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M6.5 2L8 5.5H11L8.5 7.5L9.5 11L6.5 9L3.5 11L4.5 7.5L2 5.5H5Z" stroke="currentColor" stroke-width=".9" stroke-linejoin="round" fill="none"/></svg>Fantasy &amp; Story Names</div><a class="other-link" href="/elf-name-generator/">Elf Name Generator</a><a class="other-link" href="/hero-name-generator/">Hero Name Generator</a><a class="other-link" href="/villain-name-generator/">Villain Name Generator</a><a class="other-link" href="/barbarian-name-generator/">Barbarian Name Generator</a><a class="other-link other-link--view-all" href="/other-generators/">View all →</a></div>
-      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><circle cx="4.5" cy="7" r="1" stroke="currentColor" stroke-width=".9"/><circle cx="8.5" cy="4.5" r="1" stroke="currentColor" stroke-width=".9"/><path d="M5.5 6.8L8.5 5.5V3L5.5 4.2V7" stroke="currentColor" stroke-width=".9" stroke-linecap="round" stroke-linejoin="round"/></svg>Bands, Music &amp; Teams</div><a class="other-link" href="/band-name-generator/">Band Name Generator</a><a class="other-link" href="/musician-name-generator/">Musician Name Generator</a><a class="other-link" href="/team-name-generator/">Team Name Generator</a><a class="other-link other-link--view-all" href="/other-generators/">View all →</a></div>
       <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="3.5" y="5.5" width="6" height="5" rx="1" stroke="currentColor" stroke-width="1"/><path d="M5 5.5V4a1.5 1.5 0 013 0v1.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Account &amp; Security</div><a class="other-link" href="/username-generator/">Username Generator</a><a class="other-link" href="/password-generator/">Password Generator</a><a class="other-link" href="/passphrase-generator/">Passphrase Generator</a><a class="other-link" href="/instagram-username-generator/">Instagram Username Generator</a><a class="other-link other-link--view-all" href="/account-tools/">View all →</a></div>
-      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="1" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="1" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/></svg>Games &amp; fun</div><a class="other-link" href="/pictionary-phrase-generator/">Pictionary Phrase Generator</a><a class="other-link" href="/wordle-helper/">Wordle Helper</a><a class="other-link" href="/coin-flip/">Coin Flip</a><a class="other-link" href="/dice-roller/">Dice Roller</a><a class="other-link other-link--view-all" href="/number-chance/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><rect x="1" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="1" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="1" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/><rect x="7.5" y="7.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1"/></svg>Games &amp; fun</div><a class="other-link" href="/pictionary-phrase-generator/">Pictionary Phrase Generator</a><a class="other-link" href="/wordle-answer-today/">Wordle Answer Today</a><a class="other-link" href="/wordle-helper/">Wordle Helper</a><a class="other-link" href="/coin-flip/">Coin Flip</a><a class="other-link" href="/dice-roller/">Dice Roller</a><a class="other-link other-link--view-all" href="/word-games/">View all →</a></div>
+      <div class="other-cat"><div class="other-cat-title"><svg viewBox="0 0 13 13" fill="none"><path d="M2 5h9M2 8h6M2 11h4" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>Text Tools</div><a class="other-link" href="/fancy-text-generator/">Fancy Text Generator</a><a class="other-link" href="/upside-down-text/">Upside Down Text</a><a class="other-link" href="/caesar-cipher/">Caesar Cipher</a><a class="other-link" href="/zalgo-text/">Zalgo Text Generator</a><a class="other-link other-link--view-all" href="/text-tools/">View all →</a></div>
     </div>
   </div>
 
@@ -438,8 +470,6 @@
       <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
     </div>
   </div>
-  <div class="divider"></div>
-
 <div class="explainer">
   <h2>What is a Would You Rather Generator?</h2>
   <p>A Would You Rather generator picks random dilemma questions and presents them instantly — no preparation, no blank stares, no scrambling to think of something. Each question gives you two options and forces you to choose one. That forced choice is the whole point. You can't sit on the fence, you can't say "it depends," and you can't pass. Whatever option you pick says something about how you think, what you value, and what you're willing to put up with. That's what makes the conversation interesting.</p>
@@ -481,7 +511,6 @@
     <span>Always speak in rhymes</span><span>Pet dragon or unicorn</span><span>Rich or famous</span><span>Work from anywhere</span><span>Lose your sight or hearing</span>
   </div>
 </div>
-  <div class="divider"></div>
 
 <div class="faq">
   <h2 class="faq-title">Would You Rather FAQs</h2>
@@ -514,7 +543,6 @@
     <div class="faq-a">Hard questions are genuinely difficult dilemmas — the two options are both reasonable but force a real trade-off, like choosing between losing your sight or your hearing, or picking between true love with no money vs. wealth with no love. Dark questions are more emotionally confronting — they involve mortality, loss, betrayal, and uncomfortable truths. Both are for adults, but Dark tends to land differently and works better with people who already know each other well.</div>
   </div>
 </div>
-  <div class="divider"></div>
 
 <div class="section">
   <h2 class="section-title" style="margin-bottom:14px">Who Uses the Would You Rather Generator?</h2>
@@ -538,15 +566,14 @@
     </div>
     <div class="footer-grid">
       <div><div class="footer-col-title">Writing &amp; Vocabulary</div><a class="footer-link" href="/">Random Word Generator</a><a class="footer-link" href="/random-sentence-generator/">Random Sentence Generator</a><a class="footer-link" href="/lorem-ipsum-generator/">Lorem Ipsum Generator</a><a class="footer-link" href="/word-counter/">Word Counter</a><a class="footer-link footer-link--view-all" href="/word-tools/">View all →</a></div>
-      <div><div class="footer-col-title">Browse by Letter</div><a class="footer-link" href="/random-words-starting-with/">Random Words Starting With (A–Z)</a><a class="footer-link" href="/random-words-starting-with/a">Words Starting With A</a><a class="footer-link" href="/random-words-starting-with/b">Words Starting With B</a><a class="footer-link" href="/random-words-starting-with/e">Words Starting With E</a><a class="footer-link footer-link--view-all" href="/random-words-starting-with/">View all →</a></div>
+      <div><div class="footer-col-title">Browse by Letter &amp; Ending</div><a class="footer-link" href="/random-words-starting-with/">Words Starting With (A–Z)</a><a class="footer-link" href="/words-ending-with/">Words Ending With (suffixes)</a><a class="footer-link" href="/words-ending-in-ing/">Words Ending in -ING</a><a class="footer-link" href="/words-ending-in-ly/">Words Ending in -LY</a><a class="footer-link footer-link--view-all" href="/word-lists/">View all →</a></div>
       <div><div class="footer-col-title">Names by Origin</div><a class="footer-link" href="/random-spanish-name-generator/">Spanish Name Generator</a><a class="footer-link" href="/random-italian-name-generator/">Italian Name Generator</a><a class="footer-link" href="/random-japanese-name-generator/">Japanese Name Generator</a><a class="footer-link" href="/random-american-name-generator/">American Name Generator</a><a class="footer-link footer-link--view-all" href="/name-generators/">View all →</a></div>
       <div><div class="footer-col-title">Other Name Generators</div><a class="footer-link" href="/character-name-generator/">Character Name Generator</a><a class="footer-link" href="/fantasy-name-generator/">Fantasy Name Generator</a><a class="footer-link" href="/business-name-generator/">Business Name Generator</a><a class="footer-link" href="/band-name-generator/">Band Name Generator</a><a class="footer-link footer-link--view-all" href="/other-generators/">View all →</a></div>
-      <div><div class="footer-col-title">Pets &amp; Animals</div><a class="footer-link" href="/dog-name-generator/">Dog Name Generator</a><a class="footer-link" href="/cat-name-generator/">Cat Name Generator</a><a class="footer-link" href="/fish-name-generator/">Fish Name Generator</a><a class="footer-link footer-link--view-all" href="/other-generators/">View all →</a></div>
-      <div><div class="footer-col-title">Fantasy &amp; Story Names</div><a class="footer-link" href="/elf-name-generator/">Elf Name Generator</a><a class="footer-link" href="/hero-name-generator/">Hero Name Generator</a><a class="footer-link" href="/villain-name-generator/">Villain Name Generator</a><a class="footer-link" href="/barbarian-name-generator/">Barbarian Name Generator</a><a class="footer-link footer-link--view-all" href="/other-generators/">View all →</a></div>
-      <div><div class="footer-col-title">Bands, Music &amp; Teams</div><a class="footer-link" href="/band-name-generator/">Band Name Generator</a><a class="footer-link" href="/musician-name-generator/">Musician Name Generator</a><a class="footer-link" href="/team-name-generator/">Team Name Generator</a><a class="footer-link footer-link--view-all" href="/other-generators/">View all →</a></div>
       <div><div class="footer-col-title">Account &amp; Security</div><a class="footer-link" href="/password-generator/">Password Generator</a><a class="footer-link" href="/passphrase-generator/">Passphrase Generator</a><a class="footer-link" href="/memorable-password-generator/">Memorable Password Generator</a><a class="footer-link" href="/username-generator/">Username Generator</a><a class="footer-link footer-link--view-all" href="/account-tools/">View all →</a></div>
-      <div><div class="footer-col-title">Games &amp; fun</div><a class="footer-link" href="/coin-flip/">Flip a Coin</a><a class="footer-link" href="/random-number-generator/">Number Generator</a><a class="footer-link" href="/dice-roller/">Dice Roller</a><a class="footer-link" href="/wheel-of-names/">Wheel of Names</a><a class="footer-link footer-link--view-all" href="/number-chance/">View all →</a></div>
-      <div><div class="footer-col-title">Learn & Resources</div><a class="footer-link" href="/spelling-bee-words/">Spelling Bee Words</a><a class="footer-link" href="/common-5-letter-words/">Common 5-Letter Words</a><a class="footer-link" href="/etymology-100-common-words/">Etymology Guide</a><a class="footer-link" href="/esl-vocabulary-cefr/">ESL Vocabulary (CEFR)</a></div>
+      <div><div class="footer-col-title">Numbers &amp; Random</div><a class="footer-link" href="/random-number-generator/">Random Number Generator</a><a class="footer-link" href="/dice-roller/">Dice Roller</a><a class="footer-link" href="/coin-flip/">Flip a Coin</a><a class="footer-link" href="/random-pin-generator/">Random PIN Generator</a><a class="footer-link footer-link--view-all" href="/number-tools/">View all →</a></div>
+      <div><div class="footer-col-title">Games &amp; fun</div><a class="footer-link" href="/coin-flip/">Flip a Coin</a><a class="footer-link" href="/mad-libs/">Mad Libs Generator</a><a class="footer-link" href="/dice-roller/">Dice Roller</a><a class="footer-link" href="/wheel-of-names/">Wheel of Names</a><a class="footer-link footer-link--view-all" href="/word-games/">View all →</a></div>
+      <div><div class="footer-col-title">Text Tools</div><a class="footer-link" href="/fancy-text-generator/">Fancy Text Generator</a><a class="footer-link" href="/upside-down-text/">Upside Down Text</a><a class="footer-link" href="/caesar-cipher/">Caesar Cipher</a><a class="footer-link" href="/zalgo-text/">Zalgo Text Generator</a><a class="footer-link footer-link--view-all" href="/text-tools/">View all →</a></div>
+      <div><div class="footer-col-title">For Teachers</div><a class="footer-link" href="/spelling-bee-words/">Spelling Bee Words (K–7)</a><a class="footer-link" href="/sight-words-generator/">Sight Words Generator</a><a class="footer-link" href="/word-search-maker/">Word Search Maker</a><a class="footer-link" href="/hangman/">Hangman Game</a><a class="footer-link footer-link--view-all" href="/teacher-tools/">View all →</a></div>
     </div>
     <div class="footer-bottom">
       <div style="display:flex;align-items:center;gap:7px">
@@ -554,7 +581,7 @@
         <span style="font-size:14px;font-weight:600;color:var(--text)">Wordineer</span>
       </div>
       <span class="footer-copy">© 2026 Wordineer · Free word tools for everyone</span>
-      <div class="footer-meta"><a href="/about/">About</a><a href="/affiliate-disclosure/">Affiliate disclosure</a><a href="/privacy/">Privacy</a></div>
+      <div class="footer-meta"><a href="/about/">About</a><a href="/press-kit/">Data &amp; Press</a><a href="/embed/">Embed our tools</a><a href="/affiliate-disclosure/">Affiliate disclosure</a><a href="/privacy/">Privacy</a></div>
     </div>
   </div>
 </footer>
@@ -600,6 +627,7 @@
       setMenu(false);
     }
   }, true);
+
 })();
 </script>
 

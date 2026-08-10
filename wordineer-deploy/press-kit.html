@@ -1,0 +1,641 @@
+<!-- build: 2026-08-10T10:56:51Z -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.adsbygoogle = window.adsbygoogle || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  (function(w, d) {
+    var loaded = false;
+    var cfg = {
+      analyticsId: 'G-7DWH3EGM3Z',
+      adsClient: 'ca-pub-7200956978416233',
+      delay: 10000
+    };
+
+    function loadScript(src, attrs) {
+      var s = d.createElement('script');
+      s.async = true;
+      s.src = src;
+      if (attrs) {
+        Object.keys(attrs).forEach(function(key) {
+          s.setAttribute(key, attrs[key]);
+        });
+      }
+      d.head.appendChild(s);
+    }
+
+    function loadMarketing() {
+      if (loaded) return;
+      loaded = true;
+      gtag('js', new Date());
+      gtag('config', cfg.analyticsId);
+      loadScript('https://www.googletagmanager.com/gtag/js?id=' + cfg.analyticsId);
+      loadScript(
+        'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + cfg.adsClient,
+        { crossorigin: 'anonymous' }
+      );
+    }
+
+    function idleLoad() {
+      if ('requestIdleCallback' in w) {
+        w.requestIdleCallback(loadMarketing, { timeout: 5000 });
+      } else {
+        w.setTimeout(loadMarketing, cfg.delay);
+      }
+    }
+
+    ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function(eventName) {
+      w.addEventListener(eventName, loadMarketing, { once: true, passive: true });
+    });
+    w.addEventListener('load', function() {
+      w.setTimeout(idleLoad, cfg.delay);
+    }, { once: true });
+  })(window, document);
+</script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="XRPtSc+0VtlRm6fwBuI7iA" async></script>
+<meta name='impact-site-verification' value='32715504-1cfb-4324-bfc7-ae4cfa1591ea'>
+<link rel="preload" href="/fonts/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-sans-italic-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://wordineer.com/#website",
+      "name": "Wordineer",
+      "url": "https://wordineer.com",
+      "description": "Free online word tools for writers, students, and word game players — random word generator, name generators, word scramble, sentence generator, and more.",
+      "publisher": { "@id": "https://wordineer.com/#organization" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://wordineer.com/#organization",
+      "name": "Wordineer",
+      "url": "https://wordineer.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://wordineer.com/logo.png",
+        "width": 1254,
+        "height": 1254
+      },
+      "description": "Wordineer provides free online word tools for writers, students, and word game players."
+    }
+  ]
+}
+</script>
+<title>Wordineer Open Datasets — Free Word Lists &amp; Dictionaries (CC BY 4.0)</title>
+<meta name="description" content="Download Wordineer's open word datasets: core word list, dictionary, spelling bee words by grade, Gen Z slang, names, and more. CC BY 4.0 licence.">
+<link rel="canonical" href="https://wordineer.com/press-kit">
+<meta property="og:type"        content="website">
+<meta property="og:site_name"   content="Wordineer">
+<meta property="og:title"       content="Wordineer Open Datasets">
+<meta property="og:description" content="Open word datasets and brand assets from Wordineer. Free to use under CC BY 4.0.">
+<meta property="og:url"         content="https://wordineer.com/press-kit/">
+<meta property="og:image"       content="https://wordineer.com/og-image.png">
+
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "Wordineer Core Word List",
+    "description": "~8,000 curated English words with part of speech, difficulty level (easy/medium/hard), and concise definition. Built via a Python pipeline using NLTK and WordNet, then hand-curated for quality.",
+    "url": "https://wordineer.com/press-kit/",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "creator": {"@type": "Person", "name": "Garrick Dee"},
+    "dateModified": "2025-05-19",
+    "distribution": [{
+      "@type": "DataDownload",
+      "encodingFormat": "application/json",
+      "contentUrl": "https://wordineer.com/data/words.json"
+    }]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "Wordineer Dictionary",
+    "description": "English definitions lookup table used to power Wordineer's word tools. Derived from WordNet via a Python extraction pipeline.",
+    "url": "https://wordineer.com/press-kit/",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "creator": {"@type": "Person", "name": "Garrick Dee"},
+    "dateModified": "2025-05-19",
+    "distribution": [{
+      "@type": "DataDownload",
+      "encodingFormat": "application/json",
+      "contentUrl": "https://wordineer.com/data/dictionary.json"
+    }]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "Wordineer Spelling Bee Words by Grade (K–7)",
+    "description": "Age-appropriate spelling bee word lists for kindergarten through 7th grade, each with definitions and difficulty tags. Curated for classroom use.",
+    "url": "https://wordineer.com/press-kit/",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "creator": {"@type": "Person", "name": "Garrick Dee"},
+    "dateModified": "2025-06-04",
+    "distribution": [
+      {"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "https://wordineer.com/data/spelling-bee-words-kindergarten.json"},
+      {"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "https://wordineer.com/data/spelling-bee-1st-grade.json"},
+      {"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "https://wordineer.com/data/spelling-bee-2nd-grade.json"},
+      {"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "https://wordineer.com/data/spelling-bee-3rd-grade.json"},
+      {"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "https://wordineer.com/data/spelling-bee-4th-grade.json"},
+      {"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "https://wordineer.com/data/spelling-bee-5th-grade.json"},
+      {"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "https://wordineer.com/data/spelling-bee-6th-grade.json"},
+      {"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "https://wordineer.com/data/spelling-bee-7th-grade.json"}
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "Wordineer Gen Z Slang Dictionary",
+    "description": "Curated list of Gen Z slang terms with plain-English definitions, usage examples, and approximate first-use dates.",
+    "url": "https://wordineer.com/press-kit/",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "creator": {"@type": "Person", "name": "Garrick Dee"},
+    "dateModified": "2025-07-14",
+    "distribution": [{
+      "@type": "DataDownload",
+      "encodingFormat": "application/json",
+      "contentUrl": "https://wordineer.com/data/gen-z-slang-data.json"
+    }]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "Wordineer Wordle Opening Word Rankings",
+    "description": "Performance data for valid five-letter Wordle opening words, ranked by average guesses to solution.",
+    "url": "https://wordineer.com/press-kit/",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "creator": {"@type": "Person", "name": "Garrick Dee"},
+    "dateModified": "2025-06-24",
+    "distribution": [{
+      "@type": "DataDownload",
+      "encodingFormat": "application/json",
+      "contentUrl": "https://wordineer.com/data/wordle-openers.json"
+    }]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "Wordineer SAT Vocabulary List",
+    "description": "High-frequency SAT vocabulary words with definitions, example sentences, and difficulty ratings. Built for students and educators.",
+    "url": "https://wordineer.com/press-kit/",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "creator": {"@type": "Person", "name": "Garrick Dee"},
+    "dateModified": "2025-06-25",
+    "distribution": [{
+      "@type": "DataDownload",
+      "encodingFormat": "application/json",
+      "contentUrl": "https://wordineer.com/data/sat-vocab-data.json"
+    }]
+  }
+]
+</script>
+
+
+<link rel="stylesheet" href="/styles/global.css?v=16">
+<style>
+.prose-wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 32px 24px 64px;
+}
+.prose h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 40px 0 10px;
+  letter-spacing: -.02em;
+}
+.prose h2:first-child { margin-top: 0; }
+.prose p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-2);
+  margin: 0 0 14px;
+}
+.prose a {
+  color: var(--brand);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.prose a:hover { color: var(--brand-dark); }
+
+/* Boilerplate block */
+.boilerplate {
+  background: var(--surface-2, #f5f5f7);
+  border-left: 3px solid var(--brand);
+  border-radius: 6px;
+  padding: 16px 20px;
+  margin: 0 0 32px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-2);
+  font-style: italic;
+}
+
+/* Logo assets */
+.logo-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 0 0 32px;
+}
+.logo-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 24px;
+  border: 1px solid var(--border, #e0e0e0);
+  border-radius: 8px;
+  min-width: 140px;
+  text-decoration: none !important;
+}
+.logo-card:hover { border-color: var(--brand); }
+.logo-card img { height: 48px; width: auto; }
+.logo-card span {
+  font-size: 12px;
+  color: var(--text-2);
+  font-style: normal;
+  text-decoration: none;
+}
+.logo-card-dark {
+  background: #1a1a2e;
+}
+
+/* Dataset table */
+.dataset-list { display: flex; flex-direction: column; gap: 20px; margin: 0 0 32px; }
+.dataset-card {
+  border: 1px solid var(--border, #e0e0e0);
+  border-radius: 10px;
+  padding: 20px 22px;
+}
+.dataset-card h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 6px;
+}
+.dataset-card p {
+  font-size: 14px;
+  margin: 0 0 12px;
+}
+.dataset-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  font-size: 13px;
+  color: var(--text-2);
+  margin-bottom: 12px;
+}
+.dataset-meta span strong { color: var(--text); }
+.dataset-dl {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--brand);
+  text-decoration: none;
+  border: 1px solid var(--brand);
+  border-radius: 6px;
+  padding: 5px 12px;
+  margin-right: 8px;
+  margin-bottom: 6px;
+}
+.dataset-dl:hover { background: var(--brand); color: #fff !important; }
+
+/* Licence */
+.licence-box {
+  background: var(--surface-2, #f5f5f7);
+  border-radius: 8px;
+  padding: 18px 20px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-2);
+  margin: 0 0 32px;
+}
+.licence-box strong { color: var(--text); }
+
+@media (max-width: 600px) {
+  .prose-wrap { padding: 24px 16px 48px; }
+  .prose h2 { font-size: 16px; }
+  .logo-row { gap: 12px; }
+}
+</style>
+</head>
+
+<body>
+<nav class="nav">
+  <a class="nav-logo" href="/">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 15 15" fill="none"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </div>
+    Wordineer
+  </a>
+  <div class="nav-links">
+    <a href="/word-tools/">Tools</a>
+  </div>
+  <div>
+    <button class="hamburger" type="button" aria-label="All tools" aria-controls="mega" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mega" id="mega">
+  <div class="mega-inner">
+    <div class="mega-col">
+      <div class="mega-cat">Writing &amp; Vocabulary</div>
+      <a class="mega-link" href="/">Random Word Generator</a>
+      <a class="mega-link" href="/random-sentence-generator/">Random Sentence Generator</a>
+      <a class="mega-link" href="/lorem-ipsum-generator/">Lorem Ipsum Generator</a>
+      <a class="mega-link" href="/word-counter/">Word Counter</a>
+      <a class="mega-link mega-link--view-all" href="/word-tools/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Browse by Letter &amp; Ending</div>
+      <a class="mega-link" href="/random-words-starting-with/">Words Starting With (A–Z)</a>
+      <a class="mega-link" href="/words-ending-with/">Words Ending With (suffixes)</a>
+      <a class="mega-link" href="/random-words-starting-with/s">Words Starting With S</a>
+      <a class="mega-link" href="/words-ending-in-ing/">Words Ending in -ING</a>
+      <a class="mega-link mega-link--view-all" href="/word-lists/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Names by Origin</div>
+      <a class="mega-link" href="/random-spanish-name-generator/">Spanish Name Generator</a>
+      <a class="mega-link" href="/random-italian-name-generator/">Italian Name Generator</a>
+      <a class="mega-link" href="/random-japanese-name-generator/">Japanese Name Generator</a>
+      <a class="mega-link" href="/random-american-name-generator/">American Name Generator</a>
+      <a class="mega-link mega-link--view-all" href="/name-generators/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Other Name Generators</div>
+      <a class="mega-link" href="/character-name-generator/">Character Name Generator</a>
+      <a class="mega-link" href="/fantasy-name-generator/">Fantasy Name Generator</a>
+      <a class="mega-link" href="/business-name-generator/">Business Name Generator</a>
+      <a class="mega-link" href="/band-name-generator/">Band Name Generator</a>
+      <a class="mega-link mega-link--view-all" href="/other-generators/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Account &amp; Security</div>
+      <a class="mega-link" href="/username-generator/">Username Generator</a>
+      <a class="mega-link" href="/password-generator/">Password Generator</a>
+      <a class="mega-link" href="/passphrase-generator/">Passphrase Generator</a>
+      <a class="mega-link" href="/random-pin-generator/">Random PIN Generator</a>
+      <a class="mega-link mega-link--view-all" href="/account-tools/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Numbers &amp; Random</div>
+      <a class="mega-link" href="/random-number-generator/">Random Number Generator</a>
+      <a class="mega-link" href="/dice-roller/">Dice Roller</a>
+      <a class="mega-link" href="/coin-flip/">Flip a Coin</a>
+      <a class="mega-link" href="/random-pin-generator/">Random PIN Generator</a>
+      <a class="mega-link mega-link--view-all" href="/number-tools/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Games &amp; fun</div>
+      <a class="mega-link" href="/coin-flip/">Flip a Coin</a>
+      <a class="mega-link" href="/mad-libs/">Mad Libs Generator</a>
+      <a class="mega-link" href="/dice-roller/">Dice Roller</a>
+      <a class="mega-link" href="/wheel-of-names/">Wheel of Names</a>
+      <a class="mega-link mega-link--view-all" href="/word-games/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Text Tools</div>
+      <a class="mega-link" href="/fancy-text-generator/">Fancy Text Generator</a>
+      <a class="mega-link" href="/upside-down-text/">Upside Down Text</a>
+      <a class="mega-link" href="/caesar-cipher/">Caesar Cipher</a>
+      <a class="mega-link" href="/zalgo-text/">Zalgo Text Generator</a>
+      <a class="mega-link mega-link--view-all" href="/text-tools/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">For Teachers</div>
+      <a class="mega-link" href="/spelling-bee-words/">Spelling Bee Words (K–7)</a>
+      <a class="mega-link" href="/sight-words-generator/">Sight Words Generator</a>
+      <a class="mega-link" href="/word-search-maker/">Word Search Maker</a>
+      <a class="mega-link" href="/hangman/">Hangman Game</a>
+      <a class="mega-link mega-link--view-all" href="/teacher-tools/">View all →</a>
+    </div>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Open data &amp; press
+  </div>
+  <h1>Wordineer Data &amp; Press Kit</h1>
+  <p>Datasets, brand assets, and boilerplate for journalists, researchers, and developers. Everything is free to use under CC BY 4.0.</p>
+</div>
+<div class="prose-wrap">
+  <article class="prose">
+
+    <h2>About Wordineer</h2>
+    <div class="boilerplate">
+      Wordineer (wordineer.com) is a free, ad-supported collection of online word and language tools built by Garrick Dee. Originally created as a vocabulary resource for his homeschooled son, Wordineer has grown into a suite of generators, word lists, and text utilities used by writers, students, educators, and developers. All core tools are free with no account required. Word data is produced through a Python pipeline drawing on NLTK and WordNet, then curated by hand for accuracy and usability.
+    </div>
+
+    <h2>Logo &amp; Brand Assets</h2>
+    <div class="logo-row">
+      <a class="logo-card" href="/logo.svg" download>
+        <img src="/logo.svg" alt="Wordineer logo SVG" width="48" height="48">
+        <span>SVG — light</span>
+      </a>
+      <a class="logo-card" href="/logo.png" download>
+        <img src="/logo.png" alt="Wordineer logo PNG" width="48" height="48">
+        <span>PNG — light</span>
+      </a>
+    </div>
+    <p>Use these assets in articles, tools directories, and app stores. Do not alter the logo or use it to imply endorsement.</p>
+
+    <h2>Datasets</h2>
+    <p>All datasets are served directly from <code>wordineer.com/data/</code> and are free to download, build upon, or republish under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> with attribution.</p>
+
+    <div class="dataset-list">
+
+      <div class="dataset-card">
+        <h3>Core Word List</h3>
+        <p>~8,000 curated English words, each with part of speech, difficulty level (easy / medium / hard), and a concise definition. The backbone of Wordineer's random word generator.</p>
+        <div class="dataset-meta">
+          <span><strong>Format:</strong> JSON</span>
+          <span><strong>Size:</strong> ~809 KB</span>
+          <span><strong>Methodology:</strong> Python + NLTK / WordNet, hand-curated</span>
+          <span><strong>Updated:</strong> May 2025</span>
+          <span><strong>Licence:</strong> CC BY 4.0</span>
+        </div>
+        <a class="dataset-dl" href="/data/words.json" download>Download JSON</a>
+      </div>
+
+      <div class="dataset-card">
+        <h3>English Dictionary</h3>
+        <p>Definitions lookup table for tens of thousands of English words. Used to power in-tool definitions across the site. Extracted from WordNet via a Python pipeline.</p>
+        <div class="dataset-meta">
+          <span><strong>Format:</strong> JSON</span>
+          <span><strong>Size:</strong> ~2.4 MB</span>
+          <span><strong>Methodology:</strong> WordNet extraction via Python</span>
+          <span><strong>Updated:</strong> May 2025</span>
+          <span><strong>Licence:</strong> CC BY 4.0</span>
+        </div>
+        <a class="dataset-dl" href="/data/dictionary.json" download>Download JSON</a>
+      </div>
+
+      <div class="dataset-card">
+        <h3>Spelling Bee Words by Grade (K–7)</h3>
+        <p>Age-appropriate spelling bee word lists for kindergarten through 7th grade, each entry with a definition and difficulty tag. Built for educators running classroom spelling bees.</p>
+        <div class="dataset-meta">
+          <span><strong>Format:</strong> JSON (one file per grade)</span>
+          <span><strong>Grades:</strong> K, 1st–7th</span>
+          <span><strong>Updated:</strong> June 2025</span>
+          <span><strong>Licence:</strong> CC BY 4.0</span>
+        </div>
+        <a class="dataset-dl" href="/data/spelling-bee-words-kindergarten.json" download>Kindergarten</a>
+        <a class="dataset-dl" href="/data/spelling-bee-1st-grade.json" download>1st Grade</a>
+        <a class="dataset-dl" href="/data/spelling-bee-2nd-grade.json" download>2nd Grade</a>
+        <a class="dataset-dl" href="/data/spelling-bee-3rd-grade.json" download>3rd Grade</a>
+        <a class="dataset-dl" href="/data/spelling-bee-4th-grade.json" download>4th Grade</a>
+        <a class="dataset-dl" href="/data/spelling-bee-5th-grade.json" download>5th Grade</a>
+        <a class="dataset-dl" href="/data/spelling-bee-6th-grade.json" download>6th Grade</a>
+        <a class="dataset-dl" href="/data/spelling-bee-7th-grade.json" download>7th Grade</a>
+      </div>
+
+      <div class="dataset-card">
+        <h3>Gen Z Slang Dictionary</h3>
+        <p>Curated Gen Z slang terms with plain-English definitions, usage examples, and approximate era of use. Updated regularly as new terms emerge.</p>
+        <div class="dataset-meta">
+          <span><strong>Format:</strong> JSON</span>
+          <span><strong>Size:</strong> ~37 KB</span>
+          <span><strong>Updated:</strong> July 2025</span>
+          <span><strong>Licence:</strong> CC BY 4.0</span>
+        </div>
+        <a class="dataset-dl" href="/data/gen-z-slang-data.json" download>Download JSON</a>
+      </div>
+
+      <div class="dataset-card">
+        <h3>SAT Vocabulary List</h3>
+        <p>High-frequency SAT vocabulary words with definitions, example sentences, and difficulty ratings. Used to power Wordineer's SAT prep tools.</p>
+        <div class="dataset-meta">
+          <span><strong>Format:</strong> JSON</span>
+          <span><strong>Size:</strong> ~95 KB</span>
+          <span><strong>Updated:</strong> June 2025</span>
+          <span><strong>Licence:</strong> CC BY 4.0</span>
+        </div>
+        <a class="dataset-dl" href="/data/sat-vocab-data.json" download>Download JSON</a>
+      </div>
+
+      <div class="dataset-card">
+        <h3>Wordle Opening Word Rankings</h3>
+        <p>Valid five-letter Wordle opening words ranked by average guesses to solution. Useful for Wordle strategy analysis and NLP research.</p>
+        <div class="dataset-meta">
+          <span><strong>Format:</strong> JSON</span>
+          <span><strong>Size:</strong> ~4 KB</span>
+          <span><strong>Updated:</strong> June 2025</span>
+          <span><strong>Licence:</strong> CC BY 4.0</span>
+        </div>
+        <a class="dataset-dl" href="/data/wordle-openers.json" download>Download JSON</a>
+      </div>
+
+    </div>
+
+    <h2>Licence</h2>
+    <div class="licence-box">
+      <strong>Creative Commons Attribution 4.0 International (CC BY 4.0).</strong> You are free to share and adapt these datasets for any purpose, including commercially, as long as you give appropriate credit to <strong>Wordineer (wordineer.com)</strong>. A link back to this page or to the specific tool is appreciated and helps keep the datasets free. See the full licence at <a href="https://creativecommons.org/licenses/by/4.0/">creativecommons.org/licenses/by/4.0/</a>.
+    </div>
+
+    <h2>Contact</h2>
+    <p>
+      For data questions, interview requests, or partnership enquiries:<br>
+      <a href="mailto:garrick@wordineer.com">garrick@wordineer.com</a>
+    </p>
+
+  </article>
+</div>
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="ad-footer-strip" style="margin-bottom:24px">
+      <span class="ad-tag">Advertisement · 468×60</span>
+      <div class="ad-fs-text"><strong>Grammarly Premium</strong> — Vocabulary suggestions, tone detector, full-sentence rewrites.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-footer-strip-cta">Try free</a>
+    </div>
+    <div class="footer-grid">
+      <div><div class="footer-col-title">Writing &amp; Vocabulary</div><a class="footer-link" href="/">Random Word Generator</a><a class="footer-link" href="/random-sentence-generator/">Random Sentence Generator</a><a class="footer-link" href="/lorem-ipsum-generator/">Lorem Ipsum Generator</a><a class="footer-link" href="/word-counter/">Word Counter</a><a class="footer-link footer-link--view-all" href="/word-tools/">View all →</a></div>
+      <div><div class="footer-col-title">Browse by Letter &amp; Ending</div><a class="footer-link" href="/random-words-starting-with/">Words Starting With (A–Z)</a><a class="footer-link" href="/words-ending-with/">Words Ending With (suffixes)</a><a class="footer-link" href="/words-ending-in-ing/">Words Ending in -ING</a><a class="footer-link" href="/words-ending-in-ly/">Words Ending in -LY</a><a class="footer-link footer-link--view-all" href="/word-lists/">View all →</a></div>
+      <div><div class="footer-col-title">Names by Origin</div><a class="footer-link" href="/random-spanish-name-generator/">Spanish Name Generator</a><a class="footer-link" href="/random-italian-name-generator/">Italian Name Generator</a><a class="footer-link" href="/random-japanese-name-generator/">Japanese Name Generator</a><a class="footer-link" href="/random-american-name-generator/">American Name Generator</a><a class="footer-link footer-link--view-all" href="/name-generators/">View all →</a></div>
+      <div><div class="footer-col-title">Other Name Generators</div><a class="footer-link" href="/character-name-generator/">Character Name Generator</a><a class="footer-link" href="/fantasy-name-generator/">Fantasy Name Generator</a><a class="footer-link" href="/business-name-generator/">Business Name Generator</a><a class="footer-link" href="/band-name-generator/">Band Name Generator</a><a class="footer-link footer-link--view-all" href="/other-generators/">View all →</a></div>
+      <div><div class="footer-col-title">Account &amp; Security</div><a class="footer-link" href="/password-generator/">Password Generator</a><a class="footer-link" href="/passphrase-generator/">Passphrase Generator</a><a class="footer-link" href="/memorable-password-generator/">Memorable Password Generator</a><a class="footer-link" href="/username-generator/">Username Generator</a><a class="footer-link footer-link--view-all" href="/account-tools/">View all →</a></div>
+      <div><div class="footer-col-title">Numbers &amp; Random</div><a class="footer-link" href="/random-number-generator/">Random Number Generator</a><a class="footer-link" href="/dice-roller/">Dice Roller</a><a class="footer-link" href="/coin-flip/">Flip a Coin</a><a class="footer-link" href="/random-pin-generator/">Random PIN Generator</a><a class="footer-link footer-link--view-all" href="/number-tools/">View all →</a></div>
+      <div><div class="footer-col-title">Games &amp; fun</div><a class="footer-link" href="/coin-flip/">Flip a Coin</a><a class="footer-link" href="/mad-libs/">Mad Libs Generator</a><a class="footer-link" href="/dice-roller/">Dice Roller</a><a class="footer-link" href="/wheel-of-names/">Wheel of Names</a><a class="footer-link footer-link--view-all" href="/word-games/">View all →</a></div>
+      <div><div class="footer-col-title">Text Tools</div><a class="footer-link" href="/fancy-text-generator/">Fancy Text Generator</a><a class="footer-link" href="/upside-down-text/">Upside Down Text</a><a class="footer-link" href="/caesar-cipher/">Caesar Cipher</a><a class="footer-link" href="/zalgo-text/">Zalgo Text Generator</a><a class="footer-link footer-link--view-all" href="/text-tools/">View all →</a></div>
+      <div><div class="footer-col-title">For Teachers</div><a class="footer-link" href="/spelling-bee-words/">Spelling Bee Words (K–7)</a><a class="footer-link" href="/sight-words-generator/">Sight Words Generator</a><a class="footer-link" href="/word-search-maker/">Word Search Maker</a><a class="footer-link" href="/hangman/">Hangman Game</a><a class="footer-link footer-link--view-all" href="/teacher-tools/">View all →</a></div>
+    </div>
+    <div class="footer-bottom">
+      <div style="display:flex;align-items:center;gap:7px">
+        <div class="nav-logo-icon" style="width:22px;height:22px;border-radius:5px"><svg viewBox="0 0 15 15" fill="none" style="width:12px;height:12px"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <span style="font-size:14px;font-weight:600;color:var(--text)">Wordineer</span>
+      </div>
+      <span class="footer-copy">© 2026 Wordineer · Free word tools for everyone</span>
+      <div class="footer-meta"><a href="/about/">About</a><a href="/press-kit/">Data &amp; Press</a><a href="/embed/">Embed our tools</a><a href="/affiliate-disclosure/">Affiliate disclosure</a><a href="/privacy/">Privacy</a></div>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="/scripts/tool-engine.js?v=27"></script>
+<script>
+(function bindSharedWordineerMenu() {
+  const mega = document.getElementById('mega');
+  const hbg = document.querySelector('.hamburger');
+  if (!mega || !hbg) return;
+  if (hbg.dataset.menuBound === '1') return;
+  hbg.dataset.menuBound = '1';
+  hbg.onclick = null;
+  if (hbg.getAttribute('onclick')) hbg.removeAttribute('onclick');
+
+  function setMenu(open) {
+    mega.classList.toggle('open', open);
+    hbg.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+
+  setMenu(mega.classList.contains('open'));
+
+  hbg.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+    setMenu(!mega.classList.contains('open'));
+  }, true);
+
+  hbg.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+      setMenu(!mega.classList.contains('open'));
+    }
+  }, true);
+
+  document.addEventListener('click', function(e) {
+    if (mega.classList.contains('open') && !mega.contains(e.target) && !hbg.contains(e.target)) {
+      setMenu(false);
+    }
+  }, true);
+
+})();
+</script>
+
+</body>
+</html>

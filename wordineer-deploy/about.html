@@ -1,4 +1,4 @@
-<!-- build: 2026-07-29T04:32:40Z -->
+<!-- build: 2026-08-10T10:56:50Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -106,7 +106,7 @@
 <meta property="og:image"       content="https://wordineer.com/og-image.png">
 
 
-<link rel="stylesheet" href="/styles/global.css?v=14">
+<link rel="stylesheet" href="/styles/global.css?v=16">
 <style>
 .prose-wrap {
   max-width: 680px;
@@ -179,12 +179,12 @@
       <a class="mega-link mega-link--view-all" href="/word-tools/">View all →</a>
     </div>
     <div class="mega-col">
-      <div class="mega-cat">Browse by Letter</div>
-      <a class="mega-link" href="/random-words-starting-with/">Random Words Starting With (A–Z)</a>
-      <a class="mega-link" href="/random-words-starting-with/a">Words Starting With A</a>
-      <a class="mega-link" href="/random-words-starting-with/b">Words Starting With B</a>
-      <a class="mega-link" href="/random-words-starting-with/e">Words Starting With E</a>
-      <a class="mega-link mega-link--view-all" href="/random-words-starting-with/">View all →</a>
+      <div class="mega-cat">Browse by Letter &amp; Ending</div>
+      <a class="mega-link" href="/random-words-starting-with/">Words Starting With (A–Z)</a>
+      <a class="mega-link" href="/words-ending-with/">Words Ending With (suffixes)</a>
+      <a class="mega-link" href="/random-words-starting-with/s">Words Starting With S</a>
+      <a class="mega-link" href="/words-ending-in-ing/">Words Ending in -ING</a>
+      <a class="mega-link mega-link--view-all" href="/word-lists/">View all →</a>
     </div>
     <div class="mega-col">
       <div class="mega-cat">Names by Origin</div>
@@ -211,19 +211,36 @@
       <a class="mega-link mega-link--view-all" href="/account-tools/">View all →</a>
     </div>
     <div class="mega-col">
-      <div class="mega-cat">Games &amp; fun</div>
-      <a class="mega-link" href="/coin-flip/">Flip a Coin</a>
-      <a class="mega-link" href="/random-number-generator/">Number Generator</a>
+      <div class="mega-cat">Numbers &amp; Random</div>
+      <a class="mega-link" href="/random-number-generator/">Random Number Generator</a>
       <a class="mega-link" href="/dice-roller/">Dice Roller</a>
-      <a class="mega-link" href="/wheel-of-names/">Wheel of Names</a>
-      <a class="mega-link mega-link--view-all" href="/number-chance/">View all →</a>
+      <a class="mega-link" href="/coin-flip/">Flip a Coin</a>
+      <a class="mega-link" href="/random-pin-generator/">Random PIN Generator</a>
+      <a class="mega-link mega-link--view-all" href="/number-tools/">View all →</a>
     </div>
     <div class="mega-col">
-      <div class="mega-cat">Learn & Resources</div>
-      <a class="mega-link" href="/spelling-bee-words/">Spelling Bee Words</a>
-      <a class="mega-link" href="/common-5-letter-words/">Common 5-Letter Words</a>
-      <a class="mega-link" href="/etymology-100-common-words/">Etymology Guide</a>
-      <a class="mega-link" href="/esl-vocabulary-cefr/">ESL Vocabulary (CEFR)</a>
+      <div class="mega-cat">Games &amp; fun</div>
+      <a class="mega-link" href="/coin-flip/">Flip a Coin</a>
+      <a class="mega-link" href="/mad-libs/">Mad Libs Generator</a>
+      <a class="mega-link" href="/dice-roller/">Dice Roller</a>
+      <a class="mega-link" href="/wheel-of-names/">Wheel of Names</a>
+      <a class="mega-link mega-link--view-all" href="/word-games/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Text Tools</div>
+      <a class="mega-link" href="/fancy-text-generator/">Fancy Text Generator</a>
+      <a class="mega-link" href="/upside-down-text/">Upside Down Text</a>
+      <a class="mega-link" href="/caesar-cipher/">Caesar Cipher</a>
+      <a class="mega-link" href="/zalgo-text/">Zalgo Text Generator</a>
+      <a class="mega-link mega-link--view-all" href="/text-tools/">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">For Teachers</div>
+      <a class="mega-link" href="/spelling-bee-words/">Spelling Bee Words (K–7)</a>
+      <a class="mega-link" href="/sight-words-generator/">Sight Words Generator</a>
+      <a class="mega-link" href="/word-search-maker/">Word Search Maker</a>
+      <a class="mega-link" href="/hangman/">Hangman Game</a>
+      <a class="mega-link mega-link--view-all" href="/teacher-tools/">View all →</a>
     </div>
   </div>
 </div>
@@ -241,19 +258,17 @@
 
     <h2>What Is Wordineer?</h2>
     <p>
-      Wordineer is a collection of free online word and language tools designed
-      to make everyday writing tasks faster and more enjoyable. From random word
-      generators and rhyme finders to readability checkers and text analyzers,
-      every tool on this site is built with one goal in mind: get you the answer
-      you need without friction, clutter, or paywalls.
+      Wordineer is a collection of free online word and language tools built on real data — a full NLTK/WordNet pipeline and a 10,000-game Wordle simulation — not guesses or placeholder datasets.
+      Every tool on this site is built with one goal in mind: get you the answer you need without friction, clutter, or paywalls.
     </p>
 
     <h2>Why We Built This</h2>
     <p>
-      We grew tired of word tool sites that bury results behind pop-up ads,
-      force account sign-ups, or send you on a scavenger hunt just to copy a
-      single word. Wordineer was created as the antidote — a clean, fast,
-      no-nonsense workspace for anyone who works with words.
+      Wordineer started as a resource for my homeschooled son. I wanted a place
+      where he could look up words, check definitions, and explore language —
+      without ads demanding his attention or paywalls blocking the answer. What
+      began as a simple tool for one kid grew into something that helps writers,
+      students, educators, and developers every day.
     </p>
     <p>
       Whether you're a fiction writer searching for the perfect synonym, a student
@@ -279,26 +294,34 @@
 
     <h2>Who's Behind Wordineer?</h2>
     <p>
-      Wordineer is an independent project maintained by a small team of developers
-      and language enthusiasts. We're not a venture-backed startup or a media
-      conglomerate — just people who genuinely love language and believe useful
-      tools should be accessible to everyone.
+      Hi, I'm Garrick — the person who builds and maintains Wordineer. I'm not
+      a venture-backed startup or a media company. Just a parent who wanted
+      better language tools for his kid and ended up building them from scratch.
     </p>
     <p>
-      We keep the lights on through unobtrusive advertising and affiliate
-      partnerships with products we actually use and trust.
+      The word data behind the tools is generated through a Python pipeline using
+      NLTK and WordNet, with additional curation to make sure words are
+      genuinely useful and accurately defined. I keep the lights on through
+      unobtrusive advertising and affiliate partnerships with products I actually
+      use and trust.
+    </p>
+
+    <h2>Embed Our Tools</h2>
+    <p>
+      Running a blog, classroom site, or word game community? You can embed any Wordineer tool
+      on your site for free — no API key, no account, one line of HTML.
+      <a href="/embed/">See available embeds →</a>
     </p>
 
     <h2>Contact Us</h2>
     <p>
       Have a tool idea? Found a bug? Want to collaborate?
-      Reach us at <a href="mailto:hello@wordineer.com">hello@wordineer.com</a>.
+      Reach us at <a href="mailto:garrick@wordineer.com">garrick@wordineer.com</a>.
       We read every message, even if it takes us a day or two to reply.
     </p>
 
   </article>
 </div>
-
 <footer class="footer">
   <div class="footer-inner">
     <div class="ad-footer-strip" style="margin-bottom:24px">
@@ -308,15 +331,14 @@
     </div>
     <div class="footer-grid">
       <div><div class="footer-col-title">Writing &amp; Vocabulary</div><a class="footer-link" href="/">Random Word Generator</a><a class="footer-link" href="/random-sentence-generator/">Random Sentence Generator</a><a class="footer-link" href="/lorem-ipsum-generator/">Lorem Ipsum Generator</a><a class="footer-link" href="/word-counter/">Word Counter</a><a class="footer-link footer-link--view-all" href="/word-tools/">View all →</a></div>
-      <div><div class="footer-col-title">Browse by Letter</div><a class="footer-link" href="/random-words-starting-with/">Random Words Starting With (A–Z)</a><a class="footer-link" href="/random-words-starting-with/a">Words Starting With A</a><a class="footer-link" href="/random-words-starting-with/b">Words Starting With B</a><a class="footer-link" href="/random-words-starting-with/e">Words Starting With E</a><a class="footer-link footer-link--view-all" href="/random-words-starting-with/">View all →</a></div>
+      <div><div class="footer-col-title">Browse by Letter &amp; Ending</div><a class="footer-link" href="/random-words-starting-with/">Words Starting With (A–Z)</a><a class="footer-link" href="/words-ending-with/">Words Ending With (suffixes)</a><a class="footer-link" href="/words-ending-in-ing/">Words Ending in -ING</a><a class="footer-link" href="/words-ending-in-ly/">Words Ending in -LY</a><a class="footer-link footer-link--view-all" href="/word-lists/">View all →</a></div>
       <div><div class="footer-col-title">Names by Origin</div><a class="footer-link" href="/random-spanish-name-generator/">Spanish Name Generator</a><a class="footer-link" href="/random-italian-name-generator/">Italian Name Generator</a><a class="footer-link" href="/random-japanese-name-generator/">Japanese Name Generator</a><a class="footer-link" href="/random-american-name-generator/">American Name Generator</a><a class="footer-link footer-link--view-all" href="/name-generators/">View all →</a></div>
       <div><div class="footer-col-title">Other Name Generators</div><a class="footer-link" href="/character-name-generator/">Character Name Generator</a><a class="footer-link" href="/fantasy-name-generator/">Fantasy Name Generator</a><a class="footer-link" href="/business-name-generator/">Business Name Generator</a><a class="footer-link" href="/band-name-generator/">Band Name Generator</a><a class="footer-link footer-link--view-all" href="/other-generators/">View all →</a></div>
-      <div><div class="footer-col-title">Pets &amp; Animals</div><a class="footer-link" href="/dog-name-generator/">Dog Name Generator</a><a class="footer-link" href="/cat-name-generator/">Cat Name Generator</a><a class="footer-link" href="/fish-name-generator/">Fish Name Generator</a><a class="footer-link footer-link--view-all" href="/other-generators/">View all →</a></div>
-      <div><div class="footer-col-title">Fantasy &amp; Story Names</div><a class="footer-link" href="/elf-name-generator/">Elf Name Generator</a><a class="footer-link" href="/hero-name-generator/">Hero Name Generator</a><a class="footer-link" href="/villain-name-generator/">Villain Name Generator</a><a class="footer-link" href="/barbarian-name-generator/">Barbarian Name Generator</a><a class="footer-link footer-link--view-all" href="/other-generators/">View all →</a></div>
-      <div><div class="footer-col-title">Bands, Music &amp; Teams</div><a class="footer-link" href="/band-name-generator/">Band Name Generator</a><a class="footer-link" href="/musician-name-generator/">Musician Name Generator</a><a class="footer-link" href="/team-name-generator/">Team Name Generator</a><a class="footer-link footer-link--view-all" href="/other-generators/">View all →</a></div>
       <div><div class="footer-col-title">Account &amp; Security</div><a class="footer-link" href="/password-generator/">Password Generator</a><a class="footer-link" href="/passphrase-generator/">Passphrase Generator</a><a class="footer-link" href="/memorable-password-generator/">Memorable Password Generator</a><a class="footer-link" href="/username-generator/">Username Generator</a><a class="footer-link footer-link--view-all" href="/account-tools/">View all →</a></div>
-      <div><div class="footer-col-title">Games &amp; fun</div><a class="footer-link" href="/coin-flip/">Flip a Coin</a><a class="footer-link" href="/random-number-generator/">Number Generator</a><a class="footer-link" href="/dice-roller/">Dice Roller</a><a class="footer-link" href="/wheel-of-names/">Wheel of Names</a><a class="footer-link footer-link--view-all" href="/number-chance/">View all →</a></div>
-      <div><div class="footer-col-title">Learn & Resources</div><a class="footer-link" href="/spelling-bee-words/">Spelling Bee Words</a><a class="footer-link" href="/common-5-letter-words/">Common 5-Letter Words</a><a class="footer-link" href="/etymology-100-common-words/">Etymology Guide</a><a class="footer-link" href="/esl-vocabulary-cefr/">ESL Vocabulary (CEFR)</a></div>
+      <div><div class="footer-col-title">Numbers &amp; Random</div><a class="footer-link" href="/random-number-generator/">Random Number Generator</a><a class="footer-link" href="/dice-roller/">Dice Roller</a><a class="footer-link" href="/coin-flip/">Flip a Coin</a><a class="footer-link" href="/random-pin-generator/">Random PIN Generator</a><a class="footer-link footer-link--view-all" href="/number-tools/">View all →</a></div>
+      <div><div class="footer-col-title">Games &amp; fun</div><a class="footer-link" href="/coin-flip/">Flip a Coin</a><a class="footer-link" href="/mad-libs/">Mad Libs Generator</a><a class="footer-link" href="/dice-roller/">Dice Roller</a><a class="footer-link" href="/wheel-of-names/">Wheel of Names</a><a class="footer-link footer-link--view-all" href="/word-games/">View all →</a></div>
+      <div><div class="footer-col-title">Text Tools</div><a class="footer-link" href="/fancy-text-generator/">Fancy Text Generator</a><a class="footer-link" href="/upside-down-text/">Upside Down Text</a><a class="footer-link" href="/caesar-cipher/">Caesar Cipher</a><a class="footer-link" href="/zalgo-text/">Zalgo Text Generator</a><a class="footer-link footer-link--view-all" href="/text-tools/">View all →</a></div>
+      <div><div class="footer-col-title">For Teachers</div><a class="footer-link" href="/spelling-bee-words/">Spelling Bee Words (K–7)</a><a class="footer-link" href="/sight-words-generator/">Sight Words Generator</a><a class="footer-link" href="/word-search-maker/">Word Search Maker</a><a class="footer-link" href="/hangman/">Hangman Game</a><a class="footer-link footer-link--view-all" href="/teacher-tools/">View all →</a></div>
     </div>
     <div class="footer-bottom">
       <div style="display:flex;align-items:center;gap:7px">
@@ -324,7 +346,7 @@
         <span style="font-size:14px;font-weight:600;color:var(--text)">Wordineer</span>
       </div>
       <span class="footer-copy">© 2026 Wordineer · Free word tools for everyone</span>
-      <div class="footer-meta"><a href="/about/">About</a><a href="/affiliate-disclosure/">Affiliate disclosure</a><a href="/privacy/">Privacy</a></div>
+      <div class="footer-meta"><a href="/about/">About</a><a href="/press-kit/">Data &amp; Press</a><a href="/embed/">Embed our tools</a><a href="/affiliate-disclosure/">Affiliate disclosure</a><a href="/privacy/">Privacy</a></div>
     </div>
   </div>
 </footer>
@@ -370,6 +392,7 @@
       setMenu(false);
     }
   }, true);
+
 })();
 </script>
 
