@@ -23,24 +23,24 @@
       ]
     },
     {
-      "cat": "Browse by Letter",
-      "view_all_href": "/random-words-starting-with/",
+      "cat": "Browse by Letter &amp; Ending",
+      "view_all_href": "/word-lists/",
       "tools": [
         {
           "href": "/random-words-starting-with/",
-          "text": "Random Words Starting With (A–Z)"
+          "text": "Words Starting With (A–Z)"
         },
         {
-          "href": "/random-words-starting-with/a",
-          "text": "Words Starting With A"
+          "href": "/words-ending-with/",
+          "text": "Words Ending With (suffixes)"
         },
         {
-          "href": "/random-words-starting-with/b",
-          "text": "Words Starting With B"
+          "href": "/random-words-starting-with/s",
+          "text": "Words Starting With S"
         },
         {
-          "href": "/random-words-starting-with/e",
-          "text": "Words Starting With E"
+          "href": "/words-ending-in-ing/",
+          "text": "Words Ending in -ING"
         }
       ]
     },
@@ -112,15 +112,15 @@
     },
     {
       "cat": "Games &amp; fun",
-      "view_all_href": "/number-chance/",
+      "view_all_href": "/word-games/",
       "tools": [
         {
           "href": "/coin-flip/",
           "text": "Flip a Coin"
         },
         {
-          "href": "/random-number-generator/",
-          "text": "Number Generator"
+          "href": "/mad-libs/",
+          "text": "Mad Libs Generator"
         },
         {
           "href": "/dice-roller/",
@@ -133,23 +133,46 @@
       ]
     },
     {
-      "cat": "Learn & Resources",
+      "cat": "Text Tools",
+      "view_all_href": "/text-tools/",
+      "tools": [
+        {
+          "href": "/fancy-text-generator/",
+          "text": "Fancy Text Generator"
+        },
+        {
+          "href": "/upside-down-text/",
+          "text": "Upside Down Text"
+        },
+        {
+          "href": "/caesar-cipher/",
+          "text": "Caesar Cipher"
+        },
+        {
+          "href": "/zalgo-text/",
+          "text": "Zalgo Text Generator"
+        }
+      ]
+    },
+    {
+      "cat": "For Teachers",
+      "view_all_href": "/teacher-tools/",
       "tools": [
         {
           "href": "/spelling-bee-words/",
-          "text": "Spelling Bee Words"
+          "text": "Spelling Bee Words (K–7)"
         },
         {
-          "href": "/common-5-letter-words/",
-          "text": "Common 5-Letter Words"
+          "href": "/sight-words-generator/",
+          "text": "Sight Words Generator"
         },
         {
-          "href": "/etymology-100-common-words/",
-          "text": "Etymology Guide"
+          "href": "/word-search-maker/",
+          "text": "Word Search Maker"
         },
         {
-          "href": "/esl-vocabulary-cefr/",
-          "text": "ESL Vocabulary (CEFR)"
+          "href": "/hangman/",
+          "text": "Hangman Game"
         }
       ]
     }
@@ -322,9 +345,36 @@
       "href": "/transition-words/",
       "name": "Transition Words",
       "desc": "80+ transition words for essays organized by function: addition, contrast, cause, sequence."
+    },
+    {
+      "href": "/five-letter-words/",
+      "name": "Five-Letter Words — Patterns & Analysis",
+      "desc": "Vowel pattern breakdown of common 5-letter words with a filterable list."
+    },
+    {
+      "href": "/spelling-bee-word-list-pdf/",
+      "name": "Spelling Bee Word List PDF",
+      "desc": "Grade K–8 spelling bee word lists, printable as PDF directly from the browser."
+    },
+    {
+      "href": "/cefr-vocabulary/",
+      "name": "CEFR Vocabulary A1–C2",
+      "desc": "Word lists for all 6 CEFR proficiency levels with definitions at C1–C2."
+    },
+    {
+      "href": "/word-etymology/",
+      "name": "Word Etymology — 100 Words Explained",
+      "desc": "Origins of 100 everyday English words across 8 themed sections."
     }
   ],
   "more_word_tools": [
+    {
+      "href": "/rhyming-dictionary/",
+      "name": "Rhyming Dictionary",
+      "desc": "Find perfect rhymes for any word, grouped by syllable count. Filter by part of speech. Great for poetry and songwriting.",
+      "icon_bg": "#FFF0FB",
+      "icon_path": "<path d=\"M2 4h9M2 7h6M2 10h4\" stroke=\"#9B3CB0\" stroke-width=\"1.3\" stroke-linecap=\"round\"/><path d=\"M10 8.5c1 0 2 .7 2 1.7s-1 1.8-2 1.8-2-.8-2-1.8\" stroke=\"#9B3CB0\" stroke-width=\"1\" stroke-linecap=\"round\"/>"
+    },
     {
       "href": "/random-quote-generator/",
       "name": "Random Quote Generator",
@@ -674,6 +724,13 @@
       "desc": "Placeholder text in paragraphs, sentences, words, HTML, or Markdown. Classic Latin, readable English, or word soup.",
       "icon_bg": "#F5F3FF",
       "icon_path": "<path d=\"M2 3.5h9M2 5.5h9M2 7.5h9M2 9.5h5.5\" stroke=\"#4A3FD4\" stroke-width=\".9\" stroke-linecap=\"round\"/>"
+    },
+    {
+      "href": "/mad-libs/",
+      "name": "Mad Libs Generator",
+      "desc": "Fill-in-the-blank storytelling game for kids, families, and game nights. Manual or random fill mode.",
+      "icon_bg": "#FEF3EE",
+      "icon_path": "<path d=\"M2 3h9M2 6h7M2 9h5\" stroke=\"#C05621\" stroke-width=\"1.2\" stroke-linecap=\"round\"/><path d=\"M9.5 7.5l1.5 1.5-1.5 1.5\" stroke=\"#C05621\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>"
     }
   ],
   "more_chance_tools": [
@@ -1293,6 +1350,64 @@
       "icon_path": "<circle cx=\"6.5\" cy=\"4\" r=\"2.2\" stroke=\"#2F4F6F\" stroke-width=\"1.1\"/><path d=\"M1.5 11.5c0-2.8 2.2-5 5-5s5 2.2 5 5\" stroke=\"#2F4F6F\" stroke-width=\"1.1\" stroke-linecap=\"round\"/>"
     }
   ],
+  "more_text_tools": [
+    {
+      "href": "/fancy-text-generator/",
+      "name": "Fancy Text Generator",
+      "desc": "Type once, get 10 Unicode font styles — bold, italic, script, double-struck, and more.",
+      "icon_bg": "#F0EEFF",
+      "icon_path": "<path d=\"M3 10L5.5 3 8 10\" stroke=\"#5B4FD4\" stroke-width=\"1.1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M4 7.8h3\" stroke=\"#5B4FD4\" stroke-width=\"1\" stroke-linecap=\"round\"/><path d=\"M9.5 3v7M9 5.5h1.5\" stroke=\"#5B4FD4\" stroke-width=\"1\" stroke-linecap=\"round\"/>"
+    },
+    {
+      "href": "/upside-down-text/",
+      "name": "Upside Down Text",
+      "desc": "Converts text to upside-down Unicode characters and reverses the order. Paste-able anywhere.",
+      "icon_bg": "#E7F3FE",
+      "icon_path": "<path d=\"M3 4.5L6.5 8 10 4.5\" stroke=\"#2B7FD4\" stroke-width=\"1.1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M6.5 8V3\" stroke=\"#2B7FD4\" stroke-width=\"1\" stroke-linecap=\"round\"/><path d=\"M3 10.5h7\" stroke=\"#2B7FD4\" stroke-width=\"1\" stroke-linecap=\"round\"/>"
+    },
+    {
+      "href": "/backwards-text/",
+      "name": "Backwards Text",
+      "desc": "Reverse any text character by character, or flip the word order instead. Toggle between both modes.",
+      "icon_bg": "#EEF8EA",
+      "icon_path": "<path d=\"M10 6.5H3\" stroke=\"#1A8A5A\" stroke-width=\"1.1\" stroke-linecap=\"round\"/><path d=\"M6 3.5L3 6.5l3 3\" stroke=\"#1A8A5A\" stroke-width=\"1.1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M8 3.5h2M8 9.5h2\" stroke=\"#1A8A5A\" stroke-width=\"0.9\" stroke-linecap=\"round\"/>"
+    },
+    {
+      "href": "/caesar-cipher/",
+      "name": "Caesar Cipher",
+      "desc": "Encode or decode text with any shift value from 1 to 25. ROT13 quick-select included.",
+      "icon_bg": "#FFF3E0",
+      "icon_path": "<circle cx=\"6.5\" cy=\"6.5\" r=\"4\" stroke=\"#C47A00\" stroke-width=\"1\"/><circle cx=\"6.5\" cy=\"6.5\" r=\"2\" stroke=\"#C47A00\" stroke-width=\"0.8\"/><path d=\"M6.5 2.5v1M6.5 9v1M2.5 6.5h1M9 6.5h1\" stroke=\"#C47A00\" stroke-width=\"0.8\" stroke-linecap=\"round\"/>"
+    },
+    {
+      "href": "/zalgo-text/",
+      "name": "Zalgo Text",
+      "desc": "Adds random Unicode combining marks above and below each character. Intensity slider controls corruption.",
+      "icon_bg": "#FDE8F0",
+      "icon_path": "<path d=\"M4.5 8L6.5 4 8.5 8\" stroke=\"#B03060\" stroke-width=\"1.1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M5.3 6.8h2.4\" stroke=\"#B03060\" stroke-width=\"0.9\" stroke-linecap=\"round\"/><path d=\"M5 2.5l.5.8M7 2l.3.9M9 3l-.6.7\" stroke=\"#B03060\" stroke-width=\"0.7\" stroke-linecap=\"round\"/><path d=\"M4.5 9.5l-.4.8M7.5 9.8l.2.9M9.5 9l.5.6\" stroke=\"#B03060\" stroke-width=\"0.7\" stroke-linecap=\"round\"/>"
+    },
+    {
+      "href": "/text-repeater/",
+      "name": "Text Repeater",
+      "desc": "Repeat any text up to 500 times with a custom separator — new line, comma, space, or nothing.",
+      "icon_bg": "#F0F8FF",
+      "icon_path": "<path d=\"M2.5 3.5h8\" stroke=\"#3A7BD5\" stroke-width=\"1\" stroke-linecap=\"round\"/><path d=\"M2.5 6h8\" stroke=\"#3A7BD5\" stroke-width=\"1\" stroke-linecap=\"round\" opacity=\"0.65\"/><path d=\"M2.5 8.5h8\" stroke=\"#3A7BD5\" stroke-width=\"1\" stroke-linecap=\"round\" opacity=\"0.35\"/>"
+    },
+    {
+      "href": "/small-text-generator/",
+      "name": "Small Text Generator",
+      "desc": "Convert text to small caps, superscript, or subscript Unicode instantly. Paste anywhere — bios, captions, formulas.",
+      "icon_bg": "#F0EEFF",
+      "icon_path": "<text x=\"2\" y=\"9\" font-size=\"7\" fill=\"#5B4FD4\" font-family=\"serif\">Aa</text><text x=\"7\" y=\"6\" font-size=\"4\" fill=\"#5B4FD4\" font-family=\"serif\">a</text>"
+    },
+    {
+      "href": "/cursive-text-generator/",
+      "name": "Cursive Text Generator",
+      "desc": "Convert text to Unicode script or bold script cursive. Paste into Instagram bios, TikTok, Discord, and anywhere text is accepted.",
+      "icon_bg": "#F5F0FF",
+      "icon_path": "<path d=\"M3 8.5c1-2.5 2-4 3.5-4s2 1.5 1.5 3c-.5 1.5-2 2.5-1 3.5s2.5.5 3-1\" stroke=\"#7C4FD4\" stroke-width=\"1.1\" stroke-linecap=\"round\" fill=\"none\"/>"
+    }
+  ],
   "other_tools": [
     {
       "cat": "Writing &amp; Vocabulary",
@@ -1318,25 +1433,25 @@
       ]
     },
     {
-      "cat": "Browse by Letter",
-      "view_all_href": "/random-words-starting-with/",
+      "cat": "Browse by Letter &amp; Ending",
+      "view_all_href": "/word-lists/",
       "icon_path": "<path d=\"M2 4h3.5M2 7h9M2 10h6\" stroke=\"currentColor\" stroke-width=\"1\" stroke-linecap=\"round\"/>",
       "links": [
         {
           "href": "/random-words-starting-with/",
-          "text": "Random Words Starting With (A–Z)"
+          "text": "Words Starting With (A–Z)"
         },
         {
-          "href": "/random-words-starting-with/a",
-          "text": "Words Starting With A"
+          "href": "/words-ending-with/",
+          "text": "Words Ending With (suffixes)"
         },
         {
-          "href": "/random-words-starting-with/b",
-          "text": "Words Starting With B"
+          "href": "/random-words-starting-with/s",
+          "text": "Words Starting With S"
         },
         {
-          "href": "/random-words-starting-with/e",
-          "text": "Words Starting With E"
+          "href": "/words-ending-in-ing/",
+          "text": "Words Ending in -ING"
         }
       ]
     },
@@ -1387,67 +1502,6 @@
       ]
     },
     {
-      "cat": "Pets &amp; Animals",
-      "view_all_href": "/other-generators/",
-      "icon_path": "<circle cx=\"4\" cy=\"4.5\" r=\"1.5\" stroke=\"currentColor\" stroke-width=\"1\"/><circle cx=\"9\" cy=\"4.5\" r=\"1.5\" stroke=\"currentColor\" stroke-width=\"1\"/><path d=\"M2 10c0-2.2 1.8-4 4-4h1c2.2 0 4 1.8 4 4\" stroke=\"currentColor\" stroke-width=\"1\" stroke-linecap=\"round\"/>",
-      "links": [
-        {
-          "href": "/dog-name-generator/",
-          "text": "Dog Name Generator"
-        },
-        {
-          "href": "/cat-name-generator/",
-          "text": "Cat Name Generator"
-        },
-        {
-          "href": "/fish-name-generator/",
-          "text": "Fish Name Generator"
-        }
-      ]
-    },
-    {
-      "cat": "Fantasy &amp; Story Names",
-      "view_all_href": "/other-generators/",
-      "icon_path": "<path d=\"M6.5 2L8 5.5H11L8.5 7.5L9.5 11L6.5 9L3.5 11L4.5 7.5L2 5.5H5Z\" stroke=\"currentColor\" stroke-width=\".9\" stroke-linejoin=\"round\" fill=\"none\"/>",
-      "links": [
-        {
-          "href": "/elf-name-generator/",
-          "text": "Elf Name Generator"
-        },
-        {
-          "href": "/hero-name-generator/",
-          "text": "Hero Name Generator"
-        },
-        {
-          "href": "/villain-name-generator/",
-          "text": "Villain Name Generator"
-        },
-        {
-          "href": "/barbarian-name-generator/",
-          "text": "Barbarian Name Generator"
-        }
-      ]
-    },
-    {
-      "cat": "Bands, Music &amp; Teams",
-      "view_all_href": "/other-generators/",
-      "icon_path": "<circle cx=\"4.5\" cy=\"7\" r=\"1\" stroke=\"currentColor\" stroke-width=\".9\"/><circle cx=\"8.5\" cy=\"4.5\" r=\"1\" stroke=\"currentColor\" stroke-width=\".9\"/><path d=\"M5.5 6.8L8.5 5.5V3L5.5 4.2V7\" stroke=\"currentColor\" stroke-width=\".9\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>",
-      "links": [
-        {
-          "href": "/band-name-generator/",
-          "text": "Band Name Generator"
-        },
-        {
-          "href": "/musician-name-generator/",
-          "text": "Musician Name Generator"
-        },
-        {
-          "href": "/team-name-generator/",
-          "text": "Team Name Generator"
-        }
-      ]
-    },
-    {
       "cat": "Account &amp; Security",
       "view_all_href": "/account-tools/",
       "icon_path": "<rect x=\"3.5\" y=\"5.5\" width=\"6\" height=\"5\" rx=\"1\" stroke=\"currentColor\" stroke-width=\"1\"/><path d=\"M5 5.5V4a1.5 1.5 0 013 0v1.5\" stroke=\"currentColor\" stroke-width=\"1\" stroke-linecap=\"round\"/>",
@@ -1472,12 +1526,16 @@
     },
     {
       "cat": "Games &amp; fun",
-      "view_all_href": "/number-chance/",
+      "view_all_href": "/word-games/",
       "icon_path": "<rect x=\"1\" y=\"1\" width=\"4.5\" height=\"4.5\" rx=\"1\" stroke=\"currentColor\" stroke-width=\"1\"/><rect x=\"7.5\" y=\"1\" width=\"4.5\" height=\"4.5\" rx=\"1\" stroke=\"currentColor\" stroke-width=\"1\"/><rect x=\"1\" y=\"7.5\" width=\"4.5\" height=\"4.5\" rx=\"1\" stroke=\"currentColor\" stroke-width=\"1\"/><rect x=\"7.5\" y=\"7.5\" width=\"4.5\" height=\"4.5\" rx=\"1\" stroke=\"currentColor\" stroke-width=\"1\"/>",
       "links": [
         {
           "href": "/pictionary-phrase-generator/",
           "text": "Pictionary Phrase Generator"
+        },
+        {
+          "href": "/wordle-answer-today/",
+          "text": "Wordle Answer Today"
         },
         {
           "href": "/wordle-helper/",
@@ -1490,6 +1548,29 @@
         {
           "href": "/dice-roller/",
           "text": "Dice Roller"
+        }
+      ]
+    },
+    {
+      "cat": "Text Tools",
+      "view_all_href": "/text-tools/",
+      "icon_path": "<path d=\"M2 5h9M2 8h6M2 11h4\" stroke=\"currentColor\" stroke-width=\"1\" stroke-linecap=\"round\"/>",
+      "links": [
+        {
+          "href": "/fancy-text-generator/",
+          "text": "Fancy Text Generator"
+        },
+        {
+          "href": "/upside-down-text/",
+          "text": "Upside Down Text"
+        },
+        {
+          "href": "/caesar-cipher/",
+          "text": "Caesar Cipher"
+        },
+        {
+          "href": "/zalgo-text/",
+          "text": "Zalgo Text Generator"
         }
       ]
     }
@@ -1518,24 +1599,24 @@
       ]
     },
     {
-      "title": "Browse by Letter",
-      "view_all_href": "/random-words-starting-with/",
+      "title": "Browse by Letter &amp; Ending",
+      "view_all_href": "/word-lists/",
       "links": [
         {
           "href": "/random-words-starting-with/",
-          "text": "Random Words Starting With (A–Z)"
+          "text": "Words Starting With (A–Z)"
         },
         {
-          "href": "/random-words-starting-with/a",
-          "text": "Words Starting With A"
+          "href": "/words-ending-with/",
+          "text": "Words Ending With (suffixes)"
         },
         {
-          "href": "/random-words-starting-with/b",
-          "text": "Words Starting With B"
+          "href": "/words-ending-in-ing/",
+          "text": "Words Ending in -ING"
         },
         {
-          "href": "/random-words-starting-with/e",
-          "text": "Words Starting With E"
+          "href": "/words-ending-in-ly/",
+          "text": "Words Ending in -LY"
         }
       ]
     },
@@ -1584,64 +1665,6 @@
       ]
     },
     {
-      "title": "Pets &amp; Animals",
-      "view_all_href": "/other-generators/",
-      "links": [
-        {
-          "href": "/dog-name-generator/",
-          "text": "Dog Name Generator"
-        },
-        {
-          "href": "/cat-name-generator/",
-          "text": "Cat Name Generator"
-        },
-        {
-          "href": "/fish-name-generator/",
-          "text": "Fish Name Generator"
-        }
-      ]
-    },
-    {
-      "title": "Fantasy &amp; Story Names",
-      "view_all_href": "/other-generators/",
-      "links": [
-        {
-          "href": "/elf-name-generator/",
-          "text": "Elf Name Generator"
-        },
-        {
-          "href": "/hero-name-generator/",
-          "text": "Hero Name Generator"
-        },
-        {
-          "href": "/villain-name-generator/",
-          "text": "Villain Name Generator"
-        },
-        {
-          "href": "/barbarian-name-generator/",
-          "text": "Barbarian Name Generator"
-        }
-      ]
-    },
-    {
-      "title": "Bands, Music &amp; Teams",
-      "view_all_href": "/other-generators/",
-      "links": [
-        {
-          "href": "/band-name-generator/",
-          "text": "Band Name Generator"
-        },
-        {
-          "href": "/musician-name-generator/",
-          "text": "Musician Name Generator"
-        },
-        {
-          "href": "/team-name-generator/",
-          "text": "Team Name Generator"
-        }
-      ]
-    },
-    {
       "title": "Account &amp; Security",
       "view_all_href": "/account-tools/",
       "links": [
@@ -1666,15 +1689,15 @@
     },
     {
       "title": "Games &amp; fun",
-      "view_all_href": "/number-chance/",
+      "view_all_href": "/word-games/",
       "links": [
         {
           "href": "/coin-flip/",
           "text": "Flip a Coin"
         },
         {
-          "href": "/random-number-generator/",
-          "text": "Number Generator"
+          "href": "/mad-libs/",
+          "text": "Mad Libs Generator"
         },
         {
           "href": "/dice-roller/",
@@ -1687,26 +1710,74 @@
       ]
     },
     {
-      "title": "Learn & Resources",
+      "title": "Text Tools",
+      "view_all_href": "/text-tools/",
+      "links": [
+        {
+          "href": "/fancy-text-generator/",
+          "text": "Fancy Text Generator"
+        },
+        {
+          "href": "/upside-down-text/",
+          "text": "Upside Down Text"
+        },
+        {
+          "href": "/caesar-cipher/",
+          "text": "Caesar Cipher"
+        },
+        {
+          "href": "/zalgo-text/",
+          "text": "Zalgo Text Generator"
+        }
+      ]
+    },
+    {
+      "title": "For Teachers",
+      "view_all_href": "/teacher-tools/",
       "links": [
         {
           "href": "/spelling-bee-words/",
-          "text": "Spelling Bee Words"
+          "text": "Spelling Bee Words (K–7)"
         },
         {
-          "href": "/common-5-letter-words/",
-          "text": "Common 5-Letter Words"
+          "href": "/sight-words-generator/",
+          "text": "Sight Words Generator"
         },
         {
-          "href": "/etymology-100-common-words/",
-          "text": "Etymology Guide"
+          "href": "/word-search-maker/",
+          "text": "Word Search Maker"
         },
         {
-          "href": "/esl-vocabulary-cefr/",
-          "text": "ESL Vocabulary (CEFR)"
+          "href": "/hangman/",
+          "text": "Hangman Game"
         }
       ]
     }
+  ],
+  "words_ending_pages": [
+    { "href": "/words-ending-with/" },
+    { "href": "/words-ending-in-ing/" },
+    { "href": "/words-ending-in-ly/" },
+    { "href": "/words-ending-in-tion/" },
+    { "href": "/words-ending-in-ed/" },
+    { "href": "/words-ending-in-er/" },
+    { "href": "/words-ending-in-ness/" },
+    { "href": "/words-ending-in-able/" },
+    { "href": "/words-ending-in-ful/" },
+    { "href": "/words-ending-in-less/" },
+    { "href": "/words-ending-in-ment/" },
+    { "href": "/words-ending-in-ous/" },
+    { "href": "/words-ending-in-ive/" },
+    { "href": "/words-ending-in-ight/" },
+    { "href": "/words-ending-in-ary/" },
+    { "href": "/words-ending-in-ity/" },
+    { "href": "/words-ending-in-age/" },
+    { "href": "/words-ending-in-ure/" },
+    { "href": "/words-ending-in-ent/" },
+    { "href": "/words-ending-in-ant/" },
+    { "href": "/words-ending-in-al/" },
+    { "href": "/words-ending-in-est/" },
+    { "href": "/words-ending-in-ish/" }
   ],
   "page_meta": {
     "/random-wordle-generator/": {
@@ -1722,9 +1793,30 @@
         }
       ]
     },
+    "/rhyming-dictionary/": {
+      "ogImage": null,
+      "related": [
+        {
+          "href": "/word-of-the-day/",
+          "text": "word of the day — with definition and example"
+        },
+        {
+          "href": "/random-sentence-generator/",
+          "text": "random sentence generator"
+        },
+        {
+          "href": "/word-tools/",
+          "text": "all word tools"
+        }
+      ]
+    },
     "/wordle-answers/": {
       "ogImage": null,
       "related": [
+        {
+          "href": "/wordle-answer-today/",
+          "text": "today's Wordle answer — hints + full reveal"
+        },
         {
           "href": "/common-5-letter-words/",
           "text": "common 5-letter words analyzed"
@@ -1738,6 +1830,10 @@
     "/wordle-helper/": {
       "ogImage": null,
       "related": [
+        {
+          "href": "/wordle-answer-today/",
+          "text": "today's Wordle answer — hints + full reveal"
+        },
         {
           "href": "/common-5-letter-words/",
           "text": "common 5-letter words — letter frequency analysis"
