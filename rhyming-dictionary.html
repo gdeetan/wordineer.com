@@ -1,4 +1,4 @@
-<!-- build: 2026-08-10T05:06:58Z -->
+<!-- build: 2026-08-10T05:37:03Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -252,6 +252,22 @@
 }
 .rd-chip:hover .rd-pos { color: #818cf8; }
 
+.rd-near-section { margin-top: 8px; }
+.rd-near-header {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #9ca3af;
+  margin-bottom: 16px;
+  margin-top: 36px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #f3f4f6;
+}
+.rd-near-section .rd-group-title { color: #9ca3af; border-bottom-color: #f3f4f6; }
+.rd-near-section .rd-chip { background: #fafafa; }
+.rd-near-section .rd-chip:hover { background: #f3f4f6; color: #374151; }
+
 .rd-copy-row {
   display: flex;
   align-items: center;
@@ -469,13 +485,13 @@
 <section class="explainer">
   <div class="explainer-inner">
     <h2>How to use the rhyming dictionary</h2>
-    <p>Type any word into the search box and the dictionary instantly shows all matching rhymes from our database of 1,300+ words. Results are grouped into <strong>1-syllable</strong>, <strong>2-syllable</strong>, and <strong>3+ syllable</strong> categories so you can quickly find the perfect fit for your poem or song.</p>
+    <p>Type any word into the search box and the dictionary instantly shows <strong>perfect rhymes</strong> (same ending sound) and <strong>near rhymes</strong> (slant rhymes — similar but not identical sound). Results are grouped into <strong>1-syllable</strong>, <strong>2-syllable</strong>, and <strong>3+ syllable</strong> categories so you can quickly find the perfect fit for your poem or song.</p>
     <p>Use the <strong>part of speech filter</strong> to narrow results to nouns, verbs, adjectives, or adverbs. Click any rhyme word to instantly search for its own rhymes — great for building rhyme chains. Hit <strong>Random</strong> to explore words you might not have thought of.</p>
     <h3>Tips for better rhymes</h3>
     <ul>
       <li>Match syllable count to keep your rhythm consistent.</li>
       <li>2-syllable rhymes often sound more natural in verse than single-syllable ones.</li>
-      <li>If you can't find a perfect rhyme, try a near rhyme (same vowel sound, different ending).</li>
+      <li>If perfect rhymes are too limited, near rhymes (shown below) give you many more options — widely used in modern rap and poetry.</li>
       <li>Use "Copy all rhymes" to paste a full list into your lyrics or poem draft.</li>
     </ul>
   </div>
@@ -489,7 +505,7 @@
   </div>
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">How many words are in this rhyming dictionary?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a"><p>Our dictionary covers over 1,300 common English words organized into 40+ phonetic rhyme groups. We focus on the words most useful for everyday writing rather than obscure terms, so you're always getting practical, usable rhymes.</p></div>
+    <div class="faq-a"><p>The rhyming dictionary covers hundreds of thousands of English words. A curated set loads instantly so results appear the moment you start typing, then a live lookup fills in the full set — including near rhymes — within a second or two.</p></div>
   </div>
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">What's the difference between a perfect rhyme and a near rhyme?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
@@ -620,9 +636,11 @@
 <script>
 (function() {
   var groups = null;
-  var wordIndex = {}; // word → group array
+  var wordIndex = {};
   var activePos = 'all';
   var lastWord = '';
+  var dmCache = {};
+  var fetchTimer = null;
 
   var input = document.getElementById('rdInput');
   var status = document.getElementById('rdStatus');
@@ -634,8 +652,9 @@
   var copyConfirm = document.getElementById('rdCopyConfirm');
 
   var POS_LABELS = { n: 'noun', v: 'verb', adj: 'adj.', adv: 'adv.', x: '', pron: 'pron.', prep: 'prep.', conj: 'conj.', art: 'art.' };
+  var SYL_LABELS = { '1': '1 syllable', '2': '2 syllables', '3+': '3+ syllables' };
 
-  function loadData(cb) {
+  function loadSeed(cb) {
     if (groups) { cb(); return; }
     fetch('/data/rhymes.json?v=1')
       .then(function(r){ return r.json(); })
@@ -651,10 +670,10 @@
         });
         cb();
       })
-      .catch(function(){ status.textContent = 'Could not load rhyme data.'; });
+      .catch(function(){});
   }
 
-  function getRhymes(word) {
+  function getSeedRhymes(word) {
     var w = word.toLowerCase().trim();
     var gs = wordIndex[w];
     if (!gs) return [];
@@ -663,8 +682,7 @@
     gs.forEach(function(g) {
       g.forEach(function(entry) {
         var ew = entry[0];
-        if (ew === w) return;
-        if (seen[ew]) return;
+        if (ew === w || seen[ew]) return;
         seen[ew] = true;
         out.push({ w: ew, s: entry[2], p: entry[1] });
       });
@@ -672,23 +690,89 @@
     return out;
   }
 
-  function render(word) {
-    lastWord = word;
-    var rhymes = getRhymes(word);
+  function parseDmEntry(entry) {
+    var syllables = 1;
+    var pos = 'x';
+    if (entry.tags) {
+      entry.tags.forEach(function(t) {
+        if (/^\d+$/.test(t)) syllables = parseInt(t);
+        else if (t === 'n' || t === 'v' || t === 'adj' || t === 'adv') pos = t;
+      });
+    }
+    return { w: entry.word, s: syllables, p: pos };
+  }
 
-    // Apply POS filter
-    var filtered = activePos === 'all' ? rhymes : rhymes.filter(function(r){ return r.p === activePos; });
+  function fetchDatamuse(word, cb) {
+    var w = word.toLowerCase().trim();
+    if (dmCache[w]) { cb(dmCache[w]); return; }
+    var perfect = [], near = [], done = 0;
+    function finish() {
+      if (++done < 2) return;
+      // strip near-rhymes that are already perfect rhymes
+      var perfSet = {};
+      perfect.forEach(function(r){ perfSet[r.w] = true; });
+      near = near.filter(function(r){ return !perfSet[r.w]; });
+      dmCache[w] = { perfect: perfect, near: near };
+      cb(dmCache[w]);
+    }
+    fetch('https://api.datamuse.com/words?rel_rhy=' + encodeURIComponent(w) + '&md=ps&max=300')
+      .then(function(r){ return r.json(); })
+      .then(function(d){ perfect = d.map(parseDmEntry); finish(); })
+      .catch(finish);
+    fetch('https://api.datamuse.com/words?rel_nry=' + encodeURIComponent(w) + '&md=ps&max=150')
+      .then(function(r){ return r.json(); })
+      .then(function(d){ near = d.map(parseDmEntry); finish(); })
+      .catch(finish);
+  }
+
+  function buildSylGroups(entries) {
+    var byS = {};
+    entries.forEach(function(r) {
+      var k = r.s >= 3 ? '3+' : String(r.s);
+      if (!byS[k]) byS[k] = [];
+      byS[k].push(r);
+    });
+    return byS;
+  }
+
+  function renderChipGroup(entries, label, container) {
+    if (!entries.length) return;
+    var g = document.createElement('div');
+    g.className = 'rd-group';
+    var t = document.createElement('div');
+    t.className = 'rd-group-title';
+    t.textContent = label + ' (' + entries.length + ')';
+    g.appendChild(t);
+    var chips = document.createElement('div');
+    chips.className = 'rd-chips';
+    entries.sort(function(a,b){ return a.w < b.w ? -1 : 1; }).forEach(function(r) {
+      var chip = document.createElement('button');
+      chip.className = 'rd-chip';
+      chip.setAttribute('type', 'button');
+      var posLabel = POS_LABELS[r.p] !== undefined ? POS_LABELS[r.p] : r.p;
+      chip.innerHTML = r.w + (posLabel ? ' <span class="rd-pos">' + posLabel + '</span>' : '');
+      chip.addEventListener('click', function() {
+        input.value = r.w;
+        doSearch(true);
+      });
+      chips.appendChild(chip);
+    });
+    g.appendChild(chips);
+    container.appendChild(g);
+  }
+
+  function renderResults(word, perfect, near) {
+    var filtPerfect = activePos === 'all' ? perfect : perfect.filter(function(r){ return r.p === activePos; });
+    var filtNear = activePos === 'all' ? near : near.filter(function(r){ return r.p === activePos; });
 
     prompt.style.display = 'none';
     empty.style.display = 'none';
     results.innerHTML = '';
     copyRow.style.display = 'none';
 
-    if (!groups) { return; }
-
-    if (filtered.length === 0) {
-      if (rhymes.length > 0 && activePos !== 'all') {
-        status.textContent = 'No ' + activePos + ' rhymes found. Try "All" filter.';
+    if (!filtPerfect.length && !filtNear.length) {
+      if ((perfect.length || near.length) && activePos !== 'all') {
+        status.textContent = 'No ' + activePos + ' rhymes found — try "All" filter.';
       } else {
         status.textContent = '';
         empty.style.display = 'block';
@@ -696,55 +780,41 @@
       return;
     }
 
-    // Group by syllable count
-    var byS = {};
-    filtered.forEach(function(r) {
-      var k = r.s >= 3 ? '3+' : String(r.s);
-      if (!byS[k]) byS[k] = [];
-      byS[k].push(r);
-    });
-
-    var keys = Object.keys(byS).sort(function(a,b){
-      return (a === '3+' ? 3 : parseInt(a)) - (b === '3+' ? 3 : parseInt(b));
-    });
-
-    var LABELS = { '1': '1 syllable', '2': '2 syllables', '3+': '3+ syllables' };
-
-    keys.forEach(function(k) {
-      var words = byS[k].sort(function(a,b){ return a.w < b.w ? -1 : 1; });
-      var group = document.createElement('div');
-      group.className = 'rd-group';
-
-      var title = document.createElement('div');
-      title.className = 'rd-group-title';
-      title.textContent = (LABELS[k] || k) + ' (' + words.length + ')';
-      group.appendChild(title);
-
-      var chips = document.createElement('div');
-      chips.className = 'rd-chips';
-
-      words.forEach(function(r) {
-        var chip = document.createElement('button');
-        chip.className = 'rd-chip';
-        chip.setAttribute('type', 'button');
-        var posLabel = POS_LABELS[r.p] || r.p;
-        chip.innerHTML = r.w + (posLabel ? ' <span class="rd-pos">' + posLabel + '</span>' : '');
-        chip.addEventListener('click', function() {
-          input.value = r.w;
-          loadData(function(){ render(r.w); });
-        });
-        chips.appendChild(chip);
+    // Perfect rhymes grouped by syllable count
+    if (filtPerfect.length) {
+      var byS = buildSylGroups(filtPerfect);
+      Object.keys(byS).sort(function(a,b){
+        return (a==='3+'?3:+a)-(b==='3+'?3:+b);
+      }).forEach(function(k) {
+        renderChipGroup(byS[k], SYL_LABELS[k] || k, results);
       });
+    }
 
-      group.appendChild(chips);
-      results.appendChild(group);
-    });
+    // Near rhymes in a visually distinct section
+    if (filtNear.length) {
+      var ns = document.createElement('div');
+      ns.className = 'rd-near-section';
+      var nh = document.createElement('div');
+      nh.className = 'rd-near-header';
+      nh.textContent = 'Near rhymes (slant rhymes)';
+      ns.appendChild(nh);
+      var nearByS = buildSylGroups(filtNear);
+      Object.keys(nearByS).sort(function(a,b){
+        return (a==='3+'?3:+a)-(b==='3+'?3:+b);
+      }).forEach(function(k) {
+        renderChipGroup(nearByS[k], SYL_LABELS[k] || k, ns);
+      });
+      results.appendChild(ns);
+    }
 
-    status.textContent = filtered.length + ' rhyme' + (filtered.length !== 1 ? 's' : '') + ' for "' + word + '"';
+    var parts = [];
+    if (filtPerfect.length) parts.push(filtPerfect.length + ' perfect rhyme' + (filtPerfect.length !== 1 ? 's' : ''));
+    if (filtNear.length) parts.push(filtNear.length + ' near rhyme' + (filtNear.length !== 1 ? 's' : ''));
+    status.textContent = parts.join(', ') + ' for “' + word + '”';
     copyRow.style.display = 'flex';
   }
 
-  function doSearch() {
+  function doSearch(immediate) {
     var word = input.value.trim();
     if (!word) {
       prompt.style.display = 'block';
@@ -752,44 +822,69 @@
       results.innerHTML = '';
       copyRow.style.display = 'none';
       status.textContent = '';
+      lastWord = '';
+      clearTimeout(fetchTimer);
       return;
     }
-    if (!groups) {
-      status.textContent = 'Loading…';
-      loadData(function(){ render(word); });
-    } else {
-      render(word);
+    lastWord = word;
+    prompt.style.display = 'none';
+
+    // Show seed results immediately if available
+    if (groups) {
+      var seed = getSeedRhymes(word);
+      if (seed.length) renderResults(word, seed, []);
     }
+
+    // Debounce Datamuse fetch to avoid flooding on fast typing
+    clearTimeout(fetchTimer);
+    fetchTimer = setTimeout(function() {
+      var searching = word;
+      if (!status.textContent || status.textContent.indexOf('rhyme') === -1) {
+        status.textContent = 'Loading…';
+      }
+      fetchDatamuse(searching, function(data) {
+        if (lastWord !== searching) return;
+        renderResults(searching, data.perfect, data.near);
+      });
+    }, immediate ? 0 : 320);
   }
 
-  input.addEventListener('input', doSearch);
+  input.addEventListener('input', function(){ doSearch(false); });
 
-  // POS filter buttons
   document.querySelectorAll('.rd-filter-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
       document.querySelectorAll('.rd-filter-btn').forEach(function(b){ b.classList.remove('active'); });
       btn.classList.add('active');
       activePos = btn.dataset.pos;
-      if (lastWord) render(lastWord);
+      if (!lastWord) return;
+      var cached = dmCache[lastWord.toLowerCase()];
+      if (cached) renderResults(lastWord, cached.perfect, cached.near);
+      else if (groups) renderResults(lastWord, getSeedRhymes(lastWord), []);
     });
   });
 
-  // Random button
   document.getElementById('rdRandom').addEventListener('click', function() {
-    loadData(function() {
+    loadSeed(function() {
       var allWords = Object.keys(wordIndex);
       var word = allWords[Math.floor(Math.random() * allWords.length)];
       input.value = word;
-      render(word);
+      doSearch(true);
     });
   });
 
-  // Copy all
   copyBtn.addEventListener('click', function() {
-    var word = lastWord;
-    var rhymes = getRhymes(word);
-    var filtered = activePos === 'all' ? rhymes : rhymes.filter(function(r){ return r.p === activePos; });
-    var text = filtered.map(function(r){ return r.w; }).sort().join(', ');
+    var w = lastWord.toLowerCase();
+    var cached = dmCache[w];
+    var all = [];
+    if (cached) {
+      var p = activePos === 'all' ? cached.perfect : cached.perfect.filter(function(r){ return r.p === activePos; });
+      var n = activePos === 'all' ? cached.near : cached.near.filter(function(r){ return r.p === activePos; });
+      all = p.concat(n);
+    } else if (groups) {
+      all = getSeedRhymes(lastWord);
+      if (activePos !== 'all') all = all.filter(function(r){ return r.p === activePos; });
+    }
+    var text = all.map(function(r){ return r.w; }).sort().join(', ');
     if (navigator.clipboard) {
       navigator.clipboard.writeText(text).then(function(){
         copyConfirm.style.display = 'inline';
@@ -797,24 +892,19 @@
       });
     } else {
       var ta = document.createElement('textarea');
-      ta.value = text;
-      document.body.appendChild(ta);
-      ta.select();
-      document.execCommand('copy');
-      document.body.removeChild(ta);
+      ta.value = text; document.body.appendChild(ta); ta.select();
+      document.execCommand('copy'); document.body.removeChild(ta);
       copyConfirm.style.display = 'inline';
       setTimeout(function(){ copyConfirm.style.display = 'none'; }, 2000);
     }
   });
 
-  // Preload on idle
   if ('requestIdleCallback' in window) {
-    requestIdleCallback(function(){ loadData(function(){}); });
+    requestIdleCallback(function(){ loadSeed(function(){}); });
   } else {
-    setTimeout(function(){ loadData(function(){}); }, 1500);
+    setTimeout(function(){ loadSeed(function(){}); }, 1500);
   }
 
-  // FAQ
   document.querySelectorAll('.faq-q').forEach(function(q){q.addEventListener('click',function(){q.closest('.faq-item').classList.toggle('open');});});
 })();
 </script>
