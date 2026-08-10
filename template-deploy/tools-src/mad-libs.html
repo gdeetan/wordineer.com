@@ -1,0 +1,404 @@
+<!-- CONFIG
+{
+  "type": "tool",
+  "url": "/mad-libs/",
+  "output": "mad-libs.html",
+  "more_tools_key": "more_word_tools",
+  "more_tools_title": "More word game generators",
+  "more_tools_subtitle": "Free tools for game night"
+}
+-->
+
+<!-- SLOT:meta -->
+<title>Mad Libs Generator — Free Online Word Game | Wordineer</title>
+<meta name="description" content="Play Mad Libs online for free. Pick a story, fill in the blanks, and laugh at the results. Works for kids, families, and game night. No account needed.">
+<link rel="canonical" href="https://wordineer.com/mad-libs/">
+<meta property="og:title" content="Mad Libs Generator — Free Online Word Game | Wordineer">
+<meta property="og:description" content="Play Mad Libs online for free. Pick a story, fill in the blanks, and laugh.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"What is Mad Libs?","acceptedAnswer":{"@type":"Answer","text":"Mad Libs is a word game where one player asks others to provide words — like a noun, a verb, or an adjective — without revealing the story. When all the blanks are filled in, the story is read aloud, usually with hilarious results."}},
+    {"@type":"Question","name":"Can I play Mad Libs alone?","acceptedAnswer":{"@type":"Answer","text":"Yes — use Random mode. One click fills all the blanks automatically from a huge word database and reveals the completed story instantly."}},
+    {"@type":"Question","name":"Is this free? Do I need an account?","acceptedAnswer":{"@type":"Answer","text":"Completely free. No account, no sign-up, no app download required. Works in any browser on phone or desktop."}},
+    {"@type":"Question","name":"Can I share my completed Mad Lib with friends?","acceptedAnswer":{"@type":"Answer","text":"Yes — after your story is revealed, click Share Link. It copies a URL that opens the exact same completed story for anyone you send it to."}},
+    {"@type":"Question","name":"What age is Mad Libs good for?","acceptedAnswer":{"@type":"Answer","text":"Ages 6 and up. Younger kids benefit from learning parts of speech in a fun context. The Kids and Holiday categories are ideal for family play, while Funny, Adventure, and Sports work well for teens and adults."}}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Wordineer","item":"https://wordineer.com/"},
+    {"@type":"ListItem","position":2,"name":"Word Games","item":"https://wordineer.com/word-games/"},
+    {"@type":"ListItem","position":3,"name":"Mad Libs Generator","item":"https://wordineer.com/mad-libs/"}
+  ]
+}
+</script>
+<!-- /SLOT:meta -->
+
+<!-- SLOT:style -->
+<style>
+.ml-wrap{max-width:960px;margin:0 auto;padding:24px 16px}
+.ml-card{background:var(--bg);border:1px solid var(--border);border-radius:8px;overflow:hidden;box-shadow:var(--shadow)}
+.ml-layout{display:grid;grid-template-columns:280px 1fr;min-height:480px}
+.ml-controls{background:var(--bg-2);border-right:1px solid var(--border-2);padding:16px;display:flex;flex-direction:column;gap:16px}
+.ml-section-label{font-size:10px;font-weight:700;color:var(--text-3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px}
+.ml-mode-row{display:flex;gap:6px}
+.ml-mode-btn{flex:1;padding:8px 4px;font-size:12px;font-weight:600;font-family:inherit;border:1px solid var(--border);border-radius:6px;background:var(--bg);color:var(--text-2);cursor:pointer;transition:border-color .15s,background .15s,color .15s}
+.ml-mode-btn:hover{border-color:var(--brand)}
+.ml-mode-btn.active{background:var(--brand);border-color:var(--brand);color:#fff}
+.ml-select{width:100%;border:1px solid var(--border);background:var(--bg);color:var(--text-2);border-radius:6px;font:inherit;font-size:12px;font-weight:600;padding:8px 6px;appearance:none}
+.ml-primary-btn{width:100%;border:0;border-radius:6px;background:var(--brand);color:#fff;font-size:14px;font-weight:700;padding:12px 14px;cursor:pointer;transition:opacity .15s}
+.ml-primary-btn:hover{opacity:.9}
+.ml-actions{margin-top:auto;display:none;flex-direction:column;gap:8px}
+.ml-small-btn{border:1px solid var(--border);background:var(--bg);color:var(--text-2);border-radius:6px;font-size:12px;font-weight:600;padding:9px 8px;cursor:pointer;transition:border-color .15s;width:100%}
+.ml-small-btn:hover{border-color:var(--brand)}
+.ml-shared-badge{background:var(--bg-2);border:1px solid var(--border);border-radius:6px;padding:8px 10px;font-size:11px;color:var(--text-2);text-align:center;display:none}
+.ml-panel{display:flex;flex-direction:column;padding:24px;gap:16px;overflow-y:auto}
+.ml-story-title{font-family:'DM Serif Display',serif;font-size:22px;color:var(--text);margin:0}
+.ml-story-text{font-size:16px;line-height:1.8;color:var(--text)}
+.ml-fill{color:var(--brand);font-weight:700;font-style:italic}
+.ml-empty-state{display:flex;flex-direction:column;align-items:center;justify-content:center;flex:1;gap:12px;color:var(--text-3);text-align:center;padding:40px}
+.ml-empty-icon{font-size:40px}
+.ml-blanks-form{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ml-blank-row{display:flex;flex-direction:column;gap:4px}
+.ml-blank-label{font-size:11px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:.04em}
+.ml-blank-input{border:1px solid var(--border);border-radius:6px;padding:8px 10px;font:inherit;font-size:14px;color:var(--text);background:var(--bg);width:100%;box-sizing:border-box;transition:border-color .15s}
+.ml-blank-input:focus{outline:none;border-color:var(--brand)}
+.ml-blank-input.filled{border-color:var(--brand)}
+.ml-reveal-btn{align-self:flex-start;border:0;border-radius:6px;background:var(--brand);color:#fff;font-size:14px;font-weight:700;padding:10px 20px;cursor:pointer;transition:opacity .15s}
+.ml-reveal-btn:hover:not(:disabled){opacity:.9}
+.ml-reveal-btn:disabled{opacity:.4;cursor:not-allowed}
+@media(max-width:700px){
+  .ml-layout{grid-template-columns:1fr}
+  .ml-controls{border-right:none;border-bottom:1px solid var(--border-2)}
+  .ml-blanks-form{grid-template-columns:1fr}
+  .ml-actions{flex-direction:row;flex-wrap:wrap}
+  .ml-actions .ml-small-btn{width:auto;flex:1}
+}
+</style>
+<!-- /SLOT:style -->
+
+<!-- SLOT:hero -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/word-games/">Word Games</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Mad Libs Generator</span>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free · No sign-up · Instant
+  </div>
+  <h1>Mad Libs Generator</h1>
+  <p>Pick a story, fill in the blanks, and read it aloud for maximum laughs. Play manually with a group or let the generator fill it randomly for instant fun.</p>
+</div>
+<!-- /SLOT:hero -->
+
+<!-- SLOT:tool -->
+<div class="ml-wrap" id="ml-tool-wrap" aria-label="Mad Libs generator tool">
+  <div class="ml-card">
+    <div class="ml-layout">
+      <aside class="ml-controls">
+        <div>
+          <div class="ml-section-label">Mode</div>
+          <div class="ml-mode-row">
+            <button class="ml-mode-btn active" data-mode="manual">Manual</button>
+            <button class="ml-mode-btn" data-mode="random">Random</button>
+          </div>
+        </div>
+        <div>
+          <div class="ml-section-label">Category</div>
+          <select class="ml-select" id="ml-category">
+            <option value="all">All categories</option>
+            <option value="kids">Kids</option>
+            <option value="funny">Funny</option>
+            <option value="holiday">Holiday</option>
+            <option value="adventure">Adventure</option>
+            <option value="sports">Sports</option>
+          </select>
+        </div>
+        <button class="ml-primary-btn" id="ml-new-btn">New Story</button>
+        <div class="ml-actions" id="ml-actions">
+          <button class="ml-small-btn" id="ml-play-again-btn">Play Again</button>
+          <button class="ml-small-btn" id="ml-copy-btn">Copy Story</button>
+          <button class="ml-small-btn" id="ml-share-btn">Share Link</button>
+        </div>
+        <div class="ml-shared-badge" id="ml-shared-indicator">📎 Shared story loaded</div>
+      </aside>
+      <section class="ml-panel" id="ml-story-panel">
+        <div class="ml-empty-state">
+          <div class="ml-empty-icon">📖</div>
+          <p>Pick a category and click <strong>New Story</strong> to start.</p>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+<!-- /SLOT:tool -->
+
+<!-- SLOT:ad_b -->
+<div class="content-wrap" style="margin-top:32px">
+  <div class="ad-rect">
+    <span class="ad-tag">Advertisement · 336×280</span>
+    <div class="ad-rect-img"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4C10.3 4 4 10.3 4 18s6.3 14 14 14 14-6.3 14-14S25.7 4 18 4z" fill="white" opacity=".2"/><path d="M12 18c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="18" r="2.5" fill="white"/></svg></div>
+    <div class="ad-rect-content">
+      <div class="ad-rect-title">Grammarly — write with confidence</div>
+      <div class="ad-rect-body">Grammar, tone &amp; clarity. Used by 30 million people. Works in Google Docs, Gmail, Word and more.</div>
+      <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
+    </div>
+  </div>
+</div>
+<!-- /SLOT:ad_b -->
+
+<!-- SLOT:explainer -->
+<div class="explainer">
+  <h2>How to play Mad Libs</h2>
+  <p>Mad Libs is a classic word game where the humor comes from filling in blanks without knowing the story first.</p>
+  <ol>
+    <li><strong>Manual mode (best for groups):</strong> One person is the "reader." They see the blank labels — like "Adjective" or "Person's Name" — and ask the group for words without revealing the story. Fill in each blank, then click Reveal Story and read it aloud.</li>
+    <li><strong>Random mode (best for solo play):</strong> Click Random Story and the generator fills all blanks automatically from its word database. Great for a quick laugh or for getting ideas before playing with a group.</li>
+    <li><strong>Share your result:</strong> After the story is revealed, click Share Link to copy a URL. Anyone who opens it sees the exact same completed story.</li>
+  </ol>
+  <h2>Tips for better games</h2>
+  <p>In Manual mode, have players shout out words without thinking too hard — the funnier and more random, the better. Try the Holiday category around Thanksgiving or Christmas. The Funny stories work great as icebreakers at parties or team meetings.</p>
+</div>
+<!-- /SLOT:explainer -->
+
+<!-- SLOT:faq -->
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">What is Mad Libs?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Mad Libs is a word game where one player asks others to provide words — a noun, a verb, an adjective — without revealing the story. When all blanks are filled, the story is read aloud, usually with hilarious results. It was invented in 1953 and has sold over 110 million books.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I play Mad Libs alone?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Yes — switch to Random mode. One click fills all blanks automatically and reveals the story instantly. You can keep clicking for a new random result until you find one that makes you laugh.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Is this free? Do I need an account?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Completely free, forever. No account, no sign-up, no app download. Works in any browser on any device.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I share my completed Mad Lib with friends?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Yes — after the story reveals, click Share Link. It copies a URL to your clipboard that opens the exact same completed story for anyone you send it to.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What age is Mad Libs good for?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Ages 6 and up. Younger kids learn parts of speech in a fun context. The Kids and Holiday categories are ideal for family play. Funny, Adventure, and Sports stories work well for teens and adults.</p></div>
+  </div>
+</div>
+<!-- /SLOT:faq -->
+
+<!-- SLOT:who -->
+<div class="who">
+  <h2>Who uses this tool?</h2>
+  <div class="who-grid">
+    <div class="who-item">
+      <div class="who-icon">👨‍👩‍👧‍👦</div>
+      <div class="who-text"><strong>Families</strong> — a screen-friendly activity that gets everyone laughing at the dinner table or on road trips.</div>
+    </div>
+    <div class="who-item">
+      <div class="who-icon">🎉</div>
+      <div class="who-text"><strong>Party hosts</strong> — use it as an icebreaker or group activity at birthdays, office parties, and game nights.</div>
+    </div>
+    <div class="who-item">
+      <div class="who-icon">👩‍🏫</div>
+      <div class="who-text"><strong>Teachers</strong> — a fun way to teach nouns, verbs, and adjectives. Students fill in blanks and hear the results read aloud.</div>
+    </div>
+    <div class="who-item">
+      <div class="who-icon">🌍</div>
+      <div class="who-text"><strong>ESL learners</strong> — fill-in-the-blank storytelling builds vocabulary and part-of-speech recognition in a low-pressure way.</div>
+    </div>
+  </div>
+</div>
+<!-- /SLOT:who -->
+
+<!-- SLOT:init -->
+<script>
+(function(){
+'use strict';
+var STORIES=[];
+var state={mode:'manual',category:'all',story:null,fills:{},revealed:false};
+var pools={adjective:null,noun:null,verb:null,adverb:null,name:null};
+
+function loadPools(){
+  var files={adjective:'/data/adjectives.json',noun:'/data/nouns.json',verb:'/data/verbs.json',adverb:'/data/adverbs.json',name:'/data/names.json'};
+  Object.keys(files).forEach(function(type){
+    if(pools[type])return;
+    fetch(files[type]).then(function(r){return r.ok?r.json():null;}).then(function(d){
+      if(!d)return;
+      if(type==='name'){pools.name=d.first.map(function(e){return e[0];});}
+      else{pools[type]=d.map(function(e){return e.w;});}
+    }).catch(function(){});
+  });
+}
+
+function rand(arr){return arr[Math.floor(Math.random()*arr.length)];}
+function randNum(){return String(Math.floor(Math.random()*98)+2);}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+function pickStory(){
+  var pool=state.category==='all'?STORIES:STORIES.filter(function(s){return s.category===state.category;});
+  if(!pool.length)pool=STORIES;
+  var candidates=pool.filter(function(s){return!state.story||s.id!==state.story.id;});
+  if(!candidates.length)candidates=pool;
+  return candidates[Math.floor(Math.random()*candidates.length)];
+}
+
+function fillsFromPools(story){
+  var fills={};
+  story.blanks.forEach(function(b){
+    if(b.type==='number'){fills[b.id]=randNum();}
+    else{var p=pools[b.type];fills[b.id]=p?rand(p):'___';}
+  });
+  return fills;
+}
+
+function poolsReady(){return pools.adjective&&pools.noun&&pools.verb&&pools.adverb&&pools.name;}
+
+function renderRevealedText(story,fills){
+  return story.template.replace(/\{\{(\w+)\}\}/g,function(_,id){
+    var v=fills[id]||'___';
+    return'<strong class="ml-fill">'+esc(v)+'</strong>';
+  });
+}
+
+function renderPanel(){
+  var panel=document.getElementById('ml-story-panel');
+  var actions=document.getElementById('ml-actions');
+  if(!panel)return;
+  if(!state.story){
+    panel.innerHTML='<div class="ml-empty-state"><div class="ml-empty-icon">📖</div><p>Pick a category and click <strong>'+(state.mode==='manual'?'New Story':'Random Story')+'</strong> to start.</p></div>';
+    if(actions)actions.style.display='none';
+    return;
+  }
+  var html='<h2 class="ml-story-title">'+esc(state.story.title)+'</h2>';
+  if(state.revealed){
+    html+='<div class="ml-story-text">'+renderRevealedText(state.story,state.fills)+'</div>';
+    panel.innerHTML=html;
+    if(actions)actions.style.display='flex';
+  }else{
+    html+='<div class="ml-blanks-form">';
+    state.story.blanks.forEach(function(b){
+      var val=esc(state.fills[b.id]||'');
+      html+='<div class="ml-blank-row"><label class="ml-blank-label" for="ml-b-'+b.id+'">'+esc(b.label)+'</label>';
+      html+='<input class="ml-blank-input'+(val?' filled':'')+ '" type="text" id="ml-b-'+b.id+'" data-id="'+b.id+'" placeholder="'+esc(b.label)+'" value="'+val+'" autocomplete="off"></div>';
+    });
+    html+='</div>';
+    html+='<button class="ml-reveal-btn" id="ml-reveal-btn" disabled>Reveal Story</button>';
+    panel.innerHTML=html;
+    if(actions)actions.style.display='none';
+    panel.querySelectorAll('.ml-blank-input').forEach(function(inp){
+      inp.addEventListener('input',function(){
+        state.fills[inp.dataset.id]=inp.value.trim();
+        inp.classList.toggle('filled',inp.value.trim().length>0);
+        checkReveal();
+      });
+    });
+    document.getElementById('ml-reveal-btn').addEventListener('click',function(){
+      state.revealed=true;
+      renderPanel();
+    });
+    checkReveal();
+  }
+}
+
+function checkReveal(){
+  var btn=document.getElementById('ml-reveal-btn');
+  if(!btn||!state.story)return;
+  var allFilled=state.story.blanks.every(function(b){return state.fills[b.id]&&state.fills[b.id].length>0;});
+  btn.disabled=!allFilled;
+}
+
+function updateModeBtn(){
+  var btn=document.getElementById('ml-new-btn');
+  if(btn)btn.textContent=state.mode==='manual'?'New Story':'Random Story';
+}
+
+document.getElementById('ml-new-btn').addEventListener('click',function(){
+  state.story=pickStory();
+  state.fills={};
+  state.revealed=false;
+  if(state.mode==='random'){
+    if(!poolsReady()){loadPools();setTimeout(function(){
+      state.story=pickStory();
+      state.fills=fillsFromPools(state.story);
+      state.revealed=true;
+      renderPanel();
+    },400);return;}
+    state.fills=fillsFromPools(state.story);
+    state.revealed=true;
+  }
+  renderPanel();
+});
+
+document.getElementById('ml-category').addEventListener('change',function(e){state.category=e.target.value;});
+
+document.querySelectorAll('.ml-mode-btn').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    state.mode=btn.dataset.mode;
+    document.querySelectorAll('.ml-mode-btn').forEach(function(b){b.classList.toggle('active',b.dataset.mode===state.mode);});
+    updateModeBtn();
+    if(state.story){
+      state.fills={};state.revealed=false;
+      if(state.mode==='random'&&poolsReady()){state.fills=fillsFromPools(state.story);state.revealed=true;}
+      renderPanel();
+    }
+  });
+});
+
+document.getElementById('ml-play-again-btn').addEventListener('click',function(){
+  state.fills={};state.revealed=false;
+  if(state.mode==='random'&&poolsReady()){state.fills=fillsFromPools(state.story);state.revealed=true;}
+  renderPanel();
+});
+
+document.getElementById('ml-copy-btn').addEventListener('click',function(){
+  if(!state.story||!state.revealed)return;
+  var text=state.story.title+'\n\n'+state.story.template.replace(/\{\{(\w+)\}\}/g,function(_,id){return state.fills[id]||'___';});
+  navigator.clipboard.writeText(text).catch(function(){});
+  var btn=document.getElementById('ml-copy-btn');var orig=btn.textContent;btn.textContent='Copied!';setTimeout(function(){btn.textContent=orig;},1500);
+});
+
+document.getElementById('ml-share-btn').addEventListener('click',function(){
+  if(!state.story||!state.revealed)return;
+  var params=new URLSearchParams();params.set('story',state.story.id);
+  Object.keys(state.fills).forEach(function(k){params.set(k,state.fills[k]);});
+  var url=window.location.origin+'/mad-libs/?'+params.toString();
+  navigator.clipboard.writeText(url).catch(function(){});
+  var btn=document.getElementById('ml-share-btn');var orig=btn.textContent;btn.textContent='Link copied!';setTimeout(function(){btn.textContent=orig;},1500);
+});
+
+function loadFromUrl(){
+  var params=new URLSearchParams(window.location.search);
+  var storyId=params.get('story');
+  if(!storyId)return false;
+  var story=STORIES.find(function(s){return s.id===storyId;});
+  if(!story)return false;
+  var fills={};
+  story.blanks.forEach(function(b){var v=params.get(b.id);if(v)fills[b.id]=v;});
+  if(Object.keys(fills).length<story.blanks.length)return false;
+  state.story=story;state.fills=fills;state.revealed=true;
+  renderPanel();
+  var indicator=document.getElementById('ml-shared-indicator');
+  if(indicator)indicator.style.display='block';
+  return true;
+}
+
+if(window.requestIdleCallback){requestIdleCallback(loadPools);}else{setTimeout(loadPools,300);}
+if(!loadFromUrl()){/* start blank — user clicks New Story */}
+document.querySelectorAll('.faq-q').forEach(function(q){q.addEventListener('click',function(){q.closest('.faq-item').classList.toggle('open');});});
+})();
+</script>
+<!-- /SLOT:init -->
