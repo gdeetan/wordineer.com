@@ -331,12 +331,22 @@ document.getElementById('ml-new-btn').addEventListener('click',function(){
   state.fills={};
   state.revealed=false;
   if(state.mode==='random'){
-    if(!poolsReady()){loadPools();setTimeout(function(){
-      state.story=pickStory();
-      state.fills=fillsFromPools(state.story);
-      state.revealed=true;
-      renderPanel();
-    },400);return;}
+    if(!poolsReady()){
+      loadPools();
+      var panel=document.getElementById('ml-story-panel');
+      if(panel)panel.innerHTML='<div class="ml-empty-state"><div class="ml-empty-icon">⏳</div><p>Loading word database…</p></div>';
+      setTimeout(function(){
+        if(!poolsReady()){
+          if(panel)panel.innerHTML='<div class="ml-empty-state"><div class="ml-empty-icon">📖</div><p>Still loading — please click <strong>Random Story</strong> again.</p></div>';
+          return;
+        }
+        state.story=pickStory();
+        state.fills=fillsFromPools(state.story);
+        state.revealed=true;
+        renderPanel();
+      },800);
+      return;
+    }
     state.fills=fillsFromPools(state.story);
     state.revealed=true;
   }
