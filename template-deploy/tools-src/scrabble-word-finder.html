@@ -127,3 +127,107 @@
 }
 </style>
 <!-- /SLOT:style -->
+
+<!-- SLOT:hero -->
+<div class="hero">
+  <div class="hero-inner">
+    <h1 class="hero-title">Scrabble Word Finder</h1>
+    <p class="hero-sub">Enter your tiles and instantly find every valid word, sorted by Scrabble point value. Use <strong>?</strong> for blank tiles.</p>
+  </div>
+</div>
+<!-- /SLOT:hero -->
+
+<!-- SLOT:tool -->
+<div class="swf-wrap">
+  <div class="swf-input-row">
+    <input id="swf-input" class="swf-input" type="text"
+      placeholder="Enter letters (e.g. aeirnt?)" maxlength="15"
+      autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false"
+      aria-label="Enter Scrabble tiles">
+    <button id="swf-find-btn" class="swf-find-btn">Find Words</button>
+    <button id="swf-clear-btn" class="swf-clear-btn" title="Clear" aria-label="Clear input">✕</button>
+  </div>
+
+  <div class="swf-filters">
+    <div class="swf-filter-group">
+      <span class="swf-filter-label">Length</span>
+      <select id="swf-len" class="swf-filter-select" aria-label="Word length">
+        <option value="">Any</option>
+        <option value="2-3">2–3</option>
+        <option value="4-5">4–5</option>
+        <option value="6-7">6–7</option>
+        <option value="8+">8+</option>
+      </select>
+    </div>
+    <div class="swf-filter-group">
+      <span class="swf-filter-label">Min pts</span>
+      <select id="swf-minpts" class="swf-filter-select" aria-label="Minimum points">
+        <option value="0">Any</option>
+        <option value="5">5+</option>
+        <option value="10">10+</option>
+        <option value="15">15+</option>
+      </select>
+    </div>
+    <div class="swf-filter-group">
+      <span class="swf-filter-label">Starts with</span>
+      <input id="swf-starts" class="swf-filter-input" type="text" maxlength="3"
+        placeholder="e.g. re" autocomplete="off" autocorrect="off" autocapitalize="none"
+        spellcheck="false" aria-label="Starts with">
+    </div>
+    <div class="swf-filter-group">
+      <span class="swf-filter-label">Ends with</span>
+      <input id="swf-ends" class="swf-filter-input" type="text" maxlength="3"
+        placeholder="e.g. ing" autocomplete="off" autocorrect="off" autocapitalize="none"
+        spellcheck="false" aria-label="Ends with">
+    </div>
+    <div class="swf-filter-group">
+      <span class="swf-filter-label">Contains</span>
+      <input id="swf-contains" class="swf-filter-input" type="text" maxlength="3"
+        placeholder="e.g. qu" autocomplete="off" autocorrect="off" autocapitalize="none"
+        spellcheck="false" aria-label="Must contain">
+    </div>
+    <div class="swf-filter-group">
+      <span class="swf-filter-label">Dictionary</span>
+      <div class="swf-dict-toggle" role="group" aria-label="Dictionary">
+        <button class="swf-dict-btn active" data-dict="nwl">NWL</button>
+        <button class="swf-dict-btn" data-dict="sowpods">SOWPODS</button>
+        <button class="swf-dict-btn" data-dict="wwf">WWF</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="swf-status" class="swf-status"></div>
+
+  <div id="swf-results-header" class="swf-results-header" style="display:none">
+    <span id="swf-count" class="swf-count"></span>
+    <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+      <div class="swf-sort-bar">
+        <span class="swf-sort-label">Sort:</span>
+        <button class="swf-sort-btn active" data-sort="pts">Points ↓</button>
+        <button class="swf-sort-btn" data-sort="len">Length ↓</button>
+        <button class="swf-sort-btn" data-sort="az">A–Z</button>
+      </div>
+      <button id="swf-copy-all" class="swf-copy-all-btn">Copy all</button>
+    </div>
+  </div>
+
+  <div class="swf-table-wrap">
+    <table id="swf-table" class="swf-table" style="display:none">
+      <thead>
+        <tr>
+          <th>Word</th>
+          <th>Len</th>
+          <th>Pts</th>
+          <th class="swf-def-hdr">Definition</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="swf-tbody"></tbody>
+    </table>
+  </div>
+
+  <div id="swf-empty" class="swf-empty" style="display:none">
+    No words found — try removing a filter or adding a wildcard (?).
+  </div>
+</div>
+<!-- /SLOT:tool -->
