@@ -361,7 +361,12 @@ const SWF = (() => {
       }
       await ingest('/data/dictionary.json');
       await ingest('/data/words_expanded.json');
-      dictLoaded = true;
+      if (DICT.length) {
+        dictLoaded = true;
+      } else {
+        var s = document.getElementById('swf-status');
+        if (s) s.textContent = 'Dictionary failed to load. Please reload the page.';
+      }
     })();
     return dictLoadPromise;
   }
@@ -480,29 +485,27 @@ const SWF = (() => {
         '<td class="swf-def-cell swf-def-text">' + def + '</td>' +
         '<td><button class="swf-row-copy" data-word="' + word + '">Copy</button></td>' +
         '</tr>' +
-        '<tr class="swf-expand-row">' +
-        '<td colspan="5" class="swf-expand-def">' + def + '</td>' +
-        '</tr>';
+        (def ? '<tr class="swf-expand-row"><td colspan="5" class="swf-expand-def">' + def + '</td></tr>' : '');
     }).join('');
 
     tbody.innerHTML = rows;
 
-    tbody.querySelectorAll('.swf-row-copy').forEach(function(btn) {
-      btn.addEventListener('click', function() {
+    tbody.addEventListener('click', function(e) {
+      var btn = e.target.closest('.swf-row-copy');
+      if (btn) {
         copyText(btn.dataset.word);
         var orig = btn.textContent;
         btn.textContent = 'Copied!';
         setTimeout(function() { btn.textContent = orig; }, 1200);
-      });
-    });
-
-    tbody.querySelectorAll('.swf-word-cell').forEach(function(cell) {
-      cell.addEventListener('click', function() {
+        return;
+      }
+      var cell = e.target.closest('.swf-word-cell');
+      if (cell) {
         var expandRow = cell.closest('tr').nextElementSibling;
         if (expandRow && expandRow.classList.contains('swf-expand-row')) {
           expandRow.classList.toggle('open');
         }
-      });
+      }
     });
   }
 
@@ -529,6 +532,10 @@ const SWF = (() => {
       return;
     }
     status.textContent = '';
+    if (!DICT.length) {
+      status.textContent = 'Dictionary failed to load. Please reload the page.';
+      return;
+    }
     doFind(raw);
   }
 
