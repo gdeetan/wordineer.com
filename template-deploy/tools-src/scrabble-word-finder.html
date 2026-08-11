@@ -1,0 +1,122 @@
+<!-- CONFIG
+{ "url": "/scrabble-word-finder/", "output": "scrabble-word-finder.html", "type": "tool" }
+-->
+
+<!-- SLOT:meta -->
+<title>Scrabble Word Finder — Find Every Word from Your Letters | Wordineer</title>
+<meta name="description" content="Enter your Scrabble tiles and instantly find every valid word, sorted by point value. Supports blank tiles (?), filters by length and score. Free anagram solver.">
+<link rel="canonical" href="https://wordineer.com/scrabble-word-finder/">
+<meta property="og:type"        content="website">
+<meta property="og:site_name"   content="Wordineer">
+<meta property="og:title"       content="Scrabble Word Finder — Find Every Word from Your Letters | Wordineer">
+<meta property="og:description" content="Enter your Scrabble tiles and instantly find every valid word, sorted by point value. Supports blank tiles (?), filters by length and score.">
+<meta property="og:url"         content="https://wordineer.com/scrabble-word-finder/">
+<meta property="og:image"       content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Scrabble Word Finder",
+  "url": "https://wordineer.com/scrabble-word-finder/",
+  "description": "Find every valid word from your Scrabble tiles, sorted by point value. Supports blank tile wildcards and filters.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home",       "item": "https://wordineer.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Word Tools", "item": "https://wordineer.com/word-tools/" },
+      { "@type": "ListItem", "position": 3, "name": "Scrabble Word Finder", "item": "https://wordineer.com/scrabble-word-finder/" }
+    ]
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I find Scrabble words from my letters?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Type your Scrabble tiles into the input box and click Find Words (or press Enter). The tool searches through tens of thousands of valid English words and returns every word that can be formed from your letters, sorted by Scrabble point value highest first." }
+    },
+    {
+      "@type": "Question",
+      "name": "What does the ? wildcard do?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A ? acts as a blank tile — it can stand in for any letter. For example, entering 'aeirnt?' will find all words formable from those six letters plus one blank tile. Each ? counts as one character toward the 15-letter limit." }
+    },
+    {
+      "@type": "Question",
+      "name": "Which dictionary does this Scrabble word finder use?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The word finder uses a broad English dictionary covering tens of thousands of valid words. The NWL, SOWPODS, and WWF labels let you see the naming conventions for each game, but all three draw from the same underlying word set." }
+    },
+    {
+      "@type": "Question",
+      "name": "How are Scrabble points calculated?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Each letter has a fixed point value: A, E, I, O, U, L, N, S, T, R = 1 point; D, G = 2; B, C, M, P = 3; F, H, V, W, Y = 4; K = 5; J, X = 8; Q, Z = 10. Blank tiles (?) score 0. The tool adds up face values — it does not account for board multipliers." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between this and the Word Unscramble tool?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Both tools find words from a set of letters. The Scrabble Word Finder sorts results by point value and displays them in a table with scores highlighted — making it faster to find the highest-scoring play. Word Unscramble groups results by word length, which is more useful for crosswords where length is the priority." }
+    }
+  ]
+}
+</script>
+<!-- /SLOT:meta -->
+
+<!-- SLOT:style -->
+<style>
+.swf-wrap{max-width:960px;margin:32px auto 0;padding:0 16px 48px}
+.swf-input-row{display:flex;gap:8px;margin-bottom:12px}
+.swf-input{flex:1;min-width:0;padding:13px 16px;font-size:1.05rem;border:2px solid #d1d5db;border-radius:8px;font-family:inherit;outline:none;transition:border-color .15s}
+.swf-input:focus{border-color:var(--brand,#4f46e5)}
+.swf-find-btn{padding:13px 22px;background:var(--brand,#4f46e5);color:#fff;border:none;border-radius:8px;font-size:1rem;font-weight:600;cursor:pointer;white-space:nowrap;transition:background .15s;font-family:inherit}
+.swf-find-btn:hover{background:var(--brand-dark,#4338ca)}
+.swf-clear-btn{padding:13px 14px;background:#f3f4f6;border:2px solid #d1d5db;border-radius:8px;font-size:1rem;cursor:pointer;color:#6b7280;transition:background .15s;font-family:inherit}
+.swf-clear-btn:hover{background:#e5e7eb}
+.swf-filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px;align-items:flex-end}
+.swf-filter-group{display:flex;flex-direction:column;gap:3px}
+.swf-filter-label{font-size:0.72rem;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:.04em}
+.swf-filter-select,.swf-filter-input{padding:7px 10px;border:1.5px solid #d1d5db;border-radius:6px;font-size:0.9rem;font-family:inherit;background:#fff;color:#111;outline:none}
+.swf-filter-select:focus,.swf-filter-input:focus{border-color:var(--brand,#4f46e5)}
+.swf-filter-input{width:90px}
+.swf-dict-toggle{display:flex;border:1.5px solid #d1d5db;border-radius:6px;overflow:hidden}
+.swf-dict-btn{padding:7px 12px;font-size:0.85rem;font-family:inherit;border:none;background:#fff;cursor:pointer;color:#374151;transition:background .12s,color .12s}
+.swf-dict-btn.active{background:var(--brand,#4f46e5);color:#fff}
+.swf-status{color:#6b7280;font-size:0.9rem;margin-bottom:8px;min-height:20px}
+.swf-results-header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:10px}
+.swf-count{font-size:0.9rem;color:#6b7280}
+.swf-sort-bar{display:flex;gap:6px;align-items:center}
+.swf-sort-label{font-size:0.8rem;color:#6b7280}
+.swf-sort-btn{padding:5px 12px;border:1.5px solid #d1d5db;border-radius:20px;font-size:0.82rem;background:#fff;cursor:pointer;font-family:inherit;color:#374151;transition:all .12s}
+.swf-sort-btn.active{border-color:var(--brand,#4f46e5);background:var(--brand,#4f46e5);color:#fff}
+.swf-copy-all-btn{padding:5px 14px;border:1.5px solid #d1d5db;border-radius:20px;font-size:0.82rem;background:#fff;cursor:pointer;font-family:inherit;color:#374151;transition:background .12s}
+.swf-copy-all-btn:hover{background:#f3f4f6}
+.swf-table-wrap{overflow-x:auto}
+.swf-table{width:100%;border-collapse:collapse;font-size:0.95rem}
+.swf-table th{text-align:left;padding:9px 12px;font-size:0.78rem;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:.05em;border-bottom:2px solid #e5e7eb;white-space:nowrap}
+.swf-table td{padding:9px 12px;border-bottom:1px solid #f3f4f6;vertical-align:middle}
+.swf-table tr:last-child td{border-bottom:none}
+.swf-table tbody tr:hover td{background:#f9fafb}
+.swf-word-cell{font-weight:600;font-size:1rem;color:#111;letter-spacing:.02em;position:relative;cursor:default}
+.swf-pts-badge{display:inline-block;background:#f0fdf4;color:#15803d;font-weight:700;font-size:0.85rem;padding:2px 8px;border-radius:12px}
+.swf-def-text{color:#6b7280;font-size:0.88rem;max-width:300px}
+.swf-row-copy{padding:4px 10px;border:1.5px solid #e5e7eb;border-radius:5px;font-size:0.78rem;background:#fff;cursor:pointer;color:#374151;font-family:inherit;transition:background .1s;white-space:nowrap}
+.swf-row-copy:hover{background:#f3f4f6}
+.swf-tooltip{position:absolute;left:0;top:calc(100% + 4px);z-index:10;background:#1f2937;color:#fff;font-size:0.82rem;padding:6px 10px;border-radius:6px;white-space:normal;max-width:220px;pointer-events:none;display:none;font-weight:400;line-height:1.4}
+.swf-word-cell:hover .swf-tooltip{display:block}
+.swf-empty{text-align:center;padding:40px 20px;color:#9ca3af;font-size:0.95rem}
+.swf-expand-row{display:none}
+.swf-expand-row.open{display:table-row}
+.swf-expand-def{padding:2px 12px 10px;color:#6b7280;font-size:0.88rem;font-style:italic}
+@media(max-width:640px){
+  .swf-table .swf-def-cell,.swf-table .swf-def-hdr{display:none}
+  .swf-word-cell{cursor:pointer}
+  .swf-filter-input{width:74px}
+  .swf-input-row{flex-wrap:wrap}
+  .swf-find-btn{flex:1}
+}
+</style>
+<!-- /SLOT:style -->
