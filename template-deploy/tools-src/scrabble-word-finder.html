@@ -189,23 +189,23 @@
     <div class="swf-filter-group">
       <span class="swf-filter-label">Dictionary</span>
       <div class="swf-dict-toggle" role="group" aria-label="Dictionary">
-        <button class="swf-dict-btn active" data-dict="nwl">NWL</button>
-        <button class="swf-dict-btn" data-dict="sowpods">SOWPODS</button>
-        <button class="swf-dict-btn" data-dict="wwf">WWF</button>
+        <button class="swf-dict-btn active" data-dict="nwl" aria-pressed="true">NWL</button>
+        <button class="swf-dict-btn" data-dict="sowpods" aria-pressed="false">SOWPODS</button>
+        <button class="swf-dict-btn" data-dict="wwf" aria-pressed="false">WWF</button>
       </div>
     </div>
   </div>
 
-  <div id="swf-status" class="swf-status"></div>
+  <div id="swf-status" class="swf-status" aria-live="polite"></div>
 
   <div id="swf-results-header" class="swf-results-header" style="display:none">
     <span id="swf-count" class="swf-count"></span>
     <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
       <div class="swf-sort-bar">
         <span class="swf-sort-label">Sort:</span>
-        <button class="swf-sort-btn active" data-sort="pts">Points ↓</button>
-        <button class="swf-sort-btn" data-sort="len">Length ↓</button>
-        <button class="swf-sort-btn" data-sort="az">A–Z</button>
+        <button class="swf-sort-btn active" data-sort="pts" aria-pressed="true">Points ↓</button>
+        <button class="swf-sort-btn" data-sort="len" aria-pressed="false">Length ↓</button>
+        <button class="swf-sort-btn" data-sort="az" aria-pressed="false">A–Z</button>
       </div>
       <button id="swf-copy-all" class="swf-copy-all-btn">Copy all</button>
     </div>
@@ -219,7 +219,7 @@
           <th>Len</th>
           <th>Pts</th>
           <th class="swf-def-hdr">Definition</th>
-          <th></th>
+          <th><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap">Copy</span></th>
         </tr>
       </thead>
       <tbody id="swf-tbody"></tbody>
