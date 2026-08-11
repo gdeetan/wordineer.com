@@ -1,4 +1,4 @@
-<!-- build: 2026-08-11T02:46:33Z -->
+<!-- build: 2026-08-11T02:58:41Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -198,7 +198,7 @@
 .swf-filter-label{font-size:0.72rem;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:.04em}
 .swf-filter-select,.swf-filter-input{padding:7px 10px;border:1.5px solid #d1d5db;border-radius:6px;font-size:0.9rem;font-family:inherit;background:#fff;color:#111;outline:none}
 .swf-filter-select:focus,.swf-filter-input:focus{border-color:var(--brand,#4f46e5)}
-.swf-filter-input{width:90px}
+.swf-filter-input{width:100px}
 .swf-dict-toggle{display:flex;border:1.5px solid #d1d5db;border-radius:6px;overflow:hidden}
 .swf-dict-btn{padding:7px 12px;font-size:0.85rem;font-family:inherit;border:none;background:#fff;cursor:pointer;color:#374151;transition:background .12s,color .12s}
 .swf-dict-btn.active{background:var(--brand,#4f46e5);color:#fff}
@@ -231,7 +231,7 @@
 @media(max-width:640px){
   .swf-table .swf-def-cell,.swf-table .swf-def-hdr{display:none}
   .swf-word-cell{cursor:pointer}
-  .swf-filter-input{width:74px}
+  .swf-filter-input{width:82px}
   .swf-input-row{flex-wrap:wrap}
   .swf-find-btn{flex:1}
 }
@@ -370,19 +370,19 @@
     </div>
     <div class="swf-filter-group">
       <span class="swf-filter-label">Starts with</span>
-      <input id="swf-starts" class="swf-filter-input" type="text" maxlength="3"
+      <input id="swf-starts" class="swf-filter-input" type="text" maxlength="5"
         placeholder="e.g. re" autocomplete="off" autocorrect="off" autocapitalize="none"
         spellcheck="false" aria-label="Starts with">
     </div>
     <div class="swf-filter-group">
       <span class="swf-filter-label">Ends with</span>
-      <input id="swf-ends" class="swf-filter-input" type="text" maxlength="3"
+      <input id="swf-ends" class="swf-filter-input" type="text" maxlength="5"
         placeholder="e.g. ing" autocomplete="off" autocorrect="off" autocapitalize="none"
         spellcheck="false" aria-label="Ends with">
     </div>
     <div class="swf-filter-group">
       <span class="swf-filter-label">Contains</span>
-      <input id="swf-contains" class="swf-filter-input" type="text" maxlength="3"
+      <input id="swf-contains" class="swf-filter-input" type="text" maxlength="5"
         placeholder="e.g. qu" autocomplete="off" autocorrect="off" autocapitalize="none"
         spellcheck="false" aria-label="Must contain">
     </div>
@@ -415,11 +415,11 @@
     <table id="swf-table" class="swf-table" style="display:none">
       <thead>
         <tr>
-          <th>Word</th>
-          <th>Len</th>
-          <th>Pts</th>
-          <th class="swf-def-hdr">Definition</th>
-          <th><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap">Copy</span></th>
+          <th scope="col">Word</th>
+          <th scope="col">Len</th>
+          <th scope="col">Pts</th>
+          <th scope="col" class="swf-def-hdr">Definition</th>
+          <th scope="col"><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap">Copy</span></th>
         </tr>
       </thead>
       <tbody id="swf-tbody"></tbody>
