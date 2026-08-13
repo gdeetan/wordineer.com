@@ -1,4 +1,4 @@
-<!-- build: 2026-08-10T12:06:59Z -->
+<!-- build: 2026-08-13T01:26:05Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -136,7 +136,18 @@
         { "@type": "ListItem", "position": 6, "name": "Random 6-Letter Words", "url": "https://wordineer.com/random-6-letter-word-generator/" },
         { "@type": "ListItem", "position": 7, "name": "Random 7-Letter Words", "url": "https://wordineer.com/random-7-letter-word-generator/" },
         { "@type": "ListItem", "position": 8, "name": "Random 8-Letter Words", "url": "https://wordineer.com/random-8-letter-word-generator/" },
-        { "@type": "ListItem", "position": 9, "name": "Random Words Starting With A–Z", "url": "https://wordineer.com/random-words-starting-with/" }
+        { "@type": "ListItem", "position": 9, "name": "Random Words Starting With A–Z", "url": "https://wordineer.com/random-words-starting-with/" },
+        { "@type": "ListItem", "position": 10, "name": "Words Ending With — All Suffixes", "url": "https://wordineer.com/words-ending-with/" },
+        { "@type": "ListItem", "position": 11, "name": "Words Ending in -ing", "url": "https://wordineer.com/words-ending-in-ing/" },
+        { "@type": "ListItem", "position": 12, "name": "Words Ending in -ly", "url": "https://wordineer.com/words-ending-in-ly/" },
+        { "@type": "ListItem", "position": 13, "name": "Words Ending in -tion", "url": "https://wordineer.com/words-ending-in-tion/" },
+        { "@type": "ListItem", "position": 14, "name": "Words Ending in -able", "url": "https://wordineer.com/words-ending-in-able/" },
+        { "@type": "ListItem", "position": 15, "name": "Words Ending in -ness", "url": "https://wordineer.com/words-ending-in-ness/" },
+        { "@type": "ListItem", "position": 16, "name": "Words Ending in -ment", "url": "https://wordineer.com/words-ending-in-ment/" },
+        { "@type": "ListItem", "position": 17, "name": "Words Ending in -er", "url": "https://wordineer.com/words-ending-in-er/" },
+        { "@type": "ListItem", "position": 18, "name": "Words Ending in -ful", "url": "https://wordineer.com/words-ending-in-ful/" },
+        { "@type": "ListItem", "position": 19, "name": "Words Ending in -less", "url": "https://wordineer.com/words-ending-in-less/" },
+        { "@type": "ListItem", "position": 20, "name": "Words Ending in -ous", "url": "https://wordineer.com/words-ending-in-ous/" }
       ]
     }
   ]
@@ -174,6 +185,9 @@
 .letter-chip { display: flex; align-items: center; justify-content: center; height: 40px; border: 1.5px solid var(--border, #e5e5e5); border-radius: 8px; font-size: 14px; font-weight: 600; color: var(--text-1); text-decoration: none; transition: border-color 0.12s, background 0.12s; }
 .letter-chip:hover { border-color: #4A3FD4; background: #f0eeff; color: #4A3FD4; }
 .letter-chip--disabled { color: var(--text-3, #aaa); pointer-events: none; }
+.suffix-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(74px, 1fr)); gap: 8px; margin-top: 12px; }
+.suffix-chip { display: flex; align-items: center; justify-content: center; height: 40px; border: 1.5px solid var(--border, #e5e5e5); border-radius: 8px; font-size: 13px; font-weight: 600; color: var(--text-1); text-decoration: none; transition: border-color 0.12s, background 0.12s; }
+.suffix-chip:hover { border-color: #4A3FD4; background: #f0eeff; color: #4A3FD4; }
 </style>
 </head>
 
@@ -516,6 +530,54 @@
           <div class="tool-desc">Hub for all starting-letter word lists. Pick any letter and browse words that begin with it.</div>
         </a>
 
+      </div>
+    </div>
+
+    <!-- Section 5: Words ending in -->
+    <div class="name-section">
+      <h2 class="section-title">Words ending in</h2>
+      <p class="section-sub">Browse words by suffix — useful for rhyming, vocabulary patterns, and spelling rules.</p>
+      <div class="tools-grid">
+
+        <a class="tool-item" href="/words-ending-with/">
+          <div class="tool-icon" style="background:#EEEDFE">
+            <svg viewBox="0 0 13 13" fill="none">
+              <path d="M2 4h9M2 6.5h6M2 9h8" stroke="#4A3FD4" stroke-width="1" stroke-linecap="round"/>
+              <path d="M10 8l1.5 1-1.5 1" stroke="#4A3FD4" stroke-width=".8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="tool-name">Words Ending With — All Suffixes</div>
+          <div class="tool-desc">Hub for all ending-suffix word lists. Pick any suffix and browse words that end with it.</div>
+        </a>
+
+      </div>
+
+      <div class="name-section" style="margin-top:20px">
+        <p style="font-size:13px;color:var(--text-2);margin:0 0 8px">Browse by suffix…</p>
+        <div class="suffix-grid">
+          <a class="suffix-chip" href="/words-ending-in-able/">-able</a>
+          <a class="suffix-chip" href="/words-ending-in-age/">-age</a>
+          <a class="suffix-chip" href="/words-ending-in-al/">-al</a>
+          <a class="suffix-chip" href="/words-ending-in-ant/">-ant</a>
+          <a class="suffix-chip" href="/words-ending-in-ary/">-ary</a>
+          <a class="suffix-chip" href="/words-ending-in-ed/">-ed</a>
+          <a class="suffix-chip" href="/words-ending-in-ent/">-ent</a>
+          <a class="suffix-chip" href="/words-ending-in-er/">-er</a>
+          <a class="suffix-chip" href="/words-ending-in-est/">-est</a>
+          <a class="suffix-chip" href="/words-ending-in-ful/">-ful</a>
+          <a class="suffix-chip" href="/words-ending-in-ight/">-ight</a>
+          <a class="suffix-chip" href="/words-ending-in-ing/">-ing</a>
+          <a class="suffix-chip" href="/words-ending-in-ish/">-ish</a>
+          <a class="suffix-chip" href="/words-ending-in-ity/">-ity</a>
+          <a class="suffix-chip" href="/words-ending-in-ive/">-ive</a>
+          <a class="suffix-chip" href="/words-ending-in-less/">-less</a>
+          <a class="suffix-chip" href="/words-ending-in-ly/">-ly</a>
+          <a class="suffix-chip" href="/words-ending-in-ment/">-ment</a>
+          <a class="suffix-chip" href="/words-ending-in-ness/">-ness</a>
+          <a class="suffix-chip" href="/words-ending-in-ous/">-ous</a>
+          <a class="suffix-chip" href="/words-ending-in-tion/">-tion</a>
+          <a class="suffix-chip" href="/words-ending-in-ure/">-ure</a>
+        </div>
       </div>
     </div>
 
