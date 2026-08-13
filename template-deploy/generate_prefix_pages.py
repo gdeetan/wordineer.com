@@ -75,7 +75,8 @@ def compute_best_picks(words, n=5):
     def score(entry):
         tail = entry['w'][2:].upper()          # positions 2,3,4
         unique_tail = set(tail)
-        return -sum(freq_rank.get(ch, 99) for ch in unique_tail)
+        # Lower rank index = more common letter. Sum of ranks = lower is better.
+        return sum(freq_rank.get(ch, len(FREQ_ORDER)) for ch in unique_tail)
 
     sorted_words = sorted(words, key=lambda e: (score(e), e['w']))
     return sorted_words[:n]
@@ -154,6 +155,13 @@ def run_tests():
     assert all(groups[label] == sorted(groups[label], key=lambda e: e['w'])
                for label in groups), 'Groups not sorted alphabetically'
     print('group_by_type: OK')
+
+    # edge cases
+    assert filter_by_prefix([], 'st') == [], 'Empty list should return empty'
+    assert compute_best_picks([], n=5) == [], 'Empty list should return empty picks'
+    assert compute_position_freq([], pos=2) == [], 'Empty list should return empty freq'
+    assert group_by_type([]) == {}, 'Empty list should return empty groups'
+    print('edge cases: OK')
 
     print('All tests passed.')
 
