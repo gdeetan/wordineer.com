@@ -403,6 +403,42 @@ def render_page(prefix, words, mega_html, footer_cols_html):
     ]))
 
 
+def redirect_lines_for(prefix):
+    """Return the two _redirects lines for a prefix page (301 + 200 rewrite)."""
+    slug = f'5-letter-words-starting-with-{prefix.lower()}'
+    return [
+        f'/{slug}.html    /{slug}/    301',
+        f'/{slug}/    /{slug}.html    200',
+    ]
+
+
+def append_redirects(path, lines):
+    """Append redirect lines that don't already exist in the file."""
+    existing = open(path, encoding='utf-8').read() if os.path.exists(path) else ''
+    new_lines = [ln for ln in lines if ln not in existing]
+    if new_lines:
+        with open(path, 'a', encoding='utf-8') as f:
+            f.write('\n' + '\n'.join(new_lines))
+
+
+def append_sitemap_entries(path, urls):
+    """Insert sitemap <url> entries before the closing </urlset> tag."""
+    if not os.path.exists(path):
+        print(f'  warning: sitemap not found at {path}', file=sys.stderr)
+        return
+    content = open(path, encoding='utf-8').read()
+    entries = []
+    for url in urls:
+        entry = f'  <url><loc>{url}</loc></url>'
+        if entry not in content:
+            entries.append(entry)
+    if entries:
+        block = '\n'.join(entries)
+        content = content.replace('</urlset>', f'{block}\n</urlset>')
+        with open(path, 'w', encoding='utf-8') as f:
+            f.write(content)
+
+
 def run_tests():
     print('Running self-tests...')
 
@@ -478,6 +514,13 @@ def run_tests():
     assert 'comprehensive' not in _html.lower(), 'Banned phrase found: comprehensive'
     assert "you've come to the right place" not in _html.lower(), 'Banned phrase found'
     print('render_page smoke test: OK')
+
+    # redirect_lines_for
+    _lines = redirect_lines_for('st')
+    assert len(_lines) == 2, 'Expected 2 redirect lines'
+    assert '/5-letter-words-starting-with-st.html    /5-letter-words-starting-with-st/    301' in _lines
+    assert '/5-letter-words-starting-with-st/    /5-letter-words-starting-with-st.html    200' in _lines
+    print('redirect_lines_for: OK')
 
     print('All tests passed.')
 
