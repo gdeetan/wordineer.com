@@ -177,7 +177,7 @@ def render_meta(prefix, word_count, picks):
 
 def render_style():
     return '''<style>
-.pfx-wrap { max-width: 860px; margin: 0 auto; padding: 0 16px 48px; }
+.pfx-wrap { max-width: 860px; margin: 0 auto; padding: 32px 16px 48px; }
 .pfx-count { font-size: 15px; color: var(--text-2); margin: 0 0 20px; }
 .pfx-picks { background: #f0fdf4; border: 1.5px solid #86efac; border-radius: 10px;
              padding: 14px 18px; margin: 0 0 28px; }
