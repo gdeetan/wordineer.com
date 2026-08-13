@@ -33,6 +33,270 @@ def write(path, content):
     with open(path, 'w', encoding='utf-8') as f:
         f.write(content)
 
+def copy_embed_pages():
+    """Copy output/embed/ tree into wordineer-deploy/embed/."""
+    embed_out = os.path.join(OUT_DIR, 'embed')
+    if not os.path.isdir(embed_out):
+        print('  no embed pages to copy')
+        return
+    deploy_dir = os.path.join(ROOT, '..', 'wordineer-deploy')
+    if not os.path.isdir(deploy_dir):
+        print('  warning → wordineer-deploy/ not found, skipping embed copy')
+        return
+    embed_deploy = os.path.join(deploy_dir, 'embed')
+    if os.path.exists(embed_deploy):
+        shutil.rmtree(embed_deploy)
+    shutil.copytree(embed_out, embed_deploy)
+    slugs = os.listdir(embed_out)
+    print(f'  copied → embed/{" embed/".join(slugs)} into wordineer-deploy/embed/')
+
+
+def build_embed_page(src_path, cfg, slots, slug):
+    """Generate a minimal iframe-embeddable page for a tool."""
+    # Extract <title> text from meta slot
+    title_match = re.search(r'<title>(.*?)</title>', slots['meta'], re.DOTALL)
+    title_text = title_match.group(1).strip() if title_match else 'Wordineer Tool'
+
+    # Extract CSS version from head.html
+    head_src = read(os.path.join(TMPL_DIR, 'head.html'))
+    css_link_match = re.search(r'href="(/styles/global\.css[^"]*)"', head_src)
+    css_href = css_link_match.group(1) if css_link_match else '/styles/global.css'
+
+    # Extract tool-engine.js version from footer.html
+    footer_src = read(os.path.join(TMPL_DIR, 'footer.html'))
+    engine_match = re.search(r'src="(/scripts/tool-engine\.js[^"]*)"', footer_src)
+    engine_src = engine_match.group(1) if engine_match else '/scripts/tool-engine.js'
+
+    embed_style = (
+        '<style>\n'
+        'body { margin: 0; padding: 8px; box-sizing: border-box; }\n'
+        '.embed-attrib { text-align: center; font-size: 0.75rem; color: #888; margin: 8px 0 4px; }\n'
+        + (slots['style'] + '\n' if slots['style'] else '') +
+        '</style>'
+    )
+
+    attribution = (
+        '<p class="embed-attrib">\n'
+        '  Powered by <a href="https://wordineer.com/?utm_source=embed&utm_medium=iframe"\n'
+        '  target="_blank" rel="noopener">Wordineer</a>\n'
+        '</p>'
+    )
+
+    auto_height = (
+        '<script>\n'
+        '(function () {\n'
+        '  function send() {\n'
+        '    parent.postMessage({ wordineerHeight: document.body.scrollHeight }, \'*\');\n'
+        '  }\n'
+        '  window.addEventListener(\'load\', send);\n'
+        '  new ResizeObserver(send).observe(document.body);\n'
+        '})();\n'
+        '</script>'
+    )
+
+    # Strip affiliate blocks and ad sidebars from embed pages
+    tool_html = slots['tool']
+
+    def strip_div_by_class(html, class_name):
+        """Remove divs with a specific class name using balanced depth tracking."""
+        # Find opening <div class="...{class_name}...">
+        match = re.search(rf'<div[^>]*class="[^"]*{re.escape(class_name)}[^"]*"[^>]*>', html)
+        if not match:
+            return html
+        start = match.start()
+        depth = 1
+        pos = match.end()
+        while depth > 0 and pos < len(html):
+            close = html.find('</div>', pos)
+            if close == -1:
+                break
+            open_next = html.find('<div', pos)
+            if open_next != -1 and open_next < close:
+                depth += 1
+                pos = open_next + 4
+            else:
+                depth -= 1
+                if depth == 0:
+                    return html[:start] + html[close+6:]
+                pos = close + 6
+        return html
+
+    tool_html = strip_div_by_class(tool_html, 'aff-nudge')
+    tool_html = strip_div_by_class(tool_html, 'ad-sidebar')
+
+    build_stamp = f'<!-- build: {datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")} -->\n'
+
+    page = '\n'.join([
+        build_stamp + '<!DOCTYPE html>',
+        '<html lang="en">',
+        '<head>',
+        '<meta charset="UTF-8">',
+        '<meta name="viewport" content="width=device-width, initial-scale=1.0">',
+        f'<title>{title_text}</title>',
+        f'<link rel="stylesheet" href="{css_href}">',
+        embed_style,
+        '</head>',
+        '<body>',
+        tool_html,
+        attribution,
+        f'<script src="{engine_src}"></script>',
+        auto_height,
+        slots['init'],
+        '</body>',
+        '</html>',
+    ])
+
+    out_path = os.path.join(OUT_DIR, 'embed', slug, 'index.html')
+    write(out_path, page)
+    print(f'  built → embed/{slug}/index.html  [embed]')
+
+
+def inject_page_data(cfg):
+    """Read JSON specified in cfg['inject_data'] and return an inline <script> tag."""
+    fname = cfg.get('inject_data')
+    if not fname:
+        return ''
+    src_path = os.path.join(DEPLOY_DATA_DIR, fname)
+    if not os.path.isfile(src_path):
+        print(f'  warning → inject_data file not found: {src_path}')
+        return ''
+    with open(src_path, encoding='utf-8') as f:
+        data = json.load(f)
+    compact = json.dumps(data, ensure_ascii=False, separators=(',', ':'))
+    return f'<script>window._PAGE_DATA={compact};</script>'
+
+
+def _esc(s):
+    return html.escape(str(s)) if s is not None else ''
+
+
+def _render_five_letter_rows(data):
+    parts = []
+    for r in data:
+        w = _esc(r.get('w', ''))
+        vowels = _esc((r.get('vowels') or '').upper()) or '—'
+        vc = r.get('vowel_count', '')
+        uniq = r.get('unique_letters', False)
+        bits = r.get('bits')
+        bits_str = f'{bits:.2f}' if bits is not None else '—'
+        uniq_html = '<span class="badge-unique">✓</span>' if uniq else ''
+        parts.append(
+            f'<tr>'
+            f'<td><strong>{w.upper()}</strong></td>'
+            f'<td><span class="vowel-chip">{vowels}</span></td>'
+            f'<td>{vc}</td>'
+            f'<td>{uniq_html}</td>'
+            f'<td>{bits_str}</td>'
+            f'</tr>'
+        )
+    return ''.join(parts)
+
+
+def _render_etymology_cards(data):
+    parts = []
+    for r in data:
+        w = r.get('w', '')
+        display_word = _esc(w[0].upper() + w[1:] if w else '')
+        origin = _esc(r.get('origin') or r.get('category') or '')
+        category = (r.get('category') or 'Other').replace(' ', '-')
+        cat_cls = f'origin-{category}'
+        first_use = _esc(r.get('first_use', ''))
+        root = _esc(r.get('root', ''))
+        history = _esc(r.get('history', ''))
+        relatives = r.get('modern_relatives', [])
+        relatives_html = ''
+        if relatives:
+            chips = ''.join(f'<span class="rel-chip">{_esc(rw)}</span>' for rw in relatives)
+            relatives_html = (
+                f'<div class="etym-relatives-label">Modern relatives</div>'
+                f'<div class="etym-relatives">{chips}</div>'
+            )
+        parts.append(
+            f'<div class="etym-card">'
+            f'<div class="etym-header">'
+            f'<span class="etym-word">{display_word}</span>'
+            f'<span class="etym-badge {cat_cls}">{origin}</span>'
+            f'<span class="etym-date">{first_use}</span>'
+            f'</div>'
+            f'<div class="etym-root">Root: <strong>{root}</strong></div>'
+            f'<div class="etym-history">{history}</div>'
+            f'{relatives_html}'
+            f'</div>'
+        )
+    return ''.join(parts)
+
+
+_SPEAK_SVG = (
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="16" height="16">'
+    '<path d="M9.547 3.062A.75.75 0 0110 3.75v12.5a.75.75 0 01-1.21.59l-3.63-2.895H3.5A1.5 1.5 0 012 12.444'
+    'V7.556A1.5 1.5 0 013.5 6.056h1.66l3.63-2.895a.75.75 0 01.757-.099zM13.78 6.22a.75.75 0 011.06 0A6.75 6.75'
+    ' 0 0116.5 10a6.75 6.75 0 01-1.66 4.5.75.75 0 01-1.14-.976A5.25 5.25 0 0015 10a5.25 5.25 0 00-1.3-3.524'
+    '.75.75 0 010-1.256z"/></svg>'
+)
+
+
+def _render_esl_cards(data):
+    parts = []
+    for r in data:
+        w = r.get('w', '')
+        cefr = _esc(r.get('cefr', ''))
+        pos = _esc(r.get('pos', ''))
+        ipa = _esc(r.get('ipa', ''))
+        definition = _esc(r.get('def', ''))
+        example = _esc(r.get('example', ''))
+        w_attr = html.escape(w, quote=True)
+        w_disp = _esc(w)
+        parts.append(
+            f'<div class="esl-card">'
+            f'<span class="cefr-badge cefr-{cefr}">{cefr}</span>'
+            f'<div class="eword">{w_disp}'
+            f'<button class="speak-btn" data-word="{w_attr}" onclick="speakWord(event,this.dataset.word)"'
+            f' title="Hear pronunciation" aria-label="Speak word">{_SPEAK_SVG}</button>'
+            f'</div>'
+            f'<div class="ipa">{ipa}</div>'
+            f'<span class="pos">{pos}</span>'
+            f'<div class="def">{definition}</div>'
+            f'<div class="example">{example}</div>'
+            f'</div>'
+        )
+    return ''.join(parts)
+
+
+def inject_ssr_html(cfg, slots):
+    """Render dataset as static HTML into pages that contain the <!-- SSR_ROWS --> placeholder."""
+    url = cfg.get('url', '')
+    fname = cfg.get('inject_data')
+    if not fname:
+        return slots
+
+    all_slot_text = ''.join(slots.values())
+    if '<!-- SSR_ROWS -->' not in all_slot_text:
+        return slots
+
+    src_path = os.path.join(DEPLOY_DATA_DIR, fname)
+    if not os.path.isfile(src_path):
+        return slots
+
+    with open(src_path, encoding='utf-8') as f:
+        data = json.load(f)
+
+    if url == '/common-5-letter-words/':
+        rendered = _render_five_letter_rows(data)
+        slot_name = 'tool'
+    elif url == '/etymology-100-common-words/':
+        rendered = _render_etymology_cards(data)
+        slot_name = 'content'
+    elif url == '/esl-vocabulary-cefr/':
+        rendered = _render_esl_cards(data)
+        slot_name = 'tool'
+    else:
+        return slots
+
+    slots[slot_name] = slots[slot_name].replace('<!-- SSR_ROWS -->', rendered)
+    print(f'  ssr → {len(data)} items baked into {url}')
+    return slots
+
+
 def copy_data_assets():
     """Mirror deploy JSON assets into output/ so template previews can fetch /data/*.json."""
     if not os.path.isdir(DEPLOY_DATA_DIR):
@@ -100,7 +364,7 @@ def build_sitemap(data):
         if not href or href in seen:
             return
         seen.add(href)
-        loc = 'https://wordineer.com/' if href == '/' else 'https://wordineer.com' + href.rstrip('/') + '/'
+        loc = 'https://wordineer.com/' if href == '/' else 'https://wordineer.com' + href.rstrip('/')
         entries.append((loc, priority, changefreq))
 
     add('/', 1.0, 'weekly')
@@ -147,6 +411,11 @@ def build_sitemap(data):
         if tool.get('status') in ('planned', 'standby', 'coming_soon'):
             continue
         add(tool.get('href', ''), 0.7, 'weekly')
+
+    for tool in data.get('words_ending_pages', []):
+        if tool.get('status') in ('planned', 'standby', 'coming_soon'):
+            continue
+        add(tool.get('href', ''), 0.6, 'monthly')
 
     lines = [
         '<?xml version="1.0" encoding="UTF-8"?>',
@@ -233,6 +502,50 @@ def find_name_generator_label(data, active_url):
             return format_name_generator_label(tool.get('name', ''))
 
     return label_from_name_generator_url(active_url)
+
+
+def build_software_application_schema(cfg, slots):
+    """Auto-generate SoftwareApplication schema for tool pages."""
+    if '"SoftwareApplication"' in slots.get('meta', ''):
+        return ''  # page already has it (e.g. wordle-helper)
+
+    active_url = cfg.get('url', '')
+    if not active_url:
+        return ''
+
+    title_match = re.search(r'<title>(.*?)</title>', slots.get('meta', ''), re.DOTALL)
+    if not title_match:
+        return ''
+    name = re.sub(r'\s*[|—–-]\s*Wordineer.*$', '', title_match.group(1).strip())
+
+    desc_match = re.search(r'<meta\s+name="description"\s+content="([^"]*)"', slots.get('meta', ''))
+    description = desc_match.group(1) if desc_match else ''
+
+    url_lower = active_url.lower()
+    game_keywords = ('wordle', 'game', 'dice', 'coin', 'wheel', 'trivia',
+                     'charade', 'truth-or-dare', 'never-have-i', 'dad-joke',
+                     'rock-paper', 'scattergories', 'catchphrase', 'pictionary',
+                     'magic-8')
+    category = 'GameApplication' if any(k in url_lower for k in game_keywords) else 'UtilityApplication'
+
+    schema = {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": name,
+        "url": f'https://wordineer.com{active_url}',
+        "applicationCategory": category,
+        "operatingSystem": "Web",
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "publisher": {"@id": "https://wordineer.com/#organization"},
+    }
+    if description:
+        schema["description"] = description
+
+    return (
+        '<script type="application/ld+json">\n'
+        + json.dumps(schema, ensure_ascii=False, indent=2)
+        + '\n</script>'
+    )
 
 
 def build_breadcrumb(active_url, data, cfg):
@@ -394,12 +707,26 @@ def build_og_image_tag(url, data, meta_slot):
 
 # ── page builder ─────────────────────────────────────────────────────────────
 
+def normalize_canonical(page_html):
+    """Strip trailing slashes from canonical hrefs. Cloudflare Pages serves pages at
+    non-trailing-slash URLs (200); trailing-slash variants 308-redirect to them.
+    Exception: homepage https://wordineer.com/ keeps its slash."""
+    def fix(m):
+        href = m.group(1)
+        stripped = href.rstrip('/')
+        # stripped would be bare origin (e.g. "https://wordineer.com") for homepage — skip
+        if href.endswith('/') and '/' in stripped.split('://', 1)[-1]:
+            href = stripped
+        return f'<link rel="canonical" href="{href}">'
+    return re.sub(r'<link rel="canonical" href="([^"]+)">', fix, page_html)
+
+
 def build_page(src_path, data):
     src = read(src_path)
     cfg = config(src)
 
     page_type   = cfg.get('type', 'tool')   # 'tool' or 'content'
-    active_url  = cfg.get('url', '')
+    active_url  = cfg.get('url', '').rstrip('/') or '/'
     output_file = cfg.get('output', os.path.basename(src_path))
 
     # Extract slots (missing slots return empty string — safe for both page types)
@@ -407,6 +734,7 @@ def build_page(src_path, data):
              for name in ('meta', 'style', 'hero', 'tool', 'ad_b',
                           'explainer', 'faq', 'who', 'init', 'content')}
     slots['init'] = strip_inline_nav_init(slots['init'])
+    slots = inject_ssr_html(cfg, slots)
 
     # Build shared nav/footer blocks from tools.json
     mega_html        = build_mega_cols(data['mega'], active_url)
@@ -417,6 +745,7 @@ def build_page(src_path, data):
     related_html  = build_related_html(active_url, data)
     og_image_tag  = build_og_image_tag(active_url, data, slots['meta'])
     build_stamp   = f'<!-- build: {datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")} -->\n'
+    page_data_tag = inject_page_data(cfg)
 
     # Load shared template fragments
     head   = read(os.path.join(TMPL_DIR, 'head.html'))
@@ -424,27 +753,40 @@ def build_page(src_path, data):
     footer = read(os.path.join(TMPL_DIR, 'footer.html'))
 
     # Inject slots into shared templates
+    sw_schema_html = build_software_application_schema(cfg, slots) if page_type == 'tool' else ''
+    extras = '\n'.join(filter(None, [breadcrumb_schema_html, sw_schema_html]))
+
     head   = (head
         .replace('{{META}}', slots['meta'])
         .replace('{{OG_IMAGE}}', og_image_tag)
-        .replace('{{HEAD_EXTRAS}}', breadcrumb_schema_html)
+        .replace('{{HEAD_EXTRAS}}', extras)
         .replace('{{STYLE}}', slots['style']))
     nav    = nav.replace('{{MEGA_COLS}}', mega_html)
     footer = footer.replace('{{FOOTER_COLS}}', footer_cols_html)
 
-    if page_type == 'content':
-        # Simple layout: head → nav → hero → content → related → footer
-        page = '\n'.join([
+    if page_type == 'standalone':
+        # Verbatim page — only the CONFIG comment is stripped and nav/footer placeholders injected.
+        # Everything else (head, scripts) is kept exactly as written in tools-src.
+        page = re.sub(r'<!-- CONFIG.*?-->\n?', '', src, flags=re.DOTALL)
+        page = page.replace('{{MEGA_COLS}}', mega_html)
+        page = page.replace('{{FOOTER_COLS}}', footer_cols_html)
+        page = build_stamp + page
+
+    elif page_type == 'content':
+        # Simple layout: head → nav → hero → (data injection) → content → related → footer
+        wrapped_related = f'<div class="content-wrap">{related_html}</div>' if related_html.strip() else ''
+        page = '\n'.join(filter(None, [
             build_stamp + head,
             '<body>',
             nav,
             slots['hero'],
+            page_data_tag,
             slots['content'],
-            related_html,
+            wrapped_related,
             footer,
             '</body>',
             '</html>',
-        ])
+        ]))
 
     else:
         # Full tool layout: head → nav → hero → tool → ads → grids → footer → init
@@ -462,7 +804,7 @@ def build_page(src_path, data):
             .replace('{{WHO}}',        slots['who'])
             .replace('{{RELATED_TOOLS}}', related_html))
 
-        page = '\n'.join([
+        page = '\n'.join(filter(None, [
             build_stamp + head,
             '<body>',
             nav,
@@ -472,14 +814,45 @@ def build_page(src_path, data):
             slots['ad_b'],
             more_tools,
             footer,
+            page_data_tag,
             slots['init'],
             '</body>',
             '</html>',
-        ])
+        ]))
 
+    page = normalize_canonical(page)
     out_path = os.path.join(OUT_DIR, output_file)
     write(out_path, page)
     print(f'  built → {output_file}  [{page_type}]')
+
+    # Also generate embed page if flagged (standalone pages have no slots, skip)
+    if cfg.get('embed') and page_type != 'standalone':
+        embed_slug = cfg.get('embed_slug') or output_file.replace('.html', '')
+        build_embed_page(src_path, cfg, slots, embed_slug)
+
+
+# ── pre-build validation ──────────────────────────────────────────────────────
+
+def validate_configs(src_files):
+    """Fail fast if two source files would write to the same output filename."""
+    seen = {}  # output_file -> src_path
+    errors = []
+    for src_path in src_files:
+        src = read(src_path)
+        cfg = config(src)
+        output_file = cfg.get('output', os.path.basename(src_path))
+        if output_file in seen:
+            errors.append(
+                f'  DUPLICATE OUTPUT: "{output_file}" claimed by both '
+                f'{os.path.basename(seen[output_file])} and {os.path.basename(src_path)}'
+            )
+        else:
+            seen[output_file] = src_path
+    if errors:
+        print('BUILD ABORTED — duplicate output filenames detected:')
+        for e in errors:
+            print(e)
+        raise SystemExit(1)
 
 
 # ── main ─────────────────────────────────────────────────────────────────────
@@ -487,20 +860,38 @@ def build_page(src_path, data):
 def main():
     # Deploy: python3 build.py && cp output/*.html output/_redirects ../wordineer-deploy/
     data = json.loads(read(DATA_FILE))
+    # Clean stale HTML files from a previous build before writing fresh output
+    if os.path.isdir(OUT_DIR):
+        for f in os.listdir(OUT_DIR):
+            if f.endswith('.html'):
+                os.remove(os.path.join(OUT_DIR, f))
     os.makedirs(OUT_DIR, exist_ok=True)
 
-    src_files = sorted(f for f in os.listdir(SRC_DIR) if f.endswith('.html'))
+    src_files = sorted(
+        os.path.join(SRC_DIR, f)
+        for f in os.listdir(SRC_DIR) if f.endswith('.html')
+    )
     if not src_files:
         print('No tool source files found in tools-src/')
         return
 
+    # Skip draft files, files with no CONFIG block, and externally-generated pages
+    def _cfg(p): return config(read(p))
+    src_files = [p for p in src_files
+                 if _cfg(p)  # has a CONFIG block
+                 and not _cfg(p).get('draft')
+                 and _cfg(p).get('type') != 'generated']
+
+    validate_configs(src_files)
+
     print(f'Building {len(src_files)} page(s)...')
-    for fname in src_files:
-        build_page(os.path.join(SRC_DIR, fname), data)
+    for src_path in src_files:
+        build_page(src_path, data)
     copy_data_assets()
     copy_script_assets()
     copy_redirects()
     copy_static_pages()
+    copy_embed_pages()
     build_sitemap(data)
 
     print(f'\nDone! Output is in:  {OUT_DIR}/')
