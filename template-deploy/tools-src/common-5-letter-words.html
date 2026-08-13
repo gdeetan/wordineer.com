@@ -1,5 +1,5 @@
 <!-- CONFIG
-{ "url": "/common-5-letter-words/", "output": "common-5-letter-words.html", "type": "tool", "more_tools_key": "more_word_tools", "more_tools_title": "More word tools", "more_tools_subtitle": "Free word generators, lists, and games" }
+{ "url": "/common-5-letter-words/", "output": "common-5-letter-words.html", "type": "tool", "more_tools_key": "more_word_tools", "more_tools_title": "More word tools", "more_tools_subtitle": "Free word generators, lists, and games", "inject_data": "five-letter-words-analyzed.json" }
 -->
 
 <!-- SLOT:meta -->
@@ -7,7 +7,7 @@
 <meta name="description" content="Browse 640+ common Wordle-valid 5-letter words sorted by vowel pattern, letter uniqueness, and information score. Filterable table with CSV download.">
 <meta property="og:title" content="Common 5-Letter Words Analyzed by Vowel Pattern | Wordineer">
 <meta property="og:description" content="640+ Wordle answer words analyzed by vowel pattern, unique-letter flag, and information score. Filter, sort, and download as CSV.">
-<meta property="og:url" content="https://wordineer.com/common-5-letter-words/">
+<meta property="og:url" content="https://wordineer.com/common-5-letter-words">
 <link rel="canonical" href="https://wordineer.com/common-5-letter-words/">
 <script type="application/ld+json">
 {
@@ -15,7 +15,7 @@
   "@type": "Dataset",
   "name": "Common 5-Letter Words by Vowel Pattern",
   "description": "640+ common 5-letter English words analyzed for vowel pattern, letter uniqueness, and Wordle information score",
-  "url": "https://wordineer.com/common-5-letter-words/",
+  "url": "https://wordineer.com/common-5-letter-words",
   "creator": { "@type": "Organization", "name": "Wordineer" },
   "license": "https://creativecommons.org/licenses/by/4.0/"
 }
@@ -40,6 +40,18 @@
       "name": "Can I download this word list?",
       "acceptedAnswer": { "@type": "Answer", "text": "Yes — click Download CSV above the table. The file includes all words with vowel pattern, vowel count, unique-letter flag, and information score. Free to use under CC BY 4.0." }
     }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Word Lists", "item": "https://wordineer.com/word-lists/" },
+    { "@type": "ListItem", "position": 3, "name": "Common 5-Letter Words", "item": "https://wordineer.com/common-5-letter-words/" }
   ]
 }
 </script>
@@ -69,7 +81,7 @@
 .analysis-card h3 { margin: 0 0 10px; font-size: 15px; }
 .analysis-card p { margin: 0; font-size: 13px; color: var(--text-2); line-height: 1.6; }
 .insight-box { background: var(--bg-2); border-left: 3px solid var(--brand); border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 0 0 24px; font-size: 14px; line-height: 1.7; }
-@media print { .filter-bar, .dl-btn { display: none; } }
+@media print { body > * { display: none !important; } }
 @media (max-width: 600px) { .filter-bar { flex-direction: column; align-items: stretch; } }
 .explainer h2, .explainer h3 { font-family: 'DM Serif Display', serif; font-weight: 400; }
 </style>
@@ -80,7 +92,7 @@
   <div class="breadcrumb-inner">
     <a href="/">Wordineer</a>
     <span class="breadcrumb-sep">›</span>
-    <a href="/word-tools/">Word Tools</a>
+    <a href="/word-lists/">Word Lists</a>
     <span class="breadcrumb-sep">›</span>
     <span aria-current="page">Common 5-Letter Words</span>
   </div>
@@ -108,7 +120,7 @@
     <label><input type="checkbox" id="unique-only"> Unique letters only</label>
     <input type="text" id="word-search" placeholder="Search word…" style="width:130px">
     <button class="dl-btn" id="dl-csv">↓ Download CSV</button>
-    <button class="dl-btn" onclick="window.print()">Print</button>
+    <button class="dl-btn" onclick="printTable()">Print</button>
   </div>
   <div class="result-count" id="result-count"></div>
   <div class="table-wrap">
@@ -122,7 +134,7 @@
           <th data-col="bits">Info Score ↕</th>
         </tr>
       </thead>
-      <tbody id="word-tbody"></tbody>
+      <tbody id="word-tbody"><!-- SSR_ROWS --></tbody>
     </table>
   </div>
 </div>
@@ -259,9 +271,52 @@
     a.click();
   });
 
-  fetch('/data/five-letter-words-analyzed.json')
-    .then(function(r) { return r.json(); })
-    .then(function(d) { DATA = d; populate(d); refresh(); });
+  DATA = window._PAGE_DATA || [];
+  populate(DATA);
+  refresh();
+
+  window.printTable = function() {
+    var rows = sorted(filtered());
+    var html = '<!DOCTYPE html><html><head><meta charset="utf-8">' +
+      '<title>Common 5-Letter Words — Wordineer</title>' +
+      '<style>' +
+        'body{font-family:Georgia,serif;margin:0.75in;color:#111;font-size:10pt}' +
+        'h1{font-size:16pt;margin:0 0 4pt}' +
+        '.meta{font-size:9pt;color:#666;margin:0 0 18pt}' +
+        'table{width:100%;border-collapse:collapse}' +
+        'thead tr{border-bottom:2pt solid #111}' +
+        'th{text-align:left;padding:5pt 8pt;font-size:8pt;text-transform:uppercase;letter-spacing:.06em;font-weight:700}' +
+        'td{padding:4pt 8pt;border-bottom:.5pt solid #ddd;vertical-align:middle}' +
+        'tbody tr:nth-child(even) td{background:#f5f5f5}' +
+        'strong{font-family:monospace;font-size:11pt;letter-spacing:.04em}' +
+        '.chip{font-size:9pt;letter-spacing:.04em;color:#555}' +
+        '.uniq{color:#1d4ed8;font-weight:700}' +
+        '.foot{font-size:7.5pt;color:#aaa;margin-top:18pt;border-top:.5pt solid #ddd;padding-top:8pt}' +
+        '@media print{body{margin:.5in}}' +
+      '</style></head><body>' +
+      '<h1>Common 5-Letter Words</h1>' +
+      '<p class="meta">' + rows.length.toLocaleString() + ' words · wordineer.com/common-5-letter-words/</p>' +
+      '<table><thead><tr>' +
+        '<th>Word</th><th>Vowel Pattern</th><th>Vowels #</th><th>Unique?</th><th>Info Score</th>' +
+      '</tr></thead><tbody>' +
+      rows.map(function(r) {
+        return '<tr>' +
+          '<td><strong>' + r.w.toUpperCase() + '</strong></td>' +
+          '<td><span class="chip">' + (r.vowels ? r.vowels.toUpperCase() : '—') + '</span></td>' +
+          '<td style="text-align:center">' + r.vowel_count + '</td>' +
+          '<td style="text-align:center">' + (r.unique_letters ? '<span class="uniq">✓</span>' : '') + '</td>' +
+          '<td style="text-align:right">' + (r.bits != null ? r.bits.toFixed(2) : '—') + '</td>' +
+          '</tr>';
+      }).join('') +
+      '</tbody></table>' +
+      '<p class="foot">Generated by Wordineer · wordineer.com · CC BY 4.0</p>' +
+      '</body></html>';
+    var w = window.open('', '_blank', 'width=820,height=700');
+    w.document.write(html);
+    w.document.close();
+    w.focus();
+    w.print();
+  };
 })();
 document.querySelectorAll('.faq-item').forEach(function(item){var q=item.querySelector('.faq-q');if(!q)return;q.addEventListener('click',function(){item.classList.toggle('open');});});
 </script>
