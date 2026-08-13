@@ -42,9 +42,15 @@ def load_all_five_letter_words():
     words = []
     for letter in 'abcdefghijklmnopqrstuvwxyz':
         path = os.path.join(DATA_DIR, f'five-letter-words-{letter}.json')
-        if os.path.exists(path):
+        if not os.path.exists(path):
+            continue
+        try:
             with open(path, encoding='utf-8') as f:
                 words.extend(json.load(f))
+        except json.JSONDecodeError as e:
+            print(f'  warning: could not parse {path}: {e}', file=sys.stderr)
+    if not words:
+        print(f'  warning: no five-letter word data found in {DATA_DIR}', file=sys.stderr)
     return words
 
 
@@ -55,6 +61,9 @@ def run_tests():
 
 
 if __name__ == '__main__':
+    if not os.path.isdir(DEPLOY_DIR):
+        sys.exit(f'Error: wordineer-deploy/ not found at {DEPLOY_DIR}')
+
     parser = argparse.ArgumentParser()
     parser.add_argument('--batch', type=int, choices=[2, 3], help='Prefix length to generate')
     parser.add_argument('--dry-run', action='store_true', help='Print summary without writing files')
