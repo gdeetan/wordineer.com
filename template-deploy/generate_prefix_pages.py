@@ -215,6 +215,24 @@ def render_style():
 </style>'''
 
 
+def render_breadcrumb(prefix):
+    p  = prefix.upper()
+    p1 = prefix[0].lower()
+    return (
+        '<div class="breadcrumb">\n'
+        '  <div class="breadcrumb-inner">\n'
+        '    <a href="/">Wordineer</a>\n'
+        '    <span class="breadcrumb-sep">›</span>\n'
+        '    <a href="/word-lists/">Word Lists</a>\n'
+        '    <span class="breadcrumb-sep">›</span>\n'
+        f'    <a href="/5-letter-words-starting-with-{p1}/">5-Letter Words Starting With {p[0]}</a>\n'
+        '    <span class="breadcrumb-sep">›</span>\n'
+        f'    <span aria-current="page">Starting With {p}</span>\n'
+        '  </div>\n'
+        '</div>'
+    )
+
+
 def render_hero(prefix, word_count):
     p = prefix.upper()
     return f'''<section class="hero">
@@ -354,7 +372,6 @@ def render_content(prefix, words, picks, freq, groups):
 
     return (
         '<div class="pfx-wrap">\n'
-        f'<p class="pfx-count">{count} words</p>\n'
         f'{picks_block}\n'
         f'{freq_block}\n'
         f'{filter_btns}\n'
@@ -392,10 +409,13 @@ def render_page(prefix, words, mega_html, footer_cols_html):
     nav    = nav_tmpl.replace('{{MEGA_COLS}}', mega_html)
     footer = footer_tmpl.replace('{{FOOTER_COLS}}', footer_cols_html)
 
+    breadcrumb = render_breadcrumb(prefix)
+
     return '\n'.join(filter(None, [
         stamp + head,
         '<body>',
         nav,
+        breadcrumb,
         hero,
         content,
         footer,
