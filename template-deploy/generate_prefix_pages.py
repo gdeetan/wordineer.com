@@ -10,6 +10,7 @@ Usage:
 """
 
 import argparse
+import html
 import json
 import os
 import re
@@ -226,9 +227,9 @@ def render_hero(prefix, word_count):
 def render_word_table(words):
     rows = []
     for entry in sorted(words, key=lambda e: e['w']):
-        w = entry['w'].upper()
+        w = html.escape(entry['w'].upper())
         t = entry.get('t', '').lower()
-        d = entry.get('d', '')
+        d = html.escape(entry.get('d', ''))
         rows.append(
             f'  <tr data-type="{t}">'
             f'<td>{w}</td>'
