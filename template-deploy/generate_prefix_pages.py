@@ -123,8 +123,7 @@ def render_breadcrumb_schema(prefix):
   "itemListElement": [
     {{"@type":"ListItem","position":1,"name":"Wordineer","item":"https://wordineer.com/"}},
     {{"@type":"ListItem","position":2,"name":"Word Lists","item":"https://wordineer.com/word-lists/"}},
-    {{"@type":"ListItem","position":3,"name":"5-Letter Words","item":"https://wordineer.com/5-letter-words/"}},
-    {{"@type":"ListItem","position":4,"name":"5 Letter Words Starting With {p}","item":"{url}"}}
+    {{"@type":"ListItem","position":3,"name":"5 Letter Words Starting With {p}","item":"{url}"}}
   ]
 }}
 </script>'''
@@ -216,8 +215,7 @@ def render_style():
 
 
 def render_breadcrumb(prefix):
-    p  = prefix.upper()
-    p1 = prefix[0].lower()
+    p = prefix.upper()
     return (
         '<div class="breadcrumb">\n'
         '  <div class="breadcrumb-inner">\n'
@@ -225,9 +223,7 @@ def render_breadcrumb(prefix):
         '    <span class="breadcrumb-sep">›</span>\n'
         '    <a href="/word-lists/">Word Lists</a>\n'
         '    <span class="breadcrumb-sep">›</span>\n'
-        f'    <a href="/5-letter-words-starting-with-{p1}/">5-Letter Words Starting With {p[0]}</a>\n'
-        '    <span class="breadcrumb-sep">›</span>\n'
-        f'    <span aria-current="page">Starting With {p}</span>\n'
+        f'    <span aria-current="page">5 Letter Words Starting With {p}</span>\n'
         '  </div>\n'
         '</div>'
     )
