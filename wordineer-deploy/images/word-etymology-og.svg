@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a1560"/>
+      <stop offset="60%" stop-color="#3C3489"/>
+      <stop offset="100%" stop-color="#4A3FD4"/>
+    </linearGradient>
+    <pattern id="dots" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
+      <circle cx="1.5" cy="1.5" r="1.5" fill="rgba(255,255,255,0.07)"/>
+    </pattern>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="20" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" rx="24" ry="24" fill="url(#bg)"/>
+  <rect width="1200" height="630" rx="24" ry="24" fill="url(#dots)"/>
+
+  <!-- Glow orbs -->
+  <ellipse cx="1050" cy="120" rx="280" ry="200" fill="#7c6ff7" opacity="0.16" filter="url(#glow)"/>
+  <ellipse cx="160" cy="530" rx="220" ry="160" fill="#4A3FD4" opacity="0.20" filter="url(#glow)"/>
+
+  <!-- Left accent line -->
+  <rect x="80" y="160" width="4" height="310" rx="2" fill="rgba(255,255,255,0.22)"/>
+
+  <!-- Badge -->
+  <rect x="96" y="154" width="148" height="30" rx="15" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.20)" stroke-width="1"/>
+  <text x="170" y="174" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="700" fill="rgba(255,255,255,0.88)" text-anchor="middle" letter-spacing="1.2">ETYMOLOGY</text>
+
+  <!-- Main headline -->
+  <text x="96" y="258" font-family="Georgia, 'DM Serif Display', serif" font-size="64" font-weight="400" fill="#ffffff" letter-spacing="-2">Where Did Your</text>
+  <text x="96" y="334" font-family="Georgia, 'DM Serif Display', serif" font-size="64" font-weight="400" fill="#ffffff" letter-spacing="-2">Favourite Words</text>
+  <text x="96" y="410" font-family="Georgia, 'DM Serif Display', serif" font-size="64" font-weight="400" fill="#c4bfff" letter-spacing="-2">Come From?</text>
+
+  <!-- Subline -->
+  <text x="96" y="466" font-family="DM Sans, system-ui, sans-serif" font-size="19" fill="rgba(255,255,255,0.58)" letter-spacing="0.1">100 real word origins — Latin, Greek, Arabic, Old Norse, and more</text>
+
+  <!-- Divider -->
+  <line x1="96" y1="500" x2="460" y2="500" stroke="rgba(255,255,255,0.14)" stroke-width="1"/>
+
+  <!-- Wordineer mark -->
+  <rect x="96" y="516" width="24" height="24" rx="6" fill="#4A3FD4" stroke="rgba(255,255,255,0.38)" stroke-width="1.5"/>
+  <text x="108" y="533" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="800" fill="white" text-anchor="middle">W</text>
+  <text x="130" y="534" font-family="DM Sans, system-ui, sans-serif" font-size="14" font-weight="600" fill="rgba(255,255,255,0.70)">wordineer.com</text>
+
+  <!-- Right: stacked word reveal cards -->
+
+  <!-- Row 1 -->
+  <rect x="660" y="72" width="246" height="78" rx="12" fill="rgba(255,255,255,0.10)" stroke="rgba(255,255,255,0.14)" stroke-width="1"/>
+  <text x="682" y="104" font-family="Georgia, serif" font-size="26" font-weight="700" fill="#ffffff">nice</text>
+  <text x="682" y="126" font-family="DM Sans, system-ui, sans-serif" font-size="13" fill="rgba(255,255,255,0.55)">once meant "ignorant"</text>
+  <rect x="922" y="72" width="246" height="78" rx="12" fill="rgba(255,255,255,0.10)" stroke="rgba(255,255,255,0.14)" stroke-width="1"/>
+  <text x="944" y="104" font-family="Georgia, serif" font-size="26" font-weight="700" fill="#ffffff">muscle</text>
+  <text x="944" y="126" font-family="DM Sans, system-ui, sans-serif" font-size="13" fill="rgba(255,255,255,0.55)">"little mouse" in Latin</text>
+
+  <!-- Row 2 -->
+  <rect x="660" y="168" width="246" height="78" rx="12" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+  <text x="682" y="200" font-family="Georgia, serif" font-size="26" font-weight="700" fill="#ffffff">salary</text>
+  <text x="682" y="222" font-family="DM Sans, system-ui, sans-serif" font-size="13" fill="rgba(255,255,255,0.55)">paid in salt, Latin sal</text>
+  <rect x="922" y="168" width="246" height="78" rx="12" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+  <text x="944" y="200" font-family="Georgia, serif" font-size="26" font-weight="700" fill="#ffffff">assassin</text>
+  <text x="944" y="222" font-family="DM Sans, system-ui, sans-serif" font-size="13" fill="rgba(255,255,255,0.55)">from hashish, Arabic</text>
+
+  <!-- Row 3 -->
+  <rect x="660" y="264" width="246" height="78" rx="12" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.10)" stroke-width="1"/>
+  <text x="682" y="296" font-family="Georgia, serif" font-size="26" font-weight="700" fill="#ffffff">window</text>
+  <text x="682" y="318" font-family="DM Sans, system-ui, sans-serif" font-size="13" fill="rgba(255,255,255,0.55)">"wind eye" — Old Norse</text>
+  <rect x="922" y="264" width="246" height="78" rx="12" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.10)" stroke-width="1"/>
+  <text x="944" y="296" font-family="Georgia, serif" font-size="26" font-weight="700" fill="#ffffff">panic</text>
+  <text x="944" y="318" font-family="DM Sans, system-ui, sans-serif" font-size="13" fill="rgba(255,255,255,0.55)">from Pan, Greek god</text>
+
+  <!-- Row 4 -->
+  <rect x="660" y="360" width="246" height="78" rx="12" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.09)" stroke-width="1"/>
+  <text x="682" y="392" font-family="Georgia, serif" font-size="26" font-weight="700" fill="#ffffff">berserk</text>
+  <text x="682" y="414" font-family="DM Sans, system-ui, sans-serif" font-size="13" fill="rgba(255,255,255,0.55)">Norse bear-shirt warriors</text>
+  <rect x="922" y="360" width="246" height="78" rx="12" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.09)" stroke-width="1"/>
+  <text x="944" y="392" font-family="Georgia, serif" font-size="26" font-weight="700" fill="#ffffff">hazard</text>
+  <text x="944" y="414" font-family="DM Sans, system-ui, sans-serif" font-size="13" fill="rgba(255,255,255,0.55)">Arabic az-zahr, "dice"</text>
+
+  <!-- Row 5 -->
+  <rect x="660" y="456" width="246" height="78" rx="12" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+  <text x="682" y="488" font-family="Georgia, serif" font-size="26" font-weight="700" fill="#ffffff">algebra</text>
+  <text x="682" y="510" font-family="DM Sans, system-ui, sans-serif" font-size="13" fill="rgba(255,255,255,0.55)">Arabic al-jabr, "reunion"</text>
+  <rect x="922" y="456" width="246" height="78" rx="12" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+  <text x="944" y="488" font-family="Georgia, serif" font-size="26" font-weight="700" fill="#ffffff">chocolate</text>
+  <text x="944" y="510" font-family="DM Sans, system-ui, sans-serif" font-size="13" fill="rgba(255,255,255,0.55)">Nahuatl xocolātl</text>
+
+  <!-- Row 6 -->
+  <rect x="660" y="548" width="246" height="55" rx="12" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+  <text x="682" y="574" font-family="Georgia, serif" font-size="26" font-weight="700" fill="rgba(255,255,255,0.5)">candidate</text>
+  <text x="682" y="591" font-family="DM Sans, system-ui, sans-serif" font-size="13" fill="rgba(255,255,255,0.35)">Latin candidus, "white"</text>
+  <rect x="922" y="548" width="246" height="55" rx="12" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+  <text x="944" y="574" font-family="Georgia, serif" font-size="26" font-weight="700" fill="rgba(255,255,255,0.5)">tragedy</text>
+  <text x="944" y="591" font-family="DM Sans, system-ui, sans-serif" font-size="13" fill="rgba(255,255,255,0.35)">Greek "goat song"</text>
+</svg>

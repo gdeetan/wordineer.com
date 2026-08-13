@@ -1,6 +1,6 @@
 # Cloudflare Pages _headers — controls caching and compression
 
-# Embed routes: allow iframe embedding from any origin
+# Embed routes: allow framing from any origin
 /embed/*
   X-Frame-Options:
   Content-Security-Policy: frame-ancestors *

@@ -1,0 +1,595 @@
+<!-- build: 2026-08-13T10:59:55Z -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spelling Bee Words by Grade Level — Free &amp; Printable | Wordineer</title>
+<link rel="stylesheet" href="/styles/global.css?v=16">
+<style>
+body { margin: 0; padding: 8px; box-sizing: border-box; }
+.embed-attrib { text-align: center; font-size: 0.75rem; color: #888; margin: 8px 0 4px; }
+<style>
+/* ── Tool layout ── */
+.tool-wrap  { max-width:960px; margin:0 auto; padding:24px 24px 0; }
+.tool-card  { border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg); box-shadow:var(--shadow); }
+.tool-split { display:flex; }
+.ctrl       { width:240px; flex-shrink:0; padding:18px; border-right:1px solid var(--border-2); background:var(--bg-2); }
+.ctrl-row   { margin-bottom:14px; }
+.ctrl-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; display:block; margin-bottom:5px; }
+.ctrl-row input, .ctrl-row select { width:100%; padding:7px 10px; font-size:13px; font-family:inherit; border:1px solid var(--border); border-radius:7px; background:var(--bg); color:var(--text); appearance:none; outline:none; transition:border-color .15s; }
+.ctrl-row input:focus, .ctrl-row select:focus { border-color:var(--brand); }
+.count-error { display:none; font-size:11px; color:#E24B4A; margin-top:4px; }
+.count-error.show { display:block; }
+.input-error { border-color:#E24B4A !important; }
+.gen-btn    { width:100%; padding:10px 14px; background:var(--brand); color:white; border:none; border-radius:8px; font-size:14px; font-weight:600; font-family:inherit; cursor:pointer; transition:background .15s,transform .1s; letter-spacing:-.01em; }
+.gen-btn:hover { background:var(--brand-dark); }
+.gen-btn:active { transform:scale(.98); }
+.reset-btn  { display:block; width:100%; text-align:center; font-size:11px; color:var(--text-3); margin-top:8px; cursor:pointer; text-decoration:underline; text-underline-offset:2px; border:none; background:none; font-family:inherit; }
+.kbd        { text-align:center; font-size:10px; color:var(--text-3); margin-top:6px; }
+.kbd kbd    { background:var(--bg-3); border:1px solid var(--border); border-radius:3px; padding:1px 5px; font-size:10px; font-family:inherit; }
+.act-btn    { font-size:12px; padding:5px 11px; border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; transition:background .12s; white-space:nowrap; }
+.act-btn:hover { background:var(--bg-2); }
+.results-col { flex:1; display:flex; flex-direction:column; overflow:hidden; min-height:420px; padding:14px 16px; overflow-y:auto; }
+
+
+/* ── Mobile more-options toggle ── */
+.mobile-more-toggle { display:none; width:100%; margin:-2px 0 14px; padding:9px 12px; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--brand); font-size:13px; font-weight:600; font-family:inherit; cursor:pointer; }
+.advanced-options { display:block; }
+
+/* ── Toggle (show definitions) ── */
+.def-row    { display:flex; align-items:center; gap:8px; margin-bottom:14px; }
+.def-row label { font-size:12px; color:var(--text-2); cursor:pointer; }
+.toggle     { position:relative; width:32px; height:18px; flex-shrink:0; }
+.toggle input { opacity:0; width:0; height:0; }
+.toggle-sl  { position:absolute; cursor:pointer; inset:0; background:var(--border); border-radius:9px; transition:.2s; }
+.toggle input:checked + .toggle-sl { background:var(--brand); }
+.toggle-sl::before { content:''; position:absolute; width:14px; height:14px; left:2px; top:2px; background:white; border-radius:50%; transition:.2s; }
+.toggle input:checked + .toggle-sl::before { transform:translateX(14px); }
+
+.word-list  { list-style:none; padding:0; margin:0; }
+.word-item  { display:flex; align-items:flex-start; justify-content:space-between; padding:10px 0; border-bottom:1px solid var(--border-2); gap:10px; animation:fadeIn .2s ease; }
+.word-item:last-child { border-bottom:none; }
+.word-left  { flex:1; }
+.word-text  { font-size:20px; font-weight:500; color:var(--text); line-height:1.2; letter-spacing:-.02em; }
+.word-badges { display:flex; gap:5px; margin-top:4px; flex-wrap:wrap; }
+.badge      { font-size:10px; font-weight:600; padding:2px 7px; border-radius:999px; }
+.badge-meta { background:var(--bg-2); color:var(--text-3); font-style:italic; }
+.word-def   { font-size:12px; color:var(--text-2); margin-top:3px; line-height:1.4; }
+.word-def.hidden { display:none; }
+.word-right { display:flex; align-items:center; gap:4px; padding-top:3px; flex-shrink:0; }
+.icon-btn   { width:28px; height:28px; display:flex; align-items:center; justify-content:center; background:transparent; border:none; cursor:pointer; border-radius:5px; color:var(--text-3); transition:background .12s,color .12s; }
+.icon-btn:hover { background:var(--bg-2); color:var(--text); }
+.icon-btn svg { width:14px; height:14px; }
+.icon-btn.saved { color:#E24B4A; }
+.icon-btn.saved svg path { fill:#E24B4A; }
+.sb-origin { font-size:10px; font-weight:600; padding:2px 7px; border-radius:999px; }
+.sb-origin[data-o="Latin"]       { background:#eef2ff; color:#3730a3; }
+.sb-origin[data-o="Greek"]       { background:#f5f3ff; color:#6d28d9; }
+.sb-origin[data-o="French"]      { background:#fff0f3; color:#9d174d; }
+.sb-origin[data-o="Germanic"]    { background:#f0fdf4; color:#166534; }
+.sb-origin[data-o="Anglo-Saxon"] { background:#ecfdf5; color:#065f46; }
+.sb-origin[data-o="Spanish"]     { background:#fff7ed; color:#9a3412; }
+.sb-origin[data-o="Other"]       { background:#f3f4f6; color:#374151; }
+.sb-empty { color:var(--text-2); font-size:0.9rem; padding:16px 0; text-align:center; }
+
+.sb-top-bar { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+.sb-count-label { font-size: 0.85rem; color: var(--text-muted, #6b7280); flex: 1; }
+
+.saved-section { border-top:1px solid var(--border); padding:12px 14px; background:var(--bg); }
+.saved-top { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:8px; }
+.saved-label { font-size:12px; font-weight:700; color:var(--text); }
+.saved-copy { border:1px solid var(--border); background:var(--bg); color:var(--brand); border-radius:7px; padding:5px 9px; font-size:11px; font-weight:600; cursor:pointer; font-family:inherit; }
+.saved-tags { display:flex; gap:5px; flex-wrap:wrap; min-height:22px; }
+.saved-tag { display:inline-flex; align-items:center; gap:4px; background:#F0F2FF; color:var(--brand); border-radius:999px; padding:4px 8px; font-size:11px; font-weight:600; }
+.saved-tag-remove { cursor:pointer; opacity:.65; }
+.saved-tag-remove:hover { opacity:1; }
+.saved-empty { color:var(--text-3); font-size:12px; }
+
+/* ── Explainer list alignment ── */
+.explainer ul, .explainer ol { padding-left: 1.5em; }
+
+@media (max-width:640px) {
+  .tool-wrap { padding:14px 16px 0; }
+  .tool-split { flex-direction:column; }
+  .ctrl { width:100%; border-right:none; border-bottom:1px solid var(--border-2); }
+  .results-col { min-height:300px; max-height:420px; }
+  .mobile-more-toggle { display:block; }
+  .advanced-options { display:none; }
+  .advanced-options.is-open { display:block; }
+  .gen-btn { margin-top:0; }
+  .reset-btn, .kbd { display:none; }
+}
+
+@media print {
+  header, nav, .breadcrumb, .hero, .ctrl, .sb-top-bar, .saved-section, .explainer, .faq, .who, footer, .ad, [class*="ad-"], .more-tools, .content-wrap { display: none !important; }
+  .word-item { border-top: none; border-bottom: 1px solid #e5e7eb; padding: 8px 0; break-inside: avoid; }
+  .word-text { font-size: 1.1rem; }
+  .word-def { display: block !important; }
+  .word-def.hidden { display: none !important; }
+  .word-right { display: none !important; }
+  @page { margin: 1.5cm; }
+
+  /* Worksheet mode */
+  body.is-worksheet .word-def { display: none !important; }
+  body.is-worksheet .word-badges { display: none !important; }
+  body.is-worksheet .word-right { display: none !important; }
+  body.is-worksheet .word-list { counter-reset: word-num; }
+  body.is-worksheet .word-item { counter-increment: word-num; padding: 14px 0 0; }
+  body.is-worksheet .word-text::before { content: counter(word-num) '. '; font-size: 0.9rem; color: #6b7280; font-weight: 700; }
+  body.is-worksheet .word-text { font-size: 1.3rem; }
+  body.is-worksheet .word-item::after { content: ''; display: block; border-bottom: 1px solid #9ca3af; margin-top: 18px; width: 70%; }
+}
+
+/* ── Classroom Mode ── */
+.classroom-btn { background: var(--bg-2); border: 1px solid var(--border); color: var(--text-2); border-radius: 7px; padding: 6px 12px; font-size: 12px; font-weight: 600; font-family: inherit; cursor: pointer; transition: background .15s, color .15s; }
+.classroom-btn:hover { border-color: var(--brand); color: var(--brand); }
+.classroom-btn.is-on { background: #1a1a2e; color: #fff; border-color: #1a1a2e; }
+body.is-classroom header, body.is-classroom nav, body.is-classroom .breadcrumb, body.is-classroom .hero, body.is-classroom .explainer, body.is-classroom .faq, body.is-classroom .who, body.is-classroom footer, body.is-classroom .ad, body.is-classroom [class*="ad-"], body.is-classroom .more-tools, body.is-classroom .saved-section { display: none !important; }
+body.is-classroom .tool-wrap { max-width: 100%; border-radius: 0; box-shadow: none; }
+body.is-classroom .results-col { min-height: 100vh; }
+</style>
+</style>
+</head>
+<body>
+<div class="tool-wrap">
+  <div class="tool-card">
+    <div class="tool-split">
+
+      <div class="ctrl">
+        <div class="ctrl-row">
+          <label class="ctrl-label" for="ctrl-count">Number of words</label>
+          <input type="number" id="ctrl-count" value="20" min="1" max="50" inputmode="numeric" aria-describedby="count-error">
+          <span class="count-error" id="count-error">Enter a number from 1 to 50</span>
+        </div>
+
+        <button type="button" class="mobile-more-toggle" id="mobile-more-toggle" aria-expanded="false" aria-controls="advanced-options">Toggle More Options</button>
+        <div class="advanced-options" id="advanced-options">
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="ctrl-grade">Grade Level</label>
+            <select id="ctrl-grade">
+              <option value="all">All grades</option>
+              <option value="k-2">K–2</option>
+              <option value="3-4">Grades 3–4</option>
+              <option value="5-6">Grades 5–6</option>
+              <option value="7-8">Grades 7–8</option>
+              <option value="9-12">Grades 9–12</option>
+              <option value="adult">Adult</option>
+            </select>
+          </div>
+
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="ctrl-diff">Difficulty</label>
+            <select id="ctrl-diff">
+              <option value="all">All levels</option>
+              <option value="easy">Easy</option>
+              <option value="medium">Medium</option>
+              <option value="hard">Hard</option>
+              <option value="expert">Expert</option>
+            </select>
+          </div>
+
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="ctrl-origin">Word Origin</label>
+            <select id="ctrl-origin">
+              <option value="all">All origins</option>
+              <option value="Latin">Latin</option>
+              <option value="Greek">Greek</option>
+              <option value="French">French</option>
+              <option value="Germanic">Germanic</option>
+              <option value="Anglo-Saxon">Anglo-Saxon</option>
+              <option value="Spanish">Spanish</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="ctrl-syl">Syllables</label>
+            <select id="ctrl-syl">
+              <option value="all">Any count</option>
+              <option value="1">1 syllable</option>
+              <option value="2">2 syllables</option>
+              <option value="3">3+ syllables</option>
+            </select>
+          </div>
+
+          <div class="def-row">
+            <label class="toggle" aria-label="Show definitions"><input type="checkbox" id="ctrl-defs" checked><span class="toggle-sl"></span></label>
+            <label for="ctrl-defs">Show definitions</label>
+          </div>
+        </div>
+
+        <button class="gen-btn" id="sb-gen-btn">Generate</button>
+        <button class="reset-btn" id="sb-reset-btn">Reset options</button>
+        <div class="kbd">Press <kbd>Space</kbd> to regenerate</div>
+      </div>
+
+      <div class="results-col">
+        <div class="sb-top-bar">
+          <span class="sb-count-label" id="sb-count">20 words</span>
+          <button class="act-btn" id="sb-copy-all">Copy all</button>
+          <button class="act-btn" id="sb-share-btn">Share List</button>
+          <button class="act-btn" id="sb-print-btn">Print list</button>
+          <button class="act-btn" id="sb-worksheet-btn">Print Worksheet</button>
+            <button class="classroom-btn" id="sb-classroom-btn">⊞ Classroom</button>
+        </div>
+        <ul class="word-list" id="sb-list"></ul>
+      </div>
+
+    </div>
+
+    <div class="saved-section">
+      <div class="saved-top">
+        <span class="saved-label">Saved words <span id="sb-saved-count" style="font-weight:400;opacity:.7">(0)</span></span>
+        <button class="saved-copy" id="sb-copy-saved">Copy saved</button>
+      </div>
+      <div class="saved-tags" id="sb-saved-tags">
+        <span class="saved-empty">Click the heart on any word to save it here</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+<p class="embed-attrib">
+  Powered by <a href="https://wordineer.com/?utm_source=embed&utm_medium=iframe"
+  target="_blank" rel="noopener">Wordineer</a>
+</p>
+<script src="/scripts/tool-engine.js?v=27"></script>
+<script>
+(function () {
+  function send() {
+    parent.postMessage({ wordineerHeight: document.body.scrollHeight }, '*');
+  }
+  window.addEventListener('load', send);
+  new ResizeObserver(send).observe(document.body);
+})();
+</script>
+<script>
+(function () {
+  function he(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+  var SBT = {
+    data: null,
+    saved: JSON.parse(localStorage.getItem('sb-saved') || '[]'),
+
+    load: function () {
+      var self = this;
+      if (self.data) return Promise.resolve(self.data);
+      return fetch('/data/spelling-bee-words.json')
+        .then(function (r) { return r.json(); })
+        .then(function (d) { self.data = d; return d; });
+    },
+
+    filter: function (words) {
+      var g      = document.getElementById('ctrl-grade').value;
+      var d      = document.getElementById('ctrl-diff').value;
+      var origin = document.getElementById('ctrl-origin').value;
+      var syl    = document.getElementById('ctrl-syl').value;
+      var count  = Math.min(50, Math.max(1, parseInt(document.getElementById('ctrl-count').value, 10) || 20));
+      var result = words.slice();
+      if (g !== 'all')      result = result.filter(function (w) { return w.grade === g; });
+      if (d !== 'all')      result = result.filter(function (w) { return w.diff === d; });
+      if (origin !== 'all') result = result.filter(function (w) { return w.origin === origin; });
+      if (syl !== 'all')    result = result.filter(function (w) { return syl === '3' ? w.syl >= 3 : w.syl === parseInt(syl, 10); });
+      for (var i = result.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = result[i]; result[i] = result[j]; result[j] = tmp;
+      }
+      return result.slice(0, count);
+    },
+
+    generate: function () {
+      var self = this;
+      self.load().then(function (words) {
+        self.render(self.filter(words));
+      }).catch(function () {
+        var list = document.getElementById('sb-list');
+        if (list) list.innerHTML = '<li class="sb-empty">Could not load word list. Please refresh and try again.</li>';
+      });
+    },
+
+    render: function (words) {
+      var list    = document.getElementById('sb-list');
+      var countEl = document.getElementById('sb-count');
+      var showDef = document.getElementById('ctrl-defs').checked;
+      var saved   = this.saved;
+
+      if (!words.length) {
+        list.innerHTML = '<li class="sb-empty">No words match your filters. Try adjusting grade or difficulty.</li>';
+        countEl.textContent = '0 words';
+        return;
+      }
+
+      countEl.textContent = words.length + ' word' + (words.length !== 1 ? 's' : '');
+      list.innerHTML = words.map(function (w) {
+        var isSaved = saved.indexOf(w.w) !== -1;
+        var esc = w.w.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+        return '<li class="word-item" data-word="' + he(w.w) + '" data-def="' + he(w.d) + '">' +
+          '<div class="word-left">' +
+          '<div class="word-text">' + he(w.w) + '</div>' +
+          '<div class="word-badges">' +
+          '<span class="sb-origin" data-o="' + he(w.origin) + '">' + he(w.origin) + '</span>' +
+          '<span class="badge badge-meta">' + he(w.syl) + ' syl</span>' +
+          '<span class="badge badge-meta">' + he(w.pos) + '</span>' +
+          '</div>' +
+          '<div class="word-def' + (showDef ? '' : ' hidden') + '">' + he(w.d) + '</div>' +
+          '</div>' +
+          '<div class="word-right">' +
+          '<button class="icon-btn sb-copy-word" onclick="SBT.copyWord(\'' + esc + '\')" title="Copy word"><svg viewBox="0 0 14 14" fill="none"><rect x="1" y="4" width="9" height="9.5" rx="1.5" stroke="currentColor" stroke-width="1.1"/><path d="M4.5 4V2.5A1.5 1.5 0 016 1h5.5A1.5 1.5 0 0113 2.5v7a1.5 1.5 0 01-1.5 1.5H10" stroke="currentColor" stroke-width="1.1"/></svg></button>' +
+          '<button class="icon-btn sb-save' + (isSaved ? ' saved' : '') + '" onclick="SBT.toggleSave(\'' + esc + '\')" title="Save word"><svg viewBox="0 0 16 16" fill="none"><path d="M8 13.5S2 9.5 2 5.5A3 3 0 018 4a3 3 0 016 1.5c0 4-6 8-6 8z" stroke="currentColor" stroke-width="1.3" fill="' + (isSaved ? '#E24B4A' : 'none') + '" stroke-linecap="round"/></svg></button>' +
+          '</div>' +
+          '</li>';
+      }).join('');
+
+      // Encode current list into URL for sharing
+      var wordNames = words.map(function (w) { return w.w; });
+      var shareUrl = new URL(window.location.href);
+      shareUrl.searchParams.set('words', wordNames.join(','));
+      history.replaceState(null, '', shareUrl.toString());
+    },
+
+    toggleSave: function (word) {
+      var idx = this.saved.indexOf(word);
+      if (idx === -1) this.saved.push(word);
+      else this.saved.splice(idx, 1);
+      localStorage.setItem('sb-saved', JSON.stringify(this.saved));
+      this.renderSaved();
+      var items = document.querySelectorAll('.word-item');
+      for (var k = 0; k < items.length; k++) {
+        if (items[k].dataset.word === word) {
+          var btn = items[k].querySelector('.sb-save');
+          if (btn) btn.classList.toggle('saved', this.saved.indexOf(word) !== -1);
+          break;
+        }
+      }
+    },
+
+    renderSaved: function () {
+      var container = document.getElementById('sb-saved-tags');
+      var count = document.getElementById('sb-saved-count');
+      count.textContent = '(' + this.saved.length + ')';
+      if (!this.saved.length) {
+        container.innerHTML = '<span class="saved-empty">Click the heart on any word to save it here</span>';
+        return;
+      }
+      container.innerHTML = this.saved.map(function (w) {
+        var esc = w.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+        return '<span class="saved-tag">' + he(w) +
+          '<span class="saved-tag-remove" onclick="SBT.toggleSave(\'' + esc + '\')">&#215;</span></span>';
+      }).join('');
+    },
+
+    copyAll: function () {
+      var words = [].slice.call(document.querySelectorAll('#sb-list .word-text')).map(function (el) { return el.textContent; });
+      if (navigator.clipboard) navigator.clipboard.writeText(words.join('\n'));
+    },
+
+    copySaved: function () {
+      if (navigator.clipboard) navigator.clipboard.writeText(this.saved.join('\n'));
+    },
+
+    copyWord: function (word) {
+      if (navigator.clipboard) navigator.clipboard.writeText(word);
+    },
+
+    shareList: function () {
+      var url = window.location.href;
+      var btn = document.getElementById('sb-share-btn');
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(url).then(function () {
+          if (btn) { btn.textContent = '✓ Copied!'; setTimeout(function () { btn.textContent = 'Share List'; }, 2000); }
+        });
+      } else {
+        var ta = document.createElement('textarea');
+        ta.value = url; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta);
+        if (btn) { btn.textContent = '✓ Copied!'; setTimeout(function () { btn.textContent = 'Share List'; }, 2000); }
+      }
+    },
+
+    toggleDefs: function () {
+      var show = document.getElementById('ctrl-defs').checked;
+      [].slice.call(document.querySelectorAll('.word-def')).forEach(function (el) {
+        el.classList.toggle('hidden', !show);
+      });
+    },
+
+    reset: function () {
+      document.getElementById('ctrl-count').value  = '20';
+      document.getElementById('ctrl-grade').value  = 'all';
+      document.getElementById('ctrl-diff').value   = 'all';
+      document.getElementById('ctrl-origin').value = 'all';
+      document.getElementById('ctrl-syl').value    = 'all';
+      document.getElementById('ctrl-defs').checked = true;
+      [].slice.call(document.querySelectorAll('.word-def')).forEach(function (el) { el.classList.remove('hidden'); });
+      var err = document.getElementById('count-error');
+      if (err) err.classList.remove('show');
+      document.getElementById('ctrl-count').classList.remove('input-error');
+      this.generate();
+    },
+
+    init: function () {
+      var self = this;
+      self.renderSaved();
+
+      document.getElementById('sb-gen-btn').addEventListener('click', function () { self.generate(); });
+      document.getElementById('sb-reset-btn').addEventListener('click', function () { self.reset(); });
+      document.getElementById('sb-copy-all').addEventListener('click', function () { self.copyAll(); });
+      document.getElementById('sb-print-btn').addEventListener('click', function () { printWordList(false); });
+      var worksheetBtn = document.getElementById('sb-worksheet-btn');
+      if (worksheetBtn) worksheetBtn.addEventListener('click', function () { printWordList(true); });
+      var shareBtn = document.getElementById('sb-share-btn');
+      if (shareBtn) shareBtn.addEventListener('click', function () { self.shareList(); });
+      document.getElementById('sb-copy-saved').addEventListener('click', function () { self.copySaved(); });
+      document.getElementById('ctrl-defs').addEventListener('change', function () { self.toggleDefs(); });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.code !== 'Space') return;
+        var tag = document.activeElement && document.activeElement.tagName;
+        if (tag === 'INPUT' || tag === 'SELECT' || tag === 'BUTTON' || tag === 'TEXTAREA') return;
+        e.preventDefault();
+        self.generate();
+      });
+
+      ['ctrl-grade', 'ctrl-diff', 'ctrl-origin', 'ctrl-syl'].forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.addEventListener('change', function () { self.generate(); });
+      });
+      var countEl = document.getElementById('ctrl-count');
+      if (countEl) countEl.addEventListener('input', function () {
+        var raw = parseInt(countEl.value, 10);
+        var valid = !isNaN(raw) && raw >= 1 && raw <= 50;
+        var err = document.getElementById('count-error');
+        if (err) err.classList.toggle('show', !valid);
+        countEl.classList.toggle('input-error', !valid);
+        if (valid) self.generate();
+      });
+
+      var urlWords = new URLSearchParams(window.location.search).get('words');
+      if (urlWords) {
+        self.load().then(function (allWords) {
+          var wanted = urlWords.split(',').map(function (s) { return s.trim().toLowerCase(); });
+          var wordMap = {};
+          allWords.forEach(function (w) { wordMap[w.w.toLowerCase()] = w; });
+          var filtered = wanted.map(function (name) { return wordMap[name]; }).filter(Boolean);
+          if (filtered.length) { self.render(filtered); return; }
+          self.generate();
+        }).catch(function () { self.generate(); });
+      } else if (typeof requestIdleCallback !== 'undefined') {
+        requestIdleCallback(function () { self.generate(); });
+      } else {
+        setTimeout(function () { self.generate(); }, 100);
+      }
+    }
+  };
+
+  window.SBT = SBT;
+  SBT.init();
+
+  /* ── Mobile more-options toggle ── */
+  var moreToggle = document.getElementById('mobile-more-toggle');
+  var advancedOpts = document.getElementById('advanced-options');
+  if (moreToggle && advancedOpts) {
+    moreToggle.addEventListener('click', function () {
+      var isOpen = advancedOpts.classList.toggle('is-open');
+      moreToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      moreToggle.textContent = isOpen ? 'Hide More Options' : 'Toggle More Options';
+    });
+  }
+
+  /* ── FAQ accordion ── */
+  document.querySelectorAll('.faq-item').forEach(function (item) {
+    var q = item.querySelector('.faq-q');
+    if (!q) return;
+    q.addEventListener('click', function () {
+      item.classList.toggle('open');
+    });
+  });
+
+  // Classroom mode
+  (function () {
+    var btn = document.getElementById('sb-classroom-btn');
+    function setClassroom(on) {
+      document.body.classList.toggle('is-classroom', on);
+      if (btn) {
+        btn.classList.toggle('is-on', on);
+        btn.textContent = on ? '✕ Exit Classroom' : '⊞ Classroom';
+      }
+      var url = new URL(window.location.href);
+      if (on) url.searchParams.set('mode', 'classroom');
+      else url.searchParams.delete('mode');
+      history.replaceState(null, '', url.toString());
+    }
+    if (btn) btn.addEventListener('click', function () {
+      setClassroom(!document.body.classList.contains('is-classroom'));
+    });
+    if (new URLSearchParams(window.location.search).get('mode') === 'classroom') {
+      setClassroom(true);
+    }
+  }());
+
+  function printWordList(worksheet) {
+    var items = document.querySelectorAll('#sb-list .word-item');
+    if (!items.length) { alert('Generate a word list first.'); return; }
+    var titleEl = document.querySelector('.print-header-title');
+    var listTitle = titleEl ? titleEl.textContent.trim() : 'Spelling Bee Word List';
+    var pageUrl = window.location.hostname + window.location.pathname;
+    var rows = [];
+    items.forEach(function(item) {
+      var wordEl  = item.querySelector('.word-text');
+      var defEl   = item.querySelector('.word-def');
+      var origEl  = item.querySelector('.sb-origin');
+      var metas   = item.querySelectorAll('.badge-meta');
+      rows.push({
+        word:   wordEl ? wordEl.textContent.trim()  : '',
+        def:    defEl  ? defEl.textContent.trim()   : '',
+        origin: origEl ? origEl.textContent.trim()  : '',
+        syl:    metas.length     ? metas[0].textContent.trim() : '',
+        pos:    metas.length > 1 ? metas[1].textContent.trim() : ''
+      });
+    });
+    var n = rows.length;
+    var css, body;
+    if (worksheet) {
+      css = 'body{font-family:Arial,sans-serif;margin:.75in;color:#111;font-size:11pt}' +
+            'h1{font-size:16pt;margin:0 0 3pt}' +
+            '.meta{font-size:9pt;color:#666;margin:0 0 4pt}' +
+            '.name-row{display:flex;gap:20pt;margin:14pt 0 22pt;font-size:10pt;align-items:flex-end}' +
+            '.name-row label{font-size:9pt;color:#555;margin-right:4pt}' +
+            '.name-row span{flex:1;border-bottom:1pt solid #aaa;min-width:80pt}' +
+            'ol{padding:0;margin:0;list-style:none;counter-reset:w;display:grid;grid-template-columns:1fr 1fr;gap:0}' +
+            'li{counter-increment:w;padding:10pt 8pt 6pt;border-bottom:.5pt solid #e5e7eb;page-break-inside:avoid}' +
+            '.n{font-size:8pt;color:#9ca3af;font-weight:700}' +
+            '.n::before{content:counter(w)". "}' +
+            '.word{display:block;font-size:15pt;font-weight:700;margin:2pt 0 12pt}' +
+            '.line{border-bottom:1pt solid #9ca3af;width:85%;display:block}' +
+            '.foot{font-size:7.5pt;color:#aaa;margin-top:18pt;border-top:.5pt solid #e5e7eb;padding-top:8pt}' +
+            '@media print{body{margin:.5in}}';
+      body = '<h1>' + he(listTitle) + ' — Practice Worksheet</h1>' +
+             '<p class="meta">' + n + ' word' + (n !== 1 ? 's' : '') + ' &nbsp;·&nbsp; wordineer.com</p>' +
+             '<div class="name-row"><label>Name:</label><span>&nbsp;</span><label>Date:</label><span style="min-width:60pt">&nbsp;</span></div>' +
+             '<ol>' + rows.map(function(r) {
+               return '<li><span class="n"></span><span class="word">' + he(r.word) + '</span><span class="line"></span></li>';
+             }).join('') + '</ol>' +
+             '<p class="foot">Free spelling bee practice · ' + he(pageUrl) + '</p>';
+    } else {
+      css = 'body{font-family:Georgia,serif;margin:.75in;color:#111;font-size:11pt}' +
+            'h1{font-size:18pt;margin:0 0 3pt}' +
+            '.meta{font-size:9pt;color:#666;margin:0 0 0;padding-bottom:10pt;border-bottom:1pt solid #ddd}' +
+            'ol{padding:0;margin:14pt 0 0;list-style:none;counter-reset:w}' +
+            'li{counter-increment:w;padding:9pt 0;border-bottom:.5pt solid #e5e7eb;page-break-inside:avoid;display:flex;gap:10pt;align-items:baseline}' +
+            'li:last-child{border-bottom:none}' +
+            '.n{font-size:9pt;color:#9ca3af;font-weight:700;min-width:18pt;flex-shrink:0}' +
+            '.n::before{content:counter(w)"."}' +
+            '.body{flex:1}' +
+            '.word{font-size:15pt;font-weight:700;letter-spacing:-.01em;display:block;margin-bottom:2pt}' +
+            '.badges{display:flex;gap:5pt;margin-bottom:3pt;flex-wrap:wrap}' +
+            '.badge{font-size:7pt;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#6b7280;background:#f3f4f6;padding:1pt 5pt;border-radius:3pt}' +
+            '.def{font-size:9.5pt;color:#374151;line-height:1.5}' +
+            '.foot{font-size:7.5pt;color:#aaa;margin-top:18pt;border-top:.5pt solid #e5e7eb;padding-top:8pt}' +
+            '@media print{body{margin:.5in}}';
+      body = '<h1>' + he(listTitle) + '</h1>' +
+             '<p class="meta">' + n + ' word' + (n !== 1 ? 's' : '') + ' &nbsp;·&nbsp; ' + he(pageUrl) + '</p>' +
+             '<ol>' + rows.map(function(r) {
+               var badges = '';
+               if (r.origin) badges += '<span class="badge">' + he(r.origin) + '</span>';
+               if (r.syl)    badges += '<span class="badge">' + he(r.syl)    + '</span>';
+               if (r.pos)    badges += '<span class="badge">' + he(r.pos)    + '</span>';
+               return '<li><span class="n"></span><div class="body">' +
+                 '<span class="word">' + he(r.word) + '</span>' +
+                 (badges ? '<div class="badges">' + badges + '</div>' : '') +
+                 (r.def  ? '<div class="def">'    + he(r.def)  + '</div>' : '') +
+                 '</div></li>';
+             }).join('') + '</ol>' +
+             '<p class="foot">Free spelling bee practice at wordineer.com</p>';
+    }
+    var html = '<!DOCTYPE html><html><head><meta charset="utf-8"><title>' + he(listTitle) + (worksheet ? ' — Worksheet' : '') + '</title><style>' + css + '</style></head><body>' + body + '</body></html>';
+    var w = window.open('', '_blank', 'width=820,height=700');
+    w.document.write(html);
+    w.document.close();
+    w.focus();
+    w.print();
+  }
+}());
+</script>
+</body>
+</html>

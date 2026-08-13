@@ -1,0 +1,331 @@
+<!-- build: 2026-08-13T10:59:55Z -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wordle Helper — Free Solver &amp; Best Starting Words | Wordineer</title>
+<link rel="stylesheet" href="/styles/global.css?v=16">
+<style>
+body { margin: 0; padding: 8px; box-sizing: border-box; }
+.embed-attrib { text-align: center; font-size: 0.75rem; color: #888; margin: 8px 0 4px; }
+<style>
+/* ── Wordle Helper Styles ── */
+
+/* Tile state colors — CSS vars only, no hardcoded Wordle/NYT hex values */
+.wh-tile[data-state="2"]      { background:var(--green);  border-color:var(--green);  color:#fff; }
+.wh-tile[data-state="1"]      { background:var(--amber);  border-color:var(--amber);  color:#fff; }
+.wh-tile[data-state="0"]      { background:var(--bg-3);   border-color:var(--bg-3);   color:var(--text-3); }
+.wh-grid-tile[data-state="2"] { background:var(--green);  border-color:var(--green);  color:#fff; }
+.wh-grid-tile[data-state="1"] { background:var(--amber);  border-color:var(--amber);  color:#fff; }
+.wh-grid-tile[data-state="0"] { background:var(--bg-3);   border-color:var(--bg-3);   color:var(--text-3); }
+
+/* Colorblind mode — blue = correct position, orange = wrong position */
+.wh-wrap.wh-colorblind .wh-tile[data-state="2"],
+.wh-wrap.wh-colorblind .wh-grid-tile[data-state="2"] { background:var(--blue);  border-color:var(--blue);  color:#fff; }
+.wh-wrap.wh-colorblind .wh-tile[data-state="1"],
+.wh-wrap.wh-colorblind .wh-grid-tile[data-state="1"] { background:#D97706; border-color:#D97706; color:#fff; }
+
+/* Colorblind toggle button */
+.wh-cb-toggle {
+  padding:5px 12px; font-size:12px; font-weight:600; font-family:inherit;
+  border:1px solid var(--border); border-radius:999px;
+  background:var(--bg); color:var(--text-2); cursor:pointer;
+  transition:background .12s, border-color .12s, color .12s;
+  display:flex; align-items:center; gap:5px;
+}
+.wh-cb-toggle:hover { background:var(--bg-2); border-color:var(--text-3); }
+.wh-cb-toggle.active { background:var(--blue-light); border-color:var(--blue); color:var(--blue); }
+
+/* Wrap */
+.wh-wrap { max-width:640px; margin:0 auto; padding:20px 20px 0; }
+
+/* How-it-works strip */
+.wh-how { display:flex; gap:16px; padding:14px 16px; background:var(--bg-2);
+           border:1px solid var(--border-2); border-radius:var(--radius-lg); margin-bottom:12px; }
+.wh-how-step { flex:1; text-align:center; }
+.wh-how-num  { width:24px; height:24px; border-radius:50%; background:var(--brand-light);
+               color:var(--brand); display:inline-flex; align-items:center; justify-content:center;
+               font-size:12px; font-weight:700; margin-bottom:5px; }
+.wh-how-label { font-size:12px; color:var(--text-2); line-height:1.3; }
+.wh-nyt-note  { font-size:11px; color:var(--text-3); text-align:center; margin-bottom:14px; }
+.wh-nyt-note a { color:var(--text-3); }
+
+/* Tab bar */
+.wh-tabs { display:flex; border-bottom:2px solid var(--border-2); margin-bottom:20px; }
+.wh-tab  { padding:10px 18px; font-size:14px; font-weight:600; cursor:pointer; border:none;
+           background:none; color:var(--text-2); font-family:inherit;
+           border-bottom:2px solid transparent; margin-bottom:-2px;
+           transition:color .15s, border-color .15s; }
+.wh-tab.active { color:var(--brand); border-bottom-color:var(--brand); }
+.wh-panel { display:none; }
+.wh-panel.active { display:block; }
+
+/* Guess rows (solve tab) */
+.wh-guess-row { display:flex; align-items:center; gap:8px; margin-bottom:10px; }
+.wh-tile-row  { display:flex; gap:5px; }
+.wh-tile { width:40px; height:40px; display:flex; align-items:center; justify-content:center;
+           font-size:18px; font-weight:700; border:2px solid var(--border); border-radius:4px;
+           text-transform:uppercase; cursor:pointer; user-select:none;
+           transition:background .12s, border-color .12s; color:var(--text); }
+
+/* Best-guess card */
+.wh-best { background:var(--green-light); border:1px solid var(--green);
+           border-radius:var(--radius-lg); padding:14px 16px; margin-bottom:16px; }
+.wh-best-lbl  { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.06em;
+                color:var(--green-dark); margin-bottom:4px; }
+.wh-best-word { font-size:28px; font-weight:700; color:var(--green-dark);
+                letter-spacing:.06em; text-transform:uppercase; }
+.wh-best-bits { font-size:12px; color:var(--green-dark); margin-top:3px; opacity:.8; }
+
+/* Starter chips */
+.wh-chips { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:16px; }
+.wh-chip  { padding:5px 11px; border:1px solid var(--border); border-radius:999px;
+            font-size:12px; font-weight:600; cursor:pointer; background:var(--bg);
+            color:var(--text-2); text-transform:uppercase; font-family:inherit;
+            transition:background .12s, border-color .12s, color .12s; }
+.wh-chip:hover { background:var(--brand-light); border-color:var(--brand); color:var(--brand); }
+
+/* Candidate list */
+.wh-cands-hdr  { display:flex; justify-content:space-between; align-items:center;
+                 padding:10px 14px; background:var(--bg-2); cursor:pointer;
+                 font-size:13px; font-weight:600; color:var(--text);
+                 border:1px solid var(--border-2); border-radius:var(--radius); }
+.wh-cands-body { display:none; padding:10px 14px;
+                 border:1px solid var(--border-2); border-top:none;
+                 border-radius:0 0 var(--radius) var(--radius); }
+.wh-cands-body.open { display:block; }
+.wh-cands-grid { display:flex; flex-wrap:wrap; gap:6px; }
+.wh-cand-word  { font-size:13px; font-weight:500; text-transform:uppercase;
+                 color:var(--text-2); background:var(--bg-3); border-radius:5px;
+                 padding:3px 8px; }
+.wh-cand-word.top { color:var(--brand); background:var(--brand-light); }
+
+/* Practice grid */
+.wh-grid      { display:flex; flex-direction:column; gap:5px; align-items:center;
+                margin-bottom:16px; }
+.wh-grid-row  { display:flex; gap:5px; }
+.wh-grid-tile { width:52px; height:52px; display:flex; align-items:center;
+                justify-content:center; font-size:22px; font-weight:700;
+                border:2px solid var(--border); border-radius:3px;
+                text-transform:uppercase; color:var(--text);
+                transition:background .12s, border-color .12s; }
+.wh-grid-tile.filled { border-color:var(--text-3); }
+
+/* Input error */
+.wh-guess-input.error { border-color:#E24B4A !important; }
+.wh-input-error { font-size:11px; color:#E24B4A; min-height:16px; margin-top:2px; }
+
+/* Disclaimer */
+.wh-disclaimer { font-size:11px; color:var(--text-3); text-align:center; padding:10px 0 0; }
+
+/* Buttons — match site-wide tool button style */
+.gen-btn {
+  display:block; width:100%; padding:12px 18px;
+  background:var(--brand); color:#fff; border:none;
+  border-radius:var(--radius); font-size:15px; font-weight:700;
+  font-family:inherit; cursor:pointer; text-align:center;
+  transition:background .15s;
+}
+.gen-btn:hover { background:var(--brand-dark); }
+.gen-btn:active { background:var(--brand-dark); }
+.reset-btn {
+  display:block; width:100%; padding:9px 18px;
+  background:none; color:var(--text-3); border:1px solid var(--border-2);
+  border-radius:var(--radius); font-size:13px; font-weight:600;
+  font-family:inherit; cursor:pointer; text-align:center;
+  transition:background .15s, color .15s;
+}
+.reset-btn:hover { background:var(--bg-2); color:var(--text); }
+
+@media(max-width:540px) {
+  .wh-how { flex-direction:column; gap:10px; }
+  .wh-how-step { display:flex; align-items:flex-start; gap:10px; text-align:left; }
+  .wh-tile { width:34px; height:34px; font-size:15px; }
+  .wh-grid-tile { width:44px; height:44px; font-size:18px; }
+  .wh-best-word { font-size:22px; }
+  .wh-tab { padding:8px 12px; font-size:13px; }
+}
+</style>
+</style>
+</head>
+<body>
+<div class="wh-wrap">
+
+  <div style="display:flex;justify-content:flex-end;margin-bottom:10px">
+    <button class="wh-cb-toggle" id="wh-cb-toggle" aria-pressed="false" title="Toggle colorblind-friendly tile colors">
+      <svg viewBox="0 0 14 14" fill="none" width="12" height="12"><circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1.2"/><path d="M7 4v3l2 1.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+      Colorblind mode
+    </button>
+  </div>
+
+  <!-- Persistent how-it-works strip — always visible, never collapsed -->
+  <div class="wh-how" aria-label="How to use Wordle Helper">
+    <div class="wh-how-step">
+      <div class="wh-how-num">1</div>
+      <div class="wh-how-label">Pick a starting word below or type your own first guess</div>
+    </div>
+    <div class="wh-how-step">
+      <div class="wh-how-num">2</div>
+      <div class="wh-how-label">Play it in your Wordle and note the colors it gives back</div>
+    </div>
+    <div class="wh-how-step">
+      <div class="wh-how-num">3</div>
+      <div class="wh-how-label">Click each tile here to set those colors, then Analyze</div>
+    </div>
+  </div>
+  <!-- Tab bar -->
+  <div class="wh-tabs" role="tablist">
+    <button class="wh-tab active" id="wh-tab-solve" role="tab"
+            aria-selected="true" aria-controls="wh-panel-solve">Solve My Game</button>
+    <button class="wh-tab" id="wh-tab-practice" role="tab"
+            aria-selected="false" aria-controls="wh-panel-practice">Practice Mode</button>
+  </div>
+
+  <!-- ═══ TAB A: SOLVE MY GAME ═══ -->
+  <div class="wh-panel active" id="wh-panel-solve" role="tabpanel" aria-labelledby="wh-tab-solve">
+
+    <p style="font-size:12px;color:var(--text-3);margin-bottom:8px">Popular opening words — click to pre-fill:</p>
+    <div class="wh-chips" id="wh-chips"></div>
+
+    <p style="font-size:12px;color:var(--text-2);margin-bottom:8px">
+      After typing a guess, click each tile to cycle its color:
+      <span style="display:inline-block;width:12px;height:12px;border-radius:2px;background:var(--bg-3);vertical-align:middle;margin:0 2px"></span> grey (not in word) →
+      <span style="display:inline-block;width:12px;height:12px;border-radius:2px;background:var(--green);vertical-align:middle;margin:0 2px"></span> green (correct) →
+      <span style="display:inline-block;width:12px;height:12px;border-radius:2px;background:var(--amber);vertical-align:middle;margin:0 2px"></span> yellow (wrong position)
+    </p>
+
+    <div id="wh-solve-rows"></div>
+
+    <div style="display:flex;gap:10px;align-items:center;margin-bottom:8px;flex-wrap:wrap">
+      <button class="gen-btn" id="wh-add-guess" style="width:auto;padding:9px 18px">+ Add guess</button>
+      <button class="gen-btn" id="wh-analyze" style="flex:1;min-width:120px">Analyze →</button>
+    </div>
+    <div class="wh-input-error" id="wh-solve-error"></div>
+
+    <div id="wh-results" style="display:none;margin-top:16px">
+      <div class="wh-best">
+        <div class="wh-best-lbl">Best next guess</div>
+        <div class="wh-best-word" id="wh-best-word"></div>
+        <div class="wh-best-bits" id="wh-best-bits"></div>
+      </div>
+      <div class="wh-cands-hdr" id="wh-cands-hdr" aria-expanded="false">
+        <span id="wh-cands-count">Possible answers: —</span>
+        <svg class="faq-chevron" viewBox="0 0 16 16" fill="none" width="16" height="16">
+          <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="wh-cands-body" id="wh-cands-body">
+        <div class="wh-cands-grid" id="wh-cands-grid"></div>
+      </div>
+    </div>
+
+    <button class="reset-btn" id="wh-solve-reset" style="margin-top:14px">Reset all guesses</button>
+    <div class="wh-disclaimer">Not affiliated with the New York Times or the official Wordle game.</div>
+  </div>
+
+  <!-- ═══ TAB B: PRACTICE MODE ═══ -->
+  <div class="wh-panel" id="wh-panel-practice" role="tabpanel" aria-labelledby="wh-tab-practice">
+
+    <p style="font-size:13px;color:var(--text-2);margin-bottom:16px">
+      The tool picks a random secret word. Type your guesses — it colors the tiles automatically and suggests your best next move after each one. No active game needed.
+    </p>
+
+    <div class="wh-grid" id="wh-prac-grid"></div>
+
+    <div class="wh-best" id="wh-prac-suggest" style="display:none">
+      <div class="wh-best-lbl">Hint — best next guess</div>
+      <div class="wh-best-word" id="wh-prac-best"></div>
+      <div class="wh-best-bits" id="wh-prac-bits"></div>
+    </div>
+
+    <div id="wh-prac-input-row" style="display:flex;gap:16px;margin-bottom:6px">
+      <input type="text" id="wh-prac-input" maxlength="5" placeholder="CRANE"
+             autocomplete="off" autocorrect="off" spellcheck="false"
+             style="flex:1;padding:9px 12px;font-size:16px;font-weight:600;text-transform:uppercase;
+                    border:1px solid var(--border);border-radius:var(--radius);letter-spacing:.08em;
+                    outline:none;font-family:inherit;color:var(--text);background:var(--bg)">
+      <button class="gen-btn" id="wh-prac-submit" style="width:auto;padding:9px 20px">Submit</button>
+    </div>
+    <div class="wh-input-error" id="wh-prac-error"></div>
+
+    <div id="wh-prac-result" style="display:none;text-align:center;padding:16px 0">
+      <div id="wh-prac-result-msg"
+           style="font-size:18px;font-weight:700;color:var(--text);line-height:1.3;margin-bottom:12px"></div>
+      <button class="gen-btn" id="wh-prac-new" style="width:auto;padding:9px 22px">New game</button>
+    </div>
+
+    <div class="wh-disclaimer">Practice Mode uses a random word — not today's Wordle answer. Not affiliated with the New York Times.</div>
+  </div>
+
+</div><!-- /wh-wrap -->
+<p class="embed-attrib">
+  Powered by <a href="https://wordineer.com/?utm_source=embed&utm_medium=iframe"
+  target="_blank" rel="noopener">Wordineer</a>
+</p>
+<script src="/scripts/tool-engine.js?v=27"></script>
+<script>
+(function () {
+  function send() {
+    parent.postMessage({ wordineerHeight: document.body.scrollHeight }, '*');
+  }
+  window.addEventListener('load', send);
+  new ResizeObserver(send).observe(document.body);
+})();
+</script>
+<script src="/scripts/wordle-engine.js?v=2"></script>
+<script>
+// Colorblind mode toggle — persisted in sessionStorage
+(function() {
+  const btn  = document.getElementById('wh-cb-toggle');
+  const wrap = document.querySelector('.wh-wrap');
+  if (!btn || !wrap) return;
+  const active = sessionStorage.getItem('wh-colorblind') === '1';
+  if (active) { wrap.classList.add('wh-colorblind'); btn.classList.add('active'); btn.setAttribute('aria-pressed','true'); }
+  btn.addEventListener('click', function() {
+    const on = wrap.classList.toggle('wh-colorblind');
+    btn.classList.toggle('active', on);
+    btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    sessionStorage.setItem('wh-colorblind', on ? '1' : '0');
+  });
+})();
+
+WORDLE_HELPER.init({
+  tabSolveId:      'wh-tab-solve',
+  tabPracticeId:   'wh-tab-practice',
+  panelSolveId:    'wh-panel-solve',
+  panelPracticeId: 'wh-panel-practice',
+  chipsId:         'wh-chips',
+  solveRowsId:     'wh-solve-rows',
+  addGuessBtnId:   'wh-add-guess',
+  analyseBtnId:    'wh-analyze',
+  solveErrorId:    'wh-solve-error',
+  resultsId:       'wh-results',
+  bestWordId:      'wh-best-word',
+  bestBitsId:      'wh-best-bits',
+  candsCountId:    'wh-cands-count',
+  candsHdrId:      'wh-cands-hdr',
+  candsBodyId:     'wh-cands-body',
+  candsGridId:     'wh-cands-grid',
+  solveResetId:    'wh-solve-reset',
+  pracGridId:      'wh-prac-grid',
+  pracSuggestId:   'wh-prac-suggest',
+  pracBestId:      'wh-prac-best',
+  pracBitsId:      'wh-prac-bits',
+  pracInputId:     'wh-prac-input',
+  pracSubmitId:    'wh-prac-submit',
+  pracErrorId:     'wh-prac-error',
+  pracResultId:    'wh-prac-result',
+  pracResultMsgId: 'wh-prac-result-msg',
+  pracNewId:       'wh-prac-new',
+  pracInputRowId:  'wh-prac-input-row',
+  starters: ['TRACE','SLATE','SNARE','ARISE','ALERT','CRANE','IRATE','TRADE','STALE','ALTER',
+             'RAISE','STARE','TEARS','SANER','LATER','AROSE','CRATE','SNARE','LEAST','CLOSE'],
+  collapseThreshold: 30,
+});
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => q.closest('.faq-item').classList.toggle('open'));
+});
+</script>
+</body>
+</html>

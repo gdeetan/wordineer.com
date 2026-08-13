@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a1560"/>
+      <stop offset="60%" stop-color="#3C3489"/>
+      <stop offset="100%" stop-color="#4A3FD4"/>
+    </linearGradient>
+    <pattern id="dots" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
+      <circle cx="1.5" cy="1.5" r="1.5" fill="rgba(255,255,255,0.07)"/>
+    </pattern>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="22" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" rx="24" ry="24" fill="url(#bg)"/>
+  <rect width="1200" height="630" rx="24" ry="24" fill="url(#dots)"/>
+
+  <!-- Glow orbs -->
+  <ellipse cx="1080" cy="100" rx="260" ry="190" fill="#7c6ff7" opacity="0.15" filter="url(#glow)"/>
+  <ellipse cx="140" cy="550" rx="200" ry="150" fill="#4A3FD4" opacity="0.20" filter="url(#glow)"/>
+
+  <!-- Left accent bar -->
+  <rect x="80" y="158" width="4" height="314" rx="2" fill="rgba(255,255,255,0.22)"/>
+
+  <!-- Badge -->
+  <rect x="96" y="152" width="195" height="30" rx="15" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.20)" stroke-width="1"/>
+  <text x="193" y="172" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="700" fill="rgba(255,255,255,0.88)" text-anchor="middle" letter-spacing="1.2">CEFR VOCABULARY</text>
+
+  <!-- Main headline -->
+  <text x="96" y="256" font-family="Georgia, 'DM Serif Display', serif" font-size="62" font-weight="400" fill="#ffffff" letter-spacing="-2">Find Your</text>
+  <text x="96" y="332" font-family="Georgia, 'DM Serif Display', serif" font-size="62" font-weight="400" fill="#ffffff" letter-spacing="-2">English Level</text>
+  <text x="96" y="408" font-family="Georgia, 'DM Serif Display', serif" font-size="62" font-weight="400" fill="#c4bfff" letter-spacing="-2">A1 to C2</text>
+
+  <!-- Subline -->
+  <text x="96" y="462" font-family="DM Sans, system-ui, sans-serif" font-size="19" fill="rgba(255,255,255,0.58)">200+ words · level descriptions · ESL reference</text>
+
+  <!-- Divider -->
+  <line x1="96" y1="496" x2="460" y2="496" stroke="rgba(255,255,255,0.14)" stroke-width="1"/>
+
+  <!-- Wordineer mark -->
+  <rect x="96" y="512" width="24" height="24" rx="6" fill="#4A3FD4" stroke="rgba(255,255,255,0.38)" stroke-width="1.5"/>
+  <text x="108" y="529" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="800" fill="white" text-anchor="middle">W</text>
+  <text x="130" y="530" font-family="DM Sans, system-ui, sans-serif" font-size="14" font-weight="600" fill="rgba(255,255,255,0.70)">wordineer.com</text>
+
+  <!-- ===== Right: Vocabulary Progression Ladder ===== -->
+
+  <!-- Connecting line -->
+  <line x1="680" y1="88" x2="680" y2="570" stroke="rgba(255,255,255,0.12)" stroke-width="2" stroke-dasharray="4 4"/>
+
+  <!-- A1 row -->
+  <circle cx="680" cy="100" r="18" fill="#1D9E75" stroke="rgba(255,255,255,0.20)" stroke-width="1.5"/>
+  <text x="680" y="106" font-family="DM Sans, system-ui, sans-serif" font-size="11" font-weight="800" fill="white" text-anchor="middle">A1</text>
+  <text x="712" y="96" font-family="DM Sans, system-ui, sans-serif" font-size="11" font-weight="600" fill="rgba(255,255,255,0.40)" letter-spacing=".5">BEGINNER</text>
+  <!-- word chips -->
+  <rect x="712" y="104" width="46" height="22" rx="11" fill="rgba(29,158,117,0.25)" stroke="rgba(29,158,117,0.50)" stroke-width="1"/>
+  <text x="735" y="119" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="600" fill="#6ee7b7" text-anchor="middle">eat</text>
+  <rect x="766" y="104" width="46" height="22" rx="11" fill="rgba(29,158,117,0.25)" stroke="rgba(29,158,117,0.50)" stroke-width="1"/>
+  <text x="789" y="119" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="600" fill="#6ee7b7" text-anchor="middle">home</text>
+  <rect x="820" y="104" width="46" height="22" rx="11" fill="rgba(29,158,117,0.25)" stroke="rgba(29,158,117,0.50)" stroke-width="1"/>
+  <text x="843" y="119" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="600" fill="#6ee7b7" text-anchor="middle">happy</text>
+  <rect x="874" y="104" width="42" height="22" rx="11" fill="rgba(29,158,117,0.25)" stroke="rgba(29,158,117,0.50)" stroke-width="1"/>
+  <text x="895" y="119" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="600" fill="#6ee7b7" text-anchor="middle">car</text>
+  <rect x="924" y="104" width="58" height="22" rx="11" fill="rgba(29,158,117,0.25)" stroke="rgba(29,158,117,0.50)" stroke-width="1"/>
+  <text x="953" y="119" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="600" fill="#6ee7b7" text-anchor="middle">friend</text>
+  <rect x="990" y="104" width="58" height="22" rx="11" fill="rgba(29,158,117,0.25)" stroke="rgba(29,158,117,0.50)" stroke-width="1"/>
+  <text x="1019" y="119" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="600" fill="#6ee7b7" text-anchor="middle">school</text>
+
+  <!-- A2 row -->
+  <circle cx="680" cy="195" r="18" fill="#22c55e" stroke="rgba(255,255,255,0.20)" stroke-width="1.5"/>
+  <text x="680" y="201" font-family="DM Sans, system-ui, sans-serif" font-size="11" font-weight="800" fill="white" text-anchor="middle">A2</text>
+  <text x="712" y="191" font-family="DM Sans, system-ui, sans-serif" font-size="11" font-weight="600" fill="rgba(255,255,255,0.40)" letter-spacing=".5">ELEMENTARY</text>
+  <rect x="712" y="199" width="58" height="22" rx="11" fill="rgba(34,197,94,0.22)" stroke="rgba(34,197,94,0.45)" stroke-width="1"/>
+  <text x="741" y="214" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="600" fill="#86efac" text-anchor="middle">borrow</text>
+  <rect x="778" y="199" width="52" height="22" rx="11" fill="rgba(34,197,94,0.22)" stroke="rgba(34,197,94,0.45)" stroke-width="1"/>
+  <text x="804" y="214" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="600" fill="#86efac" text-anchor="middle">travel</text>
+  <rect x="838" y="199" width="52" height="22" rx="11" fill="rgba(34,197,94,0.22)" stroke="rgba(34,197,94,0.45)" stroke-width="1"/>
+  <text x="864" y="214" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="600" fill="#86efac" text-anchor="middle">decide</text>
+  <rect x="898" y="199" width="46" height="22" rx="11" fill="rgba(34,197,94,0.22)" stroke="rgba(34,197,94,0.45)" stroke-width="1"/>
+  <text x="921" y="214" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="600" fill="#86efac" text-anchor="middle">angry</text>
+  <rect x="952" y="199" width="60" height="22" rx="11" fill="rgba(34,197,94,0.22)" stroke="rgba(34,197,94,0.45)" stroke-width="1"/>
+  <text x="982" y="214" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="600" fill="#86efac" text-anchor="middle">popular</text>
+
+  <!-- B1 row -->
+  <circle cx="680" cy="290" r="18" fill="#185FA5" stroke="rgba(255,255,255,0.20)" stroke-width="1.5"/>
+  <text x="680" y="296" font-family="DM Sans, system-ui, sans-serif" font-size="11" font-weight="800" fill="white" text-anchor="middle">B1</text>
+  <text x="712" y="286" font-family="DM Sans, system-ui, sans-serif" font-size="11" font-weight="600" fill="rgba(255,255,255,0.40)" letter-spacing=".5">INTERMEDIATE</text>
+  <rect x="712" y="294" width="60" height="22" rx="11" fill="rgba(24,95,165,0.30)" stroke="rgba(96,165,250,0.45)" stroke-width="1"/>
+  <text x="742" y="309" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="600" fill="#93c5fd" text-anchor="middle">influence</text>
+  <rect x="780" y="294" width="62" height="22" rx="11" fill="rgba(24,95,165,0.30)" stroke="rgba(96,165,250,0.45)" stroke-width="1"/>
+  <text x="811" y="309" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="600" fill="#93c5fd" text-anchor="middle">however</text>
+  <rect x="850" y="294" width="54" height="22" rx="11" fill="rgba(24,95,165,0.30)" stroke="rgba(96,165,250,0.45)" stroke-width="1"/>
+  <text x="877" y="309" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="600" fill="#93c5fd" text-anchor="middle">achieve</text>
+  <rect x="912" y="294" width="62" height="22" rx="11" fill="rgba(24,95,165,0.30)" stroke="rgba(96,165,250,0.45)" stroke-width="1"/>
+  <text x="943" y="309" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="600" fill="#93c5fd" text-anchor="middle">establish</text>
+  <rect x="982" y="294" width="52" height="22" rx="11" fill="rgba(24,95,165,0.30)" stroke="rgba(96,165,250,0.45)" stroke-width="1"/>
+  <text x="1008" y="309" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="600" fill="#93c5fd" text-anchor="middle">despite</text>
+
+  <!-- B2 row -->
+  <circle cx="680" cy="385" r="18" fill="#0284c7" stroke="rgba(255,255,255,0.20)" stroke-width="1.5"/>
+  <text x="680" y="391" font-family="DM Sans, system-ui, sans-serif" font-size="11" font-weight="800" fill="white" text-anchor="middle">B2</text>
+  <text x="712" y="381" font-family="DM Sans, system-ui, sans-serif" font-size="11" font-weight="600" fill="rgba(255,255,255,0.40)" letter-spacing=".5">UPPER INTERMEDIATE</text>
+  <rect x="712" y="389" width="68" height="22" rx="11" fill="rgba(2,132,199,0.28)" stroke="rgba(125,211,252,0.45)" stroke-width="1"/>
+  <text x="746" y="404" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="600" fill="#7dd3fc" text-anchor="middle">inevitable</text>
+  <rect x="788" y="389" width="78" height="22" rx="11" fill="rgba(2,132,199,0.28)" stroke="rgba(125,211,252,0.45)" stroke-width="1"/>
+  <text x="827" y="404" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="600" fill="#7dd3fc" text-anchor="middle">hypothesis</text>
+  <rect x="874" y="389" width="68" height="22" rx="11" fill="rgba(2,132,199,0.28)" stroke="rgba(125,211,252,0.45)" stroke-width="1"/>
+  <text x="908" y="404" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="600" fill="#7dd3fc" text-anchor="middle">ambiguous</text>
+  <rect x="950" y="389" width="70" height="22" rx="11" fill="rgba(2,132,199,0.28)" stroke="rgba(125,211,252,0.45)" stroke-width="1"/>
+  <text x="985" y="404" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="600" fill="#7dd3fc" text-anchor="middle">facilitate</text>
+
+  <!-- C1 row -->
+  <circle cx="680" cy="480" r="18" fill="#7c3aed" stroke="rgba(255,255,255,0.20)" stroke-width="1.5"/>
+  <text x="680" y="486" font-family="DM Sans, system-ui, sans-serif" font-size="11" font-weight="800" fill="white" text-anchor="middle">C1</text>
+  <text x="712" y="476" font-family="DM Sans, system-ui, sans-serif" font-size="11" font-weight="600" fill="rgba(255,255,255,0.40)" letter-spacing=".5">ADVANCED</text>
+  <rect x="712" y="484" width="74" height="22" rx="11" fill="rgba(124,58,237,0.28)" stroke="rgba(196,167,255,0.45)" stroke-width="1"/>
+  <text x="749" y="499" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="600" fill="#d8b4fe" text-anchor="middle">connotation</text>
+  <rect x="794" y="484" width="68" height="22" rx="11" fill="rgba(124,58,237,0.28)" stroke="rgba(196,167,255,0.45)" stroke-width="1"/>
+  <text x="828" y="499" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="600" fill="#d8b4fe" text-anchor="middle">alleviate</text>
+  <rect x="870" y="484" width="66" height="22" rx="11" fill="rgba(124,58,237,0.28)" stroke="rgba(196,167,255,0.45)" stroke-width="1"/>
+  <text x="903" y="499" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="600" fill="#d8b4fe" text-anchor="middle">empirical</text>
+  <rect x="944" y="484" width="76" height="22" rx="11" fill="rgba(124,58,237,0.28)" stroke="rgba(196,167,255,0.45)" stroke-width="1"/>
+  <text x="982" y="499" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="600" fill="#d8b4fe" text-anchor="middle">discrepancy</text>
+
+  <!-- C2 row -->
+  <circle cx="680" cy="570" r="18" fill="#b45309" stroke="rgba(255,215,0,0.35)" stroke-width="1.5"/>
+  <text x="680" y="576" font-family="DM Sans, system-ui, sans-serif" font-size="11" font-weight="800" fill="white" text-anchor="middle">C2</text>
+  <text x="712" y="566" font-family="DM Sans, system-ui, sans-serif" font-size="11" font-weight="600" fill="rgba(255,255,255,0.40)" letter-spacing=".5">MASTERY</text>
+  <rect x="712" y="574" width="74" height="22" rx="11" fill="rgba(180,83,9,0.28)" stroke="rgba(253,186,116,0.45)" stroke-width="1"/>
+  <text x="749" y="589" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="600" fill="#fcd34d" text-anchor="middle">perspicuous</text>
+  <rect x="794" y="574" width="72" height="22" rx="11" fill="rgba(180,83,9,0.28)" stroke="rgba(253,186,116,0.45)" stroke-width="1"/>
+  <text x="830" y="589" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="600" fill="#fcd34d" text-anchor="middle">recondite</text>
+  <rect x="874" y="574" width="74" height="22" rx="11" fill="rgba(180,83,9,0.28)" stroke="rgba(253,186,116,0.45)" stroke-width="1"/>
+  <text x="911" y="589" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="600" fill="#fcd34d" text-anchor="middle">anathema</text>
+  <rect x="956" y="574" width="70" height="22" rx="11" fill="rgba(180,83,9,0.28)" stroke="rgba(253,186,116,0.45)" stroke-width="1"/>
+  <text x="991" y="589" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="600" fill="#fcd34d" text-anchor="middle">loquacious</text>
+</svg>
