@@ -1,4 +1,4 @@
-<!-- build: 2026-08-13T02:50:25Z -->
+<!-- build: 2026-08-13T05:00:22Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -96,7 +96,7 @@
 }
 </script>
 <title>Kindergarten Spelling Bee Words — Free Practice | Wordineer</title>
-<meta name="description" content="Generate kindergarten spelling bee words filtered by theme and difficulty. 500+ age-appropriate words with simple definitions and example sentences. Print or save custom lists — free, no login.">
+<meta name="description" content="500+ kindergarten spelling bee words with simple definitions and example sentences. Filter by theme and difficulty, then print or save a custom list.">
 <meta property="og:title" content="Kindergarten Spelling Bee Words Generator | Wordineer">
 <meta property="og:description" content="500+ kindergarten spelling bee words by theme. Filter, save, and print practice lists for parents and teachers — free.">
 <meta property="og:url" content="https://wordineer.com/spelling-bee-words-kindergarten">
@@ -157,7 +157,7 @@
   "publisher": {
     "@id": "https://wordineer.com/#organization"
   },
-  "description": "Generate kindergarten spelling bee words filtered by theme and difficulty. 500+ age-appropriate words with simple definitions and example sentences. Print or save custom lists — free, no login."
+  "description": "500+ kindergarten spelling bee words with simple definitions and example sentences. Filter by theme and difficulty, then print or save a custom list."
 }
 </script>
 <link rel="stylesheet" href="/styles/global.css?v=16">
@@ -923,13 +923,9 @@ body.is-classroom .results-col { min-height: 100vh; }
       document.getElementById('kb-gen-btn').addEventListener('click', function () { self.generate(); });
       document.getElementById('kb-reset-btn').addEventListener('click', function () { self.reset(); });
       document.getElementById('kb-copy-all').addEventListener('click', function () { self.copyAll(); });
-      document.getElementById('kb-print-btn').addEventListener('click', function () { window.print(); });
+      document.getElementById('kb-print-btn').addEventListener('click', function () { printWordList(false); });
       var worksheetBtn = document.getElementById('kb-worksheet-btn');
-      if (worksheetBtn) worksheetBtn.addEventListener('click', function () {
-        document.body.classList.add('is-worksheet');
-        window.print();
-        document.body.classList.remove('is-worksheet');
-      });
+      if (worksheetBtn) worksheetBtn.addEventListener('click', function () { printWordList(true); });
       var shareBtn = document.getElementById('kb-share-btn');
       if (shareBtn) shareBtn.addEventListener('click', function () { self.shareList(); });
       document.getElementById('kb-copy-saved').addEventListener('click', function () { self.copySaved(); });
@@ -1021,6 +1017,89 @@ body.is-classroom .results-col { min-height: 100vh; }
       setClassroom(true);
     }
   }());
+
+  function printWordList(worksheet) {
+    var items = document.querySelectorAll('#kb-list .word-item');
+    if (!items.length) { alert('Generate a word list first.'); return; }
+    var titleEl = document.querySelector('.print-header-title');
+    var listTitle = titleEl ? titleEl.textContent.trim() : 'Kindergarten Spelling Bee Word List';
+    var pageUrl = window.location.hostname + window.location.pathname;
+    var rows = [];
+    items.forEach(function(item) {
+      var wordEl  = item.querySelector('.word-text');
+      var defEl   = item.querySelector('.word-def');
+      var origEl  = item.querySelector('.sb-origin');
+      var metas   = item.querySelectorAll('.badge-meta');
+      rows.push({
+        word:   wordEl ? wordEl.textContent.trim()  : '',
+        def:    defEl  ? defEl.textContent.trim()   : '',
+        origin: origEl ? origEl.textContent.trim()  : '',
+        syl:    metas.length     ? metas[0].textContent.trim() : '',
+        pos:    metas.length > 1 ? metas[1].textContent.trim() : ''
+      });
+    });
+    var n = rows.length;
+    var css, body;
+    if (worksheet) {
+      css = 'body{font-family:Arial,sans-serif;margin:.75in;color:#111;font-size:11pt}' +
+            'h1{font-size:16pt;margin:0 0 3pt}' +
+            '.meta{font-size:9pt;color:#666;margin:0 0 4pt}' +
+            '.name-row{display:flex;gap:20pt;margin:14pt 0 22pt;font-size:10pt;align-items:flex-end}' +
+            '.name-row label{font-size:9pt;color:#555;margin-right:4pt}' +
+            '.name-row span{flex:1;border-bottom:1pt solid #aaa;min-width:80pt}' +
+            'ol{padding:0;margin:0;list-style:none;counter-reset:w;display:grid;grid-template-columns:1fr 1fr;gap:0}' +
+            'li{counter-increment:w;padding:10pt 8pt 6pt;border-bottom:.5pt solid #e5e7eb;page-break-inside:avoid}' +
+            '.n{font-size:8pt;color:#9ca3af;font-weight:700}' +
+            '.n::before{content:counter(w)". "}' +
+            '.word{display:block;font-size:15pt;font-weight:700;margin:2pt 0 12pt}' +
+            '.line{border-bottom:1pt solid #9ca3af;width:85%;display:block}' +
+            '.foot{font-size:7.5pt;color:#aaa;margin-top:18pt;border-top:.5pt solid #e5e7eb;padding-top:8pt}' +
+            '@media print{body{margin:.5in}}';
+      body = '<h1>' + he(listTitle) + ' — Practice Worksheet</h1>' +
+             '<p class="meta">' + n + ' word' + (n !== 1 ? 's' : '') + '  ·  wordineer.com</p>' +
+             '<div class="name-row"><label>Name:</label><span>&nbsp;</span><label>Date:</label><span style="min-width:60pt">&nbsp;</span></div>' +
+             '<ol>' + rows.map(function(r) {
+               return '<li><span class="n"></span><span class="word">' + he(r.word) + '</span><span class="line"></span></li>';
+             }).join('') + '</ol>' +
+             '<p class="foot">Free spelling bee practice · ' + he(pageUrl) + '</p>';
+    } else {
+      css = 'body{font-family:Georgia,serif;margin:.75in;color:#111;font-size:11pt}' +
+            'h1{font-size:18pt;margin:0 0 3pt}' +
+            '.meta{font-size:9pt;color:#666;margin:0;padding-bottom:10pt;border-bottom:1pt solid #ddd}' +
+            'ol{padding:0;margin:14pt 0 0;list-style:none;counter-reset:w}' +
+            'li{counter-increment:w;padding:9pt 0;border-bottom:.5pt solid #e5e7eb;page-break-inside:avoid;display:flex;gap:10pt;align-items:baseline}' +
+            'li:last-child{border-bottom:none}' +
+            '.n{font-size:9pt;color:#9ca3af;font-weight:700;min-width:18pt;flex-shrink:0}' +
+            '.n::before{content:counter(w)"."}' +
+            '.body{flex:1}' +
+            '.word{font-size:15pt;font-weight:700;letter-spacing:-.01em;display:block;margin-bottom:2pt}' +
+            '.badges{display:flex;gap:5pt;margin-bottom:3pt;flex-wrap:wrap}' +
+            '.badge{font-size:7pt;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#6b7280;background:#f3f4f6;padding:1pt 5pt;border-radius:3pt}' +
+            '.def{font-size:9.5pt;color:#374151;line-height:1.5}' +
+            '.foot{font-size:7.5pt;color:#aaa;margin-top:18pt;border-top:.5pt solid #e5e7eb;padding-top:8pt}' +
+            '@media print{body{margin:.5in}}';
+      body = '<h1>' + he(listTitle) + '</h1>' +
+             '<p class="meta">' + n + ' word' + (n !== 1 ? 's' : '') + '  ·  ' + he(pageUrl) + '</p>' +
+             '<ol>' + rows.map(function(r) {
+               var badges = '';
+               if (r.origin) badges += '<span class="badge">' + he(r.origin) + '</span>';
+               if (r.syl)    badges += '<span class="badge">' + he(r.syl)    + '</span>';
+               if (r.pos)    badges += '<span class="badge">' + he(r.pos)    + '</span>';
+               return '<li><span class="n"></span><div class="body">' +
+                 '<span class="word">' + he(r.word) + '</span>' +
+                 (badges ? '<div class="badges">' + badges + '</div>' : '') +
+                 (r.def  ? '<div class="def">'    + he(r.def)  + '</div>' : '') +
+                 '</div></li>';
+             }).join('') + '</ol>' +
+             '<p class="foot">Free spelling bee practice at wordineer.com</p>';
+    }
+    var html = '<!DOCTYPE html><html><head><meta charset="utf-8"><title>' + he(listTitle) + (worksheet ? ' — Worksheet' : '') + '</title><style>' + css + '</style></head><body>' + body + '</body></html>';
+    var w = window.open('', '_blank', 'width=820,height=700');
+    w.document.write(html);
+    w.document.close();
+    w.focus();
+    w.print();
+  }
 }());
 </script>
 </body>
