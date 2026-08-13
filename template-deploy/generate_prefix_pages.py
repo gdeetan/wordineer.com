@@ -498,6 +498,10 @@ def main(batch_len, dry_run=False):
             page_html = render_page(prefix, words, mega_html, fcols_html)
             with open(out_path, 'w', encoding='utf-8') as f:
                 f.write(page_html)
+            output_path = os.path.join(SCRIPT_DIR, 'output', f'{slug}.html')
+            if os.path.isdir(os.path.join(SCRIPT_DIR, 'output')):
+                with open(output_path, 'w', encoding='utf-8') as f:
+                    f.write(page_html)
 
         generated.append(prefix)
         redirect_lines_all.extend(redirect_lines_for(prefix))
