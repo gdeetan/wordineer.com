@@ -14,6 +14,7 @@ import html
 import json
 import os
 import re
+import string
 import sys
 from collections import Counter
 from datetime import datetime, timezone
@@ -437,6 +438,64 @@ def append_sitemap_entries(path, urls):
         content = content.replace('</urlset>', f'{block}\n</urlset>')
         with open(path, 'w', encoding='utf-8') as f:
             f.write(content)
+
+
+def generate_all_prefixes(batch_len):
+    """Yield all lowercase prefix strings of length batch_len."""
+    for combo in product(string.ascii_lowercase, repeat=batch_len):
+        yield ''.join(combo)
+
+
+def main(batch_len, dry_run=False):
+    print(f'Loading word data...')
+    all_words = load_all_five_letter_words()
+    print(f'  {len(all_words)} words loaded.')
+
+    with open(TOOLS_JSON, encoding='utf-8') as f:
+        tools_data = json.load(f)
+    mega_html  = build_mega_cols(tools_data['mega'], '')
+    fcols_html = build_footer_cols(tools_data['footer_cols'])
+
+    generated          = []
+    skipped            = 0
+    redirect_lines_all = []
+    sitemap_urls       = []
+
+    prefixes = list(generate_all_prefixes(batch_len))
+    print(f'Checking {len(prefixes)} {batch_len}-letter prefix combinations...')
+
+    for prefix in prefixes:
+        words = filter_by_prefix(all_words, prefix)
+        if len(words) < MIN_WORDS:
+            skipped += 1
+            continue
+
+        slug     = f'5-letter-words-starting-with-{prefix.lower()}'
+        out_path = os.path.join(DEPLOY_DIR, f'{slug}.html')
+        url      = f'https://wordineer.com/{slug}/'
+
+        if not dry_run:
+            page_html = render_page(prefix, words, mega_html, fcols_html)
+            with open(out_path, 'w', encoding='utf-8') as f:
+                f.write(page_html)
+
+        generated.append(prefix)
+        redirect_lines_all.extend(redirect_lines_for(prefix))
+        sitemap_urls.append(url)
+
+    if not dry_run and redirect_lines_all:
+        append_redirects(REDIRECTS, redirect_lines_all)
+        print(f'  _redirects updated ({len(redirect_lines_all)} lines added)')
+
+    if not dry_run and sitemap_urls:
+        append_sitemap_entries(SITEMAP, sitemap_urls)
+        print(f'  sitemap.xml updated ({len(sitemap_urls)} entries added)')
+
+    print(f'\nDone. {len(generated)} pages {"would be " if dry_run else ""}generated, '
+          f'{skipped} combos skipped (< {MIN_WORDS} words).')
+    if generated:
+        sample = generated[:10]
+        print(f'  Sample prefixes: {", ".join(sample)}{"..." if len(generated) > 10 else ""}')
 
 
 def run_tests():
