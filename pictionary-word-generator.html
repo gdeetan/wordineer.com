@@ -1,4 +1,4 @@
-<!-- build: 2026-08-14T02:35:34Z -->
+<!-- build: 2026-08-14T03:02:23Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -243,22 +243,20 @@
 /* ── Print card deck (teacher hand-outs) ── */
 .print-deck{display:none}
 @media print{
-  body *{visibility:hidden!important}
-  .print-deck,.print-deck *{visibility:visible!important}
-  .print-deck{display:block!important;position:absolute;inset:0;padding:12mm;background:#fff;color:#000;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
-  .print-header{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid #000;padding-bottom:6px;margin-bottom:12px;font-size:11pt}
+  html,body{margin:0!important;padding:0!important;background:#fff!important}
+  body > *{display:none!important}
+  body > .print-deck{display:block!important}
+  .print-deck{padding:10mm;color:#000;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+  .print-header{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid #000;padding-bottom:6px;margin-bottom:10px;font-size:11pt}
   .print-header h1{margin:0;font-size:14pt;font-weight:700}
   .print-header .print-meta{font-size:10pt;color:#333}
-  .print-instructions{font-size:9pt;color:#333;margin-bottom:10px;font-style:italic}
-  .print-grid{display:grid;grid-template-columns:repeat(2,1fr);grid-auto-rows:1fr;gap:0}
-  .print-cell{border:1px dashed #999;padding:14mm 10mm;min-height:60mm;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;break-inside:avoid;page-break-inside:avoid}
-  .print-word{font-size:22pt;font-weight:700;line-height:1.15;color:#000;margin-bottom:6mm}
+  .print-instructions{font-size:9pt;color:#333;margin-bottom:8px;font-style:italic}
+  .print-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0}
+  .print-cell{border:1px dashed #999;padding:10mm;min-height:55mm;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;break-inside:avoid;page-break-inside:avoid}
+  .print-word{font-size:22pt;font-weight:700;line-height:1.15;color:#000;margin-bottom:5mm}
   .print-hint{font-size:9pt;color:#555;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4mm}
-  .print-brand{position:absolute;bottom:6mm;left:0;right:0;text-align:center;font-size:8pt;color:#666}
-  .print-cell{page-break-inside:avoid}
-  .print-grid{page-break-after:auto}
-  .print-grid > .print-cell:nth-child(8n){page-break-after:always}
-  @page{margin:0}
+  .print-brand{text-align:center;font-size:8pt;color:#666;margin-top:8px}
+  @page{size:auto;margin:8mm}
 }
 /* ── Game Mode ── */
 .game-panel{display:none;flex-direction:column;flex:1;padding:20px}
@@ -772,13 +770,7 @@
     const catLabel=state.category==='all'?'All categories':state.category.charAt(0).toUpperCase()+state.category.slice(1);
     const diffLabel=state.difficulty.charAt(0).toUpperCase()+state.difficulty.slice(1);
     const dateLabel=new Date().toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'});
-    // pad to nearest multiple of 8 with blank cells for clean cutting
-    const padded=list.slice();
-    while(padded.length%8!==0)padded.push(null);
-    const cells=padded.map(item=>item
-      ?`<div class="print-cell"><div class="print-hint">Pictionary</div><div class="print-word">${item.w}</div></div>`
-      :`<div class="print-cell" style="border-color:#ddd"></div>`
-    ).join('');
+    const cells=list.map(item=>`<div class="print-cell"><div class="print-hint">Pictionary</div><div class="print-word">${item.w}</div></div>`).join('');
     deck.innerHTML=`
       <div class="print-header">
         <h1>Pictionary Card Deck</h1>
