@@ -1,4 +1,4 @@
-<!-- build: 2026-08-15T02:14:40Z -->
+<!-- build: 2026-08-15T02:53:37Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -448,7 +448,14 @@
     <div class="uc"><div class="uc-title">Content strategists</div><div class="uc-body">Use Readable English mode for stakeholder mockups — pseudo-Latin confuses non-technical reviewers</div></div>
     <div class="uc"><div class="uc-title">Print designers</div><div class="uc-body">Generate exact word or character counts to test column widths, widow lines, and page flow</div></div>
   </div>
-  <p style="margin-top:14px">Also try: <a href="/random-sentence-generator">Random Sentence Generator</a>, <a href="/random-paragraph-generator">Random Paragraph Generator</a>, or <a href="/word-counter">Word Counter</a>.</p>
+  <div class="related-tools" style="margin-top:24px">
+    <h3 class="related-title">Also try</h3>
+    <div class="related-links">
+      <a class="related-link" href="/random-sentence-generator">Random Sentence Generator</a>
+      <a class="related-link" href="/random-paragraph-generator">Random Paragraph Generator</a>
+      <a class="related-link" href="/word-counter">Word Counter</a>
+    </div>
+  </div>
 </div>
 
 
@@ -663,6 +670,8 @@ fetch('/data/sentences.json').then(function(r){return r.ok?r.json():null;}).then
   if(Array.isArray(d))englishSentences=d.map(function(item){return typeof item==='string'?item:(item.text||item.sentence||'');}).filter(Boolean);
 }).catch(function(){});
 fetch('/data/words.json').then(function(r){return r.ok?r.json():null;}).then(function(d){if(d)soupWords=d;}).catch(function(){});
+
+document.querySelectorAll('.faq-q').forEach(function(q){q.addEventListener('click',function(){q.closest('.faq-item').classList.toggle('open');});});
 
 parseURL();doGenerate();
 })();
