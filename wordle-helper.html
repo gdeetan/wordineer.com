@@ -1,4 +1,4 @@
-<!-- build: 2026-08-13T11:50:46Z -->
+<!-- build: 2026-08-15T02:14:41Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -73,20 +73,20 @@
   "@graph": [
     {
       "@type": "WebSite",
-      "@id": "https://wordineer.com/#website",
+      "@id": ""https://wordineer.com/#website",
       "name": "Wordineer",
       "url": "https://wordineer.com",
       "description": "Free online word tools for writers, students, and word game players — random word generator, name generators, word scramble, sentence generator, and more.",
-      "publisher": { "@id": "https://wordineer.com/#organization" }
+      "publisher": { "@id": ""https://wordineer.com/#organization" }
     },
     {
       "@type": "Organization",
-      "@id": "https://wordineer.com/#organization",
+      "@id": ""https://wordineer.com/#organization",
       "name": "Wordineer",
       "url": "https://wordineer.com",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://wordineer.com/logo.png",
+        "url": ""https://wordineer.com/logo.png",
         "width": 1254,
         "height": 1254
       },
@@ -102,7 +102,7 @@
 <meta property="og:site_name"   content="Wordineer">
 <meta property="og:title"       content="Wordle Helper — Free Solver &amp; Best Starting Words | Wordineer">
 <meta property="og:description" content="Enter your Wordle clues and get the single best next guess, ranked by how much it narrows the field. Free, no sign-up, no paywall.">
-<meta property="og:url"         content="https://wordineer.com/wordle-helper/">
+<meta property="og:url"         content="https://wordineer.com/wordle-helper">
 <meta property="og:image"       content="https://wordineer.com/assets/og-wordle-helper.png">
 <script type="application/ld+json">
 {
@@ -152,12 +152,12 @@
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "Wordle Helper",
-  "url": "https://wordineer.com/wordle-helper/",
+  "url": ""https://wordineer.com/wordle-helper",
   "description": "Free Wordle solver — enter your clue colors and get the single best next guess, ranked by Shannon entropy.",
   "applicationCategory": "GameApplication",
   "operatingSystem": "Web",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-  "publisher": { "@id": "https://wordineer.com/#organization" }
+  "publisher": { "@id": ""https://wordineer.com/#organization" }
 }
 </script>
 <script type="application/ld+json">
@@ -166,12 +166,14 @@
   "@type": "BreadcrumbList",
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
-    { "@type": "ListItem", "position": 2, "name": "Word Tools", "item": "https://wordineer.com/word-tools/" },
-    { "@type": "ListItem", "position": 3, "name": "Wordle Helper", "item": "https://wordineer.com/wordle-helper/" }
+    { "@type": "ListItem", "position": 2, "name": "Word Tools", "item": ""https://wordineer.com/word-tools" },
+    { "@type": "ListItem", "position": 3, "name": "Wordle Helper", "item": ""https://wordineer.com/wordle-helper" }
   ]
 }
 </script>
-
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Wordle Helper — Free Solver &amp;amp; Best Starting Words">
+<meta name="twitter:description" content="Enter your Wordle clues and get the single best next guess, ranked by how much it narrows the field. Free, no sign-up, no paywall.">
 
 <link rel="stylesheet" href="/styles/global.css?v=16">
 <style>
@@ -323,7 +325,7 @@
     Wordineer
   </a>
   <div class="nav-links">
-    <a href="/word-tools/">Tools</a>
+    <a href="/word-tools">Tools</a>
   </div>
   <div>
     <button class="hamburger" type="button" aria-label="All tools" aria-controls="mega" aria-expanded="false">
@@ -412,7 +414,7 @@
   <div class="breadcrumb-inner">
     <a href="/">Wordineer</a>
     <span class="breadcrumb-sep">›</span>
-    <a href="/word-games/">Word Games</a>
+    <a href="/word-games">Word Games</a>
     <span class="breadcrumb-sep">›</span>
     <span aria-current="page">Wordle Helper</span>
   </div>
@@ -576,18 +578,18 @@
   <h2>How does the Wordle Helper pick the best next guess?</h2>
   <p>It uses Shannon entropy — the same principle NYT's WordleBot uses internally — to rank every remaining candidate word by how much information it would give you. After each guess, the tool filters the candidate pool down to only words consistent with every clue you've entered, then scores each remaining word by the number of distinct outcome patterns it could produce. The word with the highest score is your best next guess.</p>
   <p>In practical terms: a guess that could produce 20 different outcome patterns is more valuable than one that only produces 3, because it narrows down the field more aggressively no matter what the answer turns out to be.</p>
-  <p>In our benchmark of 10,000 simulated games (Python seed 42, playing the top-ranked suggestion every turn), the solver solved <strong>100% of games</strong> in 6 or fewer guesses, averaging <strong>3.02 guesses</strong>. <a href="/best-wordle-starting-words/">See the full analysis and comparison table →</a></p>
+  <p>In our benchmark of 10,000 simulated games (Python seed 42, playing the top-ranked suggestion every turn), the solver solved <strong>100% of games</strong> in 6 or fewer guesses, averaging <strong>3.02 guesses</strong>. <a href="/best-wordle-starting-words">See the full analysis and comparison table →</a></p>
 
   <h2>Why doesn't this solver use the original 2,309-word Wordle answer list?</h2>
   <p>Because NYT changed the list after acquiring Wordle, and continues to edit it — so any tool claiming to know the exact answer pool is outdated. The original 2,309-word list was public when Wordle was independent, and several solvers memorised it. This helper ranks candidates by real-world word frequency instead, which makes it more robust as the game evolves.</p>
 
   <h2>What's the best starting word for Wordle?</h2>
-  <p><strong>TRACE is #1 by entropy</strong> (5.989 bits), followed by SLATE (#2) and SNARE (#3). The best openers test common letters — E, A, R, I, O, T, N, S — without repeating any. CRANE and RAISE are also strong choices. Click any chip in the starting word picker to pre-fill it into the first row. For the full ranked list of 100 openers with downloadable data, see <a href="/best-wordle-starting-words/">Best Wordle Starting Words</a>.</p>
+  <p><strong>TRACE is #1 by entropy</strong> (5.989 bits), followed by SLATE (#2) and SNARE (#3). The best openers test common letters — E, A, R, I, O, T, N, S — without repeating any. CRANE and RAISE are also strong choices. Click any chip in the starting word picker to pre-fill it into the first row. For the full ranked list of 100 openers with downloadable data, see <a href="/best-wordle-starting-words">Best Wordle Starting Words</a>.</p>
 
   <div style="background:var(--bg-2);border:1px solid var(--border-2);border-radius:var(--radius-lg);padding:18px 20px;margin:24px 0">
     <h3 style="font-size:14px;font-weight:700;color:var(--text);margin:0 0 8px">Link or cite this tool</h3>
     <div style="font-size:13px;color:var(--text-2);background:var(--bg);border:1px solid var(--border-2);border-radius:var(--radius);padding:9px 12px;margin-bottom:10px;font-family:monospace;line-height:1.5">Wordineer Wordle Helper — wordineer.com/wordle-helper/ — Free solver ranked by Shannon entropy, no sign-up required.</div>
-    <a href="/best-wordle-starting-words/" style="font-size:13px;font-weight:600;color:var(--brand)">View full methodology and entropy data →</a>
+    <a href="/best-wordle-starting-words" style="font-size:13px;font-weight:600;color:var(--brand)">View full methodology and entropy data →</a>
   </div>
 
   <details style="margin:24px 0;background:var(--bg-2);border:1px solid var(--border-2);border-radius:var(--radius-lg);padding:14px 18px">
@@ -603,7 +605,7 @@
   </details>
 
   <h2>Related tools</h2>
-  <p>For the full entropy-ranked list of best starting words with downloadable data, see <a href="/best-wordle-starting-words/">Best Wordle Starting Words</a>. To play a full self-contained Wordle game rather than get solving help, try the <a href="/wordle-game/">Wordle game</a> on Wordineer. For a random 5-letter word to practice with, the <a href="/random-wordle-generator/">random Wordle word generator</a> picks one instantly with filters for difficulty. For a drawing-based word game, the <a href="/pictionary-word-generator/">Pictionary word generator</a> offers category-filtered prompts.</p>
+  <p>For the full entropy-ranked list of best starting words with downloadable data, see <a href="/best-wordle-starting-words">Best Wordle Starting Words</a>. To play a full self-contained Wordle game rather than get solving help, try the <a href="/wordle-game">Wordle game</a> on Wordineer. For a random 5-letter word to practice with, the <a href="/random-wordle-generator">random Wordle word generator</a> picks one instantly with filters for difficulty. For a drawing-based word game, the <a href="/pictionary-word-generator">Pictionary word generator</a> offers category-filtered prompts.</p>
   <!-- scrabble-word-finder: add link here once /scrabble-word-finder/ page ships -->
 </div>
 
@@ -628,7 +630,7 @@
       <span class="faq-q-text">What are the best starting words for Wordle?</span>
       <svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
     </div>
-    <div class="faq-a">Our information-theory analysis ranks TRACE #1 (5.989 bits of information), SLATE #2, and SNARE #3. All cover common letters with no repeats, giving you maximum information from your first guess. See the <a href="/best-wordle-starting-words/">full ranked list of 100 openers</a> with a downloadable CSV and 10,000-game benchmark data.</div>
+    <div class="faq-a">Our information-theory analysis ranks TRACE #1 (5.989 bits of information), SLATE #2, and SNARE #3. All cover common letters with no repeats, giving you maximum information from your first guess. See the <a href="/best-wordle-starting-words">full ranked list of 100 openers</a> with a downloadable CSV and 10,000-game benchmark data.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q">
@@ -665,7 +667,7 @@
   <div class="uc-grid">
     <div class="uc"><div class="uc-title">Streak-savers</div><div class="uc-body">Stuck on a hard puzzle with your streak on the line? Enter your guesses and get the best next move — no cheating required, just smarter strategy.</div></div>
     <div class="uc"><div class="uc-title">Beginners</div><div class="uc-body">New to Wordle and not sure where to start? The starting-word chips and Practice Mode let you learn how the game works before playing competitively.</div></div>
-    <div class="uc"><div class="uc-title">Teachers</div><div class="uc-body">Use Wordle in the classroom as a vocabulary tool. The solver shows how logical deduction narrows possibilities — a great puzzle-thinking exercise. See also: <a href="/spelling-bee-words/">Spelling Bee Words</a>.</div></div>
+    <div class="uc"><div class="uc-title">Teachers</div><div class="uc-body">Use Wordle in the classroom as a vocabulary tool. The solver shows how logical deduction narrows possibilities — a great puzzle-thinking exercise. See also: <a href="/spelling-bee-words">Spelling Bee Words</a>.</div></div>
     <div class="uc"><div class="uc-title">Data-curious players</div><div class="uc-body">Interested in how information theory applies to word games? The entropy score next to each suggestion shows exactly why one word beats another in terms of information gained.</div></div>
   </div>
 </div>
@@ -697,7 +699,7 @@
         <span style="font-size:14px;font-weight:600;color:var(--text)">Wordineer</span>
       </div>
       <span class="footer-copy">© 2026 Wordineer · Free word tools for everyone</span>
-      <div class="footer-meta"><a href="/about/">About</a><a href="/press-kit/">Data &amp; Press</a><a href="/embed/">Embed our tools</a><a href="/affiliate-disclosure/">Affiliate disclosure</a><a href="/privacy/">Privacy</a></div>
+      <div class="footer-meta"><a href="/about">About</a><a href="/press-kit">Data &amp; Press</a><a href="/embed">Embed our tools</a><a href="/affiliate-disclosure">Affiliate disclosure</a><a href="/privacy">Privacy</a></div>
     </div>
   </div>
 </footer>
