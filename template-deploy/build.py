@@ -170,6 +170,57 @@ def _esc(s):
     return html.escape(str(s)) if s is not None else ''
 
 
+def canonical_path(path):
+    """Return Wordineer's extensionless canonical path."""
+    if not path or path == '/':
+        return '/'
+    if '?' in path or '#' in path:
+        return path
+    if re.search(r'\.[a-z0-9]{2,5}$', path, re.I):
+        return path
+    return '/' + path.strip('/')
+
+
+def canonical_abs_url(url):
+    if url == 'https://wordineer.com/':
+        return url
+    if url.startswith('https://wordineer.com/'):
+        path = url.replace('https://wordineer.com', '', 1)
+        return 'https://wordineer.com' + canonical_path(path)
+    return url
+
+
+def canonical_href(href):
+    if href.startswith('/'):
+        return canonical_path(href)
+    if href.startswith('https://wordineer.com/'):
+        return canonical_abs_url(href)
+    return href
+
+
+def normalize_internal_urls(page_html):
+    """Strip internal trailing slashes from generated links and URL metadata."""
+    def attr_fix(m):
+        return f'{m.group(1)}="{canonical_href(m.group(2))}"'
+
+    page_html = re.sub(
+        r'\b(href|content|url|item|@id)="(https://wordineer\.com/[^"]+|/[^"]+)"',
+        attr_fix,
+        page_html,
+    )
+
+    def json_string_fix(m):
+        return f'{m.group(1)}{canonical_abs_url(m.group(2))}"'
+
+    page_html = re.sub(
+        r'("(?:url|item|@id)"\s*:\s*")'
+        r'(https://wordineer\.com/[^"]+)"',
+        json_string_fix,
+        page_html,
+    )
+    return page_html
+
+
 def _render_five_letter_rows(data):
     parts = []
     for r in data:
@@ -361,10 +412,11 @@ def build_sitemap(data):
     entries = []
 
     def add(href, priority, changefreq):
+        href = canonical_path(href)
         if not href or href in seen:
             return
         seen.add(href)
-        loc = 'https://wordineer.com/' if href == '/' else 'https://wordineer.com' + href.rstrip('/')
+        loc = 'https://wordineer.com/' if href == '/' else 'https://wordineer.com' + href
         entries.append((loc, priority, changefreq))
 
     add('/', 1.0, 'weekly')
@@ -417,6 +469,25 @@ def build_sitemap(data):
             continue
         add(tool.get('href', ''), 0.6, 'monthly')
 
+    # Merge in generator-produced pages (e.g. from generate_prefix_pages.py).
+    # These live only on disk in wordineer-deploy/ and aren't in tools.json.
+    # Without this, every build.py run would strip them from the sitemap.
+    deploy_dir = os.path.join(ROOT, '..', 'wordineer-deploy')
+    if os.path.isdir(deploy_dir):
+        gen_pat = re.compile(r'^(\d+-letter-words-starting-with-[a-z]+)\.html$')
+        generator_added = 0
+        for fname in sorted(os.listdir(deploy_dir)):
+            m = gen_pat.match(fname)
+            if not m:
+                continue
+            href = '/' + m.group(1)
+            before = len(seen)
+            add(href, 0.5, 'monthly')
+            if len(seen) > before:
+                generator_added += 1
+    else:
+        generator_added = 0
+
     lines = [
         '<?xml version="1.0" encoding="UTF-8"?>',
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
@@ -436,12 +507,18 @@ def build_sitemap(data):
     out_path = os.path.join(OUT_DIR, 'sitemap.xml')
     write(out_path, xml)
 
+    # Also refresh template-deploy/sitemap.xml so the generator's next run
+    # sees the current full set (it merges with this file).
+    tpl_path = os.path.join(ROOT, 'sitemap.xml')
+    write(tpl_path, xml)
+
+    suffix = f' (+{generator_added} generator-added)' if generator_added else ''
     deploy_path = os.path.join(ROOT, '..', 'wordineer-deploy', 'sitemap.xml')
     if os.path.isdir(os.path.dirname(deploy_path)):
         write(deploy_path, xml)
-        print(f'  sitemap.xml → {len(entries)} URLs (output/ + wordineer-deploy/)')
+        print(f'  sitemap.xml → {len(entries)} URLs{suffix} (output/ + wordineer-deploy/ + template-deploy/)')
     else:
-        print(f'  sitemap.xml → {len(entries)} URLs (output/ only)')
+        print(f'  sitemap.xml → {len(entries)} URLs{suffix} (output/ + template-deploy/)')
 
 def slot(src, name):
     """Pull the content between <!-- SLOT:name --> and <!-- /SLOT:name -->."""
@@ -705,6 +782,30 @@ def build_og_image_tag(url, data, meta_slot):
     return f'<meta property="og:image" content="https://wordineer.com{og}">'
 
 
+def build_twitter_tags(meta_slot):
+    if 'name="twitter:card"' in meta_slot or "name='twitter:card'" in meta_slot:
+        return ''
+
+    def content_for(pattern):
+        m = re.search(pattern, meta_slot, re.DOTALL)
+        return m.group(1).strip() if m else ''
+
+    title = content_for(r'<meta\s+property="og:title"\s+content="([^"]*)"')
+    if not title:
+        title = content_for(r'<title>(.*?)</title>')
+    title = re.sub(r'\s*\|\s*Wordineer\s*$', '', title)
+    desc = content_for(r'<meta\s+property="og:description"\s+content="([^"]*)"')
+    if not desc:
+        desc = content_for(r'<meta\s+name="description"\s+content="([^"]*)"')
+
+    tags = ['<meta name="twitter:card" content="summary_large_image">']
+    if title:
+        tags.append(f'<meta name="twitter:title" content="{html.escape(title, quote=True)}">')
+    if desc:
+        tags.append(f'<meta name="twitter:description" content="{html.escape(desc, quote=True)}">')
+    return '\n'.join(tags)
+
+
 # ── page builder ─────────────────────────────────────────────────────────────
 
 def normalize_canonical(page_html):
@@ -744,6 +845,7 @@ def build_page(src_path, data):
     # Related tools and og:image from page_meta
     related_html  = build_related_html(active_url, data)
     og_image_tag  = build_og_image_tag(active_url, data, slots['meta'])
+    twitter_tags  = build_twitter_tags(slots['meta'])
     build_stamp   = f'<!-- build: {datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")} -->\n'
     page_data_tag = inject_page_data(cfg)
 
@@ -758,7 +860,7 @@ def build_page(src_path, data):
 
     head   = (head
         .replace('{{META}}', slots['meta'])
-        .replace('{{OG_IMAGE}}', og_image_tag)
+        .replace('{{OG_IMAGE}}', '\n'.join(filter(None, [og_image_tag, twitter_tags])))
         .replace('{{HEAD_EXTRAS}}', extras)
         .replace('{{STYLE}}', slots['style']))
     nav    = nav.replace('{{MEGA_COLS}}', mega_html)
@@ -820,7 +922,7 @@ def build_page(src_path, data):
             '</html>',
         ]))
 
-    page = normalize_canonical(page)
+    page = normalize_internal_urls(normalize_canonical(page))
     out_path = os.path.join(OUT_DIR, output_file)
     write(out_path, page)
     print(f'  built → {output_file}  [{page_type}]')
@@ -858,12 +960,16 @@ def validate_configs(src_files):
 # ── main ─────────────────────────────────────────────────────────────────────
 
 def main():
-    # Deploy: python3 build.py && cp output/*.html output/_redirects ../wordineer-deploy/
+    # Deploy: copy from template-deploy/output/ (include subfolders such as
+    # output/random-words-starting-with/), never from tools-src/.
     data = json.loads(read(DATA_FILE))
-    # Clean stale HTML files from a previous build before writing fresh output
+    # Clean stale HTML files from a previous build before writing fresh output.
+    # Preserve externally-generated pages (e.g. from generate_prefix_pages.py) —
+    # they have no tools-src source, so this loop would otherwise wipe them.
+    _gen_pat = re.compile(r'^\d+-letter-words-starting-with-[a-z]+\.html$')
     if os.path.isdir(OUT_DIR):
         for f in os.listdir(OUT_DIR):
-            if f.endswith('.html'):
+            if f.endswith('.html') and not _gen_pat.match(f):
                 os.remove(os.path.join(OUT_DIR, f))
     os.makedirs(OUT_DIR, exist_ok=True)
 
@@ -895,7 +1001,9 @@ def main():
     build_sitemap(data)
 
     print(f'\nDone! Output is in:  {OUT_DIR}/')
-    print('Deploy: cp output/*.html output/_redirects ../wordineer-deploy/')
+    print('Deploy: copy from template-deploy/output/ (include subfolders e.g. random-words-starting-with/)')
+    print('  cp output/*.html output/_redirects ../wordineer-deploy/')
+    print('  cp -R output/random-words-starting-with ../wordineer-deploy/')
 
 if __name__ == '__main__':
     main()

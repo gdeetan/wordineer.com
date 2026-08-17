@@ -20,7 +20,7 @@ cd template-deploy
 python3 build.py
 ```
 
-Then review the generated files before copying or deploying.
+Then review the generated files in `template-deploy/output/` and copy **from that folder** before deploying. Include output subfolders (for example `template-deploy/output/random-words-starting-with/`). Do not upload pages from `tools-src/`, and do not try to upload the whole `wordineer-deploy/` HTML dump through GitHub’s web UI (it truncates folders at 1,000 files).
 
 ## Coding Style & Naming Conventions
 
@@ -40,4 +40,4 @@ Git history is not available in this checkout, so use short imperative commit me
 
 ## Deployment & Configuration Notes
 
-The site is suitable for Cloudflare Pages with no build command and `/` as the output directory when deploying `wordineer-deploy/`. Preserve `_headers`, `_redirects`, `robots.txt`, and `sitemap.xml` when preparing releases. Avoid committing `.DS_Store` files or temporary generated backups.
+The site is suitable for Cloudflare Pages with no build command and `/` as the output directory when deploying `wordineer-deploy/`. When adding or updating pages on GitHub, upload the built files from `template-deploy/output/` (including subfolders such as `random-words-starting-with/`), then copy those same files into `wordineer-deploy/`. Preserve `_headers`, `_redirects`, `robots.txt`, and `sitemap.xml` when preparing releases. Avoid committing `.DS_Store` files or temporary generated backups.

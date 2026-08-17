@@ -30,6 +30,7 @@ wordineer-deploy/         ← production files (deployed to Cloudflare Pages)
   _redirects              ← canonical URL redirects (www→non-www, .html→trailing-slash)
 
 template-deploy-backup/   ← archived snapshot, do not edit
+  api.html                  ← NOT an active page; ignore it
 ```
 
 **Never edit `wordineer-deploy/` directly.** It is build output. Always edit `template-deploy/tools-src/` and rebuild.
@@ -40,17 +41,25 @@ template-deploy-backup/   ← archived snapshot, do not edit
 
 ## Build & deploy
 
+**Always upload / copy from `template-deploy/output/`.** That folder is the built site. Do not upload pages out of `tools-src/` (source slots) or try to dump the entire `wordineer-deploy/` HTML tree through GitHub’s web UI — GitHub truncates a single folder at 1,000 files. Subfolders under `output/` (for example `template-deploy/output/random-words-starting-with/`) stay well under that cap and are the right path to commit and push.
+
 ```bash
 # 1. Build
 cd template-deploy && python3 build.py
 
-# 2. Copy output to deploy folder
+# 2. Copy from template-deploy/output/ (never from tools-src/)
 cp template-deploy/output/*.html wordineer-deploy/
+cp template-deploy/output/_redirects wordineer-deploy/
+# include output subfolders (letter hubs, etc.)
+cp -R template-deploy/output/random-words-starting-with wordineer-deploy/
 
 # 3. Preview locally (fetch() requires a server — file:// won't work)
 cd wordineer-deploy && python3 -m http.server 8080
 
-# 4. Push → Cloudflare Pages auto-deploys in ~20 seconds
+# 4. Commit the files you copied from output/, then push
+#    git add template-deploy/output/random-words-starting-with wordineer-deploy/random-words-starting-with
+#    git commit && git push
+#    Cloudflare Pages auto-deploys in ~20 seconds
 ```
 
 ---
@@ -84,6 +93,36 @@ Each file in `tools-src/` starts with a `<!-- CONFIG ... -->` block (JSON), foll
 **Slots for `type: content`:** `meta`, `style`, `hero`, `content`
 
 Navigation, mega-menu, tools grids, and footer are injected automatically from `tools.json` — never hardcode them in tool-src files.
+
+---
+
+## FAQ pattern — REQUIRED
+
+Every tool page must use the **JS-driven div pattern** for the `faq` slot. **Never use native `<details>/<summary>`** — the global CSS rule `.faq-a{display:none}` conflicts with it and breaks all FAQ accordions.
+
+```html
+<!-- SLOT:faq -->
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">Question?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Answer.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Question 2?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Answer 2.</p></div>
+  </div>
+</div>
+<!-- /SLOT:faq -->
+```
+
+And the `init` slot must include the toggle JS (append before the closing `</script>`):
+
+```js
+document.querySelectorAll('.faq-q').forEach(function(q){q.addEventListener('click',function(){q.closest('.faq-item').classList.toggle('open');});});
+```
+
+Rules: first item gets class `open`; every `.faq-q` needs the chevron SVG; answers wrap in `<p>` inside `.faq-a`.
 
 ---
 
