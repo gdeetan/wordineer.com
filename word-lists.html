@@ -1,4 +1,4 @@
-<!-- build: 2026-08-17T08:39:46Z -->
+<!-- build: 2026-08-17T08:42:49Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1443,8 +1443,7 @@
       li.setAttribute('role', 'option');
       li.className = 'hub-search__dd-item';
       li.setAttribute('data-href', t.href);
-      li.innerHTML = '<div class="hub-search__dd-item__name">' + t.name.replace(/</g, '&lt;') + '</div>'
-        + (t.desc ? '<div class="hub-search__dd-item__desc">' + t.desc.replace(/</g, '&lt;') + '</div>' : '');
+      li.innerHTML = '<div class="hub-search__dd-item__name">' + t.name.replace(/</g, '&lt;') + '</div>';
       li.addEventListener('mousedown', function(e) {
         e.preventDefault();
         window.location.href = t.href;
