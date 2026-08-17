@@ -1,4 +1,4 @@
-<!-- build: 2026-08-17T04:46:24Z -->
+<!-- build: 2026-08-17T10:44:29Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -95,45 +95,83 @@
   ]
 }
 </script>
-<title>Every Wordle Answer — Searchable Archive + Letter Solver | Wordineer</title>
-<meta name="description" content="Search the complete archive of past Wordle answers by date or word. Use the solver to find remaining possibilities from your known letters and positions.">
-<meta property="og:title" content="Wordle Answer Archive &amp; Solver | Wordineer">
-<meta property="og:description" content="Past Wordle answers searchable by date or word, plus a solver: enter known letters and positions to find all remaining possible answers.">
+<title>Every Past Wordle Answer — Archive, Stats &amp; Dataset | Wordineer</title>
+<meta name="description" content="Search every past Wordle answer by word, date, or puzzle number. Check whether a word has been used, download the CC BY dataset, and see which original-pool words are still unused.">
+<meta property="og:title" content="Every Past Wordle Answer — Archive &amp; Dataset | Wordineer">
+<meta property="og:description" content="1,885 published Wordle answers through August 16, 2026. Searchable archive, has-this-been-used lookup, letter stats, and a CC BY 4.0 CSV.">
 <meta property="og:url" content="https://wordineer.com/wordle-answers">
 <link rel="canonical" href="https://wordineer.com/wordle-answers">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "Wordle Answer Archive and Solver",
+  "@type": "Dataset",
+  "name": "Every past Wordle answer",
   "url": "https://wordineer.com/wordle-answers",
-  "description": "Searchable archive of past Wordle answers and a solver for narrowing down possibilities by known letter positions.",
-  "applicationCategory": "GameApplication",
-  "operatingSystem": "Any",
-  "offers": { "@type": "Offer", "price": "0" }
+  "description": "Dated archive of published daily Wordle answers with puzzle numbers, letter-pattern tags, and an unused-word list from the original 2,315-word pool.",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "creator": { "@type": "Organization", "name": "Wordineer", "url": "https://wordineer.com/" },
+  "temporalCoverage": "2021-06-19/2026-08-16",
+  "keywords": ["Wordle", "Wordle answers", "Wordle archive", "five-letter words"],
+  "distribution": [
+    { "@type": "DataDownload", "encodingFormat": "text/csv", "contentUrl": "https://wordineer.com/assets/wordle-answers.csv" },
+    { "@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "https://wordineer.com/data/wordle-archive.json" }
+  ],
+  "isAccessibleForFree": true
 }
 </script>
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does this include today's Wordle answer?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. The archive and the lookup both hide today's answer. Yesterday and earlier are listed." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the puzzle number?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The puzzle number matches the number in a Wordle share grid (Wordle 1884). It is the number of days since June 19, 2021. CIGAR is Wordle 0." }
+    },
+    {
+      "@type": "Question",
+      "name": "Has Wordle started repeating answers?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. 21 words have appeared twice in this archive, starting in 2026. CIGAR, the first answer, returned as Wordle 1689 on February 2, 2026." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this dataset in an article or project?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. The archive is published under CC BY 4.0. Download the CSV and credit Wordineer (wordineer.com/wordle-answers/)." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this affiliated with the New York Times?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. This is an independent reference compiled from publicly reported daily answers. It is not affiliated with the New York Times or the official Wordle game." }
+    }
+  ]
+}
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
-    { "@type": "ListItem", "position": 2, "name": "Word Tools", "item": "https://wordineer.com/word-tools" },
+    { "@type": "ListItem", "position": 2, "name": "Word Games", "item": "https://wordineer.com/word-games" },
     { "@type": "ListItem", "position": 3, "name": "Wordle Answers", "item": "https://wordineer.com/wordle-answers" }
   ]
 }
 </script>
 <meta property="og:image" content="https://wordineer.com/og-default.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Wordle Answer Archive &amp;amp; Solver">
-<meta name="twitter:description" content="Past Wordle answers searchable by date or word, plus a solver: enter known letters and positions to find all remaining possible answers.">
+<meta name="twitter:title" content="Every Past Wordle Answer — Archive &amp;amp; Dataset">
+<meta name="twitter:description" content="1,885 published Wordle answers through August 16, 2026. Searchable archive, has-this-been-used lookup, letter stats, and a CC BY 4.0 CSV.">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  "name": "Every Wordle Answer — Searchable Archive + Letter Solver",
+  "name": "Every Past Wordle Answer — Archive, Stats &amp; Dataset",
   "url": "https://wordineer.com/wordle-answers",
   "applicationCategory": "GameApplication",
   "operatingSystem": "Web",
@@ -145,46 +183,54 @@
   "publisher": {
     "@id": "https://wordineer.com/#organization"
   },
-  "description": "Search the complete archive of past Wordle answers by date or word. Use the solver to find remaining possibilities from your known letters and positions."
+  "description": "Search every past Wordle answer by word, date, or puzzle number. Check whether a word has been used, download the CC BY dataset, and see which original-pool words are still unused."
 }
 </script>
 <link rel="stylesheet" href="/styles/global.css?v=16">
 <style>
-.wa-wrap { max-width: 960px; margin: 0 auto; padding: 24px 24px 40px; }
+.wa-wrap { max-width: 960px; margin: 0 auto; padding: 8px 24px 40px; }
 .wa-wrap h2, .wa-wrap h3 { font-family: 'DM Serif Display', serif; font-weight: 400; }
-.wa-tabs { display: flex; border-bottom: 2px solid var(--border); margin-bottom: 24px; gap: 0; }
-.wa-tab { padding: 10px 22px; font-size: 14px; font-weight: 600; cursor: pointer; border: none; background: none; color: var(--text-3); font-family: inherit; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: color .15s; }
-.wa-tab.active { color: var(--brand); border-bottom-color: var(--brand); }
-.wa-panel { display: none; }
-.wa-panel.active { display: block; }
-.arch-search { width: 100%; max-width: 380px; padding: 9px 12px; font-size: 14px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg); color: var(--text); font-family: inherit; margin-bottom: 16px; }
-.arch-wrap { max-height: 480px; overflow-y: auto; border: 1px solid var(--border); border-radius: 8px; }
+.wa-kicker { font-size: 12px; color: var(--text-3); margin: 8px 0 0; }
+.wa-lookup { background: var(--bg-2); border: 1px solid var(--border-2); border-radius: 12px; padding: 18px 20px; margin: 8px 0 28px; }
+.wa-lookup label { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--text-3); font-weight: 600; margin-bottom: 8px; }
+.wa-lookup-row { display: flex; gap: 10px; flex-wrap: wrap; }
+.wa-lookup input { flex: 1; min-width: 180px; padding: 10px 12px; font-size: 16px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; border: 1px solid var(--border); border-radius: 8px; background: var(--bg); color: var(--text); font-family: inherit; }
+.wa-lookup-out { margin: 12px 0 0; font-size: 14px; color: var(--text-2); line-height: 1.55; min-height: 1.5em; }
+.wa-lookup-out strong { color: var(--text); letter-spacing: .06em; }
+.wa-yes { color: #157347; }
+.wa-no { color: var(--text); }
+.wa-stat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; margin: 16px 0 28px; }
+.wa-stat-card { background: var(--bg-2); border: 1px solid var(--border-2); border-radius: 10px; padding: 16px 18px; }
+.wa-stat-num { font-size: 2rem; font-weight: 800; color: var(--brand); line-height: 1; margin-bottom: 4px; }
+.wa-stat-label { font-size: 12px; color: var(--text-3); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 6px; }
+.wa-stat-note { font-size: 13px; color: var(--text-2); line-height: 1.4; }
+.wa-freq-table, .wa-mini { width: 100%; border-collapse: collapse; font-size: 13px; margin: 12px 0 24px; }
+.wa-freq-table th, .wa-mini th { text-align: left; padding: 6px 10px; border-bottom: 2px solid var(--border); font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: var(--text-3); }
+.wa-freq-table td, .wa-mini td { padding: 7px 10px; border-bottom: 1px solid var(--border-2); }
+.wa-freq-bar { display: inline-block; height: 10px; background: var(--brand); border-radius: 3px; opacity: .7; vertical-align: middle; margin-left: 6px; }
+.wa-word { font-weight: 700; letter-spacing: .08em; }
+.wa-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 8px; }
+.wa-chip { padding: 6px 12px; background: var(--bg-2); border: 1px solid var(--border); border-radius: 6px; font-size: 13px; font-weight: 700; letter-spacing: .06em; }
+.arch-search { width: 100%; max-width: 380px; padding: 9px 12px; font-size: 14px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg); color: var(--text); font-family: inherit; margin: 0 0 12px; }
+.arch-meta { font-size: 13px; color: var(--text-3); margin: 0 0 10px; }
+.arch-wrap { max-height: 520px; overflow-y: auto; border: 1px solid var(--border); border-radius: 8px; }
 .arch-table { width: 100%; border-collapse: collapse; font-size: 13px; }
 .arch-table th { position: sticky; top: 0; text-align: left; padding: 8px 12px; border-bottom: 2px solid var(--border); color: var(--text-3); font-size: 11px; text-transform: uppercase; letter-spacing: .05em; background: var(--bg); }
 .arch-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-2); }
-.arch-table tr:last-child td { border-bottom: none; }
 .arch-table tr:hover td { background: var(--bg-2); }
-.arch-word { font-weight: 700; letter-spacing: .08em; }
-.solver-intro { font-size: 13px; color: var(--text-2); margin-bottom: 22px; line-height: 1.6; }
-.solver-section { margin-bottom: 20px; }
-.solver-label { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--text-3); font-weight: 600; margin-bottom: 8px; display: block; }
-.pos-inputs { display: flex; gap: 8px; }
-.pos-input { width: 44px; height: 48px; text-align: center; font-size: 20px; font-weight: 700; text-transform: uppercase; border: 2px solid var(--border); border-radius: 8px; background: var(--bg); color: var(--text); font-family: inherit; transition: border-color .15s; }
-.pos-input:focus { border-color: var(--brand); outline: none; }
-.pos-input.filled { border-color: #22c55e; background: #22c55e18; }
-.letter-input { width: 100%; max-width: 300px; padding: 9px 12px; font-size: 15px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg); color: var(--text); font-family: inherit; text-transform: uppercase; }
-.solver-actions { display: flex; gap: 10px; margin-top: 20px; }
-.solve-btn { padding: 10px 24px; background: var(--brand); color: white; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: inherit; }
-.solve-btn:hover { background: var(--brand-dark); }
-.clear-btn { padding: 10px 14px; background: var(--bg-2); border: 1px solid var(--border); border-radius: 8px; font-size: 13px; cursor: pointer; font-family: inherit; color: var(--text-2); }
-.solver-results { margin-top: 22px; }
-.solver-count { font-size: 13px; color: var(--text-3); margin-bottom: 10px; }
-.solver-words { display: flex; flex-wrap: wrap; gap: 8px; }
-.solver-word { padding: 6px 12px; background: var(--bg-2); border: 1px solid var(--border); border-radius: 6px; font-size: 13px; font-weight: 700; letter-spacing: .06em; }
-.explainer h2, .explainer h3 { font-family: 'DM Serif Display', serif; font-weight: 400; }
-.hint-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .75rem; }
-.hint-list li { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: .75rem 1rem; font-size: 1rem; }
-.hint-list li strong { color: #1f2937; }
+.wa-cite-box { background: var(--bg-2); border: 1px solid var(--border-2); border-radius: 12px; padding: 20px 22px; margin: 28px 0; }
+.wa-cite-box h3 { font-size: 14px; font-weight: 700; font-family: inherit; margin: 0 0 10px; }
+.wa-cite-text { font-size: 13px; color: var(--text-2); background: var(--bg); border: 1px solid var(--border-2); border-radius: 8px; padding: 10px 12px; margin-bottom: 12px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; line-height: 1.5; }
+.wa-cite-links { display: flex; gap: 10px; flex-wrap: wrap; }
+.wa-cite-links a { font-size: 13px; font-weight: 600; color: var(--brand); text-decoration: none; padding: 6px 14px; border: 1px solid var(--brand); border-radius: 999px; }
+.wa-cite-links a:hover { background: var(--brand); color: #fff; }
+.wa-updates { font-size: 14px; color: var(--text-2); }
+.wa-updates li { margin: 6px 0; }
+.wa-cta { background: var(--brand-light); border: 1px solid rgba(74,63,212,0.2); border-radius: 12px; padding: 20px 22px; text-align: center; margin: 28px 0 8px; }
+.wa-cta p { font-size: 14px; color: var(--text-2); margin: 0 0 12px; }
+.wa-disclaimer { font-size: 13px; color: var(--text-3); line-height: 1.5; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+@media (max-width: 700px) { .two-col { grid-template-columns: 1fr; } }
 </style>
 </head>
 
@@ -292,68 +338,76 @@
   </div>
 </div>
 <div class="hero">
-  <h1>Every Wordle Answer — Archive &amp; Solver</h1>
-  <p>Search past Wordle answers by date or word. Use the Solver to narrow down remaining possibilities from your guesses.</p>
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Complete archive · CC BY 4.0 · Updated <span id="wa-updated">August 16, 2026</span>
+  </div>
+  <h1>Every past Wordle answer</h1>
+  <p>A searchable archive of every published daily Wordle, from CIGAR (#0, June 19, 2021) through yesterday. Check whether a word has been used, then download the dataset.</p>
+  <p class="wa-kicker" style="max-width:720px;margin:10px auto 0;text-align:center">Built by Garrick Dee · Independent of the New York Times · Today's answer is hidden</p>
 </div>
 <div class="wa-wrap">
-  <div class="wa-tabs">
-    <button class="wa-tab active" data-panel="archive">Past Answers</button>
-    <button class="wa-tab" data-panel="solver">Solver</button>
-    <button class="wa-tab" data-panel="hints">Today's Hints</button>
+  <div class="wa-lookup" id="wa-lookup">
+    <label for="wa-check">Has this word been a Wordle answer?</label>
+    <div class="wa-lookup-row">
+      <input id="wa-check" maxlength="5" autocomplete="off" spellcheck="false" placeholder="TYPE A WORD" aria-describedby="wa-check-out">
+    </div>
+    <div class="wa-lookup-out" id="wa-check-out">Enter any 5-letter word. Today's answer stays hidden.</div>
   </div>
 
-  <div class="wa-panel active" id="panel-archive">
-    <input class="arch-search" id="arch-search" placeholder="Search by word or date (e.g. 2021-12 or PANIC)…">
-    <div class="arch-wrap">
-      <table class="arch-table">
-        <thead><tr><th>Date</th><th>Answer</th><th>Puzzle #</th></tr></thead>
-        <tbody id="arch-tbody"></tbody>
-      </table>
+  <h2>Key findings</h2>
+  <p style="font-size:14px;color:var(--text-2);margin:0 0 8px">Measured across 1,885 published answers through August 16, 2026. Figures update when yesterday's word is added.</p>
+  <div class="wa-stat-grid">
+    <div class="wa-stat-card">
+      <div class="wa-stat-num">1,885</div>
+      <div class="wa-stat-label">Published answers</div>
+      <div class="wa-stat-note">1,864 unique words. 21 have been used twice.</div>
+    </div>
+    <div class="wa-stat-card">
+      <div class="wa-stat-num">499</div>
+      <div class="wa-stat-label">Still unused</div>
+      <div class="wa-stat-note">Of the original 2,315-word pool. NYT may never use some of these.</div>
+    </div>
+    <div class="wa-stat-card">
+      <div class="wa-stat-num">31.1%</div>
+      <div class="wa-stat-label">Have a repeated letter</div>
+      <div class="wa-stat-note">587 answers. Double letters are the usual complaint magnet.</div>
+    </div>
+    <div class="wa-stat-card">
+      <div class="wa-stat-num">1.5%</div>
+      <div class="wa-stat-label">End in S</div>
+      <div class="wa-stat-note">Only 28 answers. Wardle avoided easy plurals; that pattern still holds.</div>
+    </div>
+    <div class="wa-stat-card">
+      <div class="wa-stat-num">S / E</div>
+      <div class="wa-stat-label">Most common edges</div>
+      <div class="wa-stat-note">281 answers start with S. 377 end with E. Only 2 start with Z.</div>
+    </div>
+    <div class="wa-stat-card">
+      <div class="wa-stat-num">JAZZY</div>
+      <div class="wa-stat-label">Hardest so far</div>
+      <div class="wa-stat-note">#712, June 1, 2023. Double Z, starts with J, one vowel.</div>
     </div>
   </div>
 
-  <div class="wa-panel" id="panel-solver">
-    <p class="solver-intro">Enter what you know from your guesses. Positions 1–5 left to right. Leave empty if unknown.</p>
-
-    <div class="solver-section">
-      <span class="solver-label">Correct position (green tiles) — one letter per box</span>
-      <div class="pos-inputs">
-        <input class="pos-input" id="p0" maxlength="1" placeholder="1">
-        <input class="pos-input" id="p1" maxlength="1" placeholder="2">
-        <input class="pos-input" id="p2" maxlength="1" placeholder="3">
-        <input class="pos-input" id="p3" maxlength="1" placeholder="4">
-        <input class="pos-input" id="p4" maxlength="1" placeholder="5">
-      </div>
-    </div>
-
-    <div class="solver-section">
-      <span class="solver-label">Letters in word but wrong position (yellow tiles)</span>
-      <input class="letter-input" id="yellow-letters" maxlength="10" placeholder="e.g. ART">
-    </div>
-
-    <div class="solver-section">
-      <span class="solver-label">Letters not in word (gray tiles)</span>
-      <input class="letter-input" id="gray-letters" maxlength="26" placeholder="e.g. ESOIN">
-    </div>
-
-    <div class="solver-actions">
-      <button class="solve-btn" id="solve-btn">Find Possibilities</button>
-      <button class="clear-btn" id="clear-btn">Clear All</button>
-    </div>
-
-    <div class="solver-results" id="solver-results"></div>
-  </div>
-
-  <div class="wa-panel" id="panel-hints">
-    <div id="hints-loading" style="color:#6b7280;padding:1rem 0">Loading today's hint…</div>
-    <div id="hints-content" style="display:none">
-      <p style="font-size:.85rem;color:#6b7280;margin-bottom:1rem">Puzzle <strong id="hint-num"></strong> · <span id="hint-date"></span></p>
-      <ul class="hint-list" id="hint-list"></ul>
-      <p style="font-size:.8rem;color:#9ca3af;margin-top:1.5rem">Hints don't reveal the answer — use the Solver tab to narrow it down.</p>
-    </div>
-    <div id="hints-unavailable" style="display:none;color:#6b7280;padding:1rem 0">
-      Today's puzzle isn't in our archive yet. Check back after the answer is released.
-    </div>
+  <h2 id="archive">Past answers</h2>
+  <p style="font-size:14px;color:var(--text-2)">Search by word, date (<code>2024-03</code>), or puzzle number (<code>1884</code> or <code>#0</code>). Newest first. Today's row is omitted.</p>
+  <input class="arch-search" id="arch-search" placeholder="Search CIGAR, 2022-03, or #712…">
+  <p class="arch-meta" id="arch-count">1,885 answers through August 16, 2026. Yesterday: ASPIC (#1884).</p>
+  <div class="arch-wrap">
+    <table class="arch-table" aria-label="Past Wordle answers">
+      <thead><tr><th>Date</th><th>Answer</th><th>Puzzle #</th></tr></thead>
+      <tbody id="arch-tbody">
+        <tr><td>2026-08-16</td><td class="wa-word">ASPIC</td><td>#1884</td></tr>
+        <tr><td>2026-08-15</td><td class="wa-word">LOOSE</td><td>#1883</td></tr>
+        <tr><td>2026-08-14</td><td class="wa-word">GEODE</td><td>#1882</td></tr>
+        <tr><td>2026-08-13</td><td class="wa-word">CRASH</td><td>#1881</td></tr>
+        <tr><td>2026-08-12</td><td class="wa-word">WIMPY</td><td>#1880</td></tr>
+        <tr><td>2026-08-11</td><td class="wa-word">FENCE</td><td>#1879</td></tr>
+        <tr><td>2026-08-10</td><td class="wa-word">SNIPE</td><td>#1878</td></tr>
+        <tr><td>2026-08-09</td><td class="wa-word">CLUNK</td><td>#1877</td></tr>
+      </tbody>
+    </table>
   </div>
 </div>
 <div class="content-wrap" style="margin-top:32px">
@@ -390,119 +444,161 @@
     </div>
   </div>
 <section class="explainer">
-  <h2>How the solver works</h2>
-  <p>Enter green letters in the position boxes, yellow letters in "Letters in word," and gray letters in "Not in word." Click Find Possibilities to see all matching words from the full Wordle guess dictionary (~12,000 valid words). This includes both likely answers and valid tactical guesses.</p>
-  <p>The archive lists past Wordle answers only (the ~2,300 word answer pool). Today's answer is not shown — use the archive after you've played to check your result.</p>
-  <p>Need help choosing a starting word? See our <a href="/best-wordle-starting-words">entropy-ranked list of best Wordle starting words</a> — original analysis with a 10,000-game benchmark. Or use the <a href="/wordle-helper">Wordle Helper</a> to get the optimal next guess for any active game.</p>
+  <h2>How this archive is compiled</h2>
+  <p>Each row is a publicly reported daily Wordle: calendar date, the five-letter answer, and the official share number (days since June 19, 2021). CIGAR is Wordle 0. Today's answer is withheld so the page stays a reference, not a spoiler farm.</p>
+  <p>This is not the New York Times' official list, and it is not affiliated with NYT Games. After the 2022 acquisition the Times removed a small number of upcoming words. Third-party archives can disagree on a handful of early dates; we use the share-number convention and keep a changelog when a row is corrected.</p>
+  <p>Need a next guess, not a history lesson? Use the <a href="/wordle-helper">Wordle Helper</a>. For openers, see the <a href="/best-wordle-starting-words">entropy ranking of starting words</a>.</p>
 
-  <h2>Wordle history, briefly</h2>
-  <p>Josh Wardle built Wordle as a private toy for his partner in late 2020. She likes word games; he's a software engineer. He made it public in October 2021 and watched it go from ~90 daily players to over 300,000 in a matter of weeks — almost entirely through people sharing those colored emoji grids on Twitter without explanation.</p>
-  <p>The New York Times acquired it in January 2022 for a price reported to be in the low seven figures. Wardle said he was surprised by that outcome. The NYT moved the game to its own domain and has maintained the daily puzzle format, though it quietly updated the answer list to remove some words it considered too obscure or potentially offensive. About a dozen early answers were swapped out, which is why some third-party archives show slight discrepancies depending on when they were compiled.</p>
-  <p>The original answer list was pre-selected and ordered by Wardle and his partner — they went through a word frequency list and picked ~2,300 words they considered fair game for most English speakers. The list excludes proper nouns, plurals that feel trivial (like SHOWS or BOOKS), and words that require specialized knowledge. It's not algorithmically generated; someone actually sat down and curated it.</p>
-
-  <h2>What the answer pool looks like</h2>
-  <p>The ~2,300 answer words follow a few patterns worth knowing if you're trying to improve your solve rate:</p>
-  <style>
-  .wa-stat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; margin: 20px 0 28px; }
-  .wa-stat-card { background: var(--bg-2); border: 1px solid var(--border-2); border-radius: 10px; padding: 16px 18px; }
-  .wa-stat-num { font-size: 2rem; font-weight: 800; color: var(--brand); line-height: 1; margin-bottom: 4px; }
-  .wa-stat-label { font-size: 12px; color: var(--text-3); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 6px; }
-  .wa-stat-note { font-size: 13px; color: var(--text-2); line-height: 1.4; }
-  .wa-freq-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 16px 0 28px; }
-  .wa-freq-table th { text-align: left; padding: 6px 10px; border-bottom: 2px solid var(--border); font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: var(--text-3); }
-  .wa-freq-table td { padding: 7px 10px; border-bottom: 1px solid var(--border-2); }
-  .wa-freq-table tr:last-child td { border-bottom: none; }
-  .wa-freq-bar { display: inline-block; height: 10px; background: var(--brand); border-radius: 3px; opacity: .7; vertical-align: middle; margin-left: 6px; }
-  </style>
-  <div class="wa-stat-grid">
-    <div class="wa-stat-card">
-      <div class="wa-stat-num">~2,300</div>
-      <div class="wa-stat-label">Answer pool size</div>
-      <div class="wa-stat-note">The original pre-selected list before NYT removed a small number of words</div>
+  <div class="two-col">
+    <div>
+      <h3>Hardest answers (letter rarity)</h3>
+      <p>Scored from this archive's own letter frequencies, plus penalties for repeats, J/Q/X/Z/V/K, and one-vowel words. Relative ranking, not NYT's official difficulty.</p>
+      <table class="wa-mini">
+        <thead><tr><th>Word</th><th>Date</th><th>#</th></tr></thead>
+        <tbody>
+          <tr><td class="wa-word">JAZZY</td><td>2023-06-01</td><td>712</td></tr>
+          <tr><td class="wa-word">FUZZY</td><td>2025-02-28</td><td>1350</td></tr>
+          <tr><td class="wa-word">FIZZY</td><td>2026-04-01</td><td>1747</td></tr>
+          <tr><td class="wa-word">DIZZY</td><td>2026-02-27</td><td>1714</td></tr>
+          <tr><td class="wa-word">JIFFY</td><td>2024-07-12</td><td>1119</td></tr>
+          <tr><td class="wa-word">TIZZY</td><td>2025-07-21</td><td>1493</td></tr>
+          <tr><td class="wa-word">PIZZA</td><td>2026-07-04</td><td>1841</td></tr>
+          <tr><td class="wa-word">JUMPY</td><td>2025-07-10</td><td>1482</td></tr>
+        </tbody>
+      </table>
     </div>
-    <div class="wa-stat-card">
-      <div class="wa-stat-num">~12,000</div>
-      <div class="wa-stat-label">Valid guesses</div>
-      <div class="wa-stat-note">Any 5-letter word Wordle accepts — much larger than the answer set</div>
-    </div>
-    <div class="wa-stat-card">
-      <div class="wa-stat-num">~72%</div>
-      <div class="wa-stat-label">Have exactly 2 vowels</div>
-      <div class="wa-stat-note">CVCVC and CCVCC patterns dominate the answer pool</div>
-    </div>
-    <div class="wa-stat-card">
-      <div class="wa-stat-num">~8%</div>
-      <div class="wa-stat-label">Have repeated letters</div>
-      <div class="wa-stat-note">Less common than you'd expect — most answers use 5 distinct letters</div>
+    <div>
+      <h3>Easiest answers</h3>
+      <p>Common letters, no doubles, familiar shapes. ALTER / ALERT / LATER are the same five letters.</p>
+      <table class="wa-mini">
+        <thead><tr><th>Word</th><th>Date</th><th>#</th></tr></thead>
+        <tbody>
+          <tr><td class="wa-word">ALTER</td><td>2023-01-20</td><td>580</td></tr>
+          <tr><td class="wa-word">ALERT</td><td>2025-03-06</td><td>1356</td></tr>
+          <tr><td class="wa-word">LATER</td><td>2025-09-19</td><td>1553</td></tr>
+          <tr><td class="wa-word">IRATE</td><td>2023-07-04</td><td>745</td></tr>
+          <tr><td class="wa-word">STARE</td><td>2024-12-30</td><td>1290</td></tr>
+          <tr><td class="wa-word">LASER</td><td>2024-04-22</td><td>1038</td></tr>
+          <tr><td class="wa-word">ERASE</td><td>2025-12-10</td><td>1635</td></tr>
+          <tr><td class="wa-word">RAISE</td><td>2024-04-19</td><td>1035</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 
-  <h3>Most common letters in Wordle answers</h3>
-  <p>Across the full answer pool, these are the most frequently appearing letters. Position matters too — E, A, and R appear across all five spots, while S almost never ends a Wordle answer (Wardle deliberately avoided it because it makes plurals too easy).</p>
+  <h3>Most common letters in published answers</h3>
   <table class="wa-freq-table">
-    <thead><tr><th>Letter</th><th>Approx. frequency</th><th></th></tr></thead>
+    <thead><tr><th>Letter</th><th>Share of all letters</th><th></th></tr></thead>
     <tbody>
-      <tr><td><strong>E</strong></td><td>~11%</td><td><span class="wa-freq-bar" style="width:90px"></span></td></tr>
-      <tr><td><strong>A</strong></td><td>~9%</td><td><span class="wa-freq-bar" style="width:74px"></span></td></tr>
-      <tr><td><strong>R</strong></td><td>~8%</td><td><span class="wa-freq-bar" style="width:66px"></span></td></tr>
-      <tr><td><strong>O</strong></td><td>~7.5%</td><td><span class="wa-freq-bar" style="width:61px"></span></td></tr>
-      <tr><td><strong>T</strong></td><td>~7%</td><td><span class="wa-freq-bar" style="width:57px"></span></td></tr>
-      <tr><td><strong>L</strong></td><td>~6.5%</td><td><span class="wa-freq-bar" style="width:53px"></span></td></tr>
-      <tr><td><strong>I</strong></td><td>~6.5%</td><td><span class="wa-freq-bar" style="width:53px"></span></td></tr>
-      <tr><td><strong>S</strong></td><td>~6%</td><td><span class="wa-freq-bar" style="width:49px"></span></td></tr>
-      <tr><td><strong>N</strong></td><td>~5.5%</td><td><span class="wa-freq-bar" style="width:45px"></span></td></tr>
-      <tr><td><strong>C</strong></td><td>~4.5%</td><td><span class="wa-freq-bar" style="width:37px"></span></td></tr>
+      <tr><td><strong>E</strong></td><td>10.83%</td><td><span class="wa-freq-bar" style="width:90px"></span></td></tr>
+      <tr><td><strong>A</strong></td><td>8.68%</td><td><span class="wa-freq-bar" style="width:72px"></span></td></tr>
+      <tr><td><strong>R</strong></td><td>7.59%</td><td><span class="wa-freq-bar" style="width:63px"></span></td></tr>
+      <tr><td><strong>O</strong></td><td>6.69%</td><td><span class="wa-freq-bar" style="width:56px"></span></td></tr>
+      <tr><td><strong>T</strong></td><td>6.47%</td><td><span class="wa-freq-bar" style="width:54px"></span></td></tr>
+      <tr><td><strong>L</strong></td><td>6.26%</td><td><span class="wa-freq-bar" style="width:52px"></span></td></tr>
+      <tr><td><strong>I</strong></td><td>5.73%</td><td><span class="wa-freq-bar" style="width:48px"></span></td></tr>
+      <tr><td><strong>S</strong></td><td>5.52%</td><td><span class="wa-freq-bar" style="width:46px"></span></td></tr>
     </tbody>
   </table>
-  <p>This is why CRANE, RAISE, SLATE, and STARE became popular opening words — they hit the highest-frequency letters across good positions. That said, none of them guarantee a fast solve. The variance in Wordle outcomes is high enough that starting word matters less than most players think.</p>
+  <p>Position matters. The most common letter in each slot is <strong>S _ A E E</strong> (S first, O second, A third, E fourth, E last). That is why CRANE, SLATE, and STARE keep showing up as openers — they hit this distribution, not because any one of them is magic. See the <a href="/best-wordle-starting-words">starting-word ranking</a> for the entropy numbers.</p>
 
-  <h2>Some notable past answers</h2>
-  <p>Most Wordle answers pass without much comment. A few created genuine conversation:</p>
-  <ul>
-    <li><strong>KNOLL</strong> (Puzzle #258, March 9, 2022) — Double L plus the uncommon KN combination made this one of the more complained-about early answers on social media.</li>
-    <li><strong>VIVID</strong> (Puzzle #245, Feb 24, 2022) — Two V's in a five-letter word is unusual enough that many players burned guesses on the second V position.</li>
-    <li><strong>TAPIR</strong> (Puzzle #306, April 26, 2022) — A tapir is a large mammal. Legitimate word; several players claimed never to have heard it. Wordle doesn't care.</li>
-    <li><strong>JAUNT</strong> (Puzzle #335, May 25, 2022) — No complaints; just a nice, clean word that most players got in 3.</li>
-    <li><strong>ULCER</strong> (Puzzle #424, Aug 22, 2022) — U as the first letter is less common than A, E, or I, which caught a few players off guard.</li>
-    <li><strong>CAULK</strong> (Puzzle #421, Aug 19, 2022) — Pronunciation isn't obvious from spelling, which doesn't matter for Wordle but it was widely noted anyway.</li>
+  <h3>Words that have been used twice</h3>
+  <p>NYT began recycling. 21 answers in this file have appeared on two different dates. CIGAR came back as #1689 on February 2, 2026. The lookup above reports both dates.</p>
+  <table class="wa-mini">
+    <thead><tr><th>Word</th><th>First</th><th>Again</th></tr></thead>
+    <tbody>
+      <tr><td class="wa-word">FEIGN</td><td>#19 · 2021-07-08</td><td>#1875 · 2026-08-07</td></tr>
+      <tr><td class="wa-word">GRIPE</td><td>#187 · 2021-12-23</td><td>#1874 · 2026-08-06</td></tr>
+      <tr><td class="wa-word">CIGAR</td><td>#0 · 2021-06-19</td><td>#1689 · 2026-02-02</td></tr>
+      <tr><td class="wa-word">AWAKE</td><td>#4 · 2021-06-23</td><td>#1708 · 2026-02-21</td></tr>
+      <tr><td class="wa-word">SMILE</td><td>#830 · 2023-09-27</td><td>#1806 · 2026-05-30</td></tr>
+    </tbody>
+  </table>
+  <p>The full repeat list is in the CSV (<code>word</code> will appear on two rows).</p>
+
+  <h3>Still unused from the original pool</h3>
+  <p>Josh Wardle's original answer list had 2,315 words. 499 of those have not appeared yet. NYT also <strong>added 48 answers that were not on the original list</strong> — EMOJI, ASPIC, and GIZMO among them. A few unused originals may never run; the Times dropped words after the acquisition.</p>
+  <div class="wa-chips" id="unused-chips">
+    <span class="wa-chip">ABLED</span><span class="wa-chip">ABODE</span><span class="wa-chip">ABORT</span><span class="wa-chip">ABUSE</span><span class="wa-chip">ADORN</span><span class="wa-chip">AFIRE</span><span class="wa-chip">AGORA</span><span class="wa-chip">ALGAE</span><span class="wa-chip">AMITY</span><span class="wa-chip">ANIME</span><span class="wa-chip">APNEA</span><span class="wa-chip">ARENA</span><span class="wa-chip">AROSE</span><span class="wa-chip">ARSON</span><span class="wa-chip">AUGUR</span><span class="wa-chip">AXIAL</span><span class="wa-chip">BAGGY</span><span class="wa-chip">BASAL</span><span class="wa-chip">BEECH</span><span class="wa-chip">BERRY</span>
+  </div>
+  <p><a href="/assets/wordle-answers-unused.csv" download>Download all 499 unused words (CSV)</a></p>
+
+  <div class="wa-cite-box" id="cite">
+    <h3>Cite or download this dataset</h3>
+    <div class="wa-cite-text">Wordineer (2026). Every past Wordle answer — searchable archive and dataset. https://wordineer.com/wordle-answers/</div>
+    <div class="wa-cite-links">
+      <a href="/assets/wordle-answers.csv" download>Download CSV (1,885 rows)</a>
+      <a href="/data/wordle-archive.json" download>Download JSON</a>
+      <a href="/assets/wordle-answers-unused.csv" download>Unused words CSV</a>
+      <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0 license</a>
+    </div>
+  </div>
+
+  <h3>Updates</h3>
+  <ul class="wa-updates">
+    <li><strong>August 17, 2026</strong> — Rebuilt as a complete dated archive (CIGAR #0 through ASPIC #1884), with lookup, letter stats, unused-word list, and CC BY downloads. Removed the 139-row stub and the on-page solver; use the <a href="/wordle-helper">Wordle Helper</a> for live guesses.</li>
+    <li><strong>June 2026</strong> — First public version of /wordle-answers/ (incomplete early-2021/22 sample).</li>
   </ul>
-  <p>One recurring pattern: double-letter answers always generate more complaints, regardless of how common the word is. ROBOT (no doubles) gets a different reception than ABBEY (double B), even if both are fair five-letter words.</p>
+
+  <div class="wa-cta">
+    <p>Stuck on today's puzzle? The helper ranks the next guess by information gained — it does not reveal the answer.</p>
+    <a href="/wordle-helper" class="gen-btn">Open the Wordle Helper →</a>
+  </div>
+  <p class="wa-disclaimer">Wordle is a trademark of the New York Times. Wordineer is an independent site and is not affiliated with, endorsed by, or sponsored by the New York Times.</p>
 </section>
 
 <div class="faq">
   <h2 class="faq-title">Frequently asked questions</h2>
   <div class="faq-item open">
     <div class="faq-q"><span class="faq-q-text">Does this include today's Wordle answer?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">No. The archive shows past answers only (yesterday and earlier). This lets you use the solver and look up puzzle history without accidentally seeing today's answer before you play.</div>
-  </div>
-  <div class="faq-item">
-    <div class="faq-q"><span class="faq-q-text">Why does the solver show words not in the archive?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Wordle accepts about 12,000 valid English words as guesses, but only about 2,300 are in the answer pool. The solver searches all valid guesses — useful for tactical plays. Past Wordle answers all came from the smaller answer pool.</div>
+    <div class="faq-a"><p>No. The table and the lookup both hide today's answer. Yesterday and earlier are listed so you can check a streak argument or a shared grid without spoiling a puzzle you have not played.</p></div>
   </div>
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">What is the puzzle number?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Wordle started on June 19, 2021 as Puzzle #1. Each day is a new consecutive number. The archive table shows the puzzle number for each past answer so you can find a specific game by date or number.</div>
+    <div class="faq-a"><p>It matches the number in a Wordle share grid — "Wordle 1884." That number is days since June 19, 2021. CIGAR is Wordle 0. Some sites count CIGAR as #1; we follow the share text so a screenshot lines up with this table.</p></div>
   </div>
   <div class="faq-item">
-    <div class="faq-q"><span class="faq-q-text">Did the NYT change the answers when it bought Wordle?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Yes, but only a small number. After acquiring Wordle in January 2022, the NYT removed about a dozen words from the upcoming answer list — words it judged as too obscure, potentially offensive, or too politically charged for the moment. FETUS was swapped out in May 2022 (the same week Roe v. Wade was overturned), for example. The NYT maintains it only adjusts words that haven't appeared yet. Some third-party archives compiled before the move reflect the original Wardle list; others show the NYT version.</div>
+    <div class="faq-q"><span class="faq-q-text">Has Wordle started repeating answers?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Yes. 21 words in this archive appear twice. Recycling shows up in 2026 — CIGAR returned as #1689 on February 2. The lookup reports both dates when a word has been reused.</p></div>
   </div>
   <div class="faq-item">
-    <div class="faq-q"><span class="faq-q-text">How many guesses does the average player need?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Based on published NYT statistics and player-reported data, the median solve is around 4 guesses for regular players. The distribution is roughly: 3% in 1 (usually a guess or re-used answer from another source), ~8% in 2, ~25% in 3, ~35% in 4, ~20% in 5, ~7% in 6, and ~2% failures. Words with unusual letter patterns or double letters push the average higher.</div>
+    <div class="faq-q"><span class="faq-q-text">How many original-list words are still unused?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>499 of the original 2,315-word pool have not appeared yet. NYT removed a small number of upcoming answers after buying Wordle, so a few remaining words may never run. Download the unused CSV to see the full set.</p></div>
   </div>
   <div class="faq-item">
-    <div class="faq-q"><span class="faq-q-text">Are there any words that will never be a Wordle answer?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Yes. Proper nouns (PARIS, TRUMP) are excluded. Plurals formed by adding S to a common four-letter word (BOOKS, GAMES) were largely avoided, which is why the answer list caps S-ending words — Wardle didn't want easy answers. Highly obscure words, profanity, and words the NYT considers too loaded for a daily puzzle are also excluded. The valid guess list (~12,000 words) is much broader and includes many words that will never appear as daily answers.</div>
+    <div class="faq-q"><span class="faq-q-text">Can I use this data in an article or project?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Yes. The dataset is <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> — free to use with attribution to Wordineer (<a href="https://wordineer.com/wordle-answers">wordineer.com/wordle-answers/</a>). The CSV and JSON are in the cite box above.</p></div>
   </div>
   <div class="faq-item">
-    <div class="faq-q"><span class="faq-q-text">What's a good Wordle strategy?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Start with a word that covers E, A, R, O, and T — letters that appear most frequently across the answer pool. CRANE, RAISE, and STARE are popular because they hit several of these in useful positions. After two guesses, use the process of elimination: if you have 3 confirmed letters, don't waste guess 3 on a word that repeats confirmed letters — try a word that tests 5 new unknowns. Save the solver for when you're stuck with 2–3 guesses left and multiple equally likely options.</div>
+    <div class="faq-q"><span class="faq-q-text">Is this affiliated with the New York Times?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>No. This is an independent reference compiled from publicly reported daily answers. It is not affiliated with, endorsed by, or sponsored by the New York Times.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Where should I go if I want a solver?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Use the <a href="/wordle-helper">Wordle Helper</a>. It ranks the next guess by Shannon entropy. This page is the historical record, not a live solver.</p></div>
+  </div>
+</div>
+
+<div>
+  <h2 class="section-title" style="margin-bottom:14px">Who uses this archive</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">Journalists &amp; recap writers</div><div class="uc-body">Need yesterday's word, a "has this been used?" check, or a stat for a brutal puzzle? The CSV, cite line, and key findings are meant to be lifted with attribution.</div></div>
+    <div class="uc"><div class="uc-title">Players settling arguments</div><div class="uc-body">Search a word or a share-grid number. If it has run twice, both dates show up. Today's answer stays hidden.</div></div>
+    <div class="uc"><div class="uc-title">Developers</div><div class="uc-body">JSON and CSV under CC BY 4.0. Puzzle numbers match the official share text. Add a day with <code>build_wordle_archive.py --add</code>.</div></div>
+    <div class="uc"><div class="uc-title">Teachers</div><div class="uc-body">A dated word list with letter-pattern tags is a concrete dataset for frequency, recycling, and "why S almost never ends a Wordle."</div></div>
   </div>
 </div>
 
 
-
+<div class="related-tools">
+  <h3 class="related-title">Related tools &amp; guides</h3>
+  <div class="related-links">
+    <a class="related-link" href="/wordle-helper">Wordle Helper — free solver</a>
+    <a class="related-link" href="/best-wordle-starting-words">best Wordle starting words, ranked</a>
+    <a class="related-link" href="/wordle-answer-today">today's Wordle answer — hints + full reveal</a>
+    <a class="related-link" href="/common-5-letter-words">common 5-letter words analyzed</a>
+  </div>
+</div>
 
 </div>
 
@@ -582,135 +678,101 @@
 
 <script>
 (function(){
-  var ARCHIVE = [], GUESSES = [];
-  var START = new Date('2021-06-19');
+  var ARCHIVE = [];
+  var UNUSED = {};
 
-  function puzzleNum(dateStr) {
-    var d = new Date(dateStr);
-    return Math.round((d - START) / 86400000) + 1;
+  function todayStr() {
+    var d = new Date();
+    var m = String(d.getMonth() + 1).padStart(2, '0');
+    var day = String(d.getDate()).padStart(2, '0');
+    return d.getFullYear() + '-' + m + '-' + day;
   }
 
-  // Tabs
-  document.querySelectorAll('.wa-tab').forEach(function(tab) {
-    tab.addEventListener('click', function() {
-      document.querySelectorAll('.wa-tab,.wa-panel').forEach(function(el) { el.classList.remove('active'); });
-      tab.classList.add('active');
-      document.getElementById('panel-' + tab.dataset.panel).classList.add('active');
-    });
-  });
+  function published(rows) {
+    var t = todayStr();
+    return rows.filter(function(r) { return r.date < t && r.word; });
+  }
 
-  // Archive
   function renderArchive(rows) {
-    document.getElementById('arch-tbody').innerHTML = rows.map(function(r) {
-      return '<tr><td>' + r.date + '</td><td class="arch-word">' + r.word + '</td><td>#' + puzzleNum(r.date) + '</td></tr>';
+    var tb = document.getElementById('arch-tbody');
+    tb.innerHTML = rows.map(function(r) {
+      return '<tr><td>' + r.date + '</td><td class="wa-word">' + r.word + '</td><td>#' + r.num + '</td></tr>';
     }).join('');
+  }
+
+  function setCount(n, latest) {
+    var el = document.getElementById('arch-count');
+    if (!el) return;
+    var extra = latest ? ' Yesterday: ' + latest.word + ' (#' + latest.num + ').' : '';
+    el.textContent = n.toLocaleString() + ' published answers.' + extra;
   }
 
   document.getElementById('arch-search').addEventListener('input', function() {
-    var q = this.value.trim().toLowerCase();
-    renderArchive(ARCHIVE.filter(function(r) {
-      return !q || r.word.toLowerCase().indexOf(q) !== -1 || r.date.indexOf(q) !== -1;
-    }));
+    var q = this.value.trim().toLowerCase().replace(/^#/, '');
+    var rows = published(ARCHIVE);
+    if (q) {
+      rows = rows.filter(function(r) {
+        return r.word.toLowerCase().indexOf(q) !== -1
+          || r.date.indexOf(q) !== -1
+          || String(r.num) === q;
+      });
+    }
+    renderArchive(rows);
   });
 
-  // Position inputs auto-advance
-  document.querySelectorAll('.pos-input').forEach(function(el, i, arr) {
-    el.addEventListener('input', function() {
-      el.value = el.value.slice(-1).toUpperCase();
-      el.classList.toggle('filled', el.value.length > 0);
-      if (el.value && arr[i+1]) arr[i+1].focus();
-    });
-  });
-
-  // Solver
-  function solve() {
-    var positions = [0,1,2,3,4].map(function(i) { return document.getElementById('p'+i).value.toLowerCase(); });
-    var yellow = document.getElementById('yellow-letters').value.toLowerCase().replace(/[^a-z]/g,'').split('').filter(Boolean);
-    var grayStr = document.getElementById('gray-letters').value.toLowerCase().replace(/[^a-z]/g,'');
-    var gray = new Set(grayStr.split('').filter(Boolean));
-
-    var results = GUESSES.filter(function(w) {
-      for (var i = 0; i < 5; i++) {
-        if (positions[i] && w[i] !== positions[i]) return false;
-      }
-      for (var j = 0; j < yellow.length; j++) {
-        if (w.indexOf(yellow[j]) === -1) return false;
-      }
-      for (var c of gray) {
-        var inGreen = positions.indexOf(c) !== -1;
-        var inYellow = yellow.indexOf(c) !== -1;
-        if (!inGreen && !inYellow && w.indexOf(c) !== -1) return false;
-      }
-      return true;
-    });
-
-    var el = document.getElementById('solver-results');
-    if (!results.length) {
-      el.innerHTML = '<p style="color:var(--text-3);font-size:13px">No matches. Check your inputs — letters in green positions should not also be in the gray list.</p>';
+  function lookup() {
+    var raw = document.getElementById('wa-check').value.toUpperCase().replace(/[^A-Z]/g, '');
+    var out = document.getElementById('wa-check-out');
+    if (!raw) {
+      out.innerHTML = 'Enter any 5-letter word. Today\'s answer stays hidden.';
       return;
     }
-    el.innerHTML = '<div class="solver-count">' + results.length.toLocaleString() + ' possible word' + (results.length===1?'':'s') + '</div>' +
-      '<div class="solver-words">' +
-      results.slice(0,120).map(function(w) { return '<span class="solver-word">' + w.toUpperCase() + '</span>'; }).join('') +
-      (results.length > 120 ? '<span style="font-size:12px;color:var(--text-3);align-self:center">…and ' + (results.length-120) + ' more. Add more constraints to narrow down.</span>' : '') +
-      '</div>';
-  }
-
-  document.getElementById('solve-btn').addEventListener('click', solve);
-  document.getElementById('gray-letters').addEventListener('keydown', function(e) { if (e.key === 'Enter') solve(); });
-
-  document.getElementById('clear-btn').addEventListener('click', function() {
-    document.querySelectorAll('.pos-input').forEach(function(el) { el.value=''; el.classList.remove('filled'); });
-    document.getElementById('yellow-letters').value = '';
-    document.getElementById('gray-letters').value = '';
-    document.getElementById('solver-results').innerHTML = '';
-  });
-
-  // Hints
-  function initHints(archive) {
-    var todayStr = new Date().toISOString().slice(0, 10);
-    var entry = archive.find(function(e) { return e.date === todayStr; });
-    document.getElementById('hints-loading').style.display = 'none';
-    if (!entry) {
-      document.getElementById('hints-unavailable').style.display = '';
+    if (raw.length < 5) {
+      out.innerHTML = 'Need 5 letters.';
       return;
     }
-    var word = entry.word.toUpperCase();
-    var num = puzzleNum(entry.date);
-    var vowels = (word.match(/[AEIOU]/g) || []).length;
-    var letters = word.split('');
-    var hasDupe = letters.length !== new Set(letters).size;
-    var firstLetter = word[0];
-    var posHint = hasDupe
-      ? 'The last letter is <strong>' + word[4] + '</strong>'
-      : 'The 3rd letter is <strong>' + word[2] + '</strong>';
-    document.getElementById('hint-num').textContent = '#' + num;
-    document.getElementById('hint-date').textContent = new Date(todayStr + 'T00:00:00').toLocaleDateString('en-US', {month:'long', day:'numeric', year:'numeric'});
-    var hints = [
-      'The word has <strong>' + vowels + ' vowel' + (vowels === 1 ? '' : 's') + '</strong>.',
-      'The first letter is <strong>' + firstLetter + '</strong>.',
-      hasDupe ? 'The word has <strong>repeated letters</strong>.' : 'All 5 letters are <strong>unique</strong>.',
-      posHint + '.'
-    ];
-    document.getElementById('hint-list').innerHTML = hints.map(function(h) {
-      return '<li>' + h + '</li>';
-    }).join('');
-    document.getElementById('hints-content').style.display = '';
+    var rows = published(ARCHIVE).filter(function(r) { return r.word === raw; })
+      .sort(function(a, b) { return a.num - b.num; });
+    if (rows.length === 1) {
+      out.innerHTML = '<span class="wa-yes">Yes.</span> <strong>' + raw + '</strong> was Wordle #' + rows[0].num + ' on ' + rows[0].date + '.';
+      return;
+    }
+    if (rows.length > 1) {
+      var rest = rows.slice(1).map(function(r) { return '#' + r.num + ' on ' + r.date; }).join(' and ');
+      out.innerHTML = '<span class="wa-yes">Yes.</span> <strong>' + raw + '</strong> was Wordle #' + rows[0].num + ' on ' + rows[0].date + ', and again as ' + rest + '.';
+      return;
+    }
+    if (UNUSED[raw]) {
+      out.innerHTML = '<span class="wa-no">Not yet.</span> <strong>' + raw + '</strong> is in the original 2,315-word pool and has not appeared as a daily answer.';
+      return;
+    }
+    out.innerHTML = '<span class="wa-no">No.</span> <strong>' + raw + '</strong> has never been a published daily Wordle answer.';
   }
 
-  // Load data
+  document.getElementById('wa-check').addEventListener('input', function() {
+    this.value = this.value.toUpperCase().replace(/[^A-Z]/g, '').slice(0, 5);
+    lookup();
+  });
+
   Promise.all([
     fetch('/data/wordle-archive.json').then(function(r) { return r.json(); }),
-    fetch('/data/wordle-guesses.json').then(function(r) { return r.json(); })
+    fetch('/data/wordle-answers-meta.json').then(function(r) { return r.json(); })
   ]).then(function(results) {
     ARCHIVE = results[0];
-    var raw = results[1];
-    GUESSES = Array.isArray(raw) ? raw : Object.values(raw).reduce(function(a,b){ return a.concat(b); }, []);
-    renderArchive(ARCHIVE);
-    initHints(ARCHIVE);
+    var meta = results[1] || {};
+    (meta.unused || []).forEach(function(w) { UNUSED[w] = true; });
+    var rows = published(ARCHIVE);
+    renderArchive(rows);
+    setCount(rows.length, rows[0]);
+    if (meta.updated_label) {
+      var u = document.getElementById('wa-updated');
+      if (u) u.textContent = meta.updated_label;
+    }
+  }).catch(function() {
+    document.getElementById('arch-count').textContent = 'Could not load the archive. Try a refresh.';
   });
 })();
-document.querySelectorAll('.faq-item').forEach(function(item){var q=item.querySelector('.faq-q');if(!q)return;q.addEventListener('click',function(){item.classList.toggle('open');});});
+document.querySelectorAll('.faq-q').forEach(function(q){q.addEventListener('click',function(){q.closest('.faq-item').classList.toggle('open');});});
 </script>
 </body>
 </html>
