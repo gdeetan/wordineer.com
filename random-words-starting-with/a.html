@@ -1,4 +1,4 @@
-<!-- build: 2026-08-18T00:52:14Z -->
+<!-- build: 2026-08-18T01:46:48Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -129,8 +129,8 @@
     },
     {
       "@type": "Question",
-      "name": "What 5-letter A words are in this generator?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Set length to Equals 5. You will get words that are actually in this list — about, adapt, adept, after, agile, alert, ample, axiom. That is more useful than a generic Wordle opener list we do not have." }
+      "name": "Is this every English word that starts with A?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. English has thousands of A words. This is 170 entries with definitions for the generator, not a dictionary dump." }
     }
   ]
 }
@@ -258,6 +258,14 @@
 .az-link:hover { background:var(--bg-2); border-color:var(--brand); color:var(--brand); }
 .az-link.active { background:var(--brand); border-color:var(--brand); color:white; }
 @media(max-width:700px){ .az-link { width:34px; height:34px; font-size:13px; } }
+.prefix-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0 14px}
+.prefix-card{border:1px solid rgba(17,24,39,.08);border-radius:14px;padding:14px;background:#fff}
+.prefix-card strong{display:block;font-size:15px;font-weight:700;color:var(--text);letter-spacing:-.02em}
+.prefix-card .prefix-mean{display:block;font-size:12px;color:var(--text-3);margin:3px 0 10px}
+.prefix-words{display:flex;flex-wrap:wrap;gap:5px}
+.prefix-words span{font-size:12px;color:var(--text-2);border:1px solid var(--border);border-radius:999px;padding:3px 8px;line-height:1.4}
+.prefix-note{font-size:13px;color:var(--text-3);line-height:1.55;margin:0}
+@media(max-width:700px){.prefix-grid{grid-template-columns:1fr}}
 </style>
 </head>
 
@@ -527,11 +535,39 @@
     </div>
   </div>
 <div class="explainer">
-  <h2>A prefix map</h2>
-  <p><em>ad-</em> toward: adapt, admire, advance, adept, adamant.<br>
-  <em>ab-</em> away: abandon, abstract, aberrant, abhor.<br>
-  <em>anti-</em> against: antipathy, antithesis.<br>
-  Once you see the prefix, words like abstruse and anachronism stop being a wall of letters.</p>
+  <h2>A prefixes</h2>
+  <div class="prefix-grid">
+    <div class="prefix-card">
+      <strong>ad-</strong>
+      <span class="prefix-mean">toward</span>
+      <div class="prefix-words">
+        <span>adapt</span>
+        <span>admire</span>
+        <span>advance</span>
+        <span>adept</span>
+        <span>adamant</span>
+      </div>
+    </div>
+    <div class="prefix-card">
+      <strong>ab-</strong>
+      <span class="prefix-mean">away</span>
+      <div class="prefix-words">
+        <span>abandon</span>
+        <span>abstract</span>
+        <span>aberrant</span>
+        <span>abhor</span>
+      </div>
+    </div>
+    <div class="prefix-card">
+      <strong>anti-</strong>
+      <span class="prefix-mean">against</span>
+      <div class="prefix-words">
+        <span>antipathy</span>
+        <span>antithesis</span>
+      </div>
+    </div>
+  </div>
+  <p class="prefix-note">Once you see the prefix, words like abstruse and anachronism stop being a wall of letters.</p>
 </div>
 
 <div class="faq">
@@ -541,8 +577,8 @@
     <div class="faq-a"><p>This page is 170 words with definitions, not a dump of the dictionary. The I page is bigger because that list picked up a lot of <em>in-</em> words. In a real dictionary S still starts more English words than A.</p></div>
   </div>
   <div class="faq-item">
-    <div class="faq-q"><span class="faq-q-text">What 5-letter A words are in this generator?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a"><p>Set length to Equals 5. You will get words that are actually in this list — about, adapt, adept, after, agile, alert, ample, axiom. That is more useful than a generic Wordle opener list we do not have.</p></div>
+    <div class="faq-q"><span class="faq-q-text">Is this every English word that starts with A?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>No. English has thousands of A words. This is 170 entries with definitions for the generator, not a dictionary dump.</p></div>
   </div>
 </div>
 

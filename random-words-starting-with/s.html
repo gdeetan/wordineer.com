@@ -1,4 +1,4 @@
-<!-- build: 2026-08-18T00:52:14Z -->
+<!-- build: 2026-08-18T01:46:48Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -124,13 +124,13 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Why does I have more words than S on this site?",
-      "acceptedAnswer": { "@type": "Answer", "text": "The I list picked up a large set of in- words. S is still the letter that usually wins in a real dictionary. This page is 299 distinct S words." }
+      "name": "Is this every English word that starts with S?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. S starts more English words than any other letter. This page is 299 distinct entries with definitions, not the whole dictionary." }
     },
     {
       "@type": "Question",
-      "name": "How do I cut this list down?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Use the filters. For Wordle, set length to 5 — you will get words like scale, score, share, shine, skill, and stoic. For a shorter vocab set, pick Easy or a single part of speech." }
+      "name": "How do I narrow this list?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Use Word type, Difficulty, and Word length in the panel. You can also set a last letter. That is the whole filter set." }
     }
   ]
 }
@@ -258,6 +258,14 @@
 .az-link:hover { background:var(--bg-2); border-color:var(--brand); color:var(--brand); }
 .az-link.active { background:var(--brand); border-color:var(--brand); color:white; }
 @media(max-width:700px){ .az-link { width:34px; height:34px; font-size:13px; } }
+.prefix-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0 14px}
+.prefix-card{border:1px solid rgba(17,24,39,.08);border-radius:14px;padding:14px;background:#fff}
+.prefix-card strong{display:block;font-size:15px;font-weight:700;color:var(--text);letter-spacing:-.02em}
+.prefix-card .prefix-mean{display:block;font-size:12px;color:var(--text-3);margin:3px 0 10px}
+.prefix-words{display:flex;flex-wrap:wrap;gap:5px}
+.prefix-words span{font-size:12px;color:var(--text-2);border:1px solid var(--border);border-radius:999px;padding:3px 8px;line-height:1.4}
+.prefix-note{font-size:13px;color:var(--text-3);line-height:1.55;margin:0}
+@media(max-width:700px){.prefix-grid{grid-template-columns:1fr}}
 </style>
 </head>
 
@@ -528,21 +536,51 @@
   </div>
 <div class="explainer">
   <h2>S prefixes</h2>
-  <p><em>sub-</em> under: sublime, subtle, subvert, subdue, submit.<br>
-  <em>super-</em> above: superior, superficial, superfluous, superb.<br>
-  <em>syn-</em> / <em>sym-</em> together: synchronize, synthesis, symmetry, sympathy.<br>
-  S is also the Scrabble tile people hold: 1 point, but it pluralizes whatever is already on the board.</p>
+  <div class="prefix-grid">
+    <div class="prefix-card">
+      <strong>sub-</strong>
+      <span class="prefix-mean">under</span>
+      <div class="prefix-words">
+        <span>sublime</span>
+        <span>subtle</span>
+        <span>subvert</span>
+        <span>subdue</span>
+        <span>submit</span>
+      </div>
+    </div>
+    <div class="prefix-card">
+      <strong>super-</strong>
+      <span class="prefix-mean">above</span>
+      <div class="prefix-words">
+        <span>superior</span>
+        <span>superficial</span>
+        <span>superfluous</span>
+        <span>superb</span>
+      </div>
+    </div>
+    <div class="prefix-card">
+      <strong>syn- / sym-</strong>
+      <span class="prefix-mean">together</span>
+      <div class="prefix-words">
+        <span>synchronize</span>
+        <span>synthesis</span>
+        <span>symmetry</span>
+        <span>sympathy</span>
+      </div>
+    </div>
+  </div>
+  <p class="prefix-note">S is also the Scrabble tile people hold: 1 point, but it pluralizes whatever is already on the board.</p>
 </div>
 
 <div class="faq">
   <h2 class="faq-title">Questions</h2>
   <div class="faq-item open">
-    <div class="faq-q"><span class="faq-q-text">Why does I have more words than S on this site?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a"><p>The I list picked up a large set of <em>in-</em> words. S is still the letter that usually wins in a real dictionary. This page is 299 distinct S words.</p></div>
+    <div class="faq-q"><span class="faq-q-text">Is this every English word that starts with S?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>No. S starts more English words than any other letter. This page is 299 distinct entries with definitions, not the whole dictionary.</p></div>
   </div>
   <div class="faq-item">
-    <div class="faq-q"><span class="faq-q-text">How do I cut this list down?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a"><p>Use the filters. For Wordle, set length to 5 — you will get words like scale, score, share, shine, skill, and stoic. For a shorter vocab set, pick Easy or a single part of speech.</p></div>
+    <div class="faq-q"><span class="faq-q-text">How do I narrow this list?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Use Word type, Difficulty, and Word length in the panel. You can also set a last letter. That is the whole filter set.</p></div>
   </div>
 </div>
 
