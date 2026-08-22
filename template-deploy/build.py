@@ -262,37 +262,153 @@ def _render_esl_cards(data):
     return ''.join(parts)
 
 
+_WOTD_MONTHS = (
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December',
+)
+
+_WOTD_LISTEN_SVG = (
+    '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none">'
+    '<path d="M11 5 6 9H3v6h3l5 4V5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>'
+    '<path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>'
+    '</svg>'
+)
+
+
+def map_wotd_date(d):
+    month, day = d.month, d.day
+    if month == 2 and day == 29:
+        day = 28
+    return f'2026-{month:02d}-{day:02d}'
+
+
+def _wotd_by_date(data):
+    return {row.get('date'): row for row in data if isinstance(row, dict) and row.get('date')}
+
+
+def _wotd_entry_for_build(data):
+    by_date = _wotd_by_date(data)
+    key = map_wotd_date(datetime.now(timezone.utc).date())
+    if key in by_date:
+        return by_date[key]
+    for row in reversed(data):
+        if row.get('date') and row['date'] <= key:
+            return row
+    return data[0] if data else None
+
+
+def _render_wotd_today(entry):
+    if not entry:
+        return ''
+    word = _esc(entry.get('word', ''))
+    pos = _esc(entry.get('pos', ''))
+    pron = _esc(entry.get('pronunciation', ''))
+    diff = _esc(entry.get('difficulty', ''))
+    definition = _esc(entry.get('definition', ''))
+    explanation = _esc(entry.get('explanation', ''))
+    example = _esc(entry.get('example', ''))
+    memory = _esc(entry.get('memory', ''))
+    quiz = _esc(entry.get('quiz', ''))
+    answer = _esc(entry.get('answer', ''))
+    return (
+        f'<div class="wotd-date" id="wotd-date">{_esc(entry.get("date", ""))}</div>'
+        f'<div class="wotd-word-row"><div>'
+        f'<div class="wotd-word-wrap">'
+        f'<div class="wotd-word" id="wotd-word">{word}</div>'
+        f'<button class="wotd-listen" id="wotd-listen" type="button" aria-label="Listen to pronunciation" title="Listen to pronunciation">{_WOTD_LISTEN_SVG}</button>'
+        f'</div>'
+        f'<div class="wotd-meta" id="wotd-meta">'
+        f'<span class="wotd-pill">{pos}</span>'
+        f'<span class="wotd-pill soft">{pron}</span>'
+        f'<span class="wotd-pill soft">{diff}</span>'
+        f'</div></div>'
+        f'<button class="gen-btn" id="wotd-surprise" type="button" style="width:auto;white-space:nowrap">Surprise me</button>'
+        f'</div>'
+        f'<div class="wotd-def" id="wotd-definition">{definition}</div>'
+        f'<div class="wotd-section"><div class="wotd-section-title">Plain English</div>'
+        f'<div class="wotd-body" id="wotd-explanation">{explanation}</div></div>'
+        f'<div class="wotd-section"><div class="wotd-section-title">Example</div>'
+        f'<div class="wotd-example" id="wotd-example">{example}</div></div>'
+        f'<div class="wotd-section"><div class="wotd-section-title">Memory hook</div>'
+        f'<div class="wotd-body" id="wotd-memory">{memory}</div></div>'
+        f'<div class="wotd-practice">'
+        f'<button class="act-btn" id="wotd-practice-copy" type="button">Copy practice prompt</button>'
+        f'<button class="act-btn" id="wotd-quiz-reveal" type="button">Reveal quiz answer</button>'
+        f'</div>'
+        f'<div class="wotd-quiz"><div class="wotd-quiz-q" id="wotd-quiz-q">{quiz}</div>'
+        f'<div class="wotd-quiz-a" id="wotd-quiz-a">{answer}</div></div>'
+    )
+
+
+def _render_wotd_rows(data):
+    parts = []
+    current_month = None
+    for row in data:
+        dt = row.get('date') or ''
+        month = dt[5:7] if len(dt) >= 7 else ''
+        if month and month != current_month:
+            current_month = month
+            try:
+                month_name = _WOTD_MONTHS[int(month) - 1]
+            except (ValueError, IndexError):
+                month_name = month
+            parts.append(
+                f'<tr class="wotd-month-row" id="wotd-month-{_esc(month)}">'
+                f'<th colspan="5">{_esc(month_name)}</th></tr>'
+            )
+        parts.append(
+            f'<tr>'
+            f'<td>{_esc(dt)}</td>'
+            f'<td><strong>{_esc(row.get("word", ""))}</strong></td>'
+            f'<td>{_esc(row.get("pos", ""))}</td>'
+            f'<td>{_esc(row.get("definition", ""))}</td>'
+            f'<td>{_esc(row.get("prompt", ""))}</td>'
+            f'</tr>'
+        )
+    return ''.join(parts)
+
+
 def inject_ssr_html(cfg, slots):
-    """Render dataset as static HTML into pages that contain the <!-- SSR_ROWS --> placeholder."""
+    """Render dataset as static HTML into pages that contain SSR placeholders."""
     url = cfg.get('url', '')
     fname = cfg.get('inject_data')
     if not fname:
         return slots
 
     all_slot_text = ''.join(slots.values())
-    if '<!-- SSR_ROWS -->' not in all_slot_text:
+    if '<!-- SSR_ROWS -->' not in all_slot_text and '<!-- SSR_TODAY -->' not in all_slot_text:
         return slots
 
     src_path = os.path.join(DEPLOY_DATA_DIR, fname)
     if not os.path.isfile(src_path):
+        print(f'  warning → inject_data file not found: {src_path}')
         return slots
 
     with open(src_path, encoding='utf-8') as f:
         data = json.load(f)
 
+    slot_name = None
     if url == '/common-5-letter-words/':
         rendered = _render_five_letter_rows(data)
         slot_name = 'tool'
+        slots[slot_name] = slots[slot_name].replace('<!-- SSR_ROWS -->', rendered)
     elif url == '/etymology-100-common-words/':
         rendered = _render_etymology_cards(data)
         slot_name = 'content'
+        slots[slot_name] = slots[slot_name].replace('<!-- SSR_ROWS -->', rendered)
     elif url == '/esl-vocabulary-cefr/':
         rendered = _render_esl_cards(data)
         slot_name = 'tool'
+        slots[slot_name] = slots[slot_name].replace('<!-- SSR_ROWS -->', rendered)
+    elif url == '/word-of-the-day/':
+        slot_name = 'tool'
+        today = _render_wotd_today(_wotd_entry_for_build(data))
+        rows = _render_wotd_rows(data)
+        slots[slot_name] = slots[slot_name].replace('<!-- SSR_TODAY -->', today)
+        slots[slot_name] = slots[slot_name].replace('<!-- SSR_ROWS -->', rows)
     else:
         return slots
 
-    slots[slot_name] = slots[slot_name].replace('<!-- SSR_ROWS -->', rendered)
     print(f'  ssr → {len(data)} items baked into {url}')
     return slots
 
@@ -306,7 +422,7 @@ def copy_data_assets():
     os.makedirs(out_data_dir, exist_ok=True)
     copied = 0
     for fname in sorted(os.listdir(DEPLOY_DATA_DIR)):
-        if not fname.endswith('.json'):
+        if not (fname.endswith('.json') or fname.endswith('.csv')):
             continue
         shutil.copy2(os.path.join(DEPLOY_DATA_DIR, fname), os.path.join(out_data_dir, fname))
         copied += 1
