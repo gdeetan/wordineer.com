@@ -83,6 +83,11 @@ BASIC_SKIP = {
     'acceptable', 'accessible', 'accessory', 'accidental', 'absolutely',
     'common', 'heard', 'known', 'higher', 'heavy', 'local', 'major',
     'march', 'further', 'important', 'accordingly', 'accompany',
+    'beautiful', 'brave', 'gentle', 'gently', 'giant', 'jolly',
+    'joyfully', 'kneel', 'merry', 'needs', 'popular', 'previous',
+    'likely', 'grand', 'hastily', 'loudly', 'openly', 'lightly',
+    'dearly', 'calmly', 'boldly', 'firmly', 'warmly', 'softly',
+    'slowly', 'quickly', 'pretty', 'nice', 'kindly', 'happily',
 }
 SENSITIVE = {
     'abortion', 'abort', 'abortive', 'aboriginal', 'fucking', 'fuck', 'shit',
@@ -101,14 +106,18 @@ WORDNET_BAD = re.compile(
     r'base of operations|slang for|sexual intercourse|'
     r'having a substance added|having been fractured|'
     r'to a complete degree|to a distinctly greater extent|'
-    r'N\. Hawthorne|Joe Hing Lowe|Daniel Goleman|Albert Camus)',
+    r'N\. Hawthorne|Joe Hing Lowe|Daniel Goleman|Albert Camus|'
+    r'^accept to be|^come to have|^in such a manner|'
+    r'^put up with|^give or assign|^consent to receive|'
+    r'^take measures in|^without advance planning)',
     re.I,
 )
 LEMMA_SUFFIXES = (
     'ability', 'ibility', 'ation', 'ition', 'tion', 'sion', 'ness', 'ment',
-    'ility', 'able', 'ible', 'ious', 'eous', 'ous', 'ive', 'ing', 'ity',
-    'ance', 'ence', 'ant', 'ent', 'est', 'ful', 'less', 'ical', 'ic',
-    'ed', 'ly', 'ies', 'es', 'er', 'or', 'al', 'y', 's',
+    'ility', 'able', 'ible', 'ious', 'eous', 'ous', 'ative', 'itive',
+    'ive', 'ate', 'age', 'ing', 'ity', 'ance', 'ence', 'ant', 'ent',
+    'est', 'ful', 'less', 'ical', 'ic', 'ed', 'ly', 'ies', 'es', 'er',
+    'or', 'al', 'y', 's',
 )
 NEAR_REMAINDERS = {
     's', 'es', 'ed', 'ing', 'ly', 'er', 'ers', 'or', 'ors', 'al', 'ial',
@@ -152,8 +161,20 @@ def ok_word(word, min_len=4):
     return True
 
 
-def lemma_key(word):
+def strip_ly(word):
     low = word.strip().lower()
+    if low.endswith('ily') and len(low) > 6:
+        return low[:-3] + 'y'
+    if low.endswith('ly') and len(low) > 5:
+        base = low[:-2]
+        if len(base) >= 4 and base.endswith('l') and not base.endswith('ll'):
+            return base + 'e'
+        return base
+    return low
+
+
+def lemma_key(word):
+    low = strip_ly(word)
     for suf in LEMMA_SUFFIXES:
         if len(low) > len(suf) + 2 and low.endswith(suf):
             stem = low[:-len(suf)]
@@ -162,13 +183,31 @@ def lemma_key(word):
     return low
 
 
+def family_stems(word):
+    low = word.strip().lower()
+    stems = {low, strip_ly(low), lemma_key(low)}
+    lk = lemma_key(low)
+    if len(lk) >= 6:
+        stems.add(lk[:6])
+    return {s for s in stems if len(s) >= 3}
+
+
 def near_lemma(a, b):
     a, b = a.strip().lower(), b.strip().lower()
     if a == b:
         return True
+    if a + 'ly' == b or b + 'ly' == a:
+        return True
+    if strip_ly(a) == strip_ly(b):
+        return True
     if lemma_key(a) == lemma_key(b):
         return True
+    sa, sb = lemma_key(a), lemma_key(b)
+    if len(sa) >= 6 and len(sb) >= 6 and (sa.startswith(sb[:6]) or sb.startswith(sa[:6])):
+        return True
     short, long_ = (a, b) if len(a) <= len(b) else (b, a)
+    if len(short) >= 5 and long_.startswith(short):
+        return True
     if len(short) >= 4 and long_.startswith(short):
         rest = long_[len(short):]
         if rest in NEAR_REMAINDERS or 0 < len(rest) <= 3:
@@ -191,6 +230,12 @@ def useful_definition(definition, strict=False):
         return False
     if re.search(r'slang for|sexual intercourse|termination of pregnancy', d, re.I):
         return False
+    if strict and not re.search(
+        r'\b(to |a |an |the |having |being |not |of |with |from )\b',
+        ' ' + d,
+        re.I,
+    ):
+        return False
     return True
 
 
@@ -205,6 +250,21 @@ def pron_from_syl(syl, word):
     return '-'.join(parts)
 
 
+def make_example(word, pos, definition):
+    w = word.strip()
+    if pos == 'adjective':
+        return f'The {w} paragraph in her essay made a hard idea easier to follow.'
+    if pos == 'adverb':
+        return f'She answered {w}, and the class understood the point right away.'
+    if pos == 'verb':
+        return f'The teacher asked us to {w} the claim with evidence from the article.'
+    return f'In writing workshop we used "{w}" when we meant {definition}.'
+
+
+def make_memory(word, definition):
+    return f'Picture a classroom moment that shows "{word}": {definition}.'
+
+
 def fill_fields(word, pos, pronunciation, difficulty, definition, example, memory):
     word = word.strip()
     pos = pos.strip().lower()
@@ -213,14 +273,15 @@ def fill_fields(word, pos, pronunciation, difficulty, definition, example, memor
         definition = definition[0].lower() + definition[1:]
     if len(definition) > 100:
         definition = definition[:97].rsplit(' ', 1)[0] + '…'
+    article = 'an' if pos in ('adjective', 'adverb') else 'a'
     explanation = (
-        f'{word.capitalize()} is a {pos} meaning {definition}. '
+        f'{word.capitalize()} is {article} {pos} meaning {definition}. '
         f'Use it when that meaning is exactly what you need in writing or speech.'
     )
     if not example:
-        example = f'She chose the word "{word}" because she meant {definition}.'
+        example = make_example(word, pos, definition)
     if not memory:
-        memory = f'Remember {word}: it means {definition}.'
+        memory = make_memory(word, definition)
     quiz = f'What does "{word}" mean?'
     answer = definition[0].upper() + definition[1:] + '.'
     prompt = (
@@ -249,18 +310,24 @@ def display_word(word):
 def collect_candidates():
     used_words = set()
     used_lemmas = set()
+    used_stems = set()
     buckets = defaultdict(list)
 
     def take(entry):
         w = entry['word']
         key = w.strip().lower()
         lemma = lemma_key(w)
-        if key in used_words or lemma in used_lemmas:
+        stems = family_stems(w)
+        if key in used_words or lemma in used_lemmas or (stems & used_stems):
+            return False
+        if key + 'ly' in used_words or (key.endswith('ly') and strip_ly(key) in used_words):
             return False
         if any(near_lemma(key, u) for u in used_words):
             return False
         used_words.add(key)
         used_lemmas.add(lemma)
+        used_stems.update(s for s in stems if len(s) >= 6)
+        used_stems.add(lemma)
         entry = dict(entry)
         entry['word'] = display_word(w)
         buckets[entry['difficulty']].append(entry)
@@ -271,6 +338,7 @@ def collect_candidates():
 
     sat = load_json('sat-vocab-data.json')
     sat_sorted = sorted(sat, key=lambda r: {'easy': 0, 'medium': 1, 'hard': 2}.get(r.get('diff'), 9))
+    sat_hard_extra = []
     for r in sat_sorted:
         w = r.get('w') or ''
         pos = (r.get('pos') or '').lower()
@@ -280,10 +348,29 @@ def collect_candidates():
             continue
         if not useful_definition(definition, strict=False):
             continue
-        take(fill_fields(
+        entry = fill_fields(
             w, pos, pron_from_syl(r.get('syl'), w), diff,
             definition, r.get('ex') or '', r.get('root_note') or '',
-        ))
+        )
+        if diff == 'hard':
+            sat_hard_extra.append(entry)
+            continue
+        take(entry)
+
+    hard_keep = FILL_CAP['hard']
+    for entry in sat_hard_extra[:hard_keep]:
+        take(entry)
+    overflow = sat_hard_extra[hard_keep:]
+    for entry in overflow:
+        e = dict(entry)
+        if len(buckets['easy']) < FILL_CAP['easy']:
+            e['difficulty'] = 'easy'
+            take(e)
+        elif len(buckets['medium']) < FILL_CAP['medium']:
+            e['difficulty'] = 'medium'
+            take(e)
+        else:
+            take(entry)
 
     words = load_json('words.json')
     for row in words:
@@ -294,10 +381,9 @@ def collect_candidates():
             continue
         if not ok_word(w, min_len=5) or pos not in POS:
             continue
-        # Kindergarten nouns and WordNet dump senses come from words.json; SAT already filled.
-        if pos == 'noun':
+        if pos in ('noun', 'adverb'):
             continue
-        if w.lower().endswith(('ing', 'ed')):
+        if w.lower().endswith(('ing', 'ed', 'ly')):
             continue
         if not useful_definition(definition, strict=True):
             continue
@@ -338,9 +424,22 @@ def write_csv(rows, path):
         w.writerows(rows)
 
 
+def assert_one_lemma(rows):
+    lows = [r['word'].strip().lower() for r in rows]
+    seen = set(lows)
+    for w in lows:
+        if w + 'ly' in seen:
+            raise SystemExit(f'lemma pair {w} / {w}ly')
+        if w.endswith('ly') and strip_ly(w) in seen:
+            raise SystemExit(f'lemma pair {strip_ly(w)} / {w}')
+        if w.endswith('ly') and w[:-2] in seen:
+            raise SystemExit(f'lemma pair {w[:-2]} / {w}')
+
+
 def main():
     buckets = collect_candidates()
     rows = assign_dates(buckets)
+    assert_one_lemma(rows)
     json_path = os.path.join(ROOT, 'wotd-2026.json')
     csv_path = os.path.join(ROOT, 'wotd-2026.csv')
     with open(json_path, 'w', encoding='utf-8') as f:
