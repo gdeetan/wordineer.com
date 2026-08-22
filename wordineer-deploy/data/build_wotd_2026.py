@@ -145,6 +145,59 @@ SEED = [
     {'word': 'adapt', 'pos': 'verb', 'pronunciation': 'uh-DAPT', 'difficulty': 'easy', 'definition': 'to change so something works in a new situation', 'explanation': 'When you adapt, you adjust your behavior, plan, or tool to fit new conditions.', 'example': 'We had to adapt the lesson for a younger class.', 'memory': 'Adapt means adjust.', 'quiz': 'If plans change and you adjust, what do you do?', 'answer': 'You adapt.', 'prompt': 'Ask students how they would adapt a playground game for a rainy day.'},
 ]
 
+# High-utility classroom/writing words to fill easy slots (SAT has too few native easy).
+# word, pos, pronunciation, definition, example, memory
+EXTRA_EASY_SRC = [
+    ('accurate', 'adjective', 'AK-yuh-rit', 'correct in all details; free from error', 'Double-check the graph so every label is accurate before you print the poster.', 'Accurate means the details match the facts.'),
+    ('benefit', 'noun', 'BEN-uh-fit', 'a helpful or useful result', 'One benefit of outlining is that your essay stays on topic.', 'Benefit is a plus you get from a choice.'),
+    ('challenge', 'noun', 'CHAL-inj', 'a difficult task that tests your skill', 'Revising a weak thesis was the biggest challenge of the week.', 'A challenge is a hard task worth trying.'),
+    ('contribute', 'verb', 'kuhn-TRIB-yoot', 'to give something that helps a result', 'Each student will contribute one piece of evidence to the shared outline.', 'Contribute means add your part.'),
+    ('debate', 'noun', 'di-BAYT', 'a structured argument with reasons on both sides', 'The class held a debate about whether homework should be optional.', 'Debate is a formal back-and-forth.'),
+    ('effective', 'adjective', 'ih-FEK-tiv', 'successful at producing the result you want', 'The effective topic sentence told readers exactly what the paragraph would prove.', 'Effective means it actually works.'),
+    ('factor', 'noun', 'FAK-ter', 'one of the things that causes or influences a result', 'Time of day was a factor in how well the group finished the lab.', 'A factor is one piece of the cause.'),
+    ('impact', 'noun', 'IM-pakt', 'a strong effect on someone or something', 'The new rule had a clear impact on how quietly the hallway felt.', 'Impact is the effect something leaves.'),
+    ('method', 'noun', 'METH-uhd', 'a planned way of doing something', 'Our method was to annotate first, then write a one-sentence summary.', 'Method is the how, not the what.'),
+    ('outcome', 'noun', 'OWT-kuhm', 'the result of a process or decision', 'The outcome of the peer review was a clearer thesis.', 'Outcome is what you end up with.'),
+    ('process', 'noun', 'PRAH-ses', 'a series of steps taken to reach a result', 'Revision is a process, not a single pass through the draft.', 'Process is the steps, not the finish line.'),
+    ('research', 'noun', 'REE-surch', 'careful study to find facts or answers', 'Her research included two interviews and a short article.', 'Research means look it up on purpose.'),
+    ('strategy', 'noun', 'STRAT-uh-jee', 'a plan for reaching a goal', 'His strategy was to answer the easy questions first.', 'Strategy is a plan of attack.'),
+    ('assume', 'verb', 'uh-SOOM', 'to treat something as true without proving it', 'Do not assume the author agrees with the narrator.', 'Assume is a guess you treat as fact.'),
+    ('available', 'adjective', 'uh-VAY-luh-buhl', 'able to be used or obtained', 'The style guide is available on the class site if you need a citation example.', 'Available means you can get it.'),
+    ('consist', 'verb', 'kuhn-SIST', 'to be made up of particular parts', 'A strong paragraph should consist of a claim, evidence, and explanation.', 'Consist of means is made of.'),
+    ('define', 'verb', 'di-FINE', 'to state the exact meaning of a word or idea', 'Before we argue, we need to define what "fair" means in this policy.', 'Define means pin the meaning down.'),
+    ('demonstrate', 'verb', 'DEM-uhn-strayt', 'to show clearly with examples or evidence', 'Use a quotation to demonstrate that the character feels trapped.', 'Demonstrate means show, not just say.'),
+    ('emerge', 'verb', 'ih-MURJ', 'to become known or come into view', 'A pattern began to emerge after we sorted the survey answers.', 'Emerge means show up or come out.'),
+    ('focus', 'verb', 'FOH-kuhs', 'to give close attention to one thing', 'Focus on the verb in each sentence before you check the commas.', 'Focus means aim your attention.'),
+    ('indicate', 'verb', 'IN-di-kayt', 'to point out or show something', 'The heading should indicate what the section will explain.', 'Indicate means point to it.'),
+    ('involve', 'verb', 'in-VAHLV', 'to include as a necessary part', 'The project will involve a short presentation and a written reflection.', 'Involve means it is part of the work.'),
+    ('obtain', 'verb', 'uhb-TAYN', 'to get something through effort', 'Students must obtain parent permission before the field interview.', 'Obtain means get, usually by trying.'),
+    ('occur', 'verb', 'uh-KUR', 'to happen, especially at a particular time', 'Most of the plot twists occur in the final chapter.', 'Occur means it happens.'),
+    ('policy', 'noun', 'PAH-luh-see', 'an official rule or plan for how to act', 'The late-work policy is posted at the top of the syllabus.', 'A policy is a rule with a reason.'),
+    ('principle', 'noun', 'PRIN-suh-puhl', 'a basic rule or belief that guides action', 'Fair citation is a principle we use in every research paper.', 'A principle is a rule you stand on.'),
+    ('range', 'noun', 'RAYNJ', 'the set of things included between limits', 'The essay covers a range of causes, from funding to training.', 'Range is how wide the set is.'),
+    ('role', 'noun', 'ROHL', 'the function or part someone or something has', 'Evidence plays a central role in a convincing argument.', 'Role is the job something does.'),
+    ('significant', 'adjective', 'sig-NIF-uh-kuhnt', 'important enough to be worth noticing', 'The most significant change was a clearer topic sentence.', 'Significant means it matters.'),
+    ('similar', 'adjective', 'SIM-uh-ler', 'almost the same, but not identical', 'The two poems are similar in tone but different in setting.', 'Similar means close, not a copy.'),
+    ('specific', 'adjective', 'spuh-SIF-ik', 'exact and clearly identified', 'Replace "stuff" with a specific noun the reader can picture.', 'Specific means name the exact thing.'),
+    ('structure', 'noun', 'STRUHK-cher', 'the way parts are organized into a whole', 'A compare-and-contrast structure kept the essay easy to follow.', 'Structure is the skeleton of the writing.'),
+    ('analyze', 'verb', 'AN-uh-lize', 'to examine the parts of something to understand it', 'Analyze the image by naming what you see before you guess the message.', 'Analyze means take it apart to understand it.'),
+    ('compare', 'verb', 'kuhm-PAIR', 'to note how two things are alike', 'Compare the two headlines and list three shared words.', 'Compare looks for likeness.'),
+    ('contrast', 'verb', 'kuhn-TRAST', 'to note how two things are different', 'Contrast the first ending with the revised ending.', 'Contrast looks for difference.'),
+    ('describe', 'verb', 'di-SKRIBE', 'to say what something is like in words', 'Describe the setting in three precise details from the page.', 'Describe means show it in words.'),
+    ('explain', 'verb', 'ik-SPLAYN', 'to make an idea clear by giving reasons', 'After the quote, explain how it supports your claim.', 'Explain means answer why or how.'),
+    ('summarize', 'verb', 'SUHM-uh-rize', 'to retell only the main points', 'Summarize the article in four sentences without copying a line.', 'Summarize is the short version.'),
+    ('evaluate', 'verb', 'ih-VAL-yoo-ayt', 'to judge the quality or value of something', 'Evaluate the website by checking the author, date, and evidence.', 'Evaluate means judge with reasons.'),
+    ('identify', 'verb', 'eye-DEN-tuh-fye', 'to recognize and name something', 'Identify the claim in the first paragraph before you argue with it.', 'Identify means find it and name it.'),
+    ('interpret', 'verb', 'in-TUR-prit', 'to explain the meaning of something', 'Interpret the cartoon by saying what each symbol stands for.', 'Interpret means say what it means.'),
+    ('evidence', 'noun', 'EV-i-duhns', 'facts or details that support a claim', 'A date, a quote, and a statistic can all count as evidence.', 'Evidence is proof you can point to.'),
+    ('claim', 'noun', 'KLAYM', 'a statement that something is true, needing support', 'Your claim should be a sentence a reader could disagree with.', 'A claim is the point you will prove.'),
+    ('context', 'noun', 'KON-tekst', 'the situation or words around something that help explain it', 'Give the context of the quote so readers know who is speaking.', 'Context is the surrounding picture.'),
+    ('purpose', 'noun', 'PUR-puhs', 'the reason something is done or written', 'Ask what the author\'s purpose is before you judge the tone.', 'Purpose is the why.'),
+    ('audience', 'noun', 'AW-dee-uhns', 'the people a writer or speaker is trying to reach', 'Change the examples if your audience is fifth graders, not seniors.', 'Audience is who it is for.'),
+    ('revise', 'verb', 'ri-VIZE', 'to change a draft in order to improve it', 'Revise the introduction so the thesis appears by the end of paragraph one.', 'Revise means make it better, not just neater.'),
+    ('outline', 'verb', 'OWT-line', 'to list the main points in order before writing', 'Outline the body paragraphs before you write the first sentence.', 'An outline is the map of the essay.'),
+]
+
 
 def load_json(name):
     with open(os.path.join(ROOT, name), encoding='utf-8') as f:
@@ -173,8 +226,16 @@ def strip_ly(word):
     return low
 
 
+def strip_neg_prefix(word):
+    low = word.strip().lower()
+    for p in ('dis', 'non', 'un', 'in', 'im', 'ir', 'il'):
+        if low.startswith(p) and len(low) - len(p) >= 6:
+            return low[len(p):]
+    return low
+
+
 def lemma_key(word):
-    low = strip_ly(word)
+    low = strip_neg_prefix(strip_ly(word))
     for suf in LEMMA_SUFFIXES:
         if len(low) > len(suf) + 2 and low.endswith(suf):
             stem = low[:-len(suf)]
@@ -185,7 +246,7 @@ def lemma_key(word):
 
 def family_stems(word):
     low = word.strip().lower()
-    stems = {low, strip_ly(low), lemma_key(low)}
+    stems = {low, strip_ly(low), strip_neg_prefix(low), lemma_key(low)}
     lk = lemma_key(low)
     if len(lk) >= 6:
         stems.add(lk[:6])
@@ -336,9 +397,18 @@ def collect_candidates():
     for row in SEED:
         take(dict(row))
 
+    for word, pos, pron, definition, example, memory in EXTRA_EASY_SRC:
+        take(fill_fields(word, pos, pron, 'easy', definition, example, memory))
+
     sat = load_json('sat-vocab-data.json')
-    sat_sorted = sorted(sat, key=lambda r: {'easy': 0, 'medium': 1, 'hard': 2}.get(r.get('diff'), 9))
-    sat_hard_extra = []
+
+    def sat_sort_key(r):
+        w = (r.get('w') or '').lower()
+        diff = {'easy': 0, 'medium': 1, 'hard': 2}.get(r.get('diff'), 9)
+        prefixed = 1 if strip_neg_prefix(w) != w else 0
+        return (prefixed, diff, w)
+
+    sat_sorted = sorted(sat, key=sat_sort_key)
     for r in sat_sorted:
         w = r.get('w') or ''
         pos = (r.get('pos') or '').lower()
@@ -348,29 +418,10 @@ def collect_candidates():
             continue
         if not useful_definition(definition, strict=False):
             continue
-        entry = fill_fields(
+        take(fill_fields(
             w, pos, pron_from_syl(r.get('syl'), w), diff,
             definition, r.get('ex') or '', r.get('root_note') or '',
-        )
-        if diff == 'hard':
-            sat_hard_extra.append(entry)
-            continue
-        take(entry)
-
-    hard_keep = FILL_CAP['hard']
-    for entry in sat_hard_extra[:hard_keep]:
-        take(entry)
-    overflow = sat_hard_extra[hard_keep:]
-    for entry in overflow:
-        e = dict(entry)
-        if len(buckets['easy']) < FILL_CAP['easy']:
-            e['difficulty'] = 'easy'
-            take(e)
-        elif len(buckets['medium']) < FILL_CAP['medium']:
-            e['difficulty'] = 'medium'
-            take(e)
-        else:
-            take(entry)
+        ))
 
     words = load_json('words.json')
     for row in words:
