@@ -5,7 +5,7 @@
 **Source:** `template-deploy/tools-src/word-of-the-day.html`
 **Output:** `word-of-the-day.html`
 **Type:** `tool`
-**Status:** Draft pending user review
+**Status:** Approved
 
 ---
 
