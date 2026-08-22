@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the 2026 Word of the Day calendar from seed + SAT + words.json."""
+"""Build the 2026 Word of the Day calendar from seed + EXTRA_EASY + SAT."""
 import csv
 import json
 import os
@@ -127,9 +127,6 @@ NEAR_REMAINDERS = {
     'ory', 'ure', 'age', 'hood', 'ship', 'dom', 'ism', 'ist', 'ian',
     'ize', 'ise', 'ic', 'ical', 'y', 'ies', 'ied', 'ier', 'iest', 'e',
 }
-# Stop topping up a difficulty from words.json once SAT+seed already covers the year.
-FILL_CAP = {'easy': 125, 'medium': 200, 'hard': 95}
-
 SEED = [
     {'word': 'lucid', 'pos': 'adjective', 'pronunciation': 'LOO-sid', 'difficulty': 'medium', 'definition': 'clear and easy to understand', 'explanation': 'A lucid idea, sentence, or explanation is clear enough that people can follow it without confusion.', 'example': 'Her lucid summary helped the whole class understand the difficult chapter.', 'memory': 'Think of a clear light switching on: lucid writing lights up the meaning.', 'quiz': 'Which sentence uses lucid correctly?', 'answer': 'Correct use: The teacher gave a lucid explanation of the problem.', 'prompt': 'Give students 60 seconds to rewrite a confusing sentence from today\'s lesson so it is lucid.'},
     {'word': 'resilient', 'pos': 'adjective', 'pronunciation': 'ri-ZIL-yuhnt', 'difficulty': 'medium', 'definition': 'able to recover after difficulty or change', 'explanation': 'A resilient person, plan, or material can handle pressure and keep going.', 'example': 'The resilient team adjusted quickly after the first idea failed.', 'memory': 'Resilient sounds like returning to shape after being bent.', 'quiz': 'If someone stays calm and recovers after a setback, what are they?', 'answer': 'They are resilient.', 'prompt': 'Ask students to describe a time they were resilient in one sentence.'},
@@ -204,9 +201,9 @@ def load_json(name):
         return json.load(f)
 
 
-def ok_word(word, min_len=4):
+def ok_word(word, min_len=4, max_len=12):
     w = (word or '').strip()
-    if not re.fullmatch(rf'[A-Za-z]{{{min_len},12}}', w):
+    if not re.fullmatch(rf'[A-Za-z]{{{min_len},{max_len}}}', w):
         return False
     low = w.lower()
     if low in BLOCKLIST or low in FUNCTION_WORDS or low in BASIC_SKIP or low in SENSITIVE:
@@ -414,7 +411,7 @@ def collect_candidates():
         pos = (r.get('pos') or '').lower()
         diff = r.get('diff') or 'medium'
         definition = r.get('d') or ''
-        if not ok_word(w) or pos not in POS or diff not in {'easy', 'medium', 'hard'}:
+        if not ok_word(w, min_len=3, max_len=16) or pos not in POS or diff not in {'easy', 'medium', 'hard'}:
             continue
         if not useful_definition(definition, strict=False):
             continue
@@ -422,23 +419,6 @@ def collect_candidates():
             w, pos, pron_from_syl(r.get('syl'), w), diff,
             definition, r.get('ex') or '', r.get('root_note') or '',
         ))
-
-    words = load_json('words.json')
-    for row in words:
-        w, pos, definition, diff = row[0], row[1], row[2], row[3]
-        if diff not in {'easy', 'medium', 'hard'}:
-            continue
-        if len(buckets[diff]) >= FILL_CAP[diff]:
-            continue
-        if not ok_word(w, min_len=5) or pos not in POS:
-            continue
-        if pos in ('noun', 'adverb'):
-            continue
-        if w.lower().endswith(('ing', 'ed', 'ly')):
-            continue
-        if not useful_definition(definition, strict=True):
-            continue
-        take(fill_fields(w, pos, w.upper(), diff, definition, '', ''))
 
     return buckets
 
@@ -489,6 +469,11 @@ def assert_one_lemma(rows):
 
 def main():
     buckets = collect_candidates()
+    print(
+        'buckets easy={} medium={} hard={}'.format(
+            len(buckets['easy']), len(buckets['medium']), len(buckets['hard']),
+        )
+    )
     rows = assign_dates(buckets)
     assert_one_lemma(rows)
     json_path = os.path.join(ROOT, 'wotd-2026.json')
