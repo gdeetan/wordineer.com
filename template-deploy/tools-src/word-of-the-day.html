@@ -1,15 +1,30 @@
-<!-- CONFIG { "url": "/word-of-the-day/", "output": "word-of-the-day.html" } -->
+<!-- CONFIG { "url": "/word-of-the-day/", "output": "word-of-the-day.html", "inject_data": "wotd-2026.json" } -->
 
 <!-- SLOT:meta -->
-<title>Word of the Day - Free Daily Vocabulary Builder | Wordineer</title>
-<meta name="description" content="Learn a new word every day with a clear definition, example sentence, memory hook, quiz, and saved word list. Free, fast, no sign-up.">
+<title>Word of the Day 2026 — Free Daily Vocabulary List (CSV) | Wordineer</title>
+<meta name="description" content="A useful English word every day, plus the full 2026 calendar to download as CSV or print for class. Definition, example, memory hook, and a 5-minute classroom prompt.">
 <link rel="canonical" href="https://wordineer.com/word-of-the-day/">
 <meta property="og:type"        content="website">
 <meta property="og:site_name"   content="Wordineer">
-<meta property="og:title"       content="Word of the Day | Wordineer">
-<meta property="og:description" content="Learn one useful word each day with examples, practice, and saved words.">
-<meta property="og:url"         content="https://wordineer.com/word-of-the-day/">
+<meta property="og:title"       content="Word of the Day 2026 | Wordineer">
+<meta property="og:description" content="One useful word a day — and the full 2026 list, free to download or print.">
+<meta property="og:url"         content="https://wordineer.com/word-of-the-day">
 <meta property="og:image"       content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "Wordineer 2026 Word of the Day",
+  "description": "365 useful English words for writing and conversation, one per calendar day in 2026, with definitions and classroom prompts.",
+  "url": "https://wordineer.com/word-of-the-day",
+  "creator": { "@type": "Organization", "name": "Wordineer" },
+  "distribution": {
+    "@type": "DataDownload",
+    "encodingFormat": "text/csv",
+    "contentUrl": "https://wordineer.com/data/wotd-2026.csv"
+  }
+}
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -23,27 +38,42 @@
     {
       "@type": "Question",
       "name": "What if today's word is too easy or too hard?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Hit 'Surprise me' to get a different word from the vocabulary set without changing the official daily word. Press it as many times as you like to find a word at the right difficulty. The daily word stays the same for everyone on that calendar date." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Hit Surprise me to get a different word from the vocabulary set without changing the official daily word. Press it as many times as you like to find a word at the right difficulty. The daily word stays the same for everyone on that calendar date." }
     },
     {
       "@type": "Question",
       "name": "Do my saved words persist if I close the browser?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes — saved words are stored in your browser's local storage, so they stay between visits on the same device and browser. They won't sync across devices. Use 'Copy saved' to paste your list into a notes app before clearing your browser data." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes — saved words are stored in your browser's local storage, so they stay between visits on the same device and browser. They won't sync across devices. Use Copy saved to paste your list into a notes app before clearing your browser data." }
     },
     {
       "@type": "Question",
       "name": "Does the word of the day change every day?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. The word is selected by date — everyone sees the same word on the same day, and it updates at midnight. The 'Previous words' panel shows the last 7 days of words in case you missed one." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Each calendar date in 2026 has an official word on the published list below. Everyone with the same local date sees the same word. The Previous words panel shows the last 7 days if you missed one." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I download the full year list?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Use Download CSV for the full 2026 calendar, including definition, example, memory hook, quiz, and classroom prompt for every day. You can also copy the current Monday–Sunday week as a tab-separated list." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I print this for class?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Click Print / Save as PDF. The print view keeps the year table and a Wordineer credit line, and hides navigation, ads, and the quiz chrome. Use your browser's Save as PDF if you need a file." }
+    },
+    {
+      "@type": "Question",
+      "name": "Are these the same words Dictionary.com uses?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. This list is curated for words people actually write and say, and the whole 2026 calendar is published up front so teachers can plan. Dictionary.com's word of the day is a separate editorial feed." }
     },
     {
       "@type": "Question",
       "name": "How do I use the Word of the Day as a classroom activity?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Project the page, show the word and memory hook, and ask students to guess the definition before scrolling down. Then reveal the definition and example and give everyone 60 seconds to write one original sentence. The whole warm-up takes 4–5 minutes and works for any subject." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Project the page, show the word and memory hook, and ask students to guess the definition before scrolling down. Then reveal the definition and example and give everyone 60 seconds to write one original sentence. The whole warm-up takes 4–5 minutes. Each row also has a ready classroom prompt." }
     },
     {
       "@type": "Question",
       "name": "Where do the words come from?",
-      "acceptedAnswer": { "@type": "Answer", "text": "The daily words are curated for learning value — chosen to be genuinely useful in writing and conversation. Each entry includes a pronunciation guide, plain-English explanation, real-world example sentence, memory hook, and a short quiz." }
+      "acceptedAnswer": { "@type": "Answer", "text": "The daily words are curated for learning value — chosen to be useful in writing and conversation. Each entry includes a pronunciation guide, plain-English explanation, real-world example sentence, memory hook, a short quiz, and a classroom prompt." }
     }
   ]
 }
@@ -53,10 +83,10 @@
   "@context": "https://schema.org",
   "@type": "WebApplication",
   "name": "Wordineer Word of the Day",
-  "url": "https://wordineer.com/word-of-the-day/",
+  "url": "https://wordineer.com/word-of-the-day",
   "applicationCategory": "EducationalApplication",
   "operatingSystem": "Any",
-  "description": "A free daily vocabulary builder with a word of the day, definition, example sentence, memory hook, practice quiz, and saved words.",
+  "description": "A free daily vocabulary builder with a 2026 word-of-the-day calendar, CSV download, and classroom prompts.",
   "offers": {
     "@type": "Offer",
     "price": "0",
@@ -155,6 +185,38 @@
   .wotd-def { font-size:16px; }
   .wotd-previous { grid-template-columns:repeat(2,1fr); }
 }
+.wotd-year { margin-top: 28px; }
+.wotd-year-head h2 { font-size: 22px; margin: 0 0 8px; letter-spacing: -.02em; }
+.wotd-year-head p { font-size: 14px; line-height: 1.55; color: var(--text-2); margin: 0 0 14px; }
+.wotd-year-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.wotd-year-actions a.act-btn { text-decoration: none; display: inline-flex; align-items: center; }
+.wotd-month-jumps { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.wotd-month-jumps a { font-size: 12px; padding: 5px 9px; border: 1px solid var(--border); border-radius: 6px; color: var(--text-2); text-decoration: none; background: var(--bg); }
+.wotd-month-jumps a:hover { background: var(--bg-2); color: var(--text); }
+.wotd-table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--bg); }
+.wotd-year-table { width: 100%; border-collapse: collapse; min-width: 640px; }
+.wotd-year-table th, .wotd-year-table td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-2); font-size: 13px; vertical-align: top; }
+.wotd-year-table thead th { font-size: 10px; text-transform: uppercase; letter-spacing: .06em; color: var(--text-3); background: var(--bg-2); }
+.wotd-month-row th { background: var(--bg-2); font-size: 13px; color: var(--text); letter-spacing: 0; text-transform: none; }
+.wotd-print-banner { display: none; }
+@media (max-width: 700px) {
+  .wotd-year { margin-top: 18px; }
+}
+@media print {
+  nav, .hamburger, #mega, .ad-rect, .ad-slot, .faq, .uc-grid, .more-tools,
+  footer, .wotd-help-panel, .wotd-side, .wotd-practice, .wotd-quiz,
+  #wotd-surprise, .words-actions, .hero-badge, .breadcrumb { display: none !important; }
+  .wotd-print-banner { display: block; margin: 0 0 16px; }
+  .wotd-print-banner h1 { font-size: 18pt; margin: 0 0 4pt; }
+  .wotd-print-banner p { font-size: 10pt; color: #444; margin: 0; }
+  .tool-wrap { max-width: none; padding: 0; }
+  .tool-card { border: 0; box-shadow: none; }
+  .wotd-year-actions, .wotd-month-jumps { display: none !important; }
+  .wotd-table-wrap { overflow: visible; border: 0; }
+  .wotd-year-table { min-width: 0; }
+  .wotd-month-row { break-before: page; }
+  .wotd-month-row:first-child { break-before: auto; }
+}
 </style>
 <!-- /SLOT:style -->
 
@@ -174,7 +236,7 @@
     Daily Vocabulary Builder
   </div>
   <h1>Word of the day</h1>
-  <p>Learn one useful word every day with a clear meaning, example sentence, memory hook, and quick practice quiz.</p>
+  <p>Learn one useful word every day — then download the full 2026 list as CSV or print it for class.</p>
 </div>
 <!-- /SLOT:hero -->
 
@@ -193,43 +255,7 @@
         </div>
 
         <div class="wotd-main" id="wotd-main">
-          <div class="wotd-date" id="wotd-date"></div>
-          <div class="wotd-word-row">
-            <div>
-              <div class="wotd-word-wrap">
-                <div class="wotd-word" id="wotd-word">...</div>
-                <button class="wotd-listen" id="wotd-listen" type="button" aria-label="Listen to pronunciation" title="Listen to pronunciation">
-                  <svg viewBox="0 0 24 24" aria-hidden="true" fill="none">
-                    <path d="M11 5 6 9H3v6h3l5 4V5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                    <path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                  </svg>
-                </button>
-              </div>
-              <div class="wotd-meta" id="wotd-meta"></div>
-            </div>
-            <button class="gen-btn" id="wotd-surprise" style="width:auto;white-space:nowrap">Surprise me</button>
-          </div>
-          <div class="wotd-def" id="wotd-definition"></div>
-          <div class="wotd-section">
-            <div class="wotd-section-title">Plain English</div>
-            <div class="wotd-body" id="wotd-explanation"></div>
-          </div>
-          <div class="wotd-section">
-            <div class="wotd-section-title">Example</div>
-            <div class="wotd-example" id="wotd-example"></div>
-          </div>
-          <div class="wotd-section">
-            <div class="wotd-section-title">Memory hook</div>
-            <div class="wotd-body" id="wotd-memory"></div>
-          </div>
-          <div class="wotd-practice">
-            <button class="act-btn" id="wotd-practice-copy">Copy practice prompt</button>
-            <button class="act-btn" id="wotd-quiz-reveal">Reveal quiz answer</button>
-          </div>
-          <div class="wotd-quiz">
-            <div class="wotd-quiz-q" id="wotd-quiz-q"></div>
-            <div class="wotd-quiz-a" id="wotd-quiz-a"></div>
-          </div>
+          <!-- SSR_TODAY -->
         </div>
 
         <div class="wotd-side">
@@ -261,6 +287,51 @@
         </div>
         <div class="wotd-tip">Best routine: say the word once, read the example, then use it in a sentence about your own day.</div>
       </div>
+    </div>
+  </div>
+  <div class="wotd-print-banner">
+    <h1>Wordineer 2026 Word of the Day</h1>
+    <p>https://wordineer.com/word-of-the-day</p>
+  </div>
+  <div class="wotd-year" id="wotd-year">
+    <div class="wotd-year-head">
+      <h2>2026 word of the day list</h2>
+      <p>The official calendar — 365 useful writing words, free to download and print. Chosen for words people actually write and say, not obscure trivia.</p>
+      <div class="wotd-year-actions">
+        <a class="act-btn" href="/data/wotd-2026.csv" download>Download CSV</a>
+        <button class="act-btn" id="wotd-print" type="button">Print / Save as PDF</button>
+        <button class="act-btn" id="wotd-copy-week" type="button">Copy this week</button>
+      </div>
+      <nav class="wotd-month-jumps" aria-label="Jump to month">
+        <a href="#wotd-month-01">Jan</a>
+        <a href="#wotd-month-02">Feb</a>
+        <a href="#wotd-month-03">Mar</a>
+        <a href="#wotd-month-04">Apr</a>
+        <a href="#wotd-month-05">May</a>
+        <a href="#wotd-month-06">Jun</a>
+        <a href="#wotd-month-07">Jul</a>
+        <a href="#wotd-month-08">Aug</a>
+        <a href="#wotd-month-09">Sep</a>
+        <a href="#wotd-month-10">Oct</a>
+        <a href="#wotd-month-11">Nov</a>
+        <a href="#wotd-month-12">Dec</a>
+      </nav>
+    </div>
+    <div class="wotd-table-wrap">
+      <table class="wotd-year-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Word</th>
+            <th>Part of speech</th>
+            <th>Definition</th>
+            <th>Classroom prompt</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- SSR_ROWS -->
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
