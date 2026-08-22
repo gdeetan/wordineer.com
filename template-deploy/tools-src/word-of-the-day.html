@@ -425,24 +425,71 @@
 <script>
 const WORDINEER_WOTD = (() => {
   const curated = [
-    { word:'lucid', pos:'adjective', pronunciation:'LOO-sid', difficulty:'medium', definition:'clear and easy to understand', explanation:'A lucid idea, sentence, or explanation is clear enough that people can follow it without confusion.', example:'Her lucid summary helped the whole class understand the difficult chapter.', memory:'Think of a clear light switching on: lucid writing lights up the meaning.', quiz:'Which sentence uses lucid correctly?', answer:'Correct use: The teacher gave a lucid explanation of the problem.' },
-    { word:'resilient', pos:'adjective', pronunciation:'ri-ZIL-yuhnt', difficulty:'medium', definition:'able to recover after difficulty or change', explanation:'A resilient person, plan, or material can handle pressure and keep going.', example:'The resilient team adjusted quickly after the first idea failed.', memory:'Resilient sounds like returning to shape after being bent.', quiz:'If someone stays calm and recovers after a setback, what are they?', answer:'They are resilient.' },
-    { word:'nuance', pos:'noun', pronunciation:'NOO-ahns', difficulty:'hard', definition:'a small but important difference in meaning, feeling, or expression', explanation:'Nuance helps you notice the fine details that make two similar ideas not exactly the same.', example:'The actor captured every nuance of the character\'s nervous smile.', memory:'Nuance is the tiny shade of meaning between almost-matching ideas.', quiz:'What does nuance add to an idea?', answer:'It adds a small, subtle difference in meaning or feeling.' },
-    { word:'pragmatic', pos:'adjective', pronunciation:'prag-MAT-ik', difficulty:'hard', definition:'focused on practical results rather than theory', explanation:'A pragmatic choice may not be perfect, but it works in real life.', example:'They made a pragmatic decision to fix the old laptop instead of buying a new one.', memory:'Pragmatic people ask, "What will actually work?"', quiz:'Is a pragmatic solution more practical or more imaginary?', answer:'More practical.' },
-    { word:'vivid', pos:'adjective', pronunciation:'VIV-id', difficulty:'easy', definition:'bright, clear, or full of life', explanation:'Vivid words, colors, or memories feel strong and easy to picture.', example:'The poem used vivid details that made the street feel alive.', memory:'Vivid writing makes a picture feel visible.', quiz:'What kind of details help readers picture a scene?', answer:'Vivid details.' },
-    { word:'meticulous', pos:'adjective', pronunciation:'muh-TIK-yuh-luhs', difficulty:'hard', definition:'very careful and attentive to detail', explanation:'Meticulous work is done with patience, precision, and close attention.', example:'The editor made meticulous notes on every paragraph.', memory:'Meticulous means tiny details matter.', quiz:'Would a meticulous person rush through a task?', answer:'No. A meticulous person works carefully.' },
-    { word:'cordial', pos:'adjective', pronunciation:'KOR-juhl', difficulty:'medium', definition:'warm, friendly, and polite', explanation:'A cordial greeting is friendly without being overly familiar.', example:'The two neighbors exchanged a cordial hello each morning.', memory:'Cordial sounds connected to the heart: friendly and warm.', quiz:'What is a cordial greeting like?', answer:'It is warm, friendly, and polite.' },
-    { word:'tenacious', pos:'adjective', pronunciation:'tuh-NAY-shuhs', difficulty:'hard', definition:'not giving up easily', explanation:'A tenacious person keeps holding on to a goal, even when it is difficult.', example:'Her tenacious research finally uncovered the missing records.', memory:'Tenacious means you hold tight to the task.', quiz:'What word describes someone who keeps trying?', answer:'Tenacious.' },
-    { word:'concise', pos:'adjective', pronunciation:'kuhn-SYSE', difficulty:'medium', definition:'using few words while still being clear', explanation:'Concise writing removes extra words but keeps the meaning.', example:'The instructions were concise, so everyone knew what to do.', memory:'Concise means clear and compact.', quiz:'Is concise writing long-winded or brief?', answer:'Brief.' },
-    { word:'curious', pos:'adjective', pronunciation:'KYUR-ee-uhs', difficulty:'easy', definition:'wanting to know or learn more', explanation:'A curious mind asks questions and looks for patterns.', example:'The curious student stayed after class to ask how the machine worked.', memory:'Curious starts with a question.', quiz:'What does a curious person like to do?', answer:'Ask questions and learn more.' },
-    { word:'eloquent', pos:'adjective', pronunciation:'EL-uh-kwuhnt', difficulty:'hard', definition:'expressing ideas clearly and beautifully', explanation:'An eloquent speaker or writer uses language in a graceful, effective way.', example:'Her eloquent speech made the audience feel hopeful.', memory:'Eloquent expression sounds elegant and clear.', quiz:'What does an eloquent speaker do well?', answer:'Express ideas clearly and beautifully.' },
-    { word:'adapt', pos:'verb', pronunciation:'uh-DAPT', difficulty:'easy', definition:'to change so something works in a new situation', explanation:'When you adapt, you adjust your behavior, plan, or tool to fit new conditions.', example:'We had to adapt the lesson for a younger class.', memory:'Adapt means adjust.', quiz:'If plans change and you adjust, what do you do?', answer:'You adapt.' }
+    { word:'lucid', pos:'adjective', pronunciation:'LOO-sid', difficulty:'medium', definition:'clear and easy to understand', explanation:'A lucid idea, sentence, or explanation is clear enough that people can follow it without confusion.', example:'Her lucid summary helped the whole class understand the difficult chapter.', memory:'Think of a clear light switching on: lucid writing lights up the meaning.', quiz:'Which sentence uses lucid correctly?', answer:'Correct use: The teacher gave a lucid explanation of the problem.', prompt:'Give students 60 seconds to rewrite a confusing sentence from today\'s lesson so it is lucid.' },
+    { word:'resilient', pos:'adjective', pronunciation:'ri-ZIL-yuhnt', difficulty:'medium', definition:'able to recover after difficulty or change', explanation:'A resilient person, plan, or material can handle pressure and keep going.', example:'The resilient team adjusted quickly after the first idea failed.', memory:'Resilient sounds like returning to shape after being bent.', quiz:'If someone stays calm and recovers after a setback, what are they?', answer:'They are resilient.', prompt:'Ask students to describe a time they were resilient in one sentence.' },
+    { word:'nuance', pos:'noun', pronunciation:'NOO-ahns', difficulty:'hard', definition:'a small but important difference in meaning, feeling, or expression', explanation:'Nuance helps you notice the fine details that make two similar ideas not exactly the same.', example:'The actor captured every nuance of the character\'s nervous smile.', memory:'Nuance is the tiny shade of meaning between almost-matching ideas.', quiz:'What does nuance add to an idea?', answer:'It adds a small, subtle difference in meaning or feeling.', prompt:'Have students compare two similar words and name one nuance that separates them.' },
+    { word:'pragmatic', pos:'adjective', pronunciation:'prag-MAT-ik', difficulty:'hard', definition:'focused on practical results rather than theory', explanation:'A pragmatic choice may not be perfect, but it works in real life.', example:'They made a pragmatic decision to fix the old laptop instead of buying a new one.', memory:'Pragmatic people ask, "What will actually work?"', quiz:'Is a pragmatic solution more practical or more imaginary?', answer:'More practical.', prompt:'Give students a messy classroom problem and ask for one pragmatic fix in a sentence.' },
+    { word:'vivid', pos:'adjective', pronunciation:'VIV-id', difficulty:'easy', definition:'bright, clear, or full of life', explanation:'Vivid words, colors, or memories feel strong and easy to picture.', example:'The poem used vivid details that made the street feel alive.', memory:'Vivid writing makes a picture feel visible.', quiz:'What kind of details help readers picture a scene?', answer:'Vivid details.', prompt:'Ask students to add two vivid details to a dull sentence on the board.' },
+    { word:'meticulous', pos:'adjective', pronunciation:'muh-TIK-yuh-luhs', difficulty:'hard', definition:'very careful and attentive to detail', explanation:'Meticulous work is done with patience, precision, and close attention.', example:'The editor made meticulous notes on every paragraph.', memory:'Meticulous means tiny details matter.', quiz:'Would a meticulous person rush through a task?', answer:'No. A meticulous person works carefully.', prompt:'Have students spend 60 seconds making one sentence more meticulous by adding a precise detail.' },
+    { word:'cordial', pos:'adjective', pronunciation:'KOR-juhl', difficulty:'medium', definition:'warm, friendly, and polite', explanation:'A cordial greeting is friendly without being overly familiar.', example:'The two neighbors exchanged a cordial hello each morning.', memory:'Cordial sounds connected to the heart: friendly and warm.', quiz:'What is a cordial greeting like?', answer:'It is warm, friendly, and polite.', prompt:'Ask students to write a cordial two-sentence email to a classmate.' },
+    { word:'tenacious', pos:'adjective', pronunciation:'tuh-NAY-shuhs', difficulty:'hard', definition:'not giving up easily', explanation:'A tenacious person keeps holding on to a goal, even when it is difficult.', example:'Her tenacious research finally uncovered the missing records.', memory:'Tenacious means you hold tight to the task.', quiz:'What word describes someone who keeps trying?', answer:'Tenacious.', prompt:'Students write one sentence about a tenacious person from history or sports.' },
+    { word:'concise', pos:'adjective', pronunciation:'kuhn-SYSE', difficulty:'medium', definition:'using few words while still being clear', explanation:'Concise writing removes extra words but keeps the meaning.', example:'The instructions were concise, so everyone knew what to do.', memory:'Concise means clear and compact.', quiz:'Is concise writing long-winded or brief?', answer:'Brief.', prompt:'Give students a wordy sentence and 60 seconds to make it concise.' },
+    { word:'curious', pos:'adjective', pronunciation:'KYUR-ee-uhs', difficulty:'easy', definition:'wanting to know or learn more', explanation:'A curious mind asks questions and looks for patterns.', example:'The curious student stayed after class to ask how the machine worked.', memory:'Curious starts with a question.', quiz:'What does a curious person like to do?', answer:'Ask questions and learn more.', prompt:'Ask each student to write one curious question about today\'s topic.' },
+    { word:'eloquent', pos:'adjective', pronunciation:'EL-uh-kwuhnt', difficulty:'hard', definition:'expressing ideas clearly and beautifully', explanation:'An eloquent speaker or writer uses language in a graceful, effective way.', example:'Her eloquent speech made the audience feel hopeful.', memory:'Eloquent expression sounds elegant and clear.', quiz:'What does an eloquent speaker do well?', answer:'Express ideas clearly and beautifully.', prompt:'Students rewrite a flat opinion so it sounds more eloquent, without adding fluff.' },
+    { word:'adapt', pos:'verb', pronunciation:'uh-DAPT', difficulty:'easy', definition:'to change so something works in a new situation', explanation:'When you adapt, you adjust your behavior, plan, or tool to fit new conditions.', example:'We had to adapt the lesson for a younger class.', memory:'Adapt means adjust.', quiz:'If plans change and you adjust, what do you do?', answer:'You adapt.', prompt:'Ask students how they would adapt a playground game for a rainy day.' }
   ];
 
+  let calendar = [];
+  let byDate = {};
   let fallbackWords = [];
   let current = null;
+  let officialToday = null;
   let saved = [];
   let speechVoice = null;
+
+  function pad(n) { return String(n).padStart(2, '0'); }
+
+  function mapWotdDate(d) {
+    let m = d.getMonth() + 1;
+    let day = d.getDate();
+    if (m === 2 && day === 29) day = 28;
+    return '2026-' + pad(m) + '-' + pad(day);
+  }
+
+  function loadCalendar() {
+    const raw = window._PAGE_DATA;
+    if (!Array.isArray(raw) || !raw.length) return;
+    calendar = raw.filter(row => row && row.date && row.word);
+    byDate = {};
+    calendar.forEach(row => { byDate[row.date] = row; });
+  }
+
+  function entryForDate(d) {
+    const key = mapWotdDate(d);
+    if (byDate[key]) return byDate[key];
+    const cur = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+    for (let i = 0; i < 366; i++) {
+      cur.setDate(cur.getDate() - 1);
+      const k = mapWotdDate(cur);
+      if (byDate[k]) return byDate[k];
+    }
+    return null;
+  }
+
+  function dayNumber(date) {
+    const start = new Date(Date.UTC(2026, 0, 1));
+    const utc = Date.UTC(date.getFullYear(), date.getMonth(), date.getDate());
+    return Math.floor((utc - start.getTime()) / 86400000);
+  }
+
+  function curatedForDate(date) {
+    const n = dayNumber(date);
+    return curated[((n % curated.length) + curated.length) % curated.length];
+  }
+
+  function officialEntry(date) {
+    return entryForDate(date) || curatedForDate(date);
+  }
 
   function esc(s) {
     return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
@@ -489,17 +536,6 @@ const WORDINEER_WOTD = (() => {
     window.speechSynthesis.speak(utterance);
   }
 
-  function dayNumber(date) {
-    const start = new Date(Date.UTC(2026, 0, 1));
-    const utc = Date.UTC(date.getFullYear(), date.getMonth(), date.getDate());
-    return Math.floor((utc - start.getTime()) / 86400000);
-  }
-
-  function wordForDate(date) {
-    const n = dayNumber(date);
-    return curated[((n % curated.length) + curated.length) % curated.length];
-  }
-
   function dateLabel(date) {
     return date.toLocaleDateString(undefined, { weekday:'long', month:'long', day:'numeric', year:'numeric' });
   }
@@ -521,11 +557,15 @@ const WORDINEER_WOTD = (() => {
     showToast('Copied!');
   }
 
-  function render(entry, label) {
+  function render(entry, label, dateForLabel) {
     current = entry;
-    document.getElementById('wotd-status').textContent = label || "Today's word";
-    document.getElementById('wotd-date').textContent = label === 'Practice word' ? 'Extra practice' : dateLabel(new Date());
-    document.getElementById('wotd-word').textContent = entry.word;
+    const status = document.getElementById('wotd-status');
+    const dateEl = document.getElementById('wotd-date');
+    const wordEl = document.getElementById('wotd-word');
+    if (!wordEl) return;
+    if (status) status.textContent = label || "Today's word";
+    if (dateEl) dateEl.textContent = label === 'Practice word' ? 'Extra practice' : dateLabel(dateForLabel || new Date());
+    wordEl.textContent = entry.word;
     document.getElementById('wotd-meta').innerHTML =
       '<span class="wotd-pill">' + esc(entry.pos) + '</span>' +
       '<span class="wotd-pill soft">' + esc(entry.pronunciation || 'pronunciation varies') + '</span>' +
@@ -596,11 +636,15 @@ const WORDINEER_WOTD = (() => {
   }
 
   function surprise() {
-    const poolSize = curated.length + fallbackWords.length;
-    if (!poolSize) return render(curated[Math.floor(Math.random() * curated.length)], 'Practice word');
-    const index = Math.floor(Math.random() * poolSize);
-    const entry = index < curated.length ? curated[index] : practiceEntryFromFallback(fallbackWords[index - curated.length]);
-    render(entry, 'Practice word');
+    const todayWord = (officialToday && officialToday.word || '').toLowerCase();
+    const calPool = calendar.filter(row => (row.word || '').toLowerCase() !== todayWord);
+    const extra = fallbackWords.map(practiceEntryFromFallback);
+    const pool = calPool.concat(extra);
+    if (!pool.length) {
+      render(curated[Math.floor(Math.random() * curated.length)], 'Practice word');
+      return;
+    }
+    render(pool[Math.floor(Math.random() * pool.length)], 'Practice word');
   }
 
   function renderPrevious() {
@@ -611,17 +655,40 @@ const WORDINEER_WOTD = (() => {
     for (let i = 1; i <= 7; i++) {
       const d = new Date(today);
       d.setDate(today.getDate() - i);
-      const entry = wordForDate(d);
-      rows.push('<button class="wotd-prev-btn" data-offset="' + i + '"><span class="wotd-prev-date">' + esc(smallDate(d)) + '</span><span class="wotd-prev-word">' + esc(entry.word) + '</span></button>');
+      const entry = officialEntry(d);
+      rows.push('<button class="wotd-prev-btn" type="button" data-offset="' + i + '"><span class="wotd-prev-date">' + esc(smallDate(d)) + '</span><span class="wotd-prev-word">' + esc(entry.word) + '</span></button>');
     }
     wrap.innerHTML = rows.join('');
     wrap.querySelectorAll('.wotd-prev-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const d = new Date();
         d.setDate(d.getDate() - parseInt(btn.dataset.offset, 10));
-        render(wordForDate(d), smallDate(d) + ' word');
+        render(officialEntry(d), smallDate(d) + ' word', d);
       });
     });
+  }
+
+  function mondayOfWeek(d) {
+    const x = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+    const dow = x.getDay();
+    const offset = dow === 0 ? -6 : 1 - dow;
+    x.setDate(x.getDate() + offset);
+    return x;
+  }
+
+  function copyThisWeek() {
+    const start = mondayOfWeek(new Date());
+    const lines = ['date\tword\tpos\tdefinition\tprompt'];
+    for (let i = 0; i < 7; i++) {
+      const d = new Date(start);
+      d.setDate(start.getDate() + i);
+      const entry = entryForDate(d);
+      if (!entry) continue;
+      lines.push([entry.date, entry.word, entry.pos, entry.definition, entry.prompt].join('\t'));
+    }
+    if (lines.length === 1) return;
+    if (navigator.clipboard) navigator.clipboard.writeText(lines.join('\n'));
+    showToast("Copied this week's words.");
   }
 
   async function loadFallbackWords() {
@@ -646,6 +713,8 @@ const WORDINEER_WOTD = (() => {
       if (!saved.length) return;
       copyText(saved.map(item => item.word + ' - ' + item.definition).join('\n'));
     });
+    document.getElementById('wotd-print')?.addEventListener('click', () => window.print());
+    document.getElementById('wotd-copy-week')?.addEventListener('click', copyThisWeek);
 
     document.querySelectorAll('.faq-q').forEach(q => {
       q.addEventListener('click', () => q.closest('.faq-item').classList.toggle('open'));
@@ -653,10 +722,13 @@ const WORDINEER_WOTD = (() => {
   }
 
   async function init() {
+    loadCalendar();
     bind();
     setupSpeech();
     loadSaved();
-    render(wordForDate(new Date()), "Today's word");
+    const today = new Date();
+    officialToday = officialEntry(today);
+    render(officialToday, "Today's word", today);
     renderPrevious();
     await loadFallbackWords();
   }
