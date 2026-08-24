@@ -250,6 +250,17 @@
 .domain-tip { font-size:12px; color:var(--text-3); text-align:center; padding:8px 0 0; }
 .domain-tip a { color:var(--brand); }
 
+/* Mobile: stack controls above results */
+@media (max-width:640px) {
+  .tool-wrap  { padding:16px 12px 0; }
+  .tool-split { flex-direction:column; }
+  .ctrl       { width:auto; border-right:none; border-bottom:1px solid var(--border-2); padding:14px; }
+  .words-panel { min-height:0; overflow:visible; }
+  .bn-name    { font-size:14px; }
+  .bn-item    { padding:10px 12px; }
+  .words-top  { padding:10px 12px; }
+}
+
 /* Explainer content area */
 .explainer h2 { font-size:20px; font-weight:700; margin:32px 0 10px; color:var(--text); }
 .explainer h3 { font-size:16px; font-weight:700; margin:20px 0 6px; color:var(--text); }
