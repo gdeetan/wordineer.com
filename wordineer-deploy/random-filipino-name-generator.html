@@ -1,4 +1,4 @@
-<!-- build: 2026-08-13T12:17:39Z -->
+<!-- build: 2026-08-25T01:34:12Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -156,18 +156,20 @@
   "@type": "BreadcrumbList",
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
-    { "@type": "ListItem", "position": 2, "name": "Name Generators", "item": "https://wordineer.com/name-generators/" },
-    { "@type": "ListItem", "position": 3, "name": "Random Filipino Name Generator", "item": "https://wordineer.com/random-filipino-name-generator/" }
+    { "@type": "ListItem", "position": 2, "name": "Name Generators", "item": "https://wordineer.com/name-generators" },
+    { "@type": "ListItem", "position": 3, "name": "Random Filipino Name Generator", "item": "https://wordineer.com/random-filipino-name-generator" }
   ]
 }
 </script>
-
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Random Filipino Name Generator">
+<meta name="twitter:description" content="Generate Filipino names with meanings — traditional, Spanish-colonial, modern, and nickname styles. Filter by gender and style. Free, no sign-up.">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "Random Filipino Name Generator — 280+ Names with Meanings",
-  "url": "https://wordineer.com/random-filipino-name-generator/",
+  "url": "https://wordineer.com/random-filipino-name-generator",
   "applicationCategory": "UtilityApplication",
   "operatingSystem": "Web",
   "offers": {
@@ -268,7 +270,7 @@
     Wordineer
   </a>
   <div class="nav-links">
-    <a href="/word-tools/">Tools</a>
+    <a href="/word-tools">Tools</a>
   </div>
   <div>
     <button class="hamburger" type="button" aria-label="All tools" aria-controls="mega" aria-expanded="false">
@@ -357,7 +359,7 @@
   <div class="breadcrumb-inner">
     <a href="/">Wordineer</a>
     <span class="breadcrumb-sep">›</span>
-    <a href="/name-generators/">Name Generators</a>
+    <a href="/name-generators">Name Generators</a>
     <span class="breadcrumb-sep">›</span>
     <span aria-current="page">Random Filipino Name Generator</span>
   </div>
@@ -524,7 +526,7 @@
   <p>The Style filter is the most useful tool for fiction writers and game designers. Use Traditional for historical Philippine settings or rural communities. Use Spanish-colonial for upper-class families, older-generation characters, or settings in the 19th century. Use Modern for contemporary urban characters. Use Nickname for close-knit community scenes or casual dialogue — a character who goes by Dodong or Nene immediately signals warmth and familiarity. The Full Name type pairs a first name and last name from your selected style, giving you authentic-feeling combinations like Bayani Magsaysay or Maria Santos.</p>
 
   <h2>Want names from other countries?</h2>
-  <p>For random names from 30+ world origins — American, English, Japanese, Arabic, and more — try the <a href="/random-name-generator/">random name generator</a>. It covers over 500 names with the same meanings-inline format. For realistic American names with gender, era, style, and surname filters, use the <a href="/random-american-name-generator/">Random American Name Generator</a>.</p>
+  <p>For random names from 30+ world origins — American, English, Japanese, Arabic, and more — try the <a href="/random-name-generator">random name generator</a>. It covers over 500 names with the same meanings-inline format. For realistic American names with gender, era, style, and surname filters, use the <a href="/random-american-name-generator">Random American Name Generator</a>.</p>
 </div>
 
 <div class="faq">
@@ -588,7 +590,7 @@
         <span style="font-size:14px;font-weight:600;color:var(--text)">Wordineer</span>
       </div>
       <span class="footer-copy">© 2026 Wordineer · Free word tools for everyone</span>
-      <div class="footer-meta"><a href="/about/">About</a><a href="/press-kit/">Data &amp; Press</a><a href="/embed/">Embed our tools</a><a href="/affiliate-disclosure/">Affiliate disclosure</a><a href="/privacy/">Privacy</a></div>
+      <div class="footer-meta"><a href="/about">About</a><a href="/press-kit">Data &amp; Press</a><a href="/embed">Embed our tools</a><a href="/affiliate-disclosure">Affiliate disclosure</a><a href="/privacy">Privacy</a></div>
     </div>
   </div>
 </footer>
@@ -936,6 +938,8 @@ window.pfCopyName = function(name, btn) {
   document.getElementById('pf-defs')?.addEventListener('change', function() {
     pfRenderCurrentItems();
   });
+
+  document.querySelectorAll('.faq-q').forEach(function(q){q.addEventListener('click',function(){q.closest('.faq-item').classList.toggle('open');});});
 
   const toggle   = document.getElementById('pf-mobile-toggle');
   const advanced = document.getElementById('pf-advanced');

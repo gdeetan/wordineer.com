@@ -2,13 +2,13 @@
 
 <!-- SLOT:meta -->
 <title>Random Filipino Name Generator — 280+ Names with Meanings | Wordineer</title>
-<meta name="description" content="Generate random Filipino names instantly — traditional Tagalog, Spanish-colonial, modern, and nickname styles. Meanings shown under every result. Filter by gender and style. Free, no sign-up.">
+<meta name="description" content="Filipino names in four styles — traditional Tagalog, Spanish-colonial, modern, and nickname. Each result shows a meaning. Filter by gender and style.">
 <link rel="canonical" href="https://wordineer.com/random-filipino-name-generator/">
 <meta property="og:type"        content="website">
 <meta property="og:site_name"   content="Wordineer">
 <meta property="og:title"       content="Random Filipino Name Generator | Wordineer">
 <meta property="og:description" content="Generate Filipino names with meanings — traditional, Spanish-colonial, modern, and nickname styles. Filter by gender and style. Free, no sign-up.">
-<meta property="og:url"         content="https://wordineer.com/random-filipino-name-generator/">
+<meta property="og:url"         content="https://wordineer.com/random-filipino-name-generator">
 <meta property="og:image"       content="https://wordineer.com/og-image.png">
 <script type="application/ld+json">
 {
@@ -48,7 +48,7 @@
   "@context": "https://schema.org",
   "@type": "WebApplication",
   "name": "Random Filipino Name Generator",
-  "url": "https://wordineer.com/random-filipino-name-generator/",
+  "url": "https://wordineer.com/random-filipino-name-generator",
   "description": "Generate random Filipino names instantly — traditional Tagalog, Spanish-colonial, modern, and nickname styles. Meanings shown under every result. Filter by gender and style. Free, no sign-up.",
   "applicationCategory": "UtilityApplication",
   "operatingSystem": "Web",
@@ -647,6 +647,8 @@ window.pfCopyName = function(name, btn) {
   document.getElementById('pf-defs')?.addEventListener('change', function() {
     pfRenderCurrentItems();
   });
+
+  document.querySelectorAll('.faq-q').forEach(function(q){q.addEventListener('click',function(){q.closest('.faq-item').classList.toggle('open');});});
 
   const toggle   = document.getElementById('pf-mobile-toggle');
   const advanced = document.getElementById('pf-advanced');
