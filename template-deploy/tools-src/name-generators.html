@@ -8,12 +8,12 @@
 
 <!-- SLOT:meta -->
 <title>More Name Generator Tools | Wordineer</title>
-<meta name="description" content="Browse more name generator tools by region, with flag icons and quick links to focused generators for Asian, European, American, Middle Eastern, and Latin American names.">
-<link rel="canonical" href="https://wordineer.com/name-generators">
+<meta name="description" content="26 name generators, one per country. Real Spanish, Japanese, Arabic, Polish names and more, with meanings and native scripts where they matter.">
+<link rel="canonical" href="https://wordineer.com/name-generators/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Wordineer">
 <meta property="og:title" content="More Name Generator Tools | Wordineer">
-<meta property="og:description" content="Browse flag-based name generators by region and find focused tools for Asian, European, American, Middle Eastern, and Latin American names.">
+<meta property="og:description" content="Browse 26 name generators by country. Real names from Spain, Japan, Poland, Egypt, and more, with meanings and native scripts.">
 <meta property="og:url" content="https://wordineer.com/name-generators">
 <meta property="og:image" content="https://wordineer.com/og-image.png">
 <script type="application/ld+json">
@@ -25,7 +25,7 @@
       "@id": "https://wordineer.com/name-generators/#page",
       "name": "Name Generator Tools",
       "url": "https://wordineer.com/name-generators",
-      "description": "Browse name generator tools by region — Asian, European, American, Middle Eastern, and Latin American names. Free, no sign-up.",
+      "description": "Browse 26 name generators by country: Spanish, Japanese, Arabic, Polish, and more. Real names with meanings and native scripts where relevant. Free, no signup.",
       "publisher": { "@id": "https://wordineer.com/#organization" }
     },
     {
@@ -220,6 +220,56 @@
 @media (max-width: 600px) {
   .hub-search { max-width: 100%; }
 }
+.hero { overflow: visible; }
+.hub-search__dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  max-width: 480px;
+  margin: 0 auto;
+  background: var(--bg, #fff);
+  border: 1px solid var(--border-2, #d1d5db);
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0,0,0,.10);
+  list-style: none;
+  padding: 4px 0;
+  margin: 0;
+  z-index: 100;
+  max-height: 320px;
+  overflow-y: auto;
+}
+.hub-search__dropdown[hidden] { display: none; }
+.hub-search__dd-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 9px 14px;
+  cursor: pointer;
+  font-size: 0.93rem;
+  color: var(--text-1, #1a1a2e);
+  border-radius: 6px;
+  margin: 2px 4px;
+  transition: background 0.12s;
+  text-align: left;
+}
+.hub-search__dd-item:hover,
+.hub-search__dd-item[aria-selected="true"] {
+  background: #f0f4ff;
+  color: #2563eb;
+}
+.hub-search__dd-item[aria-selected="true"] .hub-search__dd-item__desc { color: #3b6fd4; }
+.hub-search__dd-item__name { font-weight: 600; line-height: 1.35; }
+.hub-search__dd-item__desc {
+  font-size: 0.77rem;
+  color: var(--text-2, #6b7280);
+  line-height: 1.4;
+  margin-top: 1px;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 </style>
 <!-- /SLOT:style -->
 
@@ -237,7 +287,7 @@
     Free · No sign-up · Instant
   </div>
   <h1>More name generator tools</h1>
-  <p>Browse focused name generators by region. Same quick card format, now with flag icons and direct links to the matching tools.</p>
+  <p>26 name generators, one per country. Tap a flag to open the tool.</p>
   <div class="hub-search">
     <input
       type="search"
@@ -252,6 +302,7 @@
       id="hub-search-clear"
       aria-label="Clear search"
       hidden>✕</button>
+    <ul id="hub-search-dropdown" class="hub-search__dropdown" role="listbox" aria-label="Tool suggestions" hidden></ul>
   </div>
 </div>
 <!-- /SLOT:hero -->
@@ -259,7 +310,15 @@
 <!-- SLOT:content -->
 <div class="content-wrap">
   <div class="section">
-    <p class="name-intro">This hub is your directory of name generators organized by culture and country of origin — not fictional names, but the kinds of names real people have. Whether you're writing a story and need authentic Spanish surnames, researching family history, or building a game that requires accurate Japanese character names, each tool is built around real naming conventions for that culture. There are 26 generators here covering Asia, Europe, the Americas, and the Middle East. All free, all instant.</p>
+    <p class="name-intro">26 name generators, one per country. These are real names people actually have. So the Spanish generator gives you names you would meet in Madrid, not phonetic guesses. Use them for fiction, games, class rosters, or family research. Free, instant, no signup.</p>
+
+    <div class="name-section">
+      <h2 class="section-title">General</h2>
+      <p class="section-sub">Any name, any culture — no region filter</p>
+      <div class="tools-grid">
+        <a class="tool-item" href="/random-name-generator/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="3" width="9" height="7" rx="1.2" fill="#F8F7FF" stroke="#534AB7" stroke-width=".9"/><path d="M2.6 3.5l7.8 6M10.4 3.5l-7.8 6" stroke="#B44A61" stroke-width=".75" stroke-linecap="round"/><path d="M6.5 3.2v6.6M2.3 6.5h8.4" stroke="#534AB7" stroke-width="1.1" stroke-linecap="round"/></svg></div><div class="tool-name">Random Name Generator</div><div class="tool-desc">Generate first names, last names, and full names across cultures.</div></a>
+      </div>
+    </div>
 
     <div class="name-section">
       <h2 class="section-title">Asian</h2>
@@ -315,68 +374,40 @@
       </div>
     </div>
 
-    <div class="name-section">
-      <h2 class="section-title">Story &amp; Character Names</h2>
-      <p class="section-sub">For invented worlds, fantasy characters, and creative fiction.</p>
-      <div class="tools-grid">
-        <a class="tool-item" href="/fiction-name-generators/">
-          <div class="tool-icon" style="background:#EEEDFE">
-            <svg viewBox="0 0 13 13" fill="none"><path d="M6.5 1.5L8 5h3.5l-2.8 2 1.1 3.5L6.5 8.5 3.7 10.5 4.8 7 2 5H5.5z" stroke="#4A3FD4" stroke-width=".9" stroke-linejoin="round"/></svg>
-          </div>
-          <div class="tool-name">Story &amp; Character Names</div>
-          <div class="tool-desc">Fantasy, fiction &amp; worldbuilding name generators — all in one hub.</div>
-        </a>
-        <a class="tool-item" href="/character-name-generator/">
-          <div class="tool-icon" style="background:#EEEDFE">
-            <svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4" r="2.2" stroke="#4A3FD4" stroke-width=".9"/><path d="M2 11c0-2.5 2-4 4.5-4s4.5 1.5 4.5 4" stroke="#4A3FD4" stroke-width=".9" stroke-linecap="round"/></svg>
-          </div>
-          <div class="tool-name">Character Name Generator</div>
-          <div class="tool-desc">Names for fictional characters across any genre.</div>
-        </a>
-        <a class="tool-item" href="/fantasy-name-generator/">
-          <div class="tool-icon" style="background:#EEEDFE">
-            <svg viewBox="0 0 13 13" fill="none"><path d="M6.5 1.5L8 5h3.5l-2.8 2 1.1 3.5L6.5 8.5 3.7 10.5 4.8 7 2 5H5.5z" stroke="#4A3FD4" stroke-width=".9" stroke-linejoin="round"/></svg>
-          </div>
-          <div class="tool-name">Fantasy Name Generator</div>
-          <div class="tool-desc">Elves, wizards, orcs — names for invented worlds.</div>
-        </a>
-      </div>
-    </div>
-
     <div class="hub-prose">
       <h2>Names by culture and origin</h2>
-      <p>Every country has its own naming traditions — distinct sounds, structures, and meanings that make a name immediately recognizable as Spanish, Japanese, Polish, or Arabic. The generators on this hub reflect those conventions. Each one draws from authentic name data for that culture: common given names, traditional surnames, regional variations, and in some cases the original script (Japanese kanji, Greek letters, Russian Cyrillic). When you generate a Japanese name, you get a name a Japanese person might actually have — not a phonetically approximate invented word.</p>
-      <p>This makes the tools useful for a specific problem: you need a name that's authentically from a particular place, not just one that sounds vaguely foreign. Writers researching historical fiction, developers localizing a game, and students studying a language all run into this need. The 26 generators on this hub cover enough geographic ground that most requests — "I need a convincing French surname" or "what's a realistic Korean given name" — can be answered in seconds.</p>
+      <p>Every country has its own naming rules. Sound, structure, meaning. A Japanese name is not a Polish name with different vowels, and a Spanish full name is not just first-plus-last. The generators on this hub follow the real rules for each culture. Real given names. Real surnames. Regional variations. Original script for Japanese kanji, Greek letters, Cyrillic for Russian. Generate a Japanese name here and you get one a Japanese person could actually have.</p>
+      <p>That fixes a specific problem. You need a name from a specific place, not one that sounds vaguely foreign. Historical fiction writers, game localizers, and language students hit this constantly. The 26 generators cover most of what people ask for. "Give me a convincing French surname." "A realistic Korean given name." Ten seconds.</p>
 
       <h2>Popular origins: Spanish, Italian, Japanese, and more</h2>
-      <p>The <a href="/random-spanish-name-generator/">Spanish name generator</a> is among the most searched on Wordineer, reflecting both the global reach of Spanish-language culture and the practical demand from writers working on Latin American and European settings. The <a href="/random-italian-name-generator/">Italian name generator</a> is close behind, particularly for historical fiction set in Italy or for writers who want names with a Mediterranean feel.</p>
-      <p>The <a href="/random-japanese-name-generator/">Japanese name generator</a> includes kanji annotations and notes on name order, which matters since Japanese names are family name first. For European names beyond Romance languages, the hub covers German, French, Dutch, Polish, Russian, Greek, and all four nations of the British Isles. Asian coverage includes Japanese, Korean, Filipino, Chinese, Thai, Vietnamese, and Indian names. The Americas section covers American, Mexican, and Dominican names; the Middle Eastern section covers Arabic and Turkish.</p>
+      <p>The <a href="/random-spanish-name-generator/">Spanish generator</a> gets the most traffic. Spanish is spoken across two continents, so writers reach for it constantly. The <a href="/random-italian-name-generator/">Italian generator</a> is close behind, especially for historical fiction set in Rome, Florence, or 20th-century Sicily.</p>
+      <p>The <a href="/random-japanese-name-generator/">Japanese generator</a> ships with kanji and a note that Japanese order surname first, which trips up a lot of writers. European coverage past Spanish and Italian: German, French, Dutch, Polish, Russian, Greek, and all four British Isles nations. Asia: Japanese, Korean, Filipino, Chinese, Thai, Vietnamese, Indian. Americas: American, Mexican, Dominican. Middle East: Arabic, Turkish.</p>
 
       <h2>How cultural name generators work</h2>
-      <p>The name data behind each generator comes from research into real name distributions — common names in that country, both historically and in contemporary use. Each generator produces a first name, a surname, and in many cases a brief note about the name's meaning or origin. That context matters: if you're writing a character, knowing that a name means "warrior" or "river" or "first born" gives you something to build on.</p>
-      <p>The generators also account for naming conventions that differ by culture. In East Asian cultures, family names come before given names — the generators reflect this. In cultures with patronymic naming traditions like Russian and Arabic, the generators note the relevant forms. In cultures with compound naming structures — Spanish speakers typically have two surnames — the generators produce the right format. These details are what separate a convincing name from a generically foreign-sounding one.</p>
+      <p>The data behind each generator comes from real name distributions in that country, both current and historical. Every generator returns a first name, a surname, and (in most cases) a short meaning note. That note matters when you are writing a character. Knowing your character's name means "warrior" or "first-born son" gives you something to write toward.</p>
+      <p>Naming conventions differ too, and the generators follow them. East Asian names put surname first. Russian and Arabic names carry patronymics. Spanish speakers have two surnames, one from each parent. These rules are what separate a real name from a name that just sounds foreign.</p>
 
       <h2>Looking for fictional or fantasy names?</h2>
-      <p>This hub is specifically about real cultural names — names grounded in actual languages and traditions. If you're building a fictional world, creating characters for a fantasy novel, or naming a D&D party, the names here might feel too grounded for your setting.</p>
-      <p>For that, Wordineer's <a href="/fiction-name-generators/">Story &amp; Character Names hub</a> has tools designed for fictional contexts: character name generators, fantasy name generators, and tools for game and story worldbuilding. The two hubs serve different needs, and the distinction matters: a Spanish name for a character set in Barcelona and a fantasy name for a wizard in an invented world call for very different tools.</p>
+      <p>This hub only covers real cultural names. Names people actually have. If your story is set in a made-up world, these names will feel out of place next to your elves and dragons.</p>
+      <p>For fantasy, D&amp;D, or invented settings, head to the <a href="/other-generators/">other generators hub</a>. Fantasy names, character names, and world-building tools live there. A Spanish name for a character in Barcelona and a wizard name for a made-up world are different jobs.</p>
 
       <h3>Who uses these generators</h3>
       <div class="use-cases">
         <div class="use-case-card">
           <h3>Historical fiction writers</h3>
-          <p>Need authentic names for a character in Meiji-era Japan or Renaissance Italy? Each generator reflects the actual naming conventions of that culture, not phonetic approximations.</p>
+          <p>Naming a samurai for your Meiji-era novel? A Florentine merchant in 1490? Each generator sticks to the naming rules of that time and place.</p>
         </div>
         <div class="use-case-card">
           <h3>Game developers</h3>
-          <p>Localize character names, NPCs, and places with names that fit the cultural setting. 26 cultures covered, from Japanese and Korean to Spanish, Polish, and Arabic.</p>
+          <p>NPCs, town names, and quest-givers with names that fit the setting. 26 cultures on tap, from Korean to Arabic to Polish.</p>
         </div>
         <div class="use-case-card">
           <h3>Language learners</h3>
-          <p>Explore the name traditions of the language you're studying. Each name comes with meaning notes that reveal something about how that culture thinks about naming and identity.</p>
+          <p>See what names people in your target language actually use. The meaning notes teach you a bit about what the culture values in a name.</p>
         </div>
         <div class="use-case-card">
           <h3>Genealogy researchers</h3>
-          <p>Find authentic name variants from your family's country of origin. Useful for understanding naming patterns when tracing family history across countries and generations.</p>
+          <p>Look up traditional name variants from your family's country of origin. Useful when you are chasing a great-grandmother across borders.</p>
         </div>
       </div>
     </div>
@@ -385,23 +416,23 @@
       <h2>Frequently asked questions</h2>
       <details class="faq-item">
         <summary>What is a cultural name generator?</summary>
-        <p>A cultural name generator produces authentic names from a specific country or linguistic tradition — not invented names that sound foreign, but real given names and surnames used by people in that culture. Wordineer's name generators draw from actual name data for each region, often including meaning notes and script variants where relevant. They're built for writers, researchers, developers, and anyone who needs a name that accurately represents a specific cultural background.</p>
+        <p>A cultural name generator returns names from a specific country or language tradition. Real names people use in that culture, not invented ones that just sound the part. Wordineer's generators pull from real name data for each region, with meaning notes and script variants (kanji, Cyrillic, Greek) where they matter. Built for writers, researchers, developers, and anyone who wants a name that actually fits the culture.</p>
       </details>
       <details class="faq-item">
         <summary>Which generator should I use for Spanish names?</summary>
-        <p>Use the <a href="/random-spanish-name-generator/">Spanish name generator</a> for names from Spain or Latin America — it covers both traditional and modern Spanish names with common surnames. If you specifically need Mexican names, the <a href="/random-mexican-name-generator/">Mexican name generator</a> focuses on naming patterns common in Mexico, including regional variations. For Dominican names, there's a separate <a href="/random-dominican-name-generator/">Dominican generator</a> covering Caribbean Spanish naming traditions.</p>
+        <p>Use the <a href="/random-spanish-name-generator/">Spanish name generator</a> for names from Spain or Latin America generally. It covers traditional and modern first names with the two-surname format Spain uses. Need Mexican names specifically? The <a href="/random-mexican-name-generator/">Mexican name generator</a> handles naming patterns common in Mexico, with regional variations. Dominican names have their own <a href="/random-dominican-name-generator/">Dominican generator</a> for Caribbean Spanish traditions.</p>
       </details>
       <details class="faq-item">
         <summary>Are the names authentic, or are they made up?</summary>
-        <p>The names come from real naming data for each culture — actual given names and surnames used in that country or tradition. They're not invented phonetically. Many generators include cultural notes, meaning annotations, or script variants (kanji for Japanese, Cyrillic for Russian) to help you use names accurately. They're a reliable starting point, though if your project requires precise factual accuracy, verifying against a primary source is worth the extra step.</p>
+        <p>Yes, authentic. Every name comes from real naming data for that culture. Nothing is phonetically invented. Many generators include meaning notes, cultural context, or the original script (kanji for Japanese, Cyrillic for Russian, Devanagari for some Indian names). For creative work they are ready to use. For anything that needs to be factually exact (a legal document, a family history claim), verify against a primary source too.</p>
       </details>
       <details class="faq-item">
         <summary>What's the difference between this hub and the Story &amp; Character Names hub?</summary>
-        <p>Names by Origin is for authentic cultural names rooted in real languages and traditions. The <a href="/fiction-name-generators/">Story &amp; Character Names hub</a> is for fictional contexts: fantasy characters, D&amp;D parties, novel protagonists, and invented-world worldbuilding. If you need a convincing real-world name for a character set in Japan, use this hub. If you need a name for a wizard in a made-up world, the fiction hub will serve you better.</p>
+        <p>This hub is real cultural names. Real languages, real traditions. The <a href="/other-generators/">other generators hub</a> is for made-up settings: fantasy characters, D&amp;D parties, invented worlds. Character in Barcelona? Use this hub. Wizard in a made-up world? Use the other one.</p>
       </details>
       <details class="faq-item">
         <summary>Can I use these names in a story or game?</summary>
-        <p>Yes. Names are not copyrightable, so using a generated name in a story, game, screenplay, or any other project is fine. The generators are designed specifically for creative use — writers, game developers, and screenwriters all use them for this purpose. The meaning and origin notes included with many names can also help you choose one that fits the character rather than just picking at random.</p>
+        <p>Yes. Names are not copyrightable, so a generated name is yours to use in a novel, screenplay, tabletop campaign, or video game with no attribution needed. That is exactly what these tools are for. The meaning notes also help you pick a name that fits your character, rather than the first one that pops up.</p>
       </details>
     </div>
 
@@ -443,27 +474,63 @@
 </script>
 <script>
 (function() {
-  var input = document.getElementById('hub-search-input');
+  var input    = document.getElementById('hub-search-input');
   var clearBtn = document.getElementById('hub-search-clear');
-  if (!input) return;
+  var dropdown = document.getElementById('hub-search-dropdown');
+  if (!input || !dropdown) return;
 
+  // Build tool index from existing DOM cards (excludes "coming soon" divs that have no href)
+  var tools = Array.from(document.querySelectorAll('.tool-item')).map(function(el) {
+    return {
+      name: (el.querySelector('.tool-name') || {}).textContent || '',
+      desc: (el.querySelector('.tool-desc') || {}).textContent || '',
+      href: el.tagName === 'A' ? el.href : ''
+    };
+  }).filter(function(t) { return t.name && t.href; });
+
+  var activeIdx = -1;
+
+  function showDropdown(results) {
+    dropdown.innerHTML = '';
+    activeIdx = -1;
+    if (!results.length) { dropdown.hidden = true; return; }
+    results.slice(0, 8).forEach(function(t) {
+      var li = document.createElement('li');
+      li.setAttribute('role', 'option');
+      li.className = 'hub-search__dd-item';
+      li.setAttribute('data-href', t.href);
+      li.innerHTML = '<div class="hub-search__dd-item__name">' + t.name.replace(/</g, '&lt;') + '</div>'
+        + (t.desc ? '<div class="hub-search__dd-item__desc">' + t.desc.replace(/</g, '&lt;') + '</div>' : '');
+      li.addEventListener('mousedown', function(e) {
+        e.preventDefault();
+        window.location.href = t.href;
+      });
+      dropdown.appendChild(li);
+    });
+    dropdown.hidden = false;
+  }
+
+  function setActive(idx) {
+    var items = dropdown.querySelectorAll('.hub-search__dd-item');
+    items.forEach(function(el, i) {
+      el.setAttribute('aria-selected', i === idx ? 'true' : 'false');
+    });
+    activeIdx = idx;
+  }
+
+  // Card-filter logic (preserved from original)
   var sections = document.querySelectorAll('.name-section');
-
   var empty = document.createElement('p');
   empty.className = 'hub-search__empty';
   empty.textContent = 'No matching tools found.';
   var firstSection = sections[0];
   if (firstSection) firstSection.parentNode.insertBefore(empty, firstSection);
 
-  function filter() {
-    var q = input.value.trim().toLowerCase();
-    clearBtn.hidden = !q;
+  function filterCards(q) {
     var totalVisible = 0;
-
     sections.forEach(function(section) {
       var cards = section.querySelectorAll('.tool-item');
       var sectionVisible = 0;
-
       cards.forEach(function(card) {
         var name = (card.querySelector('.tool-name') || {}).textContent || '';
         var desc = (card.querySelector('.tool-desc') || {}).textContent || '';
@@ -471,27 +538,50 @@
         card.style.display = match ? '' : 'none';
         if (match) sectionVisible++;
       });
-
       section.style.display = sectionVisible > 0 ? '' : 'none';
       totalVisible += sectionVisible;
     });
-
     empty.style.display = (q && totalVisible === 0) ? 'block' : 'none';
   }
 
-  input.addEventListener('input', filter);
+  input.addEventListener('input', function() {
+    var raw = input.value;
+    var q = raw.trim().toLowerCase();
+    clearBtn.hidden = !raw;
+    filterCards(q);
+    if (!q) { dropdown.hidden = true; return; }
+    var results = tools.filter(function(t) {
+      return t.name.toLowerCase().includes(q) || t.desc.toLowerCase().includes(q);
+    });
+    showDropdown(results);
+  });
+
+  input.addEventListener('keydown', function(e) {
+    var items = dropdown.querySelectorAll('.hub-search__dd-item');
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      setActive(Math.min(activeIdx + 1, items.length - 1));
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      setActive(Math.max(activeIdx - 1, 0));
+    } else if (e.key === 'Enter' && activeIdx >= 0 && items[activeIdx]) {
+      window.location.href = items[activeIdx].getAttribute('data-href');
+    } else if (e.key === 'Escape') {
+      dropdown.hidden = true;
+      if (input.value) { input.value = ''; clearBtn.hidden = true; filterCards(''); }
+    }
+  });
+
+  input.addEventListener('blur', function() {
+    setTimeout(function() { dropdown.hidden = true; }, 150);
+  });
 
   clearBtn.addEventListener('click', function() {
     input.value = '';
-    filter();
+    clearBtn.hidden = true;
+    dropdown.hidden = true;
+    filterCards('');
     input.focus();
-  });
-
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && input.value) {
-      input.value = '';
-      filter();
-    }
   });
 })();
 </script>
