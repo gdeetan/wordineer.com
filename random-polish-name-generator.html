@@ -981,6 +981,7 @@ document.getElementById('png-mobile-toggle')?.addEventListener('click', function
   this.textContent = isOpen ? 'Hide options' : 'More options';
 });
 
+document.querySelectorAll('.faq-q').forEach(function(q){q.addEventListener('click',function(){q.closest('.faq-item').classList.toggle('open');});});
 </script>
 </body>
 </html>
