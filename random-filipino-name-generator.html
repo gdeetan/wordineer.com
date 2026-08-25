@@ -939,8 +939,6 @@ window.pfCopyName = function(name, btn) {
     pfRenderCurrentItems();
   });
 
-  document.querySelectorAll('.faq-q').forEach(function(q){q.addEventListener('click',function(){q.closest('.faq-item').classList.toggle('open');});});
-
   const toggle   = document.getElementById('pf-mobile-toggle');
   const advanced = document.getElementById('pf-advanced');
   if (toggle && advanced) {
