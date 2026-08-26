@@ -639,7 +639,6 @@
   input.addEventListener('blur', function() { setTimeout(function() { dropdown.hidden = true; }, 150); });
   clearBtn.addEventListener('click', function() { input.value = ''; clearBtn.hidden = true; dropdown.hidden = true; filterCards(''); input.focus(); });
 })();
-document.querySelectorAll('.faq-q').forEach(function(q){q.addEventListener('click',function(){q.closest('.faq-item').classList.toggle('open');});});
 </script>
 <footer class="footer">
   <div class="footer-inner">
@@ -672,7 +671,7 @@ document.querySelectorAll('.faq-q').forEach(function(q){q.addEventListener('clic
 
 <div class="toast" id="toast"></div>
 
-<script src="/scripts/tool-engine.js?v=28"></script>
+<script src="/scripts/tool-engine.js?v=29"></script>
 <script>
 (function bindSharedWordineerMenu() {
   const mega = document.getElementById('mega');

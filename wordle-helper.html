@@ -706,7 +706,7 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="/scripts/tool-engine.js?v=28"></script>
+<script src="/scripts/tool-engine.js?v=29"></script>
 <script>
 (function bindSharedWordineerMenu() {
   const mega = document.getElementById('mega');
@@ -798,9 +798,6 @@ WORDLE_HELPER.init({
   starters: ['TRACE','SLATE','SNARE','ARISE','ALERT','CRANE','IRATE','TRADE','STALE','ALTER',
              'RAISE','STARE','TEARS','SANER','LATER','AROSE','CRATE','SNARE','LEAST','CLOSE'],
   collapseThreshold: 30,
-});
-document.querySelectorAll('.faq-q').forEach(q => {
-  q.addEventListener('click', () => q.closest('.faq-item').classList.toggle('open'));
 });
 </script>
 </body>

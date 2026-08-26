@@ -492,7 +492,7 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="/scripts/tool-engine.js?v=28"></script>
+<script src="/scripts/tool-engine.js?v=29"></script>
 <script>
 (function bindSharedWordineerMenu() {
   const mega = document.getElementById('mega');
@@ -670,9 +670,6 @@ fetch('/data/sentences.json').then(function(r){return r.ok?r.json():null;}).then
   if(Array.isArray(d))englishSentences=d.map(function(item){return typeof item==='string'?item:(item.text||item.sentence||'');}).filter(Boolean);
 }).catch(function(){});
 fetch('/data/words.json').then(function(r){return r.ok?r.json():null;}).then(function(d){if(d)soupWords=d;}).catch(function(){});
-
-document.querySelectorAll('.faq-q').forEach(function(q){q.addEventListener('click',function(){q.closest('.faq-item').classList.toggle('open');});});
-
 parseURL();doGenerate();
 })();
 </script>

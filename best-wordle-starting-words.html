@@ -693,7 +693,7 @@ div.bw-top3 { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
 
 <div class="toast" id="toast"></div>
 
-<script src="/scripts/tool-engine.js?v=28"></script>
+<script src="/scripts/tool-engine.js?v=29"></script>
 <script>
 (function bindSharedWordineerMenu() {
   const mega = document.getElementById('mega');
@@ -740,9 +740,6 @@ div.bw-top3 { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
 <script src="/scripts/bw-table.js?v=3"></script>
 <script>
 BW.init();
-document.querySelectorAll('.faq-q').forEach(q => {
-  q.addEventListener('click', () => q.closest('.faq-item').classList.toggle('open'));
-});
 </script>
 </body>
 </html>

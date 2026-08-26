@@ -538,7 +538,7 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="/scripts/tool-engine.js?v=28"></script>
+<script src="/scripts/tool-engine.js?v=29"></script>
 <script>
 (function bindSharedWordineerMenu() {
   const mega = document.getElementById('mega');
@@ -680,11 +680,6 @@
           setTimeout(function() { btn.textContent = 'Copy'; }, 1500);
         }
       });
-      document.querySelectorAll('.faq-q').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-          var item = btn.closest('.faq-item');
-          btn.setAttribute('aria-expanded', item.classList.toggle('open'));
-        });
       });
     },
 
