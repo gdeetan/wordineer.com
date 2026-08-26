@@ -1,4 +1,4 @@
-<!-- build: 2026-08-17T10:21:27Z -->
+<!-- build: 2026-08-26T09:23:23Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -190,21 +190,6 @@
 .suffix-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(74px, 1fr)); gap: 8px; margin-top: 12px; }
 .suffix-chip { display: flex; align-items: center; justify-content: center; height: 40px; border: 1.5px solid var(--border, #e5e5e5); border-radius: 8px; font-size: 13px; font-weight: 600; color: var(--text-1); text-decoration: none; transition: border-color 0.12s, background 0.12s; }
 .suffix-chip:hover { border-color: #4A3FD4; background: #f0eeff; color: #4A3FD4; }
-.hero { overflow: visible; }
-.hub-search { position: relative; margin: 20px auto 0; max-width: 480px; }
-.hub-search__input { width: 100%; padding: 10px 38px 10px 14px; border: 1.5px solid var(--border-2, #d0d0d5); border-radius: 8px; background: var(--bg, #fff); color: var(--text); font-size: 15px; outline: none; box-sizing: border-box; -webkit-appearance: none; }
-.hub-search__input:focus { border-color: var(--brand, #4A3FD4); box-shadow: 0 0 0 3px rgba(74,63,212,.12); }
-.hub-search__clear { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: var(--text-3, #888); font-size: 15px; padding: 4px; line-height: 1; display: flex; align-items: center; }
-.hub-search__empty { display: none; padding: 20px 0 4px; color: var(--text-2); font-size: 15px; }
-@media (max-width: 600px) { .hub-search { max-width: 100%; } }
-.hub-search__dropdown { position: absolute; top: calc(100% + 4px); left: 0; right: 0; max-width: 480px; margin: 0 auto; background: var(--bg, #fff); border: 1px solid var(--border-2, #d1d5db); border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,.10); list-style: none; padding: 4px 0; z-index: 100; max-height: 320px; overflow-y: auto; }
-.hub-search__dropdown[hidden] { display: none; }
-.hub-search__dd-item { display: flex; align-items: flex-start; gap: 10px; padding: 9px 14px; cursor: pointer; font-size: 0.93rem; color: var(--text-1, #1a1a2e); border-radius: 6px; margin: 2px 4px; transition: background 0.12s; text-align: left; }
-.hub-search__dd-item:hover,
-.hub-search__dd-item[aria-selected="true"] { background: #f0f4ff; color: #2563eb; }
-.hub-search__dd-item[aria-selected="true"] .hub-search__dd-item__desc { color: #3b6fd4; }
-.hub-search__dd-item__name { font-weight: 600; line-height: 1.35; }
-.hub-search__dd-item__desc { font-size: 0.77rem; color: var(--text-2, #6b7280); line-height: 1.4; margin-top: 1px; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
 </style>
 </head>
 
@@ -316,22 +301,6 @@
   </div>
   <h1>Word lists by length &amp; letter</h1>
   <p>Browse filterable word lists for every length — from 3-letter Scrabble staples to 7-letter bingo setups — organized by how word games actually use them.</p>
-  <div class="hub-search">
-    <input
-      type="search"
-      id="hub-search-input"
-      class="hub-search__input"
-      placeholder="Search word lists..."
-      aria-label="Search word lists"
-      autocomplete="off"
-      spellcheck="false">
-    <button
-      class="hub-search__clear"
-      id="hub-search-clear"
-      aria-label="Clear search"
-      hidden>✕</button>
-    <ul id="hub-search-dropdown" class="hub-search__dropdown" role="listbox" aria-label="Word list suggestions" hidden></ul>
-  </div>
 </div>
 <div class="content-wrap">
   <div class="section">
@@ -366,7 +335,7 @@
           <a class="letter-chip" href="/3-letter-words-starting-with-e">E</a>
           <a class="letter-chip" href="/3-letter-words-starting-with-f">F</a>
           <a class="letter-chip" href="/3-letter-words-starting-with-g">G</a>
-          <a class="letter-chip" href="/3-letter-words-starting-with-h">H</a>
+          <span class="letter-chip letter-chip--disabled">H</span>
           <a class="letter-chip" href="/3-letter-words-starting-with-i">I</a>
           <a class="letter-chip" href="/3-letter-words-starting-with-j">J</a>
           <a class="letter-chip" href="/3-letter-words-starting-with-k">K</a>
@@ -382,9 +351,9 @@
           <a class="letter-chip" href="/3-letter-words-starting-with-u">U</a>
           <a class="letter-chip" href="/3-letter-words-starting-with-v">V</a>
           <a class="letter-chip" href="/3-letter-words-starting-with-w">W</a>
-          <a class="letter-chip" href="/3-letter-words-starting-with-x">X</a>
-          <a class="letter-chip" href="/3-letter-words-starting-with-y">Y</a>
-          <a class="letter-chip" href="/3-letter-words-starting-with-z">Z</a>
+          <span class="letter-chip letter-chip--disabled">X</span>
+          <span class="letter-chip letter-chip--disabled">Y</span>
+          <span class="letter-chip letter-chip--disabled">Z</span>
         </div>
       </div>
     </div>
@@ -645,11 +614,6 @@
           <a class="letter-chip" href="/5-letter-words-starting-with-sn">SN</a>
           <a class="letter-chip" href="/5-letter-words-starting-with-so">SO</a>
           <a class="letter-chip" href="/5-letter-words-starting-with-sp">SP</a>
-          <a class="letter-chip" href="/5-letter-words-starting-with-sq">SQ</a>
-          <a class="letter-chip" href="/5-letter-words-starting-with-st">ST</a>
-          <a class="letter-chip" href="/5-letter-words-starting-with-su">SU</a>
-          <a class="letter-chip" href="/5-letter-words-starting-with-sw">SW</a>
-          <a class="letter-chip" href="/5-letter-words-starting-with-sy">SY</a>
           <a class="letter-chip" href="/5-letter-words-starting-with-ta">TA</a>
           <a class="letter-chip" href="/5-letter-words-starting-with-te">TE</a>
           <a class="letter-chip" href="/5-letter-words-starting-with-th">TH</a>
@@ -1117,17 +1081,6 @@
           <a class="letter-chip" href="/5-letter-words-starting-with-sna">SNA</a>
           <a class="letter-chip" href="/5-letter-words-starting-with-sol">SOL</a>
           <a class="letter-chip" href="/5-letter-words-starting-with-spa">SPA</a>
-          <a class="letter-chip" href="/5-letter-words-starting-with-squ">SQU</a>
-          <a class="letter-chip" href="/5-letter-words-starting-with-sta">STA</a>
-          <a class="letter-chip" href="/5-letter-words-starting-with-ste">STE</a>
-          <a class="letter-chip" href="/5-letter-words-starting-with-sti">STI</a>
-          <a class="letter-chip" href="/5-letter-words-starting-with-sto">STO</a>
-          <a class="letter-chip" href="/5-letter-words-starting-with-str">STR</a>
-          <a class="letter-chip" href="/5-letter-words-starting-with-stu">STU</a>
-          <a class="letter-chip" href="/5-letter-words-starting-with-swa">SWA</a>
-          <a class="letter-chip" href="/5-letter-words-starting-with-swe">SWE</a>
-          <a class="letter-chip" href="/5-letter-words-starting-with-swi">SWI</a>
-          <a class="letter-chip" href="/5-letter-words-starting-with-swo">SWO</a>
           <a class="letter-chip" href="/5-letter-words-starting-with-tax">TAX</a>
           <a class="letter-chip" href="/5-letter-words-starting-with-tea">TEA</a>
           <a class="letter-chip" href="/5-letter-words-starting-with-ten">TEN</a>
@@ -1348,24 +1301,24 @@
     <div class="hub-prose">
       <p style="font-size:13px;color:var(--text-3);margin:0 0 18px">Last updated 2026-08-15. Curated by the Wordineer team.</p>
       <h2>How I chose what goes on each list</h2>
-      <p>Every list here starts from the same 10,000-word core dictionary (common English, plus the Scrabble-valid additions most players actually see). From there, each length or pattern page filters that pool — no scraped junk, no auto-generated permutations that aren't real words. If a word is on a list, someone can use it in a game or a lesson without a dictionary lookup.</p>
-      <p>Difficulty tags (easy / medium / hard) are hand-set. "Easy" roughly means a fluent adult reader knows it without pausing. "Hard" means a strong player will recognize it but many casual players won't — that's where the interesting Scrabble points live.</p>
+      <p>Every list starts from the same 10,000-word core dictionary: common English plus the Scrabble-legal additions that show up in real games. Each length or pattern page filters down from that same pool. There's no scraped junk on any of these lists, and no auto-generated letter permutations that don't happen to spell real words. If a word made it onto a page, you can play it in Scrabble or hand it to a student without stopping to look it up first.</p>
+      <p>Difficulty tags (easy, medium, hard) are set by hand rather than by frequency count. "Easy" roughly translates to "a fluent adult reader recognizes this without slowing down". "Hard" means a strong player will know it, but a lot of casual players won't, and that gap is exactly where the interesting Scrabble points hide.</p>
 
       <h2>Why word length matters at all</h2>
       <p>Before Wordle launched in late 2021, "5-letter words" barely registered as a search term. Six months later it was one of the most searched vocabulary queries on the internet. Nothing changed about English — a game created a reason to care.</p>
-      <p>Scrabble is the older version of the same story. Three-letter words are the workhorse: about 1,000 are valid, and tournament players learn every one of them because they slip into tight spots and unload high-value tiles. QI, ZA, JO — worth disproportionate points because most players don't believe they're legal. Seven-letter plays are the payoff end: use all seven tiles and you score a 50-point bingo bonus on top of the word. That single rule reshapes how good players hold their racks.</p>
-      <p>One distinction worth keeping straight: a <strong>list</strong> is for studying, a <strong>generator</strong> is for surprise. Same words, different job. Study a list before game night; hit a generator during it.</p>
+      <p>Scrabble tells the older version of the same story. Three-letter words are the workhorse of the game. About a thousand of them are valid, and tournament players memorize essentially all of them because those tiny words slip into spots on the board where nothing longer will fit and often carry high-value tiles at the same time. QI, ZA, and JO are worth more than they should be, purely because most opponents don't believe you when you play them. At the other end of the board, seven-letter plays are the payoff. Use all seven tiles from your rack in one turn and you tack a 50-point bingo bonus onto the word. That single scoring rule alone reshapes how experienced players decide which tiles to hold and which to swap.</p>
+      <p>One distinction worth keeping straight before you go further: a <strong>list</strong> is for studying, a <strong>generator</strong> is for surprise. Same words underneath, completely different job. Study a list the week before game night. Reach for a generator when you're stuck at the table.</p>
 
       <h3>A few lists worth starting with</h3>
       <ul>
-        <li><a href="/3-letter-words">3-letter words</a> — start here if you play Scrabble. Small set, huge point-per-tile ratio.</li>
-        <li><a href="/five-letter-words">Five-letter words</a> — Wordle warm-up. Filter to practice openers.</li>
-        <li><a href="/common-5-letter-words">Common 5-letter words</a> — the shorter list that skews toward actual Wordle answers.</li>
-        <li><a href="/best-wordle-starting-words">Best Wordle starting words</a> — opinionated shortlist, not a dump of every 5-letter word.</li>
-        <li><a href="/spelling-bee-words">Spelling bee words</a> — organized by grade level if you're prepping a student.</li>
+        <li><a href="/3-letter-words">3-letter words</a>: the first stop for any Scrabble player. Small set, huge point-per-tile ratio, and you can memorize the outliers in a couple of sittings.</li>
+        <li><a href="/five-letter-words">Five-letter words</a>: a solid Wordle warm-up. Filter it to drill your opening guesses against the letter-frequency distributions you keep missing.</li>
+        <li><a href="/common-5-letter-words">Common 5-letter words</a>: a shorter, tighter list that skews toward the kind of words that actually turn up as Wordle answers.</li>
+        <li><a href="/best-wordle-starting-words">Best Wordle starting words</a>: an opinionated shortlist rather than a dump of every 5-letter word in English.</li>
+        <li><a href="/spelling-bee-words">Spelling bee words</a>: organized by grade level so a parent or tutor prepping a student can jump straight to the right pool.</li>
       </ul>
 
-      <p>The 3-letter list is the one that surprises people. It looks small enough to learn in an afternoon; it isn't. Most players know <em>cat</em>, <em>dog</em>, <em>the</em>. Fewer know <em>adz</em>, <em>feh</em>, <em>ulu</em>, <em>zap</em>, <em>qoph</em> — the second group is where the game is actually won.</p>
+      <p>The 3-letter list is the one that catches people off guard. It looks small enough to learn in an afternoon, and it isn't. Every player already knows <em>cat</em>, <em>dog</em>, and <em>the</em>. Far fewer know <em>adz</em>, <em>feh</em>, <em>ulu</em>, <em>zap</em>, or <em>qoph</em>, and that second group is where casual games quietly get won by whoever put in the study time.</p>
 
       <h3>Who these lists are actually for</h3>
       <div class="use-cases">
@@ -1400,169 +1353,23 @@
 
       <details class="faq-item">
         <summary>QI and ZA — those are really legal?</summary>
-        <p>Yes, both in TWL (North American) and SOWPODS (international). QI is life energy (from Chinese philosophy). ZA is slang for pizza. Together they're the two most valuable 3-letter words a beginner can memorize — Q and Z each score 10 points on their own, and neither requires a U.</p>
+        <p>Yes, both in TWL (North American) and SOWPODS (international). QI is life energy from Chinese philosophy. ZA is casual slang for pizza that made its way into the dictionary. Together they're the two most valuable 3-letter words a beginner can memorize. Q and Z each score 10 points on their own, and neither one requires a U anywhere in the word, which is what makes them so useful when the vowel supply on your rack is thin.</p>
       </details>
 
       <details class="faq-item">
         <summary>Are these lists identical to the official Scrabble dictionary?</summary>
-        <p>No — close, but not identical. The lists lean on words in TWL and SOWPODS, but some entries appear in one dictionary and not the other, and some casual entries wouldn't appear in either. For a tournament, always check against the specific word list your event uses. For everything else — Wordle, crosswords, spelling practice, home Scrabble — you'll be fine here.</p>
+        <p>Not identical, but close. The lists on this page draw heavily from both TWL (used in North American tournaments) and SOWPODS (used internationally), which cover different sets of words in some places. A handful of entries appear in one dictionary and not the other, and a few casual entries here wouldn't be legal in either strict list. If you're playing a real tournament, always verify against whichever word list that specific event uses. For anything else, whether that's Wordle, crosswords, spelling practice at the kitchen table, or a friendly Scrabble game after dinner, you'll be perfectly fine working from these lists.</p>
       </details>
 
       <details class="faq-item">
         <summary>List or generator — how do I pick?</summary>
-        <p>List if you're studying or looking something up. Generator if you want something you didn't expect. If you catch yourself scrolling a list looking for "a random one," you actually want the generator — the <a href="/random-word-generator">random word generator</a> is faster for that.</p>
+        <p>List if you're studying or looking something specific up. Generator if you want something you didn't expect to see. If you notice yourself scrolling a long list hunting for "a random one," that's a signal you actually want the generator instead. The <a href="/random-word-generator">random word generator</a> is much faster for that particular use.</p>
       </details>
 
     </div>
 
   </div>
 </div>
-<script>
-(function() {
-  var input    = document.getElementById('hub-search-input');
-  var clearBtn = document.getElementById('hub-search-clear');
-  var dropdown = document.getElementById('hub-search-dropdown');
-  if (!input || !dropdown) return;
-
-  function labelFromHref(href, fallback) {
-    var path = String(href || '').replace(/^https?:\/\/[^/]+/i, '').replace(/\/+$/, '');
-    var m = path.match(/(\d+)-letter-words-starting-with-([a-z]+)$/i);
-    if (m) return m[1] + '-letter words starting with ' + m[2].toUpperCase();
-    m = path.match(/words-ending-in-([a-z]+)$/i);
-    if (m) return 'Words ending in -' + m[1];
-    return fallback || '';
-  }
-
-  var tools = Array.from(document.querySelectorAll('.tool-item')).map(function(el) {
-    return {
-      name: (el.querySelector('.tool-name') || {}).textContent || '',
-      desc: (el.querySelector('.tool-desc') || {}).textContent || '',
-      href: el.tagName === 'A' ? el.href : ''
-    };
-  }).filter(function(t) { return t.name && t.href; });
-
-  Array.from(document.querySelectorAll('a.letter-chip, a.suffix-chip')).forEach(function(el) {
-    var text = (el.textContent || '').trim();
-    var name = labelFromHref(el.getAttribute('href'), text);
-    if (!name || !el.href) return;
-    tools.push({ name: name, desc: text, href: el.href });
-  });
-
-  var activeIdx = -1;
-
-  function showDropdown(results) {
-    dropdown.innerHTML = '';
-    activeIdx = -1;
-    if (!results.length) { dropdown.hidden = true; return; }
-    results.slice(0, 8).forEach(function(t) {
-      var li = document.createElement('li');
-      li.setAttribute('role', 'option');
-      li.className = 'hub-search__dd-item';
-      li.setAttribute('data-href', t.href);
-      li.innerHTML = '<div class="hub-search__dd-item__name">' + t.name.replace(/</g, '&lt;') + '</div>';
-      li.addEventListener('mousedown', function(e) {
-        e.preventDefault();
-        window.location.href = t.href;
-      });
-      dropdown.appendChild(li);
-    });
-    dropdown.hidden = false;
-  }
-
-  function setActive(idx) {
-    var items = dropdown.querySelectorAll('.hub-search__dd-item');
-    items.forEach(function(el, i) {
-      el.setAttribute('aria-selected', i === idx ? 'true' : 'false');
-    });
-    activeIdx = idx;
-  }
-
-  var sections = document.querySelectorAll('.name-section');
-  var empty = document.createElement('p');
-  empty.className = 'hub-search__empty';
-  empty.textContent = 'No matching lists found.';
-  var firstSection = sections[0];
-  if (firstSection) firstSection.parentNode.insertBefore(empty, firstSection);
-
-  function filterPage(q) {
-    var totalVisible = 0;
-
-    document.querySelectorAll('.letter-grid, .suffix-grid').forEach(function(grid) {
-      var visible = 0;
-      grid.querySelectorAll('.letter-chip, .suffix-chip').forEach(function(chip) {
-        var href = chip.getAttribute('href');
-        if (!href) { chip.style.display = q ? 'none' : ''; return; }
-        var text = (chip.textContent || '').trim();
-        var label = labelFromHref(href, text);
-        var match = !q || text.toLowerCase().includes(q) || label.toLowerCase().includes(q);
-        chip.style.display = match ? '' : 'none';
-        if (match) visible++;
-      });
-      grid.style.display = (!q || visible > 0) ? '' : 'none';
-      var labelEl = grid.previousElementSibling;
-      if (labelEl && labelEl.tagName === 'P') labelEl.style.display = grid.style.display;
-    });
-
-    sections.forEach(function(section) {
-      var sectionVisible = 0;
-      section.querySelectorAll('.tool-item').forEach(function(card) {
-        var name = (card.querySelector('.tool-name') || {}).textContent || '';
-        var desc = (card.querySelector('.tool-desc') || {}).textContent || '';
-        var match = !q || name.toLowerCase().includes(q) || desc.toLowerCase().includes(q);
-        card.style.display = match ? '' : 'none';
-        if (match) sectionVisible++;
-      });
-      section.querySelectorAll('a.letter-chip, a.suffix-chip').forEach(function(chip) {
-        if (chip.style.display !== 'none') sectionVisible++;
-      });
-      section.style.display = (!q || sectionVisible > 0) ? '' : 'none';
-      totalVisible += sectionVisible;
-    });
-
-    empty.style.display = (q && totalVisible === 0) ? 'block' : 'none';
-  }
-
-  input.addEventListener('input', function() {
-    var raw = input.value;
-    var q = raw.trim().toLowerCase();
-    clearBtn.hidden = !raw;
-    filterPage(q);
-    if (!q) { dropdown.hidden = true; return; }
-    var results = tools.filter(function(t) {
-      return t.name.toLowerCase().includes(q) || t.desc.toLowerCase().includes(q);
-    });
-    showDropdown(results);
-  });
-
-  input.addEventListener('keydown', function(e) {
-    var items = dropdown.querySelectorAll('.hub-search__dd-item');
-    if (e.key === 'ArrowDown') {
-      e.preventDefault();
-      setActive(Math.min(activeIdx + 1, items.length - 1));
-    } else if (e.key === 'ArrowUp') {
-      e.preventDefault();
-      setActive(Math.max(activeIdx - 1, 0));
-    } else if (e.key === 'Enter' && activeIdx >= 0 && items[activeIdx]) {
-      window.location.href = items[activeIdx].getAttribute('data-href');
-    } else if (e.key === 'Escape') {
-      dropdown.hidden = true;
-      if (input.value) { input.value = ''; clearBtn.hidden = true; filterPage(''); }
-    }
-  });
-
-  input.addEventListener('blur', function() {
-    setTimeout(function() { dropdown.hidden = true; }, 150);
-  });
-
-  clearBtn.addEventListener('click', function() {
-    input.value = '';
-    clearBtn.hidden = true;
-    dropdown.hidden = true;
-    filterPage('');
-    input.focus();
-  });
-})();
-</script>
 <footer class="footer">
   <div class="footer-inner">
     <div class="ad-footer-strip" style="margin-bottom:24px">
@@ -1594,7 +1401,7 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="/scripts/tool-engine.js?v=29"></script>
+<script src="/scripts/tool-engine.js?v=27"></script>
 <script>
 (function bindSharedWordineerMenu() {
   const mega = document.getElementById('mega');
