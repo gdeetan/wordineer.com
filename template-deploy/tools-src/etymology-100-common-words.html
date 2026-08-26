@@ -1,22 +1,77 @@
 <!-- CONFIG
-{ "url": "/etymology-100-common-words/", "output": "etymology-100-common-words.html", "type": "content" }
+{ "url": "/etymology-100-common-words/", "output": "etymology-100-common-words.html", "type": "content", "inject_data": "etymology-100.json" }
 -->
 
 <!-- SLOT:meta -->
-<title>The Etymology of 100 Common English Words — Word Origins | Wordineer</title>
-<meta name="description" content="Discover the surprising origins of 100 common English words. Why does 'salary' come from salt? Why does 'panic' come from a Greek god? Full etymology with root language, history, and modern relatives.">
-<meta property="og:title" content="Etymology of 100 Common English Words | Wordineer">
-<meta property="og:description" content="Surprising origins of 100 everyday English words — from Latin, Greek, Arabic, Old Norse, French, and more. Filter by language, search by word or meaning.">
-<meta property="og:url" content="https://wordineer.com/etymology-100-common-words/">
+<title>The Etymology of 100 Common English Words — Filter by Origin | Wordineer</title>
+<meta name="description" content="Filter 100 everyday English words by origin language. Search, origin trees, first-use dates, and a downloadable CSV — salary from salt, panic from Pan, and more.">
+<meta property="og:title" content="Etymology of 100 Common English Words — Filterable Reference | Wordineer">
+<meta property="og:description" content="Filter 100 everyday words by Latin, Greek, Arabic, French, Old Norse, and more. Download CSV. Free to cite (CC BY 4.0).">
+<meta property="og:url" content="https://wordineer.com/etymology-100-common-words">
+<meta property="og:image" content="https://wordineer.com/images/etymology-100-og.svg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://wordineer.com/images/etymology-100-og.svg">
 <link rel="canonical" href="https://wordineer.com/etymology-100-common-words/">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "The Etymology of 100 Common English Words",
-  "description": "Surprising word origin histories for 100 everyday English words, organized by root language",
-  "url": "https://wordineer.com/etymology-100-common-words/",
-  "author": { "@type": "Organization", "name": "Wordineer" }
+  "headline": "The Etymology of 100 Common English Words — Filter by Origin Language",
+  "description": "Filterable reference of 100 everyday English word origins, with a downloadable dataset.",
+  "url": "https://wordineer.com/etymology-100-common-words",
+  "image": "https://wordineer.com/images/etymology-100-og.svg",
+  "datePublished": "2026-07-13",
+  "dateModified": "2026-08-22",
+  "author": { "@type": "Person", "name": "Garrick Dee" },
+  "publisher": { "@id": "https://wordineer.com/#organization" },
+  "license": "https://creativecommons.org/licenses/by/4.0/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Did Roman soldiers really get paid in salt?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Salary comes from Latin salarium, from sal (salt). Roman soldiers received a salarium — an allowance connected to salt, which was essential and expensive. Whether that was paid in actual salt or in coin earmarked for salt is debated; the salt connection itself is solid." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does assassin come from hashish?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The English word comes via Crusader contact with the Nizari Ismaili Hashshashin. The name is often explained as 'hashish users,' but historians debate whether that described the group or was a slur from their enemies. Treat the hashish story as contested." }
+    },
+    {
+      "@type": "Question",
+      "name": "What language did English borrow the most words from?",
+      "acceptedAnswer": { "@type": "Answer", "text": "In this 100-word sample, Latin and Greek each account for 21 entries. That is not a map of the whole language: English grammar is still Germanic, and a large share of prestige vocabulary entered through French and Latin after 1066." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this list in class or in an article?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. The dataset is published under CC BY 4.0. Download the CSV or JSON, attribute Wordineer (wordineer.com/etymology-100-common-words/), and you may reuse it." }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do some etymologies still get debated?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Words travel through languages that left incomplete records. Folk stories fill gaps. This page flags the contested cases instead of flattening them into a punchline." }
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Word Tools", "item": "https://wordineer.com/word-tools/" },
+    { "@type": "ListItem", "position": 3, "name": "Etymology of 100 Common Words", "item": "https://wordineer.com/etymology-100-common-words/" }
+  ]
 }
 </script>
 <!-- /SLOT:meta -->
@@ -53,17 +108,62 @@
 .insight-banner { background: var(--bg-2); border: 1px solid var(--border); border-radius: 12px; padding: 24px 28px; margin-bottom: 32px; }
 .insight-banner h2 { margin: 0 0 12px; font-size: 18px; }
 .insight-banner p { margin: 0; font-size: 14px; line-height: 1.8; color: var(--text-2); }
+.cover-image { max-width: 960px; margin: 28px auto 36px; padding: 0 24px; display: block; }
+.cover-image img { width: 100%; height: auto; display: block; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.10); }
 @media (max-width: 600px) {
   .lang-filter { gap: 6px; }
   .lang-btn { font-size: 11px; padding: 5px 10px; }
   .etym-card { padding: 14px 16px; }
   .etym-word { font-size: 18px; }
+  .cover-image { margin-bottom: 24px; padding: 0 16px; }
+  .cover-image img { border-radius: 10px; }
 }
 .etym-tree-toggle { background: none; border: 1px solid #e5e7eb; border-radius: 6px; padding: 3px 10px; font-size: .78rem; color: #6b7280; cursor: pointer; margin-top: .5rem; display: block; }
 .etym-tree-toggle:hover { border-color: #7c3aed; color: #7c3aed; }
 .etym-tree { display: none; margin-top: .75rem; overflow-x: auto; }
 .etym-tree.open { display: block; }
 .etym-tree svg { max-width: 100%; height: auto; }
+.etym-byline { font-size: 13px; color: var(--text-3); margin: 0 0 24px; }
+.etym-companion { background: var(--bg-2); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; margin: 0 0 28px; font-size: 14px; line-height: 1.6; color: var(--text-2); }
+.etym-companion a { color: var(--brand); font-weight: 600; }
+.origin-map { margin: 0 0 32px; }
+.origin-map h2 { font-size: 18px; margin: 0 0 8px; }
+.origin-map-note { font-size: 13px; color: var(--text-2); line-height: 1.7; margin: 0 0 16px; }
+.origin-bar { display: grid; grid-template-columns: 110px 1fr 36px; gap: 8px 12px; align-items: center; margin-bottom: 8px; font-size: 13px; }
+.origin-bar-label { color: var(--text-2); }
+.origin-bar-track { height: 10px; background: var(--bg-2); border-radius: 99px; overflow: hidden; }
+.origin-bar-fill { height: 100%; border-radius: 99px; }
+.origin-bar-n { color: var(--text-3); font-variant-numeric: tabular-nums; text-align: right; }
+.etym-tree-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 0 0 32px; }
+.tree-card { display: block; border: 1px solid var(--border); border-radius: 12px; padding: 10px 12px 4px; text-decoration: none; color: inherit; background: var(--bg); }
+.tree-card:hover { border-color: var(--brand); }
+.tree-card-label { font-size: 12px; font-weight: 700; margin-bottom: 6px; color: var(--text); }
+.tree-card svg { width: 100%; height: auto; display: block; }
+.etym-essay-link { font-size: 13px; margin: 10px 0 0; }
+.etym-essay-link a { color: var(--brand); font-weight: 600; }
+.etym-card:target { border-color: var(--brand); box-shadow: 0 0 0 3px rgba(124,58,237,.15); }
+.etym-cite { background: var(--bg-2); border: 1px solid var(--border); border-radius: 12px; padding: 20px 22px; margin: 32px 0; }
+.etym-cite h2 { font-size: 16px; margin: 0 0 10px; }
+.etym-cite-text { font-size: 13px; color: var(--text-2); background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; margin-bottom: 12px; font-family: ui-monospace, monospace; line-height: 1.5; }
+.etym-cite-links { display: flex; gap: 10px; flex-wrap: wrap; }
+.etym-cite-links a { font-size: 13px; font-weight: 600; color: var(--brand); text-decoration: none; padding: 6px 14px; border: 1px solid var(--brand); border-radius: 999px; }
+.etym-cite-links a:hover { background: var(--brand); color: #fff; }
+.etym-sources { font-size: 14px; color: var(--text-2); line-height: 1.7; margin: 24px 0; }
+.classroom { margin: 36px 0; }
+.classroom h2 { font-size: 18px; margin: 0 0 8px; }
+.classroom p { font-size: 14px; color: var(--text-2); line-height: 1.7; }
+.classroom table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 14px 0; }
+.classroom th, .classroom td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); }
+.classroom-print { font-size: 13px; font-weight: 600; color: var(--brand); background: none; border: 1px solid var(--brand); border-radius: 999px; padding: 6px 14px; cursor: pointer; font-family: inherit; margin: 8px 0 12px; }
+.faq { margin-top: 36px; }
+@media (max-width: 700px) {
+  .etym-tree-gallery { grid-template-columns: 1fr; }
+  .origin-bar { grid-template-columns: 88px 1fr 28px; }
+}
+@media print {
+  nav, .mega, .footer, .cover-image, .etym-controls, .faq, .etym-tree-gallery, .etym-cite, .breadcrumb, .hero { display: none !important; }
+  .classroom, .origin-map { break-inside: avoid; }
+}
 </style>
 <!-- /SLOT:style -->
 
@@ -84,11 +184,33 @@
 <!-- /SLOT:hero -->
 
 <!-- SLOT:content -->
+<div class="cover-image">
+  <img src="/images/etymology-100-og.svg" alt="Etymology of 100 Common English Words — word origin cards showing salary from Latin, panic from Greek, algebra from Arabic, and more" width="1200" height="630" loading="eager">
+</div>
 <div class="etym-wrap">
+  <p class="etym-byline">Written by Garrick Dee · Last verified August 2026</p>
+  <p class="etym-companion">For longer stories organized by theme — semantic drift, eponyms, Arabic and Greek loans — read the <a href="/word-etymology/">etymology essay</a>.</p>
+
   <div class="insight-banner">
     <h2>Why English has so many words for the same thing</h2>
     <p>English has three words meaning roughly "kingly": <em>royal</em> (from French), <em>regal</em> (from Latin), and <em>kingly</em> (from Old English). All three entered English at different times through different conquerors. After the Norman Conquest of 1066, French became the language of the court and aristocracy, while Old English remained the language of common people, and Latin came through the Church. This three-layered history — Germanic base, French overlay, Latin prestige layer — is why English has so many near-synonyms and the largest lexicon of any language: roughly 170,000 words in current use.</p>
   </div>
+
+  <div class="origin-map" id="origin-map">
+    <h2>Origin mix of these 100 words</h2>
+    <p class="origin-map-note">Counts below are for <em>this</em> sample of 100 everyday words, not a census of English. The grammar is still Germanic. Much of the prestige vocabulary is Latin and French.</p>
+    <div class="origin-bar"><span class="origin-bar-label">Latin</span><div class="origin-bar-track"><div class="origin-bar-fill origin-Latin" style="width:21%"></div></div><span class="origin-bar-n">21</span></div>
+    <div class="origin-bar"><span class="origin-bar-label">Greek</span><div class="origin-bar-track"><div class="origin-bar-fill origin-Greek" style="width:21%"></div></div><span class="origin-bar-n">21</span></div>
+    <div class="origin-bar"><span class="origin-bar-label">Other</span><div class="origin-bar-track"><div class="origin-bar-fill origin-Other" style="width:19%"></div></div><span class="origin-bar-n">19</span></div>
+    <div class="origin-bar"><span class="origin-bar-label">French</span><div class="origin-bar-track"><div class="origin-bar-fill origin-French" style="width:14%"></div></div><span class="origin-bar-n">14</span></div>
+    <div class="origin-bar"><span class="origin-bar-label">Arabic</span><div class="origin-bar-track"><div class="origin-bar-fill origin-Arabic" style="width:12%"></div></div><span class="origin-bar-n">12</span></div>
+    <div class="origin-bar"><span class="origin-bar-label">Old English</span><div class="origin-bar-track"><div class="origin-bar-fill origin-Old-English" style="width:7%"></div></div><span class="origin-bar-n">7</span></div>
+    <div class="origin-bar"><span class="origin-bar-label">Old Norse</span><div class="origin-bar-track"><div class="origin-bar-fill origin-Old-Norse" style="width:6%"></div></div><span class="origin-bar-n">6</span></div>
+  </div>
+
+  <h2 style="font-size:18px;margin:0 0 8px">How ten of these words traveled</h2>
+  <p class="origin-map-note">Each path is a simplified tree — click a card to jump to that word in the list.</p>
+  <div class="etym-tree-gallery" id="etym-tree-gallery"></div>
 
   <div class="etym-controls">
     <div class="lang-filter" id="lang-filter">
@@ -104,7 +226,68 @@
     <input class="etym-search" id="etym-search" placeholder="Search word or meaning…">
   </div>
   <div class="result-count" id="result-count"></div>
-  <div class="etym-list" id="etym-list"></div>
+  <div class="etym-list" id="etym-list"><!-- SSR_ROWS --></div>
+
+  <div class="etym-sources">
+    <h2 style="font-size:18px;margin:0 0 8px">Sources</h2>
+    <p>Entries are cross-checked against the Oxford English Dictionary, Douglas Harper’s Online Etymology Dictionary (etymonline.com), and the American Heritage Dictionary’s Indo-European roots appendix. This page summarizes; it does not copy those works. Where scholars disagree, the card says so. Reviewed by Garrick Dee; last verified August 2026. Corrections: garrick@wordineer.com.</p>
+  </div>
+
+  <div class="etym-cite" id="cite">
+    <h2>Cite or download this list</h2>
+    <div class="etym-cite-text">Wordineer (2026). The Etymology of 100 Common English Words. https://wordineer.com/etymology-100-common-words/ Licensed CC BY 4.0.</div>
+    <div class="etym-cite-links">
+      <a href="/data/etymology-100.csv" download>Download CSV</a>
+      <a href="/data/etymology-100.json" download>Download JSON</a>
+      <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
+    </div>
+  </div>
+
+  <div class="classroom" id="classroom">
+    <h2>Classroom starter (10 minutes)</h2>
+    <p>Print this section. Students guess the origin language, then read the card (or the <a href="/word-etymology/">essay</a> for the longer version).</p>
+    <button type="button" class="classroom-print" onclick="window.print()">Print lesson sheet</button>
+    <table>
+      <thead><tr><th>Word</th><th>Guess the origin</th><th>Hook</th></tr></thead>
+      <tbody>
+        <tr><td><a href="#salary">salary</a></td><td></td><td>salt</td></tr>
+        <tr><td><a href="#panic">panic</a></td><td></td><td>a Greek god</td></tr>
+        <tr><td><a href="#window">window</a></td><td></td><td>wind-eye</td></tr>
+        <tr><td><a href="#muscle">muscle</a></td><td></td><td>little mouse</td></tr>
+        <tr><td><a href="#robot">robot</a></td><td></td><td>forced labor</td></tr>
+        <tr><td><a href="#algebra">algebra</a></td><td></td><td>reunion of broken parts</td></tr>
+        <tr><td><a href="#nice">nice</a></td><td></td><td>once meant ignorant</td></tr>
+        <tr><td><a href="#assassin">assassin</a></td><td></td><td>contested Crusader story</td></tr>
+        <tr><td><a href="#disaster">disaster</a></td><td></td><td>bad star</td></tr>
+        <tr><td><a href="#sandwich">sandwich</a></td><td></td><td>an earl at cards</td></tr>
+      </tbody>
+    </table>
+    <p><strong>Discuss:</strong> Why might English have both <em>royal</em>, <em>regal</em>, and <em>kingly</em>? Which origin would you never have guessed? Pick one modern relative from a card and use it in a sentence.</p>
+  </div>
+
+  <div class="faq">
+    <h2 class="faq-title">Frequently asked questions</h2>
+    <div class="faq-item open">
+      <div class="faq-q"><span class="faq-q-text">Did Roman soldiers really get paid in salt?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      <div class="faq-a"><p>Salary comes from Latin <em>salarium</em>, from <em>sal</em> (salt). Soldiers received a salarium — an allowance connected to salt. Whether that was paid in actual salt or in coin earmarked for salt is debated; the salt connection itself is solid.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span class="faq-q-text">Does assassin come from hashish?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      <div class="faq-a"><p>The English word comes via Crusader contact with the Nizari Ismaili Hashshashin. The name is often explained as “hashish users,” but historians debate whether that described the group or was a slur. Treat the hashish story as contested.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span class="faq-q-text">What language did English borrow the most words from?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      <div class="faq-a"><p>In this 100-word sample, Latin and Greek each account for 21 entries. That is not a map of the whole language: English grammar is still Germanic, and a large share of prestige vocabulary entered through French and Latin after 1066.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span class="faq-q-text">Can I use this list in class or in an article?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      <div class="faq-a"><p>Yes. The dataset is published under CC BY 4.0. Download the CSV or JSON from the cite box, attribute Wordineer, and you may reuse it.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span class="faq-q-text">Why do some etymologies still get debated?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      <div class="faq-a"><p>Words travel through languages that left incomplete records, and folk stories fill the gaps. This page flags the contested cases instead of flattening them into a punchline.</p></div>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -130,40 +313,44 @@ function toggleTree(btn) {
 
 <script>
 (function(){
-  var DATA = [], activeLang = '';
-
-  function catClass(cat) {
-    return 'origin-' + (cat || 'Other').replace(/\s+/g, '-');
-  }
+  var activeLang = '';
 
   function refresh() {
     var q = document.getElementById('etym-search').value.trim().toLowerCase();
-    var rows = DATA.filter(function(r) {
-      return (!activeLang || r.category === activeLang) &&
-             (!q || r.w.toLowerCase().indexOf(q) !== -1 || (r.history||'').toLowerCase().indexOf(q) !== -1 || (r.root||'').toLowerCase().indexOf(q) !== -1);
+    var cards = document.querySelectorAll('#etym-list .etym-card');
+    var n = 0;
+    cards.forEach(function(card) {
+      var show = (!activeLang || card.dataset.category === activeLang) &&
+        (!q || (card.dataset.search || '').indexOf(q) !== -1);
+      card.style.display = show ? '' : 'none';
+      if (show) n++;
     });
-    document.getElementById('result-count').textContent = rows.length + ' words';
-    document.getElementById('etym-list').innerHTML = rows.map(function(r) {
-      var relatives = (r.modern_relatives||[]).length ?
-        '<div class="etym-relatives-label">Modern relatives</div><div class="etym-relatives">' +
-        r.modern_relatives.map(function(w){ return '<span class="rel-chip">'+w+'</span>'; }).join('') + '</div>' : '';
-      var displayWord = r.w ? (r.w.charAt(0).toUpperCase() + r.w.slice(1)) : '';
-      var wordKey = (r.w || '').toUpperCase();
-      var treeHtml = ETYM_TREES[wordKey]
-        ? '<button class="etym-tree-toggle" onclick="toggleTree(this)">Show etymology tree ▾</button>'
-          + '<div class="etym-tree">' + ETYM_TREES[wordKey] + '</div>'
-        : '';
-      return '<div class="etym-card">' +
-        '<div class="etym-header">' +
-        '<span class="etym-word">' + displayWord + '</span>' +
-        '<span class="etym-badge ' + catClass(r.category) + '">' + (r.origin||r.category) + '</span>' +
-        '<span class="etym-date">' + (r.first_use||'') + '</span>' +
-        '</div>' +
-        '<div class="etym-root">Root: <strong>' + (r.root||'') + '</strong></div>' +
-        '<div class="etym-history">' + (r.history||'') + '</div>' +
-        relatives +
-        treeHtml +
-        '</div>';
+    document.getElementById('result-count').textContent = n + ' words';
+  }
+
+  function attachTrees() {
+    document.querySelectorAll('#etym-list .etym-card').forEach(function(card) {
+      var key = (card.dataset.word || '').toUpperCase();
+      if (!ETYM_TREES[key] || card.querySelector('.etym-tree')) return;
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'etym-tree-toggle';
+      btn.textContent = 'Show etymology tree ▾';
+      btn.addEventListener('click', function(){ toggleTree(btn); });
+      var wrap = document.createElement('div');
+      wrap.className = 'etym-tree';
+      wrap.innerHTML = ETYM_TREES[key];
+      card.appendChild(btn);
+      card.appendChild(wrap);
+    });
+  }
+
+  var gallery = document.getElementById('etym-tree-gallery');
+  if (gallery) {
+    gallery.innerHTML = Object.keys(ETYM_TREES).map(function(k) {
+      var slug = k.toLowerCase();
+      var label = k.charAt(0) + k.slice(1).toLowerCase();
+      return '<a class="tree-card" href="#' + slug + '"><div class="tree-card-label">' + label + '</div>' + ETYM_TREES[k] + '</a>';
     }).join('');
   }
 
@@ -178,9 +365,15 @@ function toggleTree(btn) {
 
   document.getElementById('etym-search').addEventListener('input', refresh);
 
-  fetch('/data/etymology-100.json')
-    .then(function(r){ return r.json(); })
-    .then(function(d){ DATA = d; refresh(); });
+  });
+
+  attachTrees();
+  refresh();
+
+  if (location.hash) {
+    var el = document.getElementById(location.hash.slice(1));
+    if (el) el.scrollIntoView();
+  }
 })();
 </script>
 <!-- /SLOT:content -->

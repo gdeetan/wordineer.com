@@ -11,13 +11,13 @@
 
 <!-- SLOT:meta -->
 <title>Crossword Puzzle Generator — Free, Printable &amp; Shareable | Wordineer</title>
-<meta name="description" content="Free crossword puzzle generator. Enter your own words and clues or auto-generate from 400+ curated words. Print blank puzzles, share a link, or solve in your browser — no sign-up needed.">
+<meta name="description" content="Build a crossword with your own words and clues, or auto-generate from 400+ curated words. Print, share a link, or solve it in your browser.">
 <link rel="canonical" href="https://wordineer.com/crossword-puzzle-generator/">
 <meta property="og:type"        content="website">
 <meta property="og:site_name"   content="Wordineer">
 <meta property="og:title"       content="Crossword Puzzle Generator — Free, Printable &amp; Shareable | Wordineer">
 <meta property="og:description" content="Free crossword puzzle generator. Enter your own words and clues or auto-generate from 400+ curated words. Print blank puzzles, share a link, or solve in your browser — no sign-up needed.">
-<meta property="og:url"         content="https://wordineer.com/crossword-puzzle-generator/">
+<meta property="og:url"         content="https://wordineer.com/crossword-puzzle-generator">
 <meta property="og:image"       content="https://wordineer.com/og-image.png">
 <script type="application/ld+json">
 {
@@ -139,7 +139,7 @@
   <div class="breadcrumb-inner">
     <a href="/">Wordineer</a>
     <span class="breadcrumb-sep">›</span>
-    <a href="/word-tools/">Word Tools</a>
+    <a href="/word-games/">Word Games</a>
     <span class="breadcrumb-sep">›</span>
     <span aria-current="page">Crossword Puzzle Generator</span>
   </div>
@@ -211,11 +211,11 @@
     </div>
     <div class="cw-clues-wrap" id="cw-clues-wrap" style="display:none">
       <div class="cw-clues-section">
-        <h3 class="cw-clues-title">Across</h3>
+        <p class="cw-clues-title">Across</p>
         <ol id="cw-across" class="cw-clue-list"></ol>
       </div>
       <div class="cw-clues-section">
-        <h3 class="cw-clues-title">Down</h3>
+        <p class="cw-clues-title">Down</p>
         <ol id="cw-down" class="cw-clue-list"></ol>
       </div>
     </div>
@@ -736,10 +736,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   loadFromHash();
 
-  document.querySelectorAll('.faq-q').forEach(function(q) {
-    q.addEventListener('click', function() {
-      q.closest('.faq-item').classList.toggle('open');
-    });
   });
 });
 

@@ -577,10 +577,6 @@ const WORDINEER_RNG = (() => {
       }
     });
 
-    document.querySelectorAll('.faq-q').forEach(q => {
-      q.addEventListener('click', () => q.closest('.faq-item').classList.toggle('open'));
-    });
-
     document.addEventListener('click', e => {
       const mega = document.getElementById('mega');
       const hbg  = document.querySelector('.hamburger');

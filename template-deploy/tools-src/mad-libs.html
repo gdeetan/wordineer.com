@@ -408,7 +408,6 @@ function loadFromUrl(){
 
 if(window.requestIdleCallback){requestIdleCallback(loadPools);}else{setTimeout(loadPools,300);}
 if(!loadFromUrl()){/* start blank — user clicks New Story */}
-document.querySelectorAll('.faq-q').forEach(function(q){q.addEventListener('click',function(){q.closest('.faq-item').classList.toggle('open');});});
 })();
 </script>
 <!-- /SLOT:init -->

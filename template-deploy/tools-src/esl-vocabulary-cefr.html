@@ -1,13 +1,18 @@
 <!-- CONFIG
-{ "url": "/esl-vocabulary-cefr/", "output": "esl-vocabulary-cefr.html", "type": "tool", "more_tools_key": "vocabulary_tools", "more_tools_title": "More vocabulary tools", "more_tools_subtitle": "Free vocabulary resources for learners at every level" }
+{ "url": "/esl-vocabulary-cefr/", "output": "esl-vocabulary-cefr.html", "type": "tool", "more_tools_key": "vocabulary_tools", "more_tools_title": "More vocabulary tools", "more_tools_subtitle": "Free vocabulary resources for learners at every level", "inject_data": "esl-cefr-vocabulary.json" }
 -->
 
 <!-- SLOT:meta -->
 <title>ESL Vocabulary by CEFR Level A1–C2 | Free Printable | Wordineer</title>
-<meta name="description" content="ESL vocabulary words tagged by CEFR level A1 to C2. IPA pronunciation, plain-English definitions, example sentences. Free printable PDF by level — no login required.">
+<meta name="description" content="ESL vocabulary by CEFR level, A1 to C2. IPA pronunciation, plain-English definitions, and example sentences. Printable PDF by level — no login needed.">
 <meta property="og:title" content="ESL Vocabulary by CEFR Level A1–C2 | Wordineer">
 <meta property="og:description" content="CEFR-tagged ESL vocabulary with IPA, plain-English definitions, and example sentences. Filter by level and topic, print as PDF — free.">
-<meta property="og:url" content="https://wordineer.com/esl-vocabulary-cefr/">
+<meta property="og:url" content="https://wordineer.com/esl-vocabulary-cefr">
+<meta property="og:image"       content="https://wordineer.com/images/esl-vocabulary-cefr-og.svg">
+<meta property="og:image:width"  content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card"        content="summary_large_image">
+<meta name="twitter:image"       content="https://wordineer.com/images/esl-vocabulary-cefr-og.svg">
 <link rel="canonical" href="https://wordineer.com/esl-vocabulary-cefr/">
 <script type="application/ld+json">
 {
@@ -15,7 +20,7 @@
   "@type": "Dataset",
   "name": "ESL Vocabulary by CEFR Level",
   "description": "ESL vocabulary words tagged A1-C2 with IPA pronunciation, plain-English definitions, and example sentences",
-  "url": "https://wordineer.com/esl-vocabulary-cefr/",
+  "url": "https://wordineer.com/esl-vocabulary-cefr",
   "creator": { "@type": "Organization", "name": "Wordineer" },
   "license": "https://creativecommons.org/licenses/by/4.0/"
 }
@@ -35,6 +40,18 @@
       "name": "What CEFR level is needed for IELTS?",
       "acceptedAnswer": { "@type": "Answer", "text": "IELTS Band 6–7 corresponds to B2–C1. IELTS Band 8+ corresponds to C1–C2. Both exams heavily test B2 and C1 vocabulary. Filter to those levels in this tool for targeted test preparation." }
     }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Word Tools", "item": "https://wordineer.com/word-tools/" },
+    { "@type": "ListItem", "position": 3, "name": "ESL Vocabulary (CEFR)", "item": "https://wordineer.com/esl-vocabulary-cefr/" }
   ]
 }
 </script>
@@ -72,7 +89,9 @@
   .esl-card .eword { font-size: 14px; padding-right: 36px; }
   body { font-size: 11px; }
 }
-@media (max-width: 600px) { .esl-controls { flex-direction: column; align-items: stretch; } .level-nav .level-btn { font-size: 12px; padding: 5px 12px; } }
+.cover-image { max-width: 960px; margin: 28px auto 36px; padding: 0 24px; display: block; }
+.cover-image img { width: 100%; height: auto; display: block; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.10); }
+@media (max-width: 600px) { .esl-controls { flex-direction: column; align-items: stretch; } .level-nav .level-btn { font-size: 12px; padding: 5px 12px; } .cover-image { padding: 0 16px; margin-bottom: 24px; } .cover-image img { border-radius: 10px; } }
 .explainer h2, .explainer h3 { font-family: 'DM Serif Display', serif; font-weight: 400; }
 .speak-btn {
   background: none;
@@ -110,6 +129,9 @@
 <!-- /SLOT:hero -->
 
 <!-- SLOT:tool -->
+<div class="cover-image">
+  <img src="/images/esl-vocabulary-cefr-og.svg" alt="ESL Vocabulary by CEFR Level A1 to C2 — IPA pronunciation, definitions and example sentences" width="1200" height="630" loading="eager">
+</div>
 <div class="esl-wrap">
   <div class="level-nav" id="level-nav">
     <button class="level-btn active" data-level="">All levels</button>
@@ -134,7 +156,7 @@
     <button class="print-btn" onclick="window.print()">Print / PDF</button>
   </div>
   <div class="result-count" id="result-count"></div>
-  <div class="esl-grid" id="esl-grid"></div>
+  <div class="esl-grid" id="esl-grid"><!-- SSR_ROWS --></div>
 </div>
 <!-- /SLOT:tool -->
 
@@ -218,22 +240,18 @@ function speakWord(evt, word) {
   document.getElementById('pos-filter').addEventListener('change', refresh);
   document.getElementById('esl-search').addEventListener('input', refresh);
 
-  fetch('/data/esl-cefr-vocabulary.json')
-    .then(function(r) { return r.json(); })
-    .then(function(d) {
-      DATA = d;
-      var seen = {}, topics = [];
-      d.forEach(function(r) { (r.topics||[]).forEach(function(t) { if(!seen[t]){seen[t]=1;topics.push(t);} }); });
-      topics.sort();
-      var sel = document.getElementById('topic-filter');
-      topics.forEach(function(t) {
-        var opt = document.createElement('option');
-        opt.value = t;
-        opt.textContent = t.charAt(0).toUpperCase() + t.slice(1);
-        sel.appendChild(opt);
-      });
-      refresh();
-    });
+  DATA = window._PAGE_DATA || [];
+  var seen = {}, topics = [];
+  DATA.forEach(function(r) { (r.topics||[]).forEach(function(t) { if(!seen[t]){seen[t]=1;topics.push(t);} }); });
+  topics.sort();
+  var sel = document.getElementById('topic-filter');
+  topics.forEach(function(t) {
+    var opt = document.createElement('option');
+    opt.value = t;
+    opt.textContent = t.charAt(0).toUpperCase() + t.slice(1);
+    sel.appendChild(opt);
+  });
+  refresh();
 })();
 document.querySelectorAll('.faq-item').forEach(function(item){var q=item.querySelector('.faq-q');if(!q)return;q.addEventListener('click',function(){item.classList.toggle('open');});});
 </script>

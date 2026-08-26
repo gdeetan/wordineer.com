@@ -2,13 +2,13 @@
 
 <!-- SLOT:meta -->
 <title>Word Unscramble — Find Every Word from Your Letters | Wordineer</title>
-<meta name="description" content="Enter up to 15 letters and instantly find every real word you can make. Use ? for blank tiles. Filter by length, starts with, ends with. Free Scrabble &amp; word game solver.">
+<meta name="description" content="Enter up to 15 letters and find every real word you can make from them. Use ? for blank tiles. Filter by length, starting letter, or ending letter.">
 <link rel="canonical" href="https://wordineer.com/word-unscramble/">
 <meta property="og:type"        content="website">
 <meta property="og:site_name"   content="Wordineer">
 <meta property="og:title"       content="Word Unscramble — Find Every Word from Your Letters | Wordineer">
 <meta property="og:description" content="Enter up to 15 letters and instantly find every real word you can make. Use ? for blank tiles. Free Scrabble and word game solver.">
-<meta property="og:url"         content="https://wordineer.com/word-unscramble/">
+<meta property="og:url"         content="https://wordineer.com/word-unscramble">
 <meta property="og:image"       content="https://wordineer.com/og-image.png">
 <script type="application/ld+json">
 {
@@ -48,7 +48,7 @@
   "@context": "https://schema.org",
   "@type": "WebApplication",
   "name": "Word Unscrambler",
-  "url": "https://wordineer.com/word-unscramble/",
+  "url": "https://wordineer.com/word-unscramble",
   "description": "Enter up to 15 letters and instantly find every real word you can make. Use ? for blank tiles. Filter by length, starts with, ends with. Free Scrabble & word game solver.",
   "applicationCategory": "UtilityApplication",
   "operatingSystem": "Web",
@@ -146,7 +146,7 @@
   <div class="breadcrumb-inner">
     <a href="/">Wordineer</a>
     <span class="breadcrumb-sep">›</span>
-    <a href="/word-tools/">Word Tools</a>
+    <a href="/word-games/">Word Games</a>
     <span class="breadcrumb-sep">›</span>
     <span aria-current="page">Word Unscrambler</span>
   </div>
@@ -238,7 +238,7 @@
             <button type="button" class="act-btn" id="un-regen-btn" onclick="document.getElementById('un-find-btn')?.click()">Regenerate</button>
           </div>
         </div>
-        <div class="ws-results-area" id="un-results">
+        <div class="ws-results-area" id="un-results"><div class="ws-results-status">Enter up to 15 letters — use ? for blank tiles</div>
           <div class="ws-results-status">Enter up to 15 letters — use ? for blank tiles</div>
         </div>
       </div>
@@ -585,10 +585,6 @@ const WORD_UNSCRAMBLER = (() => {
     }
 
     /* FAQ accordion */
-    document.querySelectorAll('.faq-q').forEach(q => {
-      q.addEventListener('click', () => q.closest('.faq-item').classList.toggle('open'));
-    });
-
     /* Mega menu close on outside click */
     document.addEventListener('click', e => {
       const mega = document.getElementById('mega');

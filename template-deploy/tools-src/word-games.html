@@ -8,7 +8,7 @@
 
 <!-- SLOT:meta -->
 <title>Word Games &amp; Party Games — Free Online | Wordineer</title>
-<meta name="description" content="Free word games and party games that run in your browser. Would You Rather, Truth or Dare, Charades, Pictionary, Catchphrase, Scattergories, and more. No app download, no sign-up.">
+<meta name="description" content="Word games and party games that run in your browser — Would You Rather, Truth or Dare, Charades, Pictionary, Catchphrase, and more. No app needed.">
 <link rel="canonical" href="https://wordineer.com/word-games/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Wordineer">
@@ -35,10 +35,12 @@
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Would You Rather Generator",  "url": "https://wordineer.com/would-you-rather-generator/" },
         { "@type": "ListItem", "position": 2, "name": "Truth or Dare Generator",     "url": "https://wordineer.com/truth-or-dare-generator/" },
-        { "@type": "ListItem", "position": 3, "name": "Charades Generator",          "url": "https://wordineer.com/charades-generator/" },
-        { "@type": "ListItem", "position": 4, "name": "Pictionary Word Generator",   "url": "https://wordineer.com/pictionary-word-generator/" },
-        { "@type": "ListItem", "position": 5, "name": "Catchphrase Generator",       "url": "https://wordineer.com/catchphrase-generator/" },
-        { "@type": "ListItem", "position": 6, "name": "Scattergories Generator",     "url": "https://wordineer.com/scattergories-list-generator/" }
+        { "@type": "ListItem", "position": 3, "name": "Couples Truth or Dare Generator", "url": "https://wordineer.com/couples-truth-or-dare-generator/" },
+        { "@type": "ListItem", "position": 4, "name": "Charades Generator",          "url": "https://wordineer.com/charades-generator/" },
+        { "@type": "ListItem", "position": 5, "name": "Pictionary Word Generator",   "url": "https://wordineer.com/pictionary-word-generator/" },
+        { "@type": "ListItem", "position": 6, "name": "Catchphrase Generator",       "url": "https://wordineer.com/catchphrase-generator/" },
+        { "@type": "ListItem", "position": 7, "name": "Scattergories Generator",     "url": "https://wordineer.com/scattergories-generator/" },
+        { "@type": "ListItem", "position": 8, "name": "Scrabble Word Finder",        "url": "https://wordineer.com/scrabble-word-finder/" }
       ]
     },
     {
@@ -79,6 +81,100 @@
 .faq-item p { font-size: 14px; line-height: 1.7; color: var(--text-2); margin: 0 0 14px; }
 .soon-badge { display: inline-block; font-size: 10px; font-weight: 600; background: #f0f0f5; color: #888; border-radius: 4px; padding: 2px 6px; margin-top: 4px; letter-spacing: .03em; }
 .tool-item--soon { opacity: 0.7; cursor: default; pointer-events: none; }
+.hub-search {
+  position: relative;
+  margin: 20px auto 0;
+  max-width: 480px;
+}
+.hub-search__input {
+  width: 100%;
+  padding: 10px 38px 10px 14px;
+  border: 1.5px solid var(--border-2, #d0d0d5);
+  border-radius: 8px;
+  background: var(--bg, #fff);
+  color: var(--text);
+  font-size: 15px;
+  outline: none;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+}
+.hub-search__input:focus {
+  border-color: var(--brand, #4A3FD4);
+  box-shadow: 0 0 0 3px rgba(74,63,212,.12);
+}
+.hub-search__clear {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-3, #888);
+  font-size: 15px;
+  padding: 4px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+.hub-search__empty {
+  display: none;
+  padding: 20px 0 4px;
+  color: var(--text-2);
+  font-size: 15px;
+}
+@media (max-width: 600px) {
+  .hub-search { max-width: 100%; }
+}
+.hero { overflow: visible; }
+.hub-search__dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  max-width: 480px;
+  margin: 0 auto;
+  background: var(--bg, #fff);
+  border: 1px solid var(--border-2, #d1d5db);
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0,0,0,.10);
+  list-style: none;
+  padding: 4px 0;
+  z-index: 100;
+  max-height: 320px;
+  overflow-y: auto;
+}
+.hub-search__dropdown[hidden] { display: none; }
+.hub-search__dd-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 9px 14px;
+  cursor: pointer;
+  font-size: 0.93rem;
+  color: var(--text-1, #1a1a2e);
+  border-radius: 6px;
+  margin: 2px 4px;
+  transition: background 0.12s;
+  text-align: left;
+}
+.hub-search__dd-item:hover,
+.hub-search__dd-item[aria-selected="true"] {
+  background: #f0f4ff;
+  color: #2563eb;
+}
+.hub-search__dd-item[aria-selected="true"] .hub-search__dd-item__desc { color: #3b6fd4; }
+.hub-search__dd-item__name { font-weight: 600; line-height: 1.35; }
+.hub-search__dd-item__desc {
+  font-size: 0.77rem;
+  color: var(--text-2, #6b7280);
+  line-height: 1.4;
+  margin-top: 1px;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 </style>
 <!-- /SLOT:style -->
 
@@ -97,6 +193,22 @@
   </div>
   <h1>Word games &amp; party games</h1>
   <p>Free browser-based games for groups and solo play — pass the screen, tap for the next word, and keep going.</p>
+  <div class="hub-search">
+    <input
+      type="search"
+      id="hub-search-input"
+      class="hub-search__input"
+      placeholder="Search word games..."
+      aria-label="Search word games"
+      autocomplete="off"
+      spellcheck="false">
+    <button
+      class="hub-search__clear"
+      id="hub-search-clear"
+      aria-label="Clear search"
+      hidden>✕</button>
+    <ul id="hub-search-dropdown" class="hub-search__dropdown" role="listbox" aria-label="Game suggestions" hidden></ul>
+  </div>
 </div>
 <!-- /SLOT:hero -->
 
@@ -135,6 +247,18 @@
           <div class="tool-desc">Separate pools for truths and dares. Filter by audience: kids, teens, adults, couples.</div>
         </a>
 
+        <a class="tool-item" href="/couples-truth-or-dare-generator/">
+          <div class="tool-icon" style="background:#FDE9E7">
+            <svg viewBox="0 0 13 13" fill="none">
+              <rect x="2" y="2.5" width="4" height="5" rx="0.75" stroke="#C7435B" stroke-width="1"/>
+              <rect x="7" y="5.5" width="4" height="5" rx="0.75" stroke="#C7435B" stroke-width="1"/>
+              <path d="M4 5.5V8M9 8V5.5" stroke="#C7435B" stroke-width=".8" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="tool-name">Couples Truth or Dare</div>
+          <div class="tool-desc">Romantic truths and dares designed specifically for couples.</div>
+        </a>
+
         <a class="tool-item" href="/charades-generator/">
           <div class="tool-icon" style="background:#E1F5EE">
             <svg viewBox="0 0 13 13" fill="none">
@@ -171,7 +295,7 @@
           <div class="tool-desc">Random Catchphrase words to describe. Timer-friendly — just tap for the next word.</div>
         </a>
 
-        <a class="tool-item" href="/scattergories-list-generator/">
+        <a class="tool-item" href="/scattergories-generator/">
           <div class="tool-icon" style="background:#EEF8EA">
             <svg viewBox="0 0 13 13" fill="none">
               <rect x="1.5" y="1.5" width="4.5" height="4.5" rx=".75" stroke="#1A8A5A" stroke-width=".9"/>
@@ -183,6 +307,14 @@
           </div>
           <div class="tool-name">Scattergories Generator</div>
           <div class="tool-desc">Random Scattergories lists with a random starting letter. Generate new lists instantly.</div>
+        </a>
+
+        <a class="tool-item" href="/never-have-i-ever-generator/">
+          <div class="tool-icon" style="background:#F5F3FF">
+            <svg viewBox="0 0 13 13" fill="none"><path d="M6.5 2.5C5.5 3.5 4 4.5 4 6c0 1.5 1.2 2.2 2.5 2.5C8.8 8.2 9 7 9 6c0-1.5-1.5-2.5-2.5-3.5z" stroke="#7C3AED" stroke-width=".9" stroke-linejoin="round"/><path d="M6.5 8.5v1.5" stroke="#7C3AED" stroke-width="1" stroke-linecap="round"/></svg>
+          </div>
+          <div class="tool-name">Never Have I Ever Generator</div>
+          <div class="tool-desc">Party game statements for groups, friends, and game nights.</div>
         </a>
 
       </div>
@@ -234,6 +366,105 @@
           </div>
           <div class="tool-name">Mad Libs Generator</div>
           <div class="tool-desc">Fill-in-the-blank story game with 20 stories across kids, funny, adventure, and holiday categories.</div>
+        </a>
+
+        <a class="tool-item" href="/word-scramble/">
+          <div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 4.5h4M2 6.5h3M2 8.5h5" stroke="#4A3FD4" stroke-width="1" stroke-linecap="round"/><path d="M8 3l2.5 1.5L8 6" stroke="#4A3FD4" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/><path d="M10.5 7l-2.5 1.5 2.5 1.5" stroke="#4A3FD4" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="tool-name">Word Scramble</div>
+          <div class="tool-desc">Jumble any word into a scramble for spelling games and vocabulary practice.</div>
+        </a>
+
+        <a class="tool-item" href="/word-unscramble/">
+          <div class="tool-icon" style="background:#E1F5EE"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="3.5" width="3" height="3" rx=".5" stroke="#1D9E75" stroke-width=".9"/><rect x="5.5" y="3.5" width="3" height="3" rx=".5" stroke="#1D9E75" stroke-width=".9"/><rect x="9" y="3.5" width="2" height="3" rx=".5" stroke="#1D9E75" stroke-width=".9"/><path d="M3.5 8.5h6M5.5 8.5L4 10M7.5 8.5L9 10" stroke="#1D9E75" stroke-width=".9" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="tool-name">Word Unscrambler</div>
+          <div class="tool-desc">Enter a set of letters and find every valid English word you can make.</div>
+        </a>
+
+        <a href="/crossword-puzzle-generator/" class="tool-item">
+          <div class="tool-icon" style="background:#EAF0F6"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="2" width="3" height="3" rx=".35" stroke="#2F4F6F" stroke-width=".85"/><rect x="5" y="5" width="3" height="3" rx=".35" stroke="#2F4F6F" stroke-width=".85"/><rect x="8" y="2" width="3" height="3" rx=".35" stroke="#2F4F6F" stroke-width=".85"/><rect x="2" y="8" width="3" height="3" rx=".35" stroke="#2F4F6F" stroke-width=".85"/><rect x="8" y="8" width="3" height="3" rx=".35" stroke="#2F4F6F" stroke-width=".85"/><path d="M5 3.5h3M3.5 5v3M9.5 5v3M5 9.5h3" stroke="#2F4F6F" stroke-width=".75" stroke-linecap="round"/></svg></div>
+          <div class="tool-name">Crossword Puzzle Generator</div>
+          <div class="tool-desc">Make a printable crossword with your own words and clues, or auto-generate by topic.</div>
+        </a>
+
+        <a href="/pictionary-phrase-generator/" class="tool-item">
+          <div class="tool-icon" style="background:#FAEEDA"><svg viewBox="0 0 13 13" fill="none"><path d="M2 3h9M2 6.5h7M2 10h5" stroke="#854F0B" stroke-width="1.2" stroke-linecap="round"/><path d="M9.5 8.2l1.2 1.2 1.8-2.3" stroke="#854F0B" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="tool-name">Pictionary Phrase Generator</div>
+          <div class="tool-desc">Multi-word phrases for harder drawing rounds.</div>
+        </a>
+
+        <a class="tool-item" href="/christmas-charades-generator/">
+          <div class="tool-icon" style="background:#E1F5EE"><svg viewBox="0 0 13 13" fill="none"><path d="M2 2.5h9v6H6.5L3.5 11V8.5H2z" stroke="#1D9E75" stroke-width="1" stroke-linejoin="round"/><path d="M6.5 4.5l.3.7.8.05-.6.5.2.7-.7-.4-.7.4.2-.7-.6-.5.8-.05z" fill="#1D9E75"/></svg></div>
+          <div class="tool-name">Christmas Charades Generator</div>
+          <div class="tool-desc">Holiday-themed acting prompts for the whole family.</div>
+        </a>
+
+        <a class="tool-item" href="/scrabble-word-finder/">
+          <div class="tool-icon" style="background:#EEEDFE">
+            <svg viewBox="0 0 13 13" fill="none">
+              <rect x="1.5" y="1.5" width="4.5" height="4.5" rx=".6" stroke="#4A3FD4" stroke-width=".9"/>
+              <rect x="7" y="1.5" width="4.5" height="4.5" rx=".6" stroke="#4A3FD4" stroke-width=".9"/>
+              <rect x="1.5" y="7" width="4.5" height="4.5" rx=".6" stroke="#4A3FD4" stroke-width=".9"/>
+              <rect x="7" y="7" width="4.5" height="4.5" rx=".6" stroke="#4A3FD4" stroke-width=".9"/>
+              <text x="2.5" y="5.8" font-size="3.5" fill="#4A3FD4" font-family="sans-serif">Q</text>
+              <text x="8" y="5.8" font-size="3.5" fill="#4A3FD4" font-family="sans-serif">Z</text>
+              <text x="2.5" y="11.3" font-size="3.5" fill="#4A3FD4" font-family="sans-serif">A</text>
+              <text x="8" y="11.3" font-size="3.5" fill="#4A3FD4" font-family="sans-serif">E</text>
+            </svg>
+          </div>
+          <div class="tool-name">Scrabble Word Finder</div>
+          <div class="tool-desc">Enter your tiles and find every valid word sorted by point value. Supports blank tile wildcards.</div>
+        </a>
+
+      </div>
+    </div>
+
+    <div class="name-section">
+      <h2 class="section-title">Wordle</h2>
+      <p class="section-sub">Play, solve, and look up every answer.</p>
+      <div class="tools-grid">
+
+        <a class="tool-item" href="/wordle-game/">
+          <div class="tool-icon" style="background:#E8F4FE"><svg viewBox="0 0 13 13" fill="none"><rect x="1.5" y="1.5" width="4" height="4" rx=".5" fill="#2B7FD4"/><rect x="7" y="1.5" width="4.5" height="4.5" rx=".5" fill="#2B7FD4" opacity=".35"/><rect x="1.5" y="7" width="4.5" height="4.5" rx=".5" fill="#2B7FD4" opacity=".35"/><rect x="7" y="7" width="4.5" height="4.5" rx=".5" fill="#2B7FD4"/></svg></div>
+          <div class="tool-name">Play Wordle</div>
+          <div class="tool-desc">Guess a random 5-letter word in 6 tries — or challenge a friend with your own word.</div>
+        </a>
+
+        <a class="tool-item" href="/wordle-helper/">
+          <div class="tool-icon" style="background:#E1F5EE"><svg viewBox="0 0 13 13" fill="none"><rect x="1.5" y="1.5" width="4" height="4" rx=".5" fill="#1D9E75"/><rect x="7" y="1.5" width="4.5" height="4.5" rx=".5" fill="#BA7517"/><rect x="1.5" y="7" width="4.5" height="4.5" rx=".5" fill="none" stroke="#9a9a94" stroke-width="1"/><rect x="7" y="7" width="4.5" height="4.5" rx=".5" fill="#1D9E75"/></svg></div>
+          <div class="tool-name">Wordle Helper</div>
+          <div class="tool-desc">Enter your clues and get the best next guess, ranked by how much it narrows down the answer.</div>
+        </a>
+
+        <a class="tool-item" href="/wordle-answers/">
+          <div class="tool-icon" style="background:#E8F4FE"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="2" width="9" height="7" rx=".7" stroke="#2B7FD4" stroke-width=".9"/><path d="M4 4.5h5M4 6.5h3" stroke="#2B7FD4" stroke-width=".8" stroke-linecap="round"/><path d="M8.5 9v2M7.5 11h2" stroke="#2B7FD4" stroke-width=".8" stroke-linecap="round"/></svg></div>
+          <div class="tool-name">Wordle Answer Archive</div>
+          <div class="tool-desc">Every past Wordle answer by date — plus a solver to narrow down remaining possibilities.</div>
+        </a>
+
+        <a class="tool-item" href="/wordle-answer-today/">
+          <div class="tool-icon" style="background:#FFF3CD"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="#856404" stroke-width=".9"/><path d="M6.5 4v2.5l1.5 1.5" stroke="#856404" stroke-width=".9" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="tool-name">Wordle Answer Today</div>
+          <div class="tool-desc">Today's Wordle hints and answer — starting letter, theme clue, then full reveal.</div>
+        </a>
+
+      </div>
+    </div>
+
+    <div class="name-section">
+      <h2 class="section-title">Trivia &amp; humor</h2>
+      <p class="section-sub">Questions, jokes, and icebreakers.</p>
+      <div class="tools-grid">
+
+        <a class="tool-item" href="/random-trivia-generator/">
+          <div class="tool-icon" style="background:#EAF0F6"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="5.5" r="2" stroke="#2F4F6F" stroke-width=".9"/><path d="M5.5 5.5h2M6.5 4.5v2" stroke="#2F4F6F" stroke-width=".7" stroke-linecap="round"/><path d="M3 10.5h7M4 9h5" stroke="#2F4F6F" stroke-width=".85" stroke-linecap="round"/></svg></div>
+          <div class="tool-name">Random Trivia Generator</div>
+          <div class="tool-desc">300+ trivia Q&amp;As in flashcard, quiz, and host modes. Filter by category.</div>
+        </a>
+
+        <a class="tool-item" href="/random-dad-jokes/">
+          <div class="tool-icon" style="background:#FFF3E0"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="4" stroke="#B85C00" stroke-width=".9"/><path d="M4.5 7.5c.5 1.2 4 1.2 4.5 0" stroke="#B85C00" stroke-width=".9" stroke-linecap="round"/><circle cx="4.8" cy="5.5" r=".65" fill="#B85C00"/><circle cx="8.2" cy="5.5" r=".65" fill="#B85C00"/></svg></div>
+          <div class="tool-name">Random Dad Jokes</div>
+          <div class="tool-desc">250+ clean, groan-worthy dad jokes with punchline reveal and topic filters.</div>
         </a>
 
       </div>
@@ -288,4 +519,115 @@
 
   </div>
 </div>
+<script>
+(function() {
+  var input    = document.getElementById('hub-search-input');
+  var clearBtn = document.getElementById('hub-search-clear');
+  var dropdown = document.getElementById('hub-search-dropdown');
+  if (!input || !dropdown) return;
+
+  var tools = Array.from(document.querySelectorAll('.tool-item')).map(function(el) {
+    return {
+      name: (el.querySelector('.tool-name') || {}).textContent || '',
+      desc: (el.querySelector('.tool-desc') || {}).textContent || '',
+      href: el.tagName === 'A' ? el.href : ''
+    };
+  }).filter(function(t) { return t.name && t.href; });
+
+  var activeIdx = -1;
+
+  function showDropdown(results) {
+    dropdown.innerHTML = '';
+    activeIdx = -1;
+    if (!results.length) { dropdown.hidden = true; return; }
+    results.slice(0, 8).forEach(function(t) {
+      var li = document.createElement('li');
+      li.setAttribute('role', 'option');
+      li.className = 'hub-search__dd-item';
+      li.setAttribute('data-href', t.href);
+      li.innerHTML = '<div class="hub-search__dd-item__name">' + t.name.replace(/</g, '&lt;') + '</div>'
+        + (t.desc ? '<div class="hub-search__dd-item__desc">' + t.desc.replace(/</g, '&lt;') + '</div>' : '');
+      li.addEventListener('mousedown', function(e) {
+        e.preventDefault();
+        window.location.href = t.href;
+      });
+      dropdown.appendChild(li);
+    });
+    dropdown.hidden = false;
+  }
+
+  function setActive(idx) {
+    var items = dropdown.querySelectorAll('.hub-search__dd-item');
+    items.forEach(function(el, i) {
+      el.setAttribute('aria-selected', i === idx ? 'true' : 'false');
+    });
+    activeIdx = idx;
+  }
+
+  var sections = document.querySelectorAll('.name-section');
+  var empty = document.createElement('p');
+  empty.className = 'hub-search__empty';
+  empty.textContent = 'No matching games found.';
+  var firstSection = sections[0];
+  if (firstSection) firstSection.parentNode.insertBefore(empty, firstSection);
+
+  function filterCards(q) {
+    var totalVisible = 0;
+    sections.forEach(function(section) {
+      var cards = section.querySelectorAll('.tool-item');
+      var sectionVisible = 0;
+      cards.forEach(function(card) {
+        var name = (card.querySelector('.tool-name') || {}).textContent || '';
+        var desc = (card.querySelector('.tool-desc') || {}).textContent || '';
+        var match = !q || name.toLowerCase().includes(q) || desc.toLowerCase().includes(q);
+        card.style.display = match ? '' : 'none';
+        if (match) sectionVisible++;
+      });
+      section.style.display = sectionVisible > 0 ? '' : 'none';
+      totalVisible += sectionVisible;
+    });
+    empty.style.display = (q && totalVisible === 0) ? 'block' : 'none';
+  }
+
+  input.addEventListener('input', function() {
+    var raw = input.value;
+    var q = raw.trim().toLowerCase();
+    clearBtn.hidden = !raw;
+    filterCards(q);
+    if (!q) { dropdown.hidden = true; return; }
+    var results = tools.filter(function(t) {
+      return t.name.toLowerCase().includes(q) || t.desc.toLowerCase().includes(q);
+    });
+    showDropdown(results);
+  });
+
+  input.addEventListener('keydown', function(e) {
+    var items = dropdown.querySelectorAll('.hub-search__dd-item');
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      setActive(Math.min(activeIdx + 1, items.length - 1));
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      setActive(Math.max(activeIdx - 1, 0));
+    } else if (e.key === 'Enter' && activeIdx >= 0 && items[activeIdx]) {
+      window.location.href = items[activeIdx].getAttribute('data-href');
+    } else if (e.key === 'Escape') {
+      dropdown.hidden = true;
+      if (input.value) { input.value = ''; clearBtn.hidden = true; filterCards(''); }
+    }
+  });
+
+  input.addEventListener('blur', function() {
+    setTimeout(function() { dropdown.hidden = true; }, 150);
+  });
+
+  clearBtn.addEventListener('click', function() {
+    input.value = '';
+    clearBtn.hidden = true;
+    dropdown.hidden = true;
+    filterCards('');
+    input.focus();
+  });
+})();
+</script>
 <!-- /SLOT:content -->

@@ -1,4 +1,4 @@
-<!-- build: 2026-08-13T12:17:39Z -->
+<!-- build: 2026-08-26T07:48:25Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -102,7 +102,7 @@
 <meta property="og:site_name"   content="Wordineer">
 <meta property="og:title"       content="Etymology of 100 Common English Words">
 <meta property="og:description" content="The word 'nice' once meant ignorant. 'Muscle' is Latin for little mouse. 100 real word origins — no filler.">
-<meta property="og:url"         content="https://wordineer.com/word-etymology/">
+<meta property="og:url"         content="https://wordineer.com/word-etymology">
 <meta property="og:image"       content="https://wordineer.com/images/word-etymology-og.svg">
 <meta property="og:image:width"  content="1200">
 <meta property="og:image:height" content="630">
@@ -114,9 +114,9 @@
   "@type": "Article",
   "headline": "Etymology of 100 Common English Words — Where They Really Come From",
   "description": "Real etymologies for 100 everyday English words, organized by theme. Covers Latin, Greek, Old Norse, Arabic, Nahuatl, and more.",
-  "url": "https://wordineer.com/word-etymology/",
+  "url": "https://wordineer.com/word-etymology",
   "datePublished": "2026-07-24",
-  "dateModified": "2026-07-24",
+  "dateModified": "2026-08-22",
   "author": { "@type": "Person", "name": "Garrick" },
   "publisher": { "@id": "https://wordineer.com/#organization" }
 }
@@ -127,8 +127,8 @@
   "@type": "BreadcrumbList",
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
-    { "@type": "ListItem", "position": 2, "name": "Word Tools", "item": "https://wordineer.com/word-tools/" },
-    { "@type": "ListItem", "position": 3, "name": "Word Etymology", "item": "https://wordineer.com/word-etymology/" }
+    { "@type": "ListItem", "position": 2, "name": "Word Tools", "item": "https://wordineer.com/word-tools" },
+    { "@type": "ListItem", "position": 3, "name": "Word Etymology", "item": "https://wordineer.com/word-etymology" }
   ]
 }
 </script>
@@ -183,6 +183,24 @@
   color: var(--text-2);
 }
 .etym-list li:last-child { border-bottom: none; }
+.etym-list li:target {
+  background: var(--bg-2);
+  margin: 0 -12px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border-radius: 8px;
+}
+.etym-companion {
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin: 0 0 40px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-2);
+}
+.etym-companion a { color: var(--brand); font-weight: 600; }
 .etym-word {
   font-weight: 700;
   color: var(--text);
@@ -227,7 +245,7 @@
     Wordineer
   </a>
   <div class="nav-links">
-    <a href="/word-tools/">Tools</a>
+    <a href="/word-tools">Tools</a>
   </div>
   <div>
     <button class="hamburger" type="button" aria-label="All tools" aria-controls="mega" aria-expanded="false">
@@ -316,7 +334,7 @@
   <div class="breadcrumb-inner">
     <a href="/">Wordineer</a>
     <span class="breadcrumb-sep">›</span>
-    <a href="/word-tools/">Word Tools</a>
+    <a href="/word-tools">Word Tools</a>
     <span class="breadcrumb-sep">›</span>
     <span aria-current="page">Word Etymology</span>
   </div>
@@ -333,7 +351,7 @@
   <img src="/images/word-etymology-og.svg" alt="Etymology of 100 Common English Words — where your favourite words really come from" width="1200" height="630" loading="eager">
 </div>
 <div class="etym-wrap">
-  <p class="etym-meta">Published July 2026 · Wordineer</p>
+  <p class="etym-meta">Written by Garrick Dee · Published July 2026 · Last verified August 2026</p>
 
   <div class="etym-intro">
     <p>
@@ -347,40 +365,54 @@
     </p>
   </div>
 
+  <p class="etym-companion">To filter these origins by language, search the list, or download the data, use the <a href="/etymology-100-common-words">100-word origin reference</a>.</p>
+
   <!-- SECTION 1 -->
   <div class="etym-section">
     <h2>Words that stopped meaning what they used to</h2>
     <p class="etym-section-sub">Semantic drift is relentless. These words have traveled so far from their origins that their original meanings now seem like insults or non sequiturs.</p>
     <ul class="etym-list">
-      <li><span class="etym-word">nice</span><span class="etym-origin">Latin nescius → Old French nice</span><br>
+      <li id="nice"><span class="etym-word">nice</span><span class="etym-origin">Latin nescius → Old French nice</span><br>
         Originally meant ignorant. Then foolish. Then overly refined. Then agreeable. It took about 500 years to get from "that person doesn't know anything" to "that person is pleasant to be around." The word passed through Old French as <em>nice</em> (foolish) and into Middle English as something closer to "simple" or "wanton." By the 18th century it had become the least threatening word in the language.
       </li>
-      <li><span class="etym-word">silly</span><span class="etym-origin">Old English sælig</span><br>
+      <li id="silly"><span class="etym-word">silly</span><span class="etym-origin">Old English sælig</span><br>
         Sælig meant blessed. Spiritually fortunate. The word shifted through "happy" and "innocent" to "simple" to "deserving of pity" before landing on its current meaning. Each step of that journey made sense to the people doing the shifting — it's just that pity and simplicity and blessed are not the same thing.
       </li>
-      <li><span class="etym-word">awful</span><span class="etym-origin">Old English egeful</span><br>
+      <li id="awful"><span class="etym-word">awful</span><span class="etym-origin">Old English egeful</span><br>
         Awe, in Old English, was close to terror — the feeling you had standing before something vast and incomprehensible. Awful meant inspiring that feeling. "The awful power of the sea" was a compliment. Somewhere in the 19th century the word lost its grandeur and started meaning merely bad.
       </li>
-      <li><span class="etym-word">weird</span><span class="etym-origin">Old English wyrd</span><br>
+      <li id="weird"><span class="etym-word">weird</span><span class="etym-origin">Old English wyrd</span><br>
         Wyrd was fate — specifically, the fixed and unavoidable destiny that governed everything in the Norse and Anglo-Saxon worldview. The Weird Sisters in Macbeth are the Fates. The word weakened steadily over centuries until it landed on strange, which is about as far from cosmic inevitability as you can get.
       </li>
-      <li><span class="etym-word">villain</span><span class="etym-origin">Medieval Latin villanus</span><br>
-        A villanus was someone who lived and worked on a villa — a farm laborer. The aristocracy's contempt for agricultural workers did the rest. By the time the word reached English, the moral coding was already in place: rural = uneducated = untrustworthy = evil.
+      <li id="villain"><span class="etym-word">villain</span><span class="etym-origin">Medieval Latin villanus</span><br>
+        A villanus was someone who lived and worked on a villa — a farm laborer. The aristocracy's contempt for agricultural workers did the rest. By the time the word reached English, the moral coding was already in place: rural = uneducated = untrustworthy = evil. French <em>vilain</em> (from the same Latin) was also used directly as an insult — "you vilain!" — so English absorbed the class meaning and the slur by two routes at once.
       </li>
-      <li><span class="etym-word">naughty</span><span class="etym-origin">Middle English naught</span><br>
+      <li id="naughty"><span class="etym-word">naughty</span><span class="etym-origin">Middle English naught</span><br>
         From naught — nothing. To be naughty was to have nothing, to be impoverished. The moral judgment came later, the same way it did with villain. Poverty and bad character were conflated so routinely in medieval English that the language just absorbed it.
       </li>
-      <li><span class="etym-word">hussy</span><span class="etym-origin">Old English hūswīf</span><br>
+      <li id="hussy"><span class="etym-word">hussy</span><span class="etym-origin">Old English hūswīf</span><br>
         A huswif was simply a housewife — the female head of a household. It contracted to hussy through normal speech patterns and then, through the same social machinery that degraded villain, acquired its current connotations entirely. The original meaning was respectable by definition.
       </li>
-      <li><span class="etym-word">brave</span><span class="etym-origin">Spanish/Italian bravo</span><br>
+      <li id="brave"><span class="etym-word">brave</span><span class="etym-origin">Spanish/Italian bravo</span><br>
         Bravo originally meant wild or savage — specifically the uncontrolled wildness of someone who didn't follow civilized norms. Calling someone brave was initially closer to calling them feral. The meaning softened into bold, then courageous. The Italian bravo (as in bravo, well done) is the same word taking a slightly different path.
       </li>
-      <li><span class="etym-word">stupid</span><span class="etym-origin">Latin stupidus</span><br>
+      <li id="stupid"><span class="etym-word">stupid</span><span class="etym-origin">Latin stupidus</span><br>
         Stupere meant to be stunned or dazed — the same root that gives us stupor. Stupidus described someone too astonished or stunned to function. The sense of permanent incapacity came later. When you call someone stupid today, you're technically saying they look like they just got hit with something.
       </li>
-      <li><span class="etym-word">pagan</span><span class="etym-origin">Latin paganus</span><br>
+      <li id="pagan"><span class="etym-word">pagan</span><span class="etym-origin">Latin paganus</span><br>
         Paganus simply meant a person from the countryside — a rural person, as opposed to someone from the city. Christianity spread through Roman cities first. By the time it reached rural areas, "city person" had become synonymous with "Christian," and paganus had picked up its religious meaning by default. Country people were the last to convert, not because of what they believed but because of where they lived.
+      </li>
+      <li id="pretty"><span class="etym-word">pretty</span><span class="etym-origin">Old English prættig</span><br>
+        Prættig meant cunning or crafty — full of prætt, a trick. Calling someone pretty was closer to calling them sly. The sense drifted through "clever" and "ingenious" to "fine, excellent," and only later settled on physically attractive. The word kept the sound and swapped the moral judgment for a compliment.
+      </li>
+      <li id="egregious"><span class="etym-word">egregious</span><span class="etym-origin">Latin egregius — e (out of) + grex (flock)</span><br>
+        Egregius meant standing out from the flock — distinguished, eminent, excellent. It was a compliment. English borrowed it that way, then irony did the rest: if you called a mistake egregious often enough, the word flipped from "remarkably good" to "remarkably bad." The structure never changed. Only the tone did.
+      </li>
+      <li id="sad"><span class="etym-word">sad</span><span class="etym-origin">Old English sæd</span><br>
+        Sæd meant sated — full, weary of something, having had enough. It is the same root as German satt. The path went from "full" to "settled, serious, grave," and from grave to unhappy. A word about being done eating became a word about grief, one small semantic step at a time.
+      </li>
+      <li id="idiot"><span class="etym-word">idiot</span><span class="etym-origin">Greek idiōtēs (private person)</span><br>
+        An idiōtēs was a private citizen — someone who did not hold public office, as opposed to a professional or official. Idios meant one's own. The word shifted from "layperson" to "unskilled" to "ignorant," and later became a clinical and then a pejorative label. The original contrast was public vs. private, not smart vs. not.
       </li>
     </ul>
   </div>
@@ -390,34 +422,37 @@
     <h2>From the sky, the body, and bad theory</h2>
     <p class="etym-section-sub">Before germ theory, before heliocentrism, before modern medicine — the stars governed your mood, bile explained your personality, and miasma caused disease. A lot of that vocabulary survived.</p>
     <ul class="etym-list">
-      <li><span class="etym-word">disaster</span><span class="etym-origin">Italian disastro — dis (bad) + astro (star)</span><br>
+      <li id="disaster"><span class="etym-word">disaster</span><span class="etym-origin">Italian disastro — dis (bad) + astro (star)</span><br>
         When something terrible happened, it was the stars' fault. A disaster was literally a bad star — an unlucky celestial alignment. The prefix dis marked it as adverse, and astro came from Latin astrum and Greek astron. Astrology was the explanatory framework for misfortune for most of recorded history, so this made complete sense to the people who coined it.
       </li>
-      <li><span class="etym-word">lunatic</span><span class="etym-origin">Latin luna (moon)</span><br>
+      <li id="influenza"><span class="etym-word">influenza</span><span class="etym-origin">Italian influenza (influence)</span><br>
+        Outbreaks were blamed on the influenza of the stars — an astrological influence that made people sick. Italian used the word for epidemics; English borrowed it in the 18th century for a specific respiratory illness. The stars dropped out. The name of the disease is still a theory about celestial weather.
+      </li>
+      <li id="lunatic"><span class="etym-word">lunatic</span><span class="etym-origin">Latin luna (moon)</span><br>
         The belief that the full moon caused madness was ancient and widespread. The Roman goddess Luna gave her name to this diagnosis. Aristotle wrote about it. The idea persisted well into the 19th century. Modern studies haven't found a reliable link, but the word stayed.
       </li>
-      <li><span class="etym-word">jovial</span><span class="etym-origin">Latin Jovialis — of Jove (Jupiter)</span><br>
+      <li id="jovial"><span class="etym-word">jovial</span><span class="etym-origin">Latin Jovialis — of Jove (Jupiter)</span><br>
         In astrological tradition, people born under Jupiter were cheerful, generous, and optimistic. Jove (the alternate name for Jupiter) gave us jovial. Its opposite, saturnine — gloomy and sluggish — comes from Saturn, whose influence was considered heavy and cold.
       </li>
-      <li><span class="etym-word">martial</span><span class="etym-origin">Latin Martialis — of Mars</span><br>
+      <li id="martial"><span class="etym-word">martial</span><span class="etym-origin">Latin Martialis — of Mars</span><br>
         Mars, the Roman god of war, gave his name to martial (warlike), to the month of March, and to the planet. Martial arts, martial law, court-martial — all trace back to the same god. The planet was named for its red color, which ancient astronomers associated with blood.
       </li>
-      <li><span class="etym-word">consider</span><span class="etym-origin">Latin con (with) + sidus (star)</span><br>
+      <li id="consider"><span class="etym-word">consider</span><span class="etym-origin">Latin con (with) + sidus (star)</span><br>
         To consider was to consult the stars — a method of deliberation before making decisions. The word entered English through Old French with the astrological association intact, even as the practice it described faded. Now we use it to mean think about, with no memory of the celestial consultation it once implied.
       </li>
-      <li><span class="etym-word">malaria</span><span class="etym-origin">Italian mala aria (bad air)</span><br>
+      <li id="malaria"><span class="etym-word">malaria</span><span class="etym-origin">Italian mala aria (bad air)</span><br>
         Before the malaria parasite was identified in 1880, the disease was attributed to the foul air rising from swamps. Mala aria — bad air — was accurate about the environment (marshes are genuinely where malaria concentrates) but wrong about the mechanism. The word stuck after the cause was corrected.
       </li>
-      <li><span class="etym-word">panic</span><span class="etym-origin">Greek panikon — of Pan</span><br>
+      <li id="panic"><span class="etym-word">panic</span><span class="etym-origin">Greek panikon — of Pan</span><br>
         Pan, the Greek god of shepherds and wild places, was said to wander remote areas and let out sudden, inexplicable shrieks that terrified anyone who heard them. A panic was originally the specific terror caused by hearing Pan. The word retained its sense of sudden, irrational fear — the deity just quietly dropped out.
       </li>
-      <li><span class="etym-word">muscle</span><span class="etym-origin">Latin musculus (little mouse)</span><br>
+      <li id="muscle"><span class="etym-word">muscle</span><span class="etym-origin">Latin musculus (little mouse)</span><br>
         Musculus meant both muscle and little mouse. The Romans noticed that a flexing bicep beneath the skin looks like a small animal moving — the shape and the movement suggested a mouse running under a thin cloth. It's one of those etymologies that, once you know it, you can't unsee.
       </li>
-      <li><span class="etym-word">melancholy</span><span class="etym-origin">Greek melan (black) + kholē (bile)</span><br>
+      <li id="melancholy"><span class="etym-word">melancholy</span><span class="etym-origin">Greek melan (black) + kholē (bile)</span><br>
         Classical medicine held that the body contained four humors: blood, phlegm, yellow bile, and black bile. Excess black bile — melaina kholē — caused depression and sadness. The word is a direct transcription of that theory. Humorist, sanguine, and phlegmatic come from the same system.
       </li>
-      <li><span class="etym-word">venom</span><span class="etym-origin">Latin venenum</span><br>
+      <li id="venom"><span class="etym-word">venom</span><span class="etym-origin">Latin venenum</span><br>
         Venenum meant a drug or potion — and specifically, a love potion. Venus was the goddess of love; venenum was connected to her domain. The word covered all potions first, then specifically harmful potions, then specifically poison produced by animals. The love-charm origin is now entirely invisible.
       </li>
     </ul>
@@ -428,35 +463,56 @@
     <h2>Named after people, places, and one specific goat</h2>
     <p class="etym-section-sub">Eponyms — words coined from names — are among the most traceable etymologies because there's usually a documented incident behind them.</p>
     <ul class="etym-list">
-      <li><span class="etym-word">boycott</span><span class="etym-origin">Captain Charles Boycott, 1880</span><br>
+      <li id="boycott"><span class="etym-word">boycott</span><span class="etym-origin">Captain Charles Boycott, 1880</span><br>
         Charles Boycott was a land agent in County Mayo, Ireland, working for an absentee English landlord. When he refused to reduce rents during the 1880 famine, the Irish Land League organized a campaign of total social ostracism against him — his crops rotted unpicked, his mail wasn't delivered, his servants left. Within months, his name had become a verb. He's one of the few people whose legacy is being used as an insult.
       </li>
-      <li><span class="etym-word">sandwich</span><span class="etym-origin">John Montagu, 4th Earl of Sandwich (1718–1792)</span><br>
+      <li id="sandwich"><span class="etym-word">sandwich</span><span class="etym-origin">John Montagu, 4th Earl of Sandwich (1718–1792)</span><br>
         The story is probably true, though not quite as dramatic as usually told. Montagu did eat meat between slices of bread while gambling, reportedly so he wouldn't have to leave the table. His chef made this routinely. Whether he invented the concept is another question — bread with fillings is ancient — but he popularized it enough that the name stuck.
       </li>
-      <li><span class="etym-word">dunce</span><span class="etym-origin">John Duns Scotus (c. 1266–1308)</span><br>
+      <li id="dunce"><span class="etym-word">dunce</span><span class="etym-origin">John Duns Scotus (c. 1266–1308)</span><br>
         Duns Scotus was one of the most influential scholastic philosophers of the medieval period. His followers, called Dunsmen or Dunces, were so attached to his philosophy that Renaissance humanists used their name as a slur for anyone resisting new ideas. An intellectual term of honor became a term of ridicule within about 200 years.
       </li>
-      <li><span class="etym-word">denim</span><span class="etym-origin">French serge de Nîmes</span><br>
+      <li id="denim"><span class="etym-word">denim</span><span class="etym-origin">French serge de Nîmes</span><br>
         Serge de Nîmes — fabric from Nîmes, a city in southern France. The fabric was originally a wool-silk blend; the American version that became jeans was cotton twill. The city name contracted to denim through ordinary shortening. Nîmes still exists. They have a Roman amphitheater and a minor textile museum.
       </li>
-      <li><span class="etym-word">coach</span><span class="etym-origin">Hungarian kocsi szekér — vehicle from Kocs</span><br>
+      <li id="coach"><span class="etym-word">coach</span><span class="etym-origin">Hungarian kocsi szekér — vehicle from Kocs</span><br>
         Kocs is a small village in Hungary where, in the 15th century, a particularly well-sprung horse-drawn vehicle was built. It became the model for similar vehicles across Europe, all named kocsi in Hungarian and then adapted phonetically in each language. The athletic sense — a coach prepares you for a journey — is a 19th century metaphor from the vehicle.
       </li>
-      <li><span class="etym-word">tycoon</span><span class="etym-origin">Japanese taikun (great lord)</span><br>
+      <li id="tycoon"><span class="etym-word">tycoon</span><span class="etym-origin">Japanese taikun (great lord)</span><br>
         American diplomats in Japan in the 1850s heard the word taikun used to describe the shogun and brought it home. It entered English as tycoon and shifted from political to business power over the following decades. The Japanese borrowed the underlying characters from Chinese, where the compound meant something like supreme prince.
       </li>
-      <li><span class="etym-word">copper</span><span class="etym-origin">Latin Cuprum — of Cyprus</span><br>
+      <li id="copper"><span class="etym-word">copper</span><span class="etym-origin">Latin Cuprum — of Cyprus</span><br>
         Cyprus was the Roman Empire's primary source of copper, so the metal took its name from the island. Cuprum contracted to copper in Germanic languages. The island's name in Greek, Kypros, may itself derive from an even older word for the metal — the etymology possibly runs the other way, with the island named for its copper deposits.
       </li>
-      <li><span class="etym-word">turkey</span><span class="etym-origin">Misattribution via Ottoman trade routes</span><br>
+      <li id="turkey"><span class="etym-word">turkey</span><span class="etym-origin">Misattribution via Ottoman trade routes</span><br>
         European traders first encountered guinea fowl through Ottoman merchants and called it turkey fowl — associated with the Turks because that's where the trade route came from. When Europeans arrived in the Americas and found a different large bird, they applied the same name by loose analogy. The American bird and the African bird aren't closely related. The Turks themselves call it hindi (the Indian bird), and the French call it dinde — also Indian. The confusion was universal.
       </li>
-      <li><span class="etym-word">avocado</span><span class="etym-origin">Nahuatl āhuacatl (testicle)</span><br>
+      <li id="avocado"><span class="etym-word">avocado</span><span class="etym-origin">Nahuatl āhuacatl (testicle)</span><br>
         Āhuacatl referred to both the fruit and the anatomy, likely because of the fruit's shape as it hangs in pairs. Spanish colonizers recorded it as aguacate, which shifted to avocado in English partly through confusion with a Spanish word for advocate. The Nahuatl origin is well documented. Guacamole comes from the same root combined with molli (sauce).
       </li>
-      <li><span class="etym-word">nerd</span><span class="etym-origin">Dr. Seuss, If I Ran the Zoo, 1950</span><br>
+      <li id="nerd"><span class="etym-word">nerd</span><span class="etym-origin">Dr. Seuss, If I Ran the Zoo, 1950</span><br>
         The first printed use is in a Seuss book, where a Nerd is a fictional creature. Whether Seuss coined it or was using existing slang is debated — some sources claim it was in use before 1950. But the current meaning, which solidified in the 1970s and 80s, didn't come from Seuss directly. It took decades and the rise of computing culture to settle into what it means now.
+      </li>
+      <li id="cereal"><span class="etym-word">cereal</span><span class="etym-origin">Latin Cerealis — of Ceres</span><br>
+        Ceres was the Roman goddess of grain and harvest. Cerealis meant "of Ceres," then grain itself. The breakfast-food sense is 19th century American marketing, but the goddess is still in the box. The Greek equivalent is Demeter; English happened to keep the Roman name.
+      </li>
+      <li id="atlas"><span class="etym-word">atlas</span><span class="etym-origin">The Titan Atlas, via Mercator</span><br>
+        Atlas was condemned to hold up the sky. Renaissance mapmakers showed him holding the world instead, and Gerardus Mercator put Atlas on the title page of his 1595 book of maps. The book became "an atlas," then any collection of maps. A punishment in myth became a shelf of geography.
+      </li>
+      <li id="tantalize"><span class="etym-word">tantalize</span><span class="etym-origin">Tantalus, in Greek myth</span><br>
+        Tantalus was punished in the underworld by standing in water under fruit trees: the water receded when he bent to drink, the fruit pulled away when he reached. His name became a verb for offering something and snatching it back. The torture is the etymology. Nothing was added.
+      </li>
+      <li id="silhouette"><span class="etym-word">silhouette</span><span class="etym-origin">Étienne de Silhouette (1709–1767)</span><br>
+        Silhouette was a French finance minister whose budget cuts made him a byword for cheapness. Outline portraits cut from black paper were an inexpensive alternative to painted miniatures, and they took his name — either as a joke about cheap likenesses or because he himself collected them. The cheap joke became the art term.
+      </li>
+      <li id="bedlam"><span class="etym-word">bedlam</span><span class="etym-origin">Bethlehem Hospital, London</span><br>
+        The Hospital of St. Mary of Bethlehem, founded in the 13th century, became London's main asylum. Bethlehem contracted in speech to Bedlam. The place-name became a common noun for uproar and confusion, then a word you can use without any memory of the hospital. The institution still exists, under a different name.
+      </li>
+      <li id="marathon"><span class="etym-word">marathon</span><span class="etym-origin">The plain of Marathon, 490 BCE</span><br>
+        After the Athenian victory at Marathon, legend says a messenger ran to Athens with the news and collapsed. The 1896 Olympic race was invented in that story's honor and named for the place. The English word is modern; the battle is ancient. We named a distance after a run that may not have happened the way it is usually told.
+      </li>
+      <li id="mentor"><span class="etym-word">mentor</span><span class="etym-origin">Mentor, in the Odyssey</span><br>
+        Mentor was an old friend of Odysseus; Athena borrowed his form to advise Telemachus. The name sat in the poem for centuries. It became a common noun for a trusted guide largely after Fénelon's 1699 <em>Télémaque</em> put Mentor at the center. A disguise in Homer became a job description.
       </li>
     </ul>
   </div>
@@ -466,23 +522,35 @@
     <h2>Words English borrowed from Arabic</h2>
     <p class="etym-section-sub">Most Arabic loanwords entered English through medieval Spain, or through translations of Arabic scientific texts that dominated European learning between the 8th and 13th centuries. The prefix al- (the definite article in Arabic) is often embedded in these words.</p>
     <ul class="etym-list">
-      <li><span class="etym-word">algebra</span><span class="etym-origin">Arabic al-jabr (the reunion of broken parts)</span><br>
+      <li id="algebra"><span class="etym-word">algebra</span><span class="etym-origin">Arabic al-jabr (the reunion of broken parts)</span><br>
         From the title of a 9th century treatise by the mathematician Muhammad ibn Musa al-Khwarizmi: Kitāb al-mukhtaṣar fī ḥisāb al-jabr wal-muqābalah. Al-jabr referred to the process of moving a subtracted quantity to the other side of an equation — restoring what was broken. Al-Khwarizmi's name also gave us algorithm, through a Latin transliteration.
       </li>
-      <li><span class="etym-word">alcohol</span><span class="etym-origin">Arabic al-kuḥl (the kohl)</span><br>
+      <li id="alcohol"><span class="etym-word">alcohol</span><span class="etym-origin">Arabic al-kuḥl (the kohl)</span><br>
         Al-kuhl originally referred to antimony powder — a very fine metallic powder used as eye cosmetic. The word transferred to any fine powder produced by sublimation, then to the product of distillation more broadly, then specifically to ethanol. Medieval alchemists used it in this broader sense; the narrowing to fermented drink came much later.
       </li>
-      <li><span class="etym-word">admiral</span><span class="etym-origin">Arabic amīr al-baḥr (commander of the sea)</span><br>
+      <li id="admiral"><span class="etym-word">admiral</span><span class="etym-origin">Arabic amīr al-baḥr (commander of the sea)</span><br>
         The medieval Latin form was admirallus, borrowed from the Arabic title during the Crusades when European powers encountered Arab naval commanders. The al- from al-baḥr (the sea) merged with the title amīr (commander, also the root of emir and emirate). The d in admiral is sometimes explained as a mistaken expansion of the title, but the exact path is debated.
       </li>
-      <li><span class="etym-word">hazard</span><span class="etym-origin">Arabic az-zahr (the dice)</span><br>
+      <li id="hazard"><span class="etym-word">hazard</span><span class="etym-origin">Arabic az-zahr (the dice)</span><br>
         Az-zahr referred to dice — and dice-based gambling was the original hazard, a game played with dice that William of Tyre described encountering during the Crusades. The game entered Europe and the word followed. From gambling came risk, from risk came danger, and the word generalized to mean any chance of harm.
       </li>
-      <li><span class="etym-word">magazine</span><span class="etym-origin">Arabic makhāzin (storehouses)</span><br>
+      <li id="magazine"><span class="etym-word">magazine</span><span class="etym-origin">Arabic makhāzin (storehouses)</span><br>
         Makhāzin is the plural of makhzan — a storehouse or treasury. It entered English via French and Italian as a word for a storage place, specifically for arms and powder. The publishing sense came from the idea that a periodical is a storehouse of information. The first use in this sense was The Gentleman's Magazine in 1731, which explicitly called itself a "store" of information.
       </li>
-      <li><span class="etym-word">assassin</span><span class="etym-origin">Arabic Ḥashshāshīn</span><br>
+      <li id="assassin"><span class="etym-word">assassin</span><span class="etym-origin">Arabic Ḥashshāshīn</span><br>
         The Hashshashin were a Nizari Ismaili sect in medieval Persia and Syria, active roughly 1090–1275. The name likely meant users of hashish, though the actual connection is contested — it may have been a slur applied by enemies rather than a description of practice. The Crusaders encountered them as a political murder network and brought the word home. Most of the legends about them are exaggerated or fabricated.
+      </li>
+      <li id="coffee"><span class="etym-word">coffee</span><span class="etym-origin">Arabic qahwa</span><br>
+        Qahwa was a word for wine that was extended to the dark drink brewed from roasted beans. The plant is Ethiopian; the drink spread through Yemen and the Arab world, then into Turkish as kahve and Dutch as koffie. English coffee is the Dutch form. Café and caffeine are later offshoots of the same trip.
+      </li>
+      <li id="zero"><span class="etym-word">zero</span><span class="etym-origin">Arabic ṣifr (empty)</span><br>
+        Ṣifr meant empty or nothing — the same Arabic word that gave us cipher. It entered Medieval Latin as zephirum and Italian as zero. The concept traveled with the Hindu-Arabic numeral system; the English name is the Arabic word for the empty place in that system.
+      </li>
+      <li id="cotton"><span class="etym-word">cotton</span><span class="etym-origin">Arabic quṭn</span><br>
+        Quṭn named the plant and its fiber. Arab traders moved cotton across North Africa and the Mediterranean; the word followed through Italian cotone and French coton. English borrowed the name with the cloth. The plant is older than the trade route; the English word is the trade route.
+      </li>
+      <li id="mattress"><span class="etym-word">mattress</span><span class="etym-origin">Arabic maṭraḥ (place where something is thrown)</span><br>
+        A maṭraḥ was a place you threw a cushion or a mat — a spot to lie down. The word entered Romance languages as a name for a pad or bedding, then English as mattress. The original image is not a boxed spring. It is a thing thrown on the floor to sleep on.
       </li>
     </ul>
   </div>
@@ -492,34 +560,46 @@
     <h2>Ancient Greek in everyday speech</h2>
     <p class="etym-section-sub">Greek contributed to English primarily through Latin, which absorbed enormous amounts of Greek vocabulary during the Roman period. Some of these words are direct borrowings; others were coined in Greek and translated through Latin into English.</p>
     <ul class="etym-list">
-      <li><span class="etym-word">tragedy</span><span class="etym-origin">Greek tragoidia — tragos (goat) + ōidē (song)</span><br>
+      <li id="tragedy"><span class="etym-word">tragedy</span><span class="etym-origin">Greek tragoidia — tragos (goat) + ōidē (song)</span><br>
         Goat song. The etymology is clear; why tragedy means goat song is less so. The leading theories: that a goat was the prize in early dramatic competitions, or that actors wore goatskin costumes, or that it referred to the sacrifice of a goat during Dionysian festivals that preceded theatrical performance. Scholars haven't fully settled it. Comedy, by contrast, is from kōmos (revel) + ōidē — revel-song.
       </li>
-      <li><span class="etym-word">sarcasm</span><span class="etym-origin">Greek sarkasmos — sarkázein (to tear flesh)</span><br>
+      <li id="sarcasm"><span class="etym-word">sarcasm</span><span class="etym-origin">Greek sarkasmos — sarkázein (to tear flesh)</span><br>
         Sarx meant flesh. Sarkázein was to bite the lips in rage or to tear flesh. The word described a particularly vicious mode of speech — biting as a metaphor, then transferred to cutting verbal attacks. The English sense softened slightly (sarcasm doesn't have to be angry, just cutting), but the original aggression is still in the structure of the word.
       </li>
-      <li><span class="etym-word">ostracize</span><span class="etym-origin">Greek ostrakon (pottery sherd)</span><br>
+      <li id="ostracize"><span class="etym-word">ostracize</span><span class="etym-origin">Greek ostrakon (pottery sherd)</span><br>
         In ancient Athens, citizens could vote to exile a person for ten years if they were considered a danger to the state. The voting was done by writing a name on a piece of pottery — an ostrakon. If enough votes were cast against you, you were ostracized. The practice required no trial; a simple majority was sufficient. Several prominent Athenians, including Aristides, were exiled this way.
       </li>
-      <li><span class="etym-word">gymnasium</span><span class="etym-origin">Greek gymnazein — gymnos (naked)</span><br>
+      <li id="gymnasium"><span class="etym-word">gymnasium</span><span class="etym-origin">Greek gymnazein — gymnos (naked)</span><br>
         Greek athletes trained and competed naked. The gymnasium — the place where you gymnazein — was therefore the place where you exercise naked. The Romans kept the word while modifying the practice. Modern gymnasiums aren't particularly clothing-optional, but the word didn't update to reflect that.
       </li>
-      <li><span class="etym-word">orchestra</span><span class="etym-origin">Greek orkhēstra — the dancing place</span><br>
+      <li id="orchestra"><span class="etym-word">orchestra</span><span class="etym-origin">Greek orkhēstra — the dancing place</span><br>
         In Greek theater, the orchestra was the semicircular space in front of the stage where the chorus performed their dances. The word comes from orkheisthai (to dance). When the term transferred to European theater, it was applied first to the area in front of the stage where musicians sat — the pit. Eventually it named the musicians themselves.
       </li>
-      <li><span class="etym-word">barbarian</span><span class="etym-origin">Greek barbaros (one who says bar-bar)</span><br>
+      <li id="barbarian"><span class="etym-word">barbarian</span><span class="etym-origin">Greek barbaros (one who says bar-bar)</span><br>
         To Greek ears, foreign languages sounded like meaningless babbling — bar bar bar. Barbaros described anyone who spoke that way, meaning anyone who didn't speak Greek. The Romans borrowed the word and applied it to anyone outside their civilization. It's one of the clearest examples of a linguistic term for foreignness hardening into a moral category.
       </li>
-      <li><span class="etym-word">agony</span><span class="etym-origin">Greek agōn (athletic contest)</span><br>
+      <li id="agony"><span class="etym-word">agony</span><span class="etym-origin">Greek agōn (athletic contest)</span><br>
         The agōn was competition — the organized struggle at the heart of Greek athletics and drama. Agonía was the pain of that struggle. The word entered English specifically meaning the pain of dying (the death agony), then broadened to intense suffering generally. The athletic origin still shows in protagonist: pro (forward) + agōn — the person who leads the struggle.
       </li>
-      <li><span class="etym-word">sycophant</span><span class="etym-origin">Greek sykophantēs — sykon (fig) + phainein (to show)</span><br>
+      <li id="sycophant"><span class="etym-word">sycophant</span><span class="etym-origin">Greek sykophantēs — sykon (fig) + phainein (to show)</span><br>
         The literal meaning is fig-shower, and no one is entirely sure why that means flatterer or informer. One theory: in ancient Athens, informers who reported illegal fig exports were called sykophantai, and the term transferred to anyone who curried favor through denunciation. Another theory involves an obscene gesture. The origin remains genuinely uncertain — which is either reassuring or frustrating depending on how much you trust dictionaries.
       </li>
-      <li><span class="etym-word">berserk</span><span class="etym-origin">Old Norse berserkr (bear-shirt)</span><br>
+      <li id="school"><span class="etym-word">school</span><span class="etym-origin">Greek scholē (leisure)</span><br>
+        Scholē meant spare time — the leisure in which you could talk, argue, and learn because you were not working. It became the activity you did with that time, then the place you did it. A word for not-labor is now the name of compulsory labor for children. The irony is sitting in the etymology, unblinking.
+      </li>
+      <li id="chaos"><span class="etym-word">chaos</span><span class="etym-origin">Greek khaos (abyss, void)</span><br>
+        Khaos was the gaping void at the beginning of things — emptiness, not a messy room. Latin chaos kept that sense. English turned it into disorder, confusion, the opposite of cosmos (order). The original word was a hole in the world. We made it a synonym for a bad meeting.
+      </li>
+      <li id="meander"><span class="etym-word">meander</span><span class="etym-origin">Greek Maiandros — the Maeander River</span><br>
+        The Maeander (now the Büyük Menderes in Turkey) was famous in antiquity for winding. Greeks used the river's name for a winding decorative pattern; English turned it into a verb for wandering without hurry. A specific river became the general idea of not going straight.
+      </li>
+      <li id="narcissism"><span class="etym-word">narcissism</span><span class="etym-origin">Narcissus, in Greek myth</span><br>
+        Narcissus fell in love with his own reflection and wasted away. Botanists kept his name on the flower; psychologists in the late 19th century turned it into a diagnosis. The myth is ancient. The English abstract noun is modern. We needed a word for a kind of self-regard and reached for a boy staring into a pool.
+      </li>
+      <li id="berserk"><span class="etym-word">berserk</span><span class="etym-origin">Old Norse berserkr (bear-shirt)</span><br>
         The berserkers were Norse warriors who reportedly entered battle in a state of frenzied rage, immune to pain, wearing bear skins (or possibly bare-chested — the compound is debated). The sagas describe them howling and biting their shields. Whether the phenomenon was psychological, pharmacological, or mostly literary is still discussed. The word entered English in the 19th century through Romanticist interest in Norse mythology.
       </li>
-      <li><span class="etym-word">paradise</span><span class="etym-origin">Old Persian pairidaēza (walled enclosure)</span><br>
+      <li id="paradise"><span class="etym-word">paradise</span><span class="etym-origin">Old Persian pairidaēza (walled enclosure)</span><br>
         Pairi (around) + daēza (wall). An enclosed garden — specifically, the walled pleasure gardens of Persian kings. The word passed through Greek (paradeisos) and Latin (paradisus), picking up its theological sense as it was applied to the Garden of Eden. Heaven as a walled garden is a fundamentally Persian image that got absorbed into Abrahamic theology via the word's travel.
       </li>
     </ul>
@@ -530,35 +610,50 @@
     <h2>The stories hiding in ordinary speech</h2>
     <p class="etym-section-sub">Some of the most common words in the language carry histories you'd never suspect from their current usage.</p>
     <ul class="etym-list">
-      <li><span class="etym-word">salary</span><span class="etym-origin">Latin salarium — sal (salt)</span><br>
+      <li id="salary"><span class="etym-word">salary</span><span class="etym-origin">Latin salarium — sal (salt)</span><br>
         Roman soldiers were given a salarium — an allowance to buy salt, which was essential and expensive in the ancient world. Whether this was paid in actual salt or in coin specifically earmarked for salt purchases is debated, but the connection to salt is solid. Worth noting: the expression "worth his salt" comes from the same tradition.
       </li>
-      <li><span class="etym-word">companion</span><span class="etym-origin">Latin com (with) + panis (bread)</span><br>
+      <li id="companion"><span class="etym-word">companion</span><span class="etym-origin">Latin com (with) + panis (bread)</span><br>
         Someone you share bread with. The social weight of sharing a meal is ancient — it's where company comes from too, and the same root gives us pantry (a place for bread). The word says something about what intimacy meant before restaurants: not someone you spend time with, but someone you eat with.
       </li>
-      <li><span class="etym-word">rival</span><span class="etym-origin">Latin rivalis — one using the same stream</span><br>
+      <li id="rival"><span class="etym-word">rival</span><span class="etym-origin">Latin rivalis — one using the same stream</span><br>
         Rivus meant stream or brook. A rivalis was someone who drew water from the same river — a neighbor who needed the same resource you needed. Competition for water in an agrarian society was real and serious, so the word developed its sense of contention. Two people sharing a water source were competitors almost by definition.
       </li>
-      <li><span class="etym-word">clue</span><span class="etym-origin">Old English clew (ball of yarn)</span><br>
+      <li id="clue"><span class="etym-word">clue</span><span class="etym-origin">Old English clew (ball of yarn)</span><br>
         From the myth of Theseus in the Cretan labyrinth: Ariadne gave Theseus a ball of thread (a clew) to unwind as he entered so he could find his way back out after killing the Minotaur. A clew was the thing that led you out of a maze. The word shifted from the physical object to the thing that guides you through a figurative maze. The original spelling survives in "no clew" (still used in British English) and in clew (nautical term for a corner of a sail, which guides the sail's movement).
       </li>
-      <li><span class="etym-word">nightmare</span><span class="etym-origin">Old English mare (goblin)</span><br>
+      <li id="nightmare"><span class="etym-word">nightmare</span><span class="etym-origin">Old English mare (goblin)</span><br>
         A mare was a spirit that sat on sleepers and caused suffocating dreams — the sensation of being held down and unable to breathe that we now recognize as sleep paralysis. Night + mare meant the nighttime goblin, not a female horse. The word mara appears across Germanic and Slavic languages in similar forms, all referring to the same crushing dream creature. The equine association is coincidental and relatively recent.
       </li>
-      <li><span class="etym-word">gossip</span><span class="etym-origin">Old English godsibb (godparent)</span><br>
+      <li id="gossip"><span class="etym-word">gossip</span><span class="etym-origin">Old English godsibb (godparent)</span><br>
         God + sibb (relative). A godsibb was a godfather or godmother — a close family relation connected through religious rite. The sense shifted to any close friend, then to anyone you chat with casually, then to the content of that casual chat. What started as a formal religious relationship (sponsoring someone at baptism) became a word for idle talk. The path makes sense: godparents were privy to family business.
       </li>
-      <li><span class="etym-word">glamour</span><span class="etym-origin">Scottish alteration of grammar</span><br>
+      <li id="glamour"><span class="etym-word">glamour</span><span class="etym-origin">Scottish alteration of grammar</span><br>
         In medieval Scotland, grammar referred not only to Latin grammar but to learning in general — and learning was associated with magic because literate people could do things illiterate people couldn't explain. Grammar became gramarye (magic, occult learning) in Scottish, and by a dialectal shift, gramarye became glamour. The fashion industry is built on a word that originally meant a wizard's spell.
       </li>
-      <li><span class="etym-word">budget</span><span class="etym-origin">Old French bougette (small leather bag)</span><br>
+      <li id="budget"><span class="etym-word">budget</span><span class="etym-origin">Old French bougette (small leather bag)</span><br>
         Bougette was a diminutive of bouge — a leather bag. The term entered English as a name for the leather bag or wallet in which the Chancellor of the Exchequer carried financial documents to Parliament. "Opening the budget" meant opening the bag. By the 18th century it had transferred from the bag to its contents to the plan itself.
       </li>
-      <li><span class="etym-word">candidate</span><span class="etym-origin">Latin candidatus (clothed in white)</span><br>
+      <li id="candidate"><span class="etym-word">candidate</span><span class="etym-origin">Latin candidatus (clothed in white)</span><br>
         Roman citizens seeking public office wore a toga brightened with chalk — candidus, shining white. The white was meant to signal purity, transparency, honesty. The word candidate is a literal claim about what candidates are supposed to be. It has never really worked out that way, but the word keeps trying.
       </li>
-      <li><span class="etym-word">trivia</span><span class="etym-origin">Latin trivium (three roads)</span><br>
+      <li id="trivia"><span class="etym-word">trivia</span><span class="etym-origin">Latin trivium (three roads)</span><br>
         Trivium meant the junction where three roads meet. These crossroads were public spaces where people gathered, posted announcements, and exchanged information — the information shared there was common, widely known, and not particularly important. Trivialis described things belonging to that common space. The academic trivium (grammar, rhetoric, logic — the three foundational arts) came from the same word but took a different path.
+      </li>
+      <li id="mortgage"><span class="etym-word">mortgage</span><span class="etym-origin">Old French mort gage (dead pledge)</span><br>
+        A gage was a pledge. Mort meant dead. The pledge was "dead" because it ended when you paid — or because the property was lost if you didn't. Either way, the contract was designed to die. English kept the French compound intact, which is why a home loan still sounds like a threat.
+      </li>
+      <li id="curfew"><span class="etym-word">curfew</span><span class="etym-origin">Old French covrefeu (cover the fire)</span><br>
+        Medieval towns rang a bell at a set hour: cover your fire, go home, stop being a public risk after dark. Covrefeu named the bell and the rule. English curfew kept the order and lost the fireplace. The original concern was burning down the wooden town, not just staying out late.
+      </li>
+      <li id="travel"><span class="etym-word">travel</span><span class="etym-origin">Old French travailler (to toil)</span><br>
+        Travailler meant to labor, to suffer, to work painfully. Late Latin trepalium was an instrument of torture; the verb grew from that. Travel was hardship before it was tourism. The word still describes the trip. It no longer describes why people used to dread it.
+      </li>
+      <li id="slogan"><span class="etym-word">slogan</span><span class="etym-origin">Scottish Gaelic sluagh-ghairm (army cry)</span><br>
+        Sluagh (army, host) + gairm (cry, shout). A slogan was a Highland battle cry — a clan's identifying yell in a fight. English borrowed it for any short rallying phrase, then for advertising. The marketing department is using a war shout. The volume just dropped.
+      </li>
+      <li id="quarantine"><span class="etym-word">quarantine</span><span class="etym-origin">Italian quaranta giorni (forty days)</span><br>
+        Venetian and Ragusan practice held ships and crews for quaranta giorni — forty days — before they could land during plague years. The number became the policy, then the policy became the word. Forty was a conventional period (it is also the length of Lent), not a laboratory result. The isolation stayed; the exact count did not.
       </li>
     </ul>
   </div>
@@ -568,56 +663,76 @@
     <h2>More worth knowing</h2>
     <p class="etym-section-sub">These didn't fit neatly into any category — which is usually a sign they're worth including.</p>
     <ul class="etym-list">
-      <li><span class="etym-word">money</span><span class="etym-origin">Latin Moneta — a title of Juno</span><br>
+      <li id="money"><span class="etym-word">money</span><span class="etym-origin">Latin Moneta — a title of Juno</span><br>
         The Roman mint was located near the temple of Juno Moneta (Juno the Adviser or Juno the Warner — the etymology of Moneta itself is debated). Coins were minted there, so they took the name of the temple. Moneta → monetary, money, mint — all from Juno's house.
       </li>
-      <li><span class="etym-word">focus</span><span class="etym-origin">Latin focus (hearth, fireplace)</span><br>
+      <li id="focus"><span class="etym-word">focus</span><span class="etym-origin">Latin focus (hearth, fireplace)</span><br>
         The hearth was the center of the Roman home — both literally and ceremonially. The keeper of the hearth was the keeper of the home. The word transferred to optics in the 17th century (Johannes Kepler used it) to describe the point where light rays converge, which behaves like a central gathering point. From hearth to optical center to the abstract sense of concentrated attention.
       </li>
-      <li><span class="etym-word">calculate</span><span class="etym-origin">Latin calculus (pebble)</span><br>
+      <li id="calculate"><span class="etym-word">calculate</span><span class="etym-origin">Latin calculus (pebble)</span><br>
         Counting was done with small stones on an abacus — calculi were the pebbles used for counting. Calculus in mathematics preserves the original Latin word unchanged. Calcium, chalk, and calcify are from the same root (Latin calx = limestone). You are, in a very literal sense, doing pebble math.
       </li>
-      <li><span class="etym-word">clock</span><span class="etym-origin">Medieval Latin clocca (bell)</span><br>
+      <li id="clock"><span class="etym-word">clock</span><span class="etym-origin">Medieval Latin clocca (bell)</span><br>
         Early timekeeping devices didn't have clock faces. They rang bells to mark the hours. The device was named for what it did — it clocca'd. Clock faces came later; the name stayed. The word exists in most Germanic languages with similar forms because the design of bell-based timekeeping spread from monastery to monastery across Europe.
       </li>
-      <li><span class="etym-word">person</span><span class="etym-origin">Latin persona (theatrical mask)</span><br>
+      <li id="person"><span class="etym-word">person</span><span class="etym-origin">Latin persona (theatrical mask)</span><br>
         A persona was the mask an actor wore in Roman theater, which both showed character and amplified the voice (per + sonare = through which sound passes). The word transferred from the mask to the character being played, then to any social role, then to an individual human being. Legal personhood — corporations having "persons" — traces to the same theatrical origin.
       </li>
-      <li><span class="etym-word">robot</span><span class="etym-origin">Czech robota (drudgery, forced labor)</span><br>
+      <li id="robot"><span class="etym-word">robot</span><span class="etym-origin">Czech robota (drudgery, forced labor)</span><br>
         Karel Čapek introduced the word in his 1920 play R.U.R. (Rossum's Universal Robots), in which manufactured humans are made to do all the work humans don't want to do. Robota in Czech described the compulsory labor serfs owed to their lords — the most grueling, dehumanizing work imaginable. Čapek picked the word deliberately. His robots eventually revolt, which is either a warning or a plot twist depending on how you read it.
       </li>
-      <li><span class="etym-word">window</span><span class="etym-origin">Old Norse vindauga — vindr (wind) + auga (eye)</span><br>
+      <li id="window"><span class="etym-word">window</span><span class="etym-origin">Old Norse vindauga — vindr (wind) + auga (eye)</span><br>
         A wind eye — an opening in a wall through which wind (and light) passed. The Norse word replaced the Old English eagþyrl (eye-hole) after the Viking settlements in northern England. Both words describe the same thing with the same two components; it was just the Norse version that survived. Eyelet, as in the eyelets in clothing, is a descendant of the older English word.
       </li>
-      <li><span class="etym-word">kindergarten</span><span class="etym-origin">German Kinder (children) + Garten (garden)</span><br>
+      <li id="kindergarten"><span class="etym-word">kindergarten</span><span class="etym-origin">German Kinder (children) + Garten (garden)</span><br>
         Friedrich Fröbel coined the word in 1837 when he founded his educational institution in Blankenburg, Germany. The garden metaphor was deliberate: children are plants that need cultivation and appropriate growing conditions, not just information poured into them. The word spread with the educational philosophy — kindergartens were a progressive innovation, and the German name came with them.
       </li>
-      <li><span class="etym-word">bankrupt</span><span class="etym-origin">Italian banca rotta (broken bench)</span><br>
+      <li id="bankrupt"><span class="etym-word">bankrupt</span><span class="etym-origin">Italian banca rotta (broken bench)</span><br>
         Medieval Italian moneylenders conducted business at benches (banca) in market squares. When a lender defaulted or fled, their bench was literally broken — rotta — by the authorities or the crowd. The broken bench was public notice of financial failure. The word entered English through French.
       </li>
-      <li><span class="etym-word">villain (revisited)</span><span class="etym-origin">Adding one more layer</span><br>
-        One detail worth noting: the French word vilain (from the same Latin villanus) was also used directly as a term of insult in medieval French — "you vilain!" The English word absorbed this usage alongside the social class meaning. Two routes to the same destination, which is part of why the meaning settled so completely.
-      </li>
-      <li><span class="etym-word">bonfire</span><span class="etym-origin">Middle English bone fire</span><br>
+      <li id="bonfire"><span class="etym-word">bonfire</span><span class="etym-origin">Middle English bone fire</span><br>
         A fire made of bones. In medieval celebrations, particularly the midsummer fires connected to the feast of St. John, animal bones (and sometimes human bones, in the context of plague or war) were burned as part of the ritual. The boon in bonfire is sometimes claimed as an alternate etymology (boon = good), but the evidence for bone fire is stronger and more direct.
       </li>
-      <li><span class="etym-word">carnival</span><span class="etym-origin">Medieval Latin carnem levare (removal of meat)</span><br>
+      <li id="carnival"><span class="etym-word">carnival</span><span class="etym-origin">Medieval Latin carnem levare (removal of meat)</span><br>
         Lent required 40 days of fasting from meat. Carnival was the celebration immediately before — the last chance to eat well (and do everything else that Lent prohibited). Carnem (meat) + levare (to lift away, to remove). The spelling settled into carnivale in Italian and then carnival in English, losing the specific liturgical meaning but keeping the festive one.
       </li>
-      <li><span class="etym-word">sinister</span><span class="etym-origin">Latin sinister (left)</span><br>
+      <li id="sinister"><span class="etym-word">sinister</span><span class="etym-origin">Latin sinister (left)</span><br>
         In Roman augury, the left side was the inauspicious side — omens appearing on your left were bad ones. (The Greeks reversed this: for them, the left was favorable.) The Latin meaning of "left-handed" became "unfavorable" through the augural tradition, then "evil" through the general association of misfortune. Left-handedness carried this stigma in many cultures for a very long time. Dexterous comes from dexter — right.
       </li>
-      <li><span class="etym-word">jade</span><span class="etym-origin">Spanish piedra de ijada (stone of the flank)</span><br>
+      <li id="jade"><span class="etym-word">jade</span><span class="etym-origin">Spanish piedra de ijada (stone of the flank)</span><br>
         Spanish colonizers in the Americas observed that indigenous peoples held pieces of green stone against their sides to relieve kidney pain. They named it after the body part — ijada means flank or side (related to ilium, the hip bone). The French borrowed it as le jade and the name settled. The belief that jade cured kidney disease was widespread and is why it was so valued in pre-Columbian Mesoamerica.
       </li>
-      <li><span class="etym-word">treacle</span><span class="etym-origin">Greek thēriakē (antidote for wild beast bites)</span><br>
+      <li id="treacle"><span class="etym-word">treacle</span><span class="etym-origin">Greek thēriakē (antidote for wild beast bites)</span><br>
         Thēriakē was a compound antidote used against venomous animal bites — made from dozens of ingredients including viper flesh itself. It entered Latin as triaca, Medieval French as triacle, Middle English as triacle, and referred to any medicinal compound. The meaning narrowed to molasses — a sweet medicinal syrup — and stayed there. British English still uses treacle where American English uses molasses.
       </li>
     </ul>
   </div>
 
+  <!-- SECTION 8 -->
+  <div class="etym-section">
+    <h2>From farther than you'd think</h2>
+    <p class="etym-section-sub">Trade and contact brought English words for things Europe did not already have a name for. The English word is often a last stop, not the start.</p>
+    <ul class="etym-list">
+      <li id="ketchup"><span class="etym-word">ketchup</span><span class="etym-origin">Hokkien kê-tsiap / Malay kicap</span><br>
+        The ancestor was a fermented fish or soy sauce from southern China and Southeast Asia, not a tomato condiment. English sailors brought a version home in the 17th and 18th centuries; tomatoes went in much later, in the United States. The bottle on the table is a long way from the original sauce. The name traveled farther than the recipe.
+      </li>
+      <li id="shampoo"><span class="etym-word">shampoo</span><span class="etym-origin">Hindi cā̃po — from cāmpnā (to press, massage)</span><br>
+        In Hindi and related languages, the verb is about kneading and massage, not detergent. British colonial accounts in the 18th century described Indian head massage as "shampooing." English kept the word and moved it onto the product you put in hair. The original action was hands. The modern one is a bottle.
+      </li>
+      <li id="jungle"><span class="etym-word">jungle</span><span class="etym-origin">Hindi jaṅgal ← Sanskrit jaṅgala</span><br>
+        Jaṅgala meant dry, uncultivated, or desert-like land — rough country, not a dense rainforest. Hindi jaṅgal kept that sense of wasteland. English borrowed it in India and then, through adventure writing, turned it into thick tropical forest. The original word is closer to scrub than to canopy.
+      </li>
+      <li id="chocolate"><span class="etym-word">chocolate</span><span class="etym-origin">Nahuatl, via Spanish chocolate</span><br>
+        The drink and the word reached Spanish from Nahuatl in central Mexico. The exact Nahuatl form is debated — often given as chocolātl, sometimes linked to xocoātl (bitter water) — but the Mesoamerican origin is not. English chocolate is the Spanish transmission of a word for a cacao drink, later applied to the solid.
+      </li>
+      <li id="bungalow"><span class="etym-word">bungalow</span><span class="etym-origin">Hindi / Gujarati bangla (Bengali, a Bengali-style house)</span><br>
+        Bangla meant a house in the Bengali style — typically a low, single-story dwelling with a wide veranda, built for the climate. The British in India borrowed the building and the name. English then used bungalow for almost any detached one-story house, including ones with no veranda and no connection to Bengal.
+      </li>
+    </ul>
+  </div>
+
   <div class="etym-note">
-    <strong>Sources and methodology:</strong> These etymologies are drawn from standard reference sources including the Oxford English Dictionary, Douglas Harper's Online Etymology Dictionary (etymonline.com), and the American Heritage Dictionary's Indo-European roots appendix. Where there is genuine scholarly dispute about an etymology, I've noted it. A few — notably sycophant — remain authentically contested. If you find an error, email garrick@wordineer.com and I'll correct it.
+    <strong>Sources and methodology:</strong> These etymologies are drawn from standard reference sources including the Oxford English Dictionary, Douglas Harper's Online Etymology Dictionary (etymonline.com), and the American Heritage Dictionary's Indo-European roots appendix. Where there is genuine scholarly dispute about an etymology, I've noted it. A few — notably sycophant, the exact Nahuatl form behind chocolate, and the messenger story attached to marathon — remain authentically contested. If you find an error, email garrick@wordineer.com and I'll correct it.
   </div>
 
 </div>
@@ -645,7 +760,7 @@
         <span style="font-size:14px;font-weight:600;color:var(--text)">Wordineer</span>
       </div>
       <span class="footer-copy">© 2026 Wordineer · Free word tools for everyone</span>
-      <div class="footer-meta"><a href="/about/">About</a><a href="/press-kit/">Data &amp; Press</a><a href="/embed/">Embed our tools</a><a href="/affiliate-disclosure/">Affiliate disclosure</a><a href="/privacy/">Privacy</a></div>
+      <div class="footer-meta"><a href="/about">About</a><a href="/press-kit">Data &amp; Press</a><a href="/embed">Embed our tools</a><a href="/affiliate-disclosure">Affiliate disclosure</a><a href="/privacy">Privacy</a></div>
     </div>
   </div>
 </footer>

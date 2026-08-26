@@ -1,14 +1,14 @@
 <!-- CONFIG { "url": "/random-sentence-generator/", "output": "random-sentence-generator.html" } -->
 
 <!-- SLOT:meta -->
-<title>Random Sentence Generator — Free, Instant, No Sign-up | Wordineer</title>
-<meta name="description" content="Generate random English sentences instantly. Filter by category, tone, sentence type, and length. Perfect for writers, students, and ESL learners. Free, no sign-up.">
+<title>Random Sentence Generator — Free, No Sign-up | Wordineer</title>
+<meta name="description" content="Random English sentences filtered by category, tone, sentence type, and length. Good for writers, students, and ESL learners.">
 <link rel="canonical" href="https://wordineer.com/random-sentence-generator/">
 <meta property="og:type"        content="website">
 <meta property="og:site_name"   content="Wordineer">
 <meta property="og:title"       content="Random Sentence Generator | Wordineer">
 <meta property="og:description" content="Generate random English sentences by category, tone, type, and length. Free, instant, no sign-up.">
-<meta property="og:url"         content="https://wordineer.com/random-sentence-generator/">
+<meta property="og:url"         content="https://wordineer.com/random-sentence-generator">
 <meta property="og:image"       content="https://wordineer.com/og-image.png">
 <script type="application/ld+json">
 {
@@ -48,7 +48,7 @@
   "@context": "https://schema.org",
   "@type": "WebApplication",
   "name": "Random Sentence Generator",
-  "url": "https://wordineer.com/random-sentence-generator/",
+  "url": "https://wordineer.com/random-sentence-generator",
   "description": "Generate random English sentences instantly. Filter by category, tone, sentence type, and length. Perfect for writers, students, and ESL learners. Free, no sign-up.",
   "applicationCategory": "UtilityApplication",
   "operatingSystem": "Web",
@@ -271,13 +271,19 @@
       <!-- RIGHT: sentence list -->
       <div class="words-panel">
         <div class="words-top">
-          <span class="words-count" id="sg-count-display">Generating…</span>
+          <span class="words-count" id="sg-count-display">5 sentences</span>
           <div class="words-actions">
             <button class="act-btn" id="sg-copy-all-btn">Copy all</button>
             <button class="act-btn" id="sg-regen-btn">Regenerate</button>
           </div>
         </div>
-        <ul class="word-list" id="sg-list"></ul>
+        <ul class="word-list" id="sg-list">
+<li class="word-item"><div class="word-left"><div class="sg-sentence-text">The afternoon light filtered through the curtains, casting long shadows across the floor.</div></div></li>
+<li class="word-item"><div class="word-left"><div class="sg-sentence-text">She finished her coffee, closed her notebook, and stepped outside into the cool morning air.</div></div></li>
+<li class="word-item"><div class="word-left"><div class="sg-sentence-text">He had spent three years learning to play the piano, and it finally showed.</div></div></li>
+<li class="word-item"><div class="word-left"><div class="sg-sentence-text">The city looked different at night — quieter, somehow more honest.</div></div></li>
+<li class="word-item"><div class="word-left"><div class="sg-sentence-text">Every word she wrote felt wrong until the one that didn't.</div></div></li>
+</ul>
       </div>
 
     </div>
@@ -329,7 +335,7 @@
   <p>A random sentence generator creates complete, grammatically correct English sentences on demand — ready to use as writing prompts, story starters, grammar examples, or creative warm-ups. Instead of staring at a blank page, you get a full sentence the moment you click Generate. Every result is unique, original, and natural-sounding. No filler, no machine-translated noise.</p>
 
   <h2>For writers: break through the blank page</h2>
-  <p>Writer's block rarely disappears on its own. The fastest fix is a random prompt that nudges your brain in an unexpected direction. Generate five sentences in the category that matches your project — Adventure for action scenes, Mystery for suspense, Abstract for literary fiction — and pick the one that sparks an idea. Many writers use these as first lines, scene-starters, or mood-setters. Pair this tool with the <a href="/random-word-generator/">random word generator</a> to combine a sentence prompt with fresh vocabulary for an extra creative boost.</p>
+  <p>Writer's block rarely disappears on its own. The fastest fix is a random prompt that nudges your brain in an unexpected direction. Generate five sentences in the category that matches your project — Adventure for action scenes, Mystery for suspense, Abstract for literary fiction — and pick the one that sparks an idea. Many writers use these as first lines, scene-starters, or mood-setters. Pair this tool with the <a href="/">random word generator</a> to combine a sentence prompt with fresh vocabulary for an extra creative boost.</p>
 
   <h2>For students: study grammar through real examples</h2>
   <p>The sentence type filter is one of this tool's most useful features for grammar study. Use it to explore the four core sentence structures with real, readable examples rather than textbook abstractions.</p>
@@ -688,10 +694,6 @@ const WORDINEER_SENTENCES = (() => {
       if (e.code === 'Space' && !['INPUT','SELECT','TEXTAREA','BUTTON'].includes(e.target.tagName)) {
         e.preventDefault(); render();
       }
-    });
-
-    document.querySelectorAll('.faq-q').forEach(q => {
-      q.addEventListener('click', () => q.closest('.faq-item').classList.toggle('open'));
     });
 
     document.addEventListener('click', e => {

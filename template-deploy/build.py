@@ -12,6 +12,7 @@ import json
 import os
 import re
 import shutil
+import unicodedata
 from datetime import datetime, timezone
 
 ROOT      = os.path.dirname(os.path.abspath(__file__))
@@ -243,17 +244,41 @@ def _render_five_letter_rows(data):
     return ''.join(parts)
 
 
+_ETYM_ESSAY_OVERLAP = frozenset({
+    'admiral', 'alcohol', 'algebra', 'assassin', 'atlas', 'awful', 'bedlam',
+    'berserk', 'bonfire', 'boycott', 'bungalow', 'calculate', 'candidate',
+    'carnival', 'cereal', 'chaos', 'chocolate', 'clue', 'coffee', 'companion',
+    'cotton', 'curfew', 'disaster', 'dunce', 'glamour', 'gymnasium', 'hazard',
+    'jungle', 'ketchup', 'magazine', 'marathon', 'mattress', 'meander',
+    'mentor', 'money', 'mortgage', 'muscle', 'narcissism', 'nice', 'nightmare',
+    'panic', 'paradise', 'quarantine', 'rival', 'robot', 'salary', 'sandwich',
+    'school', 'shampoo', 'silhouette', 'silly', 'slogan', 'tantalize',
+    'tragedy', 'travel', 'treacle', 'tycoon', 'villain', 'window', 'zero',
+})
+
+
+def _etym_slug(word):
+    s = unicodedata.normalize('NFKD', word or '')
+    s = ''.join(c for c in s if not unicodedata.combining(c))
+    return re.sub(r'[^a-z0-9]+', '-', s.lower()).strip('-')
+
+
 def _render_etymology_cards(data):
     parts = []
     for r in data:
         w = r.get('w', '')
+        slug = _etym_slug(w)
         display_word = _esc(w[0].upper() + w[1:] if w else '')
         origin = _esc(r.get('origin') or r.get('category') or '')
-        category = (r.get('category') or 'Other').replace(' ', '-')
-        cat_cls = f'origin-{category}'
+        category = r.get('category') or 'Other'
+        cat_cls = 'origin-' + category.replace(' ', '-')
         first_use = _esc(r.get('first_use', ''))
         root = _esc(r.get('root', ''))
         history = _esc(r.get('history', ''))
+        search_blob = _esc(' '.join(filter(None, [
+            w, r.get('origin', ''), category, r.get('root', ''),
+            r.get('history', ''), ' '.join(r.get('modern_relatives') or []),
+        ])).lower())
         relatives = r.get('modern_relatives', [])
         relatives_html = ''
         if relatives:
@@ -262,8 +287,15 @@ def _render_etymology_cards(data):
                 f'<div class="etym-relatives-label">Modern relatives</div>'
                 f'<div class="etym-relatives">{chips}</div>'
             )
+        essay_html = ''
+        if (w or '').lower() in _ETYM_ESSAY_OVERLAP:
+            essay_html = (
+                f'<p class="etym-essay-link"><a href="/word-etymology/#{slug}">'
+                f'Longer story on the etymology essay</a></p>'
+            )
         parts.append(
-            f'<div class="etym-card">'
+            f'<div class="etym-card" id="{_esc(slug)}" data-word="{_esc(w)}" '
+            f'data-category="{_esc(category)}" data-search="{search_blob}">'
             f'<div class="etym-header">'
             f'<span class="etym-word">{display_word}</span>'
             f'<span class="etym-badge {cat_cls}">{origin}</span>'
@@ -272,6 +304,7 @@ def _render_etymology_cards(data):
             f'<div class="etym-root">Root: <strong>{root}</strong></div>'
             f'<div class="etym-history">{history}</div>'
             f'{relatives_html}'
+            f'{essay_html}'
             f'</div>'
         )
     return ''.join(parts)
@@ -357,11 +390,11 @@ def copy_data_assets():
     os.makedirs(out_data_dir, exist_ok=True)
     copied = 0
     for fname in sorted(os.listdir(DEPLOY_DATA_DIR)):
-        if not fname.endswith('.json'):
+        if not (fname.endswith('.json') or fname == 'etymology-100.csv'):
             continue
         shutil.copy2(os.path.join(DEPLOY_DATA_DIR, fname), os.path.join(out_data_dir, fname))
         copied += 1
-    print(f'  copied → {copied} JSON data file(s) into output/data/')
+    print(f'  copied → {copied} data file(s) into output/data/')
 
 def copy_script_assets():
     """Mirror page-local JS assets into output/scripts/ for preview builds."""

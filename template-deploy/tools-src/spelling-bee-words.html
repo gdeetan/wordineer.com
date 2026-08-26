@@ -1,10 +1,10 @@
 <!-- CONFIG
-{ "url": "/spelling-bee-words/", "output": "spelling-bee-words.html", "type": "tool", "more_tools_key": "spelling_bee_tools", "more_tools_title": "More spelling &amp; vocabulary tools", "more_tools_subtitle": "Free practice tools for every grade level and word type" }
+{ "url": "/spelling-bee-words/", "output": "spelling-bee-words.html", "type": "tool", "more_tools_key": "spelling_bee_tools", "more_tools_title": "More spelling &amp; vocabulary tools", "more_tools_subtitle": "Free practice tools for every grade level and word type", "embed": true, "embed_slug": "spelling-bee-word-list" }
 -->
 
 <!-- SLOT:meta -->
-<title>1,000+ Spelling Bee Words by Grade Level (Free & Printable) | Wordineer</title>
-<meta name="description" content="Generate spelling bee words filtered by grade level (K-12 & adult), difficulty, and word origin. Save words, print custom lists, and practice for any bee competition.">
+<title>Spelling Bee Words by Grade Level — Free &amp; Printable | Wordineer</title>
+<meta name="description" content="Spelling bee words for K-12 and adult levels. Filter by difficulty and word origin, save words, and print custom lists — ready for any competition.">
 <meta property="og:title" content="Spelling Bee Words Generator | Wordineer">
 <meta property="og:description" content="1,000+ spelling bee words filtered by grade, difficulty, and etymology. Free, instant, printable.">
 <meta property="og:url" content="https://wordineer.com/spelling-bee-words/">
@@ -33,6 +33,17 @@
     { "@type": "Question", "name": "How do I save spelling bee words for focused practice?", "acceptedAnswer": { "@type": "Answer", "text": "Click the heart icon on any word to save it. Saved words appear below the list and persist until you remove them." } },
     { "@type": "Question", "name": "What is the difference between Easy, Medium, Hard, and Expert difficulty?", "acceptedAnswer": { "@type": "Answer", "text": "Easy maps to school-level bees, Medium to district bees, Hard to regional bees, and Expert to state and national competition level." } },
     { "@type": "Question", "name": "How many spelling bee words are in the database?", "acceptedAnswer": { "@type": "Answer", "text": "The database contains over 1,000 spelling bee words spanning all grade levels and difficulty tiers." } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Teacher Tools", "item": "https://wordineer.com/teacher-tools/" },
+    { "@type": "ListItem", "position": 3, "name": "Spelling Bee Words", "item": "https://wordineer.com/spelling-bee-words/" }
   ]
 }
 </script>
@@ -123,7 +134,7 @@
   .tool-wrap { padding:14px 16px 0; }
   .tool-split { flex-direction:column; }
   .ctrl { width:100%; border-right:none; border-bottom:1px solid var(--border-2); }
-  .results-col { min-height:300px; }
+  .results-col { min-height:300px; max-height:420px; }
   .mobile-more-toggle { display:block; }
   .advanced-options { display:none; }
   .advanced-options.is-open { display:block; }
@@ -166,7 +177,7 @@ body.is-classroom .results-col { min-height: 100vh; }
   <div class="breadcrumb-inner">
     <a href="/">Wordineer</a>
     <span class="breadcrumb-sep">›</span>
-    <a href="/word-tools/">Word Tools</a>
+    <a href="/teacher-tools/">Teacher Tools</a>
     <span class="breadcrumb-sep">›</span>
     <span aria-current="page">Spelling Bee Words</span>
   </div>
@@ -286,7 +297,7 @@ body.is-classroom .results-col { min-height: 100vh; }
     <div class="ad-rect-content">
       <div class="ad-rect-title">Build vocabulary at home — kids' books for every grade level</div>
       <div class="ad-rect-body">Award-winning spelling and vocabulary workbooks for K–8 students. Matched to Common Core standards.</div>
-      <a href="#placeholder" target="_blank" rel="noopener sponsored" class="aff-cta-btn" style="background:#b45309">Browse books on Amazon <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
+      <a href="https://geni.us/yAOladQ" target="_blank" rel="noopener sponsored" class="aff-cta-btn" style="background:#b45309">Browse books on Amazon <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
     </div>
   </div>
 </div>
@@ -366,7 +377,7 @@ body.is-classroom .results-col { min-height: 100vh; }
 </ul>
 
 <h2>More Ways to Practice</h2>
-<p>Spelling bees aren't just about memorizing lists — they're about getting comfortable with words in general. Once you've drilled your word list here, a few other tools on Wordineer can help keep things interesting. <a href="/word-scramble/">Word Scramble</a> gives you a jumbled word to unscramble, which is great for training your eye to recognize letter patterns quickly. <a href="/word-unscramble/">Word Unscramble</a> is the same idea but lets you type in any scrambled word and find the answer — useful when you want to work backwards from a tricky spelling. And if you just want to see a wider range of vocabulary, the <a href="/random-word-generator/">Random Word Generator</a> pulls from a broad word set with definitions included, which is a low-pressure way to bump into new words without the pressure of a timed round.</p>
+<p>Spelling bees aren't just about memorizing lists — they're about getting comfortable with words in general. Once you've drilled your word list here, a few other tools on Wordineer can help keep things interesting. <a href="/word-scramble/">Word Scramble</a> gives you a jumbled word to unscramble, which is great for training your eye to recognize letter patterns quickly. <a href="/word-unscramble/">Word Unscramble</a> is the same idea but lets you type in any scrambled word and find the answer — useful when you want to work backwards from a tricky spelling. And if you just want to see a wider range of vocabulary, the <a href="/">Random Word Generator</a> pulls from a broad word set with definitions included, which is a low-pressure way to bump into new words without the pressure of a timed round.</p>
 
 </section>
 <!-- /SLOT:explainer -->
@@ -418,7 +429,7 @@ body.is-classroom .results-col { min-height: 100vh; }
   <div class="uc-grid">
     <div class="uc"><div class="uc-title">Students</div><div class="uc-body">Prepare for school, district, regional, and national competitions. Filter by grade and difficulty to match exactly where you are in the bracket.</div></div>
     <div class="uc"><div class="uc-title">Parents</div><div class="uc-body">Run practice rounds at home without hunting for a word list. Generate a fresh set every session so your child doesn't memorize the order instead of the words.</div></div>
-    <div class="uc"><div class="uc-title">Teachers</div><div class="uc-body">Build custom word lists and printable practice sheets for classroom bees in seconds. Print multiple difficulty tiers separately to run elimination rounds.</div></div>
+    <div class="uc"><div class="uc-title">Teachers</div><div class="uc-body">Build custom word lists and printable practice sheets for classroom bees in seconds. Print multiple difficulty tiers separately to run elimination rounds. See all <a href="/teacher-tools/">free teacher tools on Wordineer →</a></div></div>
     <div class="uc"><div class="uc-title">Spelling Bee Coaches</div><div class="uc-body">Get fresh, level-appropriate lists for every structured practice session. Use the origin filter to run themed etymology drills focused on Latin or Greek roots.</div></div>
     <div class="uc"><div class="uc-title">Homeschool Educators</div><div class="uc-body">Cover spelling bee preparation without a pre-built curriculum. Adjust grade level and count to fit your student's pace and available practice time.</div></div>
     <div class="uc"><div class="uc-title">Adults</div><div class="uc-body">Compete in adult spelling bee events or build vocabulary for personal enrichment. The Adult and Expert tiers cover rare, challenging words from specialized fields.</div></div>
@@ -597,13 +608,9 @@ body.is-classroom .results-col { min-height: 100vh; }
       document.getElementById('sb-gen-btn').addEventListener('click', function () { self.generate(); });
       document.getElementById('sb-reset-btn').addEventListener('click', function () { self.reset(); });
       document.getElementById('sb-copy-all').addEventListener('click', function () { self.copyAll(); });
-      document.getElementById('sb-print-btn').addEventListener('click', function () { window.print(); });
+      document.getElementById('sb-print-btn').addEventListener('click', function () { printWordList(false); });
       var worksheetBtn = document.getElementById('sb-worksheet-btn');
-      if (worksheetBtn) worksheetBtn.addEventListener('click', function () {
-        document.body.classList.add('is-worksheet');
-        window.print();
-        document.body.classList.remove('is-worksheet');
-      });
+      if (worksheetBtn) worksheetBtn.addEventListener('click', function () { printWordList(true); });
       var shareBtn = document.getElementById('sb-share-btn');
       if (shareBtn) shareBtn.addEventListener('click', function () { self.shareList(); });
       document.getElementById('sb-copy-saved').addEventListener('click', function () { self.copySaved(); });
@@ -693,6 +700,89 @@ body.is-classroom .results-col { min-height: 100vh; }
       setClassroom(true);
     }
   }());
+
+  function printWordList(worksheet) {
+    var items = document.querySelectorAll('#sb-list .word-item');
+    if (!items.length) { alert('Generate a word list first.'); return; }
+    var titleEl = document.querySelector('.print-header-title');
+    var listTitle = titleEl ? titleEl.textContent.trim() : 'Spelling Bee Word List';
+    var pageUrl = window.location.hostname + window.location.pathname;
+    var rows = [];
+    items.forEach(function(item) {
+      var wordEl  = item.querySelector('.word-text');
+      var defEl   = item.querySelector('.word-def');
+      var origEl  = item.querySelector('.sb-origin');
+      var metas   = item.querySelectorAll('.badge-meta');
+      rows.push({
+        word:   wordEl ? wordEl.textContent.trim()  : '',
+        def:    defEl  ? defEl.textContent.trim()   : '',
+        origin: origEl ? origEl.textContent.trim()  : '',
+        syl:    metas.length     ? metas[0].textContent.trim() : '',
+        pos:    metas.length > 1 ? metas[1].textContent.trim() : ''
+      });
+    });
+    var n = rows.length;
+    var css, body;
+    if (worksheet) {
+      css = 'body{font-family:Arial,sans-serif;margin:.75in;color:#111;font-size:11pt}' +
+            'h1{font-size:16pt;margin:0 0 3pt}' +
+            '.meta{font-size:9pt;color:#666;margin:0 0 4pt}' +
+            '.name-row{display:flex;gap:20pt;margin:14pt 0 22pt;font-size:10pt;align-items:flex-end}' +
+            '.name-row label{font-size:9pt;color:#555;margin-right:4pt}' +
+            '.name-row span{flex:1;border-bottom:1pt solid #aaa;min-width:80pt}' +
+            'ol{padding:0;margin:0;list-style:none;counter-reset:w;display:grid;grid-template-columns:1fr 1fr;gap:0}' +
+            'li{counter-increment:w;padding:10pt 8pt 6pt;border-bottom:.5pt solid #e5e7eb;page-break-inside:avoid}' +
+            '.n{font-size:8pt;color:#9ca3af;font-weight:700}' +
+            '.n::before{content:counter(w)". "}' +
+            '.word{display:block;font-size:15pt;font-weight:700;margin:2pt 0 12pt}' +
+            '.line{border-bottom:1pt solid #9ca3af;width:85%;display:block}' +
+            '.foot{font-size:7.5pt;color:#aaa;margin-top:18pt;border-top:.5pt solid #e5e7eb;padding-top:8pt}' +
+            '@media print{body{margin:.5in}}';
+      body = '<h1>' + he(listTitle) + ' — Practice Worksheet</h1>' +
+             '<p class="meta">' + n + ' word' + (n !== 1 ? 's' : '') + ' &nbsp;·&nbsp; wordineer.com</p>' +
+             '<div class="name-row"><label>Name:</label><span>&nbsp;</span><label>Date:</label><span style="min-width:60pt">&nbsp;</span></div>' +
+             '<ol>' + rows.map(function(r) {
+               return '<li><span class="n"></span><span class="word">' + he(r.word) + '</span><span class="line"></span></li>';
+             }).join('') + '</ol>' +
+             '<p class="foot">Free spelling bee practice · ' + he(pageUrl) + '</p>';
+    } else {
+      css = 'body{font-family:Georgia,serif;margin:.75in;color:#111;font-size:11pt}' +
+            'h1{font-size:18pt;margin:0 0 3pt}' +
+            '.meta{font-size:9pt;color:#666;margin:0 0 0;padding-bottom:10pt;border-bottom:1pt solid #ddd}' +
+            'ol{padding:0;margin:14pt 0 0;list-style:none;counter-reset:w}' +
+            'li{counter-increment:w;padding:9pt 0;border-bottom:.5pt solid #e5e7eb;page-break-inside:avoid;display:flex;gap:10pt;align-items:baseline}' +
+            'li:last-child{border-bottom:none}' +
+            '.n{font-size:9pt;color:#9ca3af;font-weight:700;min-width:18pt;flex-shrink:0}' +
+            '.n::before{content:counter(w)"."}' +
+            '.body{flex:1}' +
+            '.word{font-size:15pt;font-weight:700;letter-spacing:-.01em;display:block;margin-bottom:2pt}' +
+            '.badges{display:flex;gap:5pt;margin-bottom:3pt;flex-wrap:wrap}' +
+            '.badge{font-size:7pt;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#6b7280;background:#f3f4f6;padding:1pt 5pt;border-radius:3pt}' +
+            '.def{font-size:9.5pt;color:#374151;line-height:1.5}' +
+            '.foot{font-size:7.5pt;color:#aaa;margin-top:18pt;border-top:.5pt solid #e5e7eb;padding-top:8pt}' +
+            '@media print{body{margin:.5in}}';
+      body = '<h1>' + he(listTitle) + '</h1>' +
+             '<p class="meta">' + n + ' word' + (n !== 1 ? 's' : '') + ' &nbsp;·&nbsp; ' + he(pageUrl) + '</p>' +
+             '<ol>' + rows.map(function(r) {
+               var badges = '';
+               if (r.origin) badges += '<span class="badge">' + he(r.origin) + '</span>';
+               if (r.syl)    badges += '<span class="badge">' + he(r.syl)    + '</span>';
+               if (r.pos)    badges += '<span class="badge">' + he(r.pos)    + '</span>';
+               return '<li><span class="n"></span><div class="body">' +
+                 '<span class="word">' + he(r.word) + '</span>' +
+                 (badges ? '<div class="badges">' + badges + '</div>' : '') +
+                 (r.def  ? '<div class="def">'    + he(r.def)  + '</div>' : '') +
+                 '</div></li>';
+             }).join('') + '</ol>' +
+             '<p class="foot">Free spelling bee practice at wordineer.com</p>';
+    }
+    var html = '<!DOCTYPE html><html><head><meta charset="utf-8"><title>' + he(listTitle) + (worksheet ? ' — Worksheet' : '') + '</title><style>' + css + '</style></head><body>' + body + '</body></html>';
+    var w = window.open('', '_blank', 'width=820,height=700');
+    w.document.write(html);
+    w.document.close();
+    w.focus();
+    w.print();
+  }
 }());
 </script>
 <!-- /SLOT:init -->

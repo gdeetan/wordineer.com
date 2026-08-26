@@ -622,10 +622,6 @@ const WORD_UNSCRAMBLER = (() => {
     });
 
     /* FAQ accordion */
-    document.querySelectorAll('.faq-q').forEach(q => {
-      q.addEventListener('click', () => q.closest('.faq-item').classList.toggle('open'));
-    });
-
     /* Mega menu close on outside click */
     document.addEventListener('click', e => {
       const mega = document.getElementById('mega');

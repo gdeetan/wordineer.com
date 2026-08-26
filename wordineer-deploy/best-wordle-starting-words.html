@@ -1,4 +1,4 @@
-<!-- build: 2026-08-13T12:17:39Z -->
+<!-- build: 2026-08-25T01:45:01Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -158,18 +158,20 @@
   "@type": "BreadcrumbList",
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
-    { "@type": "ListItem", "position": 2, "name": "Word Tools", "item": "https://wordineer.com/word-tools/" },
-    { "@type": "ListItem", "position": 3, "name": "Best Wordle Starting Words", "item": "https://wordineer.com/best-wordle-starting-words/" }
+    { "@type": "ListItem", "position": 2, "name": "Word Tools", "item": "https://wordineer.com/word-tools" },
+    { "@type": "ListItem", "position": 3, "name": "Best Wordle Starting Words", "item": "https://wordineer.com/best-wordle-starting-words" }
   ]
 }
 </script>
-
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Best Wordle Starting Words — Ranked by Information Theory (2026)">
+<meta name="twitter:description" content="TRACE, SLATE, and SNARE top our entropy-ranked list. Original analysis: 715 words scored by Shannon entropy, 10,000-game benchmark, reproducible methodology.">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "Best Wordle Starting Words — Entropy-Ranked List",
-  "url": "https://wordineer.com/best-wordle-starting-words/",
+  "url": "https://wordineer.com/best-wordle-starting-words",
   "applicationCategory": "GameApplication",
   "operatingSystem": "Web",
   "offers": {
@@ -287,7 +289,7 @@ div.bw-top3 { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
     Wordineer
   </a>
   <div class="nav-links">
-    <a href="/word-tools/">Tools</a>
+    <a href="/word-tools">Tools</a>
   </div>
   <div>
     <button class="hamburger" type="button" aria-label="All tools" aria-controls="mega" aria-expanded="false">
@@ -376,7 +378,7 @@ div.bw-top3 { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
   <div class="breadcrumb-inner">
     <a href="/">Wordineer</a>
     <span class="breadcrumb-sep">›</span>
-    <a href="/word-tools/">Word Tools</a>
+    <a href="/word-tools">Word Tools</a>
     <span class="breadcrumb-sep">›</span>
     <span aria-current="page">Best Wordle Starting Words</span>
   </div>
@@ -387,7 +389,7 @@ div.bw-top3 { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
     Original analysis · Reproducible · Updated July 2026
   </div>
   <h1>The Best Wordle Starting Words, Ranked</h1>
-  <p>We scored every valid starting word by Shannon entropy — the same information-theory measure that powers our <a href="/wordle-helper/">Wordle Helper</a>. Our top-ranked opener solved 100% of 10,000 simulated games in an average of 3.02 guesses.</p>
+  <p>We scored every valid starting word by Shannon entropy — the same information-theory measure that powers our <a href="/wordle-helper">Wordle Helper</a>. Our top-ranked opener solved 100% of 10,000 simulated games in an average of 3.02 guesses.</p>
 </div>
 <div style="max-width:800px;margin:0 auto;padding:28px 20px 0">
 
@@ -591,7 +593,7 @@ div.bw-top3 { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
   <h2>How we tested</h2>
   <p>We scored every word in the Wordineer guess dictionary (715 five-letter words) against our 642-word answer pool using <strong>Shannon entropy</strong>: for each candidate guess, we computed what color pattern it would produce against every possible answer, grouped answers by pattern, and scored the guess by how evenly it split the pool. Higher entropy = better guess.</p>
   <p>We then simulated 10,000 games: a random opener (Python's <code>random.Random(42)</code>, seed 42), followed by always playing the highest-entropy suggestion, until solved or 6 guesses exceeded. Secrets were drawn uniformly from the 642-word answer pool — not the actual NYT sequence, which isn't public.</p>
-  <p><strong>Important limitation:</strong> Our word lists are Wordineer's curated sets, not the exact NYT lists. The NYT Wordle answer pool is not public and changes over time. Our rankings reflect our own data and will differ from analyzes that use other word lists. Full methodology and Python source code: <a href="https://wordineer.com/best-wordle-starting-words/">see cite box below</a>.</p>
+  <p><strong>Important limitation:</strong> Our word lists are Wordineer's curated sets, not the exact NYT lists. The NYT Wordle answer pool is not public and changes over time. Our rankings reflect our own data and will differ from analyzes that use other word lists. Full methodology and Python source code: <a href="https://wordineer.com/best-wordle-starting-words">see cite box below</a>.</p>
 
   <div class="bw-cite-box">
     <h3>Cite or link this analysis</h3>
@@ -607,11 +609,11 @@ div.bw-top3 { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
 
   <div class="bw-cta">
     <p>Want to use these rankings in a real game? The Wordle Helper applies the same entropy algorithm live — enter your guesses and get the optimal next word instantly.</p>
-    <a href="/wordle-helper/" class="gen-btn">Use the Wordle Helper →</a>
+    <a href="/wordle-helper" class="gen-btn">Use the Wordle Helper →</a>
   </div>
 
   <h2>Related tools</h2>
-  <p>Play a full self-contained Wordle game at the <a href="/wordle-game/">Wordle game</a>. Browse past answers at <a href="/wordle-answers/">Wordle answers</a>. For a random 5-letter word, try the <a href="/random-wordle-generator/">random Wordle word generator</a>.</p>
+  <p>Play a full self-contained Wordle game at the <a href="/wordle-game">Wordle game</a>. Browse past answers at <a href="/wordle-answers">Wordle answers</a>. For a random 5-letter word, try the <a href="/random-wordle-generator">random Wordle word generator</a>.</p>
 
 </div>
 
@@ -684,7 +686,7 @@ div.bw-top3 { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
         <span style="font-size:14px;font-weight:600;color:var(--text)">Wordineer</span>
       </div>
       <span class="footer-copy">© 2026 Wordineer · Free word tools for everyone</span>
-      <div class="footer-meta"><a href="/about/">About</a><a href="/press-kit/">Data &amp; Press</a><a href="/embed/">Embed our tools</a><a href="/affiliate-disclosure/">Affiliate disclosure</a><a href="/privacy/">Privacy</a></div>
+      <div class="footer-meta"><a href="/about">About</a><a href="/press-kit">Data &amp; Press</a><a href="/embed">Embed our tools</a><a href="/affiliate-disclosure">Affiliate disclosure</a><a href="/privacy">Privacy</a></div>
     </div>
   </div>
 </footer>
@@ -738,9 +740,6 @@ div.bw-top3 { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
 <script src="/scripts/bw-table.js?v=3"></script>
 <script>
 BW.init();
-document.querySelectorAll('.faq-q').forEach(q => {
-  q.addEventListener('click', () => q.closest('.faq-item').classList.toggle('open'));
-});
 </script>
 </body>
 </html>

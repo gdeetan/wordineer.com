@@ -7,14 +7,14 @@
 <!-- Wordineer · random-letter-generator · Planning locked April 2026 -->
 
 <!-- SLOT:meta -->
-<title>Random Letter Generator — Free, Instant, No Sign-up | Wordineer</title>
+<title>Random Letter Generator — Free, No Sign-up | Wordineer</title>
 <meta name="description" content="Generate random letters instantly. Filter by case, vowels or consonants, see NATO phonetic codes, and explore English letter frequency. Free, no sign-up.">
 <link rel="canonical" href="https://wordineer.com/random-letter-generator/">
 <meta property="og:type"        content="website">
 <meta property="og:site_name"   content="Wordineer">
 <meta property="og:title"       content="Random Letter Generator | Wordineer">
 <meta property="og:description" content="Pick random letters instantly — filter by case, vowels or consonants, and see the NATO phonetic alphabet. Free, no sign-up.">
-<meta property="og:url"         content="https://wordineer.com/random-letter-generator/">
+<meta property="og:url"         content="https://wordineer.com/random-letter-generator">
 <meta property="og:image"       content="https://wordineer.com/og-image.png">
 <script type="application/ld+json">
 {
@@ -54,7 +54,7 @@
   "@context": "https://schema.org",
   "@type": "WebApplication",
   "name": "Random Letter Generator",
-  "url": "https://wordineer.com/random-letter-generator/",
+  "url": "https://wordineer.com/random-letter-generator",
   "description": "Generate random letters instantly. Filter by case, vowels or consonants, see NATO phonetic codes, and explore English letter frequency. Free, no sign-up.",
   "applicationCategory": "UtilityApplication",
   "operatingSystem": "Web",
@@ -257,13 +257,24 @@
       <!-- RIGHT: letter results -->
       <div class="words-panel">
         <div class="words-top">
-          <span class="words-count" id="lg-count-display">Generating…</span>
+          <span class="words-count" id="lg-count-display">10 letters</span>
           <div class="words-actions">
             <button class="act-btn" id="lg-copy-all-btn">Copy all</button>
             <button class="act-btn" id="lg-regen-btn">Regenerate</button>
           </div>
         </div>
-        <ul id="lg-list"></ul>
+        <ul id="lg-list">
+<li class="lg-letter-item"><div class="lg-letter-main">R</div><div class="lg-letter-anno"></div></li>
+<li class="lg-letter-item"><div class="lg-letter-main">A</div><div class="lg-letter-anno"></div></li>
+<li class="lg-letter-item"><div class="lg-letter-main">N</div><div class="lg-letter-anno"></div></li>
+<li class="lg-letter-item"><div class="lg-letter-main">D</div><div class="lg-letter-anno"></div></li>
+<li class="lg-letter-item"><div class="lg-letter-main">O</div><div class="lg-letter-anno"></div></li>
+<li class="lg-letter-item"><div class="lg-letter-main">M</div><div class="lg-letter-anno"></div></li>
+<li class="lg-letter-item"><div class="lg-letter-main">W</div><div class="lg-letter-anno"></div></li>
+<li class="lg-letter-item"><div class="lg-letter-main">O</div><div class="lg-letter-anno"></div></li>
+<li class="lg-letter-item"><div class="lg-letter-main">R</div><div class="lg-letter-anno"></div></li>
+<li class="lg-letter-item"><div class="lg-letter-main">D</div><div class="lg-letter-anno"></div></li>
+</ul>
       </div>
 
     </div>
@@ -320,7 +331,7 @@
   <p>Turn on the "Weight by English frequency" toggle to see this in action. Instead of every letter having an equal chance, the generator weights picks by these real-world frequencies. Writers use it to generate letter constraints that feel natural rather than artificially exotic. Wordle players use it to practice guessing high-frequency letters first.</p>
 
   <h2>Creative writing prompts</h2>
-  <p>Generate three random letters and write a sentence where each word starts with one of them — in order. It sounds like a simple constraint, but the limitation forces unexpected word choices and lateral thinking. Try it: if your three letters are R, T, and W, you might write "Rabbits travel well." or "Rain transforms winters." The randomness prevents you from defaulting to your usual vocabulary. For more developed prompts — full words to build sentences around — the <a href="/random-word-generator/">random word generator</a> pairs naturally with this tool.</p>
+  <p>Generate three random letters and write a sentence where each word starts with one of them — in order. It sounds like a simple constraint, but the limitation forces unexpected word choices and lateral thinking. Try it: if your three letters are R, T, and W, you might write "Rabbits travel well." or "Rain transforms winters." The randomness prevents you from defaulting to your usual vocabulary. For more developed prompts — full words to build sentences around — the <a href="/">random word generator</a> pairs naturally with this tool.</p>
 </div>
 <!-- /SLOT:explainer -->
 
@@ -618,10 +629,6 @@ const WORDINEER_LETTERS = (() => {
       if (e.code === 'Space' && !['INPUT','SELECT','TEXTAREA','BUTTON'].includes(e.target.tagName)) {
         e.preventDefault(); generate();
       }
-    });
-
-    document.querySelectorAll('.faq-q').forEach(q => {
-      q.addEventListener('click', () => q.closest('.faq-item').classList.toggle('open'));
     });
 
     document.addEventListener('click', e => {

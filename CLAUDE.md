@@ -8,6 +8,8 @@ Wordineer is a static HTML/CSS/JS site (no framework) hosted on Cloudflare Pages
 
 **Before every change:** state how you will verify it works, then verify before calling it done.
 
+**Do not touch working features when creating or updating pages.** When adding a new page or modifying an existing one, only add/change what the task requires. Do not "improve," refactor, or rewrite functionality that already works — especially interactive components like the FAQ accordion, mobile menu, saved-items panel, copy-all button, keyboard shortcuts, or the tool-engine init flow. If a working feature is accidentally broken (e.g., the FAQ toggle JS is removed from the `init` slot, or the required HTML structure is changed), it wastes a full debug + fix + rebuild + redeploy cycle. When in doubt, copy the exact pattern from an existing working page (see the FAQ pattern below for one example) and leave the rest alone.
+
 ---
 
 # Architecture
@@ -116,11 +118,7 @@ Every tool page must use the **JS-driven div pattern** for the `faq` slot. **Nev
 <!-- /SLOT:faq -->
 ```
 
-And the `init` slot must include the toggle JS (append before the closing `</script>`):
-
-```js
-document.querySelectorAll('.faq-q').forEach(function(q){q.addEventListener('click',function(){q.closest('.faq-item').classList.toggle('open');});});
-```
+**Do NOT add local FAQ toggle JS to the `init` slot.** `tool-engine.js` already binds `.faq-q` clicks via `initFaq()` (auto-runs on DOMContentLoaded and inside `WORDINEER.init`). Adding a second binder in the page causes double-binding — the click toggles `.open` twice per click, net-zero change, and the accordion silently stops working. If you copy from an old file that has this line, delete it.
 
 Rules: first item gets class `open`; every `.faq-q` needs the chevron SVG; answers wrap in `<p>` inside `.faq-a`.
 
@@ -165,3 +163,24 @@ Each category column in the hamburger mega-menu (`mega`), the footer (`footer_co
 - No load-time autofocus/select — causes forced reflow in Lighthouse.
 - Ads, analytics, and consent scripts must be deferred.
 - **Bump `?v=N` query string** whenever changing `tool-engine.js` or `global.css` (scripts/styles are cached for 1 year immutable via `_headers`).
+
+---
+
+## Writing style — avoid AI slop
+
+Based on Pew Research (Aug 2026) on how AI detectors and readers spot AI-written text. Apply to page copy, FAQs, explainers, meta descriptions, and anchor text.
+
+Source: [Pew Research — How Much of the Internet Is Written With AI?](https://www.pewresearch.org/data-labs/2026/08/20/how-much-of-the-internet-is-written-with-ai/)
+
+**Cut these 4 tells:**
+1. **Em dashes (—)** — use commas, periods, or parentheses instead.
+2. **Oxford commas** — vary list punctuation; don't default to them.
+3. **AI vocabulary** — do not use: *additionally, align with, boasts, bolstered, crucial, delve, emphasizing, enduring, enhance, essential, fostering, garner, highlight, interplay, intricate, key, landscape, meticulous, perfectly, pivotal, showcase, significant, tapestry, testament, underscore, valuable, vibrant.*
+4. **Negative parallelism** — kill "not just X, it's Y" and "not merely A but B" constructions.
+
+**Write human:**
+- Concrete over abstract (name the thing, number, or person — no "landscapes" or "tapestries").
+- Uneven rhythm. Short sentences. Then longer, messier ones. Break parallelism on purpose.
+- Plain verbs: *use* not *utilize*, *help* not *enhance*, *show* not *showcase*.
+- No throat-clearing intros ("In today's fast-paced world…"). No restated summary conclusions.
+- Anchor text: name the concrete destination in plain, specific words — the exact tool or page — not generic "learn more" phrasing.

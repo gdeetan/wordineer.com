@@ -504,6 +504,8 @@ render();
 }
 function initFaq() {
 document.querySelectorAll('.faq-q').forEach(q => {
+if (q.dataset.faqBound === '1') return;
+q.dataset.faqBound = '1';
 q.addEventListener('click', () => q.closest('.faq-item').classList.toggle('open'));
 });
 }

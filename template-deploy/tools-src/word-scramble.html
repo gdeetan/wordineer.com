@@ -1,14 +1,14 @@
 <!-- CONFIG { "url": "/word-scramble/", "output": "word-scramble.html" } -->
 
 <!-- SLOT:meta -->
-<title>Word Scramble Generator — Create Word Scrambles Free | Wordineer</title>
-<meta name="description" content="Free word scramble generator — create word scrambles and printable worksheets instantly. Generate word scrambles for any subject or grade. No sign-up, no watermarks.">
+<title>Word Scramble Generator — Free, Printable | Wordineer</title>
+<meta name="description" content="Word scramble generator — build word scrambles and printable worksheets for any subject or grade. No watermarks, no sign-up.">
 <link rel="canonical" href="https://wordineer.com/word-scramble/">
 <meta property="og:type"        content="website">
 <meta property="og:site_name"   content="Wordineer">
 <meta property="og:title"       content="Word Scramble Generator — Create Word Scrambles Free | Wordineer">
 <meta property="og:description" content="Free word scramble generator — create word scrambles and printable worksheets instantly. No sign-up, no watermarks.">
-<meta property="og:url"         content="https://wordineer.com/word-scramble/">
+<meta property="og:url"         content="https://wordineer.com/word-scramble">
 <meta property="og:image"       content="https://wordineer.com/og-image.png">
 <script type="application/ld+json">
 {
@@ -38,7 +38,7 @@
   "@context": "https://schema.org",
   "@type": "WebApplication",
   "name": "Word Scramble Generator",
-  "url": "https://wordineer.com/word-scramble/",
+  "url": "https://wordineer.com/word-scramble",
   "description": "Free word scramble generator — create word scrambles and printable worksheets instantly. Generate word scrambles for any subject or grade. No sign-up, no watermarks.",
   "applicationCategory": "UtilityApplication",
   "operatingSystem": "Web",
@@ -225,7 +225,7 @@
   <div class="breadcrumb-inner">
     <a href="/">Wordineer</a>
     <span class="breadcrumb-sep">›</span>
-    <a href="/word-tools/">Word Tools</a>
+    <a href="/word-games/">Word Games</a>
     <span class="breadcrumb-sep">›</span>
     <span aria-current="page">Word Scramble Generator</span>
   </div>
@@ -283,7 +283,7 @@
         <!-- Right: scramble output -->
         <div class="words-panel">
           <div class="ws-scramble-output">
-            <div class="ws-output-inner" id="sc-output">
+            <div class="ws-output-inner" id="sc-output"><div class="ws-output-placeholder">Enter a word above and press Enter to scramble it</div>
               <div class="ws-output-placeholder">Enter a word and press Enter to scramble</div>
             </div>
           </div>
@@ -712,10 +712,6 @@ const WORD_SCRAMBLER = (() => {
     document.getElementById('ws-print-btn')?.addEventListener('click', () => window.print());
 
     /* FAQ accordion */
-    document.querySelectorAll('.faq-q').forEach(q => {
-      q.addEventListener('click', () => q.closest('.faq-item').classList.toggle('open'));
-    });
-
     /* Mega menu close on outside click */
     document.addEventListener('click', e => {
       const mega = document.getElementById('mega');

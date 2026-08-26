@@ -8,6 +8,12 @@ https://www.wordineer.com/*    https://wordineer.com/:splat         301
 # Retired pages
 /api.html    /    301
 
+# Alias URLs — descriptive slugs that resolve to canonical pages
+/random-word-generator      /    301
+/random-word-generator/     /    301
+/8-letter-word-generator    /random-8-letter-word-generator    301
+/8-letter-word-generator/   /random-8-letter-word-generator    301
+
 # Clean URLs — .html to trailing-slash canonical
 /word-scramble.html    /word-scramble/    301
 /charades-generator.html    /charades-generator/    301
@@ -15,7 +21,7 @@ https://www.wordineer.com/*    https://wordineer.com/:splat         301
 /scattergories-generator.html    /scattergories-generator/    301
 /catchphrase-generator.html      /catchphrase-generator/      301
 /couples-truth-or-dare-generator.html    /couples-truth-or-dare-generator/    301
-/pictionary-word-generator.html    /pictionary-word-generator/    301
+/pictionary-word-generator.html    /pictionary-word-generator    301
 /random-american-name-generator.html    /random-american-name-generator/    301
 /random-filipino-name-generator.html    /random-filipino-name-generator/    301
 /random-japanese-name-generator.html    /random-japanese-name-generator/    301
@@ -139,7 +145,7 @@ https://www.wordineer.com/*    https://wordineer.com/:splat         301
 /random-6-letter-word-generator/    /random-6-letter-word-generator.html    200
 /random-7-letter-word-generator   /random-7-letter-word-generator/   301
 /random-7-letter-word-generator/    /random-7-letter-word-generator.html    200
-/random-8-letter-word-generator   /random-8-letter-word-generator/   301
+/random-8-letter-word-generator   /random-8-letter-word-generator.html   200
 /random-8-letter-word-generator/    /random-8-letter-word-generator.html    200
 /random-adverb-generator   /random-adverb-generator/   301
 /random-adverb-generator/    /random-adverb-generator.html    200
@@ -297,7 +303,7 @@ https://www.wordineer.com/*    https://wordineer.com/:splat         301
 /privacy/    /privacy.html    200
 /random-6-letter-word-generator.html    /random-6-letter-word-generator/    301
 /random-7-letter-word-generator.html    /random-7-letter-word-generator/    301
-/random-8-letter-word-generator.html    /random-8-letter-word-generator/    301
+/random-8-letter-word-generator.html    /random-8-letter-word-generator    301
 /random-adjective-generator.html    /random-adjective-generator/    301
 /random-adverb-generator.html    /random-adverb-generator/    301
 /random-noun-generator.html    /random-noun-generator/    301
@@ -732,3 +738,25 @@ https://www.wordineer.com/*    https://wordineer.com/:splat         301
 /weighted-random-number-generator.html    /weighted-random-number-generator    301
 /wheel-of-names.html    /wheel-of-names    301
 /would-you-rather-generator.html    /would-you-rather-generator    301
+/five-letter-words.html    /five-letter-words/    301
+/spelling-bee-word-list-pdf.html    /spelling-bee-word-list-pdf/    301
+/cefr-vocabulary.html    /cefr-vocabulary/    301
+/word-etymology.html    /word-etymology/    301
+/teacher-tools.html                     /teacher-tools/                     301
+/teacher-tools/                         /teacher-tools.html                 200
+/hangman.html                           /hangman/                           301
+/hangman/                               /hangman.html                       200
+/3-letter-words-starting-with-h.html    /3-letter-words-starting-with-h/    301
+/3-letter-words-starting-with-h/        /3-letter-words-starting-with-h.html    200
+/3-letter-words-starting-with-x.html    /3-letter-words-starting-with-x/    301
+/3-letter-words-starting-with-x/        /3-letter-words-starting-with-x.html    200
+/3-letter-words-starting-with-y.html    /3-letter-words-starting-with-y/    301
+/3-letter-words-starting-with-y/        /3-letter-words-starting-with-y.html    200
+/3-letter-words-starting-with-z.html    /3-letter-words-starting-with-z/    301
+/3-letter-words-starting-with-z/        /3-letter-words-starting-with-z.html    200
+/wordle-answer-today.html               /wordle-answer-today/               301
+/wordle-answer-today/                   /wordle-answer-today.html           200
+/word-search-maker.html                 /word-search-maker/                 301
+/word-search-maker/                     /word-search-maker.html             200
+/rhyming-dictionary.html                /rhyming-dictionary/                301
+/rhyming-dictionary/                    /rhyming-dictionary.html            200

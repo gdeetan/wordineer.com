@@ -1,4 +1,4 @@
-<!-- build: 2026-08-13T12:17:39Z -->
+<!-- build: 2026-08-26T07:48:25Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -156,18 +156,20 @@
   "@type": "BreadcrumbList",
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
-    { "@type": "ListItem", "position": 2, "name": "Number &amp; Chance Tools", "item": "https://wordineer.com/number-chance/" },
-    { "@type": "ListItem", "position": 3, "name": "Random Letter Generator", "item": "https://wordineer.com/random-letter-generator/" }
+    { "@type": "ListItem", "position": 2, "name": "Number &amp; Chance Tools", "item": "https://wordineer.com/number-chance" },
+    { "@type": "ListItem", "position": 3, "name": "Random Letter Generator", "item": "https://wordineer.com/random-letter-generator" }
   ]
 }
 </script>
-
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Random Letter Generator">
+<meta name="twitter:description" content="Pick random letters instantly — filter by case, vowels or consonants, and see the NATO phonetic alphabet. Free, no sign-up.">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "Random Letter Generator — Free, No Sign-up",
-  "url": "https://wordineer.com/random-letter-generator/",
+  "url": "https://wordineer.com/random-letter-generator",
   "applicationCategory": "UtilityApplication",
   "operatingSystem": "Web",
   "offers": {
@@ -282,7 +284,7 @@
     Wordineer
   </a>
   <div class="nav-links">
-    <a href="/word-tools/">Tools</a>
+    <a href="/word-tools">Tools</a>
   </div>
   <div>
     <button class="hamburger" type="button" aria-label="All tools" aria-controls="mega" aria-expanded="false">
@@ -371,7 +373,7 @@
   <div class="breadcrumb-inner">
     <a href="/">Wordineer</a>
     <span class="breadcrumb-sep">›</span>
-    <a href="/number-chance/">Number &amp; Chance Tools</a>
+    <a href="/number-chance">Number &amp; Chance Tools</a>
     <span class="breadcrumb-sep">›</span>
     <span aria-current="page">Random Letter Generator</span>
   </div>
@@ -607,7 +609,7 @@
         <span style="font-size:14px;font-weight:600;color:var(--text)">Wordineer</span>
       </div>
       <span class="footer-copy">© 2026 Wordineer · Free word tools for everyone</span>
-      <div class="footer-meta"><a href="/about/">About</a><a href="/press-kit/">Data &amp; Press</a><a href="/embed/">Embed our tools</a><a href="/affiliate-disclosure/">Affiliate disclosure</a><a href="/privacy/">Privacy</a></div>
+      <div class="footer-meta"><a href="/about">About</a><a href="/press-kit">Data &amp; Press</a><a href="/embed">Embed our tools</a><a href="/affiliate-disclosure">Affiliate disclosure</a><a href="/privacy">Privacy</a></div>
     </div>
   </div>
 </footer>
@@ -912,10 +914,6 @@ const WORDINEER_LETTERS = (() => {
       if (e.code === 'Space' && !['INPUT','SELECT','TEXTAREA','BUTTON'].includes(e.target.tagName)) {
         e.preventDefault(); generate();
       }
-    });
-
-    document.querySelectorAll('.faq-q').forEach(q => {
-      q.addEventListener('click', () => q.closest('.faq-item').classList.toggle('open'));
     });
 
     document.addEventListener('click', e => {

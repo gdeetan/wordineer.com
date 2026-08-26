@@ -1,4 +1,4 @@
-<!-- build: 2026-08-13T12:17:39Z -->
+<!-- build: 2026-08-25T01:45:01Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -105,11 +105,11 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {"@type":"Question","name":"What is lorem ipsum?","acceptedAnswer":{"@type":"Answer","text":"Lorem ipsum is placeholder text used in design and publishing to fill space before real content is available. It comes from a passage in Cicero's 'de Finibus Bonorum et Malorum' written around 45 BC, scrambled so it reads as nonsense Latin."}},
-    {"@type":"Question","name":"How do I get 3 paragraphs of lorem ipsum?","acceptedAnswer":{"@type":"Answer","text":"Set the unit to Paragraphs, enter 3 in the count field, and click Generate. You can copy the result as plain text, HTML p-tags, or Markdown."}},
-    {"@type":"Question","name":"What is the difference between Classic Latin, Readable English, and Word Soup?","acceptedAnswer":{"@type":"Answer","text":"Classic Latin uses the traditional lorem ipsum word bank. Readable English assembles real English sentences for contexts where pseudo-Latin would confuse stakeholders. Word Soup pulls random words of varied lengths — useful for testing typography and line breaks."}},
-    {"@type":"Question","name":"Can I get lorem ipsum as HTML?","acceptedAnswer":{"@type":"Answer","text":"Yes. Switch to the HTML tab to get output wrapped in paragraph or list-item tags, ready to paste into your markup."}},
-    {"@type":"Question","name":"What does the URL parameter do?","acceptedAnswer":{"@type":"Answer","text":"You can bookmark a specific configuration with URL params: ?unit=paragraphs&count=3&format=html&mode=latin. The page restores that state on load."}}
+    {"@type":"Question","name":"Is lorem ipsum real Latin?","acceptedAnswer":{"@type":"Answer","text":"Sort of. The words are Latin, pulled from Cicero's De Finibus. But they've been chopped up, reordered, and had fragments like 'Lorem' invented — so it doesn't parse as Latin. A Latin teacher will spot it as gibberish in about two seconds."}},
+    {"@type":"Question","name":"Give me 3 paragraphs, fast — what do I click?","acceptedAnswer":{"@type":"Answer","text":"Unit = Paragraphs, Count = 3, Generate. If you want it inside p tags for pasting straight into HTML, switch the format tab to HTML before copying."}},
+    {"@type":"Question","name":"Why start with 'Lorem ipsum dolor sit amet'?","acceptedAnswer":{"@type":"Answer","text":"Recognition. Reviewers see it and immediately know 'this is filler, ignore it.' Turn the toggle off and the first paragraph looks like a real (but weird) sentence, which can trip people up. Leave it on for design reviews."}},
+    {"@type":"Question","name":"When should I use Word Soup instead?","acceptedAnswer":{"@type":"Answer","text":"When you're QAing typography. Latin has an unusually smooth letter frequency, so it never produces the ugly line breaks real English does — words like 'responsibilities' or 'asymmetrical' that blow up a narrow column. Word Soup mixes short and long English words so those bugs show up on the mockup instead of in production."}},
+    {"@type":"Question","name":"Can I share a link that opens with my exact settings?","acceptedAnswer":{"@type":"Answer","text":"Yes. The URL updates every time you generate — copy it from the address bar. Example: ?unit=paragraphs&count=3&format=html&mode=latin. Handy for bookmarking your default setup or dropping into a project README."}}
   ]
 }
 </script>
@@ -120,18 +120,21 @@
   "@type": "BreadcrumbList",
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
-    { "@type": "ListItem", "position": 2, "name": "Word Tools", "item": "https://wordineer.com/word-tools/" },
-    { "@type": "ListItem", "position": 3, "name": "Lorem Ipsum Generator", "item": "https://wordineer.com/lorem-ipsum-generator/" }
+    { "@type": "ListItem", "position": 2, "name": "Word Tools", "item": "https://wordineer.com/word-tools" },
+    { "@type": "ListItem", "position": 3, "name": "Lorem Ipsum Generator", "item": "https://wordineer.com/lorem-ipsum-generator" }
   ]
 }
 </script>
 <meta property="og:image" content="https://wordineer.com/og-default.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lorem Ipsum Generator — Placeholder Text Generator">
+<meta name="twitter:description" content="Paragraphs, sentences, words, characters, or list items. Classic Latin, readable English filler, or word soup. Copy as plain text, HTML, or Markdown.">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "Lorem Ipsum Generator — Placeholder Text Generator",
-  "url": "https://wordineer.com/lorem-ipsum-generator/",
+  "url": "https://wordineer.com/lorem-ipsum-generator",
   "applicationCategory": "UtilityApplication",
   "operatingSystem": "Web",
   "offers": {
@@ -197,7 +200,7 @@
     Wordineer
   </a>
   <div class="nav-links">
-    <a href="/word-tools/">Tools</a>
+    <a href="/word-tools">Tools</a>
   </div>
   <div>
     <button class="hamburger" type="button" aria-label="All tools" aria-controls="mega" aria-expanded="false">
@@ -286,7 +289,7 @@
   <div class="breadcrumb-inner">
     <a href="/">Wordineer</a>
     <span class="breadcrumb-sep">›</span>
-    <a href="/word-tools/">Word Tools</a>
+    <a href="/word-tools">Word Tools</a>
     <span class="breadcrumb-sep">›</span>
     <span aria-current="page">Lorem Ipsum Generator</span>
   </div>
@@ -396,35 +399,44 @@
     </div>
   </div>
 <div class="explainer">
-  <h2>What is lorem ipsum?</h2>
-  <p>Lorem ipsum text traces back to Cicero's philosophical work <em>de Finibus Bonorum et Malorum</em>, written around 45 BC. A typesetter in the 1500s scrambled a passage from that text — starting with "Lorem ipsum dolor sit amet" — to create filler copy that looks like Latin but doesn't carry any meaning. Because it's meaningless, it lets reviewers focus on layout and typography rather than being distracted by real content.</p>
-  <h2>When to use placeholder text — and when not to</h2>
-  <p>Lorem ipsum is the right call when you're testing font choices, spacing, or grid structure and real content isn't available yet. It's the wrong call when you're testing whether copy fits, evaluating how readers will scan the page, or showing mockups to stakeholders who'll fixate on the fake Latin. For those cases, switch to <strong>Readable English</strong> mode to get real sentences that still function as filler.</p>
-  <h2>Dev tip: built-in lorem ipsum in your editor</h2>
-  <p>If you use VS Code or JetBrains IDEs, you already have lorem ipsum built in. Type <code>lorem</code> in an HTML file and hit Tab — Emmet expands it to a paragraph automatically. This generator is useful when you need a specific word count, HTML output, multiple formats, or an alternative to the classic Latin.</p>
+  <p style="font-size:13px;color:var(--text-3);margin:0 0 18px">Last updated 2026-08-15.</p>
+  <h2>Where the "Lorem ipsum" text actually comes from</h2>
+  <p>It's Cicero. Specifically, section 1.10.32 of <em>De Finibus Bonorum et Malorum</em> — a treatise on ethics he wrote around 45 BC. The real Latin opens:</p>
+  <blockquote style="border-left:3px solid var(--border);padding:8px 14px;margin:12px 0;color:var(--text-2);font-style:italic">"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit…"</blockquote>
+  <p>("Nor is there anyone who loves pain itself because it is pain…") An unknown typesetter in the 1500s snipped words out of context, jammed "Lorem" onto the front of "dolorem," and printed the result as filler to show off type specimens. It stuck around for 500 years because nobody could read it — which is exactly the point.</p>
+  <h2>Use it for layout. Don't use it for anything a person will judge.</h2>
+  <p>Lorem ipsum is right when the question is <em>how does the type breathe</em>. It's wrong when the question is <em>does the copy fit</em> or <em>will the client understand this</em>. I've watched a stakeholder review get derailed for 20 minutes because someone asked "what does 'consectetur' mean?" — that's what the <strong>Readable English</strong> mode is for. Real sentences, still meaningless enough to ignore, no Latin questions.</p>
+  <h2>If you write code, you probably don't need this page</h2>
+  <p>VS Code and every JetBrains IDE ship Emmet. Type <code>lorem</code> in an HTML file, hit Tab, done. Type <code>lorem50</code> for exactly 50 words. The reason to come here instead: you want Markdown output, a specific character count (not word count), the <code>&lt;ul&gt;&lt;li&gt;</code> list form, or one of the two non-Latin modes. Everything else, Emmet is faster.</p>
+  <h2>Three modes, one honest comparison</h2>
+  <ul>
+    <li><strong>Classic Latin</strong> — the default. Recognizable, expected, ignorable. Use for internal design work.</li>
+    <li><strong>Readable English</strong> — pulls from a sentence bank. Use when non-designers will see the mockup.</li>
+    <li><strong>Word Soup</strong> — random real words of mixed lengths. Use to stress-test line breaks, kerning, and hyphenation — Latin has an unusually even letter distribution and won't catch layout bugs that real English will.</li>
+  </ul>
 </div>
 
 <div class="faq">
   <h2 class="faq-title">Frequently asked questions</h2>
   <div class="faq-item open">
-    <div class="faq-q"><span class="faq-q-text">What is lorem ipsum?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Lorem ipsum is placeholder text derived from Cicero's "de Finibus" (45 BC), scrambled so it looks like Latin but carries no meaning. It's used in design and publishing to fill space before real content is ready.</div>
+    <div class="faq-q"><span class="faq-q-text">Is lorem ipsum real Latin?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Sort of. The words are Latin, pulled from Cicero's <em>De Finibus</em>. But they've been chopped up, reordered, and had fragments like "Lorem" invented — so it doesn't parse as Latin. A Latin teacher will spot it as gibberish in about two seconds.</div>
   </div>
   <div class="faq-item">
-    <div class="faq-q"><span class="faq-q-text">How do I generate 3 paragraphs of lorem ipsum?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Set the unit to "Paragraphs", enter 3 in the count field, and click Generate. Copy as plain text, HTML, or Markdown using the format tabs.</div>
+    <div class="faq-q"><span class="faq-q-text">Give me 3 paragraphs, fast — what do I click?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Unit = Paragraphs, Count = 3, Generate. If you want it inside &lt;p&gt; tags for pasting straight into HTML, switch the format tab to HTML before copying.</div>
   </div>
   <div class="faq-item">
-    <div class="faq-q"><span class="faq-q-text">Can I get lorem ipsum as HTML?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Yes — switch to the HTML tab to get output wrapped in &lt;p&gt; tags (or &lt;ul&gt;&lt;li&gt; for list items), ready to paste directly into markup.</div>
+    <div class="faq-q"><span class="faq-q-text">Why start with "Lorem ipsum dolor sit amet"?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Recognition. Reviewers see it and immediately know "this is filler, ignore it." Turn the toggle off and the first paragraph looks like a real (but weird) sentence, which can trip people up. Leave it on for design reviews.</div>
   </div>
   <div class="faq-item">
-    <div class="faq-q"><span class="faq-q-text">What is Word Soup mode?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Word Soup pulls random real English words of varied lengths to create filler that tests how your typography handles a mix of short and long words — useful for stress-testing line breaks and kerning.</div>
+    <div class="faq-q"><span class="faq-q-text">When should I use Word Soup instead?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">When you're QAing typography. Latin has an unusually smooth letter frequency, so it never produces the ugly line breaks real English does — words like "responsibilities" or "asymmetrical" that blow up a narrow column. Word Soup mixes short and long English words so those bugs show up on the mockup instead of in production.</div>
   </div>
   <div class="faq-item">
-    <div class="faq-q"><span class="faq-q-text">What URL parameters does this generator support?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">You can bookmark a specific configuration: ?unit=paragraphs&amp;count=3&amp;format=html&amp;mode=latin. The page restores that state on load — useful for devs who want a repeatable setup.</div>
+    <div class="faq-q"><span class="faq-q-text">Can I share a link that opens with my exact settings?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes. The URL updates every time you generate — copy it from the address bar. Example: <code>?unit=paragraphs&amp;count=3&amp;format=html&amp;mode=latin</code>. Handy for bookmarking your default setup or dropping into a project README.</div>
   </div>
 </div>
 
@@ -436,7 +448,14 @@
     <div class="uc"><div class="uc-title">Content strategists</div><div class="uc-body">Use Readable English mode for stakeholder mockups — pseudo-Latin confuses non-technical reviewers</div></div>
     <div class="uc"><div class="uc-title">Print designers</div><div class="uc-body">Generate exact word or character counts to test column widths, widow lines, and page flow</div></div>
   </div>
-  <p style="margin-top:14px">Also try: <a href="/random-sentence-generator/">Random Sentence Generator</a>, <a href="/random-paragraph-generator/">Random Paragraph Generator</a>, or <a href="/word-counter/">Word Counter</a>.</p>
+  <div class="related-tools" style="margin-top:24px">
+    <h3 class="related-title">Also try</h3>
+    <div class="related-links">
+      <a class="related-link" href="/random-sentence-generator">Random Sentence Generator</a>
+      <a class="related-link" href="/random-paragraph-generator">Random Paragraph Generator</a>
+      <a class="related-link" href="/word-counter">Word Counter</a>
+    </div>
+  </div>
 </div>
 
 
@@ -466,7 +485,7 @@
         <span style="font-size:14px;font-weight:600;color:var(--text)">Wordineer</span>
       </div>
       <span class="footer-copy">© 2026 Wordineer · Free word tools for everyone</span>
-      <div class="footer-meta"><a href="/about/">About</a><a href="/press-kit/">Data &amp; Press</a><a href="/embed/">Embed our tools</a><a href="/affiliate-disclosure/">Affiliate disclosure</a><a href="/privacy/">Privacy</a></div>
+      <div class="footer-meta"><a href="/about">About</a><a href="/press-kit">Data &amp; Press</a><a href="/embed">Embed our tools</a><a href="/affiliate-disclosure">Affiliate disclosure</a><a href="/privacy">Privacy</a></div>
     </div>
   </div>
 </footer>

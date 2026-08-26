@@ -1,4 +1,4 @@
-<!-- build: 2026-08-13T12:17:39Z -->
+<!-- build: 2026-08-26T07:48:25Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -156,18 +156,20 @@
   "@type": "BreadcrumbList",
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
-    { "@type": "ListItem", "position": 2, "name": "Number &amp; Chance Tools", "item": "https://wordineer.com/number-chance/" },
-    { "@type": "ListItem", "position": 3, "name": "Pictionary Word Generator", "item": "https://wordineer.com/pictionary-word-generator/" }
+    { "@type": "ListItem", "position": 2, "name": "Number &amp; Chance Tools", "item": "https://wordineer.com/number-chance" },
+    { "@type": "ListItem", "position": 3, "name": "Pictionary Word Generator", "item": "https://wordineer.com/pictionary-word-generator" }
   ]
 }
 </script>
-
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pictionary Word Generator - Random Words for Pictionary">
+<meta name="twitter:description" content="Generate random Pictionary words by difficulty and category, then copy, save, hide, or print your word list.">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "Pictionary Word Generator - Random Words for Pictionary",
-  "url": "https://wordineer.com/pictionary-word-generator/",
+  "url": "https://wordineer.com/pictionary-word-generator",
   "applicationCategory": "GameApplication",
   "operatingSystem": "Web",
   "offers": {
@@ -240,13 +242,23 @@
   .timer-time{font-size:22px;margin-bottom:6px}
   .timer-box{padding:8px}
 }
+/* ── Print card deck (teacher hand-outs) ── */
+.print-deck{display:none}
 @media print{
-  .nav,.mega,.hero,.pic-controls,.pic-top,.saved-panel,.ad-leaderboard,.content-wrap,.footer{display:none!important}
-  .tool-wrap{max-width:none;padding:0}
-  .pic-card{border:0;box-shadow:none}
-  .pic-layout{display:block}
-  .word-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:0}
-  .word-card{min-height:110px;break-inside:avoid;border:1px solid #111}
+  html,body{margin:0!important;padding:0!important;background:#fff!important}
+  body > *{display:none!important}
+  body > .print-deck{display:block!important}
+  .print-deck{padding:10mm;color:#000;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+  .print-header{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid #000;padding-bottom:6px;margin-bottom:10px;font-size:11pt}
+  .print-header h1{margin:0;font-size:14pt;font-weight:700}
+  .print-header .print-meta{font-size:10pt;color:#333}
+  .print-instructions{font-size:9pt;color:#333;margin-bottom:8px;font-style:italic}
+  .print-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0}
+  .print-cell{border:1px dashed #999;padding:10mm;min-height:55mm;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;break-inside:avoid;page-break-inside:avoid}
+  .print-word{font-size:22pt;font-weight:700;line-height:1.15;color:#000;margin-bottom:5mm}
+  .print-hint{font-size:9pt;color:#555;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4mm}
+  .print-brand{text-align:center;font-size:8pt;color:#666;margin-top:8px}
+  @page{size:auto;margin:8mm}
 }
 /* ── Game Mode ── */
 .game-panel{display:none;flex-direction:column;flex:1;padding:20px}
@@ -273,7 +285,7 @@
     Wordineer
   </a>
   <div class="nav-links">
-    <a href="/word-tools/">Tools</a>
+    <a href="/word-tools">Tools</a>
   </div>
   <div>
     <button class="hamburger" type="button" aria-label="All tools" aria-controls="mega" aria-expanded="false">
@@ -362,7 +374,7 @@
   <div class="breadcrumb-inner">
     <a href="/">Wordineer</a>
     <span class="breadcrumb-sep">›</span>
-    <a href="/word-games/">Word Games</a>
+    <a href="/word-games">Word Games</a>
     <span class="breadcrumb-sep">›</span>
     <span aria-current="page">Pictionary Word Generator</span>
   </div>
@@ -537,8 +549,9 @@
   <h2>Christmas Pictionary</h2>
   <p>Select the Christmas category for holiday parties, classroom games, and family gatherings. The word list leans toward imagery that's immediately seasonal — stockings, snowmen, gingerbread houses — so even players who aren't great at drawing can get a guess across quickly. Combine Medium difficulty with Christmas for the best balance between easy guesses and surprising moments.</p>
 
-  <h2>Printing word cards</h2>
-  <p>Click "Print cards" to generate a clean, ad-free print layout — two columns of word cards formatted for standard paper. This works well for larger groups where you want to hand physical cards to each drawer instead of passing a phone around.</p>
+  <h2>Print cards for the classroom</h2>
+  <p>Click "Print cards" to generate a printable card deck — two columns of large, clearly-labeled cards on standard paper with dashed cut lines between each card. Teachers can print, cut, and hand out a physical deck for no-device classrooms, station rotations, sub-day activities, or indoor recess. Each sheet includes a header showing the difficulty, category, and date so you can keep decks organized across grade levels or units.</p>
+  <p>Set the number of words to control the deck size — 16 cards prints two full sheets, 24 fills three, and so on. Blank cells pad the last page so cuts stay straight. Pair with the Syllables filter for phonics or ESL vocabulary work, or use the Christmas category for a holiday party deck you can reuse each year.</p>
 </div>
 
 <div class="faq">
@@ -561,7 +574,7 @@
   </div>
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">Can I print the word cards?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Yes — click "Print cards" and the page switches to a clean, ad-free layout with two columns of word cards sized for standard paper. This is handy for larger groups where passing a phone around gets awkward, or for classroom activities where each student draws from a stack of physical cards.</div>
+    <div class="faq-a">Yes — click "Print cards" to generate a teacher-ready card deck: two columns of large word cards with dashed cut lines, a header showing difficulty and category, and no ads or navigation. Print, cut along the dashes, and hand out physical cards for no-device classrooms, station rotations, or sub-day activities.</div>
   </div>
 </div>
 
@@ -602,7 +615,7 @@
         <span style="font-size:14px;font-weight:600;color:var(--text)">Wordineer</span>
       </div>
       <span class="footer-copy">© 2026 Wordineer · Free word tools for everyone</span>
-      <div class="footer-meta"><a href="/about/">About</a><a href="/press-kit/">Data &amp; Press</a><a href="/embed/">Embed our tools</a><a href="/affiliate-disclosure/">Affiliate disclosure</a><a href="/privacy/">Privacy</a></div>
+      <div class="footer-meta"><a href="/about">About</a><a href="/press-kit">Data &amp; Press</a><a href="/embed">Embed our tools</a><a href="/affiliate-disclosure">Affiliate disclosure</a><a href="/privacy">Privacy</a></div>
     </div>
   </div>
 </footer>
@@ -653,6 +666,7 @@
 </script>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="print-deck" id="print-deck" aria-hidden="true"></div>
 <script>
 (function(){
   const SEED=[
@@ -751,7 +765,26 @@
   $('generate-btn').addEventListener('click',()=>{picLoadFullWords();generate()});
   $('copy-btn').addEventListener('click',()=>copyText(state.current.map(item=>item.w).join(', '),'No words to copy'));
   $('copy-saved-btn').addEventListener('click',()=>copyText(state.saved.join(', '),'No saved words'));
-  $('print-btn').addEventListener('click',()=>window.print());
+  function buildPrintDeck(){
+    const deck=$('print-deck');
+    const list=state.current;
+    if(!list.length){showToast('Generate words first');return false}
+    const catLabel=state.category==='all'?'All categories':state.category.charAt(0).toUpperCase()+state.category.slice(1);
+    const diffLabel=state.difficulty.charAt(0).toUpperCase()+state.difficulty.slice(1);
+    const dateLabel=new Date().toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'});
+    const cells=list.map(item=>`<div class="print-cell"><div class="print-hint">Pictionary</div><div class="print-word">${item.w}</div></div>`).join('');
+    deck.innerHTML=`
+      <div class="print-header">
+        <h1>Pictionary Card Deck</h1>
+        <div class="print-meta">${diffLabel} · ${catLabel} · ${list.length} card${list.length!==1?'s':''} · ${dateLabel}</div>
+      </div>
+      <div class="print-instructions">Cut along the dashed lines. Hand one card to each drawer — no letters, numbers, talking, or gestures. 60-second rounds work well for most classrooms.</div>
+      <div class="print-grid">${cells}</div>
+      <div class="print-brand">wordineer.com/pictionary-word-generator/</div>
+    `;
+    return true;
+  }
+  $('print-btn').addEventListener('click',()=>{if(buildPrintDeck())window.print()});
   $('clear-btn').addEventListener('click',()=>{state.saved=[];renderSaved();renderWords();showToast('Saved words cleared')});
   $('hide-btn').addEventListener('click',e=>{state.hidden=!state.hidden;e.target.textContent=state.hidden?'Reveal words':'Hide words';renderWords()});
   $('reset-session-btn').addEventListener('click',()=>{state.seen.clear();showToast('Repeat history reset')});
