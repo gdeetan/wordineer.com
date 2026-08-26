@@ -1,4 +1,4 @@
-<!-- build: 2026-08-17T04:46:23Z -->
+<!-- build: 2026-08-26T07:48:25Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -123,32 +123,32 @@
     {
       "@type": "Question",
       "name": "What is the pronunciation guide for?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Each name comes with a phonetic breakdown written in plain syllables — for example, 'AY-lin-drah' for Aelindra. It's a reading aid, not a strict prescription. If your story or game gives a name a different sound, that's fine. The guide is there so you're not stuck guessing when you need to say the name out loud at a game table or read it aloud from a manuscript." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Every result comes with a phonetic breakdown in plain syllables. Aelindra shows up as 'AY-lin-drah', with the capital letters flagging where the stress lands. It's there so you're not making a silent guess the first time you say the name at a game table or read it aloud from a manuscript. If your world already gives the name a different pronunciation, that version wins. The guide is a suggestion, not a ruling." }
     },
     {
       "@type": "Question",
       "name": "Can I use these names in published work?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Names aren't copyrightable, so you can use any generated name in a novel, game, screenplay, or any other published work without restriction. That said, do a quick search before you commit to a character name in a major project — some names in the generator are inspired by names that appear in other fantasy works, and you'll want to know if there's an existing famous character with the same name." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Names aren't copyrightable, so a generated name is safe to use in a novel, an indie game, a screenplay, or anything else you plan to ship. For a big project, do a quick web search on the name before you commit. Not because of any legal risk, but because your protagonist accidentally sharing a name with a famous D&D villain pulls readers out of the story in a way you can't fix in edits." }
     },
     {
       "@type": "Question",
       "name": "How do I pick the right race filter for a custom species?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Match the phonetic character of your custom species to the nearest race. If your species is ancient and ethereal, Elf names give you flowing multi-syllable options. If they're grounded and tough, Dwarf names lean on hard consonants and short syllables. Orc names use guttural stops. Fae names tend to be short and airy. Pick the pool that fits the mouth-feel you're going for, then adapt as needed." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Pick the existing race whose names feel closest to the sound you want in your mouth when you read them. An ancient, ethereal culture usually lands somewhere in the Elf pool. A rough, earth-bound warrior culture pulls better from Dwarf or Orc. A tiny, fey species reads well from Fae. A cozy, homely people fit Halfling. Anything mythic, alien, or unsettling belongs with the Dragon or Demon pools. Once you've picked the pool, tweak individual results as needed instead of forcing every name to match a template." }
     },
     {
       "@type": "Question",
       "name": "Does the tone filter change the name structure or just the word feel?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Mostly the word feel — the sounds and letter combinations shift rather than the syllable count. Light names pull from softer consonants and open vowels; Dark names use heavier consonants, closed vowels, and sounds associated with weight and shadow. Neutral names sit in the middle. The structure (number of syllables, stress pattern) stays consistent within each race; tone adjusts the texture." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Mostly the feel. The syllable count and structural shape stay the same. What shifts is which letters and combinations show up. Light pulls from softer consonants and open vowels. Dark reaches for heavier sounds that carry weight and shadow. Race decides the underlying scaffolding of the name. Tone decides which end of that scaffolding's color range you're painting from." }
     },
     {
       "@type": "Question",
       "name": "Does this use AI?",
-      "acceptedAnswer": { "@type": "Answer", "text": "No. The generator selects from curated name lists built specifically for each race, gender, and tone combination. Every name and its pronunciation were written by hand — no AI generation, no random character strings. That's why the names are pronounceable and phonetically consistent within each category." }
+      "acceptedAnswer": { "@type": "Answer", "text": "No. Every name and every pronunciation guide in the tool was written by a human, one race and tone combination at a time. There's no model in the loop and no random letter-string generator dressed up to look like fantasy names. That's the reason the results are actually pronounceable and hang together phonetically inside each race pool." }
     },
     {
       "@type": "Question",
       "name": "How do I build a consistent naming system for a whole world?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Pick one race filter per culture in your world and stick with it for that group. Elves in the north might all get Elf + Light names; a shadow cult might use Elf + Dark or Demon + Dark. The phonetic consistency is what makes a culture feel cohesive — readers pick up on patterns even if they can't articulate them. Once you have a few names from the generator, look at the common letter patterns and invent new names in the same style." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Assign one race filter to each culture in your world and don't cross the streams. Generate a batch of six or eight names from that pool, then look at what they have in common. Which consonant clusters keep showing up? What syllable length feels typical? Which vowels dominate? Once you can name the pattern out loud, you can invent new names in that same style whenever you need them, without going back to the tool." }
     }
   ]
 }
@@ -245,17 +245,6 @@
 /* Toast */
 .bn-toast { position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(10px); background:#1a1a1a; color:white; font-size:13px; font-weight:600; padding:10px 18px; border-radius:8px; opacity:0; transition:opacity .2s,transform .2s; pointer-events:none; z-index:999; }
 .bn-toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
-
-/* Mobile: stack controls above results */
-@media (max-width:640px) {
-  .tool-wrap  { padding:16px 12px 0; }
-  .tool-split { flex-direction:column; }
-  .ctrl       { width:auto; border-right:none; border-bottom:1px solid var(--border-2); padding:14px; }
-  .words-panel { min-height:0; overflow:visible; }
-  .bn-name    { font-size:14px; }
-  .bn-item    { padding:10px 12px; }
-  .words-top  { padding:10px 12px; }
-}
 
 /* Explainer */
 .explainer h2 { font-size:20px; font-weight:700; margin:32px 0 10px; color:var(--text); }
@@ -469,29 +458,29 @@
   </div>
 <div class="explainer">
   <h2>What This Generator Does</h2>
-  <p>The Fantasy Name Generator produces names for eight classic fantasy races — human, elf, dwarf, orc, halfling, dragon, demon, and fae — filtered by gender and tone. Every name comes with a phonetic pronunciation guide in plain syllables, so you're never stuck guessing how to say it at a game table or when reading aloud from a manuscript.</p>
+  <p>The Fantasy Name Generator produces names for eight classic fantasy races (human, elf, dwarf, orc, halfling, dragon, demon, and fae), filtered by gender and tone. Every result comes with a phonetic pronunciation guide in plain syllables, so you're never stuck guessing how to say a name out loud at a game table or from a manuscript.</p>
   <p>The pronunciation guide is a reading aid, not a rule. If your story gives a name a different sound than the guide suggests, go with your instinct. The guide exists to give you a starting point, not to override your creative decisions.</p>
 
   <h2>How the Race Filter Works</h2>
-  <p>Each race pool is phonetically tuned to its species. Elf names are flowing and multi-syllabic — open vowels, liquid consonants, and the kinds of sounds that feel ancient and unhurried. Dwarf names are built from hard stops and short syllables: consonant clusters, abrupt endings, the sonic texture of stone and iron. Orc names lean on guttural stops, double consonants, and truncated vowels. Halfling names are round and familiar — they borrow from cozy, real-world-adjacent sounds that feel like they belong in a village rather than a battlefield.</p>
-  <p>Dragon and demon names reach for the mythic and the strange: long compound names, unusual letter combinations, sounds borrowed from archaic languages. Fae names are short and airy, often monosyllabic, with soft edges. Human names sit in the middle — recognizable enough to feel grounded but distinct enough to belong in a fantasy world.</p>
+  <p>Each race draws from its own phonetic pool, and the difference is audible the second you read a few results aloud. Elf names run long. Lots of vowels, liquid consonants sliding into each other, the kind of syllables that take their time. Dwarf names go the other direction: short, blunt, ending on a consonant that lands like a hammer strike. Orc names lean into guttural stops and doubled consonants so they sound thrown rather than spoken. Halflings borrow from the cozy end of real-world sounds, the kind of names you'd expect on a village door rather than a battlefield roster.</p>
+  <p>Dragons and demons get the strange ones. Long compound constructions, letter combinations you don't often see, sounds pulled from older, half-remembered languages. Fae names go the opposite way. Short. Airy. Often just a single syllable that feels like a breath. Human names sit in the middle of the whole spread. Familiar enough that a reader doesn't stumble, distinctive enough that they don't drop the reader out of the fantasy world entirely.</p>
   <p>If you're inventing a custom species, match it to the nearest race phonetically. An ancient, ethereal race maps naturally to Elf names. A brutal, earth-bound warrior culture maps to Dwarf or Orc.</p>
 
   <h2>How the Tone Filter Works</h2>
-  <p>Light names pull from softer consonants, open vowels, and sounds associated with brightness and hope — names you'd give a protagonist in a high fantasy epic. Dark names reach for weight and shadow: heavier consonants, closed vowels, sounds that feel foreboding or ancient. Neutral names sit between the two, useful when you want a character whose alignment isn't obvious from their name alone.</p>
-  <p>Tone adjusts the texture of the name rather than its structure. A Light elf name and a Dark elf name will still feel like elf names — the race shapes the syllable patterns and phonemes; tone shapes which end of that palette you're drawing from.</p>
+  <p>Light names pull from softer consonants, open vowels, and the kinds of sounds you'd hand to a hero in a high fantasy epic. Dark names reach for weight and shadow: heavier consonants, closed vowels, and sounds that carry an old or foreboding feel. Neutral names sit between the two, which is what you want when a character's alignment shouldn't be readable from their name alone.</p>
+  <p>Tone shifts the texture of the name rather than its structure. A Light elf name and a Dark elf name both still read as elf names. The race decides the syllable shapes and the phonemes on the palette. Tone decides which end of that palette shows up in the final result.</p>
 
   <h2>How to Use the Pronunciation Guide</h2>
-  <p>The phonetic breakdowns use capital letters to mark the stressed syllable: "AY-lin-drah" means the first syllable carries the main stress. Syllable breaks are marked with hyphens. The guide uses plain English approximations — "AY" for the long A sound, "oh" for a long O, "oo" for the sound in "moon".</p>
-  <p>It's a starting point. Once you've decided on a name, say it out loud a few times and let it settle into whatever pronunciation feels natural in your world. Consistent pronunciation within a world matters more than strict adherence to any guide.</p>
+  <p>Every name comes with a phonetic breakdown next to it, written the same way a friend would spell out an unfamiliar word for you over text. Capital letters mark the stressed syllable, so "AY-lin-drah" means the punch lands on the first syllable. Hyphens separate the syllables so you can see where the breaks fall. The sound approximations stay in plain English: "AY" for the long A in "cake", "oh" for the long O in "hope", "oo" for the sound in "moon". No IPA symbols, no linguistic notation, nothing to look up.</p>
+  <p>Treat it as a suggestion rather than a ruling. Once you've picked a name, say it out loud a handful of times and let the version that feels right take over. What matters at a game table or in a novel is that you (and the group) say the name the same way every time. Whether it matches this guide down to the letter matters less than whether it stays consistent inside your story.</p>
 
   <h2>What Makes a Fantasy Name Work</h2>
-  <p>The names that work in fiction share a few qualities. They're phonetically consistent with the world they inhabit — a name that sounds right next to other names from the same culture. They're pronounceable without effort, so readers don't stumble every time they encounter them. And they don't accidentally echo real-world references that would pull a reader out of the story.</p>
-  <p>That last point matters more than people expect. A dwarf named "Baldur" lands differently than one named "Baldurius" — the first sounds familiar; the second sounds invented. Neither is wrong, but they signal different things about your world. Names borrowed too directly from Norse mythology or Tolkien carry connotations from those sources. If that's intentional, fine. If not, put them through a round of modification until they feel like yours.</p>
-  <p>If you need names that span multiple fiction genres, the <a href="/character-name-generator">Character Name Generator</a> covers the full spectrum — useful if your story crosses between fantasy and sci-fi or realistic fiction. For a broader range of naming and creative tools, see the <a href="/other-generators">Other Generators hub</a>.</p>
+  <p>Fantasy names that land tend to do a few small things right. They sound like they belong next to the other names in the same culture, so a reader unconsciously groups them together instead of treating each one as a fresh puzzle. They're easy to say on the first try, which matters more than most writers realize because a reader who stumbles on a name once will subvocalize it wrong for the rest of the book. And they don't accidentally quote something the reader already knows. A hero named Bilbo Elric is doing extra work you didn't ask for.</p>
+  <p>That last one matters more than most writers expect. A dwarf named "Baldur" reads very differently from one named "Baldurius". The first pulls in Norse mythology on its own. The second sounds newly invented. Neither is wrong, but they signal different things about your world without asking your permission. Names lifted too directly from Norse myth or Tolkien drag their original context along with them. If that's the effect you want, great. If it isn't, run them through one or two rounds of modification until the sound belongs to your story rather than someone else's.</p>
+  <p>If your story crosses fantasy and sci-fi or realistic fiction, the <a href="/character-name-generator">Character Name Generator</a> covers a wider spectrum in one place. For the full range of naming and creative tools, the <a href="/other-generators">Other Generators hub</a> lists everything.</p>
 
   <h2>Building a Consistent Naming System</h2>
-  <p>A world feels coherent when its names follow internal rules. Pick one race filter per culture and use it consistently. Elves in your northern kingdom might all come from Elf + Light; a shadow cult might draw from Elf + Dark or Demon + Dark. Once you have five or six names from the generator, look at the common letter patterns — the consonant clusters, the vowel sounds, the syllable counts — and use those patterns to invent new names in the same style.</p>
+  <p>A world starts feeling real once its names follow internal rules. Assign one race filter per culture and keep it there. Elves in your northern kingdom might all live inside Elf + Light. A shadow cult might sit in Elf + Dark, or Demon + Dark for a nastier flavor. Generate five or six names from the pool, then look for the shared patterns underneath: which consonant clusters recur, which vowels dominate, how long the average syllable count runs. Once you can hear the pattern, you can invent new names in the same style without going back to the tool.</p>
   <p>The generator gives you a starting set. The naming system you build from it is yours.</p>
 </div>
 
@@ -499,27 +488,27 @@
   <h2 class="faq-title">Frequently asked questions</h2>
   <div class="faq-item open">
     <div class="faq-q"><span class="faq-q-text">What's the pronunciation guide for?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Each name includes a phonetic breakdown in plain syllables — for example, "AY-lin-drah" for Aelindra. Capital letters mark the stressed syllable. It's a reading aid so you're not guessing when you say the name out loud. If your world or game gives a name a different pronunciation, that takes precedence — the guide is a starting point, not a rule.</div>
+    <div class="faq-a">Every result comes with a phonetic breakdown in plain syllables. Aelindra shows up as "AY-lin-drah", with the capital letters flagging where the stress lands. It's there so you're not making a silent guess the first time you say the name at a game table or read it aloud from a manuscript. If your world already gives the name a different pronunciation, that version wins. The guide is a suggestion, not a ruling.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">Can I use these names in published work?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Yes. Names aren't copyrightable, so you can use any generated name in a novel, game, screenplay, or other published work without restriction. For major projects, do a quick search to check whether the name belongs to a well-known character in another work — not for legal reasons, but to avoid unintended associations.</div>
+    <div class="faq-a">Yes. Names aren't copyrightable, so a generated name is safe to use in a novel, an indie game, a screenplay, or anything else you plan to ship. For a big project, do a quick web search on the name before you commit. Not because of any legal risk, but because your protagonist accidentally sharing a name with a famous D&amp;D villain pulls readers out of the story in a way you can't fix in edits.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">How do I pick the right race filter for a custom species?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Match the phonetic character of your species to the nearest race. Ancient and ethereal → Elf. Tough and earth-bound → Dwarf. Brutal and guttural → Orc. Airy and fey → Fae. Cozy and familiar → Halfling. Mythic and strange → Dragon or Demon. Pick the pool that fits the mouth-feel you want, then adapt individual names as needed.</div>
+    <div class="faq-a">Pick the existing race whose names feel closest to the sound you want in your mouth when you read them. An ancient, ethereal culture usually lands somewhere in the Elf pool. A rough, earth-bound warrior culture pulls better from Dwarf or Orc. A tiny, fey species reads well from Fae. A cozy, homely people fit Halfling. Anything mythic, alien, or unsettling belongs with the Dragon or Demon pools. Once you've picked the pool, tweak individual results as needed instead of forcing every name to match a template.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">Does the tone filter change the name structure or just the word feel?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Mostly the feel — the sounds and letter combinations shift rather than the syllable count or structure. Light names lean on softer consonants and open vowels. Dark names use heavier sounds associated with weight and shadow. The race determines the structural patterns; tone adjusts which end of that palette you're drawing from.</div>
+    <div class="faq-a">Mostly the feel. The syllable count and structural shape stay the same. What shifts is which letters and combinations show up. Light pulls from softer consonants and open vowels. Dark reaches for heavier sounds that carry weight and shadow. Race decides the underlying scaffolding of the name. Tone decides which end of that scaffolding's color range you're painting from.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">Does this use AI?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">No. Every name and pronunciation in the generator was written by hand for each specific race, gender, and tone combination. There's no AI generation and no random character strings. That's why the names are pronounceable and phonetically consistent — they were built that way on purpose.</div>
+    <div class="faq-a">No. Every name and every pronunciation guide in the tool was written by a human, one race and tone combination at a time. There's no model in the loop and no random letter-string generator dressed up to look like fantasy names. That's the reason the results are actually pronounceable and hang together phonetically inside each race pool. Someone sat down and built each list on purpose.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">How do I build a consistent naming system for a whole world?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Pick one race filter per culture and stick with it for that group. Generate a set of names, then look at the common patterns — consonant clusters, vowel sounds, syllable counts — and use those patterns to invent new names in the same style. Consistency within a culture is what makes a world feel real, even when none of the names are.</div>
+    <div class="faq-a">Assign one race filter to each culture in your world and don't cross the streams. Generate a batch of six or eight names from that pool, then look at what they have in common. Which consonant clusters keep showing up? What syllable length feels typical? Which vowels dominate? Once you can name the pattern out loud, you can invent new names in that same style whenever you need them, without going back to the tool. Consistency inside a culture is the thing that makes readers believe a fictional world exists, even when none of the actual names do.</div>
   </div>
 </div>
 
@@ -528,7 +517,7 @@
   <div class="uc-grid">
     <div class="uc"><div class="uc-title">Fantasy novelists and short story writers</div><div class="uc-body">Writers who need names for characters, places, and cultures that sound invented but feel internally consistent within the world they're building</div></div>
     <div class="uc"><div class="uc-title">Tabletop RPG players and game masters</div><div class="uc-body">Players naming new characters and GMs populating worlds with NPCs who need names that fit the tone of a session without slowing down prep</div></div>
-    <div class="uc"><div class="uc-title">Game developers building fantasy games</div><div class="uc-body">Developers who need a fast supply of plausible character names for NPCs, factions, and lore — especially early in production before a full naming bible exists</div></div>
+    <div class="uc"><div class="uc-title">Game developers building fantasy games</div><div class="uc-body">Developers who need a fast supply of plausible character names for NPCs, factions, and lore, especially early in production before a full naming bible exists</div></div>
     <div class="uc"><div class="uc-title">Worldbuilders creating fictional cultures</div><div class="uc-body">Creators building detailed fictional societies who need names as raw material for developing cultural naming conventions and phonetic identity</div></div>
   </div>
 </div>
@@ -567,7 +556,7 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="/scripts/tool-engine.js?v=28"></script>
+<script src="/scripts/tool-engine.js?v=27"></script>
 <script>
 (function bindSharedWordineerMenu() {
   const mega = document.getElementById('mega');
@@ -942,6 +931,7 @@
     });
   });
 }());
+  document.querySelectorAll('.faq-q').forEach(function(q){q.addEventListener('click',function(){q.closest('.faq-item').classList.toggle('open');});});
 </script>
 </body>
 </html>
