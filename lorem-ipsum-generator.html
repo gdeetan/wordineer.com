@@ -1,4 +1,4 @@
-<!-- build: 2026-08-17T04:46:23Z -->
+<!-- build: 2026-08-26T09:06:26Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -109,7 +109,7 @@
     {"@type":"Question","name":"Give me 3 paragraphs, fast — what do I click?","acceptedAnswer":{"@type":"Answer","text":"Unit = Paragraphs, Count = 3, Generate. If you want it inside p tags for pasting straight into HTML, switch the format tab to HTML before copying."}},
     {"@type":"Question","name":"Why start with 'Lorem ipsum dolor sit amet'?","acceptedAnswer":{"@type":"Answer","text":"Recognition. Reviewers see it and immediately know 'this is filler, ignore it.' Turn the toggle off and the first paragraph looks like a real (but weird) sentence, which can trip people up. Leave it on for design reviews."}},
     {"@type":"Question","name":"When should I use Word Soup instead?","acceptedAnswer":{"@type":"Answer","text":"When you're QAing typography. Latin has an unusually smooth letter frequency, so it never produces the ugly line breaks real English does — words like 'responsibilities' or 'asymmetrical' that blow up a narrow column. Word Soup mixes short and long English words so those bugs show up on the mockup instead of in production."}},
-    {"@type":"Question","name":"Can I share a link that opens with my exact settings?","acceptedAnswer":{"@type":"Answer","text":"Yes. The URL updates every time you generate — copy it from the address bar. Example: ?unit=paragraphs&count=3&format=html&mode=latin. Handy for bookmarking your default setup or dropping into a project README."}}
+    {"@type":"Question","name":"Can I share a link that opens with my exact settings?","acceptedAnswer":{"@type":"Answer","text":"Yes. The address bar updates every time you hit Generate, so whatever combination of settings produced the current output is already sitting in the URL. Copy it and share it. A URL like ?unit=paragraphs&count=3&format=html&mode=latin opens with those exact settings pre-filled. Useful for bookmarking your default configuration or dropping into a project README so teammates land on the same setup you use."}}
   ]
 }
 </script>
@@ -401,9 +401,9 @@
 <div class="explainer">
   <p style="font-size:13px;color:var(--text-3);margin:0 0 18px">Last updated 2026-08-15.</p>
   <h2>Where the "Lorem ipsum" text actually comes from</h2>
-  <p>It's Cicero. Specifically, section 1.10.32 of <em>De Finibus Bonorum et Malorum</em> — a treatise on ethics he wrote around 45 BC. The real Latin opens:</p>
+  <p>It's Cicero. More specifically, it's section 1.10.32 of <em>De Finibus Bonorum et Malorum</em>, an ethics treatise he wrote around 45 BC. The original Latin sentence opens like this:</p>
   <blockquote style="border-left:3px solid var(--border);padding:8px 14px;margin:12px 0;color:var(--text-2);font-style:italic">"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit…"</blockquote>
-  <p>("Nor is there anyone who loves pain itself because it is pain…") An unknown typesetter in the 1500s snipped words out of context, jammed "Lorem" onto the front of "dolorem," and printed the result as filler to show off type specimens. It stuck around for 500 years because nobody could read it — which is exactly the point.</p>
+  <p>Which translates to something like "Nor is there anyone who loves pain itself because it is pain…" and then goes on to say a lot of very Roman things about pleasure and pain. Some anonymous typesetter in the 1500s got hold of that passage, sliced words out of it more or less at random, glued "Lorem" onto the front of "dolorem" (yes, they cut a real word in half), and printed the result as filler text to demonstrate typefaces. That filler has been in constant use for roughly five centuries now, and the reason it keeps working is exactly the reason nobody notices it: you can't read it, so your brain doesn't try to.</p>
   <h2>Use it for layout. Don't use it for anything a person will judge.</h2>
   <p>Lorem ipsum is right when the question is <em>how does the type breathe</em>. It's wrong when the question is <em>does the copy fit</em> or <em>will the client understand this</em>. I've watched a stakeholder review get derailed for 20 minutes because someone asked "what does 'consectetur' mean?" — that's what the <strong>Readable English</strong> mode is for. Real sentences, still meaningless enough to ignore, no Latin questions.</p>
   <h2>If you write code, you probably don't need this page</h2>
@@ -436,17 +436,17 @@
   </div>
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">Can I share a link that opens with my exact settings?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Yes. The URL updates every time you generate — copy it from the address bar. Example: <code>?unit=paragraphs&amp;count=3&amp;format=html&amp;mode=latin</code>. Handy for bookmarking your default setup or dropping into a project README.</div>
+    <div class="faq-a">Yes. The address bar updates every time you hit Generate, so whatever combination of settings produced the current output is already sitting in the URL. Copy it from the address bar and share it. A URL like <code>?unit=paragraphs&amp;count=3&amp;format=html&amp;mode=latin</code> will open with those exact settings pre-filled. Useful for bookmarking your default configuration or dropping into a project README so teammates land on the same setup you use.</div>
   </div>
 </div>
 
 <div class="section">
   <h2 class="section-title" style="margin-bottom:14px">Who uses the lorem ipsum generator</h2>
   <div class="uc-grid">
-    <div class="uc"><div class="uc-title">Web designers</div><div class="uc-body">Fill mockups and wireframes without getting distracted by real copy — focus on layout, type, and spacing</div></div>
-    <div class="uc"><div class="uc-title">Developers</div><div class="uc-body">Get HTML-ready placeholder paragraphs or list items to paste directly into templates during development</div></div>
-    <div class="uc"><div class="uc-title">Content strategists</div><div class="uc-body">Use Readable English mode for stakeholder mockups — pseudo-Latin confuses non-technical reviewers</div></div>
-    <div class="uc"><div class="uc-title">Print designers</div><div class="uc-body">Generate exact word or character counts to test column widths, widow lines, and page flow</div></div>
+    <div class="uc"><div class="uc-title">Web designers</div><div class="uc-body">Fill mockups and wireframes with filler text so the review conversation stays on layout, type, and spacing instead of drifting into whether that headline needs a second draft.</div></div>
+    <div class="uc"><div class="uc-title">Developers</div><div class="uc-body">Grab HTML-ready placeholder paragraphs or list items already wrapped in the right tags, then paste them straight into a template while the real content is still being written.</div></div>
+    <div class="uc"><div class="uc-title">Content strategists</div><div class="uc-body">Use Readable English mode when a stakeholder outside the design team will see the mockup, since pseudo-Latin tends to derail reviews with non-technical folks asking what "consectetur" means.</div></div>
+    <div class="uc"><div class="uc-title">Print designers</div><div class="uc-body">Set an exact word or character count to stress-test column widths, catch widows and orphans, and see how page flow behaves before anything hits the press.</div></div>
   </div>
   <div class="related-tools" style="margin-top:24px">
     <h3 class="related-title">Also try</h3>
@@ -492,7 +492,7 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="/scripts/tool-engine.js?v=29"></script>
+<script src="/scripts/tool-engine.js?v=27"></script>
 <script>
 (function bindSharedWordineerMenu() {
   const mega = document.getElementById('mega');
@@ -670,6 +670,7 @@ fetch('/data/sentences.json').then(function(r){return r.ok?r.json():null;}).then
   if(Array.isArray(d))englishSentences=d.map(function(item){return typeof item==='string'?item:(item.text||item.sentence||'');}).filter(Boolean);
 }).catch(function(){});
 fetch('/data/words.json').then(function(r){return r.ok?r.json():null;}).then(function(d){if(d)soupWords=d;}).catch(function(){});
+
 parseURL();doGenerate();
 })();
 </script>
