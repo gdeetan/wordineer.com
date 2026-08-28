@@ -1,4 +1,4 @@
-<!-- build: 2026-08-26T07:48:25Z -->
+<!-- build: 2026-08-28T03:35:34Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -223,6 +223,14 @@
   color: var(--text-2);
   line-height: 1.6;
 }
+.etym-refs { margin: 40px 0 24px; font-size: 15px; line-height: 1.7; }
+.etym-refs h2 { font-size: 22px; margin: 0 0 8px; }
+.etym-refs h3 { font-size: 16px; margin: 24px 0 8px; }
+.etym-refs-intro { color: var(--text-2); margin: 0 0 12px; }
+.etym-refs-list { padding-left: 22px; }
+.etym-refs-list li { margin: 8px 0; }
+.etym-refs-list cite { font-style: italic; }
+.etym-refs-list a { word-break: break-word; }
 
 .cover-image { max-width: 720px; margin: 28px auto 36px; padding: 0 24px; display: block; }
 .cover-image img { width: 100%; height: auto; display: block; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.10); }
@@ -731,9 +739,34 @@
     </ul>
   </div>
 
-  <div class="etym-note">
-    <strong>Sources and methodology:</strong> These etymologies are drawn from standard reference sources including the Oxford English Dictionary, Douglas Harper's Online Etymology Dictionary (etymonline.com), and the American Heritage Dictionary's Indo-European roots appendix. Where there is genuine scholarly dispute about an etymology, I've noted it. A few — notably sycophant, the exact Nahuatl form behind chocolate, and the messenger story attached to marathon — remain authentically contested. If you find an error, email garrick@wordineer.com and I'll correct it.
-  </div>
+  <section class="etym-refs" aria-labelledby="refs-heading">
+    <h2 id="refs-heading">References</h2>
+    <p class="etym-refs-intro">Every entry above was checked against the following standard reference works. Short IDs are used for per-entry citations.</p>
+    <ol class="etym-refs-list">
+      <li id="ref-oed">
+        <strong>[OED]</strong> <cite>Oxford English Dictionary</cite>. Oxford University Press.
+        <a href="https://www.oed.com/" rel="noopener">oed.com</a>
+      </li>
+      <li id="ref-edl">
+        <strong>[EDL]</strong> Harper, Douglas. <cite>Online Etymology Dictionary</cite>.
+        <a href="https://www.etymonline.com/" rel="noopener">etymonline.com</a>
+      </li>
+      <li id="ref-ahd">
+        <strong>[AHD]</strong> <cite>The American Heritage Dictionary of the English Language</cite>, Appendix of Indo-European Roots. Houghton Mifflin Harcourt.
+        <a href="https://ahdictionary.com/" rel="noopener">ahdictionary.com</a>
+      </li>
+    </ol>
+
+    <h3>Methodology &amp; contested entries</h3>
+    <p>Where reference sources disagree, the entry says so. A few etymologies remain genuinely contested in the scholarly literature:</p>
+    <ul>
+      <li><strong>sycophant</strong> — the "fig-shower" folk etymology is ancient but unverified.</li>
+      <li><strong>chocolate</strong> — Nahuatl <em>chocolātl</em> is the common form given, but the exact pre-contact word is debated; <em>xocoātl</em> ("bitter water") is one proposed source.</li>
+      <li><strong>marathon</strong> — the runner-messenger story (Pheidippides) is later tradition, not contemporary record. The place name is secure; the errand is not.</li>
+    </ul>
+
+    <p class="etym-refs-intro" style="margin-top: 24px;">Corrections: <a href="mailto:garrick@wordineer.com">garrick@wordineer.com</a></p>
+  </section>
 
 </div>
 <footer class="footer">
