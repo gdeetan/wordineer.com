@@ -5,8 +5,14 @@
 User-agent: *
 Allow: /
 
-# Block Cloudflare internal paths and JSON data files
+# Block Cloudflare internal paths, JSON data files, and font assets
 Disallow: /cdn-cgi/
 Disallow: /data/
+Disallow: /fonts/
+Disallow: /*.woff$
+Disallow: /*.woff2$
+Disallow: /*.ttf$
+Disallow: /*.otf$
+Disallow: /*.eot$
 
 Sitemap: https://wordineer.com/sitemap.xml

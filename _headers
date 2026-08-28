@@ -5,10 +5,20 @@
   X-Frame-Options:
   Content-Security-Policy: frame-ancestors *
 
-# Fonts: cache for 1 year (content-hashed filenames never change)
+# Fonts: cache for 1 year (content-hashed filenames never change); block indexing
 /fonts/*
   Cache-Control: public, max-age=31536000, immutable
   Access-Control-Allow-Origin: *
+  X-Robots-Tag: noindex, nofollow
+
+/*.woff2
+  X-Robots-Tag: noindex, nofollow
+/*.woff
+  X-Robots-Tag: noindex, nofollow
+/*.ttf
+  X-Robots-Tag: noindex, nofollow
+/*.otf
+  X-Robots-Tag: noindex, nofollow
 
 # data JSON: cache for 7 days, block search engine indexing
 /data/*.json
