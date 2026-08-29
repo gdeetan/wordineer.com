@@ -26,7 +26,18 @@ const SEED = [
 {w:"Schadenfreude",t:"noun", d:"pleasure derived from another person's misfortune",       diff:"hard",  borrowed:true, syl:4},
 ];
 let WORDS      = [...SEED];
-let saved      = [];
+const SAVED_KEY = 'wnr_saved_v1';
+function _loadSaved() {
+  try {
+    const raw = localStorage.getItem(SAVED_KEY);
+    const arr = raw ? JSON.parse(raw) : [];
+    return Array.isArray(arr) ? arr.filter(x => x && typeof x.w === 'string') : [];
+  } catch { return []; }
+}
+function _persistSaved() {
+  try { localStorage.setItem(SAVED_KEY, JSON.stringify(saved)); } catch {}
+}
+let saved      = _loadSaved();
 let current    = [];
 let config     = {};
 let defsShown  = true;
@@ -416,6 +427,7 @@ saved.push({ w: word, t: type, d: def });
 btn.classList.add('saved');
 btn.querySelector('path').setAttribute('fill', '#E24B4A');
 }
+_persistSaved();
 renderSaved();
 }
 function renderSaved() {
@@ -436,6 +448,7 @@ el.innerHTML = saved.map(s =>
 }
 function removeSaved(word) {
 saved = saved.filter(s => s.w !== word);
+_persistSaved();
 renderSaved();
 document.querySelectorAll('.icon-btn.saved').forEach(btn => {
 const wt = btn.closest('.word-item')?.querySelector('.word-text')?.textContent;
@@ -713,6 +726,7 @@ if (cfg.apiKeys) {
 if (cfg.dictionaryProxyUrl) {
   PROXY_URL = cfg.dictionaryProxyUrl;
 }
+renderSaved();
 render();
 if (config.dataUrl) {
   scheduleFullDictionary(0);
@@ -740,10 +754,5 @@ el.addEventListener('change', () => scheduleFullDictionary(0));
 });
 }
 repairSevenLetterNav();
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', function(){ initFaq(); initMega(); });
-} else {
-  initFaq(); initMega();
-}
 return { init, render, generate, reset, copyWord, copyAll, copySaved, shareWords, toggleSave, removeSaved, showToast };
 })();
