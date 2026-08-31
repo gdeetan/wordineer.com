@@ -1,4 +1,4 @@
-<!-- build: 2026-08-31T04:32:09Z -->
+<!-- build: 2026-08-31T04:37:46Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1071,6 +1071,15 @@
 
   // Initial render
   render('');
+
+  // FAQ accordion (this page doesn't call WORDINEER.init, so bind here)
+  document.querySelectorAll('.faq-q').forEach(function(q) {
+    if (q.dataset.faqBound === '1') return;
+    q.dataset.faqBound = '1';
+    q.addEventListener('click', function() {
+      q.closest('.faq-item').classList.toggle('open');
+    });
+  });
 }());
 </script>
 </body>
