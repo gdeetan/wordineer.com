@@ -1,4 +1,4 @@
-<!-- build: 2026-08-17T04:46:23Z -->
+<!-- build: 2026-08-31T02:36:04Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -147,6 +147,15 @@
   color: var(--text-2);
   margin: 0 0 16px;
 }
+.hub-prose ul {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--text-2);
+  margin: 0 0 16px;
+  padding-left: 22px;
+}
+.hub-prose ul li { margin-bottom: 6px; }
+.hub-prose a { color: var(--brand, #4A3FD4); text-decoration: underline; }
 .hub-prose h3 {
   font-family: 'DM Serif Display', serif;
   font-size: 22px;
@@ -646,67 +655,58 @@
     </div>
 
     <div class="hub-prose">
-      <h2>Why passwords still trip people up</h2>
-      <p>Most people know their passwords are weak. Knowing does not fix it. Truly strong passwords like <code>J4#mTx9q</code> are secure, but nobody remembers those. So people write it on a sticky note, reuse the same one everywhere, or click "forgot password" every few months.</p>
-      <p>The generators here do not fix that behavior. A password manager does, and you should use one. What these tools fix is the "come up with a password" step, which is usually where people stall. The memorable password tool builds one with enough structure to hold in your head for a day. The 8-, 10-, and 12-character tools exist because many sites still cap password length and reject anything longer. The PIN generator handles the 4-to-8 digit codes phones, bank apps, and front-door locks still ask for.</p>
-      <p>Generate the password. Save it in your manager. Move on.</p>
+      <h2>What are account tools?</h2>
+      <p>These are username and password generators designed to help regular folks like you and me create login credentials for different websites and social media platforms. They range from standard <a href="/password-generator">password generators</a> to more nuanced tools, such as <a href="/passphrase-generator">passphrase generators</a>. These tools help users create more varied options for different websites, since more and more require sign-ups to unlock all their features.</p>
     </div>
 
     <div class="hub-prose">
-      <h2>The case for passphrases</h2>
-      <p>A passphrase is four or more random words in a row. Something like <em>violet ladder thunder mango</em>, or the classic <em>correct horse battery staple</em> from the 2011 xkcd comic. The idea goes back further, to the diceware method from the 1990s: roll five dice, look up the number on a word list, write the word down, repeat.</p>
-      <p>Length beats complexity. A four-word passphrase pulled from a 7,776-word list carries about 51 bits of entropy. That is stronger than an 8-character password mixing uppercase, lowercase, digits, and symbols. It also types faster on a phone screen and is genuinely possible to memorize.</p>
-      <p>The Diceware tool here uses the standard word list and a cryptographic random source, no dice required. The regular <a href="/passphrase-generator">passphrase generator</a> lets you set word count, separator, and total length if you have a specific target.</p>
+      <h2>Why are passwords important?</h2>
+      <p>Passwords are your first defense against getting hacked. However, most people use passwords that they can easily remember. This issue worsens when people use the same password across multiple websites, which increases the risk of their accounts being hacked tenfold.</p>
+    </div>
+
+    <div class="hub-prose">
+      <h2>How to fix weak passwords</h2>
+      <p>One issue is that people use dictionary words, names, simple keyboard patterns like '123456' or 'qwerty', or birthdates as their passwords. That's a recipe for getting hacked. One fix is to use a long password like <code>J4#mTx9q8imnDhgdad-+</code>, but remembering it is next to impossible. So folks revert to sticky notes, reusing passwords, or clicking "Forgot Password" (I'm guilty of this) when they need to log in again.</p>
+      <p><a href="/password-generator">Password generators</a> solve the issue of creating secure passwords, but they don't solve the storage issue. One way to solve this is to use a password manager (LastPass, 1Password, or Bitwarden) with a strong master password and let it store your passwords for a small monthly fee.</p>
+      <p>Another option is to save these passwords in an Excel sheet and enter them manually. If you own an iOS device, such as an iPhone, Safari has a built-in password manager that does the same thing at no extra cost.</p>
+      <p>Once you've decided what password manager to use, the tools here do the rest:</p>
+      <ul>
+        <li>Use the <a href="/memorable-password-generator">Memorable Password Generator</a> to help generate easier-to-remember passwords.</li>
+        <li><a href="/8-character-password-generator">8-</a>, <a href="/10-character-password-generator">10-</a>, or <a href="/12-character-password-generator">12-character password generators</a> for websites that cap password length.</li>
+        <li><a href="/random-pin-generator">PIN generator</a> to help you come up with 4- to 8-digit PIN codes for phones, bank apps, etc.</li>
+      </ul>
+      <p>Don't forget to generate a strong password for your password manager.</p>
     </div>
 
     <div class="hub-prose">
       <h2>Picking a username that sticks</h2>
-      <p>Your username shows up next to every post you make. On most platforms, changing it later breaks old links and confuses followers. So spend five minutes on this now, not ten seconds.</p>
-      <p>Two kinds of generators live on this page. Platform tools (Instagram, TikTok, Discord, Reddit, Xbox, Roblox, and the rest) build handles that fit each site's character limit, allowed symbols, and community feel. A Discord tag reads different from a YouTube channel name, and the tool handles that. Style tools (aesthetic, kawaii, edgy, fantasy) skip the platform question and aim for a vibe, so they work anywhere.</p>
-      <p>Know where you are signing up? Start with the platform tool. Building one handle you want everywhere? Start with a style tool, then check your 5 biggest sites. Generate 30, keep 4, verify availability. The one you love is usually already taken, so have backups.</p>
-
-      <h3>Who these tools are for</h3>
-      <div class="use-cases">
-        <div class="use-case-card">
-          <h3>Gamers</h3>
-          <p>The Xbox, Roblox, Fortnite, and Valorant tools each know the naming rules for that platform. Want something more thematic? Try the fantasy or edgy tool instead.</p>
-        </div>
-        <div class="use-case-card">
-          <h3>Social media</h3>
-          <p>Instagram, TikTok, YouTube, Reddit, and Discord tools each stay inside their platform's rules. Aesthetic and kawaii work across all of them when mood matters more than platform fit.</p>
-        </div>
-        <div class="use-case-card">
-          <h3>Work accounts</h3>
-          <p>The plain username generator gives you neutral, work-appropriate handles. The password tools produce something that clears corporate rules without looking random.</p>
-        </div>
-        <div class="use-case-card">
-          <h3>Everyday signups</h3>
-          <p>Streaming service. Forum. Airline account. The generic username tool and any password tool handle it in ten seconds.</p>
-        </div>
-      </div>
+      <p>Remember that your username will appear after your name in every post you make on a particular site. Most sites allow you to change your username later, but it will likely break links to your previous content and could confuse followers of your profile.</p>
+      <p>The generators on this page fall into two broad categories: the generators for individual platforms (<a href="/instagram-username-generator">Instagram</a>, <a href="/tiktok-username-generator">TikTok</a>, <a href="/discord-username-generator">Discord</a>, <a href="/reddit-username-generator">Reddit</a>, <a href="/xbox-username-generator">Xbox</a> and <a href="/roblox-username-generator">Roblox</a> accounts, etc) – these passwords conform to the platform's maximum length and character set; they attempt to be 'community-appropriate'; and work as logins for that single service. You can use the style generators (e.g., <a href="/aesthetic-username-generator">aesthetic</a>, <a href="/kawaii-username-generator">kawaii</a>, <a href="/edgy-username-generator">edgy</a>, <a href="/fantasy-username-generator">fantasy</a>) to create handles for any service and generate a password appropriate to the style.</p>
+      <p>So, where are you signing up? If you're looking for a username for a single platform, use a Platform Tool (a generator for a particular service, for example: <a href="/instagram-username-generator">Instagram</a>, <a href="/tiktok-username-generator">TikTok</a>, <a href="/reddit-username-generator">Reddit</a>, <a href="/discord-username-generator">Discord</a>, <a href="/xbox-username-generator">Xbox</a>, etc.). These ensure your chosen handle fits character limits and includes any special characters or style marks used by a particular platform or community.</p>
+      <p>The Style Tool, on the other hand, generates a single username style you can use anywhere. This makes it perfect for people who need to come up with lots of different usernames. Start with a Style Tool and check 5 of your favorite sites against it. Generate 30 different usernames, keep the 4 you like most, and verify that they are available on the 5 sites you use most.</p>
     </div>
 
     <div class="faq-section">
       <h2>Frequently asked questions</h2>
       <details class="faq-item">
         <summary>How long should a password actually be?</summary>
-        <p>Twelve characters is the working baseline for most accounts. Long enough to survive a brute-force attempt, short enough to type without typos. Push to 16 or 20 for the accounts that matter: email, banking, and your password manager master. What matters more than length is not reusing the same password across sites. The 8-, 10-, and 12-character tools on this page exist because plenty of sites still cap password length, which still happens way more than it should in 2026.</p>
+        <p>Twelve characters is about the minimum length for a password to withstand brute-force attacks. Most sites still cap passwords at 8, 10, or 12 characters, but it's worth pushing for longer ones for more critical accounts like email, banking, and your password manager's master password. Remember, unique passwords for every account matter far more than long ones.</p>
       </details>
       <details class="faq-item">
         <summary>What's the difference between a password and a passphrase?</summary>
-        <p>A password is a short mixed string like <code>K7$mQx2!</code>. A passphrase is four or more real words in a row, like <em>violet ladder thunder mango</em>. Passphrases beat short passwords on entropy per keystroke, and beat them by a lot on how easy they are to remember. Use passwords for accounts your password manager fills in for you. Use passphrases for the ones you actually type from memory: phone unlock, laptop login, password manager master.</p>
+        <p>In comparison to shorter mixtures of characters and numbers like <code>K7$mQx2!</code> for a password manager account, very long passphrases have a lot of "entropy" (randomness/possible combinations) for their length. Even more so than for remembering longer passwords, very long passphrases are much easier to remember than their length would suggest. Passwords for accounts that you let your password manager fill in (e.g. e-commerce sites, esports accounts) should be very short mixtures of characters and numbers, but for very important accounts such as for your password manager master account, or for locking and unlocking a phone/laptop, or for other extremely sensitive accounts that you will have to manually type in again and again, much longer passphrases of random words (so called "passphrases") are much better.</p>
       </details>
       <details class="faq-item">
         <summary>Is it okay to reuse the same username everywhere?</summary>
-        <p>Yes. Usernames are not credentials. The same handle across every site makes you findable and builds a consistent identity. The catch is availability: popular handles are already taken on the big platforms. You may need a variant like adding your birth year, your city, or a middle initial. The username tools here try to suggest handles that stand a chance of being free across most sites.</p>
+        <p>Yes. Usernames are not passwords, so it is just as easy to use the same username across all accounts. Most social media sites display your username next to your content anyway, so it's best to use the one username for your online identity. However, popular usernames are often taken on large platforms such as Facebook and Instagram, so you will need to add a variant to the username for those sites, e.g., your birth year, your city, your middle initial, etc. The username generators on this page attempt to create usernames that are available on most websites.</p>
       </details>
       <details class="faq-item">
         <summary>What actually makes a username good?</summary>
-        <p>Easy to say out loud. Easy to type. No lowercase L next to uppercase I (they look identical in most fonts). Under 20 characters, ideally under 12. Skip trailing digits and rows of underscores unless you actually want a scavenged-from-a-lobby feel. If your first choice is taken, pick a consistent add-on you use everywhere (your city, "official", the year) rather than random numbers.</p>
+        <p>Easy to read and type out. Avoid combinations with a lowercase L and an uppercase I, as they can get confused with one another. Also avoid usernames that are too long (under 20 characters is recommended; 12 is ideal). Avoid ending a username with a string of numbers or underscores. Typically, people add to the front of an already used username rather than making completely random changes (e.g., adding your city at the front instead of changing the whole thing).</p>
       </details>
       <details class="faq-item">
         <summary>Do I actually need a different password for every site?</summary>
-        <p>Yes. The reason is credential stuffing. When any one site gets breached and password lists leak, attackers plug those email and password pairs into every other site in a loop. One reused password can turn one breach into 10 account takeovers within a day. A password manager (Bitwarden, 1Password, and Proton Pass all have free tiers) makes this painless. It generates the password, stores it, and fills it in. You only remember the master, ideally a passphrase.</p>
+        <p>Yes. This is because of credential stuffing. This is where a list of email addresses and passwords from a single breach is used to attempt to log in to other online accounts. Each reused password can lead to multiple account takeovers within a day or so. Using a password manager to generate, store, and fill in passwords for you is easy to do. Most password managers have a free tier, including Bitwarden, 1Password, and Proton Pass.</p>
       </details>
     </div>
 
@@ -838,7 +838,7 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="/scripts/tool-engine.js?v=29"></script>
+<script src="/scripts/tool-engine.js?v=28"></script>
 <script>
 (function bindSharedWordineerMenu() {
   const mega = document.getElementById('mega');
