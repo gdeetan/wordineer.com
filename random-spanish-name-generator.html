@@ -1,4 +1,4 @@
-<!-- build: 2026-08-31T01:10:46Z -->
+<!-- build: 2026-08-31T01:22:34Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -631,6 +631,11 @@
 <script src="/scripts/spanish-name-generator.js?v=1"></script>
 <script>
 if (window.initSpanishNameGenerator) window.initSpanishNameGenerator();
+document.querySelectorAll('.faq-q').forEach(function(q){
+  if (q.dataset.faqBound === '1') return;
+  q.dataset.faqBound = '1';
+  q.addEventListener('click', function(){ q.closest('.faq-item').classList.toggle('open'); });
+});
 </script>
 </body>
 </html>
