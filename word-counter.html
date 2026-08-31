@@ -1,4 +1,4 @@
-<!-- build: 2026-08-17T04:46:24Z -->
+<!-- build: 2026-08-31T04:32:09Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -195,7 +195,7 @@
   "publisher": {
     "@id": "https://wordineer.com/#organization"
   },
-  "description": "Count words, characters, sentences, paragraphs, and readability score in real time. Shows character limits for Twitter, Instagram, LinkedIn, and more."
+  "description": "Count words, characters, sentences, and paragraphs live as you type. Readability score and character limits for Twitter, Instagram, LinkedIn, TikTok, and Meta ads."
 }
 </script>
 <link rel="stylesheet" href="/styles/global.css?v=16">
@@ -658,85 +658,95 @@
   </div>
 <div class="explainer">
   <h2>What is a word counter?</h2>
-  <p>A word counter takes text you paste in and returns numbers: how many words, how many characters, how many sentences, how many paragraphs, and how long the text takes to read out loud. Writers have needed this since essays came with word limits. Now social platforms enforce caps too, so a 280-character tweet or a 40-character Meta ad headline needs a live counter to stay legal.</p>
-  <p>This one goes past the basics. It scores how easy the text is to read, times how long it takes to say out loud, and tracks limits across Twitter, Instagram, LinkedIn, TikTok, YouTube, SMS, and Meta ads. It runs in your browser, so nothing you paste ever leaves your device.</p>
+  <p>A word counter is a simple online tool that helps you avoid exceeding word or character limits. You paste in text, and it returns to you counts of words, characters, sentences, and paragraphs, as well as an estimate of how long it will take to read. Writers have used word counters since the days of high-word-count school essays. The same limits on word length now apply to most online communication, and so a word counter for 280-character Twitter messages or a 40-character Meta ad headline is useful for keeping within legal limits.</p>
+  <p>This advanced Word Counter goes beyond simple word and character counting. It will grade the readability of your copy, estimate how long it will take to read, and specify limits for all major social media platforms, including Twitter, Instagram, LinkedIn, TikTok, YouTube, SMS, and Meta ads. The counter runs in your browser, so everything is deleted from the computer you used to enter it.</p>
 
   <h2>What this tool measures</h2>
-  <p>Here is what each number tells you.</p>
-  <p><strong>Words.</strong> Anything separated by whitespace counts as one word. Same rule Microsoft Word and Google Docs use. "Well-known" is one word. "Word counter" is two. Numbers count, so "2026" is one word.</p>
-  <p><strong>Characters with spaces.</strong> Total length including every space. This is the number Twitter, SMS, and most character caps care about.</p>
-  <p><strong>Characters without spaces.</strong> Same thing minus the spaces. Translators bill by this. Some ad specs use it too.</p>
-  <p><strong>Sentences.</strong> Split on periods, exclamation marks, and question marks. If your sentences are all roughly the same length, the writing feels robotic. Mix short and long on purpose.</p>
-  <p><strong>Paragraphs.</strong> Split on blank lines. Many short paragraphs means punchy landing-page rhythm. Few long paragraphs means wall-of-text, which people scroll past.</p>
-  <p><strong>Unique words.</strong> How many distinct words appear out of the total. A low ratio means you are repeating yourself. Sometimes that is fine (technical writing repeats terms on purpose). Usually it is not.</p>
-  <p><strong>Average words per sentence.</strong> Aim for 15 to 20 for general readers. Academic writing runs longer. Blog posts usually run shorter. If yours pushes past 25, break the longest sentences in half.</p>
-  <p><strong>Estimated pages.</strong> Based on 250 words per page, double-spaced, 12pt, standard margins. Use it for planning, not for a legal claim.</p>
-  <p><strong>Reading time.</strong> 250 words per minute, the standard silent-reading pace for adults. This is the number to drop into "5-minute read" at the top of your blog post.</p>
-  <p><strong>Speaking time.</strong> 130 words per minute, the pace of a clear podcast or keynote. Any faster and listeners tune out. Useful when you are prepping a talk or a script.</p>
+  <p>Here is what each of those numbers tells you.</p>
+  <p><strong>Words.</strong> Words are any separated mass of whitespace (including spaces between words and even paragraphs). Note that even hyphenated words (e.g. "Well-" in "Well-known" or "Word-" in "Word counter" above) are considered separate words and are counted individually in much the same way as they are in Microsoft Word or Google Docs. Numbers are also considered words. Thus "2026" is a word of length 4.</p>
+  <p><strong>Characters with spaces.</strong> This figure includes every space in addition to every letter and forms the basis for calculating most character limits (including Twitter, SMS, and most Meta ads).</p>
+  <p><strong>Characters without spaces.</strong> This is similar to the total number of characters with spaces, except it doesn't include spaces. You might be surprised to learn that translators can charge per character, excluding spaces. Some of the ad specs we track also use this metric.</p>
+  <p><strong>Sentences.</strong> This measures the number of sentences you have included. A high number of sentences which are similar in length to each other can often make your work appear to be written by a robot. The best writing is that which contains a variety of very short sentences and some very long ones.</p>
+  <p><strong>Paragraphs.</strong> This counts blank lines between blocks of text. If you're writing a long page for the web, then try to use short paragraphs to create more of a rhythm. On the other hand, long paragraphs are generally something to avoid as they create large blocks of text that people don't read online.</p>
+  <p><strong>Unique words</strong> = total number of words / number of unique words. This ratio can give you an idea of how repetitive your writing is. Often such writing is found in technical writing where the same terms are used over and over again. In most cases, however, it is better to write with more variety.</p>
+  <p><strong>Average words per sentence.</strong> This measures the average length of a sentence, and for most readers, 15 to 20 words is best. Academic writing is longer than this, and blog posts are generally shorter. If your sentences are longer than 25 words, then try to cut the longest sentence in half.</p>
+  <p><strong>Estimated pages</strong> (double-spaced, 12pt, standard margins): Based on 250 words per page. Can be used as an estimate for planning purposes only.</p>
+  <p><strong>Reading time.</strong> This is calculated using the average silent reading speed for adults (250 words per minute), so you know how long your content will take to read. You can use this to add a line to the top of your blog post such as "5-minute read".</p>
+  <p><strong>Speaking time.</strong> 130 words per minute. How long would it take to read your text as a spoken lecture? Use this to better gauge your written content for planning purposes, like rehearsing a talk or script.</p>
 
   <h2>Understanding readability scores</h2>
-  <p>Readability scores guess how easy your text is to read. This tool uses the two most common ones.</p>
-  <p><strong>Flesch Reading Ease</strong> runs 0 to 100. Higher is easier. Here is what the bands mean:</p>
-  <p>90 to 100 is Very Easy, roughly 5th grade. Children's books, simple instructions. 70 to 80 is Fairly Easy, comfortable for most people. 60 to 70 is Standard, where newspapers and blog posts sit. 50 to 60 is Fairly Difficult but still fine for adult readers. Below 50 is Difficult, common in academic papers and legal writing. Below 30 is Very Difficult, and you are probably writing for specialists.</p>
-  <p><strong>Flesch-Kincaid Grade Level</strong> converts the same math into a US school grade. Grade 8 means an eighth grader can follow the text. Most bestselling novels aim for grade 6 to 8. Marketing copy usually targets grade 6 or lower. Academic work sits at grade 14 to 18. Grade level measures accessibility, not quality. Hemingway wrote at grade 4. Legal contracts hit grade 18. Which is right for you depends on who is reading.</p>
-  <p>Neither score is a rule. A high grade level might mean your readers want technical precision. A low grade level often means your writing is direct and clean.</p>
+  <p>We calculate and report two of the most commonly used Readability Scores for any given block of text.</p>
+  <p><strong>Flesch Reading Ease:</strong> The Flesch Reading Ease test scores words between 0 and 100, where higher numbers are easier to read.</p>
+  <p>The following is a list of general scoring categories:</p>
+  <p>90-100 = Very Easy to Read (5th Grade). Simple children's books, clear instructions, and easy-to-follow guidelines.</p>
+  <p>70-80 = Fairly Easy to Read (5th-6th Grade). General audiences can easily follow content written at this level.</p>
+  <p>60-70 = Standard (7th-9th Grade). Most newspapers and many blogs are written at this level.</p>
+  <p>50-60 = Fairly Difficult to Read (10th-12th Grade). While not exactly easy reading for the average adult, content written at this level is still usually easy for readers to understand.</p>
+  <p>Below 50 = Difficult to Read (12th Grade and above). More complex academic papers and legal documents are typically written at this level. Below 30 = Very Difficult to Read (College graduate and above). Very specialized content is usually written at this level.</p>
+  <p>The <strong>Flesch-Kincaid Grade Level</strong> measures the number of years of education that the average person needs in order to read your work.</p>
+  <p>Typically, bestselling books are written at a Grade Level ranging from 6th to 8th grade, while most marketing copy is written at a Grade Level below 6th grade. Much of the academic work is written at a Grade Level of 14 or above.</p>
+  <p>This score simply attempts to measure the degree of accessibility of your writing. For example, Hemingway wrote at a Grade Level of 4, whereas most legal contracts are written at a Grade Level of 18.</p>
+  <p>Remember, Readability Scores are only a guide, and a high Flesch Reading Ease score does not necessarily mean your work is good. In some cases, readers will need higher grade level work, for example, technical or highly detailed information.</p>
 
   <h2>Social media character limits</h2>
-  <p>Every platform sets its own cap. The social panel in this tool shows your live count against each one as you type.</p>
-  <p><strong>Twitter / X:</strong> 280 characters. Spaces, punctuation, and line breaks all count.</p>
-  <p><strong>Instagram captions:</strong> 2,200 characters allowed, but only the first 125 show before Instagram truncates with a "more" link. Front-load the important stuff.</p>
-  <p><strong>LinkedIn posts:</strong> 3,000 characters for standard posts. Most generous of the short-form platforms.</p>
-  <p><strong>Meta ad headlines:</strong> 40 characters. Tightest cap in paid advertising. Over-limit copy gets rejected at submission, so check here before you open Ads Manager.</p>
-  <p><strong>YouTube descriptions:</strong> 5,000 characters, but only the first 100 to 150 show in search results and above the fold. Your first two sentences carry the click-through.</p>
-  <p><strong>SMS:</strong> 160 characters per segment for standard GSM. Go over and it splits into multiple segments. Some carriers bill each one separately, so stay under 160 for SMS marketing.</p>
-  <p>The bar next to each platform turns amber at 80% and red past 100%.</p>
+  <p>Each social platform has its own character limit. See how many words you are using in real time against each platform in the social panel above.</p>
+  <p><strong>Twitter / X:</strong> 280 characters including spaces, punctuation, and line breaks.</p>
+  <p>For <strong>Instagram captions</strong>, we check for 2,200 characters total, but the first 125 characters will appear as the teaser text (before the "more" link). Often you will want to front-load the most important part of your copy.</p>
+  <p><strong>LinkedIn posts</strong> allow 3,000 characters for standard posts (by far the longest of the platforms listed).</p>
+  <p><strong>Meta ad headlines:</strong> 40 characters. A constraint of paid advertising that is tougher than it looks. This will get checked out automatically when you attempt to submit copy for ads in Ads Manager, so use this to test out your headline beforehand.</p>
+  <p><strong>YouTube descriptions</strong> are limited to 5,000 characters, but the first 100-150 characters (or 2-3 sentences) of the description determines whether or not people will click on your video based on the search results listing.</p>
+  <p>For <strong>SMS</strong>, the limit per segment is 160 characters for GSM. If you go over this, it will split into multiple segments and often be charged per segment by your carrier, so for SMS marketing it's best to stick under 160 characters.</p>
+  <p>Note the bar next to each platform, which indicates how close to the character limit you are: Amber at 80% and Red at 100%+.</p>
 
   <h2>Best practices for using word count data</h2>
-  <p>A few things worth remembering when you stare at these numbers.</p>
-  <p><strong>Write for the reader, not the number.</strong> Word count matters because length changes reader behavior. A 1,500-word article that answers the question beats a padded 2,500-word article that buries the answer. Use word count to check you have said enough, not to hit a quota.</p>
-  <p><strong>Use reading time in your intro.</strong> Adding "4-minute read" at the top of a blog post sets expectations and cuts bounce rate. Round to the nearest minute. Drop it in.</p>
-  <p><strong>Break long sentences.</strong> If your average words per sentence stays over 25, hunt for run-ons that should split in two. Long sentences work when a single idea needs the room. Long sentences everywhere just tire people out.</p>
-  <p><strong>Treat keyword frequency as a sanity check.</strong> If your main topic word shows up once in a 1,500-word article, you drifted off-topic. If it shows up 40 times, you over-optimized and the text reads badly. Roughly 1 to 2% is a fair target for the main keyword. The keyword table on this tool shows what your text is actually about, which sometimes surprises you.</p>
-  <p><strong>Check character counts before you publish.</strong> Catching that your Meta ad headline is 43 characters takes two seconds here. Catching it 20 minutes into an Ads Manager build wastes an afternoon.</p>
+  <p>These are a few things to keep in mind when viewing this report.</p>
+  <p>Word count data is only useful if you write for the reader, not for the number, so use these metrics as a guide, not a goal. While word count does affect how readers behave online, it is a useless measure for writers unless you use it to ensure that you have written enough to answer the question posed by your article.</p>
+  <p>A 1,500-word article that answers the question is far better than a 2,500-word article that fails to answer it amid all that verbiage.</p>
+  <p>Adding the reading time at the beginning of your article or post is a clever way to inform readers of the content's length and discourage unnecessary drop-offs. Round off to the nearest minute.</p>
+  <p>Longer sentences can be a problem in terms of reader fatigue. This means that an average of over 25 words per sentence requires close scrutiny. Be prepared to break up the longer sentences that contain only one idea.</p>
+  <p>On a word count level, also use the Keyword Frequency as a kind of Plausibility Check. If your headline word shows up only once in your 1500 words, then you probably wrote another article instead of this one. And if it shows up 40 times, you probably wrote sales copy that's too optimized, in the worst way. A frequency of around 1-2% for your main topic word is usually fine.</p>
+  <p>This table shows you what your real text is about. (Sometimes you are even surprised yourself.)</p>
+  <p>Check for character count limitations when you post and publicize on social media. If you publish the Meta ad headline last (and you publish from within the Ads Manager), that text will be resized to fit within 40 characters, potentially to less than half the length of your original work, within a couple of minutes.</p>
 
   <h2>How it works</h2>
-  <p>Everything runs on your device in JavaScript. When you paste text, the tool splits and counts it locally. No request goes to any server. Your text does not leave the tab. Close the tab and it is gone. No log file. No database. Nothing stored.</p>
-  <p>Readability uses the Flesch and Flesch-Kincaid formulas. Both need average sentence length and average syllables per word. Syllables are estimated by counting vowel groups with a few adjustments for silent letters. Good enough for the guidance the score is meant to give, not lab-precise.</p>
+  <p>Our word count tool runs right in your browser as JavaScript. Therefore, nothing is communicated to any server. All processing occurs locally. Your text is destroyed when you close the browser window. There are no log files or databases.</p>
+  <p>I'm using the Flesch and Flesch-Kincaid methods for readability, both of which require average sentence length and average syllables per word. I estimate syllables by counting vowel groups and then making a few adjustments for silent letters.</p>
+  <p>These scores are meant as rough guidance, so give the tool a try and see what it tells you. They're not lab-tested or definitive in any way.</p>
 </div>
 
 <div class="faq">
   <h2 class="faq-title">Frequently asked questions</h2>
   <div class="faq-item open">
     <div class="faq-q"><span class="faq-q-text">How does the word counter work?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Everything runs in your browser in JavaScript. Type or paste text, and the tool splits it on whitespace for words, counts every character for the character counts, splits on periods, exclamation marks, and question marks for sentences, and splits on blank lines for paragraphs. No button to press. No server round trip. Results update as you type.</div>
+    <div class="faq-a"><p>Everything runs in your browser in JavaScript. Type or paste text, and the tool splits it on whitespace for words, counts every character for the character counts, splits on periods, exclamation marks, and question marks for sentences, and splits on blank lines for paragraphs. No button to press. No server round trip. Results update as you type.</p></div>
   </div>
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">What counts as a word?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Any run of non-whitespace characters separated by a space, tab, or line break. Same rule Microsoft Word, Google Docs, and most schools use. "Well-known" is one word. "Word counter" is two. "2026" is one word.</div>
+    <div class="faq-a"><p>Any run of non-whitespace characters separated by a space, tab, or line break. Same rule Microsoft Word, Google Docs, and most schools use. "Well-known" is one word. "Word counter" is two. "2026" is one word.</p></div>
   </div>
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">How is reading time calculated?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Reading time uses 250 words per minute, the standard adult silent-reading pace. Speaking time uses 130 words per minute, the pace of a clear podcast or keynote. Both are averages. Fast readers finish sooner, slow readers take longer. Use them for planning, not exact prediction.</div>
+    <div class="faq-a"><p>Reading time uses 250 words per minute, the standard adult silent-reading pace. Speaking time uses 130 words per minute, the pace of a clear podcast or keynote. Both are averages. Fast readers finish sooner, slow readers take longer. Use them for planning, not exact prediction.</p></div>
   </div>
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">What is Flesch Reading Ease?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Flesch Reading Ease scores text on a 0 to 100 scale using two inputs: average sentence length and average syllables per word. Higher is easier. Scores in the 60s are Standard, fine for newspapers and web copy. 80s are Easy, right for FAQs and landing pages. Below 50 is Difficult, typical of academic and legal writing.</div>
+    <div class="faq-a"><p>Flesch Reading Ease scores text on a 0 to 100 scale using two inputs: average sentence length and average syllables per word. Higher is easier. Scores in the 60s are Standard, fine for newspapers and web copy. 80s are Easy, right for FAQs and landing pages. Below 50 is Difficult, typical of academic and legal writing.</p></div>
   </div>
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">What does grade level mean?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">The Flesch-Kincaid Grade Level maps readability to a US school grade. Grade 8 means an eighth grader can follow the text. Grade 12 is high school. Grade 16 and up is college graduate. Most bestselling novels sit between grade 6 and 8. Marketing copy usually targets grade 6 or lower. It measures accessibility, not quality. Hemingway wrote at grade 4.</div>
+    <div class="faq-a"><p>The Flesch-Kincaid Grade Level maps readability to a US school grade. Grade 8 means an eighth grader can follow the text. Grade 12 is high school. Grade 16 and up is college graduate. Most bestselling novels sit between grade 6 and 8. Marketing copy usually targets grade 6 or lower. It measures accessibility, not quality. Hemingway wrote at grade 4.</p></div>
   </div>
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">How are keywords counted?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">The tool counts word frequency across your text after stripping punctuation and filtering out around 50 common stop words like "the", "a", "and", "in", "is", and "it". The remaining words rank by count, and the top 10 show up in the table. Quick view of what your text is actually about.</div>
+    <div class="faq-a"><p>The tool counts word frequency across your text after stripping punctuation and filtering out around 50 common stop words like "the", "a", "and", "in", "is", and "it". The remaining words rank by count, and the top 10 show up in the table. Quick view of what your text is actually about.</p></div>
   </div>
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">Is my text private?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Yes, fully. Every calculation runs locally in your browser. Your text never touches Wordineer's servers or any third party. No analytics on what you paste. No log file. No database. Close the tab and it is gone.</div>
+    <div class="faq-a"><p>Yes, fully. Every calculation runs locally in your browser. Your text never touches Wordineer's servers or any third party. No analytics on what you paste. No log file. No database. Close the tab and it is gone.</p></div>
   </div>
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">Does it work on mobile?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Yes. The layout is responsive. On small screens the stat cards reflow into two columns and the social limits panel stacks vertically. Paste from any app using your device's clipboard and the counts update on paste. Works in Safari on iOS, Chrome on Android, and every other modern mobile browser.</div>
+    <div class="faq-a"><p>Yes. The layout is responsive. On small screens the stat cards reflow into two columns and the social limits panel stacks vertically. Paste from any app using your device's clipboard and the counts update on paste. Works in Safari on iOS, Chrome on Android, and every other modern mobile browser.</p></div>
   </div>
 </div>
 
@@ -784,7 +794,7 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="/scripts/tool-engine.js?v=29"></script>
+<script src="/scripts/tool-engine.js?v=28"></script>
 <script>
 (function bindSharedWordineerMenu() {
   const mega = document.getElementById('mega');
