@@ -1,4 +1,4 @@
-<!-- build: 2026-08-17T04:46:23Z -->
+<!-- build: 2026-08-31T01:10:46Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -112,27 +112,32 @@
     {
       "@type": "Question",
       "name": "Are these real Spanish names?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. The pool draws from real given names and surnames used in Spain. The tool mixes them at random, so a full name might happen to match a real person by chance. It is not an identity generator." }
+      "acceptedAnswer": { "@type": "Answer", "text": "The names are derived from a pool of real given names and surnames used in Spain. Random mixing of names from this pool may occasionally result in the same full name occurring by chance and matching a real person, but we do not attempt to generate complete identities." }
     },
     {
       "@type": "Question",
       "name": "Can I generate Spanish names with two surnames?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Pick Two-surname full name from the Name type menu. Or leave it on Full name and set Surname structure to Two surnames." }
+      "acceptedAnswer": { "@type": "Answer", "text": "The answer is yes. To create Spanish names with two surnames, select Two-surname full name from the Name type pull-down menu. Alternatively, you can create full names with two surnames by leaving Name type set to Full name and then choosing Two surnames from the Surname structure pull-down menu." }
     },
     {
       "@type": "Question",
-      "name": "What is the difference between full name and two-surname full name?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Full name may output one or two surnames depending on the Surname structure filter. Two-surname full name always gives you a first name plus two surnames, every time." }
+      "name": "How does a 'two-surname full name' differ from a 'full name'?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Full name and Two-surname full name: The first generates random names. It can include one or two surnames, depending on the filter applied to the Surname structure parameter. The second parameter always generates two surnames followed by a first name." }
     },
     {
       "@type": "Question",
-      "name": "How is this different from the random name generator?",
-      "acceptedAnswer": { "@type": "Answer", "text": "The generic name generator pulls from many origins at once. This one only uses names from Spain, adds compound first names like Juan Carlos, and follows the two-surname rule." }
+      "name": "Can I use these names for characters?",
+      "acceptedAnswer": { "@type": "Answer", "text": "These names are perfectly suitable for novels, short stories, movies, video games, or any other work in which you use Spanish names for characters. No credit is due for their use." }
+    },
+    {
+      "@type": "Question",
+      "name": "How is this different from the generic random name generator?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The generic random name generator creates names from many different origins, whereas this tool is limited to names from Spain. Additionally, this tool includes compound given names (e.g., Juan Carlos) and adheres to the two-surname rule." }
     },
     {
       "@type": "Question",
       "name": "Does this tool create fake identities?",
-      "acceptedAnswer": { "@type": "Answer", "text": "No. It only generates names. It does not create addresses, phone numbers, passwords, document numbers, or other identity details." }
+      "acceptedAnswer": { "@type": "Answer", "text": "No, it just generates names; it doesn't generate addresses, phone numbers, passwords, document numbers, etc." }
     }
   ]
 }
@@ -143,7 +148,7 @@
   "@type": "WebApplication",
   "name": "Random Spanish Name Generator",
   "url": "https://wordineer.com/random-spanish-name-generator",
-  "description": "Generate random Spanish names for characters and stories. Filter by gender, name type, style, surname structure, and starting letter. Free, fast, no sign-up.",
+  "description": "Generate random Spanish names for characters, stories, and worldbuilding. Filter by gender, name type, style, surname structure, and starting letter. Free, fast, and no sign-up.",
   "applicationCategory": "UtilityApplication",
   "operatingSystem": "Web",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
@@ -180,7 +185,7 @@
   "publisher": {
     "@id": "https://wordineer.com/#organization"
   },
-  "description": "Spanish first names, surnames, and full names for characters, stories, and worldbuilding. Filter by gender, name type, style, and surname structure."
+  "description": "Get Spanish first names, surnames, and full names (including two-surname format) for characters and stories. Filter by gender, style, and starting letter."
 }
 </script>
 <link rel="stylesheet" href="/styles/global.css?v=16">
@@ -493,52 +498,46 @@
     </div>
   </div>
 <div class="explainer">
-  <h2>What this tool does</h2>
-  <p>It picks random names from a Spain-only pool: given names like María, Javier, and Alejandro, and surnames like García, Fernández, and Ruiz. You can grab a single first name, a surname, or a full name in the Spain format (first name plus paternal surname plus maternal surname).</p>
+  <h2>What is a Random Spanish Name Generator?</h2>
+  <p>If you need a Spanish name that actually reflects how Spanish naming works, the Random Spanish Name Generator is part of Wordineer's suite of tools, featuring a specialized filter set built around the nuances of Spanish naming conventions.</p>
+  <p>Users can choose from a list of over 1,000 names and narrow it down by number of names, gender, name type, style, surname structure, and first letter.</p>
+  <p>I created this page so you can generate Spanish names that actually follow how Spanish naming works, not just a first and last name. Spanish names may contain two surnames, one from the paternal and maternal side, which makes them unique compared to American or Filipino names, since the child usually inherits the last name of the father in these cultures.</p>
 
-  <h2>How to use it</h2>
-  <p>Set the number of names you want (up to 50). Pick a Name type: First name, Last name, Full name, Compound first name (for combinations like Juan Carlos), or Two-surname full name. Filter by gender, style, or starting letter if you want. Hit Generate, or press Space to reroll.</p>
-  <p>The heart icon saves a name to the panel at the bottom. Copy all grabs the visible list. Turn off Show meanings if you only want the names on screen.</p>
+  <h2>How Do Spanish Names Work?</h2>
+  <p>In Spanish culture, the first name is usually followed by two surnames. The first comes from the father's side, and the second from the mother's side. For example, for Filipinos, Martina Arias Iglesias means her middle name is Arias (her mother's maiden name), and her surname is Iglesias, but in Spanish culture her surname is Arias Iglesias. Arias comes from her mother, and Iglesias from her father.</p>
 
-  <h2>How Spanish names work</h2>
-  <p>In Spain, a full name has a first name followed by two surnames. The first surname comes from the father, the second from the mother. So Ana Martínez López is Ana, daughter of a Martínez father and a López mother. Both surnames stay with her for life. She does not drop one at marriage.</p>
-  <p>Compound first names are common too. Think María José, José Luis, Juan Antonio. They read as one name, not a first name plus a middle name.</p>
-
-  <h2>Why offer a two-surname option</h2>
-  <p>A generic name tool usually stops at first name plus one last name. That works for English names. It misses how Spain actually does it. If your character is Spanish, giving her one surname reads wrong to any reader who knows the culture. The Two-surname full name option handles this in one click.</p>
-
-  <h2>When to reach for a Spain-focused generator</h2>
-  <p>Use this page when the character, story, or setting is Spanish. For anything else, the broader <a href="/random-name-generator">random name generator</a> covers more origins. This one gives you accent marks in the right places (José, Núñez, Peña), compound first names, and surname pairings that sound plausible together.</p>
-
-  <h2>What writers do with it</h2>
-  <p>Novelists cast characters. Screenwriters name background roles. Tabletop GMs stock a Madrid campaign with NPCs before session. Teachers spin up example names for a Spanish class roster. The meaning line is useful when a name should carry weight, like naming a warrior character something that means "defender."</p>
+  <h2>How to Use it?</h2>
+  <p>To get the most out of this generator, make use of the filters. Users can choose between 1 and 50 names, with Male, Female, or Gender-Neutral options.</p>
+  <p>Choose between a compound first name (basically two first names), a single first name or last name, a compound last name (basically combines the surnames of the father and mother), or a two-surname full name.</p>
+  <p>Another filter lets you choose from five preset styles: classic, modern, traditional, saint-inspired, and nature-inspired, depending on your preference.</p>
+  <p>These filters cover the most common use cases, but if something is missing or you have suggestions, feel free to email me at garrick @ wordinner.com. Email me at garrick @ wordinner.com with these suggestions.</p>
 </div>
 
 <div class="faq">
-  <h2 class="faq-title">Frequently asked questions</h2>
+  <h2 class="faq-title">Frequently Asked Questions</h2>
   <div class="faq-item open">
     <div class="faq-q"><span class="faq-q-text">Are these real Spanish names?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Yes. The pool draws from real given names and surnames used in Spain. The tool mixes them at random, so a full name might happen to match a real person by chance. It is not an identity generator.</div>
+    <div class="faq-a"><p>The names are derived from a pool of real given names and surnames used in Spain. Random mixing of names from this pool may occasionally result in the same full name occurring by chance and matching a real person, but we do not attempt to generate complete identities.</p></div>
   </div>
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">Can I generate Spanish names with two surnames?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Yes. Pick Two-surname full name from the Name type menu. Or leave it on Full name and set Surname structure to Two surnames.</div>
+    <div class="faq-a"><p>The answer is yes. To create Spanish names with two surnames, select Two-surname full name from the Name type pull-down menu. Alternatively, you can create full names with two surnames by leaving Name type set to Full name and then choosing Two surnames from the Surname structure pull-down menu.</p></div>
   </div>
   <div class="faq-item">
-    <div class="faq-q"><span class="faq-q-text">What is the difference between full name and two-surname full name?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Full name may return one or two surnames depending on the Surname structure filter. Two-surname full name always gives you a first name plus two surnames, every time.</div>
+    <div class="faq-q"><span class="faq-q-text">How does a &lsquo;two-surname full name&rsquo; differ from a &ldquo;full name&rdquo;?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Full name and Two-surname full name: The first generates random names. It can include one or two surnames, depending on the filter applied to the Surname structure parameter. The second parameter always generates two surnames followed by a first name.</p></div>
   </div>
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">Can I use these names for characters?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Yes. Use them for novels, short stories, screenplays, RPG characters, or any project where a Spanish name fits better than a random one. No attribution needed.</div>
+    <div class="faq-a"><p>These names are perfectly suitable for novels, short stories, movies, video games, or any other work in which you use Spanish names for characters. No credit is due for their use.</p></div>
   </div>
   <div class="faq-item">
-    <div class="faq-q"><span class="faq-q-text">How is this different from the random name generator?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">The generic name generator pulls from many origins at once. This one only uses names from Spain, adds compound first names like Juan Carlos, and follows the two-surname rule.</div>
+    <div class="faq-q"><span class="faq-q-text">How is this different from the generic random name generator?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>The generic random name generator creates names from many different origins, whereas this tool is limited to names from Spain. Additionally, this tool includes compound given names (e.g., Juan Carlos) and adheres to the two-surname rule.</p></div>
   </div>
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">Does this tool create fake identities?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">No. It only generates names. It does not create addresses, phone numbers, passwords, document numbers, or other identity details.</div>
+    <div class="faq-a"><p>No, it just generates names; it doesn't generate addresses, phone numbers, passwords, document numbers, etc.</p></div>
   </div>
 </div>
 
@@ -586,7 +585,7 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="/scripts/tool-engine.js?v=29"></script>
+<script src="/scripts/tool-engine.js?v=28"></script>
 <script>
 (function bindSharedWordineerMenu() {
   const mega = document.getElementById('mega');
