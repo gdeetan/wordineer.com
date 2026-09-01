@@ -754,5 +754,10 @@ el.addEventListener('change', () => scheduleFullDictionary(0));
 });
 }
 repairSevenLetterNav();
+if (document.readyState === 'loading') {
+document.addEventListener('DOMContentLoaded', initFaq);
+} else {
+initFaq();
+}
 return { init, render, generate, reset, copyWord, copyAll, copySaved, shareWords, toggleSave, removeSaved, showToast };
 })();
