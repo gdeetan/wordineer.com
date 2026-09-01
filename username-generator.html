@@ -1,4 +1,4 @@
-<!-- build: 2026-09-01T00:11:18Z -->
+<!-- build: 2026-09-01T00:16:17Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -942,6 +942,15 @@
     });
 
     generate();
+
+    /* FAQ accordion (local fallback; engine's initFaq guards against double-bind) */
+    document.querySelectorAll('.faq-q').forEach(function(q) {
+      if (q.dataset.faqBound === '1') return;
+      q.dataset.faqBound = '1';
+      q.addEventListener('click', function() {
+        q.closest('.faq-item').classList.toggle('open');
+      });
+    });
   });
 }());
 </script>
