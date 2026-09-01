@@ -1,4 +1,4 @@
-<!-- build: 2026-09-01T04:02:29Z -->
+<!-- build: 2026-09-01T04:51:28Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -628,6 +628,25 @@
 })();
 </script>
 
+<script>
+(function bindFaqFallback(){
+  function bind(){
+    document.querySelectorAll('.faq-q').forEach(function(q){
+      if (q.dataset.faqBound === '1') return;
+      q.dataset.faqBound = '1';
+      q.addEventListener('click', function(){
+        var item = q.closest('.faq-item');
+        if (item) item.classList.toggle('open');
+      });
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bind);
+  } else {
+    bind();
+  }
+}());
+</script>
 <script>
 (function () {
   var TEMPLATES = [
