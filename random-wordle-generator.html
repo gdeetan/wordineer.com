@@ -1,4 +1,4 @@
-<!-- build: 2026-08-17T04:46:23Z -->
+<!-- build: 2026-09-02T10:30:11Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -453,7 +453,7 @@
       <div class="ctrl">
         <div class="ctrl-row">
           <label class="ctrl-label" for="ctrl-count">Number of words</label>
-          <input type="number" id="ctrl-count" value="10" min="1" max="50" inputmode="numeric" aria-describedby="count-error">
+          <input type="number" id="ctrl-count" value="5" min="1" max="50" inputmode="numeric" aria-describedby="count-error">
           <span class="count-error" id="count-error">Enter a number from 1 to 50</span>
         </div>
 
@@ -558,41 +558,41 @@
 <div class="explainer">
 
   <h2>What is a Random Wordle Generator?</h2>
-  <p>A random Wordle generator is a tool that picks valid 5-letter English words on demand. Unlike playing Wordle itself — where the puzzle gives you a hidden word to guess — this tool works in the opposite direction: it gives you a pool of random 5-letter words that you can use as starting guesses, practice material, or inspiration before your daily puzzle. Each result comes with a definition so you can actually learn the word, not just stare at five letters.</p>
-  <p>The generator draws from a curated dataset of thousands of 5-letter English words across three difficulty levels. Easy words are everyday vocabulary. Medium words are less common but recognizable. Hard words are rare, technical, or archaic — the kind that make Wordle feel brutal when they show up as the answer. You can also filter by starting letter, which is useful when you want to explore a specific part of the alphabet or practice words that begin with a tricky letter like Q or X.</p>
-  <p>The tool runs entirely in your browser — no account, no install, no waiting. Click Generate and the results appear instantly. Click again for a fresh batch.</p>
+  <p>The Random Wordle Generator generates random 5-letter words. The Generator does the opposite of playing Wordle. Instead of playing the puzzle and trying to guess a hidden word, you can use the words generated to start playing, as practice words, or as inspiration for your daily puzzle. Instead of only being able to read the 5 letters of a word, you can also read the definition of the word.</p>
+  <p>The word pool you draw from contains thousands of different 5-letter words. These words have been organized into 3 levels of difficulty, ranging from Easiest to use as Wordle Starting Words (the so-called "Everyday Word" of 5 letters) to Hardest to use as a Wordle Starting Word (the less common "Technical Terms &amp; Long Out-of-Use Words" of 5 letters). The set of words from which you select can also be limited to words that start with a specific letter, such as the letter Q, which is especially useful as the first letter for building Vocabulary related to XWords (Words that start with the letter X).</p>
+  <p>The tool runs in the browser, and no account or installation is required. Each click of the Generate button yields results immediately. Click again to get a new list of words in no time.</p>
 
   <h2>Why Use a Random Wordle Generator?</h2>
-  <p>Most regular Wordle players develop a small repertoire of starting words — CRANE, STARE, SLATE, IRATE — and use the same two or three every single day. That works, but it creates a habit of pattern-matching to specific letter positions rather than thinking about the puzzle fresh. Rotating your starting word, even occasionally, sharpens the underlying skill: letter frequency awareness and deductive reasoning from color feedback.</p>
-  <p>This generator makes it easy to find a new starting word. Generate a batch, pick one you haven't used before, and see how differently the puzzle unfolds. You might find a word like AUDIO — only one consonant, four vowels — reveals a lot about vowel placement quickly. Or THUMP, which tests less common consonant clusters. Neither is obviously better than CRANE, but each pushes you to think differently.</p>
-  <p>There are other reasons to use it beyond Wordle itself. Teachers use 5-letter word generators for spelling activities and vocabulary exercises — five letters is short enough to be manageable and long enough to involve real spelling decisions. Writers use random word generators as creative constraints: pick a 5-letter word you've never used and work it into today's writing. Vocabulary learners set the difficulty to Hard and challenge themselves to define each word before checking. The definition is right there in the result, so the feedback loop is immediate.</p>
+  <p>Most players are stuck in a groove, playing with the same set of words every day (such as CRANE, STARE, SLATE, IRATE), matching patterns in the word rather than thinking about the puzzle in general. By occasionally choosing a random word from the generator to use as your starting word for the day's puzzle, you can hone your skills at a deep level: letter frequency, making good use of feedback from the colors, and learning to eliminate common letters faster.</p>
+  <p>Use the Wordle Random Generator to pick other starting words you haven't used before. AUDIO is a good example, since it contains four vowels and only one consonant. Its colored letters provide lots of information about how to use the vowels in your guess. THUMP is also useful in this regard, particularly in testing the less common consonant clusters such as HP, MP, and NG.</p>
+  <p>This 5-letter word generator has several other applications. Teachers use it for spelling games, word searches, and vocabulary building with 5-letter words. Writers use random word generators as writing prompts. Create a constraint for yourself by choosing a 5-letter word that you have never used before in your writing and see how you can incorporate it into your work today. Vocabulary learners can select words and then try to define them before looking up the answers.</p>
 
   <h2>How This Tool Works</h2>
-  <p>The generator filters a curated word dataset to 5-letter words, then picks randomly from whatever matches your filters. Difficulty is tagged on each word: easy words appear in everyday conversation, medium words are less frequent, and hard words are uncommon enough that most people would need to look them up. The starting-letter filter runs before random selection, so if you pick S, you'll only see 5-letter words beginning with S.</p>
-  <p>On first load, a small set of seed words renders immediately so the tool is usable before any data has been fetched. The full word list loads in the background at browser idle — this keeps the page fast without sacrificing word variety. Once loaded, you have access to thousands of words across all difficulty levels.</p>
+  <p>The random Wordle generator first filters the dataset to 5-letter words. Then, within these words, it selects a random word that also matches any of the other filters. Thus, a word that was tagged as Easy appears to be randomly chosen within the easy pool of 5-letter words. (Of course, for words tagged as Medium or Hard, the number of such words is much smaller, so it's possible that every such word will appear.) The starting-letter filter is applied before the random selection, so a filter on S, for example, would return all of the 5-letter words that begin with S.</p>
+  <p>As you first load up the Random Wordle Generator, a small set of seed words will immediately render so you can start playing with the tool straight away. After that, the full list of words loads up in the background during browser idle time, to make sure that the page remains fast and doesn't have too many words to choose from. Once it has loaded, you can choose from thousands of different words of all different difficulties.</p>
 
   <h2>How Does Wordle Work? A Quick Refresher</h2>
-  <p>Wordle gives you a hidden 5-letter word and six attempts to guess it. Each guess must be a real word. After each guess, the tiles change color: green means the letter is correct and in the right position; yellow means the letter is in the word but in the wrong position; grey means the letter is not in the word at all. You use the color feedback to narrow down possibilities with each guess.</p>
-  <p>The game originated as a once-a-day puzzle and went viral because of its social sharing format — posting your colored grid without spoiling the word. Unlimited and variant versions now exist (Quordle for four simultaneous puzzles, Octordle for eight), but all of them use the same core logic: 5-letter words, color-coded feedback, eliminate and confirm letters across guesses.</p>
-  <p>Your starting word matters more than it might seem. A weak opener — say, ZZYZX — eliminates no useful letters. A strong opener like CRANE or SLATE immediately narrows the field by testing five different common letters at once. That's where this generator helps: the more variety in your starting words, the better you understand what makes one guess more informative than another.</p>
+  <p>Wordle is played with a hidden 5-letter word, which is exactly what the generator helps you practice guessing. A player of Wordle has six attempts to guess the word. Each guess must be a real 5-letter word. After each guess, the computer displays the guess with tiles in different colors: green tiles indicate that the letter is in the hidden word and in the same position. Yellow tiles mean that the letter is used in the hidden word, but not in the position that was guessed. Gray tiles mean that the letter is not used in the hidden word. A player uses the information provided by the colors of the tiles to guess the next letter.</p>
+  <p>The original game of Wordle was a once-a-day online puzzle that spread rapidly through social media due to its ease of sharing as a colorful grid without revealing the solution. The game has since been extended to unlimited play as well as a variety of 'extended' games, such as the four-grid game of Quordle and the eight-grid game of Octordle, though all Wordle games are based around the core mechanics of 5-letter words, color feedback for guessers, and letter elimination and confirmation.</p>
+  <p>A Wordle starting word should, ideally, consist of no repeated letters, a good number of different vowels and a number of common consonants. The generator above, therefore, is very useful to find words that would make good starting words. By finding and trying out a number of different words, you can develop a strategy for good starting words. Once you have a good set of words, you can use them in turn to form a good strategy for solving Wordle puzzles.</p>
 
   <h2>Best Starting Words for Wordle</h2>
-  <p>The most effective Wordle starting words share a few properties: they contain no repeated letters, they cover multiple vowels, and they use high-frequency consonants (R, S, T, L, N). Here are some of the most commonly recommended starters and what makes each useful:</p>
+  <p>Wordle starting words should form a set of 5-letter words with no repeated letters. In addition to checking for a set of vowels, starting words made of high-frequency consonants (R, S, T, L, N) will help to solve the puzzle quickly. Below are some of the more popular Wordle starting words.</p>
   <ul>
-    <li><strong>CRANE</strong> — covers C, R, A, N, E. Two vowels, three common consonants. Arguably the most popular opener.</li>
-    <li><strong>SLATE</strong> — S, L, A, T, E. Hits the S and T which appear in a huge portion of Wordle answers.</li>
-    <li><strong>TRACE</strong> — T, R, A, C, E. Overlaps with CRANE in usefulness; strong vowel coverage.</li>
-    <li><strong>STARE</strong> — S, T, A, R, E. Covers the same high-frequency letters from a different angle.</li>
-    <li><strong>AUDIO</strong> — four vowels in one word. Useful if you want to map vowel positions immediately, accepting that consonant coverage will be weak.</li>
-    <li><strong>RAISE</strong> — R, A, I, S, E. Three vowels plus common consonants. A favorite among players who prioritise vowel elimination first.</li>
+    <li><strong>CRANE</strong> — This is one of the most commonly used starting words for Wordle, as it covers a lot of letters. The two vowels and three consonants here will eliminate a lot of possible words right off the bat.</li>
+    <li><strong>SLATE</strong> — S, L, A, T, E. S and T are two of the most common letters in the answers to Wordle puzzles.</li>
+    <li><strong>TRACE</strong> — This word has similar information value to CRANE. Its strongest point is four vowels in one word.</li>
+    <li><strong>STARE</strong> — S, T, A, R, E. Similarly, maps high-frequency letters to starting positions of a Wordle.</li>
+    <li><strong>AUDIO</strong> — four vowels in one word, worst consonants. Really good for identifying vowel positions, but pretty terrible for finding good consonants.</li>
+    <li><strong>RAISE</strong> — R, A, I, S, E. As it contains four of the five letters used in almost every word as vowels and three of the most-used consonants at the start of words, it is a very popular Wordle starter.</li>
   </ul>
-  <p>No single word is universally "best" — information value depends on the hidden word. What matters more is varying your opener over time. Use this generator to build a rotation of 8–10 starting words you feel comfortable with, and cycle through them. You'll stop guessing on autopilot and start thinking about each puzzle as its own problem.</p>
+  <p>Each word will have different information values based on the hidden word, which is why the best opener is really a list of 8-10 good starting words rather than one single answer. So, the best opener is not a single "best" starting word, but more of a list of 8-10 words that you think are good starting words and mix them up throughout the game to help stop yourself from guessing the same words over and over again.</p>
 
   <h2>Best Practices</h2>
-  <p>Generate 5 words at once and pick the one that feels right for today. The count filter defaults to 5 for this reason — a small batch gives you choice without overwhelming the screen. If you want more variety, bump the count to 10.</p>
-  <p>Use the difficulty filter to match your goal. Easy gives you Wordle-friendly common words. Hard gives you the kind of words that appear in advanced Wordle puzzles and catch players off guard. If you want to prepare for the toughest possible answers, or build vocabulary at the same time as playing, use Hard.</p>
-  <p>The starting-letter filter is useful for targeted practice. If you always struggle with words beginning with W or Y, filter to that letter and spend a session on those words specifically. Same for any letter cluster you find tricky in your guesses.</p>
-  <p>Use the tool as a warm-up, not as a cheat. The generator doesn't know today's Wordle answer — it just supplies random words. The point is to get your brain thinking about 5-letter words and letter distributions before you open the puzzle.</p>
+  <p>For everyday play, I set the count filter to 5 words (the default), but for practice sessions I like to set it to 10 words to have a much greater variety of starting words to choose from.</p>
+  <p>Note that the difficulty of the words can be set to suit your needs. In Easy mode, the generated words are those frequently encountered in daily conversation, making them suitable for typical Wordle puzzles. Medium words are less frequently used in conversation. Hard words are less common still and generally need to be looked up in a dictionary.</p>
+  <p>Using the starting-letter filter can be very useful for practicing specific letter combinations or groups. So, for example, if you find yourself consistently getting stuck with words starting with W or Y, you can select those letters and do a few practice sessions with words of that nature too.</p>
+  <p>Use this tool for a word-puzzling warm-up! I generate random words. I don't know what today's Wordle answer is. You can use this to get used to 5-letter words and their letter distribution before opening the Wordle puzzle for today.</p>
 
 </div>
 
@@ -601,27 +601,27 @@
 
   <div class="faq-item open">
     <div class="faq-q"><span class="faq-q-text">What makes a good Wordle starting word?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">A strong starting word covers high-frequency letters without repeating any of them. The letters E, T, A, R, I, O, N, S, L, and C appear in the largest share of English 5-letter words. A word like CRANE or SLATE hits five of these in one guess, giving you maximum color-feedback information on the first turn. Avoid starting words with Q, X, Z, or J — these appear rarely enough that guessing them first wastes an attempt.</div>
+    <div class="faq-a"><p>A strong starting word covers high-frequency letters without repeating any of them. The letters E, T, A, R, I, O, N, S, L, and C appear in the largest share of English 5-letter words. A word like CRANE or SLATE hits five of these in one guess, giving you maximum color-feedback information on the first turn. Avoid starting words with Q, X, Z, or J — these appear rarely enough that guessing them first wastes an attempt.</p></div>
   </div>
 
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">Can I use any 5-letter word as a Wordle guess?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">No. Wordle maintains a list of valid guesses, and not every 5-letter English word is on it. Very obscure, archaic, or technical words often aren't accepted. This generator draws from a broad curated English word dataset — most results will be valid Wordle guesses, but unusual words may be rejected by the game. If a word isn't accepted, generate another and try again.</div>
+    <div class="faq-a"><p>No. Wordle maintains a list of valid guesses, and not every 5-letter English word is on it. Very obscure, archaic, or technical words often aren't accepted. This generator draws from a broad curated English word dataset — most results will be valid Wordle guesses, but unusual words may be rejected by the game. If a word isn't accepted, generate another and try again.</p></div>
   </div>
 
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">What's the difference between easy, medium, and hard difficulty here?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Easy words are common everyday vocabulary — the kind you'd see in news articles or casual conversation. Medium words are less frequent but broadly understood. Hard words are uncommon, specialized, or archaic — words most people would need to look up. For Wordle warm-up and practice, Easy is the right setting. If you want to prepare for the toughest possible answers, or build vocabulary at the same time as playing, use Hard.</div>
+    <div class="faq-a"><p>Easy words are common everyday vocabulary — the kind you'd see in news articles or casual conversation. Medium words are less frequent but broadly understood. Hard words are uncommon, specialized, or archaic — words most people would need to look up. For Wordle warm-up and practice, Easy is the right setting. If you want to prepare for the toughest possible answers, or build vocabulary at the same time as playing, use Hard.</p></div>
   </div>
 
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">How many 5-letter words are there in English?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Tens of thousands, depending on how you count dialects, technical terms, and archaisms. The standard Wordle answer list (words that can appear as the hidden answer) has around 2,300 words. The extended valid-guess list (words you can type as a guess but that won't appear as the answer) adds several thousand more. This generator covers a broad cross-section of both lists, from everyday words to rare vocabulary.</div>
+    <div class="faq-a"><p>Tens of thousands, depending on how you count dialects, technical terms, and archaisms. The standard Wordle answer list (words that can appear as the hidden answer) has around 2,300 words. The extended valid-guess list (words you can type as a guess but that won't appear as the answer) adds several thousand more. This generator covers a broad cross-section of both lists, from everyday words to rare vocabulary.</p></div>
   </div>
 
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">What's the single best Wordle strategy beyond the opening word?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">After your opener, your second guess should cover as many unchecked common letters as possible — don't reuse letters you already have information on, whether green, yellow, or grey. Cover new ground. Experienced players use two planned openers (like CRANE + TOILS) to test 10 common letters in two guesses before making deductive moves. From guess three onward, use what you know: confirmed positions, confirmed letters in wrong positions, and eliminated letters, to narrow to the correct word.</div>
+    <div class="faq-a"><p>After your opener, your second guess should cover as many unchecked common letters as possible — don't reuse letters you already have information on, whether green, yellow, or grey. Cover new ground. Experienced players use two planned openers (like CRANE + TOILS) to test 10 common letters in two guesses before making deductive moves. From guess three onward, use what you know: confirmed positions, confirmed letters in wrong positions, and eliminated letters, to narrow to the correct word.</p></div>
   </div>
 </div>
 
@@ -669,7 +669,7 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="/scripts/tool-engine.js?v=29"></script>
+<script src="/scripts/tool-engine.js?v=30"></script>
 <script>
 (function bindSharedWordineerMenu() {
   const mega = document.getElementById('mega');
@@ -947,7 +947,7 @@
   document.getElementById('word-reset-btn').addEventListener('click', function () {
     document.getElementById('ctrl-diff').value  = 'all';
     document.getElementById('ctrl-first').value = '';
-    document.getElementById('ctrl-count').value = 10;
+    document.getElementById('ctrl-count').value = 5;
     document.getElementById('count-error').classList.remove('show');
     document.getElementById('ctrl-count').classList.remove('input-error');
     renderList();
