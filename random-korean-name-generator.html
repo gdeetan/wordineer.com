@@ -1,4 +1,4 @@
-<!-- build: 2026-08-17T04:46:23Z -->
+<!-- build: 2026-09-02T10:00:42Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -581,7 +581,7 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="/scripts/tool-engine.js?v=29"></script>
+<script src="/scripts/tool-engine.js?v=30"></script>
 <script>
 (function bindSharedWordineerMenu() {
   const mega = document.getElementById('mega');
@@ -624,6 +624,7 @@
 })();
 </script>
 
+<script src="/scripts/tool-engine.js"></script>
 <script>
 const KR_STYLE_LABELS = {
   modern: 'Modern',
@@ -656,6 +657,7 @@ const KR_SURNAME_STYLES = ['common', 'traditional', 'classic'];
 let krData = { given: [], surnames: [] };
 let krReady = false;
 let krCurrentItems = [];
+let krCurrentPairs = [];
 
 function krEsc(s) {
   return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -724,9 +726,10 @@ function krMainLetter(given, surname, type, order) {
 }
 
 function krBuildItem(given, surname, type, order) {
+  const primaryOrder = order === 'western' ? 'western' : 'korean';
   const western = given[0] + ' ' + surname[0];
   const korean = surname[0] + ' ' + given[0];
-  const display = type === 'surname' ? surname[0] : type === 'given' ? given[0] : (order === 'western' ? western : korean);
+  const display = type === 'surname' ? surname[0] : type === 'given' ? given[0] : (primaryOrder === 'western' ? western : korean);
   const hangul = type === 'surname' ? surname[1] : type === 'given' ? given[1] : surname[1] + given[1];
   const orderLine = type === 'full'
     ? (order === 'both'
@@ -788,6 +791,7 @@ function krGenerateFn(data) {
   const sg = krShuffle(givenPool);
   const ss = krShuffle(surnamePool);
   const results = [];
+  const pairs = [];
   const seen = new Set();
   let gi = 0, si = 0, guard = 0;
   while (results.length < limit && guard < limit * 30) {
@@ -795,13 +799,15 @@ function krGenerateFn(data) {
     const surname = ss[si++ % ss.length] || data.surnames[0];
     guard++;
     if (letter && krMainLetter(given, surname, type, primaryOrder).toUpperCase().charAt(0) !== letter) continue;
-    const item = krBuildItem(given, surname, type, primaryOrder);
+    const item = krBuildItem(given, surname, type, order);
     if (seen.has(item.display)) continue;
     seen.add(item.display);
     if (order === 'both' && type === 'full') item.showBoth = true;
     results.push(item);
+    pairs.push({ given: given, surname: surname });
   }
   krCurrentItems = results.slice();
+  krCurrentPairs = pairs;
   return results;
 }
 
@@ -879,6 +885,61 @@ function krRegenerateFromFilters() {
   krSyncNoResultCount();
 }
 
+function krPairMatches(pair, type, gender, style, theme, letter, order) {
+  const g = pair.given, s = pair.surname;
+  if (type !== 'surname') {
+    if (gender !== 'any') {
+      const isU = g[2] === 'u';
+      if (g[2] !== gender && !(gender !== 'u' && isU)) return false;
+    }
+    if (style !== 'any' && !(Array.isArray(g[3]) && g[3].includes(style))) return false;
+    if (theme !== 'any' && !(Array.isArray(g[4]) && g[4].includes(theme))) return false;
+  } else {
+    if (style !== 'any' && !(Array.isArray(s[2]) && s[2].includes(style))) return false;
+    if (theme !== 'any' && !(Array.isArray(s[3]) && s[3].includes(theme))) return false;
+  }
+  if (letter) {
+    let ch;
+    if (type === 'surname') ch = s[0].charAt(0);
+    else if (type === 'given') ch = g[0].charAt(0);
+    else ch = (order === 'western' ? g[0] : s[0]).charAt(0);
+    if (ch.toUpperCase() !== letter) return false;
+  }
+  return true;
+}
+
+function krApplyFilters() {
+  krSyncStyleOptions();
+  if (!krCurrentPairs.length) { krRegenerateFromFilters(); return; }
+  const type = document.getElementById('kr-type')?.value || 'full';
+  const gender = document.getElementById('kr-gender')?.value || 'any';
+  const style = document.getElementById('kr-style')?.value || 'any';
+  const theme = document.getElementById('kr-theme')?.value || 'any';
+  const letter = document.getElementById('kr-letter')?.value || '';
+  const order = document.getElementById('kr-order')?.value || 'both';
+
+  const items = [];
+  const seen = new Set();
+  krCurrentPairs.forEach(function(p) {
+    if (!krPairMatches(p, type, gender, style, theme, letter, order)) return;
+    const item = krBuildItem(p.given, p.surname, type, order);
+    if (seen.has(item.display)) return;
+    seen.add(item.display);
+    if (order === 'both' && type === 'full') item.showBoth = true;
+    items.push(item);
+  });
+
+  const display = document.getElementById('kr-count-display');
+  if (!items.length) {
+    krCurrentItems = [krNoResultsItem()];
+    if (display) display.textContent = '0 results found';
+  } else {
+    krCurrentItems = items;
+    if (display) display.textContent = items.length + ' name' + (items.length === 1 ? '' : 's');
+  }
+  krRenderCurrentItems();
+}
+
 function krSyncNoResultCount() {
   setTimeout(function() {
     const list = document.getElementById('kr-list');
@@ -932,8 +993,8 @@ document.getElementById('kr-defs')?.addEventListener('change', krRenderCurrentIt
 ['kr-type','kr-gender','kr-style','kr-theme','kr-letter','kr-order'].forEach(function(id) {
   const el = document.getElementById(id);
   if (!el) return;
-  el.addEventListener('change', krRegenerateFromFilters);
-  el.addEventListener('input', krRegenerateFromFilters);
+  el.addEventListener('change', krApplyFilters);
+  el.addEventListener('input', krApplyFilters);
 });
 document.getElementById('kr-reset-btn')?.addEventListener('click', function() {
   document.getElementById('kr-count').value = '10';
