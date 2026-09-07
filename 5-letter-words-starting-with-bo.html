@@ -426,6 +426,10 @@
       });
     });
   });
+  document.querySelectorAll('.faq-q').forEach(function(q){
+    if (q.dataset.faqBound === '1') return;
+    q.dataset.faqBound = '1';
+    q.addEventListener('click', function(){ q.closest('.faq-item').classList.toggle('open'); });
   });
 })();
 </script>
