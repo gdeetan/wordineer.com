@@ -1,4 +1,4 @@
-<!-- build: 2026-08-26T07:48:25Z -->
+<!-- build: 2026-09-07T06:36:32Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -234,7 +234,7 @@ body.is-classroom .results-col { min-height: 100vh; }
   Powered by <a href="https://wordineer.com/?utm_source=embed&utm_medium=iframe"
   target="_blank" rel="noopener">Wordineer</a>
 </p>
-<script src="/scripts/tool-engine.js?v=27"></script>
+<script src="/scripts/tool-engine.js?v=30"></script>
 <script>
 (function () {
   function send() {
@@ -476,13 +476,12 @@ body.is-classroom .results-col { min-height: 100vh; }
     });
   }
 
-  /* ── FAQ accordion ── */
-  document.querySelectorAll('.faq-item').forEach(function (item) {
-    var q = item.querySelector('.faq-q');
+  /* ── FAQ accordion (event delegation) ── */
+  document.addEventListener('click', function (e) {
+    var q = e.target.closest('.faq-q');
     if (!q) return;
-    q.addEventListener('click', function () {
-      item.classList.toggle('open');
-    });
+    var item = q.closest('.faq-item');
+    if (item) item.classList.toggle('open');
   });
 
   // Classroom mode

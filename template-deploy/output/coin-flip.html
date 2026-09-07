@@ -1,4 +1,4 @@
-<!-- build: 2026-08-26T07:48:24Z -->
+<!-- build: 2026-09-07T06:36:31Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -620,7 +620,7 @@
       <a class="mega-link" href="/spelling-bee-words">Spelling Bee Words (K–7)</a>
       <a class="mega-link" href="/sight-words-generator">Sight Words Generator</a>
       <a class="mega-link" href="/word-search-maker">Word Search Maker</a>
-      <a class="mega-link" href="/hangman">Hangman Game</a>
+      <a class="mega-link" href="/word-scramble">Word Scramble</a>
       <a class="mega-link mega-link--view-all" href="/teacher-tools">View all →</a>
     </div>
   </div>
@@ -759,52 +759,31 @@
   </div>
 </div>
 
-<div>
-  <h2 class="section-title">Frequently asked questions</h2>
-  <div class="faq-list">
-
-    <details class="faq-item">
-      <summary class="faq-q">Is the coin flip truly random?</summary>
-      <div class="faq-a">
-        <p>Yes. This tool uses <code>crypto.getRandomValues()</code>, the browser's cryptographically secure random number generator — the same API used for TLS session keys. Each flip is a completely independent 50/50 event, with no bias toward heads or tails.</p>
-      </div>
-    </details>
-
-    <details class="faq-item">
-      <summary class="faq-q">What is the probability of getting heads or tails?</summary>
-      <div class="faq-a">
-        <p>Each flip has exactly a 50% chance of landing heads and a 50% chance of landing tails. These are independent events — the previous result never influences the next one. Even after ten heads in a row, the next flip is still 50/50.</p>
-      </div>
-    </details>
-
-    <details class="faq-item">
-      <summary class="faq-q">Can I flip multiple coins at once?</summary>
-      <div class="faq-a">
-        <p>Yes. Set the "Flips" input to any number from 1 to 100. In multi-flip mode, all results appear as labelled chips immediately and the stats update in bulk — useful for probability experiments or classroom demonstrations.</p>
-      </div>
-    </details>
-
-    <details class="faq-item">
-      <summary class="faq-q">What is the gambler's fallacy?</summary>
-      <div class="faq-a">
-        <p>The gambler's fallacy is the mistaken belief that a random event is more or less likely to occur because of previous outcomes. Thinking that tails is "due" after several heads in a row is the classic example. In reality, each flip is independent and past results have zero influence on the next.</p>
-      </div>
-    </details>
-
-    <details class="faq-item">
-      <summary class="faq-q">How do I use a coin flip to make a decision?</summary>
-      <div class="faq-a">
-        <p>Assign heads to one option and tails to the other before you flip. Accept the result. Interestingly, if you feel relieved or disappointed by the outcome, that reaction often reveals what you actually wanted — making the coin flip useful beyond just the result itself.</p>
-      </div>
-    </details>
-
-    <details class="faq-item">
-      <summary class="faq-q">Can I use this to settle a bet or game?</summary>
-      <div class="faq-a">
-        <p>Yes. The tool runs entirely in the browser with no server involvement, so no one controls the result. Use it to decide who goes first in a board game, settle a friendly debate, or run a sports coin-toss equivalent.</p>
-      </div>
-    </details>
-
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">Is the coin flip truly random?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Yes. This tool uses <code>crypto.getRandomValues()</code>, the browser's cryptographically secure random number generator, the same API used for TLS session keys. Each flip is a completely independent 50/50 event, with no bias toward heads or tails.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What is the probability of getting heads or tails?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Each flip has exactly a 50% chance of landing heads and a 50% chance of landing tails. These are independent events, the previous result never influences the next one. Even after ten heads in a row, the next flip is still 50/50.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I flip multiple coins at once?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Yes. Set the "Flips" input to any number from 1 to 100. In multi-flip mode, all results appear as labelled chips immediately and the stats update in bulk, useful for probability experiments or classroom demonstrations.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What is the gambler's fallacy?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>The gambler's fallacy is the mistaken belief that a random event is more or less likely to occur because of previous outcomes. Thinking that tails is "due" after several heads in a row is the classic example. In reality, each flip is independent and past results have zero influence on the next.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">How do I use a coin flip to make a decision?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Assign heads to one option and tails to the other before you flip. Accept the result. Interestingly, if you feel relieved or disappointed by the outcome, that reaction often reveals what you actually wanted, making the coin flip useful beyond just the result itself.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I use this to settle a bet or game?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Yes. The tool runs entirely in the browser with no server involvement, so no one controls the result. Use it to decide who goes first in a board game, settle a friendly debate, or run a sports coin-toss equivalent.</p></div>
   </div>
 </div>
 
@@ -837,7 +816,7 @@
       <div><div class="footer-col-title">Numbers &amp; Random</div><a class="footer-link" href="/random-number-generator">Random Number Generator</a><a class="footer-link" href="/dice-roller">Dice Roller</a><a class="footer-link" href="/coin-flip">Flip a Coin</a><a class="footer-link" href="/random-pin-generator">Random PIN Generator</a><a class="footer-link footer-link--view-all" href="/number-tools">View all →</a></div>
       <div><div class="footer-col-title">Games &amp; fun</div><a class="footer-link" href="/coin-flip">Flip a Coin</a><a class="footer-link" href="/mad-libs">Mad Libs Generator</a><a class="footer-link" href="/dice-roller">Dice Roller</a><a class="footer-link" href="/wheel-of-names">Wheel of Names</a><a class="footer-link footer-link--view-all" href="/word-games">View all →</a></div>
       <div><div class="footer-col-title">Text Tools</div><a class="footer-link" href="/fancy-text-generator">Fancy Text Generator</a><a class="footer-link" href="/upside-down-text">Upside Down Text</a><a class="footer-link" href="/caesar-cipher">Caesar Cipher</a><a class="footer-link" href="/zalgo-text">Zalgo Text Generator</a><a class="footer-link footer-link--view-all" href="/text-tools">View all →</a></div>
-      <div><div class="footer-col-title">For Teachers</div><a class="footer-link" href="/spelling-bee-words">Spelling Bee Words (K–7)</a><a class="footer-link" href="/sight-words-generator">Sight Words Generator</a><a class="footer-link" href="/word-search-maker">Word Search Maker</a><a class="footer-link" href="/hangman">Hangman Game</a><a class="footer-link footer-link--view-all" href="/teacher-tools">View all →</a></div>
+      <div><div class="footer-col-title">For Teachers</div><a class="footer-link" href="/spelling-bee-words">Spelling Bee Words (K–7)</a><a class="footer-link" href="/sight-words-generator">Sight Words Generator</a><a class="footer-link" href="/word-search-maker">Word Search Maker</a><a class="footer-link" href="/word-scramble">Word Scramble</a><a class="footer-link footer-link--view-all" href="/teacher-tools">View all →</a></div>
     </div>
     <div class="footer-bottom">
       <div style="display:flex;align-items:center;gap:7px">
@@ -852,7 +831,7 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="/scripts/tool-engine.js?v=27"></script>
+<script src="/scripts/tool-engine.js?v=30"></script>
 <script>
 (function bindSharedWordineerMenu() {
   const mega = document.getElementById('mega');
