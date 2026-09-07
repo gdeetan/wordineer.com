@@ -1,4 +1,4 @@
-<!-- build: 2026-09-07T02:56:50Z -->
+<!-- build: 2026-09-07T03:09:34Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -752,7 +752,6 @@
     if(segBtn){const control=segBtn.closest('[data-control]').dataset.control,value=segBtn.dataset.value;if(control==='count')setCount(value);if(control==='difficulty'){state.difficulty=value;state.seen.clear();}if(control==='timer')setTimer(Number(value));if(control!=='count')setSeg(control,value);if(control!=='timer')generate();return}
     const save=e.target.closest('[data-save]');if(save){const word=save.dataset.save;if(state.saved.includes(word))state.saved=state.saved.filter(item=>item!==word);else state.saved.push(word);renderSaved();renderWords();return}
     const remove=e.target.closest('[data-remove]');if(remove){state.saved=state.saved.filter(item=>item!==remove.dataset.remove);renderSaved();renderWords();return}
-    const faq=e.target.closest('.faq-q');if(faq)faq.closest('.faq-item').classList.toggle('open');
   });
   picCountInput.addEventListener('input',e=>{const v=parseInt(e.target.value);const invalid=isNaN(v)||v<1||v>50;picCountError.style.display=invalid?'block':'none';picCountInput.style.borderColor=invalid?'#E24B4A':'';if(!invalid){state.count=v;generate()}});
   picCountInput.addEventListener('change',()=>picValidateCount());
