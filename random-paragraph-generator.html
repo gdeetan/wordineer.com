@@ -1,4 +1,4 @@
-<!-- build: 2026-08-17T04:46:23Z -->
+<!-- build: 2026-09-12T03:55:17Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -348,7 +348,7 @@
     Free · No sign-up · Instant
   </div>
   <h1>Random paragraph generator</h1>
-  <p>Generate random paragraphs instantly — filter by theme and tone, choose how many sentences per paragraph. One click, no sign-up.</p>
+  <p>Random paragraphs generator. Create paragraphs by theme and tone. Number of sentences per paragraph can be chosen. Instant creation, no sign-up required.</p>
 </div>
 <div class="tool-wrap">
   <div class="tool-card">
@@ -476,16 +476,16 @@
   </div>
 <div class="explainer">
   <h2>What is a random paragraph generator?</h2>
-  <p>A random paragraph generator produces a group of sentences on a shared theme or tone, assembled into a full block of text. Unlike a sentence generator that gives you one sentence at a time, this tool groups several sentences together — useful for writing prompts, placeholder content, UI mockups, or creative inspiration when you need more than a single line to work with. Every paragraph is assembled on demand from a dataset of original English sentences, filtered to match your chosen theme and tone.</p>
+  <p>The random paragraph generator creates groups of matching sentences (by theme and/or tone) and stitches them together into complete paragraphs. While the sentence generator creates one sentence at a time, this generator can create writing prompts, fill-in content for mockups, and even UI design concepts when you need more than one line of text to explore an idea effectively. All paragraphs are generated on the fly from a dataset of entirely original English sentences.</p>
 
-  <h2>For writers: seed a scene or break writer's block</h2>
-  <p>Staring at a blank page is rarely productive. A random paragraph gives you a starting foothold — not a finished scene, but enough of a context to push off from. Choose a theme that matches your project (Adventure for action, Mystery for suspense, Everyday Life for literary realism) and a tone that fits your voice, then generate a batch and take the paragraph that most closely resembles what you're trying to write. Extend it, subvert it, or just use it to loosen up before writing your own. Pair this tool with the <a href="/random-sentence-generator">random sentence generator</a> when you need single-line prompts instead of full blocks.</p>
+  <h2>For writers: visualize a scene or break writer's block</h2>
+  <p>Instead of staring blankly at your screen, start with a random paragraph. This will give you a good starting point or even a finished scene. Look for a theme that matches your project (Adventure for action, Mystery for suspense, and so on for Everyday Life for literary realism), and a tone that matches your writing style. Generate a bunch of these until you find one that matches well with what you're trying to write, then extend it, go in a different direction, or use it to get warmed up and start writing your own piece. You can also pair this with the <a href="/random-sentence-generator">random sentence generator</a> for single-line prompts.</p>
 
   <h2>For teachers: reading exercises and writing prompts</h2>
-  <p>Teachers can use the theme and tone filters to generate paragraphs appropriate for any lesson. Neutral everyday paragraphs work well for comprehension exercises. Dramatic or poetic ones invite discussion about tone and word choice. Because every result is different, you can generate a fresh set of practice passages for each class without repeating material. The copy-all button exports your batch in seconds.</p>
+  <p>Teachers can select a theme and then a tone, and Versum will generate paragraphs for any given lesson. Neutral, everyday writing supports reading comprehension, while more dramatic or poetic writing can lead to discussions of tone. Each use of the tool generates material different from what has been previously generated, so teachers can repeatedly generate a large number of practice passages for individual classes. The copy-all button makes it easy to copy an entire batch of newly generated material to the clipboard instantly.</p>
 
   <h2>For designers: replace lorem ipsum with real English</h2>
-  <p>Lorem ipsum is a placeholder that no longer fools anyone — it draws the eye precisely because it's unreadable. Replacing it with real English paragraphs in your mockups gives stakeholders a clearer sense of how the design handles actual content: line breaks, varying sentence lengths, punctuation density. Generate 3–5 neutral paragraphs and drop them into your layouts for a more realistic preview.</p>
+  <p>Lorem ipsum is no longer useful as a placeholder, as it draws attention to itself when it is read. By adding some real English paragraphs to your mockups of text within a design, you can see how the design will handle real content. That means line breaks between words and within words, sentence length variation and high and low punctuation density. You can get 3-5 neutral paragraphs for use in your design mockups here.</p>
 
   <!-- Affiliate P3 -->
   <div class="aff-writing">
@@ -529,15 +529,7 @@
   </div>
 </div>
 
-<div>
-  <h2 class="section-title" style="margin-bottom:14px">Who uses Wordineer</h2>
-  <div class="uc-grid">
-    <div class="uc"><div class="uc-title">Writers</div><div class="uc-body">Break writer's block with a full paragraph prompt that sets the scene and creates momentum</div></div>
-    <div class="uc"><div class="uc-title">Teachers</div><div class="uc-body">Generate varied reading passages and writing prompts for class exercises without repeating material</div></div>
-    <div class="uc"><div class="uc-title">Designers</div><div class="uc-body">Replace lorem ipsum with readable English text that shows how a layout handles real content</div></div>
-    <div class="uc"><div class="uc-title">Game Masters &amp; Creatives</div><div class="uc-body">Pull a random paragraph to set the scene or kick off a collaborative storytelling session</div></div>
-  </div>
-</div>
+
 
 
 </div>
@@ -573,7 +565,7 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="/scripts/tool-engine.js?v=29"></script>
+<script src="/scripts/tool-engine.js?v=31"></script>
 <script>
 (function bindSharedWordineerMenu() {
   const mega = document.getElementById('mega');
@@ -616,6 +608,22 @@
 })();
 </script>
 
+<script>
+(function(){
+  function bind(){
+    document.querySelectorAll('.faq-q').forEach(function(q){
+      if (q.dataset.faqBound === '1') return;
+      q.dataset.faqBound = '1';
+      q.addEventListener('click', function(){
+        var item = q.closest('.faq-item');
+        if (item) item.classList.toggle('open');
+      });
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bind);
+  else bind();
+})();
+</script>
 <script>
 const WORDINEER_PARAGRAPHS = (() => {
   const SEED = [
