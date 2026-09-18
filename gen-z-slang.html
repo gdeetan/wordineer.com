@@ -1,4 +1,4 @@
-<!-- build: 2026-09-18T09:13:43Z -->
+<!-- build: 2026-09-18T09:24:20Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -243,6 +243,8 @@
 .gz-retired-word { text-decoration:line-through; opacity:.7; }
 .gz-added     { font-size:.72rem; color:var(--text-3,#9a9a94); }
 .gz-ex        { font-size:.85rem; color:var(--text-2,#5a5a56); font-style:italic; border-left:3px solid var(--border,#e4e4e2); padding-left:.6rem; }
+.gz-origin    { font-size:.78rem; color:var(--text-3,#6b6b66); margin:.35rem 0 .1rem; line-height:1.4; }
+.gz-origin b  { color:var(--text-2,#374151); font-weight:600; }
 </style>
 </head>
 
@@ -622,6 +624,7 @@
           '<span class="gz-status ' + statusCls + '">' + he(STATUS_LABEL[e.status] || e.status) + '</span>' +
         '</div>' +
         '<p class="cw-def">' + he(e.d) + '</p>' +
+        (e.origin ? '<p class="gz-origin"><b>Origin:</b> ' + he(e.origin) + '</p>' : '') +
         (e.ex ? '<p class="gz-ex">"' + he(e.ex) + '"</p>' : '') +
         (e.added ? '<span class="gz-added">Mainstream since ' + he(GZ.formatAdded(e.added)) + '</span>' : '') +
         '<div class="cw-card-footer">' +
