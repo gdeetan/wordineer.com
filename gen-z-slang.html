@@ -1,4 +1,4 @@
-<!-- build: 2026-08-17T04:46:23Z -->
+<!-- build: 2026-09-18T07:16:28Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -538,7 +538,7 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="/scripts/tool-engine.js?v=29"></script>
+<script src="/scripts/tool-engine.js?v=31"></script>
 <script>
 (function bindSharedWordineerMenu() {
   const mega = document.getElementById('mega');
@@ -680,6 +680,11 @@
           setTimeout(function() { btn.textContent = 'Copy'; }, 1500);
         }
       });
+      document.querySelectorAll('.faq-q').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var item = btn.closest('.faq-item');
+          btn.setAttribute('aria-expanded', item.classList.toggle('open'));
+        });
       });
     },
 
