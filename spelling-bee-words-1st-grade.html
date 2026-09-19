@@ -1,4 +1,4 @@
-<!-- build: 2026-09-19T03:21:40Z -->
+<!-- build: 2026-09-19T03:52:10Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -937,15 +937,6 @@ body.is-classroom .results-col { min-height: 100vh; }
       moreToggle.textContent = isOpen ? 'Hide More Options' : 'Toggle More Options';
     });
   }
-
-  /* ── FAQ accordion ── */
-  document.querySelectorAll('.faq-item').forEach(function (item) {
-    var q = item.querySelector('.faq-q');
-    if (!q) return;
-    q.addEventListener('click', function () {
-      item.classList.toggle('open');
-    });
-  });
 
   // Classroom mode
   (function () {
