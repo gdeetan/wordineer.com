@@ -1,4 +1,4 @@
-<!-- build: 2026-09-21T07:36:49Z -->
+<!-- build: 2026-09-21T07:42:14Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -627,28 +627,19 @@
 <script src="/scripts/acronym-maker.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+  // tool-engine.js already bound a click handler to each .faq-q via initFaq().
+  // acronym-maker.js will bind its own accordion handler. The two conflict and
+  // cancel each other's toggle. Clone each .faq-q to strip the tool-engine
+  // listener before acronym-maker binds, so its accordion becomes the only one.
+  document.querySelectorAll('.faq-q').forEach(function(q){
+    var clone = q.cloneNode(true);
+    delete clone.dataset.faqBound;
+    q.parentNode.replaceChild(clone, q);
+  });
   if (window.WordineerAcronymMaker && typeof window.WordineerAcronymMaker.initAcronymMakerPage === 'function') {
     window.WordineerAcronymMaker.initAcronymMakerPage();
   }
 });
-(function(){
-  // FAQ accordion binder — uses same data-faqBound guard as tool-engine.js
-  // to avoid double-binding if initFaq has already run.
-  function bindFaq() {
-    document.querySelectorAll('.faq-q').forEach(function(q){
-      if (q.dataset.faqBound === '1') return;
-      q.dataset.faqBound = '1';
-      q.addEventListener('click', function(){
-        q.closest('.faq-item').classList.toggle('open');
-      });
-    });
-  }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', bindFaq);
-  } else {
-    bindFaq();
-  }
-})();
 </script>
 </body>
 </html>
