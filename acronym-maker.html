@@ -1,4 +1,4 @@
-<!-- build: 2026-09-21T07:34:17Z -->
+<!-- build: 2026-09-21T07:36:49Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -631,6 +631,24 @@ document.addEventListener('DOMContentLoaded', function() {
     window.WordineerAcronymMaker.initAcronymMakerPage();
   }
 });
+(function(){
+  // FAQ accordion binder — uses same data-faqBound guard as tool-engine.js
+  // to avoid double-binding if initFaq has already run.
+  function bindFaq() {
+    document.querySelectorAll('.faq-q').forEach(function(q){
+      if (q.dataset.faqBound === '1') return;
+      q.dataset.faqBound = '1';
+      q.addEventListener('click', function(){
+        q.closest('.faq-item').classList.toggle('open');
+      });
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bindFaq);
+  } else {
+    bindFaq();
+  }
+})();
 </script>
 </body>
 </html>
