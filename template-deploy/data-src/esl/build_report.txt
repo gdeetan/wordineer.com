@@ -1,50 +1,104 @@
-build_esl_levels.py report — 2026-09-28T23:08:58+00:00
+build_esl_levels.py report — 2026-09-30T00:48:21+00:00
 wordfreq version: 3.1.1
 IPA convention: genam-ər-no-dots
 Cards cap per level: 12
 
 Per-level counts (all / eligible / cards):
-  A1: all=16  eligible=16  cards=12
-  A2: all=11  eligible=11  cards=11
-  B1: all=10  eligible=10  cards=10
-  B2: all=9  eligible=9  cards=9
-  C1: all=10  eligible=10  cards=10
-  C2: all=6  eligible=6  cards=6
+  A1: all=50  eligible=50  cards=12
+  A2: all=50  eligible=50  cards=12
+  B1: all=50  eligible=50  cards=12
+  B2: all=50  eligible=50  cards=12
+  C1: all=50  eligible=50  cards=12
+  C2: all=50  eligible=50  cards=12
 
-ipa_missing: 2
-  - sycophant
+ipa_missing: 11
+  - antediluvian
+  - copacetic
+  - defenestrate
+  - lachrymose
+  - limpid
+  - mellifluous
+  - pellucid
+  - salubrious
   - solipsism
+  - soporific
+  - sycophant
 
 Excluded from cards (0):
 
-Multiple CMU pronunciations (first taken): 10
-  - hello
+Multiple CMU pronunciations (first taken): 55
   - family
-  - walk
   - good
+  - hello
+  - new
+  - read
+  - today
+  - walk
+  - camera
+  - empty
+  - forget
+  - holiday
+  - language
+  - market
+  - museum
   - practice
-  - negotiate
-  - significant
+  - remember
+  - restaurant
+  - advice
+  - average
+  - community
   - economy
+  - encourage
+  - government
+  - knowledge
+  - manage
+  - negotiate
+  - prefer
+  - progress
+  - reduce
+  - research
+  - significant
+  - acknowledge
+  - advocate
+  - deliberate
+  - diverse
+  - evaluate
+  - fundamental
+  - initiative
+  - innovative
+  - integrate
+  - precise
+  - reluctant
+  - revenue
+  - substantial
+  - apprehensive
   - articulate
   - catalyst
+  - conjecture
+  - disparate
+  - dogmatic
+  - inherent
+  - quintessential
+  - skeptical
+  - substantiate
+  - esoteric
 
 15 random IPA spot checks (seed=0):
-  mitigate → /ˈmɪtəˌɡeɪt/
-  practice → /ˈpræktəs/
-  pragmatic → /præɡˈmætɪk/
-  sycophant → (missing)
-  future → /ˈfjutʃər/
-  family → /ˈfæməli/
-  beautiful → /ˈbjutəfəl/
-  significant → /səɡˈnɪfɪkənt/
-  influence → /ˈɪnfluəns/
-  culture → /ˈkʌltʃər/
-  nuance → /ˈnuɑns/
-  weather → /ˈwɛðər/
-  negotiate → /nəˈɡoʊʃiˌeɪt/
-  healthy → /ˈhɛlθi/
   sustainable → /səˈsteɪnəbəl/
+  disparate → /ˈdɪspərɪt/
+  friend → /ˈfrɛnd/
+  manage → /ˈmænədʒ/
+  diaphanous → /daɪˈæfənɪs/
+  ubiquitous → /juˈbɪkwɪtəs/
+  catalyst → /ˈkætələst/
+  assess → /əˈsɛs/
+  substantiate → /səbˈstæntʃiˌeɪt/
+  integrate → /ˈɪntəˌɡreɪt/
+  vicissitude → /ˌvɪˈsɪsɪtud/
+  complain → /kəmˈpleɪn/
+  defenestrate → (missing)
+  future → /ˈfjutʃər/
+  responsible → /riˈspɑnsəbəl/
 
 Words dropped or retagged from the 62: 0 (decision d keeps all)
 
@@ -58,5 +112,5 @@ ACCEPTANCE TESTS
   ✓ work: expected /ˈwɜrk/, got /ˈwɜrk/
   ✓ hello: expected /həˈloʊ/, got /həˈloʊ/
 [PASS] Anchor words
-[PASS] review.csv row count: 62 data + 1 header (expected 62 data)
+[PASS] review.csv row count: 300 data + 1 header (expected 300 data)
 [PASS] meta.wordfreq_version = '3.1.1'
