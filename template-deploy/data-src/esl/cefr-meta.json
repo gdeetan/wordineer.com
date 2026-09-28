@@ -1,0 +1,22 @@
+{
+  "dataset_name": "Wordineer CEFR ESL Vocabulary",
+  "dataset_version": "1.0.0",
+  "last_verified": "2026-09-29",
+  "author": {
+    "name": "Garrick Dee",
+    "url": "https://wordineer.com/about/"
+  },
+  "license": {
+    "name": "CC BY 4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "citation": {
+    "short": "Wordineer CEFR ESL Vocabulary (v1.0.0), Garrick Dee, 2026.",
+    "long": "Wordineer CEFR ESL Vocabulary, v1.0.0. Compiled and maintained by Garrick Dee. Frequency scores derived from wordfreq (Zipf, en). Pronunciations transcribed from the CMU Pronouncing Dictionary in General American IPA. Licensed under CC BY 4.0.",
+    "hub_methodology_url": "https://wordineer.com/esl-vocabulary-cefr/#methodology"
+  },
+  "sources": [
+    { "name": "wordfreq (Zipf, en)", "version_field": "wordfreq_version" },
+    { "name": "CMU Pronouncing Dictionary (via NLTK)", "url": "http://www.speech.cs.cmu.edu/cgi-bin/cmudict" }
+  ]
+}

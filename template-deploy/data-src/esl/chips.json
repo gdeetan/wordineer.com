@@ -1,0 +1,11 @@
+{
+  "note": "Single source of truth for filter chips on ESL CEFR level pages. If a POS in the data doesn't appear here, the generator fails.",
+  "pos_chips": [
+    { "slug": "all", "label": "All", "match": null },
+    { "slug": "noun", "label": "Nouns", "match": ["noun"] },
+    { "slug": "verb", "label": "Verbs", "match": ["verb"] },
+    { "slug": "adjective", "label": "Adjectives", "match": ["adjective", "adj"] },
+    { "slug": "adverb", "label": "Adverbs", "match": ["adverb", "adv"] },
+    { "slug": "interjection", "label": "Interjections", "match": ["interjection"] }
+  ]
+}
