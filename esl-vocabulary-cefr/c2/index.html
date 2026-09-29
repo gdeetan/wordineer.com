@@ -184,6 +184,10 @@
 .esl-navpn { display: flex; justify-content: space-between; margin: 24px 0 0; font-size: 14px; }
 .esl-navpn a { color: var(--primary, #6366f1); text-decoration: none; font-weight: 600; }
 .esl-tools-link { margin: 12px 0 0; font-size: 14px; }
+
+.esl-wrap h1 { font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: clamp(28px, 4vw, 42px); letter-spacing: -0.03em; line-height: 1.1; margin: 8px 0 12px; color: var(--text, #111827); }
+.esl-wrap header { max-width: 960px; margin: 0 auto; padding: 8px 24px 0; }
+.esl-wrap .esl-intro { max-width: 960px; margin-left: auto; margin-right: auto; padding: 0 24px; }
 @media print {
   nav.nav, .mega, .esl-crumbs, .esl-chips, .esl-downloads, .esl-navpn, .esl-tools-link,
   .esl-trust, footer, .breadcrumb, .more-tools, .ad, .ad-b, .esl-jump { display: none !important; }
@@ -298,9 +302,7 @@
   </div>
 </div>
 
-<div class="esl-wrap"><nav aria-label="Breadcrumb" class="esl-crumbs">
-<a href="/">Wordineer</a> › <a href="/word-tools/">Word Tools</a> › <a href="/esl-vocabulary-cefr/">ESL Vocabulary (CEFR)</a> › C2
-</nav></div>
+<div class="breadcrumb"><div class="breadcrumb-inner"><a href="/">Wordineer</a><span class="breadcrumb-sep">›</span><a href="/word-tools/">Word Tools</a><span class="breadcrumb-sep">›</span><a href="/esl-vocabulary-cefr/">ESL Vocabulary (CEFR)</a><span class="breadcrumb-sep">›</span><span aria-current="page">C2</span></div></div>
 <div class="esl-wrap"><header>
 <h1>C2 English Vocabulary List (CEFR)</h1>
 <p class="esl-intro">This is the C2 vocabulary list from Wordineer’s CEFR ESL dataset (6 words at this level). Each word has part of speech, American English IPA, a plain-language definition, and an example sentence — see the <a href="https://wordineer.com/esl-vocabulary-cefr/#methodology">source and methodology</a>.</p>
