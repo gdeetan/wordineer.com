@@ -137,7 +137,7 @@
 
 <link rel="stylesheet" href="/styles/global.css?v=16">
 <style>
-.esl-wrap { max-width: 920px; margin: 0 auto; padding: 28px 16px 48px; }
+.esl-wrap { max-width: 960px; margin: 0 auto; padding: 24px 24px 40px; }
 .esl-crumbs { font-size: 13px; color: var(--text-3, #6b7280); margin: 0 0 12px; }
 .esl-crumbs a { color: inherit; text-decoration: none; }
 .esl-crumbs a:hover { text-decoration: underline; }
@@ -184,6 +184,10 @@
 .esl-navpn { display: flex; justify-content: space-between; margin: 24px 0 0; font-size: 14px; }
 .esl-navpn a { color: var(--primary, #6366f1); text-decoration: none; font-weight: 600; }
 .esl-tools-link { margin: 12px 0 0; font-size: 14px; }
+
+.esl-wrap h1 { font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: clamp(28px, 4vw, 42px); letter-spacing: -0.03em; line-height: 1.1; margin: 8px 0 12px; color: var(--text, #111827); }
+.esl-wrap header { padding: 0; margin: 0; }
+.esl-wrap .esl-intro { max-width: 100%; padding: 0; }
 @media print {
   nav.nav, .mega, .esl-crumbs, .esl-chips, .esl-downloads, .esl-navpn, .esl-tools-link,
   .esl-trust, footer, .breadcrumb, .more-tools, .ad, .ad-b, .esl-jump { display: none !important; }
@@ -298,9 +302,7 @@
   </div>
 </div>
 
-<div class="esl-wrap"><nav aria-label="Breadcrumb" class="esl-crumbs">
-<a href="/">Wordineer</a> › <a href="/word-tools/">Word Tools</a> › <a href="/esl-vocabulary-cefr/">ESL Vocabulary (CEFR)</a> › B1
-</nav></div>
+<div class="breadcrumb"><div class="breadcrumb-inner"><a href="/">Wordineer</a><span class="breadcrumb-sep">›</span><a href="/word-tools/">Word Tools</a><span class="breadcrumb-sep">›</span><a href="/esl-vocabulary-cefr/">ESL Vocabulary (CEFR)</a><span class="breadcrumb-sep">›</span><span aria-current="page">B1</span></div></div>
 <div class="esl-wrap"><header>
 <h1>B1 English Vocabulary List (CEFR)</h1>
 <p class="esl-intro">This is the B1 vocabulary list from Wordineer’s CEFR ESL dataset (10 words at this level). Each word has part of speech, American English IPA, a plain-language definition, and an example sentence — see the <a href="https://wordineer.com/esl-vocabulary-cefr/#methodology">source and methodology</a>.</p>
