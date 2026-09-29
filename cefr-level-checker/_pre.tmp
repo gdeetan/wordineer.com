@@ -1,0 +1,337 @@
+<!-- build: 2026-09-28T23:54:44Z -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.adsbygoogle = window.adsbygoogle || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  (function(w, d) {
+    var loaded = false;
+    var cfg = {
+      analyticsId: 'G-7DWH3EGM3Z',
+      adsClient: 'ca-pub-7200956978416233',
+      delay: 10000
+    };
+
+    function loadScript(src, attrs) {
+      var s = d.createElement('script');
+      s.async = true;
+      s.src = src;
+      if (attrs) {
+        Object.keys(attrs).forEach(function(key) {
+          s.setAttribute(key, attrs[key]);
+        });
+      }
+      d.head.appendChild(s);
+    }
+
+    function loadMarketing() {
+      if (loaded) return;
+      loaded = true;
+      gtag('js', new Date());
+      gtag('config', cfg.analyticsId);
+      loadScript('https://www.googletagmanager.com/gtag/js?id=' + cfg.analyticsId);
+      loadScript(
+        'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + cfg.adsClient,
+        { crossorigin: 'anonymous' }
+      );
+    }
+
+    function idleLoad() {
+      if ('requestIdleCallback' in w) {
+        w.requestIdleCallback(loadMarketing, { timeout: 5000 });
+      } else {
+        w.setTimeout(loadMarketing, cfg.delay);
+      }
+    }
+
+    ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function(eventName) {
+      w.addEventListener(eventName, loadMarketing, { once: true, passive: true });
+    });
+    w.addEventListener('load', function() {
+      w.setTimeout(idleLoad, cfg.delay);
+    }, { once: true });
+  })(window, document);
+</script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="XRPtSc+0VtlRm6fwBuI7iA" async></script>
+<meta name='impact-site-verification' value='32715504-1cfb-4324-bfc7-ae4cfa1591ea'>
+<link rel="preload" href="/fonts/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-sans-italic-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://wordineer.com/#website",
+      "name": "Wordineer",
+      "url": "https://wordineer.com",
+      "description": "Free online word tools for writers, students, and word game players — random word generator, name generators, word scramble, sentence generator, and more.",
+      "publisher": { "@id": "https://wordineer.com/#organization" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://wordineer.com/#organization",
+      "name": "Wordineer",
+      "url": "https://wordineer.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://wordineer.com/logo.png",
+        "width": 1254,
+        "height": 1254
+      },
+      "description": "Wordineer provides free online word tools for writers, students, and word game players."
+    }
+  ]
+}
+</script>
+<title>ESL Vocabulary by CEFR Level A1–C2 | Free Word Lists + CSV | Wordineer</title>
+<meta name="description" content="Free ESL vocabulary lists by CEFR level (A1–C2). 62 words with IPA pronunciation, definitions, and examples. Six per-level pages, CSV downloads, exam mapping to IELTS and TOEFL iBT (1–6).">
+<meta property="og:title" content="ESL Vocabulary by CEFR Level A1–C2 | Wordineer">
+<meta property="og:description" content="ESL vocabulary lists by CEFR level with IPA, definitions, examples, and CSV downloads for Anki and Quizlet.">
+<meta property="og:url" content="https://wordineer.com/esl-vocabulary-cefr">
+<meta property="og:image"       content="https://wordineer.com/images/esl-vocabulary-cefr-og.svg">
+<meta property="og:image:width"  content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card"        content="summary_large_image">
+<meta name="twitter:image"       content="https://wordineer.com/images/esl-vocabulary-cefr-og.svg">
+<link rel="canonical" href="https://wordineer.com/esl-vocabulary-cefr">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Word Tools", "item": "https://wordineer.com/word-tools" },
+    { "@type": "ListItem", "position": 3, "name": "ESL Vocabulary (CEFR)", "item": "https://wordineer.com/esl-vocabulary-cefr" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "Wordineer CEFR ESL Vocabulary",
+  "description": "English as a Second Language vocabulary tagged by CEFR level (A1–C2). Each entry has part of speech, American English IPA (transcribed from the CMU Pronouncing Dictionary), a plain-English definition, and an example sentence.",
+  "url": "https://wordineer.com/esl-vocabulary-cefr",
+  "identifier": "wordineer-cefr-esl-v1.0.0",
+  "version": "1.0.0",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "creator": { "@type": "Person", "name": "Garrick Dee", "url": "https://wordineer.com/about" },
+  "publisher": { "@type": "Organization", "name": "Wordineer", "url": "https://wordineer.com/" },
+  "distribution": [
+    { "@type": "DataDownload", "encodingFormat": "text/csv", "name": "A1 CSV", "contentUrl": "https://wordineer.com/downloads/esl-cefr-a1.csv" },
+    { "@type": "DataDownload", "encodingFormat": "text/csv", "name": "A2 CSV", "contentUrl": "https://wordineer.com/downloads/esl-cefr-a2.csv" },
+    { "@type": "DataDownload", "encodingFormat": "text/csv", "name": "B1 CSV", "contentUrl": "https://wordineer.com/downloads/esl-cefr-b1.csv" },
+    { "@type": "DataDownload", "encodingFormat": "text/csv", "name": "B2 CSV", "contentUrl": "https://wordineer.com/downloads/esl-cefr-b2.csv" },
+    { "@type": "DataDownload", "encodingFormat": "text/csv", "name": "C1 CSV", "contentUrl": "https://wordineer.com/downloads/esl-cefr-c1.csv" },
+    { "@type": "DataDownload", "encodingFormat": "text/csv", "name": "C2 CSV", "contentUrl": "https://wordineer.com/downloads/esl-cefr-c2.csv" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Which CEFR level should I study?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Pick the level one step above where reading feels easy. If B1 reading is comfortable, work on B2 vocabulary. Learning slightly above your current level builds comprehension faster than reviewing words you already know." }
+    },
+    {
+      "@type": "Question",
+      "name": "How does CEFR map to IELTS and TOEFL?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Under the TOEFL iBT 1–6 scale (in use for tests taken on or after January 21, 2026), a total score of 5 aligns with C1, 4 with B2, 3 with B1, 2 with A2, and 1 with A1. IELTS 7 aligns with C1, 6.5 with B2, and 5.5 with B1. See the exam mapping table above for exact bands and sources." }
+    },
+    {
+      "@type": "Question",
+      "name": "Where do the CEFR levels for these words come from?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Levels are read from Wordineer's cefr-lexicon dataset. Levels are not assigned by editorial judgment; if a word is not in the source dataset at a given level, it is not published at that level." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I print the lists or use them in class?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Each level page renders cleanly for printing, and every level has a CSV download. Content is available under CC BY 4.0 with attribution to Wordineer." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I import the CSV into Anki or Quizlet?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Each CSV has one row per word with columns: word, pos, level, ipa, definition, example. Both Anki and Quizlet accept comma-separated files with a header row." }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is a particular word at this level?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Level assignment comes from the CEFR lexicon source. Wordineer does not re-tag levels by judgment. Within a level, the featured cards are the highest-frequency words according to wordfreq Zipf scores; the alphabetical table shows the full level." }
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "ESL Vocabulary by CEFR Level A1–C2 | Free Word Lists + CSV",
+  "url": "https://wordineer.com/esl-vocabulary-cefr",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "publisher": {
+    "@id": "https://wordineer.com/#organization"
+  },
+  "description": "Free ESL vocabulary lists by CEFR level (A1–C2). 62 words with IPA pronunciation, definitions, and examples. Six per-level pages, CSV downloads, exam mapping to IELTS and TOEFL iBT (1–6)."
+}
+</script>
+<link rel="stylesheet" href="/styles/global.css?v=16">
+<style>
+.hub-wrap { max-width: 960px; margin: 0 auto; padding: 24px 24px 40px; }
+.hub-wrap h2, .hub-wrap h3 { font-family: 'DM Serif Display', serif; font-weight: 400; }
+.hub-intro { font-size: 16px; color: var(--text-2, #4b5563); line-height: 1.6; margin: 0 0 24px; }
+.hub-intro strong { color: var(--text-1, #111827); }
+.hub-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; margin: 0 0 32px; }
+.hub-card { border: 1px solid var(--border-1, #e5e7eb); border-radius: 12px; padding: 18px 20px; background: #fff; scroll-margin-top: 90px; }
+.hub-card h3 { margin: 0 0 4px; font-size: 22px; }
+.hub-card .lvl-desc { font-size: 14px; color: var(--text-2, #4b5563); margin: 0 0 10px; }
+.hub-card .lvl-count { font-size: 13px; color: var(--text-3, #6b7280); margin: 0 0 12px; }
+.hub-card .lvl-links { display: flex; gap: 14px; flex-wrap: wrap; font-size: 14px; }
+.hub-card .lvl-links a { color: var(--primary, #6366f1); text-decoration: none; font-weight: 600; }
+.hub-card .lvl-links a:hover { text-decoration: underline; }
+.hub-card .lvl-links .esl-pending { color: var(--text-3, #6b7280); font-weight: 500; }
+.hub-badge { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .05em;
+  padding: 3px 8px; border-radius: 999px; margin-right: 8px; vertical-align: middle; color: #fff; }
+.cefr-A1 { background: #16a34a; }
+.cefr-A2 { background: #65a30d; }
+.cefr-B1 { background: #d97706; }
+.cefr-B2 { background: #ea580c; }
+.cefr-C1 { background: #dc2626; }
+.cefr-C2 { background: #7c3aed; }
+.exam-table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 0 0 12px; }
+.exam-table th, .exam-table td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border-1, #e5e7eb); }
+.exam-table thead th { font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--text-3, #6b7280); }
+.exam-table td.verify { color: var(--text-3, #6b7280); font-style: italic; }
+.exam-sources { font-size: 12px; color: var(--text-3, #6b7280); margin: 0 0 28px; }
+.exam-sources a { color: inherit; }
+.cite-box { border: 1px solid var(--border-1, #e5e7eb); border-radius: 10px; padding: 14px 18px; margin: 24px 0; background: var(--surface-1, #f9fafb); font-size: 13px; }
+.cite-box code { display: block; padding: 6px 8px; background: #fff; border-radius: 6px; margin: 4px 0; word-break: break-word; }
+.cite-box h3 { font-family: 'DM Sans', system-ui, sans-serif !important; font-size: 13px; text-transform: uppercase; letter-spacing: .04em; color: var(--text-3, #6b7280); font-weight: 700; margin: 0 0 8px; }
+.hub-changelog { font-size: 13px; color: var(--text-2, #4b5563); margin: 12px 0 0; padding-left: 18px; }
+.methodology p { font-size: 15px; color: var(--text-2, #4b5563); line-height: 1.6; }
+.tool-link { display: inline-block; padding: 10px 16px; border: 1.5px solid var(--primary, #6366f1);
+  color: var(--primary, #6366f1); border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; }
+.tool-link:hover { background: var(--primary, #6366f1); color: #fff; }
+.licensing-pending { border: 1px dashed var(--border-2, #d1d5db); border-radius: 10px; padding: 14px 18px;
+  margin: 24px 0; background: #fffbeb; color: #92400e; font-size: 13px; }
+</style>
+</head>
+
+<body>
+<nav class="nav">
+  <a class="nav-logo" href="/">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 15 15" fill="none"><path d="M2 3.5h11M2 7.5h7.5M2 11.5h5" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </div>
+    Wordineer
+  </a>
+  <div class="nav-links">
+    <a href="/word-tools">Tools</a>
+  </div>
+  <div>
+    <button class="hamburger" type="button" aria-label="All tools" aria-controls="mega" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mega" id="mega">
+  <div class="mega-inner">
+    <div class="mega-col">
+      <div class="mega-cat">Writing &amp; Vocabulary</div>
+      <a class="mega-link" href="/">Random Word Generator</a>
+      <a class="mega-link" href="/random-sentence-generator">Random Sentence Generator</a>
+      <a class="mega-link" href="/lorem-ipsum-generator">Lorem Ipsum Generator</a>
+      <a class="mega-link" href="/word-counter">Word Counter</a>
+      <a class="mega-link mega-link--view-all" href="/word-tools">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Word Lists</div>
+      <a class="mega-link" href="/random-words-starting-with">Words Starting With (A–Z)</a>
+      <a class="mega-link" href="/words-ending-with">Words Ending With (suffixes)</a>
+      <a class="mega-link" href="/random-words-starting-with/s">Words Starting With S</a>
+      <a class="mega-link" href="/words-ending-in-ing">Words Ending in -ING</a>
+      <a class="mega-link mega-link--view-all" href="/word-lists">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Names by Origin</div>
+      <a class="mega-link" href="/random-spanish-name-generator">Spanish Name Generator</a>
+      <a class="mega-link" href="/random-italian-name-generator">Italian Name Generator</a>
+      <a class="mega-link" href="/random-japanese-name-generator">Japanese Name Generator</a>
+      <a class="mega-link" href="/random-american-name-generator">American Name Generator</a>
+      <a class="mega-link mega-link--view-all" href="/name-generators">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Other Name Generators</div>
+      <a class="mega-link" href="/character-name-generator">Character Name Generator</a>
+      <a class="mega-link" href="/fantasy-name-generator">Fantasy Name Generator</a>
+      <a class="mega-link" href="/business-name-generator">Business Name Generator</a>
+      <a class="mega-link" href="/band-name-generator">Band Name Generator</a>
+      <a class="mega-link mega-link--view-all" href="/other-generators">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Account &amp; Security</div>
+      <a class="mega-link" href="/username-generator">Username Generator</a>
+      <a class="mega-link" href="/password-generator">Password Generator</a>
+      <a class="mega-link" href="/passphrase-generator">Passphrase Generator</a>
+      <a class="mega-link" href="/random-pin-generator">Random PIN Generator</a>
+      <a class="mega-link mega-link--view-all" href="/account-tools">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Numbers &amp; Random</div>
+      <a class="mega-link" href="/random-number-generator">Random Number Generator</a>
+      <a class="mega-link" href="/dice-roller">Dice Roller</a>
+      <a class="mega-link" href="/coin-flip">Flip a Coin</a>
+      <a class="mega-link" href="/random-pin-generator">Random PIN Generator</a>
+      <a class="mega-link mega-link--view-all" href="/number-tools">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Games &amp; fun</div>
+      <a class="mega-link" href="/coin-flip">Flip a Coin</a>
+      <a class="mega-link" href="/mad-libs">Mad Libs Generator</a>
+      <a class="mega-link" href="/dice-roller">Dice Roller</a>
+      <a class="mega-link" href="/wheel-of-names">Wheel of Names</a>
+      <a class="mega-link mega-link--view-all" href="/word-games">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">Text Tools</div>
+      <a class="mega-link" href="/fancy-text-generator">Fancy Text Generator</a>
+      <a class="mega-link" href="/upside-down-text">Upside Down Text</a>
+      <a class="mega-link" href="/caesar-cipher">Caesar Cipher</a>
+      <a class="mega-link" href="/zalgo-text">Zalgo Text Generator</a>
+      <a class="mega-link mega-link--view-all" href="/text-tools">View all →</a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-cat">For Teachers</div>
+      <a class="mega-link" href="/spelling-bee-words">Spelling Bee Words (K–7)</a>
+      <a class="mega-link" href="/sight-words-generator">Sight Words Generator</a>
+      <a class="mega-link" href="/word-search-maker">Word Search Maker</a>
+      <a class="mega-link" href="/word-scramble">Word Scramble</a>
+      <a class="mega-link mega-link--view-all" href="/teacher-tools">View all →</a>
+    </div>
+  </div>
+</div>
+
