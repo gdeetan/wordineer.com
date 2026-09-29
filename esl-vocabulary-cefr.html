@@ -1,4 +1,4 @@
-<!-- build: 2026-09-28T23:54:44Z -->
+<!-- build: 2026-09-29T07:00:02Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -447,12 +447,14 @@
     </div>
   </div>
 <section class="explainer">
+<div class="hub-wrap">
 
 <h2>What is CEFR?</h2>
-<p>The Common European Framework of Reference for Languages (CEFR) is the international standard for describing language proficiency. It uses six levels: A1 and A2 (basic user), B1 and B2 (independent user), and C1 and C2 (proficient user). Most everyday-conversation goals sit at B2. Academic and professional contexts usually require C1.</p>
+<p>The Common European Framework of Reference for Languages (CEFR) is the most common way to measure language ability. It defines six levels: A1 and A2 (basic user), B1 and B2 (independent user), and C1 and C2 (proficient user). While B2 is sufficient for most goals of everyday conversation, higher levels like C1 are required for academic and professional purposes.</p>
 
 <h2>Exam mapping</h2>
 <p>CEFR level compared with IELTS bands, TOEFL iBT on the new 1–6 scale (in use for tests taken on or after January 21, 2026), and Cambridge English exams.</p>
+<p>Comparing CEFR levels and IELTS, TOEFL iBT and IELTS, and CEFR levels and Cambridge English exams (A2, B1, B2, C1, C2 levels: A1 adult exam not part of standard Cambridge Qualifications; A1 Movers is a Young Learners test).</p>
 <div style="overflow-x:auto">
 <table class="exam-table">
 <thead><tr><th>CEFR</th><th>IELTS band</th><th>TOEFL iBT total (1–6 scale)</th><th>Cambridge English exam</th></tr></thead>
@@ -467,34 +469,33 @@
 </table>
 </div>
 <p class="exam-sources">
-Sources:
-TOEFL iBT 1–6 to CEFR, and TOEFL iBT 1–6 to IELTS crosswalk (tests taken on or after January 21, 2026): <a href="https://www.ets.org/toefl/institutions/ibt/score-scale-update.html">ets.org/toefl/institutions/ibt/score-scale-update.html</a>.
-IELTS to CEFR (C1 threshold): <a href="https://ielts.org/organisations/ielts-for-organisations/compare-ielts/ielts-and-the-cefr">ielts.org/organisations/ielts-for-organisations/compare-ielts/ielts-and-the-cefr</a>.
-Cambridge English exams (CEFR level stated on each exam page):
+See: TOEFL iBT scores converted to the CEFR and to IELTS bands (for tests taken on or after January 21, 2026): <a href="https://www.ets.org/toefl/institutions/ibt/score-scale-update.html">ets.org/toefl/institutions/ibt/score-scale-update.html</a>.
+IELTS compared with the CEFR (with C1 threshold): <a href="https://ielts.org/organisations/ielts-for-organisations/compare-ielts/ielts-and-the-cefr">ielts.org/organisations/ielts-for-organisations/compare-ielts/ielts-and-the-cefr</a>.
+The CEFR levels for the following exams are stated on the relevant exam pages:
 <a href="https://www.cambridgeenglish.org/exams-and-tests/key/">A2 Key</a>,
 <a href="https://www.cambridgeenglish.org/exams-and-tests/preliminary/">B1 Preliminary</a>,
 <a href="https://www.cambridgeenglish.org/exams-and-tests/first/">B2 First</a>,
 <a href="https://www.cambridgeenglish.org/exams-and-tests/advanced/">C1 Advanced</a>,
 <a href="https://www.cambridgeenglish.org/exams-and-tests/proficiency/">C2 Proficiency</a>.
-A1 adult exam: none in the standard Cambridge English Qualifications suite; A1 Movers is a Young Learners qualification (<a href="https://www.cambridgeenglish.org/exams-and-tests/qualifications/young-learners/">source</a>).
+There is no A1 adult exam in the standard Cambridge English Qualifications suite, although there is an A1 Movers Young Learners' test (<a href="https://www.cambridgeenglish.org/exams-and-tests/qualifications/young-learners/">see Sources for these</a>).
 </p>
 
 <h2 id="methodology">Methodology</h2>
 <div class="methodology">
-<p><strong>Data sources.</strong> The word list is the Wordineer CEFR ESL Vocabulary dataset (v1.0.0), 62 headwords across A1–C2. Frequency scores use the wordfreq Python library, Zipf scale, English. Pronunciations are transcribed from the CMU Pronouncing Dictionary via NLTK.</p>
-<p><strong>How levels are assigned.</strong> Levels come from the source dataset. Wordineer does not assign or re-tag levels by editorial judgment. If a word is not in the dataset at a given level, it is not published at that level.</p>
-<p><strong>How the featured cards are chosen.</strong> Within each level, cards are the highest-frequency words by wordfreq Zipf score, up to a cap of 12 per level. Function words (articles, pronouns, auxiliaries, prepositions, conjunctions) and proper nouns are excluded from the card set. The full alphabetical table below the cards on each level page shows every word at that level.</p>
-<p><strong>IPA source and convention.</strong> Pronunciations are General American IPA, converted from ARPAbet using the CMU Pronouncing Dictionary. Convention: primary stress <code>ˈ</code>, secondary stress <code>ˌ</code>, no syllable dots, no length marks. R-colored schwa is written <code>ər</code> when unstressed and <code>ɜr</code> when stressed. Words with multiple CMU pronunciations use the first entry.</p>
-<p><strong>Definitions and examples.</strong> Written by Wordineer and reviewed by Garrick Dee. Every definition and example on this site passes through a two-column review file (draft → approved) before publication.</p>
-<p><strong>Known limits.</strong> The v1.0.0 dataset is deliberately small (62 headwords) to keep review quality high while the pipeline is proven. Some CMU entries were missing for rarer C-level headwords; those are flagged and published without IPA rather than with a guess.</p>
+<p><strong>Data sources.</strong> The vocabulary list consists of 62 headwords in English that have been CEFR-tagged by us (v1.0.0). The words have been assigned CEFR levels (A1–C2) and scored for commonness using the Wordfreq Python tool (Zipf scale). Pronunciations have been taken from the CMU Pronouncing Dictionary and use the same format as in NLTK.</p>
+<p><strong>How levels are assigned.</strong> We used the pre-made CEFR list as is, without any modifications. No words were added or moved between levels. If the word wasn't tagged at a given level, that word will not show up here.</p>
+<p><strong>Card selection within a level.</strong> The cards are the highest-frequency words in the wordfreq Zipf score within a level. All function words (e.g. articles, pronouns, auxiliary verbs, prepositions, conjunctions) and proper nouns are excluded from the cards. A full alphabet list of all words in that level is provided below the cards.</p>
+<p><strong>IPA source and convention.</strong> These were automatically converted from the corresponding ARPAbet codes in the CMU Dictionary to the standard IPA transcriptions for the accent, General American, with stress marked <code>ˈ</code> for the strongest syllable and <code>ˌ</code> for the lightest. No syllable dots. No length marks. R-colored schwa is represented as <code>ər</code> (unstressed) and <code>ɜr</code> (stressed). For words listed with multiple pronunciations in the CMU Pronouncing Dictionary, I used the first pronunciation listed.</p>
+<p><strong>Definitions and examples.</strong> These have been written and reviewed by Garrick Dee. All definitions and examples on this site go through a two-column review file (draft → approved) before they are posted on the site.</p>
+<p><strong>Limits.</strong> This data is a small, intentionally curated list of 62 headwords to ensure that very thorough review can happen for now while the rest of the pipeline gets settled. For the handful of C-level words with no CMU pronunciations for their headword, we note that and publish the resulting word without IPA rather than making it up.</p>
 </div>
 
 <h3 style="font-size:18px;margin:24px 0 8px">Licensing</h3>
 <div class="licensing">
-<p><strong>Wordineer's own content</strong> — the definitions, example sentences, IPA transcriptions (derived from the CMU Pronouncing Dictionary), page copy, and CSV layouts — is released under <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International (CC BY 4.0)</a>.</p>
-<p>Attribution string: <em>“Wordineer CEFR ESL Vocabulary, definitions and examples © 2026 Garrick Dee / Wordineer, licensed under CC BY 4.0.”</em></p>
-<p><strong>CEFR level assignments</strong> — the specific level tagged to each headword — reflect a widely-used framework and are provided for reference. If you redistribute the level data as part of a derivative dataset and the tags in your downstream copy match a specific published CEFR wordlist (for example CEFR-J or the Octanove supplement), respect that source's license terms in addition to Wordineer's CC BY 4.0.</p>
-<p><strong>CMU Pronouncing Dictionary</strong> is public domain (BSD-style, no restrictions on redistribution). No attribution required for IPA output derived from it, though we cite it in methodology for transparency.</p>
+<p>The content of Wordineer (definitions and examples as well as the page content) is published under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License (CC BY 4.0)</a>. This means you are free to use, adapt and redistribute the content for free or for commercial purposes as long as you attribute Garrick Dee / Wordineer in the appropriate place (e.g. at the end of an article).</p>
+<p>The necessary Attribution string for redistributing Wordineer CEFR ESL Vocabulary, definitions and examples is: <em>“Wordineer CEFR ESL Vocabulary, definitions and examples © 2026 Garrick Dee / Wordineer, licensed under CC BY 4.0.”</em></p>
+<p><strong>CEFR level assignments</strong> for headwords are marked with A1–C2 labels. If this level data is redistributed in derived datasets, and the tags are used consistently in downstream copies of the data, e.g. to implement a wordlist from CEFR-J or an Octanove supplement, the usual terms and conditions of that wordlist (in addition to those already imposed by this site) apply.</p>
+<p><strong>CMU Pronouncing Dictionary.</strong> The public domain dictionary for phonetic transcription is released under a BSD-style license. In other words, no rights are given or implied, and no attribution is required to Wordineer for the IPA code generated from this dictionary. If cited at all, inclusion in the Wordineer methodology would be sufficient.</p>
 </div>
 
 <div class="cite-box">
@@ -514,6 +515,7 @@ A1 adult exam: none in the standard Cambridge English Qualifications suite; A1 M
 <li><strong>2026-09-29:</strong> Split hub into six per-level pages (A1: 16, A2: 11, B1: 10, B2: 9, C1: 10, C2: 6). Added CSV downloads per level. Standardized IPA to General American (rhotic <code>ər</code> / <code>ɜr</code>, no syllable dots). Attached wordfreq Zipf scores to every headword.</li>
 </ul>
 
+</div>
 </section>
 
 <div class="faq">
