@@ -926,6 +926,12 @@ def build_page(src_path, data):
     else:
         # Full tool layout: head → nav → hero → tool → ads → grids → footer → init
         more_tools = read(os.path.join(TMPL_DIR, 'more-tools.html'))
+        if cfg.get('hide_more_tools'):
+            import re as _re
+            more_tools = _re.sub(
+                r'<!-- SECTION:more_tools -->.*?<!-- /SECTION:more_tools -->\s*',
+                '', more_tools, count=1, flags=_re.DOTALL,
+            )
         tools_key = cfg.get('more_tools_key', 'more_word_tools')
         tools_grid_html = build_tools_grid(data[tools_key], active_url)
         other_grid_html = build_other_grid(data['other_tools'])
