@@ -46,6 +46,7 @@ SITEMAP      = os.path.join(TDEPLOY_DIR, 'sitemap.xml')
 DOWNLOADS_DIR = os.path.join(DEPLOY_DIR, 'downloads')
 
 LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']
+HIGH_FREQ_TOP_N = 12  # per level: default view = the N highest-Zipf words.
 CANONICAL_BASE = 'https://wordineer.com'
 HUB_URL = f'{CANONICAL_BASE}/esl-vocabulary-cefr/'
 
@@ -266,18 +267,20 @@ def render_hero(level, all_count, approved_count, meta):
 
 
 def render_chips(chips):
-    parts = ['<div class="esl-wrap"><div class="esl-chips" role="tablist" aria-label="Filter by part of speech">']
-    for i, c in enumerate(chips['pos_chips']):
-        cls = 'esl-chip active' if c['slug'] == 'all' else 'esl-chip'
+    default_slug = 'high-freq' if any(c['slug'] == 'high-freq' for c in chips['pos_chips']) else 'all'
+    parts = ['<div class="esl-wrap"><div class="esl-chips" role="tablist" aria-label="Filter cards">']
+    for c in chips['pos_chips']:
+        active = c['slug'] == default_slug
+        cls = 'esl-chip active' if active else 'esl-chip'
         parts.append(
             f'<button type="button" class="{cls}" data-pos="{e(c["slug"])}" '
-            f'role="tab" aria-selected="{"true" if i == 0 else "false"}">{e(c["label"])}</button>'
+            f'role="tab" aria-selected="{"true" if active else "false"}">{e(c["label"])}</button>'
         )
     parts.append('</div></div>')
     return ''.join(parts)
 
 
-def render_cards(level, cards_data, chips):
+def render_cards(level, cards_data, chips, high_freq_words):
     if not cards_data:
         return ('<div class="esl-wrap"><p class="esl-intro" style="color:var(--text-3,#6b7280)">'
                 'No approved cards yet at this level. See the full table below.</p></div>')
@@ -290,8 +293,9 @@ def render_cards(level, cards_data, chips):
         example = card.get('_ex_approved') or ''
         word = card['word']
         wid = f'word-{slug_word(word)}'
+        hf_attr = ' data-highfreq="1"' if word.lower() in high_freq_words else ''
         out.append(
-            f'<article class="esl-card" id="{wid}" data-pos="{e(pslug)}">'
+            f'<article class="esl-card" id="{wid}" data-pos="{e(pslug)}"{hf_attr}>'
             f'<div class="esl-card-head"><h3 class="esl-card-word">{e(word)}</h3>'
             f'<span class="esl-badge">{e(card["level"])}</span></div>'
             f'<p class="esl-card-line">{e(pos)}{" · " if pos and ipa else ""}'
@@ -304,7 +308,7 @@ def render_cards(level, cards_data, chips):
     return ''.join(out)
 
 
-def render_full_table(level, all_data, approved_words, chips):
+def render_full_table(level, all_data, approved_words, chips, high_freq_words):
     """Alphabetical table with A-Z jump links; approved words link to their card anchor."""
     by_letter = {}
     for row in all_data:
@@ -326,12 +330,13 @@ def render_full_table(level, all_data, approved_words, chips):
             word = r['word']
             pos = r.get('pos') or ''
             pslug = pos_slug_for(pos, chips)
+            hf_attr = ' data-highfreq="1"' if word.lower() in high_freq_words else ''
             if word.lower() in approved_words:
                 anchor = f'#word-{slug_word(word)}'
                 cell = f'<a href="{anchor}">{e(word)}</a>'
             else:
                 cell = e(word)
-            out.append(f'<tr data-pos="{e(pslug)}"><td>{cell}</td><td>{e(pos)}</td></tr>')
+            out.append(f'<tr data-pos="{e(pslug)}"{hf_attr}><td>{cell}</td><td>{e(pos)}</td></tr>')
         out.append('</tbody></table>')
     out.append('</section></div>')
     return ''.join(out)
@@ -378,26 +383,34 @@ def render_faq(level, all_count, approved_count):
 
 
 def render_filter_script():
-    # No fetch(). No DOM building. Pre-rendered rows filtered by data-pos attribute.
+    # No fetch(). No DOM building. Pre-rendered rows filtered by data-pos / data-highfreq.
     return '''<script>
 (function(){
   var scope = document;
   var chips = scope.querySelectorAll('.esl-chip');
-  function apply(pos){
+  function matches(el, filter){
+    if (filter === 'all') return true;
+    if (filter === 'high-freq') return el.getAttribute('data-highfreq') === '1';
+    return el.getAttribute('data-pos') === filter;
+  }
+  function apply(filter){
     chips.forEach(function(c){
-      var on = c.getAttribute('data-pos') === pos;
+      var on = c.getAttribute('data-pos') === filter;
       c.classList.toggle('active', on);
       c.setAttribute('aria-selected', on ? 'true' : 'false');
     });
     var cards = scope.querySelectorAll('.esl-card');
     var rows  = scope.querySelectorAll('.esl-table tbody tr');
     function show(el, ok){ el.style.display = ok ? '' : 'none'; }
-    cards.forEach(function(el){ show(el, pos === 'all' || el.getAttribute('data-pos') === pos); });
-    rows.forEach(function(el){ show(el, pos === 'all' || el.getAttribute('data-pos') === pos); });
+    cards.forEach(function(el){ show(el, matches(el, filter)); });
+    rows.forEach(function(el){ show(el, matches(el, filter)); });
   }
   chips.forEach(function(c){
     c.addEventListener('click', function(){ apply(c.getAttribute('data-pos') || 'all'); });
   });
+  // Apply the default filter on load so cards render in the initial state (high-freq).
+  var initial = document.querySelector('.esl-chip.active');
+  apply(initial ? (initial.getAttribute('data-pos') || 'all') : 'all');
 })();
 </script>'''
 
@@ -428,6 +441,10 @@ def render_page(level, levels_doc, meta, chips, review, mega_html, footer_cols_h
         if m:
             cards_data.append(m)
 
+    # Top-N by Zipf frequency — powers the default "High frequency" filter.
+    by_zipf = sorted(all_data, key=lambda r: r.get('zipf', 0), reverse=True)
+    high_freq_words = {r['word'].lower() for r in by_zipf[:HIGH_FREQ_TOP_N]}
+
     head_tmpl   = read(os.path.join(TMPL_DIR, 'head.html'))
     nav_tmpl    = read(os.path.join(TMPL_DIR, 'nav.html'))
     footer_tmpl = read(os.path.join(TMPL_DIR, 'footer.html'))
@@ -448,9 +465,9 @@ def render_page(level, levels_doc, meta, chips, review, mega_html, footer_cols_h
         render_breadcrumb_html(level),
         render_hero(level, len(all_data), len(approved_words), meta),
         render_chips(chips),
-        render_cards(level, cards_data, chips),
+        render_cards(level, cards_data, chips, high_freq_words),
         render_downloads(level),
-        render_full_table(level, all_data, approved_words, chips),
+        render_full_table(level, all_data, approved_words, chips, high_freq_words),
         render_prev_next_and_related(level),
         render_faq(level, len(all_data), len(approved_words)),
         render_trust_kit(meta),
