@@ -1,4 +1,4 @@
-<!-- build: 2026-09-30T01:05:58Z -->
+<!-- build: 2026-09-30T04:00:20Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -488,7 +488,9 @@
 
 <script>
 (function(){
-  var QUESTIONS = [
+  var DISTRIBUTION = { A1: 3, A2: 3, B1: 3, B2: 3, C1: 4, C2: 4 };
+
+  var FALLBACK_QUESTIONS = [
     { level: 'A1', word: 'water', correct: 'A clear liquid that people drink', wrong: ['A hot drink made from beans', 'A soft material used to make clothes', 'A small building where people live'] },
     { level: 'A1', word: 'big',   correct: 'Large in size',                     wrong: ['Very tired or sleepy', 'Feeling cold', 'Very old'] },
     { level: 'A1', word: 'family', correct: 'A group of people related to each other', wrong: ['A group of friends who study together', 'A team of people who play sports', 'A row of houses on a street'] },
@@ -511,6 +513,53 @@
     { level: 'C2', word: 'solipsism', correct: 'The view that only one’s own mind is sure to exist', wrong: ['A love of solitary walks in nature', 'A rare medical skin condition', 'A style of unaccompanied singing'] },
   ];
 
+  var QUESTIONS = FALLBACK_QUESTIONS.slice();
+  var DATASET = null;
+  var datasetPromise = null;
+
+  function loadDataset() {
+    if (datasetPromise) return datasetPromise;
+    datasetPromise = fetch('/data/esl-cefr-vocabulary.json', { cache: 'force-cache' })
+      .then(function(r){ return r.ok ? r.json() : null; })
+      .then(function(data){
+        if (Array.isArray(data) && data.length) DATASET = data;
+        return DATASET;
+      })
+      .catch(function(){ return null; });
+    return datasetPromise;
+  }
+
+  function pickN(arr, n) {
+    var copy = arr.slice();
+    for (var i = copy.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = copy[i]; copy[i] = copy[j]; copy[j] = t;
+    }
+    return copy.slice(0, n);
+  }
+
+  function buildQuestionsFromDataset(data) {
+    var byLevel = { A1: [], A2: [], B1: [], B2: [], C1: [], C2: [] };
+    data.forEach(function(e){
+      if (byLevel[e.cefr] && e.def && e.w) byLevel[e.cefr].push(e);
+    });
+    var out = [];
+    Object.keys(DISTRIBUTION).forEach(function(lvl){
+      var pool = byLevel[lvl];
+      if (!pool || pool.length < 4) return;
+      var chosen = pickN(pool, DISTRIBUTION[lvl]);
+      chosen.forEach(function(entry){
+        var others = pool.filter(function(e){ return e.w !== entry.w && e.def !== entry.def; });
+        var distractors = pickN(others, 3).map(function(e){ return e.def; });
+        if (distractors.length === 3) {
+          out.push({ level: lvl, word: entry.w, correct: entry.def, wrong: distractors });
+        }
+      });
+    });
+    var expected = Object.keys(DISTRIBUTION).reduce(function(s,k){ return s + DISTRIBUTION[k]; }, 0);
+    return out.length === expected ? out : null;
+  }
+
   var LEVEL_NAMES = {
     A1: 'Beginner — Basic User',
     A2: 'Elementary — Basic User',
@@ -524,7 +573,20 @@
   var idx = 0;
   var perLevelCorrect = { A1:0, A2:0, B1:0, B2:0, C1:0, C2:0 };
   var perLevelTotal = { A1:0, A2:0, B1:0, B2:0, C1:0, C2:0 };
-  QUESTIONS.forEach(function(q){ perLevelTotal[q.level]++; });
+
+  function recomputePerLevelTotal() {
+    Object.keys(perLevelTotal).forEach(function(k){ perLevelTotal[k] = 0; });
+    QUESTIONS.forEach(function(q){ perLevelTotal[q.level]++; });
+  }
+  recomputePerLevelTotal();
+
+  function resample() {
+    if (DATASET) {
+      var built = buildQuestionsFromDataset(DATASET);
+      if (built) QUESTIONS = built;
+    }
+    recomputePerLevelTotal();
+  }
 
   var startEl = document.getElementById('chk-start');
   var qEl = document.getElementById('chk-question');
@@ -615,11 +677,25 @@
     startEl.hidden = false;
   }
 
-  document.getElementById('chk-start-btn').addEventListener('click', function() {
-    startEl.hidden = true;
-    qEl.hidden = false;
-    renderQuestion();
+  var startBtn = document.getElementById('chk-start-btn');
+  startBtn.addEventListener('click', function() {
+    startBtn.disabled = true;
+    var originalLabel = startBtn.textContent;
+    startBtn.textContent = 'Loading…';
+    loadDataset().then(function(){
+      resample();
+      idx = 0;
+      Object.keys(perLevelCorrect).forEach(function(k){ perLevelCorrect[k] = 0; });
+      startBtn.disabled = false;
+      startBtn.textContent = originalLabel;
+      startEl.hidden = true;
+      qEl.hidden = false;
+      renderQuestion();
+    });
   });
+
+  // Warm the cache in the background so the Start click is instant.
+  loadDataset();
 
   nextBtn.addEventListener('click', function() {
     if (idx === QUESTIONS.length - 1) {
@@ -631,6 +707,7 @@
   });
 
   document.getElementById('chk-retry-btn').addEventListener('click', function() {
+    resample();
     reset();
   });
 })();
