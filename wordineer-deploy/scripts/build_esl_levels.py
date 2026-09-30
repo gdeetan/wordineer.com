@@ -59,7 +59,7 @@ LEVELS_PATH = os.path.join(OUT_DIR, "levels.json")
 REVIEW_PATH = os.path.join(OUT_DIR, "review.csv")
 REPORT_PATH = os.path.join(OUT_DIR, "build_report.txt")
 
-CARDS_CAP = 12
+CARDS_CAP = 50
 IPA_CONVENTION = "genam-ər-no-dots"
 
 # ---------------------------------------------------------------------------
