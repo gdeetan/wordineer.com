@@ -1,4 +1,4 @@
-<!-- build: 2026-10-10T06:21:49Z -->
+<!-- build: 2026-10-10T06:32:08Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -672,13 +672,6 @@
           shareBtn.textContent = 'Copied!';
           setTimeout(function(){ shareBtn.textContent = 'Share'; }, 1500);
         }
-      });
-      document.querySelectorAll('.faq-q').forEach(function(btn){
-        btn.addEventListener('click', function(){
-          var item = btn.closest('.faq-item');
-          var open = item.classList.toggle('open');
-          btn.setAttribute('aria-expanded', open);
-        });
       });
     },
 
