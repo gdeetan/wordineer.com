@@ -1,4 +1,4 @@
-<!-- build: 2026-10-10T09:02:29Z -->
+<!-- build: 2026-10-10T09:18:11Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -175,32 +175,51 @@
 <link rel="stylesheet" href="/styles/global.css?v=16">
 <style>
 .tool-wrap { max-width:960px; margin:0 auto; padding:24px 24px 0; }
-.rs-hero-sub { color:var(--text-3,#9a9a94); margin-top:.5rem; }
-.rs-controls { display:flex; flex-wrap:wrap; gap:.75rem; align-items:center; margin-bottom:1rem; }
-.rs-search { flex:1 1 200px; padding:.55rem .85rem; border:1px solid var(--border,#e4e4e2); border-radius:8px; font-size:.95rem; font-family:inherit; background:var(--bg); color:var(--text); }
-.rs-search:focus { outline:none; border-color:var(--brand,#3C3489); }
-.rs-count { font-size:.85rem; color:var(--text-3,#9a9a94); white-space:nowrap; }
-.tw-func-groups { display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:1.5rem; }
-.act-btn { padding:.45rem 1.1rem; border:1px solid var(--border,#e4e4e2); border-radius:8px; background:var(--bg-2,#f4f4f2); color:var(--text); font-size:.875rem; font-family:inherit; cursor:pointer; transition:background .15s,border-color .15s,color .15s; }
-.act-btn:hover { background:var(--brand,#3C3489); color:#fff; border-color:var(--brand,#3C3489); }
-.tw-func-btn { padding:.35rem .85rem; border:1px solid var(--border,#e4e4e2); border-radius:20px; background:none; font-size:.85rem; font-family:inherit; cursor:pointer; transition:background .15s,border-color .15s,color .15s; }
-.tw-func-btn.active { background:var(--brand,#3C3489); color:#fff; border-color:var(--brand,#3C3489); }
-.rs-group { margin-bottom:1.75rem; }
-.rs-group-label { font-size:.85rem; font-weight:700; color:var(--text-3,#9a9a94); text-transform:uppercase; letter-spacing:.06em; margin-bottom:.6rem; }
-.rs-chips { display:flex; flex-wrap:wrap; gap:.4rem; }
-.rs-chip { padding:.3rem .7rem; background:var(--bg-2,#f4f4f2); border:1px solid var(--border,#e4e4e2); border-radius:20px; font-size:.9rem; cursor:pointer; transition:background .12s,border-color .12s,color .12s; }
-.rs-chip:hover { background:var(--brand,#3C3489); color:#fff; border-color:var(--brand,#3C3489); }
-.rs-chip.rs-hidden { display:none; }
-.rs-group.rs-group-empty { display:none; }
-.rs-no-results { color:var(--text-3,#9a9a94); padding:2rem 0; text-align:center; }
-.rs-seo-list { margin:16px 0 0; padding:0; }
-.rs-seo-list dt { font-weight:700; color:var(--text); margin-top:10px; }
-.rs-seo-list dd { margin-left:0; color:var(--text-2,#374151); font-size:.92rem; }
+.tool-card { border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg); box-shadow:var(--shadow); padding:20px; }
+.rs-hero-sub { font-size:1.05rem; color:var(--muted, var(--text-3, #6b7280)); margin-top:6px; }
+
+.tw-controls { display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-bottom:14px; }
+.tw-search { flex:1; min-width:220px; padding:9px 12px; font-size:14px; font-family:inherit; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--text); outline:none; transition:border-color .15s; }
+.tw-search:focus { border-color:var(--brand); }
+.tw-count { font-size:13px; color:var(--muted, var(--text-3, #6b7280)); white-space:nowrap; }
+.tw-copy-all { padding:8px 14px; font-size:13px; font-family:inherit; border:1px solid var(--border); border-radius:8px; background:var(--bg-2,#f4f4f2); color:var(--text); cursor:pointer; transition:background .12s,color .12s,border-color .12s; }
+.tw-copy-all:hover { background:var(--brand); color:#fff; border-color:var(--brand); }
+
+.tw-cats { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px; }
+.tw-cat-btn { padding:6px 14px; border:1px solid var(--border); border-radius:999px; background:var(--bg); color:var(--text-2, #374151); font-size:13px; font-family:inherit; cursor:pointer; transition:background .12s, color .12s, border-color .12s; }
+.tw-cat-btn:hover { background:var(--surface, var(--bg-2)); }
+.tw-cat-btn.active { background:var(--brand); color:#fff; border-color:var(--brand); }
+
+.tw-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); gap:1rem; margin-top:4px; }
+
+.tw-card { background:var(--surface, var(--bg-2, #f9fafb)); border:1px solid var(--border); border-radius:12px; padding:16px; display:flex; flex-direction:column; gap:8px; }
+.tw-word { font-size:1.35rem; font-weight:700; color:var(--text); line-height:1.2; }
+.tw-meta { display:flex; flex-wrap:wrap; align-items:center; gap:6px; }
+.tw-func-tag { font-size:11px; font-weight:600; padding:2px 8px; border-radius:999px; background:color-mix(in srgb, var(--brand) 12%, transparent); color:var(--brand); }
+.tw-def { font-size:0.92rem; color:var(--text-2, #374151); line-height:1.5; margin:0; }
+.tw-ex { font-size:0.85rem; font-style:italic; color:var(--muted, var(--text-3, #6b7280)); line-height:1.45; margin:0; padding-left:10px; border-left:3px solid var(--brand); }
+.tw-card-footer { display:flex; justify-content:flex-end; gap:6px; margin-top:auto; padding-top:8px; }
+.tw-copy-btn { font-size:12px; padding:5px 10px; border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text-2, #374151); cursor:pointer; font-family:inherit; transition:background .12s, color .12s; }
+.tw-copy-btn:hover { background:var(--brand); color:#fff; border-color:var(--brand); }
+
+.tw-no-results { grid-column:1 / -1; text-align:center; color:var(--muted, var(--text-3, #6b7280)); font-size:0.95rem; padding:32px 0; }
+
+.tw-seo-list { margin:16px 0 0; padding:0; }
+.tw-seo-list dt { font-weight:700; color:var(--text); margin-top:10px; }
+.tw-seo-list dd { margin-left:0; color:var(--text-2, #374151); font-size:0.92rem; }
+
 .explainer ul, .explainer ol { padding-left:1.5em; }
+
+@media (max-width:640px) {
+  .tw-controls { flex-direction:column; align-items:stretch; }
+  .tw-search { min-width:0; }
+  .tw-grid { grid-template-columns:1fr; }
+}
+
 @media print {
-  header, nav, .breadcrumb, .rs-controls, .tw-func-groups, footer, .ad, .more-tools, .who, .faq-section { display:none !important; }
-  .rs-chips { gap:.25rem; }
-  .rs-chip { border:1px solid #ccc; page-break-inside:avoid; }
+  header, nav, .breadcrumb, .hero, .tw-controls, .tw-cats, .tw-card-footer, footer, .ad, [class*="ad-"], .more-tools, .explainer, .faq, .who { display:none !important; }
+  .tw-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .tw-card { border:1px dashed #ccc; break-inside:avoid; }
   @page { margin:1.5cm; }
 }
 </style>
@@ -315,27 +334,26 @@
 </div>
 <div class="tool-wrap">
   <div class="tool-card">
-    <div class="rs-controls">
-      <input type="search" class="rs-search" id="tw-search" placeholder="Search transition words…" aria-label="Search transition words">
-      <span class="rs-count" id="tw-count" aria-live="polite" aria-atomic="true">Showing all words</span>
-      <button class="act-btn" id="tw-copy-all">Copy visible list</button>
+    <div class="tw-controls">
+      <input type="search" class="tw-search" id="tw-search" placeholder="Search words or definitions…" aria-label="Search transition words">
+      <span class="tw-count" id="tw-count" aria-live="polite" aria-atomic="true">Loading…</span>
+      <button class="tw-copy-all" id="tw-copy-all">Copy visible list</button>
     </div>
-    <div class="tw-func-groups" id="tw-func-btns" role="group" aria-label="Filter by function">
-      <button class="tw-func-btn active" data-func="all" aria-pressed="true">All functions</button>
-      <button class="tw-func-btn" data-func="addition" aria-pressed="false">Addition</button>
-      <button class="tw-func-btn" data-func="contrast" aria-pressed="false">Contrast</button>
-      <button class="tw-func-btn" data-func="cause" aria-pressed="false">Cause &amp; Effect</button>
-      <button class="tw-func-btn" data-func="sequence" aria-pressed="false">Sequence</button>
-      <button class="tw-func-btn" data-func="emphasis" aria-pressed="false">Emphasis</button>
-      <button class="tw-func-btn" data-func="example" aria-pressed="false">Example</button>
-      <button class="tw-func-btn" data-func="conclusion" aria-pressed="false">Conclusion</button>
+    <div class="tw-cats" id="tw-cats" role="group" aria-label="Filter by function">
+      <button class="tw-cat-btn active" data-cat="all" aria-pressed="true">All</button>
+      <button class="tw-cat-btn" data-cat="addition" aria-pressed="false">Addition</button>
+      <button class="tw-cat-btn" data-cat="contrast" aria-pressed="false">Contrast</button>
+      <button class="tw-cat-btn" data-cat="cause" aria-pressed="false">Cause &amp; Effect</button>
+      <button class="tw-cat-btn" data-cat="sequence" aria-pressed="false">Sequence</button>
+      <button class="tw-cat-btn" data-cat="emphasis" aria-pressed="false">Emphasis</button>
+      <button class="tw-cat-btn" data-cat="example" aria-pressed="false">Example</button>
+      <button class="tw-cat-btn" data-cat="conclusion" aria-pressed="false">Conclusion</button>
     </div>
-    <div id="tw-word-list"></div>
-    <p class="rs-no-results" id="tw-no-results" style="display:none">No words match your search. Try a shorter term.</p>
-    <dl class="rs-seo-list" id="tw-seo-list">
-      <dt>however</dt><dd>Introduces a contrast or exception to what was just stated</dd>
-      <dt>therefore</dt><dd>Introduces a logical conclusion from what came before</dd>
-      <dt>furthermore</dt><dd>Adds an additional point that supports the same idea</dd>
+    <div class="tw-grid" id="tw-grid"></div>
+    <dl class="tw-seo-list" id="tw-seo-list">
+      <dt>however</dt><dd>Introduces a contrast or exception to what was just stated.</dd>
+      <dt>therefore</dt><dd>Marks a logical conclusion from what came before.</dd>
+      <dt>furthermore</dt><dd>Introduces a stronger supporting point.</dd>
     </dl>
   </div>
 </div>
@@ -532,116 +550,115 @@
 </script>
 
 <script>
-(function(){
-  var FILTERS = {
-    funcs: [
-      { key: 'addition',   label: 'Addition' },
-      { key: 'contrast',   label: 'Contrast' },
-      { key: 'cause',      label: 'Cause and Effect' },
-      { key: 'sequence',   label: 'Sequence' },
-      { key: 'emphasis',   label: 'Emphasis' },
-      { key: 'example',    label: 'Example' },
-      { key: 'conclusion', label: 'Conclusion' }
-    ]
+(function () {
+  function he(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+  var FUNC_LABELS = {
+    addition:   'Addition',
+    contrast:   'Contrast',
+    cause:      'Cause & Effect',
+    sequence:   'Sequence',
+    emphasis:   'Emphasis',
+    example:    'Example',
+    conclusion: 'Conclusion'
   };
 
-  var activeFunc = 'all';
-  var chips = [];
-  var groups = [];
-  var countEl = document.getElementById('tw-count');
-  var noResults = document.getElementById('tw-no-results');
-  var wordList = document.getElementById('tw-word-list');
+  var TW = {
+    data: [],
+    activeCat: 'all',
+    activeQuery: '',
 
-  function updateCount() {
-    var n = chips.filter(function(c){ return !c.classList.contains('rs-hidden'); }).length;
-    countEl.textContent = 'Showing ' + n + ' word' + (n !== 1 ? 's' : '');
-    noResults.style.display = n === 0 ? '' : 'none';
-  }
-
-  function filterChips() {
-    var q = document.getElementById('tw-search').value.toLowerCase().trim();
-    chips.forEach(function(c){
-      var funcMatch = activeFunc === 'all' || c.dataset.func === activeFunc;
-      var wordMatch = !q || c.dataset.word.toLowerCase().indexOf(q) !== -1;
-      c.classList.toggle('rs-hidden', !(funcMatch && wordMatch));
-    });
-    groups.forEach(function(g){
-      var anyVisible = Array.from(g.querySelectorAll('.rs-chip')).some(function(c){ return !c.classList.contains('rs-hidden'); });
-      g.classList.toggle('rs-group-empty', !anyVisible);
-    });
-    updateCount();
-  }
-
-  function buildGroups(data) {
-    var byFunc = {};
-    data.forEach(function(e){ (byFunc[e.func] = byFunc[e.func] || []).push(e); });
-    wordList.innerHTML = '';
-    FILTERS.funcs.forEach(function(f){
-      var entries = byFunc[f.key] || [];
-      if (!entries.length) return;
-      var grp = document.createElement('div');
-      grp.className = 'rs-group';
-      grp.dataset.group = f.key;
-      grp.innerHTML = '<div class="rs-group-label">' + f.label + '</div><div class="rs-chips"></div>';
-      var chipsEl = grp.querySelector('.rs-chips');
-      entries.forEach(function(e){
-        var sp = document.createElement('span');
-        sp.className = 'rs-chip';
-        sp.dataset.word = e.w;
-        sp.dataset.func = e.func;
-        sp.textContent = e.w;
-        sp.addEventListener('click', function(){
-          navigator.clipboard.writeText(e.w).catch(function(){});
-          sp.textContent = '✓ ' + e.w;
-          setTimeout(function(){ sp.textContent = e.w; }, 900);
+    load: function () {
+      if (TW.data.length) return;
+      fetch('/data/transition-words.json')
+        .then(function(r){ return r.json(); })
+        .then(function(d){
+          TW.data = Array.isArray(d) ? d : [];
+          document.getElementById('tw-seo-list').style.display = 'none';
+          TW.render();
+        })
+        .catch(function(){
+          document.getElementById('tw-count').textContent = 'Could not load words.';
         });
-        chipsEl.appendChild(sp);
+    },
+
+    filter: function () {
+      var q = TW.activeQuery.toLowerCase();
+      return TW.data.filter(function(e){
+        if (TW.activeCat !== 'all' && e.func !== TW.activeCat) return false;
+        if (q) {
+          var hay = (e.w + ' ' + (e.d || '') + ' ' + (e.ex || '')).toLowerCase();
+          if (hay.indexOf(q) === -1) return false;
+        }
+        return true;
       });
-      wordList.appendChild(grp);
-    });
-    chips = Array.from(wordList.querySelectorAll('.rs-chip'));
-    groups = Array.from(wordList.querySelectorAll('.rs-group'));
-    filterChips();
-  }
+    },
 
-  fetch('/data/transition-words.json')
-    .then(function(r){ return r.json(); })
-    .then(function(data){
-      document.getElementById('tw-seo-list').style.display = 'none';
-      buildGroups(data);
-    })
-    .catch(function(){
-      countEl.textContent = 'Could not load words.';
-    });
+    cardHTML: function (e) {
+      return '<div class="tw-card">' +
+        '<span class="tw-word">' + he(e.w) + '</span>' +
+        '<div class="tw-meta">' +
+          '<span class="tw-func-tag">' + he(FUNC_LABELS[e.func] || e.func) + '</span>' +
+        '</div>' +
+        (e.d  ? '<p class="tw-def">' + he(e.d) + '</p>' : '') +
+        (e.ex ? '<p class="tw-ex">' + he(e.ex) + '</p>' : '') +
+        '<div class="tw-card-footer">' +
+          '<button class="tw-copy-btn" data-word="' + he(e.w) + '">Copy word</button>' +
+        '</div>' +
+      '</div>';
+    },
 
-  document.getElementById('tw-func-btns').addEventListener('click', function(e){
-    var btn = e.target.closest('.tw-func-btn');
-    if (!btn) return;
-    document.querySelectorAll('.tw-func-btn').forEach(function(b){
-      b.classList.remove('active');
-      b.setAttribute('aria-pressed', 'false');
-    });
-    btn.classList.add('active');
-    btn.setAttribute('aria-pressed', 'true');
-    activeFunc = btn.dataset.func;
-    filterChips();
-  });
+    render: function () {
+      var results = TW.filter();
+      var grid = document.getElementById('tw-grid');
+      var count = document.getElementById('tw-count');
+      if (!results.length) {
+        grid.innerHTML = '<p class="tw-no-results">No words match your filters. Try clearing a filter.</p>';
+      } else {
+        grid.innerHTML = results.map(TW.cardHTML).join('');
+      }
+      count.textContent = 'Showing ' + results.length + ' word' + (results.length !== 1 ? 's' : '');
+    },
 
-  var searchTimer;
-  document.getElementById('tw-search').addEventListener('input', function(){
-    clearTimeout(searchTimer);
-    searchTimer = setTimeout(filterChips, 200);
-  });
+    bindEvents: function () {
+      document.getElementById('tw-cats').addEventListener('click', function(e){
+        var btn = e.target.closest('.tw-cat-btn');
+        if (!btn) return;
+        document.querySelectorAll('.tw-cat-btn').forEach(function(b){ b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
+        btn.classList.add('active');
+        btn.setAttribute('aria-pressed', 'true');
+        TW.activeCat = btn.dataset.cat;
+        TW.render();
+      });
+      var searchTimer;
+      document.getElementById('tw-search').addEventListener('input', function(e){
+        clearTimeout(searchTimer);
+        var q = e.target.value;
+        searchTimer = setTimeout(function(){ TW.activeQuery = q; TW.render(); }, 200);
+      });
+      document.getElementById('tw-grid').addEventListener('click', function(e){
+        var copyBtn = e.target.closest('.tw-copy-btn');
+        if (!copyBtn) return;
+        navigator.clipboard.writeText(copyBtn.dataset.word).catch(function(){});
+        copyBtn.textContent = 'Copied!';
+        setTimeout(function(){ copyBtn.textContent = 'Copy word'; }, 1500);
+      });
+      document.getElementById('tw-copy-all').addEventListener('click', function(){
+        var btn = this;
+        var words = TW.filter().map(function(e){ return e.w; });
+        navigator.clipboard.writeText(words.join(', ')).catch(function(){});
+        btn.textContent = 'Copied!';
+        setTimeout(function(){ btn.textContent = 'Copy visible list'; }, 1500);
+      });
+    },
 
-  document.getElementById('tw-copy-all').addEventListener('click', function(){
-    var btn = this;
-    var visible = chips.filter(function(c){ return !c.classList.contains('rs-hidden'); });
-    navigator.clipboard.writeText(visible.map(function(c){ return c.dataset.word; }).join(', ')).catch(function(){});
-    btn.textContent = 'Copied!';
-    setTimeout(function(){ btn.textContent = 'Copy visible list'; }, 1500);
-  });
+    init: function () {
+      TW.bindEvents();
+      TW.load();
+    }
+  };
 
-  });
+  TW.init();
 }());
 </script>
 </body>
