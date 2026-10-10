@@ -1,4 +1,4 @@
-<!-- build: 2026-08-17T04:46:24Z -->
+<!-- build: 2026-10-10T10:06:37Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -175,32 +175,51 @@
 <link rel="stylesheet" href="/styles/global.css?v=16">
 <style>
 .tool-wrap { max-width:960px; margin:0 auto; padding:24px 24px 0; }
-.rs-hero-sub { color:var(--text-3,#9a9a94); margin-top:.5rem; }
-.rs-controls { display:flex; flex-wrap:wrap; gap:.75rem; align-items:center; margin-bottom:1rem; }
-.rs-search { flex:1 1 200px; padding:.55rem .85rem; border:1px solid var(--border,#e4e4e2); border-radius:8px; font-size:.95rem; font-family:inherit; background:var(--bg); color:var(--text); }
-.rs-search:focus { outline:none; border-color:var(--brand,#3C3489); }
-.rs-count { font-size:.85rem; color:var(--text-3,#9a9a94); white-space:nowrap; }
-.rs-tone-groups { display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:1.5rem; }
-.act-btn { padding:.45rem 1.1rem; border:1px solid var(--border,#e4e4e2); border-radius:8px; background:var(--bg-2,#f4f4f2); color:var(--text); font-size:.875rem; font-family:inherit; cursor:pointer; transition:background .15s,border-color .15s,color .15s; }
-.act-btn:hover { background:var(--brand,#3C3489); color:#fff; border-color:var(--brand,#3C3489); }
-.rs-tone-btn { padding:.35rem .85rem; border:1px solid var(--border,#e4e4e2); border-radius:20px; background:none; font-size:.85rem; font-family:inherit; cursor:pointer; transition:background .15s,border-color .15s,color .15s; }
-.rs-tone-btn.active { background:var(--brand,#3C3489); color:#fff; border-color:var(--brand,#3C3489); }
-.rs-group { margin-bottom:1.75rem; }
-.rs-group-label { font-size:.85rem; font-weight:700; color:var(--text-3,#9a9a94); text-transform:uppercase; letter-spacing:.06em; margin-bottom:.6rem; }
-.rs-chips { display:flex; flex-wrap:wrap; gap:.4rem; }
-.rs-chip { padding:.3rem .7rem; background:var(--bg-2,#f4f4f2); border:1px solid var(--border,#e4e4e2); border-radius:20px; font-size:.9rem; cursor:pointer; transition:background .12s,border-color .12s,color .12s; }
-.rs-chip:hover { background:var(--brand,#3C3489); color:#fff; border-color:var(--brand,#3C3489); }
-.rs-chip.rs-hidden { display:none; }
-.rs-group.rs-group-empty { display:none; }
-.rs-no-results { color:var(--text-3,#9a9a94); padding:2rem 0; text-align:center; }
+.tool-card { border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg); box-shadow:var(--shadow); padding:20px; }
+.rs-hero-sub { font-size:1.05rem; color:var(--muted, var(--text-3, #6b7280)); margin-top:6px; }
+
+.rs-controls { display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-bottom:14px; }
+.rs-search { flex:1; min-width:220px; padding:9px 12px; font-size:14px; font-family:inherit; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--text); outline:none; transition:border-color .15s; }
+.rs-search:focus { border-color:var(--brand); }
+.rs-count { font-size:13px; color:var(--muted, var(--text-3, #6b7280)); white-space:nowrap; }
+.rs-copy-all { padding:8px 14px; font-size:13px; font-family:inherit; border:1px solid var(--border); border-radius:8px; background:var(--bg-2,#f4f4f2); color:var(--text); cursor:pointer; transition:background .12s,color .12s,border-color .12s; }
+.rs-copy-all:hover { background:var(--brand); color:#fff; border-color:var(--brand); }
+
+.rs-cats { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px; }
+.rs-cat-btn { padding:6px 14px; border:1px solid var(--border); border-radius:999px; background:var(--bg); color:var(--text-2, #374151); font-size:13px; font-family:inherit; cursor:pointer; transition:background .12s, color .12s, border-color .12s; }
+.rs-cat-btn:hover { background:var(--surface, var(--bg-2)); }
+.rs-cat-btn.active { background:var(--brand); color:#fff; border-color:var(--brand); }
+
+.rs-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); gap:1rem; margin-top:4px; }
+
+.rs-card { background:var(--surface, var(--bg-2, #f9fafb)); border:1px solid var(--border); border-radius:12px; padding:16px; display:flex; flex-direction:column; gap:8px; }
+.rs-word { font-size:1.35rem; font-weight:700; color:var(--text); line-height:1.2; }
+.rs-meta { display:flex; flex-wrap:wrap; align-items:center; gap:6px; }
+.rs-tone-tag { font-size:11px; font-weight:600; padding:2px 8px; border-radius:999px; background:color-mix(in srgb, var(--brand) 12%, transparent); color:var(--brand); }
+.rs-def { font-size:0.92rem; color:var(--text-2, #374151); line-height:1.5; margin:0; }
+.rs-ex { font-size:0.85rem; font-style:italic; color:var(--muted, var(--text-3, #6b7280)); line-height:1.45; margin:0; padding-left:10px; border-left:3px solid var(--brand); }
+.rs-card-footer { display:flex; justify-content:flex-end; gap:6px; margin-top:auto; padding-top:8px; }
+.rs-copy-btn { font-size:12px; padding:5px 10px; border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text-2, #374151); cursor:pointer; font-family:inherit; transition:background .12s, color .12s; }
+.rs-copy-btn:hover { background:var(--brand); color:#fff; border-color:var(--brand); }
+
+.rs-no-results { grid-column:1 / -1; text-align:center; color:var(--muted, var(--text-3, #6b7280)); font-size:0.95rem; padding:32px 0; }
+
 .rs-seo-list { margin:16px 0 0; padding:0; }
 .rs-seo-list dt { font-weight:700; color:var(--text); margin-top:10px; }
-.rs-seo-list dd { margin-left:0; color:var(--text-2,#374151); font-size:.92rem; }
+.rs-seo-list dd { margin-left:0; color:var(--text-2, #374151); font-size:0.92rem; }
+
 .explainer ul, .explainer ol { padding-left:1.5em; }
+
+@media (max-width:640px) {
+  .rs-controls { flex-direction:column; align-items:stretch; }
+  .rs-search { min-width:0; }
+  .rs-grid { grid-template-columns:1fr; }
+}
+
 @media print {
-  header, nav, .breadcrumb, .rs-controls, .rs-tone-groups, footer, .ad, .more-tools, .who, .faq-section { display:none !important; }
-  .rs-chips { gap:.25rem; }
-  .rs-chip { border:1px solid #ccc; page-break-inside:avoid; }
+  header, nav, .breadcrumb, .hero, .rs-controls, .rs-cats, .rs-card-footer, footer, .ad, [class*="ad-"], .more-tools, .explainer, .faq, .who { display:none !important; }
+  .rs-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .rs-card { border:1px dashed #ccc; break-inside:avoid; }
   @page { margin:1.5cm; }
 }
 </style>
@@ -316,31 +335,31 @@
 <div class="tool-wrap">
   <div class="tool-card">
     <div class="rs-controls">
-      <input type="search" class="rs-search" id="rs-search" placeholder="Search alternatives…" aria-label="Search alternatives for said">
-      <span class="rs-count" id="rs-count" aria-live="polite" aria-atomic="true">Showing all words</span>
-      <button class="act-btn" id="rs-copy-all">Copy visible list</button>
+      <input type="search" class="rs-search" id="rs-search" placeholder="Search words or definitions…" aria-label="Search alternatives for said">
+      <span class="rs-count" id="rs-count" aria-live="polite" aria-atomic="true">Loading…</span>
+      <button class="rs-copy-all" id="rs-copy-all">Copy visible list</button>
     </div>
-    <div class="rs-tone-groups" id="rs-tone-btns" role="group" aria-label="Filter by tone">
-      <button class="rs-tone-btn active" data-tone="all" aria-pressed="true">All tones</button>
-      <button class="rs-tone-btn" data-tone="neutral" aria-pressed="false">Neutral</button>
-      <button class="rs-tone-btn" data-tone="quiet" aria-pressed="false">Quiet</button>
-      <button class="rs-tone-btn" data-tone="loud" aria-pressed="false">Loud</button>
-      <button class="rs-tone-btn" data-tone="questioning" aria-pressed="false">Questioning</button>
-      <button class="rs-tone-btn" data-tone="positive" aria-pressed="false">Positive</button>
-      <button class="rs-tone-btn" data-tone="negative" aria-pressed="false">Negative</button>
-      <button class="rs-tone-btn" data-tone="conversational" aria-pressed="false">Conversational</button>
-      <button class="rs-tone-btn" data-tone="authoritative" aria-pressed="false">Authoritative</button>
+    <div class="rs-cats" id="rs-cats" role="group" aria-label="Filter by tone">
+      <button class="rs-cat-btn active" data-tone="all" aria-pressed="true">All</button>
+      <button class="rs-cat-btn" data-tone="neutral" aria-pressed="false">Neutral</button>
+      <button class="rs-cat-btn" data-tone="quiet" aria-pressed="false">Quiet</button>
+      <button class="rs-cat-btn" data-tone="loud" aria-pressed="false">Loud</button>
+      <button class="rs-cat-btn" data-tone="questioning" aria-pressed="false">Questioning</button>
+      <button class="rs-cat-btn" data-tone="positive" aria-pressed="false">Positive</button>
+      <button class="rs-cat-btn" data-tone="negative" aria-pressed="false">Negative</button>
+      <button class="rs-cat-btn" data-tone="conversational" aria-pressed="false">Conversational</button>
+      <button class="rs-cat-btn" data-tone="authoritative" aria-pressed="false">Authoritative</button>
     </div>
-    <div id="rs-word-list"></div>
-    <p class="rs-no-results" id="rs-no-results" style="display:none">No words match your search. Try a shorter term.</p>
+    <div class="rs-grid" id="rs-grid"></div>
     <dl class="rs-seo-list" id="rs-seo-list">
-      <dt>whispered</dt><dd>Said very softly, usually to avoid being overheard</dd>
-      <dt>exclaimed</dt><dd>Said suddenly with strong emotion or surprise</dd>
-      <dt>declared</dt><dd>Said firmly and publicly, often as an announcement</dd>
+      <dt>whispered</dt><dd>Spoken very softly, often to avoid being overheard.</dd>
+      <dt>exclaimed</dt><dd>Said with sudden strong emotion or surprise.</dd>
+      <dt>declared</dt><dd>Said with authority, often publicly.</dd>
     </dl>
   </div>
 </div>
 <div class="content-wrap">
+<!-- SECTION:more_tools -->
   <div class="section">
     <h2 class="section-title">More vocabulary tools</h2>
     <p class="section-sub">Free tools for English vocabulary and learning</p>
@@ -362,6 +381,7 @@
       <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
     </div>
   </div>
+<!-- /SECTION:more_tools -->
 <section class="explainer">
 
 <h2>Why "said" isn't always wrong</h2>
@@ -498,7 +518,7 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="/scripts/tool-engine.js?v=29"></script>
+<script src="/scripts/tool-engine.js?v=31"></script>
 <script>
 (function bindSharedWordineerMenu() {
   const mega = document.getElementById('mega');
@@ -542,117 +562,116 @@
 </script>
 
 <script>
-(function(){
-  var FILTERS = {
-    tones: [
-      { key: 'neutral',        label: 'Neutral' },
-      { key: 'quiet',          label: 'Quiet' },
-      { key: 'loud',           label: 'Loud / Forceful' },
-      { key: 'questioning',    label: 'Questioning' },
-      { key: 'positive',       label: 'Positive / Excited' },
-      { key: 'negative',       label: 'Negative / Complaining' },
-      { key: 'conversational', label: 'Conversational' },
-      { key: 'authoritative',  label: 'Authoritative' }
-    ]
+(function () {
+  function he(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+  var TONE_LABELS = {
+    neutral:        'Neutral',
+    quiet:          'Quiet',
+    loud:           'Loud',
+    questioning:    'Questioning',
+    positive:       'Positive',
+    negative:       'Negative',
+    conversational: 'Conversational',
+    authoritative: 'Authoritative'
   };
 
-  var activeTone = 'all';
-  var chips = [];
-  var groups = [];
-  var countEl = document.getElementById('rs-count');
-  var noResults = document.getElementById('rs-no-results');
-  var wordList = document.getElementById('rs-word-list');
+  var RS = {
+    data: [],
+    activeTone: 'all',
+    activeQuery: '',
 
-  function updateCount() {
-    var n = chips.filter(function(c){ return !c.classList.contains('rs-hidden'); }).length;
-    countEl.textContent = 'Showing ' + n + ' word' + (n !== 1 ? 's' : '');
-    noResults.style.display = n === 0 ? '' : 'none';
-  }
-
-  function filterChips() {
-    var q = document.getElementById('rs-search').value.toLowerCase().trim();
-    chips.forEach(function(c){
-      var toneMatch = activeTone === 'all' || c.dataset.tone === activeTone;
-      var wordMatch = !q || c.dataset.word.toLowerCase().indexOf(q) !== -1;
-      c.classList.toggle('rs-hidden', !(toneMatch && wordMatch));
-    });
-    groups.forEach(function(g){
-      var anyVisible = Array.from(g.querySelectorAll('.rs-chip')).some(function(c){ return !c.classList.contains('rs-hidden'); });
-      g.classList.toggle('rs-group-empty', !anyVisible);
-    });
-    updateCount();
-  }
-
-  function buildGroups(data) {
-    var byTone = {};
-    data.forEach(function(e){ (byTone[e.tone] = byTone[e.tone] || []).push(e); });
-    wordList.innerHTML = '';
-    FILTERS.tones.forEach(function(t){
-      var entries = byTone[t.key] || [];
-      if (!entries.length) return;
-      var grp = document.createElement('div');
-      grp.className = 'rs-group';
-      grp.dataset.group = t.key;
-      grp.innerHTML = '<div class="rs-group-label">' + t.label + '</div><div class="rs-chips"></div>';
-      var chipsEl = grp.querySelector('.rs-chips');
-      entries.forEach(function(e){
-        var sp = document.createElement('span');
-        sp.className = 'rs-chip';
-        sp.dataset.word = e.w;
-        sp.dataset.tone = e.tone;
-        sp.textContent = e.w;
-        sp.addEventListener('click', function(){
-          navigator.clipboard.writeText(e.w).catch(function(){});
-          sp.textContent = '✓ ' + e.w;
-          setTimeout(function(){ sp.textContent = e.w; }, 900);
+    load: function () {
+      if (RS.data.length) return;
+      fetch('/data/words-to-replace-said.json')
+        .then(function(r){ return r.json(); })
+        .then(function(d){
+          RS.data = Array.isArray(d) ? d : [];
+          document.getElementById('rs-seo-list').style.display = 'none';
+          RS.render();
+        })
+        .catch(function(){
+          document.getElementById('rs-count').textContent = 'Could not load words.';
         });
-        chipsEl.appendChild(sp);
+    },
+
+    filter: function () {
+      var q = RS.activeQuery.toLowerCase();
+      return RS.data.filter(function(e){
+        if (RS.activeTone !== 'all' && e.tone !== RS.activeTone) return false;
+        if (q) {
+          var hay = (e.w + ' ' + (e.d || '') + ' ' + (e.ex || '')).toLowerCase();
+          if (hay.indexOf(q) === -1) return false;
+        }
+        return true;
       });
-      wordList.appendChild(grp);
-    });
-    chips = Array.from(wordList.querySelectorAll('.rs-chip'));
-    groups = Array.from(wordList.querySelectorAll('.rs-group'));
-    filterChips();
-  }
+    },
 
-  fetch('/data/words-to-replace-said.json')
-    .then(function(r){ return r.json(); })
-    .then(function(data){
-      document.getElementById('rs-seo-list').style.display = 'none';
-      buildGroups(data);
-    })
-    .catch(function(){
-      countEl.textContent = 'Could not load words.';
-    });
+    cardHTML: function (e) {
+      return '<div class="rs-card">' +
+        '<span class="rs-word">' + he(e.w) + '</span>' +
+        '<div class="rs-meta">' +
+          '<span class="rs-tone-tag">' + he(TONE_LABELS[e.tone] || e.tone) + '</span>' +
+        '</div>' +
+        (e.d  ? '<p class="rs-def">' + he(e.d) + '</p>' : '') +
+        (e.ex ? '<p class="rs-ex">' + he(e.ex) + '</p>' : '') +
+        '<div class="rs-card-footer">' +
+          '<button class="rs-copy-btn" data-word="' + he(e.w) + '">Copy word</button>' +
+        '</div>' +
+      '</div>';
+    },
 
-  document.getElementById('rs-tone-btns').addEventListener('click', function(e){
-    var btn = e.target.closest('.rs-tone-btn');
-    if (!btn) return;
-    document.querySelectorAll('.rs-tone-btn').forEach(function(b){
-      b.classList.remove('active');
-      b.setAttribute('aria-pressed', 'false');
-    });
-    btn.classList.add('active');
-    btn.setAttribute('aria-pressed', 'true');
-    activeTone = btn.dataset.tone;
-    filterChips();
-  });
+    render: function () {
+      var results = RS.filter();
+      var grid = document.getElementById('rs-grid');
+      var count = document.getElementById('rs-count');
+      if (!results.length) {
+        grid.innerHTML = '<p class="rs-no-results">No words match your filters. Try clearing a filter.</p>';
+      } else {
+        grid.innerHTML = results.map(RS.cardHTML).join('');
+      }
+      count.textContent = 'Showing ' + results.length + ' word' + (results.length !== 1 ? 's' : '');
+    },
 
-  var searchTimer;
-  document.getElementById('rs-search').addEventListener('input', function(){
-    clearTimeout(searchTimer);
-    searchTimer = setTimeout(filterChips, 200);
-  });
+    bindEvents: function () {
+      document.getElementById('rs-cats').addEventListener('click', function(e){
+        var btn = e.target.closest('.rs-cat-btn');
+        if (!btn) return;
+        document.querySelectorAll('.rs-cat-btn').forEach(function(b){ b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
+        btn.classList.add('active');
+        btn.setAttribute('aria-pressed', 'true');
+        RS.activeTone = btn.dataset.tone;
+        RS.render();
+      });
+      var searchTimer;
+      document.getElementById('rs-search').addEventListener('input', function(e){
+        clearTimeout(searchTimer);
+        var q = e.target.value;
+        searchTimer = setTimeout(function(){ RS.activeQuery = q; RS.render(); }, 200);
+      });
+      document.getElementById('rs-grid').addEventListener('click', function(e){
+        var copyBtn = e.target.closest('.rs-copy-btn');
+        if (!copyBtn) return;
+        navigator.clipboard.writeText(copyBtn.dataset.word).catch(function(){});
+        copyBtn.textContent = 'Copied!';
+        setTimeout(function(){ copyBtn.textContent = 'Copy word'; }, 1500);
+      });
+      document.getElementById('rs-copy-all').addEventListener('click', function(){
+        var btn = this;
+        var words = RS.filter().map(function(e){ return e.w; });
+        navigator.clipboard.writeText(words.join(', ')).catch(function(){});
+        btn.textContent = 'Copied!';
+        setTimeout(function(){ btn.textContent = 'Copy visible list'; }, 1500);
+      });
+    },
 
-  document.getElementById('rs-copy-all').addEventListener('click', function(){
-    var btn = this;
-    var visible = chips.filter(function(c){ return !c.classList.contains('rs-hidden'); });
-    navigator.clipboard.writeText(visible.map(function(c){ return c.dataset.word; }).join(', ')).catch(function(){});
-    btn.textContent = 'Copied!';
-    setTimeout(function(){ btn.textContent = 'Copy visible list'; }, 1500);
-  });
+    init: function () {
+      RS.bindEvents();
+      RS.load();
+    }
+  };
 
-  });
+  RS.init();
 }());
 </script>
 </body>
