@@ -1,4 +1,4 @@
-<!-- build: 2026-08-17T04:46:23Z -->
+<!-- build: 2026-10-10T09:33:25Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -361,15 +361,10 @@
       <span class="cw-count" id="cw-count" aria-live="polite" aria-atomic="true">Loading…</span>
     </div>
     <div class="cw-cats" id="cw-cats" role="group" aria-label="Filter by category">
-      <button class="cw-cat-btn" data-cat="all" aria-pressed="false">All</button>
-      <button class="cw-cat-btn" data-cat="cool" aria-pressed="false">Cool</button>
+      <button class="cw-cat-btn active" data-cat="all" aria-pressed="true">All</button>
       <button class="cw-cat-btn" data-cat="aesthetic" aria-pressed="false">Aesthetic</button>
-      <button class="cw-cat-btn active" data-cat="beautiful" aria-pressed="true">Beautiful</button>
       <button class="cw-cat-btn" data-cat="unique" aria-pressed="false">Unique</button>
-      <button class="cw-cat-btn" data-cat="funny" aria-pressed="false">Funny</button>
-      <button class="cw-cat-btn" data-cat="dark" aria-pressed="false">Dark</button>
       <button class="cw-cat-btn" data-cat="nature" aria-pressed="false">Nature</button>
-      <button class="cw-cat-btn" data-cat="science" aria-pressed="false">Science</button>
       <button class="cw-cat-btn" data-cat="vintage" aria-pressed="false">Vintage</button>
     </div>
     <div class="cw-grid" id="cw-grid"></div>
@@ -383,6 +378,7 @@
   </div>
 </div>
 <div class="content-wrap">
+<!-- SECTION:more_tools -->
   <div class="section">
     <h2 class="section-title">More vocabulary tools</h2>
     <p class="section-sub">Free tools for English vocabulary and learning</p>
@@ -404,6 +400,7 @@
       <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
     </div>
   </div>
+<!-- /SECTION:more_tools -->
 <section class="explainer">
 
 <h2>What makes an English word beautiful?</h2>
@@ -553,7 +550,7 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="/scripts/tool-engine.js?v=29"></script>
+<script src="/scripts/tool-engine.js?v=31"></script>
 <script>
 (function bindSharedWordineerMenu() {
   const mega = document.getElementById('mega');
@@ -694,17 +691,10 @@
           setTimeout(function(){ shareBtn.textContent = 'Share'; }, 1500);
         }
       });
-      });
     },
 
     init: function () {
       BW.bindEvents();
-      BW.activeCat = 'beautiful';
-      document.querySelectorAll('.cw-cat-btn').forEach(function(b){
-        var isActive = b.dataset.cat === 'beautiful';
-        b.classList.toggle('active', isActive);
-        b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-      });
       BW.load();
     }
   };
