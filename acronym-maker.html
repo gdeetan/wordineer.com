@@ -1,4 +1,4 @@
-<!-- build: 2026-09-26T12:31:48Z -->
+<!-- build: 2026-10-12T07:36:40Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -265,6 +265,50 @@
   cursor: pointer;
 }
 .am-example:hover { border-color: var(--brand); color: var(--brand); }
+.am-tabs { display: flex; gap: 4px; margin-bottom: 14px; padding: 3px; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; }
+.am-tab {
+  flex: 1;
+  padding: 7px 10px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-2);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .14s ease, color .14s ease;
+}
+.am-tab:hover { color: var(--text); }
+.am-tab.is-active { background: var(--brand); color: #fff; }
+[data-am-mode][hidden] { display: none; }
+.am-check { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--text-2); cursor: pointer; margin-top: 4px; }
+.am-check input { width: auto; margin: 0; }
+.am-saved { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--border-2); }
+.am-saved[hidden] { display: none; }
+.am-saved-label { display:flex; align-items:center; justify-content:space-between; margin-bottom:8px; font-size:10px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--text-3); }
+.am-saved-clear { background:none; border:none; color:var(--text-3); font:inherit; font-size:11px; cursor:pointer; text-transform:none; letter-spacing:0; }
+.am-saved-clear:hover { color: var(--brand); }
+.am-saved-list { display:flex; flex-wrap:wrap; gap:6px; }
+.am-saved-chip { display:inline-flex; align-items:center; gap:6px; padding:5px 8px 5px 10px; border:1px solid var(--border); border-radius:999px; background:var(--bg); font-size:12px; color:var(--text); cursor:pointer; }
+.am-saved-chip:hover { border-color: var(--brand); }
+.am-saved-chip-letters { font-weight:600; font-size:11px; color:var(--brand); }
+.am-saved-chip-remove { color:var(--text-3); padding:0 2px; border:none; background:none; cursor:pointer; font-size:14px; line-height:1; }
+.am-saved-chip-remove:hover { color:#b9382a; }
+.am-star, .am-reroll {
+  display:inline-flex; align-items:center; justify-content:center;
+  width:28px; height:28px;
+  padding:0;
+  border:1px solid var(--border);
+  border-radius:6px;
+  background:var(--bg);
+  color:var(--text-3);
+  cursor:pointer;
+  transition: background .12s, color .12s, border-color .12s;
+}
+.am-star:hover, .am-reroll:hover { background:var(--bg-2); color:var(--text); }
+.am-star.is-saved { color:#f0a830; border-color:#f0a830; }
+.am-star svg, .am-reroll svg { width:14px; height:14px; }
 .words-panel { flex:1; display:flex; flex-direction:column; overflow:hidden; min-height:320px; }
 .words-top  { display:flex; align-items:center; justify-content:space-between; gap:10px; padding:12px 16px; border-bottom:1px solid var(--border-2); }
 .words-count { font-size:12px; color:var(--text-3); }
@@ -410,14 +454,42 @@
   <div class="tool-card">
     <div class="tool-split">
       <div class="ctrl">
-        <div class="ctrl-row">
-          <label class="ctrl-label" for="am-target">Acronym letters</label>
-          <input id="am-target" type="text" value="GROW" maxlength="8" inputmode="latin" autocomplete="off" spellcheck="false">
+        <div class="am-tabs" role="tablist">
+          <button type="button" class="am-tab is-active" role="tab" aria-selected="true" data-am-tab="forward">Letters → Phrase</button>
+          <button type="button" class="am-tab" role="tab" aria-selected="false" data-am-tab="reverse">Phrase → Letters</button>
         </div>
-        <div class="ctrl-row">
-          <label class="ctrl-label" for="am-keywords">Project notes</label>
-          <textarea id="am-keywords" placeholder="Example: sustainable business expansion and team momentum"></textarea>
+
+        <div data-am-mode="forward">
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="am-target">Acronym letters</label>
+            <input id="am-target" type="text" value="GROW" maxlength="8" inputmode="latin" autocomplete="off" spellcheck="false">
+          </div>
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="am-keywords">Project notes</label>
+            <textarea id="am-keywords" placeholder="Example: sustainable business expansion and team momentum"></textarea>
+          </div>
         </div>
+
+        <div data-am-mode="reverse" hidden>
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="am-phrase">Describe your topic</label>
+            <textarea id="am-phrase" placeholder="Example: sustainable business expansion and team momentum"></textarea>
+          </div>
+          <div class="ctrl-row">
+            <label class="ctrl-label" for="am-length">Acronym length</label>
+            <select id="am-length">
+              <option value="2">2 letters</option>
+              <option value="3">3 letters</option>
+              <option value="4" selected>4 letters</option>
+              <option value="5">5 letters</option>
+              <option value="6">6 letters</option>
+              <option value="7">7 letters</option>
+              <option value="8">8 letters</option>
+            </select>
+          </div>
+          <label class="am-check"><input type="checkbox" id="am-pronounceable" checked> Pronounceable only</label>
+        </div>
+
         <div class="ctrl-row">
           <label class="ctrl-label" for="am-style">Style</label>
           <select id="am-style">
@@ -425,6 +497,25 @@
             <option value="creative">Creative</option>
             <option value="technical">Technical</option>
             <option value="friendly">Friendly</option>
+          </select>
+        </div>
+        <div class="ctrl-row">
+          <label class="ctrl-label" for="am-category">Category</label>
+          <select id="am-category">
+            <option value="" selected>Auto</option>
+            <option value="brand">Brand &amp; marketing</option>
+            <option value="growth">Growth &amp; business</option>
+            <option value="team">Team &amp; culture</option>
+            <option value="product">Product</option>
+            <option value="tech">Tech &amp; software</option>
+            <option value="community">Community &amp; clubs</option>
+            <option value="nonprofit">Nonprofit</option>
+            <option value="environment">Environment</option>
+            <option value="health">Health &amp; wellness</option>
+            <option value="education">Education</option>
+            <option value="finance">Finance</option>
+            <option value="security">Security &amp; safety</option>
+            <option value="operations">Operations</option>
           </select>
         </div>
         <p class="ctrl-help">Use this when you already know the letters you want and need a strong full name around them.</p>
@@ -443,6 +534,14 @@
             <button type="button" class="am-example" data-am-example data-target="SYNC" data-keywords="software workflow and team coordination platform" data-style="technical">SYNC for product</button>
           </div>
         </div>
+
+        <div class="am-saved" id="am-saved" hidden>
+          <div class="am-saved-label">
+            <span>Saved acronyms</span>
+            <button type="button" class="am-saved-clear" id="am-saved-clear">Clear all</button>
+          </div>
+          <div class="am-saved-list" id="am-saved-list"></div>
+        </div>
       </div>
 
       <div class="words-panel">
@@ -459,6 +558,7 @@
   </div>
 </div>
 <div class="content-wrap">
+<!-- SECTION:more_tools -->
   <div class="section">
     <h2 class="section-title">More word tools</h2>
     <p class="section-sub">Every word generator you need, all free</p>
@@ -480,6 +580,7 @@
       <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
     </div>
   </div>
+<!-- /SECTION:more_tools -->
 <div class="explainer">
   <h2>Why use Acronym Maker?</h2>
   <p>The first reason for using this tool is for brainstorming sessions. If you try to do this on your own, you either fall into one of two extremes. You either look up the first suitable acronym and then stop, or you can't find the right words for the acronym and just put random words in each letter, wasting hours of valuable time with unfruitful brainstorming.</p>
@@ -626,18 +727,9 @@
 })();
 </script>
 
-<script src="/scripts/acronym-maker.js"></script>
+<script src="/scripts/acronym-maker.js?v=3"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  // tool-engine.js already bound a click handler to each .faq-q via initFaq().
-  // acronym-maker.js will bind its own accordion handler. The two conflict and
-  // cancel each other's toggle. Clone each .faq-q to strip the tool-engine
-  // listener before acronym-maker binds, so its accordion becomes the only one.
-  document.querySelectorAll('.faq-q').forEach(function(q){
-    var clone = q.cloneNode(true);
-    delete clone.dataset.faqBound;
-    q.parentNode.replaceChild(clone, q);
-  });
   if (window.WordineerAcronymMaker && typeof window.WordineerAcronymMaker.initAcronymMakerPage === 'function') {
     window.WordineerAcronymMaker.initAcronymMakerPage();
   }
