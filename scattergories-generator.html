@@ -1,4 +1,4 @@
-<!-- build: 2026-10-19T01:58:12Z -->
+<!-- build: 2026-10-19T02:01:28Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -200,12 +200,22 @@
   .scat-controls{border-right:none;border-bottom:1px solid var(--border-2)}
   .scat-list{grid-template-columns:1fr}
 }
+.scat-print-header{display:none}
 @media print{
-  .nav,.mega,.hero,.scat-actions,.scat-controls,.scat-main-top button,.ad-leaderboard,.content-wrap,.footer{display:none !important}
-  .scat-wrap{padding:0}
-  .scat-layout{grid-template-columns:1fr}
-  .scat-list{display:block}
-  .scat-cat-item{border-bottom:1px solid #ccc;padding:10px 0;font-size:18px}
+  @page{margin:0.5in}
+  body *{visibility:hidden}
+  .scat-wrap,.scat-wrap *{visibility:visible}
+  .nav,.mega,.breadcrumb,.hero,.scat-controls,.scat-main-top,.scat-actions,.ad-leaderboard,.content-wrap,.footer,.explainer,.faq,.who{display:none !important}
+  .scat-wrap{position:absolute;left:0;top:0;width:100%;padding:0;margin:0}
+  .scat-card{border:none;box-shadow:none}
+  .scat-layout{display:block}
+  .scat-print-header{display:flex;align-items:baseline;gap:14px;justify-content:center;padding:0 0 16px;border-bottom:2px dashed #333;margin-bottom:18px}
+  .scat-print-header .scat-print-label{font-size:16px;color:#333;text-transform:uppercase;letter-spacing:1px}
+  .scat-print-header .scat-print-letter{font-family:'DM Serif Display',serif;font-size:72px;line-height:1;color:#111}
+  .scat-list{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:0;margin:0;list-style:none}
+  .scat-cat-item{display:block;border:1.5px dashed #333;border-radius:4px;padding:14px 12px 22px;font-size:14px;color:#111;page-break-inside:avoid;break-inside:avoid}
+  .scat-cat-num{display:inline-block;color:#111;font-weight:700;margin-right:6px;min-width:auto}
+  .scat-cat-item::after{content:"";display:block;border-bottom:1px solid #333;margin-top:14px}
 }
 </style>
 </head>
@@ -369,6 +379,10 @@
         <div class="scat-main-top">
           <strong>Categories for this round</strong>
           <button class="small-btn" id="scat-new-list-btn">New list</button>
+        </div>
+        <div class="scat-print-header" aria-hidden="true">
+          <span class="scat-print-label">Letter</span>
+          <span class="scat-print-letter" id="scat-print-letter">S</span>
         </div>
         <ul class="scat-list" id="scat-list"></ul>
         <div class="scat-actions">
@@ -584,7 +598,9 @@ document.getElementById('scat-theme-filter').addEventListener('change',function(
 document.getElementById('scat-timer-start').addEventListener('click',startTimer);
 document.getElementById('scat-timer-reset').addEventListener('click',resetTimer);
 document.querySelectorAll('[data-duration]').forEach(function(btn){btn.addEventListener('click',function(){setDuration(+btn.dataset.duration);});});
-document.getElementById('scat-print-btn').addEventListener('click',function(){window.print();});
+function syncPrintLetter(){var el=document.getElementById('scat-print-letter');if(el)el.textContent=state.letter;}
+window.addEventListener('beforeprint',syncPrintLetter);
+document.getElementById('scat-print-btn').addEventListener('click',function(){syncPrintLetter();window.print();});
 document.getElementById('scat-play-mode-btn').addEventListener('click',function(){state.playMode=!state.playMode;document.getElementById('scat-tool-wrap').classList.toggle('scat--play-mode',state.playMode);document.getElementById('scat-play-mode-btn').textContent=state.playMode?'Exit play mode':'Play mode';});
 document.getElementById('scat-all-letters').addEventListener('change',function(e){state.useAllLetters=e.target.checked;});
 document.getElementById('scat-copy-btn').addEventListener('click',function(){var text='Letter: '+state.letter+'\n\n'+state.currentList.map(function(c,i){return(i+1)+'. '+c;}).join('\n');navigator.clipboard.writeText(text).catch(function(){});var btn=document.getElementById('scat-copy-btn');var orig=btn.textContent;btn.textContent='Copied!';setTimeout(function(){btn.textContent=orig;},1500);});
