@@ -1,4 +1,4 @@
-<!-- build: 2026-10-12T09:03:48Z -->
+<!-- build: 2026-10-21T02:03:20Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -112,27 +112,27 @@
     {
       "@type": "Question",
       "name": "What is a random number generator?",
-      "acceptedAnswer": { "@type": "Answer", "text": "A random number generator (RNG) produces numbers with no predictable pattern. You set a minimum and maximum, choose how many numbers you want, and the tool picks from that range. You can allow duplicates for lottery-style draws or block them for things like raffle picks and game mechanics where each number should appear only once." }
+      "acceptedAnswer": { "@type": "Answer", "text": "A random number generator is used to select random integers within a user-specified range. Option to include a minimum and maximum value, as well as the number of integers to generate. Generate numbers without duplicates to simulate drawing tickets from a hat, or use with duplicates to simulate rolling dice." }
     },
     {
       "@type": "Question",
       "name": "Are the numbers truly random?",
-      "acceptedAnswer": { "@type": "Answer", "text": "This tool uses Math.random(), a pseudorandom number generator built into every modern browser. It produces outputs that are statistically indistinguishable from true randomness for everyday uses like games, raffles, and classroom activities. For cryptographic purposes you would need a hardware-based true random number generator." }
+      "acceptedAnswer": { "@type": "Answer", "text": "This tool uses Math.random(), a pseudorandom number generator built into every modern browser. It is seeded from hardware entropy and produces outputs that pass statistical randomness tests — more than sufficient for games, raffles, sampling, and classroom use. For cryptographic applications, use a dedicated hardware-based RNG." }
     },
     {
       "@type": "Question",
       "name": "What is the difference between allowing and blocking duplicates?",
-      "acceptedAnswer": { "@type": "Answer", "text": "With duplicates allowed, each pick is independent — the same number can appear more than once, just like rolling a die multiple times. With duplicates blocked, each number in your range can appear at most once in the result — like drawing tickets from a hat without replacement. Use duplicates-off for raffles, seat assignments, or any situation where fairness requires each option to appear exactly once." }
+      "acceptedAnswer": { "@type": "Answer", "text": "With duplicates allowed, each pick is independent — like rolling a die (this is a singular word for dice) repeatedly; the same number can come up multiple times. With duplicates blocked, each number can appear at most once — like drawing tickets from a hat without putting them back. Use no-duplicate mode for raffles, group assignments, or any scenario where fairness requires each option to appear only once." }
     },
     {
       "@type": "Question",
       "name": "How do I use this as a lottery number picker?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Set your minimum to 1, your maximum to the highest number in the lottery (for example 59 for Powerball's main balls), set count to 5 or 6, turn duplicates off, and click Generate. For a Powerball-style game also generate a separate single number from 1–26 for the Powerball itself." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Set Min to 1 and Max to the highest number in the lottery (e.g., 69 for Powerball's white balls). Set Count to the number of balls drawn (e.g., 5). Turn duplicates off. Click Generate. For games with a bonus ball from a separate range, run a second generation with that range and count 1." }
     },
     {
       "@type": "Question",
       "name": "Can I generate a random number between 1 and 10?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes — set Min to 1, Max to 10, Count to 1, and click Generate. You can also use it for 1–6 (dice rolls), 1–100, or any custom range." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes — set Min to 1, Max to 10, Count to 1, and click Generate. You can use any range: 1–6 for a standard die, 1–20 for a D&D d20, 1–100 for a percentage, or any custom range you need." }
     }
   ]
 }
@@ -509,45 +509,45 @@
 <!-- /SECTION:more_tools -->
 <div class="explainer">
   <h2>What is a random number generator?</h2>
-  <p>A random number generator (RNG) produces numbers with no predictable sequence. You define the minimum and maximum values, choose how many numbers you want, and the tool picks from within that range. The result is as fair as drawing numbers from a hat — each integer in the range has an equal chance of appearing on every pick (when duplicates are allowed). Toggle off duplicates and the tool switches to a drawing-without-replacement model, guaranteeing no number appears twice.</p>
+  <p>A <strong>random number generator (RNG)</strong> produces a sequence of numbers with <strong>no correlation</strong> between them. The RNG can be set to a <strong>minimum and maximum number</strong>, as well as the <strong>number of numbers to be generated</strong> within that range. The tool selects numbers from within the defined range, making it as fair as <strong>picking numbers out of a hat</strong>. Each integer within the range has an <strong>equal chance of being picked</strong> on every draw (if duplicates are allowed). The tool can be set to draw <strong>without duplicates</strong> by toggling off the option that allows for duplicates to be picked.</p>
 
   <h2>Lottery and raffle use: duplicates off</h2>
-  <p>The most common use for a no-duplicate RNG is picking raffle winners or simulating lottery draws. Set your range to match the ticket pool (e.g. 1–200 for a 200-ticket raffle), set count to however many prizes you're giving away, turn duplicates off, and click Generate. Every ticket number in the output is unique — no one wins twice from the same draw. For lottery simulations like Powerball (1–69, pick 5) or Mega Millions (1–70, pick 5), the same setup applies; just adjust min, max, and count to match the game format.</p>
+  <p>The <strong>no-duplicates mode</strong> of the tool is most useful for drawing <a href="/raffle-number-generator">raffle winners</a> or creating a <a href="/lottery-number-generator">lottery</a>. You set the range to include all the tickets in your pool. You set the count to the <strong>number of prizes</strong> you are awarding. You uncheck the option to allow duplicates. You then click <strong>Generate</strong>, and each of the numbers in the resulting list will be a <strong>different winner</strong>. The numbers can be used to fill tickets for a subsequent drawing. For simulating games like the <a href="/powerball-number-generator">Powerball</a> (<strong>1–69</strong> for the five balls) or the Mega Millions (<strong>1–70</strong> for the five balls), you simply set the min, max, and count to the appropriate values.</p>
 
   <h2>Dice rolls and games: duplicates on</h2>
-  <p>When you want to simulate dice or any situation where the same result can come up multiple times, keep duplicates on. A single die is range 1–6, count 1. Two dice? Count 2, same range. A d20 from D&D? Range 1–20, count 1. You can also use this to generate random scores, pick a random page number from a book, or select a random question from a numbered list. The sort toggle is useful here — turn it on to see results in numerical order rather than the raw draw order.</p>
+  <p>Many, many simulations of rollable items such as <a href="/dice-roller">dice</a> also make sense here. <strong>One die?</strong> 1–6, count 1. <strong>Two dice?</strong> 1–6, count 2. A <strong>d20 for D&amp;D?</strong> 1–20, count 1. This tool can also be used to <strong>randomly select scores</strong> from a list of scores, to pick <strong>random pages from books</strong>, to randomly select questions from a list of questions with numbers in front of them, and so on. <strong>Sorting the results</strong> (toggle sort) is then also very useful here.</p>
 
   <h2>Classroom and teaching uses</h2>
-  <p>Teachers use random number generators constantly: picking a random student (1 to class size), assigning groups, generating practice problems, or deciding the order of presentations. Set count to 1 and regenerate as needed, or generate all student numbers at once with duplicates off for a fair random order. The tool requires no account, no install, and works on any device — making it practical for classroom use without setup time.</p>
+  <p>Random number generators are used often in classrooms for picking <a href="/random-name-generator">random students</a> (e.g., a number between 1 and the number of students in the class), for <strong>making groups</strong>, for picking <strong>random practice problems</strong>, and for <strong>randomizing the order of speaker presentations</strong>. This simple tool can be used over and over again with <strong>no accounts to set up and no software to download</strong>, and it works great on any device with a web browser.</p>
 
   <h2>Statistical sampling and simulations</h2>
-  <p>Researchers and analysts use random number generators to create random samples from a population, assign participants to control and treatment groups, or seed Monte Carlo simulations. For sample selection, set your range to the size of your population, turn duplicates off, and generate however many samples you need. Copy all and paste directly into your spreadsheet. The sort option makes it easier to cross-reference results against a numbered list.</p>
+  <p>In research, random number generators are used to select <strong>random samples from populations</strong>, to <strong>assign participants to treatment and control groups</strong>, or even to seed <strong>Monte Carlo simulations</strong>. For such purposes, you can set up the tool to select a sample of a certain size from a population of the size of your dataset. All numbers are <strong>copied to the clipboard</strong> and can then be pasted into your spreadsheet. Numbers are <strong>sorted by the tool</strong>, so that they can be easily compared to numbers from your dataset which have been sorted in the same way.</p>
 
   <h2>How the randomness works</h2>
-  <p>This tool uses JavaScript's <code>Math.random()</code>, a pseudorandom number generator (PRNG) that produces outputs passing standard statistical randomness tests. It is seeded from the system clock and hardware entropy, making its output unpredictable in practice. For everyday uses — games, raffles, classroom activities, sampling — it is more than sufficient. For cryptographic key generation or security-critical applications, a dedicated hardware RNG or <code>crypto.getRandomValues()</code>-based solution is the appropriate choice.</p>
+  <p>This tool uses the same JavaScript <code>Math.random()</code> (<strong>pseudorandom number generator PRNG</strong>) that powers all the other tools on this site. It has been tested for <strong>statistical randomness</strong> and passes all relevant tests. It is <strong>seeded with the system time and with hardware random numbers</strong> where available, so it is quite unpredictable and therefore perfectly fine for most games, raffles, school activities, etc. However, for <strong>true security</strong> – such as for <strong>cryptographic key generation</strong> – you will need a <strong>Hardware RNG</strong> or something that uses the <code>crypto.getRandomValues()</code> method.</p>
 </div>
 
 <div class="faq">
   <h2 class="faq-title">Frequently asked questions</h2>
   <div class="faq-item open">
     <div class="faq-q"><span class="faq-q-text">What is a random number generator?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">A random number generator picks integers from a range you define, with no predictable pattern. Set a minimum, a maximum, and how many you want. Toggle duplicates off for drawing-without-replacement scenarios like raffles; keep duplicates on for dice-style rolls where the same result can come up again.</div>
+    <div class="faq-a">A <strong>random number generator</strong> is used to select <strong>random integers within a user-specified range</strong>. Option to include a <strong>minimum and maximum value</strong>, as well as the <strong>number of integers to generate</strong>. Generate numbers <strong>without duplicates</strong> to simulate drawing tickets from a hat, or use <strong>with duplicates</strong> to simulate rolling dice.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">Are the numbers truly random?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">This tool uses Math.random(), a pseudorandom number generator built into every modern browser. It is seeded from hardware entropy and produces outputs that pass statistical randomness tests — more than sufficient for games, raffles, sampling, and classroom use. For cryptographic applications, use a dedicated hardware-based RNG.</div>
+    <div class="faq-a">This tool uses <code>Math.random()</code>, a <strong>pseudorandom number generator</strong> built into every modern browser. It is <strong>seeded from hardware entropy</strong> and produces outputs that pass <strong>statistical randomness tests</strong> — more than sufficient for games, raffles, sampling, and classroom use. For <strong>cryptographic applications</strong>, use a dedicated <strong>hardware-based RNG</strong>.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">How do I use this as a lottery picker?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Set Min to 1 and Max to the highest number in the lottery (e.g. 69 for Powerball's white balls). Set Count to the number of balls drawn (e.g. 5). Turn duplicates off. Click Generate. For games with a bonus ball from a separate range, run a second generation with that range and count 1.</div>
+    <div class="faq-a">Set <strong>Min to 1</strong> and <strong>Max to the highest number in the lottery</strong> (e.g., 69 for Powerball's white balls). Set <strong>Count to the number of balls drawn</strong> (e.g., 5). <strong>Turn duplicates off</strong>. Click Generate. For games with a <strong>bonus ball</strong> from a separate range, run a second generation with that range and count 1.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">What is the difference between allowing and blocking duplicates?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">With duplicates allowed, each pick is independent — like rolling a die repeatedly, the same number can come up multiple times. With duplicates blocked, each number can appear at most once — like drawing tickets from a hat without putting them back. Use no-duplicate mode for raffles, group assignments, or any scenario where fairness requires each option to appear only once.</div>
+    <div class="faq-a">With <strong>duplicates allowed</strong>, each pick is independent — like <strong>rolling a die</strong> (this is a singular word for dice) repeatedly; the <strong>same number can come up multiple times</strong>. With <strong>duplicates blocked</strong>, <strong>each number can appear at most once</strong> — like drawing tickets from a hat without putting them back. Use <strong>no-duplicate mode</strong> for raffles, group assignments, or any scenario where fairness requires each option to appear only once.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">Can I generate a random number between 1 and 10?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Yes — set Min to 1, Max to 10, Count to 1, and click Generate. You can use any range: 1–6 for a standard die, 1–20 for a D&D d20, 1–100 for a percentage, or any custom range you need.</div>
+    <div class="faq-a">Yes — set <strong>Min to 1, Max to 10, Count to 1</strong>, and click Generate. You can use any range: <strong>1–6 for a standard die</strong>, <strong>1–20 for a D&amp;D d20</strong>, <strong>1–100 for a percentage</strong>, or any custom range you need.</div>
   </div>
 </div>
 
