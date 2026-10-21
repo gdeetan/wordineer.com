@@ -1,4 +1,4 @@
-<!-- build: 2026-10-21T02:40:29Z -->
+<!-- build: 2026-10-21T02:53:40Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -222,9 +222,15 @@
   letter-spacing: -0.02em;
   min-width: 3ch;
   text-align: center;
-  transition: opacity 0.08s;
+  will-change: transform;
 }
-.rng-winner.is-animating { opacity: 0.12; }
+.rng-winner.is-rolling { color: var(--text-2); opacity: 0.78; }
+@keyframes rng-pop {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.14); }
+  100% { transform: scale(1); }
+}
+.rng-winner.is-landed { animation: rng-pop 0.42s cubic-bezier(.2,.9,.3,1); }
 .rng-prize-badge {
   font-size: 13px;
   font-weight: 600;
@@ -821,30 +827,59 @@ const WORDINEER_RAFFNG = (() => {
 
     animateWinner(n, winnerCount);
     updateLog();
-
-    if (noRepeat && pool.length === 0) {
-      document.getElementById('rng-draw-btn').disabled = true;
-      showToast('All tickets drawn!');
-    }
   }
 
   function animateWinner(n, prize) {
     var winnerEl = document.getElementById('rng-winner');
     var labelEl  = document.getElementById('rng-winner-label');
     var badgeEl  = document.getElementById('rng-prize-badge');
+    var btnEl    = document.getElementById('rng-draw-btn');
+    var rollMax  = Math.max(getPoolSize(), 2);
 
-    winnerEl.classList.add('is-animating');
-    setTimeout(function() {
-      winnerEl.textContent = n;
-      winnerEl.classList.remove('is-animating');
-      labelEl.style.visibility = 'visible';
-      if (prize > 1) {
-        badgeEl.textContent = ordinal(prize) + ' prize';
-        badgeEl.classList.add('is-visible');
-      } else {
-        badgeEl.classList.remove('is-visible');
+    btnEl.disabled = true;
+    labelEl.style.visibility = 'visible';
+    winnerEl.classList.remove('is-landed');
+    winnerEl.classList.add('is-rolling');
+
+    var totalMs = 1500;
+    var start = performance.now();
+    var lastTick = 0;
+    var lastShown = -1;
+
+    function frame(now) {
+      var t = (now - start) / totalMs;
+      if (t >= 1) {
+        winnerEl.classList.remove('is-rolling');
+        winnerEl.textContent = n;
+        // force reflow so animation replays on consecutive draws
+        void winnerEl.offsetWidth;
+        winnerEl.classList.add('is-landed');
+        if (prize > 1) {
+          badgeEl.textContent = ordinal(prize) + ' prize';
+          badgeEl.classList.add('is-visible');
+        } else {
+          badgeEl.classList.remove('is-visible');
+        }
+        if (noRepeat && pool.length === 0) {
+          btnEl.disabled = true;
+          showToast('All tickets drawn!');
+        } else {
+          btnEl.disabled = false;
+        }
+        return;
       }
-    }, 80);
+      // ease-out: interval grows from ~45ms to ~230ms
+      var interval = 45 + 185 * t * t;
+      if (now - lastTick >= interval) {
+        lastTick = now;
+        var r;
+        do { r = Math.floor(Math.random() * rollMax) + 1; } while (r === lastShown && rollMax > 1);
+        lastShown = r;
+        winnerEl.textContent = r;
+      }
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
   }
 
   function ordinal(n) {
@@ -925,7 +960,10 @@ const WORDINEER_RAFFNG = (() => {
 
     document.addEventListener('keydown', function(e) {
       if (['INPUT','SELECT','TEXTAREA','BUTTON'].includes(e.target.tagName)) return;
-      if (e.code === 'Space' || e.code === 'Enter') { e.preventDefault(); draw(); }
+      if (e.code === 'Space' || e.code === 'Enter') {
+        e.preventDefault();
+        if (!document.getElementById('rng-draw-btn').disabled) draw();
+      }
     });
   }
 
