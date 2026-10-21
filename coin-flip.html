@@ -1,4 +1,4 @@
-<!-- build: 2026-08-17T04:46:23Z -->
+<!-- build: 2026-10-21T01:04:31Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -711,6 +711,7 @@
   </div>
 </div>
 <div class="content-wrap">
+<!-- SECTION:more_tools -->
   <div class="section">
     <h2 class="section-title">More random tools</h2>
     <p class="section-sub">Dice, spinners, coin flips, and more — all free</p>
@@ -732,91 +733,63 @@
       <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
     </div>
   </div>
+<!-- /SECTION:more_tools -->
 <div>
-  <h2 class="section-title">How the coin flip works</h2>
+  <h2 class="section-title">How the flip coin works</h2>
   <div class="explainer-grid">
     <div class="exp-step">
       <div class="exp-num">1</div>
       <div>
         <strong>Set your flip count</strong>
-        <p>Choose 1 to 100 flips. Single-flip mode shows an animated coin. Multi-flip mode shows all results as chips at once.</p>
+        <p>You can set the number of flip iterations from <strong>1 to 100</strong> (single flip or multi-flip). In <strong>single flip mode</strong>, the animated coin is shown. In <strong>multi-flip mode</strong>, all results of the individual flips are shown as chips.</p>
       </div>
     </div>
     <div class="exp-step">
       <div class="exp-num">2</div>
       <div>
         <strong>Click "Flip coin"</strong>
-        <p>The result is generated using <code>crypto.getRandomValues()</code> — the same cryptographically secure randomness used for HTTPS encryption. Pure 50/50.</p>
+        <p>We are using <code>crypto.getRandomValues()</code> to generate our random numbers. This is the same random number generator used for <strong>HTTPS session key generation</strong>, etc. Pure 50/50 coin flipping.</p>
       </div>
     </div>
     <div class="exp-step">
       <div class="exp-num">3</div>
       <div>
         <strong>Track your stats</strong>
-        <p>Running totals for heads and tails build up as you flip. Hit "Reset stats" to start fresh. History dots show your last 60 flips at a glance.</p>
+        <p>You can track your running statistics for heads and tails and see your <strong>last 60 flips</strong> as dots on the right of the window. You can also click the "Reset stats" button to clear the running statistics.</p>
       </div>
     </div>
   </div>
 </div>
 
-<div>
-  <h2 class="section-title">Frequently asked questions</h2>
-  <div class="faq-list">
-
-    <details class="faq-item">
-      <summary class="faq-q">Is the coin flip truly random?</summary>
-      <div class="faq-a">
-        <p>Yes. This tool uses <code>crypto.getRandomValues()</code>, the browser's cryptographically secure random number generator — the same API used for TLS session keys. Each flip is a completely independent 50/50 event, with no bias toward heads or tails.</p>
-      </div>
-    </details>
-
-    <details class="faq-item">
-      <summary class="faq-q">What is the probability of getting heads or tails?</summary>
-      <div class="faq-a">
-        <p>Each flip has exactly a 50% chance of landing heads and a 50% chance of landing tails. These are independent events — the previous result never influences the next one. Even after ten heads in a row, the next flip is still 50/50.</p>
-      </div>
-    </details>
-
-    <details class="faq-item">
-      <summary class="faq-q">Can I flip multiple coins at once?</summary>
-      <div class="faq-a">
-        <p>Yes. Set the "Flips" input to any number from 1 to 100. In multi-flip mode, all results appear as labelled chips immediately and the stats update in bulk — useful for probability experiments or classroom demonstrations.</p>
-      </div>
-    </details>
-
-    <details class="faq-item">
-      <summary class="faq-q">What is the gambler's fallacy?</summary>
-      <div class="faq-a">
-        <p>The gambler's fallacy is the mistaken belief that a random event is more or less likely to occur because of previous outcomes. Thinking that tails is "due" after several heads in a row is the classic example. In reality, each flip is independent and past results have zero influence on the next.</p>
-      </div>
-    </details>
-
-    <details class="faq-item">
-      <summary class="faq-q">How do I use a coin flip to make a decision?</summary>
-      <div class="faq-a">
-        <p>Assign heads to one option and tails to the other before you flip. Accept the result. Interestingly, if you feel relieved or disappointed by the outcome, that reaction often reveals what you actually wanted — making the coin flip useful beyond just the result itself.</p>
-      </div>
-    </details>
-
-    <details class="faq-item">
-      <summary class="faq-q">Can I use this to settle a bet or game?</summary>
-      <div class="faq-a">
-        <p>Yes. The tool runs entirely in the browser with no server involvement, so no one controls the result. Use it to decide who goes first in a board game, settle a friendly debate, or run a sports coin-toss equivalent.</p>
-      </div>
-    </details>
-
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">Is the coin flip truly random?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Yes. This tool uses the browser's <code>crypto.getRandomValues()</code> for <strong>true random number generation</strong> (same as used for HTTPS session keys). Each flip is an entirely <strong>independent 50/50 event</strong> and is not influenced by any previous flips (i.e., there is no bias to heads or tails, even after a string of previous flips).</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What is the probability of getting heads or tails?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Each flip is an <strong>independent event</strong> with a 50% chance of landing on heads and a 50% chance of landing on tails. This means that even after a long string of the same side landing (such as <strong>ten heads in a row</strong>), the next flip will still have a 50/50 chance of landing on either side.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I flip multiple coins at once?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Yes. In the <strong>multi-flip mode</strong>, you can set the "Flips" input to any number between 1 and 100. In this mode, all results are displayed as labeled chips straight away, and the statistics are updated in bulk as well. This is especially useful for <strong>probability experiments</strong> or for <strong>classroom demonstrations</strong>.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What is the gambler's fallacy?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>The <strong>gambler's fallacy</strong> refers to the misperception that previous random events can influence the likelihood of future random events. This fallacy is believing that tails are 'due' after a string of heads has been experienced. In reality, each event is a <strong>completely independent random event</strong>, and past results have no influence on future events.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">How do I use a coin flip to make a decision?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Assign heads to one option and tails to the other, then accept the result. Interestingly, if you feel <strong>relieved or even upset</strong> after flipping the coin, then you probably wanted the other option. This makes the simple coin flip more than just a decision.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I use this to settle a bet or game?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Yes. Since the app runs in your browser, there is no server to influence the result of a coin flip. It can be used to decide who goes first in a <a href="/dice-roller">board game</a> or to settle another debate. In sports, it could be used for a coin toss similar to what already exists for <strong>kickoffs</strong> and other activities.</p></div>
   </div>
 </div>
 
-<div>
-  <h2 class="section-title" style="margin-bottom:14px">Who uses this tool</h2>
-  <div class="uc-grid">
-    <div class="uc"><div class="uc-title">Decision-makers</div><div class="uc-body">When two options are truly equal, a coin flip cuts through analysis paralysis and delivers a clean, unbiased answer in under a second.</div></div>
-    <div class="uc"><div class="uc-title">Teachers &amp; students</div><div class="uc-body">Run probability experiments in class — flip 100 coins and observe how the heads/tails split converges toward 50% as sample size grows. Real data, no physical coins needed.</div></div>
-    <div class="uc"><div class="uc-title">Game players</div><div class="uc-body">Determine who goes first in board games, card games, or sports matchups without needing a physical coin. Works on any device in any browser.</div></div>
-    <div class="uc"><div class="uc-title">Developers &amp; researchers</div><div class="uc-body">Quickly simulate independent Bernoulli trials for testing, demos, or teaching randomness concepts without writing any code.</div></div>
-  </div>
-</div>
+
 
 
 </div>
@@ -852,7 +825,7 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="/scripts/tool-engine.js?v=29"></script>
+<script src="/scripts/tool-engine.js?v=31"></script>
 <script>
 (function bindSharedWordineerMenu() {
   const mega = document.getElementById('mega');
