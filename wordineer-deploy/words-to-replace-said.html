@@ -1,4 +1,4 @@
-<!-- build: 2026-10-10T10:06:37Z -->
+<!-- build: 2026-09-07T06:36:32Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -175,51 +175,32 @@
 <link rel="stylesheet" href="/styles/global.css?v=16">
 <style>
 .tool-wrap { max-width:960px; margin:0 auto; padding:24px 24px 0; }
-.tool-card { border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg); box-shadow:var(--shadow); padding:20px; }
-.rs-hero-sub { font-size:1.05rem; color:var(--muted, var(--text-3, #6b7280)); margin-top:6px; }
-
-.rs-controls { display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-bottom:14px; }
-.rs-search { flex:1; min-width:220px; padding:9px 12px; font-size:14px; font-family:inherit; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--text); outline:none; transition:border-color .15s; }
-.rs-search:focus { border-color:var(--brand); }
-.rs-count { font-size:13px; color:var(--muted, var(--text-3, #6b7280)); white-space:nowrap; }
-.rs-copy-all { padding:8px 14px; font-size:13px; font-family:inherit; border:1px solid var(--border); border-radius:8px; background:var(--bg-2,#f4f4f2); color:var(--text); cursor:pointer; transition:background .12s,color .12s,border-color .12s; }
-.rs-copy-all:hover { background:var(--brand); color:#fff; border-color:var(--brand); }
-
-.rs-cats { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px; }
-.rs-cat-btn { padding:6px 14px; border:1px solid var(--border); border-radius:999px; background:var(--bg); color:var(--text-2, #374151); font-size:13px; font-family:inherit; cursor:pointer; transition:background .12s, color .12s, border-color .12s; }
-.rs-cat-btn:hover { background:var(--surface, var(--bg-2)); }
-.rs-cat-btn.active { background:var(--brand); color:#fff; border-color:var(--brand); }
-
-.rs-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); gap:1rem; margin-top:4px; }
-
-.rs-card { background:var(--surface, var(--bg-2, #f9fafb)); border:1px solid var(--border); border-radius:12px; padding:16px; display:flex; flex-direction:column; gap:8px; }
-.rs-word { font-size:1.35rem; font-weight:700; color:var(--text); line-height:1.2; }
-.rs-meta { display:flex; flex-wrap:wrap; align-items:center; gap:6px; }
-.rs-tone-tag { font-size:11px; font-weight:600; padding:2px 8px; border-radius:999px; background:color-mix(in srgb, var(--brand) 12%, transparent); color:var(--brand); }
-.rs-def { font-size:0.92rem; color:var(--text-2, #374151); line-height:1.5; margin:0; }
-.rs-ex { font-size:0.85rem; font-style:italic; color:var(--muted, var(--text-3, #6b7280)); line-height:1.45; margin:0; padding-left:10px; border-left:3px solid var(--brand); }
-.rs-card-footer { display:flex; justify-content:flex-end; gap:6px; margin-top:auto; padding-top:8px; }
-.rs-copy-btn { font-size:12px; padding:5px 10px; border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text-2, #374151); cursor:pointer; font-family:inherit; transition:background .12s, color .12s; }
-.rs-copy-btn:hover { background:var(--brand); color:#fff; border-color:var(--brand); }
-
-.rs-no-results { grid-column:1 / -1; text-align:center; color:var(--muted, var(--text-3, #6b7280)); font-size:0.95rem; padding:32px 0; }
-
+.rs-hero-sub { color:var(--text-3,#9a9a94); margin-top:.5rem; }
+.rs-controls { display:flex; flex-wrap:wrap; gap:.75rem; align-items:center; margin-bottom:1rem; }
+.rs-search { flex:1 1 200px; padding:.55rem .85rem; border:1px solid var(--border,#e4e4e2); border-radius:8px; font-size:.95rem; font-family:inherit; background:var(--bg); color:var(--text); }
+.rs-search:focus { outline:none; border-color:var(--brand,#3C3489); }
+.rs-count { font-size:.85rem; color:var(--text-3,#9a9a94); white-space:nowrap; }
+.rs-tone-groups { display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:1.5rem; }
+.act-btn { padding:.45rem 1.1rem; border:1px solid var(--border,#e4e4e2); border-radius:8px; background:var(--bg-2,#f4f4f2); color:var(--text); font-size:.875rem; font-family:inherit; cursor:pointer; transition:background .15s,border-color .15s,color .15s; }
+.act-btn:hover { background:var(--brand,#3C3489); color:#fff; border-color:var(--brand,#3C3489); }
+.rs-tone-btn { padding:.35rem .85rem; border:1px solid var(--border,#e4e4e2); border-radius:20px; background:none; font-size:.85rem; font-family:inherit; cursor:pointer; transition:background .15s,border-color .15s,color .15s; }
+.rs-tone-btn.active { background:var(--brand,#3C3489); color:#fff; border-color:var(--brand,#3C3489); }
+.rs-group { margin-bottom:1.75rem; }
+.rs-group-label { font-size:.85rem; font-weight:700; color:var(--text-3,#9a9a94); text-transform:uppercase; letter-spacing:.06em; margin-bottom:.6rem; }
+.rs-chips { display:flex; flex-wrap:wrap; gap:.4rem; }
+.rs-chip { padding:.3rem .7rem; background:var(--bg-2,#f4f4f2); border:1px solid var(--border,#e4e4e2); border-radius:20px; font-size:.9rem; cursor:pointer; transition:background .12s,border-color .12s,color .12s; }
+.rs-chip:hover { background:var(--brand,#3C3489); color:#fff; border-color:var(--brand,#3C3489); }
+.rs-chip.rs-hidden { display:none; }
+.rs-group.rs-group-empty { display:none; }
+.rs-no-results { color:var(--text-3,#9a9a94); padding:2rem 0; text-align:center; }
 .rs-seo-list { margin:16px 0 0; padding:0; }
 .rs-seo-list dt { font-weight:700; color:var(--text); margin-top:10px; }
-.rs-seo-list dd { margin-left:0; color:var(--text-2, #374151); font-size:0.92rem; }
-
+.rs-seo-list dd { margin-left:0; color:var(--text-2,#374151); font-size:.92rem; }
 .explainer ul, .explainer ol { padding-left:1.5em; }
-
-@media (max-width:640px) {
-  .rs-controls { flex-direction:column; align-items:stretch; }
-  .rs-search { min-width:0; }
-  .rs-grid { grid-template-columns:1fr; }
-}
-
 @media print {
-  header, nav, .breadcrumb, .hero, .rs-controls, .rs-cats, .rs-card-footer, footer, .ad, [class*="ad-"], .more-tools, .explainer, .faq, .who { display:none !important; }
-  .rs-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
-  .rs-card { border:1px dashed #ccc; break-inside:avoid; }
+  header, nav, .breadcrumb, .rs-controls, .rs-tone-groups, footer, .ad, .more-tools, .who, .faq-section { display:none !important; }
+  .rs-chips { gap:.25rem; }
+  .rs-chip { border:1px solid #ccc; page-break-inside:avoid; }
   @page { margin:1.5cm; }
 }
 </style>
@@ -234,7 +215,7 @@
     Wordineer
   </a>
   <div class="nav-links">
-    <a href="/word-tools/">Tools</a>
+    <a href="/word-tools">Tools</a>
   </div>
   <div>
     <button class="hamburger" type="button" aria-label="All tools" aria-controls="mega" aria-expanded="false">
@@ -247,74 +228,74 @@
     <div class="mega-col">
       <div class="mega-cat">Writing &amp; Vocabulary</div>
       <a class="mega-link" href="/">Random Word Generator</a>
-      <a class="mega-link" href="/random-sentence-generator/">Random Sentence Generator</a>
-      <a class="mega-link" href="/lorem-ipsum-generator/">Lorem Ipsum Generator</a>
-      <a class="mega-link" href="/word-counter/">Word Counter</a>
-      <a class="mega-link mega-link--view-all" href="/word-tools/">View all →</a>
+      <a class="mega-link" href="/random-sentence-generator">Random Sentence Generator</a>
+      <a class="mega-link" href="/lorem-ipsum-generator">Lorem Ipsum Generator</a>
+      <a class="mega-link" href="/word-counter">Word Counter</a>
+      <a class="mega-link mega-link--view-all" href="/word-tools">View all →</a>
     </div>
     <div class="mega-col">
       <div class="mega-cat">Word Lists</div>
-      <a class="mega-link" href="/random-words-starting-with/">Words Starting With (A–Z)</a>
-      <a class="mega-link" href="/words-ending-with/">Words Ending With (suffixes)</a>
+      <a class="mega-link" href="/random-words-starting-with">Words Starting With (A–Z)</a>
+      <a class="mega-link" href="/words-ending-with">Words Ending With (suffixes)</a>
       <a class="mega-link" href="/random-words-starting-with/s">Words Starting With S</a>
-      <a class="mega-link" href="/words-ending-in-ing/">Words Ending in -ING</a>
-      <a class="mega-link mega-link--view-all" href="/word-lists/">View all →</a>
+      <a class="mega-link" href="/words-ending-in-ing">Words Ending in -ING</a>
+      <a class="mega-link mega-link--view-all" href="/word-lists">View all →</a>
     </div>
     <div class="mega-col">
       <div class="mega-cat">Names by Origin</div>
-      <a class="mega-link" href="/random-spanish-name-generator/">Spanish Name Generator</a>
-      <a class="mega-link" href="/random-italian-name-generator/">Italian Name Generator</a>
-      <a class="mega-link" href="/random-japanese-name-generator/">Japanese Name Generator</a>
-      <a class="mega-link" href="/random-american-name-generator/">American Name Generator</a>
-      <a class="mega-link mega-link--view-all" href="/name-generators/">View all →</a>
+      <a class="mega-link" href="/random-spanish-name-generator">Spanish Name Generator</a>
+      <a class="mega-link" href="/random-italian-name-generator">Italian Name Generator</a>
+      <a class="mega-link" href="/random-japanese-name-generator">Japanese Name Generator</a>
+      <a class="mega-link" href="/random-american-name-generator">American Name Generator</a>
+      <a class="mega-link mega-link--view-all" href="/name-generators">View all →</a>
     </div>
     <div class="mega-col">
       <div class="mega-cat">Other Name Generators</div>
-      <a class="mega-link" href="/character-name-generator/">Character Name Generator</a>
-      <a class="mega-link" href="/fantasy-name-generator/">Fantasy Name Generator</a>
-      <a class="mega-link" href="/business-name-generator/">Business Name Generator</a>
-      <a class="mega-link" href="/band-name-generator/">Band Name Generator</a>
-      <a class="mega-link mega-link--view-all" href="/other-generators/">View all →</a>
+      <a class="mega-link" href="/character-name-generator">Character Name Generator</a>
+      <a class="mega-link" href="/fantasy-name-generator">Fantasy Name Generator</a>
+      <a class="mega-link" href="/business-name-generator">Business Name Generator</a>
+      <a class="mega-link" href="/band-name-generator">Band Name Generator</a>
+      <a class="mega-link mega-link--view-all" href="/other-generators">View all →</a>
     </div>
     <div class="mega-col">
       <div class="mega-cat">Account &amp; Security</div>
-      <a class="mega-link" href="/username-generator/">Username Generator</a>
-      <a class="mega-link" href="/password-generator/">Password Generator</a>
-      <a class="mega-link" href="/passphrase-generator/">Passphrase Generator</a>
-      <a class="mega-link" href="/random-pin-generator/">Random PIN Generator</a>
-      <a class="mega-link mega-link--view-all" href="/account-tools/">View all →</a>
+      <a class="mega-link" href="/username-generator">Username Generator</a>
+      <a class="mega-link" href="/password-generator">Password Generator</a>
+      <a class="mega-link" href="/passphrase-generator">Passphrase Generator</a>
+      <a class="mega-link" href="/random-pin-generator">Random PIN Generator</a>
+      <a class="mega-link mega-link--view-all" href="/account-tools">View all →</a>
     </div>
     <div class="mega-col">
       <div class="mega-cat">Numbers &amp; Random</div>
-      <a class="mega-link" href="/random-number-generator/">Random Number Generator</a>
-      <a class="mega-link" href="/dice-roller/">Dice Roller</a>
-      <a class="mega-link" href="/coin-flip/">Flip a Coin</a>
-      <a class="mega-link" href="/random-pin-generator/">Random PIN Generator</a>
-      <a class="mega-link mega-link--view-all" href="/number-tools/">View all →</a>
+      <a class="mega-link" href="/random-number-generator">Random Number Generator</a>
+      <a class="mega-link" href="/dice-roller">Dice Roller</a>
+      <a class="mega-link" href="/coin-flip">Flip a Coin</a>
+      <a class="mega-link" href="/random-pin-generator">Random PIN Generator</a>
+      <a class="mega-link mega-link--view-all" href="/number-tools">View all →</a>
     </div>
     <div class="mega-col">
       <div class="mega-cat">Games &amp; fun</div>
-      <a class="mega-link" href="/coin-flip/">Flip a Coin</a>
-      <a class="mega-link" href="/mad-libs/">Mad Libs Generator</a>
-      <a class="mega-link" href="/dice-roller/">Dice Roller</a>
-      <a class="mega-link" href="/wheel-of-names/">Wheel of Names</a>
-      <a class="mega-link mega-link--view-all" href="/word-games/">View all →</a>
+      <a class="mega-link" href="/coin-flip">Flip a Coin</a>
+      <a class="mega-link" href="/mad-libs">Mad Libs Generator</a>
+      <a class="mega-link" href="/dice-roller">Dice Roller</a>
+      <a class="mega-link" href="/wheel-of-names">Wheel of Names</a>
+      <a class="mega-link mega-link--view-all" href="/word-games">View all →</a>
     </div>
     <div class="mega-col">
       <div class="mega-cat">Text Tools</div>
-      <a class="mega-link" href="/fancy-text-generator/">Fancy Text Generator</a>
-      <a class="mega-link" href="/upside-down-text/">Upside Down Text</a>
-      <a class="mega-link" href="/caesar-cipher/">Caesar Cipher</a>
-      <a class="mega-link" href="/zalgo-text/">Zalgo Text Generator</a>
-      <a class="mega-link mega-link--view-all" href="/text-tools/">View all →</a>
+      <a class="mega-link" href="/fancy-text-generator">Fancy Text Generator</a>
+      <a class="mega-link" href="/upside-down-text">Upside Down Text</a>
+      <a class="mega-link" href="/caesar-cipher">Caesar Cipher</a>
+      <a class="mega-link" href="/zalgo-text">Zalgo Text Generator</a>
+      <a class="mega-link mega-link--view-all" href="/text-tools">View all →</a>
     </div>
     <div class="mega-col">
       <div class="mega-cat">For Teachers</div>
-      <a class="mega-link" href="/spelling-bee-words/">Spelling Bee Words (K–7)</a>
-      <a class="mega-link" href="/sight-words-generator/">Sight Words Generator</a>
-      <a class="mega-link" href="/word-search-maker/">Word Search Maker</a>
-      <a class="mega-link" href="/word-scramble/">Word Scramble</a>
-      <a class="mega-link mega-link--view-all" href="/teacher-tools/">View all →</a>
+      <a class="mega-link" href="/spelling-bee-words">Spelling Bee Words (K–7)</a>
+      <a class="mega-link" href="/sight-words-generator">Sight Words Generator</a>
+      <a class="mega-link" href="/word-search-maker">Word Search Maker</a>
+      <a class="mega-link" href="/word-scramble">Word Scramble</a>
+      <a class="mega-link mega-link--view-all" href="/teacher-tools">View all →</a>
     </div>
   </div>
 </div>
@@ -323,7 +304,7 @@
   <div class="breadcrumb-inner">
     <a href="/">Wordineer</a>
     <span class="breadcrumb-sep">›</span>
-    <a href="/word-tools/">Word Tools</a>
+    <a href="/word-tools">Word Tools</a>
     <span class="breadcrumb-sep">›</span>
     <span aria-current="page">Words to Replace Said</span>
   </div>
@@ -335,41 +316,41 @@
 <div class="tool-wrap">
   <div class="tool-card">
     <div class="rs-controls">
-      <input type="search" class="rs-search" id="rs-search" placeholder="Search words or definitions…" aria-label="Search alternatives for said">
-      <span class="rs-count" id="rs-count" aria-live="polite" aria-atomic="true">Loading…</span>
-      <button class="rs-copy-all" id="rs-copy-all">Copy visible list</button>
+      <input type="search" class="rs-search" id="rs-search" placeholder="Search alternatives…" aria-label="Search alternatives for said">
+      <span class="rs-count" id="rs-count" aria-live="polite" aria-atomic="true">Showing all words</span>
+      <button class="act-btn" id="rs-copy-all">Copy visible list</button>
     </div>
-    <div class="rs-cats" id="rs-cats" role="group" aria-label="Filter by tone">
-      <button class="rs-cat-btn active" data-tone="all" aria-pressed="true">All</button>
-      <button class="rs-cat-btn" data-tone="neutral" aria-pressed="false">Neutral</button>
-      <button class="rs-cat-btn" data-tone="quiet" aria-pressed="false">Quiet</button>
-      <button class="rs-cat-btn" data-tone="loud" aria-pressed="false">Loud</button>
-      <button class="rs-cat-btn" data-tone="questioning" aria-pressed="false">Questioning</button>
-      <button class="rs-cat-btn" data-tone="positive" aria-pressed="false">Positive</button>
-      <button class="rs-cat-btn" data-tone="negative" aria-pressed="false">Negative</button>
-      <button class="rs-cat-btn" data-tone="conversational" aria-pressed="false">Conversational</button>
-      <button class="rs-cat-btn" data-tone="authoritative" aria-pressed="false">Authoritative</button>
+    <div class="rs-tone-groups" id="rs-tone-btns" role="group" aria-label="Filter by tone">
+      <button class="rs-tone-btn active" data-tone="all" aria-pressed="true">All tones</button>
+      <button class="rs-tone-btn" data-tone="neutral" aria-pressed="false">Neutral</button>
+      <button class="rs-tone-btn" data-tone="quiet" aria-pressed="false">Quiet</button>
+      <button class="rs-tone-btn" data-tone="loud" aria-pressed="false">Loud</button>
+      <button class="rs-tone-btn" data-tone="questioning" aria-pressed="false">Questioning</button>
+      <button class="rs-tone-btn" data-tone="positive" aria-pressed="false">Positive</button>
+      <button class="rs-tone-btn" data-tone="negative" aria-pressed="false">Negative</button>
+      <button class="rs-tone-btn" data-tone="conversational" aria-pressed="false">Conversational</button>
+      <button class="rs-tone-btn" data-tone="authoritative" aria-pressed="false">Authoritative</button>
     </div>
-    <div class="rs-grid" id="rs-grid"></div>
+    <div id="rs-word-list"></div>
+    <p class="rs-no-results" id="rs-no-results" style="display:none">No words match your search. Try a shorter term.</p>
     <dl class="rs-seo-list" id="rs-seo-list">
-      <dt>whispered</dt><dd>Spoken very softly, often to avoid being overheard.</dd>
-      <dt>exclaimed</dt><dd>Said with sudden strong emotion or surprise.</dd>
-      <dt>declared</dt><dd>Said with authority, often publicly.</dd>
+      <dt>whispered</dt><dd>Said very softly, usually to avoid being overheard</dd>
+      <dt>exclaimed</dt><dd>Said suddenly with strong emotion or surprise</dd>
+      <dt>declared</dt><dd>Said firmly and publicly, often as an announcement</dd>
     </dl>
   </div>
 </div>
 <div class="content-wrap">
-<!-- SECTION:more_tools -->
   <div class="section">
     <h2 class="section-title">More vocabulary tools</h2>
     <p class="section-sub">Free tools for English vocabulary and learning</p>
     <div class="tools-grid">
-      <a class="tool-item" href="/sat-vocabulary-words/"><div class="tool-icon" style="background:#E6F1FB"><svg viewBox="0 0 13 13" fill="none"><path d="M6.5 3L12 5.5 6.5 8 1 5.5z" fill="#185FA5"/><path d="M3.5 6.5v2.5c1 .9 2 1.2 3 1.2s2-.3 3-1.2V6.5" stroke="#185FA5" stroke-width=".9" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 5.5v2.5" stroke="#185FA5" stroke-width=".9" stroke-linecap="round"/></svg></div><div class="tool-name">SAT Vocabulary Words</div><div class="tool-desc">400+ curated SAT words with definitions, audio pronunciation, etymology, and practice mode.</div></a>
-      <a class="tool-item" href="/sat-words-list/"><div class="tool-icon" style="background:#E6F1FB"><svg viewBox="0 0 13 13" fill="none"><path d="M3 3.5h7M3 6h5M3 8.5h6" stroke="#185FA5" stroke-width="1" stroke-linecap="round"/></svg></div><div class="tool-name">SAT Words List</div><div class="tool-desc">400+ SAT vocabulary words with definitions, etymology, and example sentences — full list view, printable.</div></a>
-      <a class="tool-item" href="/hardest-sat-words/"><div class="tool-icon" style="background:#E6F1FB"><svg viewBox="0 0 13 13" fill="none"><path d="M6.5 2.5v7M3 6.5l3.5 3.5 3.5-3.5" stroke="#185FA5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="tool-name">Hardest SAT Words</div><div class="tool-desc">180+ of the most difficult SAT vocabulary words with definitions, root notes, and printable study list.</div></a>
-      <a class="tool-item" href="/spelling-bee-words/"><div class="tool-icon" style="background:#EEF4FE"><svg viewBox="0 0 13 13" fill="none"><path d="M6.5 2.5L10 4.5v4L6.5 10.5 3 8.5v-4z" stroke="#3B6FD4" stroke-width=".9" stroke-linejoin="round"/></svg></div><div class="tool-name">Spelling Bee Words</div><div class="tool-desc">Grade K–7 spelling bee word lists with audio pronunciation and practice mode.</div></a>
-      <a class="tool-item" href="/word-of-the-day/"><div class="tool-icon" style="background:#FAEEDA"><svg viewBox="0 0 13 13" fill="none"><rect x="2.5" y="4" width="8" height="6.5" rx="1" stroke="#BA7517" stroke-width=".9"/><path d="M5 4V2.5M8 4V2.5" stroke="#BA7517" stroke-width=".9" stroke-linecap="round"/><path d="M2.5 6h8" stroke="#BA7517" stroke-width=".7"/></svg></div><div class="tool-name">Word of the Day</div><div class="tool-desc">A new word every day with definition, part of speech, and example sentence.</div></a>
-      <a class="tool-item" href="/random-weird-words/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><path d="M5 4.2c0-1.1.9-1.7 1.5-1.7C7.6 2.5 8 3.3 8 4c0 .9-.6 1.3-1 1.8-.2.2-.3.5-.3.8" stroke="#4A3FD4" stroke-width="1" stroke-linecap="round"/><circle cx="6.5" cy="9.5" r=".75" fill="#4A3FD4"/></svg></div><div class="tool-name">Random Weird Words</div><div class="tool-desc">Strange, archaic, and unusual English words with definitions and origin notes.</div></a>
+      <a class="tool-item" href="/sat-vocabulary-words"><div class="tool-icon" style="background:#E6F1FB"><svg viewBox="0 0 13 13" fill="none"><path d="M6.5 3L12 5.5 6.5 8 1 5.5z" fill="#185FA5"/><path d="M3.5 6.5v2.5c1 .9 2 1.2 3 1.2s2-.3 3-1.2V6.5" stroke="#185FA5" stroke-width=".9" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 5.5v2.5" stroke="#185FA5" stroke-width=".9" stroke-linecap="round"/></svg></div><div class="tool-name">SAT Vocabulary Words</div><div class="tool-desc">400+ curated SAT words with definitions, audio pronunciation, etymology, and practice mode.</div></a>
+      <a class="tool-item" href="/sat-words-list"><div class="tool-icon" style="background:#E6F1FB"><svg viewBox="0 0 13 13" fill="none"><path d="M3 3.5h7M3 6h5M3 8.5h6" stroke="#185FA5" stroke-width="1" stroke-linecap="round"/></svg></div><div class="tool-name">SAT Words List</div><div class="tool-desc">400+ SAT vocabulary words with definitions, etymology, and example sentences — full list view, printable.</div></a>
+      <a class="tool-item" href="/hardest-sat-words"><div class="tool-icon" style="background:#E6F1FB"><svg viewBox="0 0 13 13" fill="none"><path d="M6.5 2.5v7M3 6.5l3.5 3.5 3.5-3.5" stroke="#185FA5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="tool-name">Hardest SAT Words</div><div class="tool-desc">180+ of the most difficult SAT vocabulary words with definitions, root notes, and printable study list.</div></a>
+      <a class="tool-item" href="/spelling-bee-words"><div class="tool-icon" style="background:#EEF4FE"><svg viewBox="0 0 13 13" fill="none"><path d="M6.5 2.5L10 4.5v4L6.5 10.5 3 8.5v-4z" stroke="#3B6FD4" stroke-width=".9" stroke-linejoin="round"/></svg></div><div class="tool-name">Spelling Bee Words</div><div class="tool-desc">Grade K–7 spelling bee word lists with audio pronunciation and practice mode.</div></a>
+      <a class="tool-item" href="/word-of-the-day"><div class="tool-icon" style="background:#FAEEDA"><svg viewBox="0 0 13 13" fill="none"><rect x="2.5" y="4" width="8" height="6.5" rx="1" stroke="#BA7517" stroke-width=".9"/><path d="M5 4V2.5M8 4V2.5" stroke="#BA7517" stroke-width=".9" stroke-linecap="round"/><path d="M2.5 6h8" stroke="#BA7517" stroke-width=".7"/></svg></div><div class="tool-name">Word of the Day</div><div class="tool-desc">A new word every day with definition, part of speech, and example sentence.</div></a>
+      <a class="tool-item" href="/random-weird-words"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><path d="M5 4.2c0-1.1.9-1.7 1.5-1.7C7.6 2.5 8 3.3 8 4c0 .9-.6 1.3-1 1.8-.2.2-.3.5-.3.8" stroke="#4A3FD4" stroke-width="1" stroke-linecap="round"/><circle cx="6.5" cy="9.5" r=".75" fill="#4A3FD4"/></svg></div><div class="tool-name">Random Weird Words</div><div class="tool-desc">Strange, archaic, and unusual English words with definitions and origin notes.</div></a>
     </div>
   </div>
   <div class="ad-rect">
@@ -381,7 +362,6 @@
       <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
     </div>
   </div>
-<!-- /SECTION:more_tools -->
 <section class="explainer">
 
 <h2>Why "said" isn't always wrong</h2>
@@ -423,7 +403,7 @@
 <p>For students writing creative pieces or school assignments, the challenge with dialogue tags is usually the opposite of the problem professional writers face. Where professional writers tend to overuse "said" out of disciplined habit, students often overreach — either using "said" robotically on every line or swinging to the opposite extreme and using improbable substitutes that make their dialogue feel theatrical.</p>
 <p>A practical approach for school writing: think of your dialogue tag vocabulary in three tiers. Tier one is "said" — use it as the default. Tier two is the moderate alternatives that add emotional information without drawing attention to themselves: replied, asked, answered, told, explained. These are almost as neutral as "said" but slightly more specific. Tier three is the expressive alternatives — whispered, shouted, snapped, laughed — that you use sparingly, only when the line genuinely needs that kind of signal.</p>
 <p>For a creative writing assignment, aim for a rough ratio: about half your attributions can be "said" or no tag at all (replaced by an action beat), a quarter can be tier-two alternatives, and a quarter or fewer can be the more expressive tier-three verbs. This gives your dialogue energy without tipping into excess. Teachers and graders notice when every line is tagged with an unusual verb — it reads as effort, not craft.</p>
-<p>The most important skill at any level is reading your dialogue aloud. Spoken dialogue reveals bad tags instantly — if the tag sounds redundant or overwrought when you read it aloud, it probably is. For more vocabulary-building tools, explore <a href="/cool-words/">cool words</a>, <a href="/big-words-to-sound-smart/">big words to sound smart</a>, and <a href="/transition-words/">transition words</a> to strengthen every part of your writing, not just dialogue.</p>
+<p>The most important skill at any level is reading your dialogue aloud. Spoken dialogue reveals bad tags instantly — if the tag sounds redundant or overwrought when you read it aloud, it probably is. For more vocabulary-building tools, explore <a href="/cool-words">cool words</a>, <a href="/big-words-to-sound-smart">big words to sound smart</a>, and <a href="/transition-words">transition words</a> to strengthen every part of your writing, not just dialogue.</p>
 
 </section>
 
@@ -495,15 +475,15 @@
       <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-footer-strip-cta">Try free</a>
     </div>
     <div class="footer-grid">
-      <div><div class="footer-col-title">Writing &amp; Vocabulary</div><a class="footer-link" href="/">Random Word Generator</a><a class="footer-link" href="/random-sentence-generator/">Random Sentence Generator</a><a class="footer-link" href="/lorem-ipsum-generator/">Lorem Ipsum Generator</a><a class="footer-link" href="/word-counter/">Word Counter</a><a class="footer-link footer-link--view-all" href="/word-tools/">View all →</a></div>
-      <div><div class="footer-col-title">Word Lists</div><a class="footer-link" href="/random-words-starting-with/">Words Starting With (A–Z)</a><a class="footer-link" href="/words-ending-with/">Words Ending With (suffixes)</a><a class="footer-link" href="/words-ending-in-ing/">Words Ending in -ING</a><a class="footer-link" href="/words-ending-in-ly/">Words Ending in -LY</a><a class="footer-link footer-link--view-all" href="/word-lists/">View all →</a></div>
-      <div><div class="footer-col-title">Names by Origin</div><a class="footer-link" href="/random-spanish-name-generator/">Spanish Name Generator</a><a class="footer-link" href="/random-italian-name-generator/">Italian Name Generator</a><a class="footer-link" href="/random-japanese-name-generator/">Japanese Name Generator</a><a class="footer-link" href="/random-american-name-generator/">American Name Generator</a><a class="footer-link footer-link--view-all" href="/name-generators/">View all →</a></div>
-      <div><div class="footer-col-title">Other Name Generators</div><a class="footer-link" href="/character-name-generator/">Character Name Generator</a><a class="footer-link" href="/fantasy-name-generator/">Fantasy Name Generator</a><a class="footer-link" href="/business-name-generator/">Business Name Generator</a><a class="footer-link" href="/band-name-generator/">Band Name Generator</a><a class="footer-link footer-link--view-all" href="/other-generators/">View all →</a></div>
-      <div><div class="footer-col-title">Account &amp; Security</div><a class="footer-link" href="/password-generator/">Password Generator</a><a class="footer-link" href="/passphrase-generator/">Passphrase Generator</a><a class="footer-link" href="/memorable-password-generator/">Memorable Password Generator</a><a class="footer-link" href="/username-generator/">Username Generator</a><a class="footer-link footer-link--view-all" href="/account-tools/">View all →</a></div>
-      <div><div class="footer-col-title">Numbers &amp; Random</div><a class="footer-link" href="/random-number-generator/">Random Number Generator</a><a class="footer-link" href="/dice-roller/">Dice Roller</a><a class="footer-link" href="/coin-flip/">Flip a Coin</a><a class="footer-link" href="/random-pin-generator/">Random PIN Generator</a><a class="footer-link footer-link--view-all" href="/number-tools/">View all →</a></div>
-      <div><div class="footer-col-title">Games &amp; fun</div><a class="footer-link" href="/coin-flip/">Flip a Coin</a><a class="footer-link" href="/mad-libs/">Mad Libs Generator</a><a class="footer-link" href="/dice-roller/">Dice Roller</a><a class="footer-link" href="/wheel-of-names/">Wheel of Names</a><a class="footer-link footer-link--view-all" href="/word-games/">View all →</a></div>
-      <div><div class="footer-col-title">Text Tools</div><a class="footer-link" href="/fancy-text-generator/">Fancy Text Generator</a><a class="footer-link" href="/upside-down-text/">Upside Down Text</a><a class="footer-link" href="/caesar-cipher/">Caesar Cipher</a><a class="footer-link" href="/zalgo-text/">Zalgo Text Generator</a><a class="footer-link footer-link--view-all" href="/text-tools/">View all →</a></div>
-      <div><div class="footer-col-title">For Teachers</div><a class="footer-link" href="/spelling-bee-words/">Spelling Bee Words (K–7)</a><a class="footer-link" href="/sight-words-generator/">Sight Words Generator</a><a class="footer-link" href="/word-search-maker/">Word Search Maker</a><a class="footer-link" href="/word-scramble/">Word Scramble</a><a class="footer-link footer-link--view-all" href="/teacher-tools/">View all →</a></div>
+      <div><div class="footer-col-title">Writing &amp; Vocabulary</div><a class="footer-link" href="/">Random Word Generator</a><a class="footer-link" href="/random-sentence-generator">Random Sentence Generator</a><a class="footer-link" href="/lorem-ipsum-generator">Lorem Ipsum Generator</a><a class="footer-link" href="/word-counter">Word Counter</a><a class="footer-link footer-link--view-all" href="/word-tools">View all →</a></div>
+      <div><div class="footer-col-title">Word Lists</div><a class="footer-link" href="/random-words-starting-with">Words Starting With (A–Z)</a><a class="footer-link" href="/words-ending-with">Words Ending With (suffixes)</a><a class="footer-link" href="/words-ending-in-ing">Words Ending in -ING</a><a class="footer-link" href="/words-ending-in-ly">Words Ending in -LY</a><a class="footer-link footer-link--view-all" href="/word-lists">View all →</a></div>
+      <div><div class="footer-col-title">Names by Origin</div><a class="footer-link" href="/random-spanish-name-generator">Spanish Name Generator</a><a class="footer-link" href="/random-italian-name-generator">Italian Name Generator</a><a class="footer-link" href="/random-japanese-name-generator">Japanese Name Generator</a><a class="footer-link" href="/random-american-name-generator">American Name Generator</a><a class="footer-link footer-link--view-all" href="/name-generators">View all →</a></div>
+      <div><div class="footer-col-title">Other Name Generators</div><a class="footer-link" href="/character-name-generator">Character Name Generator</a><a class="footer-link" href="/fantasy-name-generator">Fantasy Name Generator</a><a class="footer-link" href="/business-name-generator">Business Name Generator</a><a class="footer-link" href="/band-name-generator">Band Name Generator</a><a class="footer-link footer-link--view-all" href="/other-generators">View all →</a></div>
+      <div><div class="footer-col-title">Account &amp; Security</div><a class="footer-link" href="/password-generator">Password Generator</a><a class="footer-link" href="/passphrase-generator">Passphrase Generator</a><a class="footer-link" href="/memorable-password-generator">Memorable Password Generator</a><a class="footer-link" href="/username-generator">Username Generator</a><a class="footer-link footer-link--view-all" href="/account-tools">View all →</a></div>
+      <div><div class="footer-col-title">Numbers &amp; Random</div><a class="footer-link" href="/random-number-generator">Random Number Generator</a><a class="footer-link" href="/dice-roller">Dice Roller</a><a class="footer-link" href="/coin-flip">Flip a Coin</a><a class="footer-link" href="/random-pin-generator">Random PIN Generator</a><a class="footer-link footer-link--view-all" href="/number-tools">View all →</a></div>
+      <div><div class="footer-col-title">Games &amp; fun</div><a class="footer-link" href="/coin-flip">Flip a Coin</a><a class="footer-link" href="/mad-libs">Mad Libs Generator</a><a class="footer-link" href="/dice-roller">Dice Roller</a><a class="footer-link" href="/wheel-of-names">Wheel of Names</a><a class="footer-link footer-link--view-all" href="/word-games">View all →</a></div>
+      <div><div class="footer-col-title">Text Tools</div><a class="footer-link" href="/fancy-text-generator">Fancy Text Generator</a><a class="footer-link" href="/upside-down-text">Upside Down Text</a><a class="footer-link" href="/caesar-cipher">Caesar Cipher</a><a class="footer-link" href="/zalgo-text">Zalgo Text Generator</a><a class="footer-link footer-link--view-all" href="/text-tools">View all →</a></div>
+      <div><div class="footer-col-title">For Teachers</div><a class="footer-link" href="/spelling-bee-words">Spelling Bee Words (K–7)</a><a class="footer-link" href="/sight-words-generator">Sight Words Generator</a><a class="footer-link" href="/word-search-maker">Word Search Maker</a><a class="footer-link" href="/word-scramble">Word Scramble</a><a class="footer-link footer-link--view-all" href="/teacher-tools">View all →</a></div>
     </div>
     <div class="footer-bottom">
       <div style="display:flex;align-items:center;gap:7px">
@@ -511,14 +491,14 @@
         <span style="font-size:14px;font-weight:600;color:var(--text)">Wordineer</span>
       </div>
       <span class="footer-copy">© 2026 Wordineer · Free word tools for everyone</span>
-      <div class="footer-meta"><a href="/about/">About</a><a href="/press-kit/">Data &amp; Press</a><a href="/embed/">Embed our tools</a><a href="/affiliate-disclosure/">Affiliate disclosure</a><a href="/privacy/">Privacy</a></div>
+      <div class="footer-meta"><a href="/about">About</a><a href="/press-kit">Data &amp; Press</a><a href="/embed">Embed our tools</a><a href="/affiliate-disclosure">Affiliate disclosure</a><a href="/privacy">Privacy</a></div>
     </div>
   </div>
 </footer>
 
 <div class="toast" id="toast"></div>
 
-<script src="/scripts/tool-engine.js?v=31"></script>
+<script src="/scripts/tool-engine.js?v=30"></script>
 <script>
 (function bindSharedWordineerMenu() {
   const mega = document.getElementById('mega');
@@ -562,116 +542,117 @@
 </script>
 
 <script>
-(function () {
-  function he(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-
-  var TONE_LABELS = {
-    neutral:        'Neutral',
-    quiet:          'Quiet',
-    loud:           'Loud',
-    questioning:    'Questioning',
-    positive:       'Positive',
-    negative:       'Negative',
-    conversational: 'Conversational',
-    authoritative: 'Authoritative'
+(function(){
+  var FILTERS = {
+    tones: [
+      { key: 'neutral',        label: 'Neutral' },
+      { key: 'quiet',          label: 'Quiet' },
+      { key: 'loud',           label: 'Loud / Forceful' },
+      { key: 'questioning',    label: 'Questioning' },
+      { key: 'positive',       label: 'Positive / Excited' },
+      { key: 'negative',       label: 'Negative / Complaining' },
+      { key: 'conversational', label: 'Conversational' },
+      { key: 'authoritative',  label: 'Authoritative' }
+    ]
   };
 
-  var RS = {
-    data: [],
-    activeTone: 'all',
-    activeQuery: '',
+  var activeTone = 'all';
+  var chips = [];
+  var groups = [];
+  var countEl = document.getElementById('rs-count');
+  var noResults = document.getElementById('rs-no-results');
+  var wordList = document.getElementById('rs-word-list');
 
-    load: function () {
-      if (RS.data.length) return;
-      fetch('/data/words-to-replace-said.json')
-        .then(function(r){ return r.json(); })
-        .then(function(d){
-          RS.data = Array.isArray(d) ? d : [];
-          document.getElementById('rs-seo-list').style.display = 'none';
-          RS.render();
-        })
-        .catch(function(){
-          document.getElementById('rs-count').textContent = 'Could not load words.';
+  function updateCount() {
+    var n = chips.filter(function(c){ return !c.classList.contains('rs-hidden'); }).length;
+    countEl.textContent = 'Showing ' + n + ' word' + (n !== 1 ? 's' : '');
+    noResults.style.display = n === 0 ? '' : 'none';
+  }
+
+  function filterChips() {
+    var q = document.getElementById('rs-search').value.toLowerCase().trim();
+    chips.forEach(function(c){
+      var toneMatch = activeTone === 'all' || c.dataset.tone === activeTone;
+      var wordMatch = !q || c.dataset.word.toLowerCase().indexOf(q) !== -1;
+      c.classList.toggle('rs-hidden', !(toneMatch && wordMatch));
+    });
+    groups.forEach(function(g){
+      var anyVisible = Array.from(g.querySelectorAll('.rs-chip')).some(function(c){ return !c.classList.contains('rs-hidden'); });
+      g.classList.toggle('rs-group-empty', !anyVisible);
+    });
+    updateCount();
+  }
+
+  function buildGroups(data) {
+    var byTone = {};
+    data.forEach(function(e){ (byTone[e.tone] = byTone[e.tone] || []).push(e); });
+    wordList.innerHTML = '';
+    FILTERS.tones.forEach(function(t){
+      var entries = byTone[t.key] || [];
+      if (!entries.length) return;
+      var grp = document.createElement('div');
+      grp.className = 'rs-group';
+      grp.dataset.group = t.key;
+      grp.innerHTML = '<div class="rs-group-label">' + t.label + '</div><div class="rs-chips"></div>';
+      var chipsEl = grp.querySelector('.rs-chips');
+      entries.forEach(function(e){
+        var sp = document.createElement('span');
+        sp.className = 'rs-chip';
+        sp.dataset.word = e.w;
+        sp.dataset.tone = e.tone;
+        sp.textContent = e.w;
+        sp.addEventListener('click', function(){
+          navigator.clipboard.writeText(e.w).catch(function(){});
+          sp.textContent = '✓ ' + e.w;
+          setTimeout(function(){ sp.textContent = e.w; }, 900);
         });
-    },
-
-    filter: function () {
-      var q = RS.activeQuery.toLowerCase();
-      return RS.data.filter(function(e){
-        if (RS.activeTone !== 'all' && e.tone !== RS.activeTone) return false;
-        if (q) {
-          var hay = (e.w + ' ' + (e.d || '') + ' ' + (e.ex || '')).toLowerCase();
-          if (hay.indexOf(q) === -1) return false;
-        }
-        return true;
+        chipsEl.appendChild(sp);
       });
-    },
+      wordList.appendChild(grp);
+    });
+    chips = Array.from(wordList.querySelectorAll('.rs-chip'));
+    groups = Array.from(wordList.querySelectorAll('.rs-group'));
+    filterChips();
+  }
 
-    cardHTML: function (e) {
-      return '<div class="rs-card">' +
-        '<span class="rs-word">' + he(e.w) + '</span>' +
-        '<div class="rs-meta">' +
-          '<span class="rs-tone-tag">' + he(TONE_LABELS[e.tone] || e.tone) + '</span>' +
-        '</div>' +
-        (e.d  ? '<p class="rs-def">' + he(e.d) + '</p>' : '') +
-        (e.ex ? '<p class="rs-ex">' + he(e.ex) + '</p>' : '') +
-        '<div class="rs-card-footer">' +
-          '<button class="rs-copy-btn" data-word="' + he(e.w) + '">Copy word</button>' +
-        '</div>' +
-      '</div>';
-    },
+  fetch('/data/words-to-replace-said.json')
+    .then(function(r){ return r.json(); })
+    .then(function(data){
+      document.getElementById('rs-seo-list').style.display = 'none';
+      buildGroups(data);
+    })
+    .catch(function(){
+      countEl.textContent = 'Could not load words.';
+    });
 
-    render: function () {
-      var results = RS.filter();
-      var grid = document.getElementById('rs-grid');
-      var count = document.getElementById('rs-count');
-      if (!results.length) {
-        grid.innerHTML = '<p class="rs-no-results">No words match your filters. Try clearing a filter.</p>';
-      } else {
-        grid.innerHTML = results.map(RS.cardHTML).join('');
-      }
-      count.textContent = 'Showing ' + results.length + ' word' + (results.length !== 1 ? 's' : '');
-    },
+  document.getElementById('rs-tone-btns').addEventListener('click', function(e){
+    var btn = e.target.closest('.rs-tone-btn');
+    if (!btn) return;
+    document.querySelectorAll('.rs-tone-btn').forEach(function(b){
+      b.classList.remove('active');
+      b.setAttribute('aria-pressed', 'false');
+    });
+    btn.classList.add('active');
+    btn.setAttribute('aria-pressed', 'true');
+    activeTone = btn.dataset.tone;
+    filterChips();
+  });
 
-    bindEvents: function () {
-      document.getElementById('rs-cats').addEventListener('click', function(e){
-        var btn = e.target.closest('.rs-cat-btn');
-        if (!btn) return;
-        document.querySelectorAll('.rs-cat-btn').forEach(function(b){ b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
-        btn.classList.add('active');
-        btn.setAttribute('aria-pressed', 'true');
-        RS.activeTone = btn.dataset.tone;
-        RS.render();
-      });
-      var searchTimer;
-      document.getElementById('rs-search').addEventListener('input', function(e){
-        clearTimeout(searchTimer);
-        var q = e.target.value;
-        searchTimer = setTimeout(function(){ RS.activeQuery = q; RS.render(); }, 200);
-      });
-      document.getElementById('rs-grid').addEventListener('click', function(e){
-        var copyBtn = e.target.closest('.rs-copy-btn');
-        if (!copyBtn) return;
-        navigator.clipboard.writeText(copyBtn.dataset.word).catch(function(){});
-        copyBtn.textContent = 'Copied!';
-        setTimeout(function(){ copyBtn.textContent = 'Copy word'; }, 1500);
-      });
-      document.getElementById('rs-copy-all').addEventListener('click', function(){
-        var btn = this;
-        var words = RS.filter().map(function(e){ return e.w; });
-        navigator.clipboard.writeText(words.join(', ')).catch(function(){});
-        btn.textContent = 'Copied!';
-        setTimeout(function(){ btn.textContent = 'Copy visible list'; }, 1500);
-      });
-    },
+  var searchTimer;
+  document.getElementById('rs-search').addEventListener('input', function(){
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(filterChips, 200);
+  });
 
-    init: function () {
-      RS.bindEvents();
-      RS.load();
-    }
-  };
+  document.getElementById('rs-copy-all').addEventListener('click', function(){
+    var btn = this;
+    var visible = chips.filter(function(c){ return !c.classList.contains('rs-hidden'); });
+    navigator.clipboard.writeText(visible.map(function(c){ return c.dataset.word; }).join(', ')).catch(function(){});
+    btn.textContent = 'Copied!';
+    setTimeout(function(){ btn.textContent = 'Copy visible list'; }, 1500);
+  });
 
-  RS.init();
+  });
 }());
 </script>
 </body>

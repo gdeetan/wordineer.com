@@ -117,15 +117,9 @@
   letter-spacing: -0.02em;
   min-width: 3ch;
   text-align: center;
-  will-change: transform;
+  transition: opacity 0.08s;
 }
-.rng-winner.is-rolling { color: var(--text-2); opacity: 0.78; }
-@keyframes rng-pop {
-  0%   { transform: scale(1); }
-  40%  { transform: scale(1.14); }
-  100% { transform: scale(1); }
-}
-.rng-winner.is-landed { animation: rng-pop 0.42s cubic-bezier(.2,.9,.3,1); }
+.rng-winner.is-animating { opacity: 0.12; }
 .rng-prize-badge {
   font-size: 13px;
   font-weight: 600;
@@ -435,16 +429,16 @@
 <!-- SLOT:explainer -->
 <div class="explainer">
   <h2>How to run a raffle draw</h2>
-  <p>Set the <strong>Total # of Tickets</strong> in your pool (the number of tickets you sold or handed out to people). Click <strong>Draw Winner</strong> to pick a <a href="/random-number-generator/">random number</a> between 1 and the Total # of Tickets in your pool. Display this number to the audience. You will have to re-run the Draw Winner to pick the numbers for the <strong>2nd and 3rd prizes</strong>.</p>
+  <p>Enter the total number of tickets in your pool — typically the number of tickets sold or handed out. Then click Draw Winner. The tool picks one random number from 1 to your pool size and displays it prominently. Announce the winner and move on. For second and third prizes, click Draw Winner again.</p>
 
   <h2>No-repeat mode for multi-prize raffles</h2>
-  <p>Enable <strong>No-repeat mode</strong>, and each time a winner is drawn, that ticket number is <strong>removed from the pool</strong>. A progress bar shows how many tickets are left in the pool, and the log shows a complete record of all the winners in order. Use the <strong>Reset Pool</strong> button to return the pool to its original state with all of the tickets in play again.</p>
+  <p>Enable No-repeat mode before starting a multi-prize draw. Each winning ticket is removed from the pool after being drawn, so the same number can never win twice. The progress bar shows remaining tickets and a log records every winner in sequence. Reset the pool to start fresh with all tickets back in play.</p>
 
   <h2>Is this fair for a real raffle?</h2>
-  <p>Yes, this will be fair. This tool uses JavaScript's <strong>Math.random()</strong> function, which is seeded by the browser's <strong>cryptographically secure entropy source</strong>. So each ticket number will have the <strong>same chance</strong> of being chosen as every other ticket number. For the average fundraiser, charity event, or office party, this is fair enough to use and can be verified. For higher-stakes events like a <a href="/lottery-number-generator/">lottery draw</a>, simply print out the chosen ticket number and take a screenshot of the browser displaying the number.</p>
+  <p>Yes. The tool uses JavaScript's built-in Math.random() seeded by the browser's cryptographic entropy source, which produces a statistically uniform distribution. Every ticket number has exactly the same probability of being drawn. For typical fundraisers, charity events, and office raffles this is a perfectly fair and verifiable method. If the stakes are very high, print the winning number and keep a screenshot as a record.</p>
 
   <h2>Tips for a smooth draw event</h2>
-  <p>Display this page on a <strong>shared screen</strong> so your audience can see the draw happen in real time. Before drawing, set the pool size to <strong>match the exact number of tickets distributed</strong>. If you sold 150 tickets, set the pool to 150. Ticket #1 through #150 are all equally likely. You can pause between draws, and the log keeps track of all previous winners automatically.</p>
+  <p>Display this page on a shared screen so your audience can see the draw happen in real time. Before drawing, set the pool size to match the exact number of tickets distributed. If you sold 150 tickets, set the pool to 150. Ticket #1 through #150 are all equally likely. You can pause between draws and the log keeps track of all previous winners automatically.</p>
 </div>
 <!-- /SLOT:explainer -->
 
@@ -452,25 +446,25 @@
 <div class="faq">
   <h2 class="faq-title">Frequently asked questions</h2>
 
-  <div class="faq-item open">
-    <div class="faq-q"><span class="faq-q-text">How does the raffle number generator work?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a"><p>Add the <strong>number of tickets</strong> in your pool, then click <strong>Draw</strong> to pick a <a href="/random-number-generator/">random number</a> between 1 and the number of tickets in your pool. Turning <strong>No-repeat on</strong> ensures that the same ticket cannot win again after it has been drawn.</p></div>
-  </div>
+  <details class="faq-item">
+    <summary class="faq-q">How does the raffle number generator work?</summary>
+    <div class="faq-a">Enter the number of tickets in your pool, then click Draw. The tool picks one random number from 1 to your pool size. Enable No-repeat mode to automatically remove each drawn number so the same ticket can't win twice.</div>
+  </details>
 
-  <div class="faq-item">
-    <div class="faq-q"><span class="faq-q-text">Can I draw multiple winners without repeats?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a"><p>Yes. The number of tickets remaining is tracked in the <strong>pool counter</strong>. The pool can be <strong>reset at any time</strong> to restart the raffle. To enable this mode, select <strong>No-repeat mode</strong> before drawing the first ticket.</p></div>
-  </div>
+  <details class="faq-item">
+    <summary class="faq-q">Can I draw multiple winners without repeats?</summary>
+    <div class="faq-a">Yes. Enable No-repeat mode before drawing. Each drawn number is removed from the pool permanently, so subsequent draws always pick from the remaining tickets. The pool counter shows how many tickets remain. Reset the pool at any time to start over.</div>
+  </details>
 
-  <div class="faq-item">
-    <div class="faq-q"><span class="faq-q-text">What pool size can I use?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a"><p>Between <strong>2 and 10,000 tickets</strong>. Enter the total number of tickets sold for your raffle, and the above tool will select a <a href="/random-number-generator/">random number</a> from 1 to N.</p></div>
-  </div>
+  <details class="faq-item">
+    <summary class="faq-q">What pool size can I use?</summary>
+    <div class="faq-a">Any size from 2 to 10,000 tickets. Enter the total number of tickets sold or assigned in your raffle and the tool will draw from that exact range (1 to N).</div>
+  </details>
 
-  <div class="faq-item">
-    <div class="faq-q"><span class="faq-q-text">Is this fair for a real raffle?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a"><p>Yes. All tickets in the raffle are selected randomly with <strong>equal probability</strong>, which is fair for the typical use case of a fundraising raffle or an office raffle. The numbers are selected using JavaScript's <strong>Math.random()</strong> function, which is seeded with the browser's <strong>cryptographic entropy source</strong>. <strong>Uniform distribution</strong> of ticket numbers is guaranteed.</p></div>
-  </div>
+  <details class="faq-item">
+    <summary class="faq-q">Is this fair for a real raffle?</summary>
+    <div class="faq-a">Yes. The tool uses JavaScript's Math.random() seeded by the browser's cryptographic entropy source, producing a uniformly distributed result. Every ticket number has an equal probability. For typical fundraisers and office raffles this is perfectly fair.</div>
+  </details>
 </div>
 <!-- /SLOT:faq -->
 
@@ -478,10 +472,10 @@
 <div>
   <h2 class="section-title" style="margin-bottom:14px">Who uses this tool</h2>
   <div class="uc-grid">
-    <div class="uc"><div class="uc-title">Fundraiser organizers</div><div class="uc-body">Run a fair &amp; transparent raffle draw on a shared screen with "No-repeat" mode to ensure all Prizes have unique Winners.</div></div>
-    <div class="uc"><div class="uc-title">Office event coordinators</div><div class="uc-body">Use random ticket numbers to draw door prizes at company events or holiday parties. Display the draw on a projector screen and automatically log all winners.</div></div>
-    <div class="uc"><div class="uc-title">Teachers</div><div class="uc-body">Randomize student ticket numbers to ensure a fair draw for choosing class helpers, reading books, or prizes.</div></div>
-    <div class="uc"><div class="uc-title">Online community managers</div><div class="uc-body">Take a screenshot of the random draw to share on social media or to prove to the community on your Discord server that the winner was chosen randomly and fairly.</div></div>
+    <div class="uc"><div class="uc-title">Fundraiser organizers</div><div class="uc-body">Run a fair, transparent raffle draw on a shared screen. No-repeat mode ensures every winner is unique across multiple prizes.</div></div>
+    <div class="uc"><div class="uc-title">Office event coordinators</div><div class="uc-body">Draw door prizes at company events or holiday parties. Display the draw on a projector and log all winners automatically.</div></div>
+    <div class="uc"><div class="uc-title">Teachers</div><div class="uc-body">Assign random ticket numbers to students for fair selection — picking helpers, reading order, or prize giveaways without bias.</div></div>
+    <div class="uc"><div class="uc-title">Online community managers</div><div class="uc-body">Screenshot the draw for giveaways on social media or Discord to prove the winner was chosen fairly and at random.</div></div>
   </div>
 </div>
 <!-- /SLOT:who -->
@@ -543,59 +537,30 @@ const WORDINEER_RAFFNG = (() => {
 
     animateWinner(n, winnerCount);
     updateLog();
+
+    if (noRepeat && pool.length === 0) {
+      document.getElementById('rng-draw-btn').disabled = true;
+      showToast('All tickets drawn!');
+    }
   }
 
   function animateWinner(n, prize) {
     var winnerEl = document.getElementById('rng-winner');
     var labelEl  = document.getElementById('rng-winner-label');
     var badgeEl  = document.getElementById('rng-prize-badge');
-    var btnEl    = document.getElementById('rng-draw-btn');
-    var rollMax  = Math.max(getPoolSize(), 2);
 
-    btnEl.disabled = true;
-    labelEl.style.visibility = 'visible';
-    winnerEl.classList.remove('is-landed');
-    winnerEl.classList.add('is-rolling');
-
-    var totalMs = 1500;
-    var start = performance.now();
-    var lastTick = 0;
-    var lastShown = -1;
-
-    function frame(now) {
-      var t = (now - start) / totalMs;
-      if (t >= 1) {
-        winnerEl.classList.remove('is-rolling');
-        winnerEl.textContent = n;
-        // force reflow so animation replays on consecutive draws
-        void winnerEl.offsetWidth;
-        winnerEl.classList.add('is-landed');
-        if (prize > 1) {
-          badgeEl.textContent = ordinal(prize) + ' prize';
-          badgeEl.classList.add('is-visible');
-        } else {
-          badgeEl.classList.remove('is-visible');
-        }
-        if (noRepeat && pool.length === 0) {
-          btnEl.disabled = true;
-          showToast('All tickets drawn!');
-        } else {
-          btnEl.disabled = false;
-        }
-        return;
+    winnerEl.classList.add('is-animating');
+    setTimeout(function() {
+      winnerEl.textContent = n;
+      winnerEl.classList.remove('is-animating');
+      labelEl.style.visibility = 'visible';
+      if (prize > 1) {
+        badgeEl.textContent = ordinal(prize) + ' prize';
+        badgeEl.classList.add('is-visible');
+      } else {
+        badgeEl.classList.remove('is-visible');
       }
-      // ease-out: interval grows from ~45ms to ~230ms
-      var interval = 45 + 185 * t * t;
-      if (now - lastTick >= interval) {
-        lastTick = now;
-        var r;
-        do { r = Math.floor(Math.random() * rollMax) + 1; } while (r === lastShown && rollMax > 1);
-        lastShown = r;
-        winnerEl.textContent = r;
-      }
-      requestAnimationFrame(frame);
-    }
-    requestAnimationFrame(frame);
+    }, 80);
   }
 
   function ordinal(n) {
@@ -676,10 +641,17 @@ const WORDINEER_RAFFNG = (() => {
 
     document.addEventListener('keydown', function(e) {
       if (['INPUT','SELECT','TEXTAREA','BUTTON'].includes(e.target.tagName)) return;
-      if (e.code === 'Space' || e.code === 'Enter') {
+      if (e.code === 'Space' || e.code === 'Enter') { e.preventDefault(); draw(); }
+    });
+
+    document.querySelectorAll('.faq-item summary').forEach(function(s) {
+      s.addEventListener('click', function(e) {
         e.preventDefault();
-        if (!document.getElementById('rng-draw-btn').disabled) draw();
-      }
+        var item = s.closest('.faq-item');
+        var wasOpen = item.hasAttribute('open');
+        document.querySelectorAll('.faq-item[open]').forEach(function(i) { i.removeAttribute('open'); });
+        if (!wasOpen) item.setAttribute('open', '');
+      });
     });
   }
 

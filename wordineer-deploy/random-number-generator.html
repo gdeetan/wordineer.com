@@ -1,4 +1,4 @@
-<!-- build: 2026-10-21T02:06:28Z -->
+<!-- build: 2026-09-07T06:36:31Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -112,27 +112,27 @@
     {
       "@type": "Question",
       "name": "What is a random number generator?",
-      "acceptedAnswer": { "@type": "Answer", "text": "A random number generator is used to select random integers within a user-specified range. Option to include a minimum and maximum value, as well as the number of integers to generate. Generate numbers without duplicates to simulate drawing tickets from a hat, or use with duplicates to simulate rolling dice." }
+      "acceptedAnswer": { "@type": "Answer", "text": "A random number generator (RNG) produces numbers with no predictable pattern. You set a minimum and maximum, choose how many numbers you want, and the tool picks from that range. You can allow duplicates for lottery-style draws or block them for things like raffle picks and game mechanics where each number should appear only once." }
     },
     {
       "@type": "Question",
       "name": "Are the numbers truly random?",
-      "acceptedAnswer": { "@type": "Answer", "text": "This tool uses Math.random(), a pseudorandom number generator built into every modern browser. It is seeded from hardware entropy and produces outputs that pass statistical randomness tests — more than sufficient for games, raffles, sampling, and classroom use. For cryptographic applications, use a dedicated hardware-based RNG." }
+      "acceptedAnswer": { "@type": "Answer", "text": "This tool uses Math.random(), a pseudorandom number generator built into every modern browser. It produces outputs that are statistically indistinguishable from true randomness for everyday uses like games, raffles, and classroom activities. For cryptographic purposes you would need a hardware-based true random number generator." }
     },
     {
       "@type": "Question",
       "name": "What is the difference between allowing and blocking duplicates?",
-      "acceptedAnswer": { "@type": "Answer", "text": "With duplicates allowed, each pick is independent — like rolling a die (this is a singular word for dice) repeatedly; the same number can come up multiple times. With duplicates blocked, each number can appear at most once — like drawing tickets from a hat without putting them back. Use no-duplicate mode for raffles, group assignments, or any scenario where fairness requires each option to appear only once." }
+      "acceptedAnswer": { "@type": "Answer", "text": "With duplicates allowed, each pick is independent — the same number can appear more than once, just like rolling a die multiple times. With duplicates blocked, each number in your range can appear at most once in the result — like drawing tickets from a hat without replacement. Use duplicates-off for raffles, seat assignments, or any situation where fairness requires each option to appear exactly once." }
     },
     {
       "@type": "Question",
       "name": "How do I use this as a lottery number picker?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Set Min to 1 and Max to the highest number in the lottery (e.g., 69 for Powerball's white balls). Set Count to the number of balls drawn (e.g., 5). Turn duplicates off. Click Generate. For games with a bonus ball from a separate range, run a second generation with that range and count 1." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Set your minimum to 1, your maximum to the highest number in the lottery (for example 59 for Powerball's main balls), set count to 5 or 6, turn duplicates off, and click Generate. For a Powerball-style game also generate a separate single number from 1–26 for the Powerball itself." }
     },
     {
       "@type": "Question",
       "name": "Can I generate a random number between 1 and 10?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes — set Min to 1, Max to 10, Count to 1, and click Generate. You can use any range: 1–6 for a standard die, 1–20 for a D&D d20, 1–100 for a percentage, or any custom range you need." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes — set Min to 1, Max to 10, Count to 1, and click Generate. You can also use it for 1–6 (dice rolls), 1–100, or any custom range." }
     }
   ]
 }
@@ -284,7 +284,7 @@
     Wordineer
   </a>
   <div class="nav-links">
-    <a href="/word-tools/">Tools</a>
+    <a href="/word-tools">Tools</a>
   </div>
   <div>
     <button class="hamburger" type="button" aria-label="All tools" aria-controls="mega" aria-expanded="false">
@@ -297,74 +297,74 @@
     <div class="mega-col">
       <div class="mega-cat">Writing &amp; Vocabulary</div>
       <a class="mega-link" href="/">Random Word Generator</a>
-      <a class="mega-link" href="/random-sentence-generator/">Random Sentence Generator</a>
-      <a class="mega-link" href="/lorem-ipsum-generator/">Lorem Ipsum Generator</a>
-      <a class="mega-link" href="/word-counter/">Word Counter</a>
-      <a class="mega-link mega-link--view-all" href="/word-tools/">View all →</a>
+      <a class="mega-link" href="/random-sentence-generator">Random Sentence Generator</a>
+      <a class="mega-link" href="/lorem-ipsum-generator">Lorem Ipsum Generator</a>
+      <a class="mega-link" href="/word-counter">Word Counter</a>
+      <a class="mega-link mega-link--view-all" href="/word-tools">View all →</a>
     </div>
     <div class="mega-col">
       <div class="mega-cat">Word Lists</div>
-      <a class="mega-link" href="/random-words-starting-with/">Words Starting With (A–Z)</a>
-      <a class="mega-link" href="/words-ending-with/">Words Ending With (suffixes)</a>
+      <a class="mega-link" href="/random-words-starting-with">Words Starting With (A–Z)</a>
+      <a class="mega-link" href="/words-ending-with">Words Ending With (suffixes)</a>
       <a class="mega-link" href="/random-words-starting-with/s">Words Starting With S</a>
-      <a class="mega-link" href="/words-ending-in-ing/">Words Ending in -ING</a>
-      <a class="mega-link mega-link--view-all" href="/word-lists/">View all →</a>
+      <a class="mega-link" href="/words-ending-in-ing">Words Ending in -ING</a>
+      <a class="mega-link mega-link--view-all" href="/word-lists">View all →</a>
     </div>
     <div class="mega-col">
       <div class="mega-cat">Names by Origin</div>
-      <a class="mega-link" href="/random-spanish-name-generator/">Spanish Name Generator</a>
-      <a class="mega-link" href="/random-italian-name-generator/">Italian Name Generator</a>
-      <a class="mega-link" href="/random-japanese-name-generator/">Japanese Name Generator</a>
-      <a class="mega-link" href="/random-american-name-generator/">American Name Generator</a>
-      <a class="mega-link mega-link--view-all" href="/name-generators/">View all →</a>
+      <a class="mega-link" href="/random-spanish-name-generator">Spanish Name Generator</a>
+      <a class="mega-link" href="/random-italian-name-generator">Italian Name Generator</a>
+      <a class="mega-link" href="/random-japanese-name-generator">Japanese Name Generator</a>
+      <a class="mega-link" href="/random-american-name-generator">American Name Generator</a>
+      <a class="mega-link mega-link--view-all" href="/name-generators">View all →</a>
     </div>
     <div class="mega-col">
       <div class="mega-cat">Other Name Generators</div>
-      <a class="mega-link" href="/character-name-generator/">Character Name Generator</a>
-      <a class="mega-link" href="/fantasy-name-generator/">Fantasy Name Generator</a>
-      <a class="mega-link" href="/business-name-generator/">Business Name Generator</a>
-      <a class="mega-link" href="/band-name-generator/">Band Name Generator</a>
-      <a class="mega-link mega-link--view-all" href="/other-generators/">View all →</a>
+      <a class="mega-link" href="/character-name-generator">Character Name Generator</a>
+      <a class="mega-link" href="/fantasy-name-generator">Fantasy Name Generator</a>
+      <a class="mega-link" href="/business-name-generator">Business Name Generator</a>
+      <a class="mega-link" href="/band-name-generator">Band Name Generator</a>
+      <a class="mega-link mega-link--view-all" href="/other-generators">View all →</a>
     </div>
     <div class="mega-col">
       <div class="mega-cat">Account &amp; Security</div>
-      <a class="mega-link" href="/username-generator/">Username Generator</a>
-      <a class="mega-link" href="/password-generator/">Password Generator</a>
-      <a class="mega-link" href="/passphrase-generator/">Passphrase Generator</a>
-      <a class="mega-link" href="/random-pin-generator/">Random PIN Generator</a>
-      <a class="mega-link mega-link--view-all" href="/account-tools/">View all →</a>
+      <a class="mega-link" href="/username-generator">Username Generator</a>
+      <a class="mega-link" href="/password-generator">Password Generator</a>
+      <a class="mega-link" href="/passphrase-generator">Passphrase Generator</a>
+      <a class="mega-link" href="/random-pin-generator">Random PIN Generator</a>
+      <a class="mega-link mega-link--view-all" href="/account-tools">View all →</a>
     </div>
     <div class="mega-col">
       <div class="mega-cat">Numbers &amp; Random</div>
-      <a class="mega-link active" href="/random-number-generator/">Random Number Generator</a>
-      <a class="mega-link" href="/dice-roller/">Dice Roller</a>
-      <a class="mega-link" href="/coin-flip/">Flip a Coin</a>
-      <a class="mega-link" href="/random-pin-generator/">Random PIN Generator</a>
-      <a class="mega-link mega-link--view-all" href="/number-tools/">View all →</a>
+      <a class="mega-link active" href="/random-number-generator">Random Number Generator</a>
+      <a class="mega-link" href="/dice-roller">Dice Roller</a>
+      <a class="mega-link" href="/coin-flip">Flip a Coin</a>
+      <a class="mega-link" href="/random-pin-generator">Random PIN Generator</a>
+      <a class="mega-link mega-link--view-all" href="/number-tools">View all →</a>
     </div>
     <div class="mega-col">
       <div class="mega-cat">Games &amp; fun</div>
-      <a class="mega-link" href="/coin-flip/">Flip a Coin</a>
-      <a class="mega-link" href="/mad-libs/">Mad Libs Generator</a>
-      <a class="mega-link" href="/dice-roller/">Dice Roller</a>
-      <a class="mega-link" href="/wheel-of-names/">Wheel of Names</a>
-      <a class="mega-link mega-link--view-all" href="/word-games/">View all →</a>
+      <a class="mega-link" href="/coin-flip">Flip a Coin</a>
+      <a class="mega-link" href="/mad-libs">Mad Libs Generator</a>
+      <a class="mega-link" href="/dice-roller">Dice Roller</a>
+      <a class="mega-link" href="/wheel-of-names">Wheel of Names</a>
+      <a class="mega-link mega-link--view-all" href="/word-games">View all →</a>
     </div>
     <div class="mega-col">
       <div class="mega-cat">Text Tools</div>
-      <a class="mega-link" href="/fancy-text-generator/">Fancy Text Generator</a>
-      <a class="mega-link" href="/upside-down-text/">Upside Down Text</a>
-      <a class="mega-link" href="/caesar-cipher/">Caesar Cipher</a>
-      <a class="mega-link" href="/zalgo-text/">Zalgo Text Generator</a>
-      <a class="mega-link mega-link--view-all" href="/text-tools/">View all →</a>
+      <a class="mega-link" href="/fancy-text-generator">Fancy Text Generator</a>
+      <a class="mega-link" href="/upside-down-text">Upside Down Text</a>
+      <a class="mega-link" href="/caesar-cipher">Caesar Cipher</a>
+      <a class="mega-link" href="/zalgo-text">Zalgo Text Generator</a>
+      <a class="mega-link mega-link--view-all" href="/text-tools">View all →</a>
     </div>
     <div class="mega-col">
       <div class="mega-cat">For Teachers</div>
-      <a class="mega-link" href="/spelling-bee-words/">Spelling Bee Words (K–7)</a>
-      <a class="mega-link" href="/sight-words-generator/">Sight Words Generator</a>
-      <a class="mega-link" href="/word-search-maker/">Word Search Maker</a>
-      <a class="mega-link" href="/word-scramble/">Word Scramble</a>
-      <a class="mega-link mega-link--view-all" href="/teacher-tools/">View all →</a>
+      <a class="mega-link" href="/spelling-bee-words">Spelling Bee Words (K–7)</a>
+      <a class="mega-link" href="/sight-words-generator">Sight Words Generator</a>
+      <a class="mega-link" href="/word-search-maker">Word Search Maker</a>
+      <a class="mega-link" href="/word-scramble">Word Scramble</a>
+      <a class="mega-link mega-link--view-all" href="/teacher-tools">View all →</a>
     </div>
   </div>
 </div>
@@ -373,7 +373,7 @@
   <div class="breadcrumb-inner">
     <a href="/">Wordineer</a>
     <span class="breadcrumb-sep">›</span>
-    <a href="/number-tools/">Number Tools</a>
+    <a href="/number-tools">Number Tools</a>
     <span class="breadcrumb-sep">›</span>
     <span aria-current="page">Random Number Generator</span>
   </div>
@@ -484,17 +484,16 @@
   </div>
 </div>
 <div class="content-wrap">
-<!-- SECTION:more_tools -->
   <div class="section">
     <h2 class="section-title">More random tools</h2>
     <p class="section-sub">Coin flips, dice rollers, and more — all free</p>
     <div class="tools-grid">
-      <a class="tool-item" href="/random-number-1-100/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><text x="1.5" y="9" font-size="6" font-weight="700" font-family="sans-serif" fill="#534AB7">1-100</text></svg></div><div class="tool-name">Random Number 1–100</div><div class="tool-desc">Pick a random number between 1 and 100. Pool mode draws every number once — perfect for classrooms and raffles.</div></a>
-      <a class="tool-item" href="/random-number-1-10/"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><text x="1.5" y="9" font-size="6" font-weight="700" font-family="sans-serif" fill="#534AB7">1-10</text></svg></div><div class="tool-name">Random Number 1–10</div><div class="tool-desc">Pick a random number between 1 and 10. Pool mode draws every number once — perfect for classroom turn order.</div></a>
-      <a class="tool-item" href="/dice-roller/"><div class="tool-icon" style="background:#F5F3FF"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="2" width="9" height="9" rx="1.5" stroke="#7C3AED" stroke-width="1.1"/><circle cx="4.5" cy="4.5" r=".85" fill="#7C3AED"/><circle cx="8.5" cy="4.5" r=".85" fill="#7C3AED"/><circle cx="4.5" cy="8.5" r=".85" fill="#7C3AED"/><circle cx="8.5" cy="8.5" r=".85" fill="#7C3AED"/><circle cx="6.5" cy="6.5" r=".85" fill="#7C3AED"/></svg></div><div class="tool-name">Dice Roller</div><div class="tool-desc">Roll d4, d6, d8, d10, d12, d20, or custom dice — multiple at once, with history and session stats.</div></a>
-      <a class="tool-item" href="/coin-flip/"><div class="tool-icon" style="background:#FFF8DC"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5" stroke="#C8960C" stroke-width="1.1"/><text x="6.5" y="9.8" text-anchor="middle" font-size="5.5" font-weight="700" font-family="sans-serif" fill="#7A5800">H</text></svg></div><div class="tool-name">Coin Flip</div><div class="tool-desc">Flip a virtual coin — heads or tails, instantly. Multi-flip mode and running stats included.</div></a>
-      <a class="tool-item" href="/flip-a-coin-10-times/"><div class="tool-icon" style="background:#FFF8DC"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5" stroke="#C8960C" stroke-width="1.1"/><text x="6.5" y="9.8" text-anchor="middle" font-size="4" font-weight="700" font-family="sans-serif" fill="#7A5800">×10</text></svg></div><div class="tool-name">Flip a Coin 10 Times</div><div class="tool-desc">Run 10 coin flips at once. Heads/tails tally, streak tracker, and copy for stats homework.</div></a>
-      <a class="tool-item" href="/flip-a-coin-100-times/"><div class="tool-icon" style="background:#FFF8DC"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5" stroke="#C8960C" stroke-width="1.1"/><text x="6.5" y="9.8" text-anchor="middle" font-size="3.5" font-weight="700" font-family="sans-serif" fill="#7A5800">×100</text></svg></div><div class="tool-name">Flip a Coin 100 Times</div><div class="tool-desc">Run 100 coin flips instantly. See the heads/tails split and streak analysis for statistics class.</div></a>
+      <a class="tool-item" href="/random-number-1-100"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><text x="1.5" y="9" font-size="6" font-weight="700" font-family="sans-serif" fill="#534AB7">1-100</text></svg></div><div class="tool-name">Random Number 1–100</div><div class="tool-desc">Pick a random number between 1 and 100. Pool mode draws every number once — perfect for classrooms and raffles.</div></a>
+      <a class="tool-item" href="/random-number-1-10"><div class="tool-icon" style="background:#EEEDFE"><svg viewBox="0 0 13 13" fill="none"><text x="1.5" y="9" font-size="6" font-weight="700" font-family="sans-serif" fill="#534AB7">1-10</text></svg></div><div class="tool-name">Random Number 1–10</div><div class="tool-desc">Pick a random number between 1 and 10. Pool mode draws every number once — perfect for classroom turn order.</div></a>
+      <a class="tool-item" href="/dice-roller"><div class="tool-icon" style="background:#F5F3FF"><svg viewBox="0 0 13 13" fill="none"><rect x="2" y="2" width="9" height="9" rx="1.5" stroke="#7C3AED" stroke-width="1.1"/><circle cx="4.5" cy="4.5" r=".85" fill="#7C3AED"/><circle cx="8.5" cy="4.5" r=".85" fill="#7C3AED"/><circle cx="4.5" cy="8.5" r=".85" fill="#7C3AED"/><circle cx="8.5" cy="8.5" r=".85" fill="#7C3AED"/><circle cx="6.5" cy="6.5" r=".85" fill="#7C3AED"/></svg></div><div class="tool-name">Dice Roller</div><div class="tool-desc">Roll d4, d6, d8, d10, d12, d20, or custom dice — multiple at once, with history and session stats.</div></a>
+      <a class="tool-item" href="/coin-flip"><div class="tool-icon" style="background:#FFF8DC"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5" stroke="#C8960C" stroke-width="1.1"/><text x="6.5" y="9.8" text-anchor="middle" font-size="5.5" font-weight="700" font-family="sans-serif" fill="#7A5800">H</text></svg></div><div class="tool-name">Coin Flip</div><div class="tool-desc">Flip a virtual coin — heads or tails, instantly. Multi-flip mode and running stats included.</div></a>
+      <a class="tool-item" href="/flip-a-coin-10-times"><div class="tool-icon" style="background:#FFF8DC"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5" stroke="#C8960C" stroke-width="1.1"/><text x="6.5" y="9.8" text-anchor="middle" font-size="4" font-weight="700" font-family="sans-serif" fill="#7A5800">×10</text></svg></div><div class="tool-name">Flip a Coin 10 Times</div><div class="tool-desc">Run 10 coin flips at once. Heads/tails tally, streak tracker, and copy for stats homework.</div></a>
+      <a class="tool-item" href="/flip-a-coin-100-times"><div class="tool-icon" style="background:#FFF8DC"><svg viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5" stroke="#C8960C" stroke-width="1.1"/><text x="6.5" y="9.8" text-anchor="middle" font-size="3.5" font-weight="700" font-family="sans-serif" fill="#7A5800">×100</text></svg></div><div class="tool-name">Flip a Coin 100 Times</div><div class="tool-desc">Run 100 coin flips instantly. See the heads/tails split and streak analysis for statistics class.</div></a>
     </div>
   </div>
   <div class="ad-rect">
@@ -506,52 +505,59 @@
       <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
     </div>
   </div>
-<!-- /SECTION:more_tools -->
 <div class="explainer">
   <h2>What is a random number generator?</h2>
-  <p>A <strong>random number generator (RNG)</strong> produces a sequence of numbers with <strong>no correlation</strong> between them. The RNG can be set to a <strong>minimum and maximum number</strong>, as well as the <strong>number of numbers to be generated</strong> within that range. The tool selects numbers from within the defined range, making it as fair as <strong>picking numbers out of a hat</strong>. Each integer within the range has an <strong>equal chance of being picked</strong> on every draw (if duplicates are allowed). The tool can be set to draw <strong>without duplicates</strong> by toggling off the option that allows for duplicates to be picked.</p>
+  <p>A random number generator (RNG) produces numbers with no predictable sequence. You define the minimum and maximum values, choose how many numbers you want, and the tool picks from within that range. The result is as fair as drawing numbers from a hat — each integer in the range has an equal chance of appearing on every pick (when duplicates are allowed). Toggle off duplicates and the tool switches to a drawing-without-replacement model, guaranteeing no number appears twice.</p>
 
   <h2>Lottery and raffle use: duplicates off</h2>
-  <p>The <strong>no-duplicates mode</strong> of the tool is most useful for drawing <a href="/raffle-number-generator/">raffle winners</a> or creating a <a href="/lottery-number-generator/">lottery</a>. You set the range to include all the tickets in your pool. You set the count to the <strong>number of prizes</strong> you are awarding. You uncheck the option to allow duplicates. You then click <strong>Generate</strong>, and each of the numbers in the resulting list will be a <strong>different winner</strong>. The numbers can be used to fill tickets for a subsequent drawing. For simulating games like the <a href="/powerball-number-generator/">Powerball</a> (<strong>1–69</strong> for the five balls) or the Mega Millions (<strong>1–70</strong> for the five balls), you simply set the min, max, and count to the appropriate values.</p>
+  <p>The most common use for a no-duplicate RNG is picking raffle winners or simulating lottery draws. Set your range to match the ticket pool (e.g. 1–200 for a 200-ticket raffle), set count to however many prizes you're giving away, turn duplicates off, and click Generate. Every ticket number in the output is unique — no one wins twice from the same draw. For lottery simulations like Powerball (1–69, pick 5) or Mega Millions (1–70, pick 5), the same setup applies; just adjust min, max, and count to match the game format.</p>
 
   <h2>Dice rolls and games: duplicates on</h2>
-  <p>Many, many simulations of rollable items such as <a href="/dice-roller/">dice</a> also make sense here. <strong>One die?</strong> 1–6, count 1. <strong>Two dice?</strong> 1–6, count 2. A <strong>d20 for D&amp;D?</strong> 1–20, count 1. This tool can also be used to <strong>randomly select scores</strong> from a list of scores, to pick <strong>random pages from books</strong>, to randomly select questions from a list of questions with numbers in front of them, and so on. <strong>Sorting the results</strong> (toggle sort) is then also very useful here.</p>
+  <p>When you want to simulate dice or any situation where the same result can come up multiple times, keep duplicates on. A single die is range 1–6, count 1. Two dice? Count 2, same range. A d20 from D&D? Range 1–20, count 1. You can also use this to generate random scores, pick a random page number from a book, or select a random question from a numbered list. The sort toggle is useful here — turn it on to see results in numerical order rather than the raw draw order.</p>
 
   <h2>Classroom and teaching uses</h2>
-  <p>Random number generators are used often in classrooms for picking <a href="/random-name-generator/">random students</a> (e.g., a number between 1 and the number of students in the class), for <strong>making groups</strong>, for picking <strong>random practice problems</strong>, and for <strong>randomizing the order of speaker presentations</strong>. This simple tool can be used over and over again with <strong>no accounts to set up and no software to download</strong>, and it works great on any device with a web browser.</p>
+  <p>Teachers use random number generators constantly: picking a random student (1 to class size), assigning groups, generating practice problems, or deciding the order of presentations. Set count to 1 and regenerate as needed, or generate all student numbers at once with duplicates off for a fair random order. The tool requires no account, no install, and works on any device — making it practical for classroom use without setup time.</p>
 
   <h2>Statistical sampling and simulations</h2>
-  <p>In research, random number generators are used to select <strong>random samples from populations</strong>, to <strong>assign participants to treatment and control groups</strong>, or even to seed <strong>Monte Carlo simulations</strong>. For such purposes, you can set up the tool to select a sample of a certain size from a population of the size of your dataset. All numbers are <strong>copied to the clipboard</strong> and can then be pasted into your spreadsheet. Numbers are <strong>sorted by the tool</strong>, so that they can be easily compared to numbers from your dataset which have been sorted in the same way.</p>
+  <p>Researchers and analysts use random number generators to create random samples from a population, assign participants to control and treatment groups, or seed Monte Carlo simulations. For sample selection, set your range to the size of your population, turn duplicates off, and generate however many samples you need. Copy all and paste directly into your spreadsheet. The sort option makes it easier to cross-reference results against a numbered list.</p>
 
   <h2>How the randomness works</h2>
-  <p>This tool uses the same JavaScript <code>Math.random()</code> (<strong>pseudorandom number generator PRNG</strong>) that powers all the other tools on this site. It has been tested for <strong>statistical randomness</strong> and passes all relevant tests. It is <strong>seeded with the system time and with hardware random numbers</strong> where available, so it is quite unpredictable and therefore perfectly fine for most games, raffles, school activities, etc. However, for <strong>true security</strong> – such as for <strong>cryptographic key generation</strong> – you will need a <strong>Hardware RNG</strong> or something that uses the <code>crypto.getRandomValues()</code> method.</p>
+  <p>This tool uses JavaScript's <code>Math.random()</code>, a pseudorandom number generator (PRNG) that produces outputs passing standard statistical randomness tests. It is seeded from the system clock and hardware entropy, making its output unpredictable in practice. For everyday uses — games, raffles, classroom activities, sampling — it is more than sufficient. For cryptographic key generation or security-critical applications, a dedicated hardware RNG or <code>crypto.getRandomValues()</code>-based solution is the appropriate choice.</p>
 </div>
 
 <div class="faq">
   <h2 class="faq-title">Frequently asked questions</h2>
   <div class="faq-item open">
     <div class="faq-q"><span class="faq-q-text">What is a random number generator?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">A <strong>random number generator</strong> is used to select <strong>random integers within a user-specified range</strong>. Option to include a <strong>minimum and maximum value</strong>, as well as the <strong>number of integers to generate</strong>. Generate numbers <strong>without duplicates</strong> to simulate drawing tickets from a hat, or use <strong>with duplicates</strong> to simulate rolling dice.</div>
+    <div class="faq-a">A random number generator picks integers from a range you define, with no predictable pattern. Set a minimum, a maximum, and how many you want. Toggle duplicates off for drawing-without-replacement scenarios like raffles; keep duplicates on for dice-style rolls where the same result can come up again.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">Are the numbers truly random?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">This tool uses <code>Math.random()</code>, a <strong>pseudorandom number generator</strong> built into every modern browser. It is <strong>seeded from hardware entropy</strong> and produces outputs that pass <strong>statistical randomness tests</strong> — more than sufficient for games, raffles, sampling, and classroom use. For <strong>cryptographic applications</strong>, use a dedicated <strong>hardware-based RNG</strong>.</div>
+    <div class="faq-a">This tool uses Math.random(), a pseudorandom number generator built into every modern browser. It is seeded from hardware entropy and produces outputs that pass statistical randomness tests — more than sufficient for games, raffles, sampling, and classroom use. For cryptographic applications, use a dedicated hardware-based RNG.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">How do I use this as a lottery picker?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Set <strong>Min to 1</strong> and <strong>Max to the highest number in the lottery</strong> (e.g., 69 for Powerball's white balls). Set <strong>Count to the number of balls drawn</strong> (e.g., 5). <strong>Turn duplicates off</strong>. Click Generate. For games with a <strong>bonus ball</strong> from a separate range, run a second generation with that range and count 1.</div>
+    <div class="faq-a">Set Min to 1 and Max to the highest number in the lottery (e.g. 69 for Powerball's white balls). Set Count to the number of balls drawn (e.g. 5). Turn duplicates off. Click Generate. For games with a bonus ball from a separate range, run a second generation with that range and count 1.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">What is the difference between allowing and blocking duplicates?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">With <strong>duplicates allowed</strong>, each pick is independent — like <strong>rolling a die</strong> (this is a singular word for dice) repeatedly; the <strong>same number can come up multiple times</strong>. With <strong>duplicates blocked</strong>, <strong>each number can appear at most once</strong> — like drawing tickets from a hat without putting them back. Use <strong>no-duplicate mode</strong> for raffles, group assignments, or any scenario where fairness requires each option to appear only once.</div>
+    <div class="faq-a">With duplicates allowed, each pick is independent — like rolling a die repeatedly, the same number can come up multiple times. With duplicates blocked, each number can appear at most once — like drawing tickets from a hat without putting them back. Use no-duplicate mode for raffles, group assignments, or any scenario where fairness requires each option to appear only once.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">Can I generate a random number between 1 and 10?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Yes — set <strong>Min to 1, Max to 10, Count to 1</strong>, and click Generate. You can use any range: <strong>1–6 for a standard die</strong>, <strong>1–20 for a D&amp;D d20</strong>, <strong>1–100 for a percentage</strong>, or any custom range you need.</div>
+    <div class="faq-a">Yes — set Min to 1, Max to 10, Count to 1, and click Generate. You can use any range: 1–6 for a standard die, 1–20 for a D&D d20, 1–100 for a percentage, or any custom range you need.</div>
   </div>
 </div>
 
-
+<div>
+  <h2 class="section-title" style="margin-bottom:14px">Who uses this tool</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">Teachers &amp; facilitators</div><div class="uc-body">Pick random students, assign groups, set presentation order, and generate practice problems — all without bias or the appearance of favoritism.</div></div>
+    <div class="uc"><div class="uc-title">Raffle &amp; event organizers</div><div class="uc-body">Draw winners fairly with duplicates off. Set the range to your ticket count, pick as many winners as you need, and get a clean list instantly.</div></div>
+    <div class="uc"><div class="uc-title">Game players &amp; dungeon masters</div><div class="uc-body">Roll virtual dice for any polyhedral — d4, d6, d8, d10, d12, d20, d100. Generate multiple dice at once or simulate draws from a numbered deck.</div></div>
+    <div class="uc"><div class="uc-title">Researchers &amp; analysts</div><div class="uc-body">Create random samples, assign participants to groups, and seed simulations. Copy results directly into a spreadsheet with one click.</div></div>
+  </div>
+</div>
 
 
 </div>
@@ -564,15 +570,15 @@
       <a href="https://grammarly.com" target="_blank" rel="noopener" class="ad-footer-strip-cta">Try free</a>
     </div>
     <div class="footer-grid">
-      <div><div class="footer-col-title">Writing &amp; Vocabulary</div><a class="footer-link" href="/">Random Word Generator</a><a class="footer-link" href="/random-sentence-generator/">Random Sentence Generator</a><a class="footer-link" href="/lorem-ipsum-generator/">Lorem Ipsum Generator</a><a class="footer-link" href="/word-counter/">Word Counter</a><a class="footer-link footer-link--view-all" href="/word-tools/">View all →</a></div>
-      <div><div class="footer-col-title">Word Lists</div><a class="footer-link" href="/random-words-starting-with/">Words Starting With (A–Z)</a><a class="footer-link" href="/words-ending-with/">Words Ending With (suffixes)</a><a class="footer-link" href="/words-ending-in-ing/">Words Ending in -ING</a><a class="footer-link" href="/words-ending-in-ly/">Words Ending in -LY</a><a class="footer-link footer-link--view-all" href="/word-lists/">View all →</a></div>
-      <div><div class="footer-col-title">Names by Origin</div><a class="footer-link" href="/random-spanish-name-generator/">Spanish Name Generator</a><a class="footer-link" href="/random-italian-name-generator/">Italian Name Generator</a><a class="footer-link" href="/random-japanese-name-generator/">Japanese Name Generator</a><a class="footer-link" href="/random-american-name-generator/">American Name Generator</a><a class="footer-link footer-link--view-all" href="/name-generators/">View all →</a></div>
-      <div><div class="footer-col-title">Other Name Generators</div><a class="footer-link" href="/character-name-generator/">Character Name Generator</a><a class="footer-link" href="/fantasy-name-generator/">Fantasy Name Generator</a><a class="footer-link" href="/business-name-generator/">Business Name Generator</a><a class="footer-link" href="/band-name-generator/">Band Name Generator</a><a class="footer-link footer-link--view-all" href="/other-generators/">View all →</a></div>
-      <div><div class="footer-col-title">Account &amp; Security</div><a class="footer-link" href="/password-generator/">Password Generator</a><a class="footer-link" href="/passphrase-generator/">Passphrase Generator</a><a class="footer-link" href="/memorable-password-generator/">Memorable Password Generator</a><a class="footer-link" href="/username-generator/">Username Generator</a><a class="footer-link footer-link--view-all" href="/account-tools/">View all →</a></div>
-      <div><div class="footer-col-title">Numbers &amp; Random</div><a class="footer-link" href="/random-number-generator/">Random Number Generator</a><a class="footer-link" href="/dice-roller/">Dice Roller</a><a class="footer-link" href="/coin-flip/">Flip a Coin</a><a class="footer-link" href="/random-pin-generator/">Random PIN Generator</a><a class="footer-link footer-link--view-all" href="/number-tools/">View all →</a></div>
-      <div><div class="footer-col-title">Games &amp; fun</div><a class="footer-link" href="/coin-flip/">Flip a Coin</a><a class="footer-link" href="/mad-libs/">Mad Libs Generator</a><a class="footer-link" href="/dice-roller/">Dice Roller</a><a class="footer-link" href="/wheel-of-names/">Wheel of Names</a><a class="footer-link footer-link--view-all" href="/word-games/">View all →</a></div>
-      <div><div class="footer-col-title">Text Tools</div><a class="footer-link" href="/fancy-text-generator/">Fancy Text Generator</a><a class="footer-link" href="/upside-down-text/">Upside Down Text</a><a class="footer-link" href="/caesar-cipher/">Caesar Cipher</a><a class="footer-link" href="/zalgo-text/">Zalgo Text Generator</a><a class="footer-link footer-link--view-all" href="/text-tools/">View all →</a></div>
-      <div><div class="footer-col-title">For Teachers</div><a class="footer-link" href="/spelling-bee-words/">Spelling Bee Words (K–7)</a><a class="footer-link" href="/sight-words-generator/">Sight Words Generator</a><a class="footer-link" href="/word-search-maker/">Word Search Maker</a><a class="footer-link" href="/word-scramble/">Word Scramble</a><a class="footer-link footer-link--view-all" href="/teacher-tools/">View all →</a></div>
+      <div><div class="footer-col-title">Writing &amp; Vocabulary</div><a class="footer-link" href="/">Random Word Generator</a><a class="footer-link" href="/random-sentence-generator">Random Sentence Generator</a><a class="footer-link" href="/lorem-ipsum-generator">Lorem Ipsum Generator</a><a class="footer-link" href="/word-counter">Word Counter</a><a class="footer-link footer-link--view-all" href="/word-tools">View all →</a></div>
+      <div><div class="footer-col-title">Word Lists</div><a class="footer-link" href="/random-words-starting-with">Words Starting With (A–Z)</a><a class="footer-link" href="/words-ending-with">Words Ending With (suffixes)</a><a class="footer-link" href="/words-ending-in-ing">Words Ending in -ING</a><a class="footer-link" href="/words-ending-in-ly">Words Ending in -LY</a><a class="footer-link footer-link--view-all" href="/word-lists">View all →</a></div>
+      <div><div class="footer-col-title">Names by Origin</div><a class="footer-link" href="/random-spanish-name-generator">Spanish Name Generator</a><a class="footer-link" href="/random-italian-name-generator">Italian Name Generator</a><a class="footer-link" href="/random-japanese-name-generator">Japanese Name Generator</a><a class="footer-link" href="/random-american-name-generator">American Name Generator</a><a class="footer-link footer-link--view-all" href="/name-generators">View all →</a></div>
+      <div><div class="footer-col-title">Other Name Generators</div><a class="footer-link" href="/character-name-generator">Character Name Generator</a><a class="footer-link" href="/fantasy-name-generator">Fantasy Name Generator</a><a class="footer-link" href="/business-name-generator">Business Name Generator</a><a class="footer-link" href="/band-name-generator">Band Name Generator</a><a class="footer-link footer-link--view-all" href="/other-generators">View all →</a></div>
+      <div><div class="footer-col-title">Account &amp; Security</div><a class="footer-link" href="/password-generator">Password Generator</a><a class="footer-link" href="/passphrase-generator">Passphrase Generator</a><a class="footer-link" href="/memorable-password-generator">Memorable Password Generator</a><a class="footer-link" href="/username-generator">Username Generator</a><a class="footer-link footer-link--view-all" href="/account-tools">View all →</a></div>
+      <div><div class="footer-col-title">Numbers &amp; Random</div><a class="footer-link" href="/random-number-generator">Random Number Generator</a><a class="footer-link" href="/dice-roller">Dice Roller</a><a class="footer-link" href="/coin-flip">Flip a Coin</a><a class="footer-link" href="/random-pin-generator">Random PIN Generator</a><a class="footer-link footer-link--view-all" href="/number-tools">View all →</a></div>
+      <div><div class="footer-col-title">Games &amp; fun</div><a class="footer-link" href="/coin-flip">Flip a Coin</a><a class="footer-link" href="/mad-libs">Mad Libs Generator</a><a class="footer-link" href="/dice-roller">Dice Roller</a><a class="footer-link" href="/wheel-of-names">Wheel of Names</a><a class="footer-link footer-link--view-all" href="/word-games">View all →</a></div>
+      <div><div class="footer-col-title">Text Tools</div><a class="footer-link" href="/fancy-text-generator">Fancy Text Generator</a><a class="footer-link" href="/upside-down-text">Upside Down Text</a><a class="footer-link" href="/caesar-cipher">Caesar Cipher</a><a class="footer-link" href="/zalgo-text">Zalgo Text Generator</a><a class="footer-link footer-link--view-all" href="/text-tools">View all →</a></div>
+      <div><div class="footer-col-title">For Teachers</div><a class="footer-link" href="/spelling-bee-words">Spelling Bee Words (K–7)</a><a class="footer-link" href="/sight-words-generator">Sight Words Generator</a><a class="footer-link" href="/word-search-maker">Word Search Maker</a><a class="footer-link" href="/word-scramble">Word Scramble</a><a class="footer-link footer-link--view-all" href="/teacher-tools">View all →</a></div>
     </div>
     <div class="footer-bottom">
       <div style="display:flex;align-items:center;gap:7px">
@@ -580,14 +586,14 @@
         <span style="font-size:14px;font-weight:600;color:var(--text)">Wordineer</span>
       </div>
       <span class="footer-copy">© 2026 Wordineer · Free word tools for everyone</span>
-      <div class="footer-meta"><a href="/about/">About</a><a href="/press-kit/">Data &amp; Press</a><a href="/embed/">Embed our tools</a><a href="/affiliate-disclosure/">Affiliate disclosure</a><a href="/privacy/">Privacy</a></div>
+      <div class="footer-meta"><a href="/about">About</a><a href="/press-kit">Data &amp; Press</a><a href="/embed">Embed our tools</a><a href="/affiliate-disclosure">Affiliate disclosure</a><a href="/privacy">Privacy</a></div>
     </div>
   </div>
 </footer>
 
 <div class="toast" id="toast"></div>
 
-<script src="/scripts/tool-engine.js?v=31"></script>
+<script src="/scripts/tool-engine.js?v=30"></script>
 <script>
 (function bindSharedWordineerMenu() {
   const mega = document.getElementById('mega');
