@@ -1,4 +1,4 @@
-<!-- build: 2026-10-24T00:24:06Z -->
+<!-- build: 2026-10-24T00:36:26Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -448,24 +448,21 @@
     font-family: serif;
   }
   .ws-print-grid {
-    display: inline-grid;
-    gap: 0;
-    border: 1px solid #000;
     margin: 0 auto 20px;
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
   }
   .ws-print-row {
     display: flex;
   }
   .ws-print-cell {
-    width: 28px;
-    height: 28px;
+    width: var(--print-cell, 36px);
+    height: var(--print-cell, 36px);
     border: .5px solid #ccc;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 14px;
+    font-size: calc(var(--print-cell, 36px) * 0.5);
     font-weight: 700;
     font-family: 'Courier New', monospace;
     text-transform: uppercase;
@@ -930,7 +927,7 @@ function renderPuzzle(result, title, size, showKey, activeWord) {
   var hlMap = buildHlMap(result.placements);
 
   /* cell sizing */
-  var cellPx = size === 10 ? 40 : size === 15 ? 28 : 22;
+  var cellPx = size === 10 ? 56 : size === 15 ? 40 : 30;
   var fontPx  = Math.round(cellPx * 0.55);
 
   var html = '';
@@ -1024,8 +1021,9 @@ function doPrint() {
   var grid = state.result.grid;
   var placed = state.result.placements.filter(function (p) { return p.placed; });
 
+  var printCell = size === 10 ? 64 : size === 15 ? 44 : 34;
   var html = '<div class="ws-print-title">' + escHtml(state.title) + '</div>';
-  html += '<div style="text-align:center"><div class="ws-print-grid">';
+  html += '<div style="text-align:center"><div class="ws-print-grid" style="--print-cell:' + printCell + 'px">';
   for (var r = 0; r < size; r++) {
     html += '<div class="ws-print-row">';
     for (var c = 0; c < size; c++) {
