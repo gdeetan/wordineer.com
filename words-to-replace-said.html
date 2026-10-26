@@ -1,4 +1,4 @@
-<!-- build: 2026-10-10T10:06:37Z -->
+<!-- build: 2026-10-26T02:57:18Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -175,51 +175,32 @@
 <link rel="stylesheet" href="/styles/global.css?v=16">
 <style>
 .tool-wrap { max-width:960px; margin:0 auto; padding:24px 24px 0; }
-.tool-card { border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg); box-shadow:var(--shadow); padding:20px; }
-.rs-hero-sub { font-size:1.05rem; color:var(--muted, var(--text-3, #6b7280)); margin-top:6px; }
-
-.rs-controls { display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-bottom:14px; }
-.rs-search { flex:1; min-width:220px; padding:9px 12px; font-size:14px; font-family:inherit; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--text); outline:none; transition:border-color .15s; }
-.rs-search:focus { border-color:var(--brand); }
-.rs-count { font-size:13px; color:var(--muted, var(--text-3, #6b7280)); white-space:nowrap; }
-.rs-copy-all { padding:8px 14px; font-size:13px; font-family:inherit; border:1px solid var(--border); border-radius:8px; background:var(--bg-2,#f4f4f2); color:var(--text); cursor:pointer; transition:background .12s,color .12s,border-color .12s; }
-.rs-copy-all:hover { background:var(--brand); color:#fff; border-color:var(--brand); }
-
-.rs-cats { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px; }
-.rs-cat-btn { padding:6px 14px; border:1px solid var(--border); border-radius:999px; background:var(--bg); color:var(--text-2, #374151); font-size:13px; font-family:inherit; cursor:pointer; transition:background .12s, color .12s, border-color .12s; }
-.rs-cat-btn:hover { background:var(--surface, var(--bg-2)); }
-.rs-cat-btn.active { background:var(--brand); color:#fff; border-color:var(--brand); }
-
-.rs-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); gap:1rem; margin-top:4px; }
-
-.rs-card { background:var(--surface, var(--bg-2, #f9fafb)); border:1px solid var(--border); border-radius:12px; padding:16px; display:flex; flex-direction:column; gap:8px; }
-.rs-word { font-size:1.35rem; font-weight:700; color:var(--text); line-height:1.2; }
-.rs-meta { display:flex; flex-wrap:wrap; align-items:center; gap:6px; }
-.rs-tone-tag { font-size:11px; font-weight:600; padding:2px 8px; border-radius:999px; background:color-mix(in srgb, var(--brand) 12%, transparent); color:var(--brand); }
-.rs-def { font-size:0.92rem; color:var(--text-2, #374151); line-height:1.5; margin:0; }
-.rs-ex { font-size:0.85rem; font-style:italic; color:var(--muted, var(--text-3, #6b7280)); line-height:1.45; margin:0; padding-left:10px; border-left:3px solid var(--brand); }
-.rs-card-footer { display:flex; justify-content:flex-end; gap:6px; margin-top:auto; padding-top:8px; }
-.rs-copy-btn { font-size:12px; padding:5px 10px; border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text-2, #374151); cursor:pointer; font-family:inherit; transition:background .12s, color .12s; }
-.rs-copy-btn:hover { background:var(--brand); color:#fff; border-color:var(--brand); }
-
-.rs-no-results { grid-column:1 / -1; text-align:center; color:var(--muted, var(--text-3, #6b7280)); font-size:0.95rem; padding:32px 0; }
-
+.rs-hero-sub { color:var(--text-3,#9a9a94); margin-top:.5rem; }
+.rs-controls { display:flex; flex-wrap:wrap; gap:.75rem; align-items:center; margin-bottom:1rem; }
+.rs-search { flex:1 1 200px; padding:.55rem .85rem; border:1px solid var(--border,#e4e4e2); border-radius:8px; font-size:.95rem; font-family:inherit; background:var(--bg); color:var(--text); }
+.rs-search:focus { outline:none; border-color:var(--brand,#3C3489); }
+.rs-count { font-size:.85rem; color:var(--text-3,#9a9a94); white-space:nowrap; }
+.rs-tone-groups { display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:1.5rem; }
+.act-btn { padding:.45rem 1.1rem; border:1px solid var(--border,#e4e4e2); border-radius:8px; background:var(--bg-2,#f4f4f2); color:var(--text); font-size:.875rem; font-family:inherit; cursor:pointer; transition:background .15s,border-color .15s,color .15s; }
+.act-btn:hover { background:var(--brand,#3C3489); color:#fff; border-color:var(--brand,#3C3489); }
+.rs-tone-btn { padding:.35rem .85rem; border:1px solid var(--border,#e4e4e2); border-radius:20px; background:none; font-size:.85rem; font-family:inherit; cursor:pointer; transition:background .15s,border-color .15s,color .15s; }
+.rs-tone-btn.active { background:var(--brand,#3C3489); color:#fff; border-color:var(--brand,#3C3489); }
+.rs-group { margin-bottom:1.75rem; }
+.rs-group-label { font-size:.85rem; font-weight:700; color:var(--text-3,#9a9a94); text-transform:uppercase; letter-spacing:.06em; margin-bottom:.6rem; }
+.rs-chips { display:flex; flex-wrap:wrap; gap:.4rem; }
+.rs-chip { padding:.3rem .7rem; background:var(--bg-2,#f4f4f2); border:1px solid var(--border,#e4e4e2); border-radius:20px; font-size:.9rem; cursor:pointer; transition:background .12s,border-color .12s,color .12s; }
+.rs-chip:hover { background:var(--brand,#3C3489); color:#fff; border-color:var(--brand,#3C3489); }
+.rs-chip.rs-hidden { display:none; }
+.rs-group.rs-group-empty { display:none; }
+.rs-no-results { color:var(--text-3,#9a9a94); padding:2rem 0; text-align:center; }
 .rs-seo-list { margin:16px 0 0; padding:0; }
 .rs-seo-list dt { font-weight:700; color:var(--text); margin-top:10px; }
-.rs-seo-list dd { margin-left:0; color:var(--text-2, #374151); font-size:0.92rem; }
-
+.rs-seo-list dd { margin-left:0; color:var(--text-2,#374151); font-size:.92rem; }
 .explainer ul, .explainer ol { padding-left:1.5em; }
-
-@media (max-width:640px) {
-  .rs-controls { flex-direction:column; align-items:stretch; }
-  .rs-search { min-width:0; }
-  .rs-grid { grid-template-columns:1fr; }
-}
-
 @media print {
-  header, nav, .breadcrumb, .hero, .rs-controls, .rs-cats, .rs-card-footer, footer, .ad, [class*="ad-"], .more-tools, .explainer, .faq, .who { display:none !important; }
-  .rs-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
-  .rs-card { border:1px dashed #ccc; break-inside:avoid; }
+  header, nav, .breadcrumb, .rs-controls, .rs-tone-groups, footer, .ad, .more-tools, .who, .faq-section { display:none !important; }
+  .rs-chips { gap:.25rem; }
+  .rs-chip { border:1px solid #ccc; page-break-inside:avoid; }
   @page { margin:1.5cm; }
 }
 </style>
@@ -335,26 +316,27 @@
 <div class="tool-wrap">
   <div class="tool-card">
     <div class="rs-controls">
-      <input type="search" class="rs-search" id="rs-search" placeholder="Search words or definitions…" aria-label="Search alternatives for said">
-      <span class="rs-count" id="rs-count" aria-live="polite" aria-atomic="true">Loading…</span>
-      <button class="rs-copy-all" id="rs-copy-all">Copy visible list</button>
+      <input type="search" class="rs-search" id="rs-search" placeholder="Search alternatives…" aria-label="Search alternatives for said">
+      <span class="rs-count" id="rs-count" aria-live="polite" aria-atomic="true">Showing all words</span>
+      <button class="act-btn" id="rs-copy-all">Copy visible list</button>
     </div>
-    <div class="rs-cats" id="rs-cats" role="group" aria-label="Filter by tone">
-      <button class="rs-cat-btn active" data-tone="all" aria-pressed="true">All</button>
-      <button class="rs-cat-btn" data-tone="neutral" aria-pressed="false">Neutral</button>
-      <button class="rs-cat-btn" data-tone="quiet" aria-pressed="false">Quiet</button>
-      <button class="rs-cat-btn" data-tone="loud" aria-pressed="false">Loud</button>
-      <button class="rs-cat-btn" data-tone="questioning" aria-pressed="false">Questioning</button>
-      <button class="rs-cat-btn" data-tone="positive" aria-pressed="false">Positive</button>
-      <button class="rs-cat-btn" data-tone="negative" aria-pressed="false">Negative</button>
-      <button class="rs-cat-btn" data-tone="conversational" aria-pressed="false">Conversational</button>
-      <button class="rs-cat-btn" data-tone="authoritative" aria-pressed="false">Authoritative</button>
+    <div class="rs-tone-groups" id="rs-tone-btns" role="group" aria-label="Filter by tone">
+      <button class="rs-tone-btn active" data-tone="all" aria-pressed="true">All tones</button>
+      <button class="rs-tone-btn" data-tone="neutral" aria-pressed="false">Neutral</button>
+      <button class="rs-tone-btn" data-tone="quiet" aria-pressed="false">Quiet</button>
+      <button class="rs-tone-btn" data-tone="loud" aria-pressed="false">Loud</button>
+      <button class="rs-tone-btn" data-tone="questioning" aria-pressed="false">Questioning</button>
+      <button class="rs-tone-btn" data-tone="positive" aria-pressed="false">Positive</button>
+      <button class="rs-tone-btn" data-tone="negative" aria-pressed="false">Negative</button>
+      <button class="rs-tone-btn" data-tone="conversational" aria-pressed="false">Conversational</button>
+      <button class="rs-tone-btn" data-tone="authoritative" aria-pressed="false">Authoritative</button>
     </div>
-    <div class="rs-grid" id="rs-grid"></div>
+    <div id="rs-word-list"></div>
+    <p class="rs-no-results" id="rs-no-results" style="display:none">No words match your search. Try a shorter term.</p>
     <dl class="rs-seo-list" id="rs-seo-list">
-      <dt>whispered</dt><dd>Spoken very softly, often to avoid being overheard.</dd>
-      <dt>exclaimed</dt><dd>Said with sudden strong emotion or surprise.</dd>
-      <dt>declared</dt><dd>Said with authority, often publicly.</dd>
+      <dt>whispered</dt><dd>Said very softly, usually to avoid being overheard</dd>
+      <dt>exclaimed</dt><dd>Said suddenly with strong emotion or surprise</dd>
+      <dt>declared</dt><dd>Said firmly and publicly, often as an announcement</dd>
     </dl>
   </div>
 </div>
@@ -385,11 +367,11 @@
 <section class="explainer">
 
 <h2>Why "said" isn't always wrong</h2>
-<p>One of the most durable pieces of writing advice passed down through workshops and writing guides is the idea that "said is invisible." The claim is that readers skim past "said" so automatically that it creates no friction — it functions almost like punctuation rather than a word. Elmore Leonard, whose ten rules of writing have been reprinted a thousand times, put it plainly: use the word "said" to carry dialogue, and "as a rule you don't need to use any word other than said."</p>
-<p>Leonard was pushing back against a particular bad habit: the overloaded dialogue tag. Inexperienced writers, told that repetition is boring, reach for the thesaurus and produce scenes in which characters exclaim, opine, ejaculate, vociferate, and expound — verbs so heavy with personality that they compete with the dialogue itself. The reader starts noticing the tag instead of the line being spoken.</p>
-<p>The case for plain "said" is strongest in rapid-fire dialogue between two characters where the exchange is quick and the speaker is always clear. In that context, every dialogue tag is a speed bump. The best solution is often no tag at all, or the simplest tag possible. When characters are arguing in short punchy lines, "said" keeps pace with the rhythm. A more emphatic verb — "challenged," "snapped," "fired back" — can feel like the writer stepping in to explain what the dialogue should already be showing.</p>
-<p>"Said" is also the default register of neutral, clear prose. Literary fiction, journalism, and most nonfiction use it almost exclusively. When you read a speech transcript or a reported conversation in a newspaper, the speaker always "said" something. This isn't laziness — it's the right tool for informational clarity where the exact emotional texture of speech is less important than its content.</p>
-<p>The lesson: before replacing "said," ask whether the replacement adds information the reader couldn't already infer. If the dialogue already sounds angry, tagging it with "snapped" is redundant. If the tone is genuinely ambiguous — and it sometimes is — that's when a stronger tag earns its place.</p>
+<p>The age-old rule of <strong>"said is invisible"</strong> can still hold strong in most workshops around the country as well as in many good <a href="/writing-prompt-generator">writing</a> guides. "Said" is read so quickly by readers that it causes no pause in the reader's perception and can even be read as if it were punctuation rather than a word itself. This rule, put simply by <strong>Elmore Leonard</strong> in his famous <strong>"Ten Rules of Writing"</strong> (reprinted a thousand times or more in writing workbooks), is: use "said" to report dialogue. As a rule, you don't need to use any word other than said.</p>
+<p>Many new writers shun repetition by overloading the dialogue tag with such words as <strong>exclaim, opine, ejaculate, vociferate, and expound</strong>. These tell us so much about the speaking character that we read the tag instead of the speech. Instead of adding flavor to the narrative, these verb choices rival the dialogue for our attention.</p>
+<p>The most obvious argument for "said" is that dialogue is short and comes fast. Then every tag is a speed bump, and you're generally better without any tag or with the simplest tag possible. Instead of "said," use <strong>"challenged," "snapped," "fired back,"</strong> etc. If you leave it to the writer to tell us that the speaker was angry already, then we're not getting any value from the dialogue.</p>
+<p><strong>"Customary" or neutral writing</strong> is also typically written in the "Said" register. Most literary fiction, most journalism, and most nonfiction writing is written in this register. When reading a speech or a conversation that has been reported in the newspaper, the speaker always said something. (This is not to say that using "Said" all the time is automatically good writing. But "Said" is the default register for neutral writing for good reason: it conveys information, and that is what neutral writing is for.)</p>
+<p>So use this tip: before you even consider replacing "said" with something else, <strong>ask yourself whether that something else adds information to the dialogue that isn't already clear</strong>. If something is already snappish, then "snapped" is unnecessary. If something is already ambiguous, then more information about the speaker's tone is sometimes necessary to make a point, and that's when you choose to use something stronger than "said".</p>
 
 <h2>When to replace "said" — and when not to</h2>
 <p>The decision to replace "said" with a more specific dialogue tag comes down to one question: does the replacement add meaning that isn't already on the page? This is a stricter test than it sounds, and most first-draft replacements fail it.</p>
@@ -442,47 +424,27 @@
 
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">What are strong dialogue tags?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a"><p>Strong dialogue tags are verbs that carry emotional or physical information beyond mere attribution: <em>whispered</em>, <em>snapped</em>, <em>declared</em>, <em>murmured</em>, <em>growled</em>. They work best when the verb adds something the dialogue itself doesn't already show. The risk is overuse — if every line is tagged with a vivid verb, the effect wears off quickly and the writing starts to feel melodramatic.</p></div>
+    <div class="faq-a"><p>Verbs like <strong>whispered</strong>, <strong>snapped</strong>, <strong>declared</strong>, <strong>murmured</strong>, and <strong>growled</strong> are strong dialogue tags because they convey emotion or physical action in addition to telling us who spoke. The best dialogue tags are those that add information that the dialogue itself hasn't already shown. If you use too many of these very descriptive tags, they can start to lose their impact and even make your writing seem more melodramatic than it actually is. For more vivid verbs, browse our list of <a href="/cool-words">cool words</a>.</p></div>
   </div>
 
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">What does "said is invisible" mean?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a"><p>It means readers process "said" so automatically that it registers as attribution without drawing attention to itself — like a comma or a period. The word carries no aesthetic weight of its own. This is actually a feature: dialogue tags that call attention to themselves interrupt the flow of a scene. Authors like Elmore Leonard argued that "said" is preferable to unusual tags precisely because it disappears into the text and lets the dialogue breathe.</p></div>
+    <div class="faq-a"><p>It means readers process "said" so automatically that it registers as attribution without drawing attention to itself — like a comma or a period. The word itself has <strong>no aesthetic value whatever</strong>. So a dialogue tag that draws attention to itself by being unusual is, in effect, an <strong>interruption of the scene</strong>. Most writers would agree with Elmore Leonard that the normal word <em>said</em> is better than just about any alternative, because it is so completely unobtrusive. It disappears into the text, leaving only the dialogue to register with the reader.</p></div>
   </div>
 
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">What are some alternatives to "said" for students?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a"><p>For school writing, focus on moderate alternatives that add information without sounding theatrical: <em>replied</em>, <em>asked</em>, <em>answered</em>, <em>explained</em>, <em>suggested</em>. Use expressive tags like <em>whispered</em>, <em>shouted</em>, or <em>laughed</em> only when the delivery specifically matters. A good rule of thumb: about half your dialogue can use "said" or no tag at all, with stronger alternatives used selectively for variety and emphasis.</p></div>
+    <div class="faq-a"><p>When writing schoolwork, you want to use a <strong>moderate range of alternatives</strong> to add information and avoid over-the-top language. Exactive tags like <em>whispered</em>, <em>shouted</em>, or <em>laughed</em> are only used when the method of delivery is important. <strong>About half your dialogue</strong> should be written with "said" or no tag at all, with the more expressive alternatives used occasionally for extra variety and emphasis. Students can also strengthen writing with <a href="/transition-words">transition words</a>.</p></div>
   </div>
 
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">How many times per page should I use "said"?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a"><p>There's no fixed number. Published literary novels sometimes have "said" ten times on a dialogue-heavy page without any problem — it truly is invisible at that frequency. The better question is: how many dialogue tags total? Heavy-dialogue scenes often need fewer tags than you think. Once two characters are established in an exchange, you can drop attribution for several lines and readers track the alternation naturally. Action beats and paragraph breaks do the attribution work without any verb at all.</p></div>
+    <div class="faq-a"><p><strong>There is no fixed rule.</strong> Published literary novels contain "said" ten times or more on very dialogue-heavy pages, and yet the reader never notices. Instead of asking how many "said"s in total, the writer of very dialogue-heavy scenes needs to know that they actually can <strong>use fewer tags than they think</strong>. For the first few lines of a scene with two characters, it's useful to have attribution, but then you can stop, and the reader will be able to follow who's speaking because they've learned to follow the alternation of the two characters. Often, it's the <strong>action beats and the end of the paragraphs</strong> that do all the attribution for you.</p></div>
   </div>
 
 </div>
 
-<div>
-  <h2 class="section-title" style="margin-bottom:14px">Who uses this tool?</h2>
-  <div class="uc-grid">
-    <div class="uc">
-      <div class="uc-title">Creative writers</div>
-      <div class="uc-body">Improving dialogue in fiction by finding the right verb for a character's emotional state. Filter by tone to quickly locate alternatives that match the scene — from the quiet tension of a whispered secret to the full volume of a confrontation.</div>
-    </div>
-    <div class="uc">
-      <div class="uc-title">Students</div>
-      <div class="uc-body">Writing school assignments and creative pieces with more varied and engaging dialogue attribution. The tone filters make it easy to find words that feel right for a specific scene without reaching for the same five alternatives every time.</div>
-    </div>
-    <div class="uc">
-      <div class="uc-title">English teachers</div>
-      <div class="uc-body">Sharing with students as a printable or on-screen writing resource. The organized groups by tone help students understand that word choice in dialogue is about matching emotional register, not just avoiding repetition.</div>
-    </div>
-    <div class="uc">
-      <div class="uc-title">Screenwriters</div>
-      <div class="uc-body">Understanding dialogue attribution conventions even when writing for screen, where direction like "whispered" or "shouted" sometimes appears in parentheticals. The tone categories map directly to the kind of delivery notes used in script formatting.</div>
-    </div>
-  </div>
-</div>
+
 
 
 </div>
@@ -518,7 +480,7 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="/scripts/tool-engine.js?v=31"></script>
+<script src="/scripts/tool-engine.js?v=27"></script>
 <script>
 (function bindSharedWordineerMenu() {
   const mega = document.getElementById('mega');
@@ -562,116 +524,117 @@
 </script>
 
 <script>
-(function () {
-  function he(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-
-  var TONE_LABELS = {
-    neutral:        'Neutral',
-    quiet:          'Quiet',
-    loud:           'Loud',
-    questioning:    'Questioning',
-    positive:       'Positive',
-    negative:       'Negative',
-    conversational: 'Conversational',
-    authoritative: 'Authoritative'
+(function(){
+  var FILTERS = {
+    tones: [
+      { key: 'neutral',        label: 'Neutral' },
+      { key: 'quiet',          label: 'Quiet' },
+      { key: 'loud',           label: 'Loud / Forceful' },
+      { key: 'questioning',    label: 'Questioning' },
+      { key: 'positive',       label: 'Positive / Excited' },
+      { key: 'negative',       label: 'Negative / Complaining' },
+      { key: 'conversational', label: 'Conversational' },
+      { key: 'authoritative',  label: 'Authoritative' }
+    ]
   };
 
-  var RS = {
-    data: [],
-    activeTone: 'all',
-    activeQuery: '',
+  var activeTone = 'all';
+  var chips = [];
+  var groups = [];
+  var countEl = document.getElementById('rs-count');
+  var noResults = document.getElementById('rs-no-results');
+  var wordList = document.getElementById('rs-word-list');
 
-    load: function () {
-      if (RS.data.length) return;
-      fetch('/data/words-to-replace-said.json')
-        .then(function(r){ return r.json(); })
-        .then(function(d){
-          RS.data = Array.isArray(d) ? d : [];
-          document.getElementById('rs-seo-list').style.display = 'none';
-          RS.render();
-        })
-        .catch(function(){
-          document.getElementById('rs-count').textContent = 'Could not load words.';
+  function updateCount() {
+    var n = chips.filter(function(c){ return !c.classList.contains('rs-hidden'); }).length;
+    countEl.textContent = 'Showing ' + n + ' word' + (n !== 1 ? 's' : '');
+    noResults.style.display = n === 0 ? '' : 'none';
+  }
+
+  function filterChips() {
+    var q = document.getElementById('rs-search').value.toLowerCase().trim();
+    chips.forEach(function(c){
+      var toneMatch = activeTone === 'all' || c.dataset.tone === activeTone;
+      var wordMatch = !q || c.dataset.word.toLowerCase().indexOf(q) !== -1;
+      c.classList.toggle('rs-hidden', !(toneMatch && wordMatch));
+    });
+    groups.forEach(function(g){
+      var anyVisible = Array.from(g.querySelectorAll('.rs-chip')).some(function(c){ return !c.classList.contains('rs-hidden'); });
+      g.classList.toggle('rs-group-empty', !anyVisible);
+    });
+    updateCount();
+  }
+
+  function buildGroups(data) {
+    var byTone = {};
+    data.forEach(function(e){ (byTone[e.tone] = byTone[e.tone] || []).push(e); });
+    wordList.innerHTML = '';
+    FILTERS.tones.forEach(function(t){
+      var entries = byTone[t.key] || [];
+      if (!entries.length) return;
+      var grp = document.createElement('div');
+      grp.className = 'rs-group';
+      grp.dataset.group = t.key;
+      grp.innerHTML = '<div class="rs-group-label">' + t.label + '</div><div class="rs-chips"></div>';
+      var chipsEl = grp.querySelector('.rs-chips');
+      entries.forEach(function(e){
+        var sp = document.createElement('span');
+        sp.className = 'rs-chip';
+        sp.dataset.word = e.w;
+        sp.dataset.tone = e.tone;
+        sp.textContent = e.w;
+        sp.addEventListener('click', function(){
+          navigator.clipboard.writeText(e.w).catch(function(){});
+          sp.textContent = '✓ ' + e.w;
+          setTimeout(function(){ sp.textContent = e.w; }, 900);
         });
-    },
-
-    filter: function () {
-      var q = RS.activeQuery.toLowerCase();
-      return RS.data.filter(function(e){
-        if (RS.activeTone !== 'all' && e.tone !== RS.activeTone) return false;
-        if (q) {
-          var hay = (e.w + ' ' + (e.d || '') + ' ' + (e.ex || '')).toLowerCase();
-          if (hay.indexOf(q) === -1) return false;
-        }
-        return true;
+        chipsEl.appendChild(sp);
       });
-    },
+      wordList.appendChild(grp);
+    });
+    chips = Array.from(wordList.querySelectorAll('.rs-chip'));
+    groups = Array.from(wordList.querySelectorAll('.rs-group'));
+    filterChips();
+  }
 
-    cardHTML: function (e) {
-      return '<div class="rs-card">' +
-        '<span class="rs-word">' + he(e.w) + '</span>' +
-        '<div class="rs-meta">' +
-          '<span class="rs-tone-tag">' + he(TONE_LABELS[e.tone] || e.tone) + '</span>' +
-        '</div>' +
-        (e.d  ? '<p class="rs-def">' + he(e.d) + '</p>' : '') +
-        (e.ex ? '<p class="rs-ex">' + he(e.ex) + '</p>' : '') +
-        '<div class="rs-card-footer">' +
-          '<button class="rs-copy-btn" data-word="' + he(e.w) + '">Copy word</button>' +
-        '</div>' +
-      '</div>';
-    },
+  fetch('/data/words-to-replace-said.json')
+    .then(function(r){ return r.json(); })
+    .then(function(data){
+      document.getElementById('rs-seo-list').style.display = 'none';
+      buildGroups(data);
+    })
+    .catch(function(){
+      countEl.textContent = 'Could not load words.';
+    });
 
-    render: function () {
-      var results = RS.filter();
-      var grid = document.getElementById('rs-grid');
-      var count = document.getElementById('rs-count');
-      if (!results.length) {
-        grid.innerHTML = '<p class="rs-no-results">No words match your filters. Try clearing a filter.</p>';
-      } else {
-        grid.innerHTML = results.map(RS.cardHTML).join('');
-      }
-      count.textContent = 'Showing ' + results.length + ' word' + (results.length !== 1 ? 's' : '');
-    },
+  document.getElementById('rs-tone-btns').addEventListener('click', function(e){
+    var btn = e.target.closest('.rs-tone-btn');
+    if (!btn) return;
+    document.querySelectorAll('.rs-tone-btn').forEach(function(b){
+      b.classList.remove('active');
+      b.setAttribute('aria-pressed', 'false');
+    });
+    btn.classList.add('active');
+    btn.setAttribute('aria-pressed', 'true');
+    activeTone = btn.dataset.tone;
+    filterChips();
+  });
 
-    bindEvents: function () {
-      document.getElementById('rs-cats').addEventListener('click', function(e){
-        var btn = e.target.closest('.rs-cat-btn');
-        if (!btn) return;
-        document.querySelectorAll('.rs-cat-btn').forEach(function(b){ b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
-        btn.classList.add('active');
-        btn.setAttribute('aria-pressed', 'true');
-        RS.activeTone = btn.dataset.tone;
-        RS.render();
-      });
-      var searchTimer;
-      document.getElementById('rs-search').addEventListener('input', function(e){
-        clearTimeout(searchTimer);
-        var q = e.target.value;
-        searchTimer = setTimeout(function(){ RS.activeQuery = q; RS.render(); }, 200);
-      });
-      document.getElementById('rs-grid').addEventListener('click', function(e){
-        var copyBtn = e.target.closest('.rs-copy-btn');
-        if (!copyBtn) return;
-        navigator.clipboard.writeText(copyBtn.dataset.word).catch(function(){});
-        copyBtn.textContent = 'Copied!';
-        setTimeout(function(){ copyBtn.textContent = 'Copy word'; }, 1500);
-      });
-      document.getElementById('rs-copy-all').addEventListener('click', function(){
-        var btn = this;
-        var words = RS.filter().map(function(e){ return e.w; });
-        navigator.clipboard.writeText(words.join(', ')).catch(function(){});
-        btn.textContent = 'Copied!';
-        setTimeout(function(){ btn.textContent = 'Copy visible list'; }, 1500);
-      });
-    },
+  var searchTimer;
+  document.getElementById('rs-search').addEventListener('input', function(){
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(filterChips, 200);
+  });
 
-    init: function () {
-      RS.bindEvents();
-      RS.load();
-    }
-  };
+  document.getElementById('rs-copy-all').addEventListener('click', function(){
+    var btn = this;
+    var visible = chips.filter(function(c){ return !c.classList.contains('rs-hidden'); });
+    navigator.clipboard.writeText(visible.map(function(c){ return c.dataset.word; }).join(', ')).catch(function(){});
+    btn.textContent = 'Copied!';
+    setTimeout(function(){ btn.textContent = 'Copy visible list'; }, 1500);
+  });
 
-  RS.init();
+  });
 }());
 </script>
 </body>
