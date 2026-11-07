@@ -1,4 +1,4 @@
-<!-- build: 2026-10-12T09:03:48Z -->
+<!-- build: 2026-11-07T04:31:35Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -410,7 +410,7 @@
     Free · No sign-up · Instant
   </div>
   <h1>Random number generator 1 to 20</h1>
-  <p>Pick a random number between 1 and 20 instantly. Use pool mode to get every number exactly once — no repeats until all 20 have been drawn. Works on any device, no install needed.</p>
+  <p>Generate a random number between 1 and 20. Generate all 20 numbers then select them one at a time from a pool, ensuring all numbers are generated exactly once. Works on any device, no download needed.</p>
 </div>
 <div class="rn20-wrap">
   <div class="rn20-card">
@@ -541,37 +541,33 @@
 <!-- /SECTION:more_tools -->
 <div class="explainer">
   <h2>What is a random number between 1 and 20?</h2>
-  <p>A random number from 1 to 20 is drawn with equal probability — each of the 20 integers has a 5% chance on every generate. The 1–20 range is one of the most versatile in everyday use: it covers a standard classroom row, a small team raffle, and the classic "I'm thinking of a number" guessing game. This tool uses JavaScript's <code>Math.random()</code>, seeded from hardware entropy, to produce unbiased results every time.</p>
+  <p>In pool mode, every number is chosen randomly and without replacement until all numbers from 1 to 20 have been drawn. So every integer is chosen with equal probability, i.e., every integer has a 5% chance on every generation. The range of numbers from 1 to 20 is one of the most frequently used ranges for random numbers, because a row of classroom students, a small local raffle, or even simple games like "I'm thinking of a number" can be managed with this range. The random numbers are generated with JavaScript's <code>Math.random()</code>, which is seeded with hardware entropy.</p>
 
   <h2>Pool mode for small groups</h2>
-  <p>Pool mode shuffles all 20 numbers into a private queue using the Fisher-Yates algorithm. Each click draws the next number without replacement — guaranteeing every number appears exactly once before the pool resets. It is ideal for calling on students in a class of up to 20, assigning unique numbers in a small raffle, or any situation that requires guaranteed fairness across a short range.</p>
+  <p>When Pool mode is turned on, it will shuffle all 20 numbers and use the Fisher-Yates algorithm to ensure that each number is called once before the Pool is refilled. Pool mode is perfect for randomly calling on students in a class of up to 20, determining the order of balls left in a small raffle, or ensuring numbers are assigned fairly in a short range.</p>
 
   <h2>Common uses for 1–20</h2>
-  <p>The 1–20 range covers guessing games ("pick a number between 1 and 20"), scoring in classroom quizzes, turn order in board games for up to 20 players, and assignment of numbered seats or roles. The exclude feature lets you remove numbers that don't apply — for example, if your team has 15 people, exclude 16–20 to keep picks within your group size.</p>
+  <p>This range is useful for guessing games like "pick a number between 1 and 20", scoring in quizzes in school, setting turn order in board games with up to 20 players, and assigning seats or roles that are numbered. Excluding numbers from the pool lets you restrict picks to your group size; for example, if you have a team of 15 people, exclude 16–20 to ensure all picks stay within your team.</p>
 </div>
 
 <div class="faq">
   <h2 class="faq-title">Frequently asked questions</h2>
-
-  <details class="faq-item">
-    <summary class="faq-q">Is this random number generator truly random?</summary>
-    <div class="faq-a">This tool uses Math.random(), a pseudorandom number generator built into every modern browser. It is seeded from hardware entropy and produces outputs that pass statistical randomness tests — more than sufficient for games, raffles, and classroom use.</div>
-  </details>
-
-  <details class="faq-item">
-    <summary class="faq-q">What is pool mode?</summary>
-    <div class="faq-a">Pool mode picks each number from 1 to 20 exactly once, like drawing from a hat without replacement. Once all 20 numbers have been picked, the pool reshuffles automatically. This ensures no repeats until every number has been drawn.</div>
-  </details>
-
-  <details class="faq-item">
-    <summary class="faq-q">Can I exclude specific numbers?</summary>
-    <div class="faq-a">Yes. Click "Exclude numbers" and enter a comma-separated list. The generator will never produce those numbers. In pool mode, excluded numbers are removed from the pool before shuffling.</div>
-  </details>
-
-  <details class="faq-item">
-    <summary class="faq-q">How is this different from the 1–100 generator?</summary>
-    <div class="faq-a">This page is optimized for the 1–20 range specifically. The distribution chart groups results into pairs (1–2, 3–4, …), pool mode handles 20 numbers, and all pool tracking reflects the smaller range. For a wider range, see the <a href="/random-number-1-100">1–100 generator</a> or the <a href="/random-number-generator">custom range generator</a>.</div>
-  </details>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">Is this random number generator truly random?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>This tool uses Math.random(), a pseudorandom number generator built into every modern browser. It is seeded from hardware entropy and produces outputs that pass statistical randomness tests — more than sufficient for games, raffles, and classroom use.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What is pool mode?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Pool mode picks each number from 1 to 20 exactly once, like drawing from a hat without replacement. Once all 20 numbers have been picked, the pool reshuffles automatically. This ensures no repeats until every number has been drawn.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I exclude specific numbers?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Yes. Click "Exclude numbers" and enter a comma-separated list. The generator will never produce those numbers. In pool mode, excluded numbers are removed from the pool before shuffling.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">How is this different from the 1–100 generator?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>This page is optimized for the 1–20 range specifically. The distribution chart groups results into pairs (1–2, 3–4, …), pool mode handles 20 numbers, and all pool tracking reflects the smaller range. For a wider range, see the <a href="/random-number-1-100">1–100 generator</a> or the <a href="/random-number-generator">custom range generator</a>.</p></div>
+  </div>
 </div>
 
 <div>
@@ -618,7 +614,7 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="/scripts/tool-engine.js?v=31"></script>
+<script src="/scripts/tool-engine.js?v=27"></script>
 <script>
 (function bindSharedWordineerMenu() {
   const mega = document.getElementById('mega');
@@ -968,15 +964,6 @@ const WORDINEER_RN20 = (() => {
     document.addEventListener('keydown', function(e) {
       if (['INPUT','SELECT','TEXTAREA','BUTTON'].includes(e.target.tagName)) return;
       if (e.code === 'Space' || e.code === 'Enter') { e.preventDefault(); generate(); }
-    });
-    document.querySelectorAll('.faq-item summary').forEach(function(s) {
-      s.addEventListener('click', function(e) {
-        e.preventDefault();
-        const item = s.closest('.faq-item');
-        const wasOpen = item.hasAttribute('open');
-        document.querySelectorAll('.faq-item[open]').forEach(function(i) { i.removeAttribute('open'); });
-        if (!wasOpen) item.setAttribute('open', '');
-      });
     });
   }
 
