@@ -1,4 +1,4 @@
-<!-- build: 2026-11-07T01:32:00Z -->
+<!-- build: 2026-11-07T02:41:21Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -889,23 +889,23 @@
   <h2 class="faq-title">Frequently asked questions</h2>
   <div class="faq-item open">
     <div class="faq-q"><span class="faq-q-text">Is this random number generator truly random?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a"><p>This tool uses Math.random(), a pseudorandom number generator built into every modern browser. It is seeded from hardware entropy and produces outputs that pass statistical randomness tests — more than sufficient for games, classroom activities, turn order, and any everyday use. For cryptographic security, a dedicated hardware RNG is the appropriate choice.</p></div>
+    <div class="faq-a"><p>Math.random() is used in this tool. The standalone browser implementation of Math.random() uses hardware entropy to seed the pseudorandom number generator. Therefore, the generated numbers are sufficient for games, lessons, turn counters, and general applications. For security-related applications, however, a dedicated hardware RNG is required.</p></div>
   </div>
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">What is pool mode and why use it for 1–10?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a"><p>Pool mode picks each number from 1 to 10 exactly once, like drawing from a shuffled deck of 10 cards without replacement. Once all 10 numbers have been drawn, the pool reshuffles. This is ideal for any situation needing guaranteed-unique assignments: seating 10 students, assigning roles in a game, or running a round-robin where every participant goes exactly once.</p></div>
+    <div class="faq-a"><p>In Pool mode, every number from 1 to 10 is chosen exactly once. After all 10 numbers have been chosen, the pool is shuffled again. This mode is suitable for situations in which you need to assign every participant to different seats or roles in a game in a unique order, for example, for a round-robin. There are 10 students, 10 roles in a game, and 10 participants.</p></div>
   </div>
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">Can I use this as a D10 dice roller?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a"><p>Yes. A standard D10 produces a uniformly distributed result from 1 to 10, which is exactly what this generator does in normal mode. Each click is statistically equivalent to rolling a fair ten-sided die. Pair two rolls together (first = tens digit, second = ones digit) and you get a D100 result, just like in tabletop RPGs.</p></div>
+    <div class="faq-a"><p>Yes. A standard D10 die produces a uniform distribution over the numbers 1 through 10. In normal mode, the above generator produces exactly the same sort of distribution from click to click. By pairing up two such rolls (e.g., first roll = tens place of D100, second roll = ones place of D100), one gets a D100 die roll, as used in many tabletop RPGs.</p></div>
   </div>
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">What is blind pick mode?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a"><p>Blind pick lets two players each secretly generate a number from 1 to 10, then reveal simultaneously. The higher number wins. It is useful for tiebreakers, deciding who goes first in a board game, or any two-player decision where neither side should see the other's pick first. With only 10 possible values, ties are more common here than in wider ranges — making it a naturally suspenseful format.</p></div>
+    <div class="faq-a"><p>In the blind pick method, two players will each secretly generate a number from 1 to 10. Then, at the same time, both players will reveal their numbers. The higher number wins. It can be used for tiebreakers, to decide who plays first in a board game or other two-player game, and in other situations where both players should not know the other's pick before they have made their own choice. Since there are only 10 possible numbers, ties occur more frequently than with a larger range, making blind pick a highly suspenseful method.</p></div>
   </div>
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">What does the distribution chart show for 1–10?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a"><p>After 10 or more generates, a chart appears with one bar per number (1 through 10), showing exactly how many times each has appeared. Unlike the 1–100 tool which groups into decades, this chart is per-number precision — you can see every individual result's frequency and verify that no single number is favored over another.</p></div>
+    <div class="faq-a"><p>After 10 or more generated numbers have been created for a particular number list, a chart will appear displaying a bar for each of the numbers 1 through 10. The height of each bar indicates the frequency of that number within the generated numbers. This chart is more precise than the 1–100 chart, which groups numbers by decades, and shows that no number has been generated more frequently than any other.</p></div>
   </div>
 </div>
 
