@@ -1,4 +1,4 @@
-<!-- build: 2026-11-09T01:43:27Z -->
+<!-- build: 2026-11-09T02:24:15Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -496,19 +496,19 @@
   <h2 class="faq-title">Frequently asked questions</h2>
   <div class="faq-item open">
     <div class="faq-q"><span class="faq-q-text">Is this random number generator truly random?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a"><p>Yes. It uses Math.random(), seeded from hardware entropy in your browser. The output passes standard statistical randomness tests, making it suitable for games, raffles, and classroom sampling.</p></div>
+    <div class="faq-a"><p>Yes. This randomizer uses Math.random(), which has been seeded with browser hardware entropy. Results have passed standard statistical tests for randomness, so you can use them for games, raffles, and even classroom sampling.</p></div>
   </div>
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">What is pool mode?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a"><p>Pool mode picks each number from 1 to 50 exactly once before any repeat. It uses the Fisher-Yates shuffle for fairness. Once all 50 have been drawn, the pool resets automatically.</p></div>
+    <div class="faq-a"><p>In Pool mode, all 50 numbers (1 to 50) are selected one after another without any being repeated. This is done in a truly random order using a Fisher-Yates shuffle. After all numbers have been drawn, the pool will automatically reset.</p></div>
   </div>
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">Can I exclude specific numbers?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a"><p>Yes. Click "Exclude numbers" and enter a comma-separated list. Excluded numbers are skipped in both normal and pool modes.</p></div>
+    <div class="faq-a"><p>Yes. You can use the "Exclude numbers" field to enter a list of numbers to exclude from the random picks, both in normal and in pool mode.</p></div>
   </div>
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">How is this different from the 1–100 generator?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a"><p>This page is optimized for the 1–50 range. Pool mode tracks 50 numbers, distribution groups into buckets of 5, and all range references match 1–50. For a larger range, see the <a href="/random-number-1-100">1–100 generator</a>.</p></div>
+    <div class="faq-a"><p>The distribution groups and range references on this page have been set to 1–50. Pool mode lists all 50 numbers selected, and a <a href="/random-number-1-100">1–100 generator</a> is available for larger ranges.</p></div>
   </div>
 </div>
 
