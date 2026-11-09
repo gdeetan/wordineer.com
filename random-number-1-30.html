@@ -1,4 +1,4 @@
-<!-- build: 2026-11-09T05:46:30Z -->
+<!-- build: 2026-11-09T06:06:14Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -455,32 +455,32 @@
 <!-- /SECTION:more_tools -->
 <div class="explainer">
   <h2>What is a random number between 1 and 30?</h2>
-  <p>Thirty is a very common class size and event size. Each of the thirty integers has a 3.3% chance of being selected with this function. This function can generate numbers in the range of 1-30, i.e. class lists, a monthly calendar, group sizes of thirty, and a raffle with thirty tickets. This tool uses the unseeded, seeded and hardware entropy seeded versions of JavaScript's Math.random function.</p>
+  <p>Thirty is a very common class size and event size. Each of the thirty integers represents a 3.3% chance of being selected with this tool. This function can generate numbers in the range of 1-30, i.e. class lists, a monthly calendar, group sizes of thirty, and a raffle with thirty tickets. This tool uses the unseeded, seeded and hardware entropy seeded versions of JavaScript's Math.random function.</p>
 
   <h2>Pool mode: the classroom tool</h2>
-  <p>For teachers with big classes (30+ students), Pool mode is the most important feature. In Pool mode, Generator first shuffles the numbers of all students in the class. Then, for each generated number, the tool picks the next number from the (shrinking) pool of remaining student numbers, without replacement. The progress bar shows how many students are left in the pool. This avoids the worst problem for teachers with large classes: keeping calling the same students.</p>
+  <p>For teachers with big classes (30+ students), the Pool mode is the most important feature. In this mode, the generator first shuffles the numbers of all students in the class. Then, for each generated number, the tool picks the next number from the (shrinking) pool of remaining student numbers, without replacement. The progress bar shows how many students are left in the pool. This avoids the worst problem for teachers with large classes: keeping calling the same students.</p>
 
   <h2>Distribution: buckets of three</h2>
-  <p>The distribution chart groups the results from each generate into 10 groups of 3 numbers each (1–3, 4–6, 7–9, 10–12, 13–15, 16–18, 19–21, 22–24, 25–27, 28–30). Each bucket should fill approximately equally often over many generates to confirm that the generator is distribution uniform and not biased to any part of the 1–30 range.</p>
+  <p>The distribution chart groups the results from each generated number into 10 groups of 3 numbers each (e.g., 1 to 3, 4 to 6, 7 to 9, 10 to 12, all the way to 28 to 30). Each bucket should fill roughly equally often after several number generations to confirm that the distribution is uniform and not biased to any part of the 1–30 range.</p>
 </div>
 
 <div class="faq">
   <h2 class="faq-title">Frequently asked questions</h2>
   <div class="faq-item open">
     <div class="faq-q"><span class="faq-q-text">Is this truly random?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a"><p>Yes. Math.random() seeded from hardware entropy. Each of the 30 integers has a 3.3% (1-in-30) probability per generate — statistically uniform and unbiased.</p></div>
+    <div class="faq-a"><p>Yes. Math.random() is seeded from hardware entropy. Each of the 30 numbers has a 3.3% chance (or a 1 in 30 change) of being selected, so it is statistically uniform and unbiased.</p></div>
   </div>
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">What is pool mode for 1–30?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a"><p>Pool mode draws all 30 numbers in shuffled order without replacement. Every number appears once before any repeat. Ideal for calling on a class of 30 students with guaranteed fairness — no student gets called twice before everyone has been called once.</p></div>
+    <div class="faq-a"><p>This mode generates a pool of all 30 numbers in random order. Each number is called once before any number is called again. This mode is ideal for random selection from a class of 30 students where every student is called once before any student is called again.</p></div>
   </div>
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">Can I exclude specific numbers?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a"><p>Yes. Click "Exclude numbers" and enter a comma-separated list. Excluded numbers are skipped in both normal and pool modes. Useful for classes smaller than 30 — exclude unused roster numbers.</p></div>
+    <div class="faq-a"><p>You can also specify numbers to be excluded from drawing using a comma-delimited list in the “Exclude numbers” field. This can be particularly useful for classes with less than 30 students (i.e. with unused numbers in the roster).</p></div>
   </div>
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">What does the distribution chart show?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a"><p>After 10 generates, the chart shows results grouped into 10 buckets of 3 (1–3, 4–6, …, 28–30). Over many generates, each bucket should fill equally — confirming no bias toward any portion of the range.</p></div>
+    <div class="faq-a"><p>After 10 numbers are generated, the chart is grouped into 10 buckets of 3 numbers each (1–3, 4–6, 7–9, 10–12, 13–15, 16–18, 19–21, 22–24, 25–27, 28–30). As you use the generator, each bucket should ideally be filled equally, so there is no bias to any portion of the range.</p></div>
   </div>
 </div>
 
