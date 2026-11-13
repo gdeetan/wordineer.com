@@ -1,4 +1,4 @@
-<!-- build: 2026-11-09T06:47:53Z -->
+<!-- build: 2026-11-13T04:56:08Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -434,11 +434,35 @@
 <!-- /SECTION:more_tools -->
 <div class="explainer">
   <h2>How does Rock Paper Scissors work?</h2>
-  <p>Rock Paper Scissors is a game played simultaneously with the hands. Each of the three choices beats one choice and loses to the other choice: Rock crushes Scissors, Scissors cuts Paper, Paper covers Rock. If both players choose the same thing, then obviously it is a tie. As a result, the game is a perfectly balanced in that the there's a 33.3% probability of one of the options getting chosen, and there is no advantage to choosing one of the options over the other. So, the game is fair and is used as a random tiebreaker when both players choose without learning the other's choice. However, this tool isn't meant to replace a human to human rock paper scissors game, it cannot replace the human element.</p>
+  <p>Rock Paper Scissors is a quick and easy hand game to play with someone. You and the other player both pick a rock, paper, or scissors at the same time.</p>
+  <p>Here's how it shakes out:</p>
+  <ul>
+    <li>Rock smashes scissors</li>
+    <li>Scissors cut paper</li>
+    <li>Paper wraps rock</li>
+    <li>Same pick? Tie, go again.</li>
+  </ul>
+  <p>In other words, there's no option that's inherently better than another. Therefore, Rock Paper Scissors is a great way to see who gets the last slice of pizza, because it's virtually impossible to intentionally out-pick the other player.</p>
+
   <h2>Is there a winning strategy against the computer?</h2>
-  <p>This random Rock Paper Scissors tool chooses randomly between Rock, Paper, and Scissors. Each choice has a 1/3 chance of occurring. There is no memory of the previous throw, so you cannot possibly win more than 33% of the time playing against this tool. However, playing against another human is vastly different from playing against pure randomness. Many people fall into habits and continue to use the move that recently won for them and avoid the move that recently lost for them. Most people choose Rock on their first throw. Opening with Paper is a simple trick to win that first throw.</p>
+  <p>The tool is set up so the computer picks Rock, Paper, or Scissors totally at random for each round of play — 1 in 3 for each. The computer does not remember previous throws by you and does not attempt to find patterns in your play. So, no matter what approach or strategy you use to beat the computer in the long run, you'll win about a third of the time.</p>
+  <p>When playing against another human being, the only things that are generally true are:</p>
+  <ul>
+    <li>They repeat a move that just won</li>
+    <li>They avoid the move that just lost</li>
+    <li>Rock is the most popular opening throw</li>
+  </ul>
+  <p>Against human opponents we can increase our chances of winning by throwing Paper a little more often. This is because in Rock-Paper-Scissors matches against humans, Rock is the most frequent opening throw, so Paper is the best response.</p>
+
   <h2>Uses in classrooms and decisions</h2>
-  <p>Rock Paper Scissors is one of the most widely used decision-making tools available today. It is used to settle playground disputes and huge business decisions (a 2005 Sotheby's auction between Christie's and Sotheby's was decided by Rock Paper Scissors, for example). Teachers use Rock Paper Scissors to first introduce concepts of probability (outcomes are all equal, 1/3 each time), then game theory (the Rock Paper Scissors Nash equilibrium is a mixed strategy that is optimal when played randomly 1/3 each time), and lastly evolutionary biology (lizard-lizard-rock cycles in the natural world).</p>
+  <p>You can find Rock Paper Scissors everywhere: kids play for picking first spots, adults use it to decide who has to take out the trash. Even huge amounts of real money changed hands playing Rock Paper Scissors: in 2005 two art collectors had Christie's and Sotheby's play Rock Paper Scissors to see who would get to auction off a $20 million piece of art.</p>
+  <p>Teachers can also teach probability, game theory, and biology using Rock Paper Scissors.</p>
+  <ul>
+    <li>Probability — three outcomes, each with a 1-in-3 shot</li>
+    <li>Game theory — the smartest long-run play is to pick randomly</li>
+    <li>Biology — In side-blotched lizards, a rock-paper-scissors cycle determines when individuals of different colors will mate; each color type will beat one type and lose to another.</li>
+  </ul>
+  <p>Not bad for a hand game.</p>
 </div>
 
 <div class="faq">
@@ -634,16 +658,6 @@ const WORDINEER_RPS = (() => {
 
     document.querySelectorAll('.rps-choice-btn').forEach(function(btn) {
       btn.addEventListener('click', function() { play(btn.dataset.choice); });
-    });
-
-    document.querySelectorAll('.faq-item summary').forEach(function(s) {
-      s.addEventListener('click', function(e) {
-        e.preventDefault();
-        var item = s.closest('.faq-item');
-        var wasOpen = item.hasAttribute('open');
-        document.querySelectorAll('.faq-item[open]').forEach(function(i) { i.removeAttribute('open'); });
-        if (!wasOpen) item.setAttribute('open', '');
-      });
     });
   }
 
