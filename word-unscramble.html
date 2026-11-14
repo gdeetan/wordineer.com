@@ -1,4 +1,4 @@
-<!-- build: 2026-09-28T05:51:29Z -->
+<!-- build: 2026-11-14T07:32:46Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -140,19 +140,6 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "Word Unscrambler",
-  "url": "https://wordineer.com/word-unscramble",
-  "description": "Enter up to 15 letters and instantly find every real word you can make. Use ? for blank tiles. Filter by length, starts with, ends with. Free Scrabble & word game solver.",
-  "applicationCategory": "UtilityApplication",
-  "operatingSystem": "Web",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-  "publisher": { "@id": "https://wordineer.com/#organization" }
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
@@ -164,25 +151,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Word Unscramble — Find Every Word from Your Letters">
 <meta name="twitter:description" content="Enter up to 15 letters and instantly find every real word you can make. Use ? for blank tiles. Free Scrabble and word game solver.">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "Word Unscramble — Find Every Word from Your Letters",
-  "url": "https://wordineer.com/word-unscramble",
-  "applicationCategory": "UtilityApplication",
-  "operatingSystem": "Web",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD"
-  },
-  "publisher": {
-    "@id": "https://wordineer.com/#organization"
-  },
-  "description": "Enter up to 15 letters and find every real word you can make from them. Use ? for blank tiles. Filter by length, starting letter, or ending letter."
-}
-</script>
+
 <link rel="stylesheet" href="/styles/global.css?v=16">
 <style>
 /* ── Shared tool layout ── */
@@ -462,6 +431,7 @@
   </div>
 </div>
 <div class="content-wrap">
+<!-- SECTION:more_tools -->
   <div class="section">
     <h2 class="section-title">More word tools</h2>
     <p class="section-sub">Every word generator you need, all free</p>
@@ -483,6 +453,7 @@
       <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
     </div>
   </div>
+<!-- /SECTION:more_tools -->
 <div class="explainer">
   <h2>How to unscramble letters into words</h2>
   <p>Type your scrambled letters into the input box — up to 15 at once — and press Enter or click <strong>Find Words</strong>. The tool searches through tens of thousands of English words and returns every valid word that can be formed from your letters, grouped by word length from longest to shortest. The longest words appear at the top because they're typically the most valuable in word games.</p>
@@ -580,7 +551,7 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="/scripts/tool-engine.js?v=31"></script>
+<script src="/scripts/tool-engine.js?v=27"></script>
 <script>
 (function bindSharedWordineerMenu() {
   const mega = document.getElementById('mega');

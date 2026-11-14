@@ -8,6 +8,13 @@ const BW = (() => {
   const $ = id => document.getElementById(id);
 
   function loadAndRender() {
+    if (window._BW_DATA) {
+      _data = window._BW_DATA;
+      render();
+      wireSort();
+      wireSearch();
+      return;
+    }
     fetch('/data/starting-words-top100.json')
       .then(r => r.json())
       .then(data => {

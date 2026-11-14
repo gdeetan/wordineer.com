@@ -1,4 +1,4 @@
-<!-- build: 2026-08-17T04:46:23Z -->
+<!-- build: 2026-11-14T07:32:45Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -153,41 +153,10 @@
   ]
 }
 </script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "Cat Name Generator",
-  "url": "https://wordineer.com/cat-name-generator",
-  "description": "Generate cat names by personality, gender, and coat. Filter by aloof, affectionate, playful, regal, or chaotic. Every result comes with a vibe tag.",
-  "applicationCategory": "UtilitiesApplication",
-  "operatingSystem": "Web",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-  "publisher": { "@id": "https://wordineer.com/#organization" }
-}
-</script>
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Cat Name Generator">
 <meta name="twitter:description" content="Generate cat names by personality, gender, and coat. Filter by aloof, affectionate, playful, regal, or chaotic. Every result comes with a vibe tag. Free, no signup.">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "Cat Name Generator — Names by Personality, Gender & Coat",
-  "url": "https://wordineer.com/cat-name-generator",
-  "applicationCategory": "UtilityApplication",
-  "operatingSystem": "Web",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD"
-  },
-  "publisher": {
-    "@id": "https://wordineer.com/#organization"
-  },
-  "description": "Cat names filtered by personality — aloof, affectionate, playful, regal, or chaotic — and by gender and coat. Every result comes with a short vibe tag."
-}
-</script>
+
 <link rel="stylesheet" href="/styles/global.css?v=16">
 <style>
 /* ── Layout — matches band-name-generator ── */
@@ -245,17 +214,6 @@
 /* Toast */
 .bn-toast { position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(10px); background:#1a1a1a; color:white; font-size:13px; font-weight:600; padding:10px 18px; border-radius:8px; opacity:0; transition:opacity .2s,transform .2s; pointer-events:none; z-index:999; }
 .bn-toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
-
-/* Mobile: stack controls above results */
-@media (max-width:640px) {
-  .tool-wrap  { padding:16px 12px 0; }
-  .tool-split { flex-direction:column; }
-  .ctrl       { width:auto; border-right:none; border-bottom:1px solid var(--border-2); padding:14px; }
-  .words-panel { min-height:0; overflow:visible; }
-  .bn-name    { font-size:14px; }
-  .bn-item    { padding:10px 12px; }
-  .words-top  { padding:10px 12px; }
-}
 
 /* Explainer */
 .explainer h2 { font-size:20px; font-weight:700; margin:32px 0 10px; color:var(--text); }
@@ -443,6 +401,7 @@
 </div>
 <div class="bn-toast" id="cn-toast" role="status" aria-live="polite">Copied!</div>
 <div class="content-wrap">
+<!-- SECTION:more_tools -->
   <div class="section">
     <h2 class="section-title">More word tools</h2>
     <p class="section-sub">Every word generator you need, all free</p>
@@ -464,6 +423,7 @@
       <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
     </div>
   </div>
+<!-- /SECTION:more_tools -->
 <div class="explainer">
   <h2>How to Use This Generator</h2>
   <p>This tool is for new cat owners who have a cat in front of them and still can't decide. The three filters — gender, personality, and coat — narrow the name pool to something that actually fits the animal. Personality is the most useful filter. Coat adds a visual layer that's especially helpful when the cat has a distinctive look. Gender is optional; a lot of the best cat names work regardless.</p>
@@ -569,7 +529,7 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="/scripts/tool-engine.js?v=29"></script>
+<script src="/scripts/tool-engine.js?v=27"></script>
 <script>
 (function bindSharedWordineerMenu() {
   const mega = document.getElementById('mega');
