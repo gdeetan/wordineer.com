@@ -1,4 +1,4 @@
-<!-- build: 2026-11-14T11:22:20Z -->
+<!-- build: 2026-11-14T11:30:18Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -783,16 +783,22 @@
     prompt.style.display = 'none';
 
     // Show seed results immediately if available
+    var hasSeed = false;
     if (groups) {
       var seed = getSeedRhymes(word);
-      if (seed.length) renderResults(word, seed, []);
+      if (seed.length) {
+        renderResults(word, seed, []);
+        hasSeed = true;
+      }
     }
 
     // Debounce Datamuse fetch to avoid flooding on fast typing
     clearTimeout(fetchTimer);
     fetchTimer = setTimeout(function() {
       var searching = word;
-      if (!status.textContent || status.textContent.indexOf('rhyme') === -1) {
+      if (hasSeed) {
+        status.textContent = status.textContent + ' · finding more…';
+      } else if (!status.textContent || status.textContent.indexOf('rhyme') === -1) {
         status.textContent = 'Loading…';
       }
       fetchDatamuse(searching, function(data) {
