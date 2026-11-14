@@ -1,4 +1,4 @@
-<!-- build: 2026-11-14T11:03:57Z -->
+<!-- build: 2026-11-14T11:22:20Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -645,12 +645,11 @@
   }
 
   function parseDmEntry(entry) {
-    var syllables = 1;
+    var syllables = entry.numSyllables || 1;
     var pos = 'x';
     if (entry.tags) {
       entry.tags.forEach(function(t) {
-        if (/^\d+$/.test(t)) syllables = parseInt(t);
-        else if (t === 'n' || t === 'v' || t === 'adj' || t === 'adv') pos = t;
+        if (t === 'n' || t === 'v' || t === 'adj' || t === 'adv') pos = t;
       });
     }
     return { w: entry.word, s: syllables, p: pos };
