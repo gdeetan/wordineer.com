@@ -396,21 +396,78 @@ def copy_data_assets():
         copied += 1
     print(f'  copied → {copied} data file(s) into output/data/')
 
+PROD_JS_ASSETS = {
+    'tool-engine.js', 'acronym-maker.js', 'bw-table.js',
+    'english-name-generator.js', 'mexican-name-generator.js',
+    'spanish-name-generator.js', 'wordle-engine.js',
+}
+
+def _minify_js(src):
+    try:
+        import rjsmin
+        return rjsmin.jsmin(src, keep_bang_comments=False)
+    except ImportError:
+        return src
+
+def _minify_css(src):
+    try:
+        import rcssmin
+        return rcssmin.cssmin(src, keep_bang_comments=False)
+    except ImportError:
+        return src
+
 def copy_script_assets():
-    """Mirror page-local JS assets into output/scripts/ for preview builds."""
+    """Minify + mirror production JS into output/scripts/ and wordineer-deploy/scripts/.
+    Non-production scripts (build tooling) are copied as-is to output/ only."""
     scripts_dir = os.path.join(ROOT, 'scripts')
+    deploy_scripts_dir = os.path.join(ROOT, '..', 'wordineer-deploy', 'scripts')
     if not os.path.isdir(scripts_dir):
         print('  warning → template scripts directory not found, skipping script asset copy')
         return
     out_scripts_dir = os.path.join(OUT_DIR, 'scripts')
     os.makedirs(out_scripts_dir, exist_ok=True)
     copied = 0
+    minified = 0
     for fname in sorted(os.listdir(scripts_dir)):
         if not fname.endswith('.js'):
             continue
-        shutil.copy2(os.path.join(scripts_dir, fname), os.path.join(out_scripts_dir, fname))
+        src_path = os.path.join(scripts_dir, fname)
+        if fname in PROD_JS_ASSETS:
+            src = open(src_path).read()
+            mini = _minify_js(src)
+            with open(os.path.join(out_scripts_dir, fname), 'w') as f:
+                f.write(mini)
+            if os.path.isdir(deploy_scripts_dir):
+                with open(os.path.join(deploy_scripts_dir, fname), 'w') as f:
+                    f.write(mini)
+            minified += 1
+        else:
+            shutil.copy2(src_path, os.path.join(out_scripts_dir, fname))
         copied += 1
-    print(f'  copied → {copied} JS script file(s) into output/scripts/')
+    print(f'  copied → {copied} JS script file(s) into output/scripts/ ({minified} minified → wordineer-deploy/scripts/)')
+
+def copy_style_assets():
+    """Minify + mirror global.css into output/styles/ and wordineer-deploy/styles/."""
+    styles_dir = os.path.join(ROOT, 'styles')
+    deploy_styles_dir = os.path.join(ROOT, '..', 'wordineer-deploy', 'styles')
+    if not os.path.isdir(styles_dir):
+        print('  warning → template styles directory not found, skipping style asset copy')
+        return
+    out_styles_dir = os.path.join(OUT_DIR, 'styles')
+    os.makedirs(out_styles_dir, exist_ok=True)
+    src_path = os.path.join(styles_dir, 'global.css')
+    if not os.path.isfile(src_path):
+        print('  warning → template-deploy/styles/global.css not found, skipping')
+        return
+    src = open(src_path).read()
+    mini = _minify_css(src)
+    with open(os.path.join(out_styles_dir, 'global.css'), 'w') as f:
+        f.write(mini)
+    if os.path.isdir(deploy_styles_dir):
+        with open(os.path.join(deploy_styles_dir, 'global.css'), 'w') as f:
+            f.write(mini)
+    saved = len(src) - len(mini)
+    print(f'  minified → global.css ({len(src):,} → {len(mini):,} bytes, −{saved:,}) into output/styles/ + wordineer-deploy/styles/')
 
 def copy_redirects():
     """Copy _redirects into output/ so deploy only needs to copy output/."""
@@ -1037,6 +1094,7 @@ def main():
         build_page(src_path, data)
     copy_data_assets()
     copy_script_assets()
+    copy_style_assets()
     copy_redirects()
     copy_static_pages()
     copy_embed_pages()
