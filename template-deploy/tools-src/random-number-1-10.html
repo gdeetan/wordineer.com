@@ -55,19 +55,6 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "Random Number Generator 1 to 10",
-  "url": "https://wordineer.com/random-number-1-10",
-  "description": "Generate a random number between 1 and 10 instantly. Pool mode, distribution panel, exclude numbers, and blind pick included.",
-  "applicationCategory": "UtilityApplication",
-  "operatingSystem": "Web",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-  "publisher": { "@id": "https://wordineer.com/#organization" }
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
@@ -541,7 +528,7 @@
     Free · No sign-up · Instant
   </div>
   <h1>Random number generator 1 to 10</h1>
-  <p>Pick a random number between 1 and 10 instantly. Use pool mode to get every number exactly once — perfect for classroom "I'm thinking of a number" games and fair turn order. Works on any device, no install needed.</p>
+  <p>Instantly pick a random number between 1 and 10 (such as for a classroom game like "I'm thinking of a number" or to ensure a fair turn order). Works on any device, no download required.</p>
 </div>
 <!-- /SLOT:hero -->
 
@@ -657,63 +644,49 @@
 <!-- SLOT:explainer -->
 <div class="explainer">
   <h2>What is a random number between 1 and 10?</h2>
-  <p>A random number generator picks an integer from a defined range with no predictable pattern. In normal mode, every number from 1 to 10 has exactly a 10% chance of appearing on each generate — the same odds as rolling a fair ten-sided die. In pool mode, the tool works like drawing slips from a hat: each number appears exactly once before any number can repeat. Both modes use JavaScript's <code>Math.random()</code>, seeded from hardware entropy and statistically equivalent to physical randomness for everyday use.</p>
+  <p>A random number generator is a program that picks an integer from a specified range in seemingly random order. A simple example is a generator that produces numbers from 1 to 10 in normal mode, with each number having a 10% chance of being picked every time it is generated. This mode allows you to use the Random Number Generator as a pool or list of numbers. Each number is only chosen once before it is chosen again. This generator uses the JavaScript <code>Math.random()</code> function, seeded with hardware random entropy, so it has a distribution as close to true random physical numbers as you will get for non-technical casual use with JavaScript.</p>
 
   <h2>Pool mode: ten-student turn order in one click</h2>
-  <p>Pool mode is the reason teachers and game hosts come back to this page. Enable it and the tool shuffles all 10 numbers into a private queue using the Fisher-Yates algorithm. Each click draws the next number without replacement — so if you have 10 students and want to call on each exactly once, pool mode guarantees it. When the pool empties it reshuffles automatically. The progress bar shows how many numbers remain, so you always know where you are in the sequence.</p>
+  <p>Teachers and game hosts use the Pool mode feature on this page. If enabled for a 10-number pool, the tool creates a random private queue for these numbers using the Fisher-Yates algorithm. Every click on "Draw Number" will now load the next number from this queue in random order, without it being repeated. Once the pool is empty, it automatically refills with all numbers again. A progress bar indicates how many numbers are left in the currently running sequence.</p>
 
   <h2>The 1–10 range and D10 dice</h2>
-  <p>A standard ten-sided die (D10) is one of the most versatile tools in tabletop gaming and classroom math. This generator replicates it digitally: each result is uniformly distributed across 1 through 10, with no physical die required. It's equally useful for percentage rolls (pair two D10s for 1–100), initiative order in RPGs, or just settling "who goes first" in any two-to-ten-player game.</p>
+  <p>The typical gaming and mathematics in the classroom tool is the ten-sided die, or D10. The digital D10 random number generator makes each of the 10 numbers equally likely to be selected. For example, it can be used as a percentage generator (i.e., two D10S rolled together to make a number between 1 and 100), to assign initiative in a role-playing game equally to all players, or to determine who goes first in a 2-player through 10-player game. This random number generator is extremely versatile.</p>
 
   <h2>Distribution chart: individual number frequency</h2>
-  <p>After 10 or more generates, a distribution chart appears showing how many times each individual number (1 through 10) has appeared. Unlike the 1–100 version which groups into decades, the 1–10 chart shows one bar per number — so you can see at a glance if 3 has appeared five times while 8 has appeared twice. Over many generates the bars even out, demonstrating uniform distribution in action.</p>
+  <p>After 10 or more randomizations, a distribution chart of individual numbers is displayed. Unlike the distribution chart of random numbers between 1 and 100 (decade grouped), this chart shows one bar per number; for example, you can easily see how often 3 occurred compared to 8: five times 3 and two times 8. The more randomizations are generated, the more the bars even out, thus demonstrating a uniform distribution.</p>
 
   <h2>Classroom and game uses</h2>
-  <p>The 1–10 range is the most natural range for "I'm thinking of a number" guessing games, since it's easy to guess in two or three tries with a binary search strategy. Teachers use pool mode to assign numbers to students in a class of up to 10, give fair turn order in small group activities, or run number-line exercises where each position 1–10 is assigned randomly. Game designers use it for random event tables, encounter rolls, and any mechanic that needs a ten-sided outcome.</p>
+  <p>The 1-10 range is ideal for games of "I'm thinking of a number" that use binary search in play. That way, the player can guess the number in two to three turns (5, then 3 or 8, etc.). For these numbers in school, teachers can use pool mode to give each student in a class of up to 10 their own number, so the turn order is fair and no student is left out. Students can also use this range for number-line exercises, for example, when they are assigned a random number between 1 and 10. The range is also often used by game designers for random event tables, encounter rolls, and so on, i.e., for everything that needs to be decided by a ten-sided die.</p>
 </div>
 <!-- /SLOT:explainer -->
 
 <!-- SLOT:faq -->
 <div class="faq">
   <h2 class="faq-title">Frequently asked questions</h2>
-
-  <details class="faq-item">
-    <summary class="faq-q">Is this random number generator truly random?</summary>
-    <div class="faq-a">This tool uses Math.random(), a pseudorandom number generator built into every modern browser. It is seeded from hardware entropy and produces outputs that pass statistical randomness tests — more than sufficient for games, classroom activities, turn order, and any everyday use. For cryptographic security, a dedicated hardware RNG is the appropriate choice.</div>
-  </details>
-
-  <details class="faq-item">
-    <summary class="faq-q">What is pool mode and why use it for 1–10?</summary>
-    <div class="faq-a">Pool mode picks each number from 1 to 10 exactly once, like drawing from a shuffled deck of 10 cards without replacement. Once all 10 numbers have been drawn, the pool reshuffles. This is ideal for any situation needing guaranteed-unique assignments: seating 10 students, assigning roles in a game, or running a round-robin where every participant goes exactly once.</div>
-  </details>
-
-  <details class="faq-item">
-    <summary class="faq-q">Can I use this as a D10 dice roller?</summary>
-    <div class="faq-a">Yes. A standard D10 produces a uniformly distributed result from 1 to 10, which is exactly what this generator does in normal mode. Each click is statistically equivalent to rolling a fair ten-sided die. Pair two rolls together (first = tens digit, second = ones digit) and you get a D100 result, just like in tabletop RPGs.</div>
-  </details>
-
-  <details class="faq-item">
-    <summary class="faq-q">What is blind pick mode?</summary>
-    <div class="faq-a">Blind pick lets two players each secretly generate a number from 1 to 10, then reveal simultaneously. The higher number wins. It is useful for tiebreakers, deciding who goes first in a board game, or any two-player decision where neither side should see the other's pick first. With only 10 possible values, ties are more common here than in wider ranges — making it a naturally suspenseful format.</div>
-  </details>
-
-  <details class="faq-item">
-    <summary class="faq-q">What does the distribution chart show for 1–10?</summary>
-    <div class="faq-a">After 10 or more generates, a chart appears with one bar per number (1 through 10), showing exactly how many times each has appeared. Unlike the 1–100 tool which groups into decades, this chart is per-number precision — you can see every individual result's frequency and verify that no single number is favored over another.</div>
-  </details>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">Is this random number generator truly random?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Math.random() is used in this tool. The standalone browser implementation of Math.random() uses hardware entropy to seed the pseudorandom number generator. Therefore, the generated numbers are sufficient for games, lessons, turn counters, and general applications. For security-related applications, however, a dedicated hardware RNG is required.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What is pool mode and why use it for 1–10?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>In Pool mode, every number from 1 to 10 is chosen exactly once. After all 10 numbers have been chosen, the pool is shuffled again. This mode is suitable for situations in which you need to assign every participant to different seats or roles in a game in a unique order, for example, for a round-robin. There are 10 students, 10 roles in a game, and 10 participants.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I use this as a D10 dice roller?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Yes. A standard D10 die produces a uniform distribution over the numbers 1 through 10. In normal mode, the above generator produces exactly the same sort of distribution from click to click. By pairing up two such rolls (e.g., first roll = tens place of D100, second roll = ones place of D100), one gets a D100 die roll, as used in many tabletop RPGs.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What is blind pick mode?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>In the blind pick method, two players will each secretly generate a number from 1 to 10. Then, at the same time, both players will reveal their numbers. The higher number wins. It can be used for tiebreakers, to decide who plays first in a board game or other two-player game, and in other situations where both players should not know the other's pick before they have made their own choice. Since there are only 10 possible numbers, ties occur more frequently than with a larger range, making blind pick a highly suspenseful method.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What does the distribution chart show for 1–10?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>After 10 or more generated numbers have been created for a particular number list, a chart will appear displaying a bar for each of the numbers 1 through 10. The height of each bar indicates the frequency of that number within the generated numbers. This chart is more precise than the 1–100 chart, which groups numbers by decades, and shows that no number has been generated more frequently than any other.</p></div>
+  </div>
 </div>
 <!-- /SLOT:faq -->
 
 <!-- SLOT:who -->
-<div>
-  <h2 class="section-title" style="margin-bottom:14px">Who uses this tool</h2>
-  <div class="uc-grid">
-    <div class="uc"><div class="uc-title">Teachers</div><div class="uc-body">Use pool mode to assign numbers 1–10 to students for turn order, group activities, or "I'm thinking of a number" guessing games — every student gets a fair, unique turn.</div></div>
-    <div class="uc"><div class="uc-title">Tabletop gamers</div><div class="uc-body">Roll a digital D10 for initiative, random event tables, percentage rolls, and any RPG mechanic that needs a ten-sided outcome without searching for a physical die.</div></div>
-    <div class="uc"><div class="uc-title">Game hosts &amp; facilitators</div><div class="uc-body">Settle turn order, run blind pick tiebreakers, or assign random roles to up to 10 players — all without pen, paper, or physical randomizers.</div></div>
-    <div class="uc"><div class="uc-title">Students &amp; curious learners</div><div class="uc-body">Explore probability and uniform distribution with the built-in chart. Generate 50+ results and watch each number 1–10 converge toward equal frequency in real time.</div></div>
-  </div>
-</div>
 <!-- /SLOT:who -->
 
 <!-- SLOT:init -->
@@ -1045,15 +1018,6 @@ const WORDINEER_RN10 = (() => {
       if (e.code === 'Space' || e.code === 'Enter') { e.preventDefault(); generate(); }
     });
 
-    document.querySelectorAll('.faq-item summary').forEach(function(s) {
-      s.addEventListener('click', function(e) {
-        e.preventDefault();
-        const item = s.closest('.faq-item');
-        const wasOpen = item.hasAttribute('open');
-        document.querySelectorAll('.faq-item[open]').forEach(function(i) { i.removeAttribute('open'); });
-        if (!wasOpen) item.setAttribute('open', '');
-      });
-    });
   }
 
   return { init: init };

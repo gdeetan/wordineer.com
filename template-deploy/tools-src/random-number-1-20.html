@@ -50,19 +50,6 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "Random Number Generator 1 to 20",
-  "url": "https://wordineer.com/random-number-1-20",
-  "description": "Generate a random number between 1 and 20 instantly. Pool mode, distribution panel, exclude numbers, and blind pick included.",
-  "applicationCategory": "UtilityApplication",
-  "operatingSystem": "Web",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-  "publisher": { "@id": "https://wordineer.com/#organization" }
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
@@ -212,7 +199,7 @@
     Free · No sign-up · Instant
   </div>
   <h1>Random number generator 1 to 20</h1>
-  <p>Pick a random number between 1 and 20 instantly. Use pool mode to get every number exactly once — no repeats until all 20 have been drawn. Works on any device, no install needed.</p>
+  <p>Generate a <strong>random number between 1 and 20</strong>. Generate all 20 numbers, then select them <strong>one at a time from a pool</strong>, ensuring all numbers are generated <strong>exactly once</strong>. This will work on <strong>any device</strong>, no download needed.</p>
 </div>
 <!-- /SLOT:hero -->
 
@@ -328,52 +315,39 @@
 <!-- SLOT:explainer -->
 <div class="explainer">
   <h2>What is a random number between 1 and 20?</h2>
-  <p>A random number from 1 to 20 is drawn with equal probability — each of the 20 integers has a 5% chance on every generate. The 1–20 range is one of the most versatile in everyday use: it covers a standard classroom row, a small team raffle, and the classic "I'm thinking of a number" guessing game. This tool uses JavaScript's <code>Math.random()</code>, seeded from hardware entropy, to produce unbiased results every time.</p>
+  <p>This random number picker tool picks a number <strong>between 1 and 20 (inclusive)</strong> with <strong>equal probability (5% for each number)</strong>. The range of 1–20 numbers is suitable for most cases, such as the <strong>numbers on the seats in a full classroom</strong>, the <strong>names of team members for a small raffle</strong>, or even just playing the classic <strong>"I'm thinking of a number" game</strong>. The numbers are picked using the random number generation of JavaScript's <code>Math.random()</code> function, which uses the computer's <strong>hardware random number generation</strong> where available to ensure complete randomness.</p>
 
   <h2>Pool mode for small groups</h2>
-  <p>Pool mode shuffles all 20 numbers into a private queue using the Fisher-Yates algorithm. Each click draws the next number without replacement — guaranteeing every number appears exactly once before the pool resets. It is ideal for calling on students in a class of up to 20, assigning unique numbers in a small raffle, or any situation that requires guaranteed fairness across a short range.</p>
+  <p>In <strong>Pool mode</strong>, all 20 numbers are mixed up in a list that isn't visible. These numbers are then <strong>distributed one by one</strong>. In each round, all numbers are called <strong>once</strong> before the list is reloaded. Pool mode is therefore ideal for <strong>calling students in a class of up to 20 students</strong>, for a <strong>small raffle (with unique numbers)</strong>, or for any other situation where you need to make <strong>fair picks</strong> without any number being called more than once.</p>
 
   <h2>Common uses for 1–20</h2>
-  <p>The 1–20 range covers guessing games ("pick a number between 1 and 20"), scoring in classroom quizzes, turn order in board games for up to 20 players, and assignment of numbered seats or roles. The exclude feature lets you remove numbers that don't apply — for example, if your team has 15 people, exclude 16–20 to keep picks within your group size.</p>
+  <p>The range of 1–20 can be used for games such as <strong>guessing a number</strong> (pick a number between 1 and 20), for <strong>scoring quizzes in the classroom</strong>, for <strong>determining the order of play</strong> with large numbers of players in board games (up to 20 players), for <strong>assigning seats or roles</strong> with similar numbers of players. Use the <strong>exclude function</strong> to choose numbers to exclude from picks. For example, if you have a team of 15 people, you can set the picks to <strong>exclude numbers 16–20</strong>, so that every pick will be of a real team member.</p>
 </div>
 <!-- /SLOT:explainer -->
 
 <!-- SLOT:faq -->
 <div class="faq">
   <h2 class="faq-title">Frequently asked questions</h2>
-
-  <details class="faq-item">
-    <summary class="faq-q">Is this random number generator truly random?</summary>
-    <div class="faq-a">This tool uses Math.random(), a pseudorandom number generator built into every modern browser. It is seeded from hardware entropy and produces outputs that pass statistical randomness tests — more than sufficient for games, raffles, and classroom use.</div>
-  </details>
-
-  <details class="faq-item">
-    <summary class="faq-q">What is pool mode?</summary>
-    <div class="faq-a">Pool mode picks each number from 1 to 20 exactly once, like drawing from a hat without replacement. Once all 20 numbers have been picked, the pool reshuffles automatically. This ensures no repeats until every number has been drawn.</div>
-  </details>
-
-  <details class="faq-item">
-    <summary class="faq-q">Can I exclude specific numbers?</summary>
-    <div class="faq-a">Yes. Click "Exclude numbers" and enter a comma-separated list. The generator will never produce those numbers. In pool mode, excluded numbers are removed from the pool before shuffling.</div>
-  </details>
-
-  <details class="faq-item">
-    <summary class="faq-q">How is this different from the 1–100 generator?</summary>
-    <div class="faq-a">This page is optimized for the 1–20 range specifically. The distribution chart groups results into pairs (1–2, 3–4, …), pool mode handles 20 numbers, and all pool tracking reflects the smaller range. For a wider range, see the <a href="/random-number-1-100/">1–100 generator</a> or the <a href="/random-number-generator/">custom range generator</a>.</div>
-  </details>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">Is this random number generator truly random?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>This randomizer uses the <strong>Math.random()</strong> function provided by every modern web browser. Math.random() is <strong>seeded with hardware entropy</strong> and passes all known statistical tests for randomness. Thus, it is suitable for <strong>games</strong>, for <strong>randomizing the order of entries in a raffle</strong>, and for many other uses in the <strong>classroom</strong>.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What is pool mode?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p><strong>Pool mode</strong> selects all numbers from 1 to 20 <strong>without any repetition</strong>. After all numbers have been drawn, the pool <strong>automatically resets</strong> and reloads all numbers again for a brand new draw.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I exclude specific numbers?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>You can <strong>exclude certain numbers</strong> by specifying them in a <strong>comma-separated list</strong> (e.g., "1, 3, 5, 7, 9"); the generator will never generate those numbers in pool mode after it has been shuffled and the excluded numbers have been removed from the pool.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">How is this different from the 1–100 generator?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Note that this page is <strong>especially optimized for the range 1–20</strong>. So the distribution chart here shows results in <strong>pairs of 2</strong> (1–2, 3–4, …), and in pool mode, you can generate 20 numbers, and all pool tracking information will also refer to a range of 20 numbers. For a range of 1–100 numbers, you can look at the <a href="/random-number-1-100/">1–100 generator</a> page, and for an arbitrary range of numbers, you can also look at the <a href="/random-number-generator/">custom range generator</a> page.</p></div>
+  </div>
 </div>
 <!-- /SLOT:faq -->
 
 <!-- SLOT:who -->
-<div>
-  <h2 class="section-title" style="margin-bottom:14px">Who uses this tool</h2>
-  <div class="uc-grid">
-    <div class="uc"><div class="uc-title">Teachers</div><div class="uc-body">Call on students in a small class with pool mode — every student gets called exactly once before the pool resets. Perfect for groups of up to 20.</div></div>
-    <div class="uc"><div class="uc-title">Game players</div><div class="uc-body">Decide turn order, run guessing games, or settle tiebreakers. The 1–20 range is a classic for number-guessing games between friends.</div></div>
-    <div class="uc"><div class="uc-title">Event organizers</div><div class="uc-body">Draw winners from a pool of up to 20 tickets. Use pool mode for guaranteed-unique winner draws with no repeats.</div></div>
-    <div class="uc"><div class="uc-title">Students</div><div class="uc-body">Use the distribution chart to verify uniform randomness over the 1–20 range. Each pair of numbers should appear roughly equally over many generates.</div></div>
-  </div>
-</div>
 <!-- /SLOT:who -->
 
 <!-- SLOT:init -->
@@ -684,15 +658,6 @@ const WORDINEER_RN20 = (() => {
     document.addEventListener('keydown', function(e) {
       if (['INPUT','SELECT','TEXTAREA','BUTTON'].includes(e.target.tagName)) return;
       if (e.code === 'Space' || e.code === 'Enter') { e.preventDefault(); generate(); }
-    });
-    document.querySelectorAll('.faq-item summary').forEach(function(s) {
-      s.addEventListener('click', function(e) {
-        e.preventDefault();
-        const item = s.closest('.faq-item');
-        const wasOpen = item.hasAttribute('open');
-        document.querySelectorAll('.faq-item[open]').forEach(function(i) { i.removeAttribute('open'); });
-        if (!wasOpen) item.setAttribute('open', '');
-      });
     });
   }
 

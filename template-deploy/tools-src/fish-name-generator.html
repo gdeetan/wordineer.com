@@ -1,0 +1,376 @@
+<!-- CONFIG
+{
+  "url": "/fish-name-generator/",
+  "output": "fish-name-generator.html",
+  "type": "tool"
+}
+-->
+
+<!-- SLOT:meta -->
+<title>Fish Name Generator — Betta, Goldfish, Koi & More | Wordineer</title>
+<meta name="description" content="Generate names for fish and aquatic pets. Filter by fish type, personality, and vibe — from serious and regal to punny and adorable. Free, instant, no signup.">
+<link rel="canonical" href="https://wordineer.com/fish-name-generator/">
+<meta property="og:type"        content="website">
+<meta property="og:site_name"   content="Wordineer">
+<meta property="og:title"       content="Fish Name Generator | Wordineer">
+<meta property="og:description" content="Generate names for betta fish, goldfish, koi, axolotls, and more. Filter by personality and vibe. Free, instant, no signup.">
+<meta property="og:url"         content="https://wordineer.com/fish-name-generator">
+<meta property="og:image"       content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Other Generators", "item": "https://wordineer.com/other-generators/" },
+    { "@type": "ListItem", "position": 3, "name": "Fish Name Generator", "item": "https://wordineer.com/fish-name-generator/" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Do fish actually recognize their names?", "acceptedAnswer": { "@type": "Answer", "text": "Fish don't recognize names the way dogs or cats do — they can be conditioned to respond to stimuli (like tapping the tank or a feeding schedule) but not to the sound of a word being spoken. The name is entirely for you. Pick something that makes you happy when you say it out loud, because you'll be saying it a lot to people who ask what your fish is called." } },
+    { "@type": "Question", "name": "What's the best name for a betta fish?", "acceptedAnswer": { "@type": "Answer", "text": "Betta fish have big personalities for small fish — they're territorial, dramatic, and often look like they're posturing even at rest. Names that lean into that drama work well: Poseidon, Admiral, Caesar for the regal types; Sir Blubs, Finn Diesel, or Lord Flounder for the ironic takes. The Betta filter surfaces names that match their specific energy." } },
+    { "@type": "Question", "name": "What's the difference between punny and cute vibe?", "acceptedAnswer": { "@type": "Answer", "text": "Punny names aim for the groan-and-grin reaction — Gill-bert, James Pond, Tank Sinatra. They're jokes with names attached. Cute names are soft and sweet — Bubbles, Pebble, Mochi, Noodle. They're not trying to be funny; they're just warm. Both work for fish, but they create very different table conversations when guests ask about your tank." } },
+    { "@type": "Question", "name": "How do I pick a name for a grumpy-looking fish?", "acceptedAnswer": { "@type": "Answer", "text": "Grumpy-looking fish (especially bettas and certain goldfish) suit names that acknowledge the expression: Scowl, Grumbles, The Judge, Old Mister No, Killjoy. Alternatively, lean into the irony and give them the cheeriest possible name — naming a visibly displeased fish 'Sunshine' is a legitimate comedic choice." } },
+    { "@type": "Question", "name": "Does this generator use AI?", "acceptedAnswer": { "@type": "Answer", "text": "No. Every name is handpicked and organized by fish type, personality, and vibe. No language model generates the output. That means you won't get randomly assembled nonsense — each name was chosen because it actually works for that fish type and vibe." } },
+    { "@type": "Question", "name": "Can I save fish names?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — click the heart icon next to any name to save it. Saved names appear below the results and persist as long as the tab is open. Copy them before closing the page." } }
+  ]
+}
+</script>
+<!-- /SLOT:meta -->
+
+<!-- SLOT:style -->
+<style>
+.tool-wrap  { max-width:960px; margin:0 auto; padding:24px 24px 0; }
+.tool-card  { border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg); box-shadow:var(--shadow); }
+.tool-split { display:flex; }
+.ctrl        { width:220px; flex-shrink:0; padding:18px; border-right:1px solid var(--border-2); background:var(--bg-2); }
+.ctrl-row    { margin-bottom:14px; }
+.ctrl-label  { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; display:block; margin-bottom:5px; }
+.ctrl-select { width:100%; padding:7px 10px; border:1px solid var(--border); border-radius:7px; background:var(--bg); color:var(--text); font-size:13px; font-family:inherit; cursor:pointer; appearance:none; -webkit-appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23888' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 10px center; padding-right:28px; }
+.ctrl-select:focus { outline:2px solid var(--brand); outline-offset:1px; }
+.gen-btn    { width:100%; padding:10px 14px; background:var(--brand); color:white; border:none; border-radius:8px; font-size:14px; font-weight:600; font-family:inherit; cursor:pointer; transition:background .15s,transform .1s; letter-spacing:-.01em; margin-top:4px; }
+.gen-btn:hover  { background:var(--brand-dark); }
+.gen-btn:active { transform:scale(.98); }
+.kbd        { text-align:center; font-size:10px; color:var(--text-3); margin-top:6px; }
+.kbd kbd    { background:var(--bg-3); border:1px solid var(--border); border-radius:3px; padding:1px 5px; font-size:10px; font-family:inherit; }
+.words-panel { flex:1; display:flex; flex-direction:column; overflow:hidden; min-height:380px; }
+.words-top   { display:flex; align-items:center; justify-content:space-between; padding:10px 16px; border-bottom:1px solid var(--border-2); }
+.words-count { font-size:12px; color:var(--text-3); }
+.words-actions { display:flex; gap:6px; }
+.act-btn { font-size:11px; padding:4px 10px; border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; font-weight:500; transition:background .12s; }
+.act-btn:hover { background:var(--bg-2); }
+.word-list   { flex:1; list-style:none; padding:0; margin:0; }
+.bn-item     { display:flex; align-items:center; padding:9px 16px; border-bottom:1px solid var(--border-2); gap:8px; animation:bnFade .18s ease; }
+.bn-item:last-child { border-bottom:none; }
+@keyframes bnFade { from{opacity:0;transform:translateY(3px)} to{opacity:1;transform:none} }
+.bn-num      { font-size:11px; color:var(--text-3); min-width:18px; text-align:right; flex-shrink:0; }
+.bn-name-wrap { flex:1; display:flex; flex-direction:column; gap:2px; overflow:hidden; }
+.bn-name     { font-size:15px; font-weight:500; color:var(--text); letter-spacing:-.01em; }
+.bn-tag      { font-size:11px; color:var(--text-3); }
+.bn-btns     { display:flex; align-items:center; gap:4px; flex-shrink:0; }
+.icon-btn { width:28px; height:28px; display:flex; align-items:center; justify-content:center; background:transparent; border:none; cursor:pointer; border-radius:5px; color:var(--text-3); transition:background .12s, color .12s; }
+.icon-btn:hover { background:var(--bg-2); color:var(--text); }
+.icon-btn svg { width:14px; height:14px; }
+.icon-btn.saved { color:#E24B4A; }
+.icon-btn.saved svg path { fill:#E24B4A; }
+.saved-section { border-top:1px solid var(--border); padding:12px 14px; background:var(--bg); }
+.saved-top { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:8px; }
+.saved-label { font-size:12px; font-weight:700; color:var(--text); }
+.saved-copy { border:1px solid var(--border); background:var(--bg); color:var(--brand); border-radius:7px; padding:5px 9px; font-size:11px; font-weight:600; cursor:pointer; }
+.saved-tags { display:flex; gap:5px; flex-wrap:wrap; min-height:22px; }
+.saved-tag { display:inline-flex; align-items:center; gap:4px; background:#F0F2FF; color:var(--brand); border-radius:999px; padding:4px 8px; font-size:11px; font-weight:600; }
+.saved-tag-remove { cursor:pointer; opacity:.65; }
+.bn-toast { position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(10px); background:#1a1a1a; color:white; font-size:13px; font-weight:600; padding:10px 18px; border-radius:8px; opacity:0; transition:opacity .2s,transform .2s; pointer-events:none; z-index:999; }
+.bn-toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+.explainer h2 { font-size:20px; font-weight:700; margin:32px 0 10px; color:var(--text); }
+.explainer h3 { font-size:16px; font-weight:700; margin:20px 0 6px; color:var(--text); }
+.explainer p  { font-size:15px; line-height:1.75; color:var(--text-2); margin:0 0 14px; }
+.fish-tip { background:var(--bg-2); border:1px solid var(--border); border-radius:8px; padding:14px 16px; margin:0 0 18px; font-size:14px; color:var(--text-2); line-height:1.6; }
+</style>
+<!-- /SLOT:style -->
+
+<!-- SLOT:hero -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/other-generators/">Other Generators</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Fish Name Generator</span>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free · No sign-up · Instant
+  </div>
+  <h1>Fish Name Generator</h1>
+  <p>Generate names for your fish, aquolotl, or aquatic pets. Filter by fish type, personality, and vibe — from regal koi names to puns that make your guests groan in the best possible way.</p>
+</div>
+<!-- /SLOT:hero -->
+
+<!-- SLOT:tool -->
+<div class="tool-wrap">
+  <div class="tool-card">
+    <div class="tool-split">
+      <div class="ctrl">
+        <div class="ctrl-row">
+          <label class="ctrl-label" for="bn-type">Fish Type</label>
+          <select class="ctrl-select" id="bn-type">
+            <option value="any">Any Fish</option>
+            <option value="tropical">Tropical Fish</option>
+            <option value="goldfish">Goldfish</option>
+            <option value="betta">Betta Fish</option>
+            <option value="koi">Koi</option>
+            <option value="axolotl">Axolotl</option>
+            <option value="weird">Weird Species</option>
+          </select>
+        </div>
+        <div class="ctrl-row">
+          <label class="ctrl-label" for="bn-personality">Personality</label>
+          <select class="ctrl-select" id="bn-personality">
+            <option value="any">Any Personality</option>
+            <option value="majestic">Majestic</option>
+            <option value="goofy">Goofy</option>
+            <option value="regal">Regal</option>
+            <option value="grumpy">Grumpy</option>
+            <option value="mysterious">Mysterious</option>
+          </select>
+        </div>
+        <div class="ctrl-row">
+          <label class="ctrl-label" for="bn-vibe">Vibe</label>
+          <select class="ctrl-select" id="bn-vibe">
+            <option value="any">Any Vibe</option>
+            <option value="serious">Serious</option>
+            <option value="punny">Punny</option>
+            <option value="cute">Cute</option>
+          </select>
+        </div>
+        <button class="gen-btn" id="bn-gen-btn">Generate Fish Names</button>
+        <p class="kbd">Press <kbd>Enter</kbd> to generate</p>
+      </div>
+      <div class="words-panel">
+        <div class="words-top">
+          <span class="words-count" id="bn-count">10 names</span>
+          <div class="words-actions">
+            <button class="act-btn" id="bn-copy-all-btn">Copy all</button>
+            <button class="act-btn" id="bn-regen-btn">Regenerate</button>
+          </div>
+        </div>
+        <ul class="word-list" id="bn-list" aria-label="Generated fish names" aria-live="polite"></ul>
+      </div>
+    </div>
+    <div class="saved-section" id="bn-saved-section" style="display:none">
+      <div class="saved-top">
+        <span class="saved-label">Saved names <span id="bn-saved-count" style="font-weight:400;opacity:.7">(0)</span></span>
+        <span class="saved-copy" id="bn-saved-copy">Copy saved</span>
+      </div>
+      <div class="saved-tags" id="bn-saved-tags"></div>
+    </div>
+  </div>
+</div>
+<div class="bn-toast" id="bn-toast" role="status" aria-live="polite">Copied!</div>
+<!-- /SLOT:tool -->
+
+<!-- SLOT:ad_b --><!-- /SLOT:ad_b -->
+
+<!-- SLOT:explainer -->
+<div class="explainer">
+  <h2>How to Use This Generator</h2>
+  <div class="fish-tip">Fish don't come when called — the name is entirely for your own amusement. Pick the one that makes you smile when you say it out loud, because that's the only criterion that actually matters here.</div>
+  <p>Select your fish type to get names that fit the visual character of that specific species. Then use personality to match the name to how your fish actually behaves, and vibe to choose between serious, punny, or cute. All three filters are optional — leaving them on "any" gives you the widest variety. If you're naming multiple fish in the same tank, try mixing vibes: one regal name and one pun creates a funnier contrast than all puns or all serious names.</p>
+
+  <h2>Fish Naming by Type</h2>
+  <h3>Betta fish</h3>
+  <p>Bettas have large personalities for small fish. They're territorial, dramatic, and often look like they're posturing even when nothing is happening. Names that lean into their drama work well — either genuinely regal names (Poseidon, Admiral, Caesar) or ironic ones that undercut the posturing (Sir Blubs, Lord Flounder, Colonel Bubble). Both approaches work because they're responding to the same fish behavior from different angles.</p>
+  <h3>Koi</h3>
+  <p>Koi are slow, grand, and visually striking — often orange, white, and black, and sometimes decades old. They suit formal names with weight to them: Emperor, Oracle, Sovereign, Midnight, Onyx. A koi named "Wiggles" feels wrong. A koi named "Ambassador" feels right. The serious vibe filter gives you the most koi-appropriate results.</p>
+  <h3>Goldfish</h3>
+  <p>Goldfish are the classic starter fish, and their names can go either direction. They suit puns (Gill-bert, James Pond) because the fish itself is inherently a little absurd. They also suit cute names (Bubbles, Mochi, Sunny) because they're round and orange and friendly-looking. The one register that doesn't quite work is the tragic-serious register — a goldfish named "The Ancient One" is harder to maintain than a koi named the same thing.</p>
+  <h3>Axolotls</h3>
+  <p>Axolotls are strange enough that the weird/axolotl filter exists specifically for them. They have external gills that look like feathery headdresses, tiny paw-like limbs, and permanent smiles. Names that acknowledge their strangeness with affection work best: Ambassador Frills, Count Gills, Frillington, Smiley, Salamandrew. They're a conversation piece regardless — the name might as well be too.</p>
+  <h3>Tropical fish</h3>
+  <p>Tropical fish are usually small, colorful, and fast — names that are short and bright tend to fit. Ember, Flash, Spark, Zap, Neon. If you're naming a whole school, think about how the names work together as a set.</p>
+
+  <h2>Serious vs. Punny vs. Cute</h2>
+  <p>These three vibes produce completely different conversations when guests see your tank. A fish named Poseidon prompts "oh, that's a good name." A fish named Gill-bert prompts a groan and then a laugh. A fish named Bubbles prompts "aww." All three are legitimate outcomes — pick the one that matches your personality, not the fish's.</p>
+  <p>For naming other pets, the <a href="/dog-name-generator/">dog name generator</a> and <a href="/cat-name-generator/">cat name generator</a> use a similar approach — personality and vibe filters to match the name to the animal's character. Dogs and cats actually do respond to names eventually, which adds a practical dimension the fish generator doesn't need to worry about.</p>
+</div>
+<!-- /SLOT:explainer -->
+
+<!-- SLOT:faq -->
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">Do fish actually recognize their names?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Fish don't recognize names the way dogs or cats do. They can be conditioned to respond to stimuli (tapping the tank, a feeding schedule) but not to the sound of a word being spoken. The name is entirely for you — pick something that makes you happy when you say it, because that's the only criterion that matters.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What's the best name for a betta fish?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Bettas have big personalities — territorial, dramatic, and often posturing. Names that lean into that drama work well: Poseidon, Admiral, Caesar for regal types; Sir Blubs, Finn Diesel, Lord Flounder for ironic ones. The Betta filter surfaces names that match their specific energy.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What's the difference between punny and cute vibe?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Punny names aim for the groan-and-grin reaction — Gill-bert, James Pond, Tank Sinatra. Cute names are soft and sweet — Bubbles, Pebble, Mochi. Both work for fish but create very different table conversations when guests ask about your tank.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">How do I pick a name for a grumpy-looking fish?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Grumpy-looking fish suit names that acknowledge the expression: Scowl, Grumbles, The Judge, Old Mister No. Alternatively, lean into irony and give them the cheeriest possible name — naming a visibly displeased fish 'Sunshine' is a legitimate comedic choice.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Does this generator use AI?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">No. Every name is handpicked and organized by fish type, personality, and vibe. No language model generates the output — each name was chosen because it actually works for that fish type and mood.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I save fish names?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes — click the heart icon next to any name to save it. Saved names appear below the results and persist as long as the tab is open. Copy them before closing the page.</div>
+  </div>
+</div>
+<!-- /SLOT:faq -->
+
+<!-- SLOT:who -->
+<div>
+  <h2 class="section-title" style="margin-bottom:14px">Who uses a fish name generator?</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">New fish owners</div><div class="uc-body">People bringing home their first fish who want a name that fits the fish's look and their own sense of humor before the fish is even in the tank</div></div>
+    <div class="uc"><div class="uc-title">Kids naming a first pet</div><div class="uc-body">Children who got a goldfish or betta and want to name it something fun that they'll enjoy saying to friends and family for the next several years</div></div>
+    <div class="uc"><div class="uc-title">Aquarium enthusiasts</div><div class="uc-body">Hobbyists with multiple tanks who need names for new arrivals and like matching the naming style to the fish species and display theme</div></div>
+    <div class="uc"><div class="uc-title">Koi pond owners</div><div class="uc-body">Gardeners and pond keepers who want formal, dignified names for koi that have lived in the same pond for years and earned something respectable</div></div>
+  </div>
+</div>
+<!-- /SLOT:who -->
+
+<!-- SLOT:init -->
+<script>
+(function () {
+  var NAMES = [
+    { n:"Poseidon", type:"koi", personality:"majestic", vibe:"serious", tag:"regal · commands the tank like royalty" },
+    { n:"Neptune", type:"koi", personality:"regal", vibe:"serious", tag:"serious · a name for a fish that's been alive longer than your TV" },
+    { n:"Emperor", type:"koi", personality:"regal", vibe:"serious", tag:"serious · sounds right coming from a fish this large" },
+    { n:"Admiral", type:"betta", personality:"regal", vibe:"serious", tag:"regal · territorial, decorated, insufferable" },
+    { n:"Caesar", type:"betta", personality:"majestic", vibe:"serious", tag:"serious · crossed the Rubicon on Tuesday, eating flakes by Wednesday" },
+    { n:"Zeus", type:"any", personality:"majestic", vibe:"serious", tag:"serious · a lot to live up to, but they seem to manage" },
+    { n:"Athena", type:"any", personality:"majestic", vibe:"serious", tag:"serious · strategy and beauty, in equal measure" },
+    { n:"Leviathan", type:"koi", personality:"majestic", vibe:"serious", tag:"serious · accurate if your koi is large enough" },
+    { n:"Titan", type:"koi", personality:"majestic", vibe:"serious", tag:"serious · slow, grand, timeless" },
+    { n:"Orion", type:"any", personality:"mysterious", vibe:"serious", tag:"mysterious · watching from below" },
+    { n:"Sirius", type:"tropical", personality:"majestic", vibe:"serious", tag:"serious · brightest thing in the tank" },
+    { n:"Mercury", type:"tropical", personality:"majestic", vibe:"serious", tag:"serious · fastest, nearest to the light" },
+    { n:"Onyx", type:"any", personality:"mysterious", vibe:"serious", tag:"mysterious · dark and still in the deep corner" },
+    { n:"Eclipse", type:"any", personality:"mysterious", vibe:"serious", tag:"mysterious · always somewhere unexpected" },
+    { n:"Shadow", type:"any", personality:"mysterious", vibe:"serious", tag:"mysterious · that corner fish you forget is there" },
+    { n:"Void", type:"any", personality:"mysterious", vibe:"serious", tag:"mysterious · what corner? What fish?" },
+    { n:"Phantom", type:"any", personality:"mysterious", vibe:"serious", tag:"mysterious · gone when you look directly at it" },
+    { n:"Wraith", type:"any", personality:"mysterious", vibe:"serious", tag:"mysterious · deeply still · deeply unsettling" },
+    { n:"Gill-bert", type:"goldfish", personality:"goofy", vibe:"punny", tag:"punny · the pun that started it all" },
+    { n:"Finn Diesel", type:"any", personality:"goofy", vibe:"punny", tag:"punny · fast and aquatic" },
+    { n:"James Pond", type:"goldfish", personality:"regal", vibe:"punny", tag:"punny · licensed to swim" },
+    { n:"Tank Sinatra", type:"any", personality:"regal", vibe:"punny", tag:"punny · did it his way · in the tank" },
+    { n:"Swimmy Fallon", type:"tropical", personality:"goofy", vibe:"punny", tag:"punny · jokes at feeding time" },
+    { n:"Captain Finbeard", type:"betta", personality:"regal", vibe:"punny", tag:"punny · a betta name if there ever was one" },
+    { n:"Nemo de Plume", type:"tropical", personality:"goofy", vibe:"punny", tag:"punny · writes fiction about the open ocean" },
+    { n:"Sir Blubs", type:"betta", personality:"regal", vibe:"punny", tag:"punny · sounds important but definitely isn't" },
+    { n:"Gilliam Shakespeare", type:"any", personality:"regal", vibe:"punny", tag:"punny · the complete works of the sea" },
+    { n:"Marlin Monroe", type:"tropical", personality:"majestic", vibe:"punny", tag:"punny · the tragedy of the tropics" },
+    { n:"Walt Fishney", type:"goldfish", personality:"goofy", vibe:"punny", tag:"punny · built a whole world out of this tank" },
+    { n:"Lord Flounder", type:"weird", personality:"regal", vibe:"punny", tag:"punny · both eyes on the same side of the face · very noble" },
+    { n:"Juan-Dah the Fish", type:"any", personality:"mysterious", vibe:"punny", tag:"punny · one wonders" },
+    { n:"Bubbles", type:"goldfish", personality:"goofy", vibe:"cute", tag:"cute · classic · universally endearing" },
+    { n:"Pebble", type:"any", personality:"goofy", vibe:"cute", tag:"cute · small, round, smooth · like the fish" },
+    { n:"Sprinkle", type:"tropical", personality:"goofy", vibe:"cute", tag:"cute · colorful · everywhere at once" },
+    { n:"Mochi", type:"goldfish", personality:"goofy", vibe:"cute", tag:"cute · round, soft, slightly jiggly in water" },
+    { n:"Biscuit", type:"goldfish", personality:"goofy", vibe:"cute", tag:"cute · warm-toned · slightly crumbly under pressure" },
+    { n:"Wiggles", type:"tropical", personality:"goofy", vibe:"cute", tag:"cute · accurate description of how this fish moves" },
+    { n:"Noodle", type:"any", personality:"goofy", vibe:"cute", tag:"cute · long fish or round fish — works either way" },
+    { n:"Pudding", type:"goldfish", personality:"goofy", vibe:"cute", tag:"cute · soft, wobbly, somehow comforting" },
+    { n:"Jellybean", type:"tropical", personality:"goofy", vibe:"cute", tag:"cute · small, colorful, slightly chaotic" },
+    { n:"Sunny", type:"goldfish", personality:"goofy", vibe:"cute", tag:"cute · easy to love, hard to worry about" },
+    { n:"Petal", type:"tropical", personality:"goofy", vibe:"cute", tag:"cute · delicate · slightly dramatic at feeding time" },
+    { n:"Cookie", type:"goldfish", personality:"goofy", vibe:"cute", tag:"cute · round and brown and a little bit plain and perfect" },
+    { n:"Sparkle", type:"tropical", personality:"majestic", vibe:"cute", tag:"cute · the glitter fish · you know the one" },
+    { n:"Doodle", type:"goldfish", personality:"goofy", vibe:"cute", tag:"cute · moves like it's being drawn as it goes" },
+    { n:"Twirly", type:"tropical", personality:"goofy", vibe:"cute", tag:"cute · accurate, unfortunately" },
+    { n:"Scowl", type:"betta", personality:"grumpy", vibe:"serious", tag:"grumpy · names it before you see it · you'll see it" },
+    { n:"Grumbles", type:"goldfish", personality:"grumpy", vibe:"serious", tag:"grumpy · audible even through the glass" },
+    { n:"The Judge", type:"betta", personality:"grumpy", vibe:"serious", tag:"grumpy · finds you wanting · every time" },
+    { n:"Old Mister No", type:"goldfish", personality:"grumpy", vibe:"serious", tag:"grumpy · no · no · also no" },
+    { n:"Killjoy", type:"any", personality:"grumpy", vibe:"serious", tag:"grumpy · ruining the mood since day one" },
+    { n:"Grimsby", type:"betta", personality:"grumpy", vibe:"serious", tag:"grumpy · the town, the expression, the fish" },
+    { n:"Grudge", type:"any", personality:"grumpy", vibe:"serious", tag:"grumpy · has not forgiven you for Tuesday" },
+    { n:"Ambassador Frills", type:"axolotl", personality:"regal", vibe:"punny", tag:"punny · those are not gills, they are diplomatic plumage" },
+    { n:"Count Gills", type:"axolotl", personality:"regal", vibe:"punny", tag:"punny · undead · smiles about it" },
+    { n:"Frillington", type:"axolotl", personality:"goofy", vibe:"cute", tag:"cute · sounds like a small town where everyone has gills" },
+    { n:"Salamandrew", type:"axolotl", personality:"goofy", vibe:"punny", tag:"punny · technically not a fish · doesn't care" },
+    { n:"Wobble", type:"axolotl", personality:"goofy", vibe:"cute", tag:"cute · the locomotion is the personality" },
+    { n:"Squish", type:"axolotl", personality:"goofy", vibe:"cute", tag:"cute · soft · squishy · do not test this" },
+    { n:"Paws", type:"axolotl", personality:"goofy", vibe:"cute", tag:"cute · technically limbs · functionally paws" },
+    { n:"Smiley", type:"axolotl", personality:"goofy", vibe:"cute", tag:"cute · permanent smile · make of it what you will" },
+    { n:"Coral", type:"tropical", personality:"majestic", vibe:"serious", tag:"serious · lives in the reef · named after the reef" },
+    { n:"Azure", type:"tropical", personality:"majestic", vibe:"serious", tag:"serious · the color of the water it should be in" },
+    { n:"Sapphire", type:"betta", personality:"majestic", vibe:"serious", tag:"serious · worth naming after a gemstone" },
+    { n:"Ember", type:"tropical", personality:"majestic", vibe:"serious", tag:"serious · warm-colored · burns bright" },
+    { n:"Typhoon", type:"weird", personality:"majestic", vibe:"serious", tag:"serious · that's what it acts like" },
+    { n:"Cascade", type:"koi", personality:"majestic", vibe:"serious", tag:"serious · flowing, constant, inevitable" },
+    { n:"Blorp", type:"weird", personality:"goofy", vibe:"punny", tag:"punny · the sound it makes · or should make" },
+    { n:"Schlorp", type:"weird", personality:"goofy", vibe:"punny", tag:"punny · wetter than blorp · by a lot" },
+    { n:"Blorpington", type:"weird", personality:"goofy", vibe:"punny", tag:"punny · more formal than blorp · barely" },
+    { n:"Merp", type:"weird", personality:"goofy", vibe:"cute", tag:"cute · it would say merp if it could say anything" },
+    { n:"Gleep", type:"weird", personality:"goofy", vibe:"cute", tag:"cute · small sound · small fish · big personality" }
+  ];
+
+  function shuffle(arr) { var a=arr.slice(); for (var i=a.length-1;i>0;i--) { var j=Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
+  function escH(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function showToast(msg) { var t=document.getElementById('bn-toast'); t.textContent=msg||'Copied!'; t.classList.add('show'); setTimeout(function(){ t.classList.remove('show'); },1800); }
+  function copyText(text) { if (navigator.clipboard&&navigator.clipboard.writeText) { navigator.clipboard.writeText(text).then(function(){ showToast(); }).catch(function(){ fallbackCopy(text); }); } else { fallbackCopy(text); } }
+  function fallbackCopy(text) { var ta=document.createElement('textarea'); ta.value=text; ta.style.cssText='position:fixed;opacity:0;pointer-events:none'; document.body.appendChild(ta); ta.focus(); ta.select(); try { document.execCommand('copy'); } catch(e) {} document.body.removeChild(ta); showToast(); }
+  var saved = {};
+  function renderSaved() { var section=document.getElementById('bn-saved-section'); var tags=document.getElementById('bn-saved-tags'); var countEl=document.getElementById('bn-saved-count'); var keys=Object.keys(saved); if (!keys.length) { section.style.display='none'; return; } section.style.display=''; if (countEl) countEl.textContent='('+keys.length+')'; tags.innerHTML=''; keys.forEach(function(name) { var span=document.createElement('span'); span.className='saved-tag'; span.innerHTML=escH(name)+'<span class="saved-tag-remove" data-remove="'+escH(name)+'" aria-label="Remove">×</span>'; tags.appendChild(span); }); }
+  function toggleSave(name, btn) { if (saved[name]) { delete saved[name]; btn.classList.remove('saved'); btn.title='Save'; } else { saved[name]=true; btn.classList.add('saved'); btn.title='Unsave'; } renderSaved(); }
+
+  function generate() {
+    var type = document.getElementById('bn-type').value;
+    var pers = document.getElementById('bn-personality').value;
+    var vibe = document.getElementById('bn-vibe').value;
+    var pool = NAMES.filter(function(x) {
+      if (type !== 'any' && x.type !== type && x.type !== 'any') return false;
+      if (pers !== 'any' && x.personality !== pers) return false;
+      if (vibe !== 'any' && x.vibe !== vibe) return false;
+      return true;
+    });
+    if (pool.length < 5) pool = NAMES.filter(function(x) { return (type==='any'||x.type===type||x.type==='any') && (pers==='any'||x.personality===pers); });
+    if (pool.length < 5) pool = NAMES.filter(function(x) { return type==='any'||x.type===type||x.type==='any'; });
+    if (pool.length < 5) pool = NAMES;
+    return shuffle(pool).slice(0, 10);
+  }
+
+  function render() {
+    var items = generate();
+    var list = document.getElementById('bn-list');
+    list.innerHTML='';
+    items.forEach(function(item, i) {
+      var isSaved=!!saved[item.n];
+      var li=document.createElement('li'); li.className='bn-item';
+      li.innerHTML='<span class="bn-num">'+(i+1)+'</span><span class="bn-name-wrap"><span class="bn-name">'+escH(item.n)+'</span><span class="bn-tag">'+escH(item.tag)+'</span></span><div class="bn-btns"><button class="icon-btn bn-save-btn'+(isSaved?' saved':'')+'" data-name="'+escH(item.n)+'" title="'+(isSaved?'Unsave':'Save')+'" aria-label="Save '+escH(item.n)+'"><svg viewBox="0 0 16 16" fill="none"><path d="M8 13.5S2 9.5 2 5.5A3 3 0 018 4a3 3 0 016 1.5c0 4-6 8-6 8z" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/></svg></button><button class="icon-btn bn-copy-btn" data-name="'+escH(item.n)+'" title="Copy" aria-label="Copy '+escH(item.n)+'"><svg viewBox="0 0 14 14" fill="none"><rect x="1" y="4" width="9" height="9.5" rx="1.5" stroke="currentColor" stroke-width="1.1"/><path d="M4.5 4V2.5A1.5 1.5 0 016 1h5.5A1.5 1.5 0 0113 2.5v7a1.5 1.5 0 01-1.5 1.5H10" stroke="currentColor" stroke-width="1.1"/></svg></button></div>';
+      list.appendChild(li);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    render();
+    document.getElementById('bn-gen-btn').addEventListener('click', render);
+    document.getElementById('bn-regen-btn').addEventListener('click', render);
+    ['bn-type','bn-personality','bn-vibe'].forEach(function(id) { document.getElementById(id).addEventListener('change', render); });
+    document.addEventListener('keydown', function(e) { if (e.target===document.body&&e.key==='Enter') { e.preventDefault(); render(); } });
+    document.getElementById('bn-list').addEventListener('click', function(e) { var c=e.target.closest('.bn-copy-btn'); if (c) { copyText(c.dataset.name); return; } var s=e.target.closest('.bn-save-btn'); if (s) { toggleSave(s.dataset.name, s); } });
+    document.getElementById('bn-saved-tags').addEventListener('click', function(e) { var r=e.target.closest('.saved-tag-remove'); if (!r) return; var name=r.dataset.remove; delete saved[name]; document.querySelectorAll('.bn-save-btn').forEach(function(btn) { if (btn.dataset.name===name) { btn.classList.remove('saved'); btn.title='Save'; } }); renderSaved(); });
+    document.getElementById('bn-copy-all-btn').addEventListener('click', function() { var names=[]; document.querySelectorAll('.bn-name').forEach(function(el) { names.push(el.textContent); }); if (names.length) { copyText(names.join('\n')); } });
+    document.getElementById('bn-saved-copy').addEventListener('click', function() { var names=Object.keys(saved); if (names.length) { copyText(names.join('\n')); } });
+  });
+}());
+</script>
+<!-- /SLOT:init -->

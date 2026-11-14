@@ -1,4 +1,4 @@
-<!-- build: 2026-09-07T06:36:32Z -->
+<!-- build: 2026-11-14T07:32:46Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -135,19 +135,6 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "Weighted Random Number Generator",
-  "url": "https://wordineer.com/weighted-random-number-generator",
-  "description": "Generate random results with custom weights. Add options, set relative weights, and pick — perfect for probability demos, game design, and unequal random selections.",
-  "applicationCategory": "UtilityApplication",
-  "operatingSystem": "Web",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-  "publisher": { "@id": "https://wordineer.com/#organization" }
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
@@ -159,25 +146,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Weighted Random Number Generator">
 <meta name="twitter:description" content="Generate random results with custom weights. Add options, set relative weights, and pick — perfect for probability demos, game design, and unequal random selections. Free.">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "Weighted Random Number Generator — Unequal Probability",
-  "url": "https://wordineer.com/weighted-random-number-generator",
-  "applicationCategory": "UtilityApplication",
-  "operatingSystem": "Web",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD"
-  },
-  "publisher": {
-    "@id": "https://wordineer.com/#organization"
-  },
-  "description": "Random picks with custom weights. Add options, set how likely each is, and draw. Good for probability demos, game design, and weighted selections."
-}
-</script>
+
 <link rel="stylesheet" href="/styles/global.css?v=16">
 <style>
 /* ── Weighted Random Generator ── */
@@ -382,6 +351,7 @@
   </div>
 </div>
 <div class="content-wrap">
+<!-- SECTION:more_tools -->
   <div class="section">
     <h2 class="section-title">More number & chance tools</h2>
     <p class="section-sub">Dice, coin flips, spinners, and more — all free</p>
@@ -403,6 +373,7 @@
       <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
     </div>
   </div>
+<!-- /SECTION:more_tools -->
 <div class="explainer">
   <h2>How weighted random selection works</h2>
   <p>A weighted random generator assigns each option a relative probability proportional to its weight. If you have three options with weights 1, 2, and 3, their probabilities are 1/6 ≈ 16.7%, 2/6 ≈ 33.3%, and 3/6 = 50%. The implementation uses a cumulative weight array — a random number from 0 to the total weight is drawn, then mapped to the option whose range it falls in. This is the standard weighted random algorithm used in game engines, A/B testing frameworks, and recommendation systems.</p>
@@ -480,7 +451,7 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="/scripts/tool-engine.js?v=30"></script>
+<script src="/scripts/tool-engine.js?v=27"></script>
 <script>
 (function bindSharedWordineerMenu() {
   const mega = document.getElementById('mega');

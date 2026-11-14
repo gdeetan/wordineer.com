@@ -1,0 +1,590 @@
+<!-- CONFIG
+{ "url": "/rhyming-dictionary/", "output": "rhyming-dictionary.html", "type": "tool" }
+-->
+
+<!-- SLOT:meta -->
+<title>Rhyming Dictionary — Find Perfect Rhymes Instantly | Wordineer</title>
+<meta name="description" content="Type any word to find rhymes grouped by syllable count. Filterable by part of speech — useful for poetry, lyrics, and creative writing.">
+<link rel="canonical" href="https://wordineer.com/rhyming-dictionary/">
+<meta property="og:title" content="Rhyming Dictionary — Find Perfect Rhymes Instantly">
+<meta property="og:description" content="Type any word and instantly find perfect rhymes grouped by syllable count. Free, fast, no signup needed.">
+<meta property="og:url" content="https://wordineer.com/rhyming-dictionary/">
+<meta property="og:type" content="website">
+<!-- /SLOT:meta -->
+
+<!-- SLOT:style -->
+<style>
+.rd-wrap { max-width: 960px; margin: 32px auto 0; padding: 0 16px; }
+
+.rd-search-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.rd-input {
+  flex: 1;
+  padding: 14px 18px;
+  font-size: 1.1rem;
+  border: 2px solid #d1d5db;
+  border-radius: 10px;
+  outline: none;
+  transition: border-color .2s;
+  font-family: inherit;
+}
+.rd-input:focus { border-color: #6366f1; }
+.rd-btn-random {
+  padding: 14px 18px;
+  background: #f3f4f6;
+  border: 2px solid #d1d5db;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: #374151;
+  transition: background .2s, border-color .2s;
+  white-space: nowrap;
+  font-family: inherit;
+}
+.rd-btn-random:hover { background: #e5e7eb; border-color: #9ca3af; }
+
+.rd-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+.rd-filter-label {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-right: 4px;
+}
+.rd-filter-btn {
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 2px solid #e5e7eb;
+  background: #fff;
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: #374151;
+  transition: background .15s, border-color .15s, color .15s;
+  font-family: inherit;
+}
+.rd-filter-btn.active {
+  background: #6366f1;
+  border-color: #6366f1;
+  color: #fff;
+}
+
+.rd-status {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-bottom: 16px;
+  min-height: 20px;
+}
+
+.rd-results { margin-bottom: 8px; }
+
+.rd-group { margin-bottom: 28px; }
+.rd-group-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #6366f1;
+  margin-bottom: 12px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #e0e7ff;
+}
+.rd-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.rd-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 14px;
+  background: #f3f4f6;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  color: #1f2937;
+  cursor: pointer;
+  border: none;
+  transition: background .15s, color .15s;
+  font-family: inherit;
+  text-decoration: none;
+}
+.rd-chip:hover { background: #e0e7ff; color: #4338ca; }
+.rd-chip .rd-pos {
+  font-size: 0.72rem;
+  color: #9ca3af;
+  font-style: italic;
+}
+.rd-chip:hover .rd-pos { color: #818cf8; }
+
+.rd-near-section { margin-top: 8px; }
+.rd-near-header {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #9ca3af;
+  margin-bottom: 16px;
+  margin-top: 36px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #f3f4f6;
+}
+.rd-near-section .rd-group-title { color: #9ca3af; border-bottom-color: #f3f4f6; }
+.rd-near-section .rd-chip { background: #fafafa; }
+.rd-near-section .rd-chip:hover { background: #f3f4f6; color: #374151; }
+
+.rd-copy-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+  margin-bottom: 28px;
+}
+.rd-copy-btn {
+  padding: 8px 16px;
+  background: #6366f1;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background .15s;
+  font-family: inherit;
+}
+.rd-copy-btn:hover { background: #4f46e5; }
+.rd-copy-confirm {
+  font-size: 0.85rem;
+  color: #059669;
+  display: none;
+}
+
+.rd-empty {
+  text-align: center;
+  padding: 48px 24px;
+  color: #9ca3af;
+  font-size: 1rem;
+  display: none;
+}
+.rd-empty svg { display: block; margin: 0 auto 12px; opacity: .4; }
+.rd-prompt {
+  text-align: center;
+  padding: 48px 24px;
+  color: #9ca3af;
+  font-size: 1rem;
+}
+.rd-prompt svg { display: block; margin: 0 auto 12px; opacity: .4; }
+</style>
+<!-- /SLOT:style -->
+
+<!-- SLOT:hero -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/word-tools/">Word Tools</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Rhyming Dictionary</span>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-inner">
+    <h1 class="hero-title">Rhyming Dictionary</h1>
+    <p class="hero-sub">Type any word to instantly find rhymes grouped by syllable count. Great for poetry, lyrics, and creative writing.</p>
+  </div>
+</div>
+<!-- /SLOT:hero -->
+
+<!-- SLOT:tool -->
+<div class="rd-wrap">
+  <div class="rd-search-row">
+    <input class="rd-input" id="rdInput" type="text" placeholder="Type a word (e.g. cat, light, dream)…" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+    <button class="rd-btn-random" id="rdRandom">&#x1F3B2; Random</button>
+  </div>
+
+  <div class="rd-filters">
+    <span class="rd-filter-label">Part of speech:</span>
+    <button class="rd-filter-btn active" data-pos="all">All</button>
+    <button class="rd-filter-btn" data-pos="n">Nouns</button>
+    <button class="rd-filter-btn" data-pos="v">Verbs</button>
+    <button class="rd-filter-btn" data-pos="adj">Adjectives</button>
+    <button class="rd-filter-btn" data-pos="adv">Adverbs</button>
+  </div>
+
+  <div class="rd-status" id="rdStatus"></div>
+
+  <div id="rdPrompt" class="rd-prompt">
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+    Enter a word above to find rhymes.
+  </div>
+  <div id="rdEmpty" class="rd-empty">
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+    No rhymes found for this word in our dictionary.
+  </div>
+
+  <div id="rdResults" class="rd-results"></div>
+
+  <div class="rd-copy-row" id="rdCopyRow" style="display:none">
+    <button class="rd-copy-btn" id="rdCopyBtn">Copy all rhymes</button>
+    <span class="rd-copy-confirm" id="rdCopyConfirm">Copied!</span>
+  </div>
+</div>
+<!-- /SLOT:tool -->
+
+<!-- SLOT:ad_b -->
+<!-- /SLOT:ad_b -->
+
+<!-- SLOT:explainer -->
+<section class="explainer">
+  <div class="explainer-inner">
+    <h2>How to use the rhyming dictionary</h2>
+    <p>Type in any word and the dictionary immediately lists the perfect rhymes for that word (words with the identical ending) and the near rhymes for that word (words with similar but not identical sound). The perfect and near rhymes are grouped into 1-syllable, 2-syllable, and 3+ syllable categories so you can immediately find the perfect word for your needs.</p>
+    <p>Also filter results by part of speech (such as nouns, verbs, adjectives and adverbs) and click on any word in your results to search for its own rhymes. Use the "Random Word" button to discover new words.</p>
+    <h3>Tips for better rhymes</h3>
+    <ul>
+      <li>Match syllable count to keep your rhythm consistent.</li>
+      <li>2-syllable rhymes are generally more natural as verse than single-syllable rhymes.</li>
+      <li>Near rhymes are limited only by your imagination and are becoming increasingly used in modern rap and poetry.</li>
+      <li>Use "Copy all rhymes" to paste a full list into your lyrics or poem draft.</li>
+    </ul>
+  </div>
+</section>
+<!-- /SLOT:explainer -->
+
+<!-- SLOT:faq -->
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">What is a rhyming dictionary?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>A rhyming dictionary is an alphabetized list of words that have the same ending sound as another word. Unlike a standard dictionary, which defines words, a rhyming dictionary is organized by sound and thus is useful for people who write poetry, including poets, songwriters, and rappers.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">How many words are in this rhyming dictionary?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>We have a curated set of over a thousand words in a rhyming dictionary that instantly loads as you type, and then a live lookup that adds the full set of words, including all the near rhymes, in a second or two.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What's the difference between a perfect rhyme and a near rhyme?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>There are many different kinds of rhymes, including perfect rhymes, near rhymes (also referred to as slant rhymes or half rhymes), consonance rhymes, Blind Rhymes, alliterative rhymes, and more. Here, we refer to two main types: perfect rhymes and near rhymes. Perfect rhymes include words with the same vowel sound and the same ending consonant sound (e.g., cat/hat and light/night). Near rhymes, on the other hand, include words with similar but not identical sounds (e.g., cat/bad and light/like).</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Why does syllable count matter when choosing a rhyme?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Whether you are trying to craft a poem in a structured form (such as a sonnet or haiku), or simply trying to make your free verse or song lyrics read better, the syllable count of words is crucial to making lines that sound natural and balanced.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I use this for rap lyrics?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>The Syllable Filter can be used to find words with 2- and 3-syllable words for more complex and richer rhymes. Every result word can then be clicked on to immediately search for its own rhyme set, a technique that many professional lyric writers use to maintain complex rhyme schemes over long sections of text.</p></div>
+  </div>
+</div>
+<!-- /SLOT:faq -->
+
+<!-- SLOT:who -->
+<div class="uc-grid">
+  <div class="uc">
+    <div class="uc-title">Poets &amp; Writers</div>
+    <div class="uc-body">Find perfect end-rhymes for structured poetry forms like sonnets, villanelles, and limericks.</div>
+  </div>
+  <div class="uc">
+    <div class="uc-title">Songwriters &amp; Lyricists</div>
+    <div class="uc-body">Build rhyme chains and discover multi-syllable matches for verses, hooks, and bridges.</div>
+  </div>
+  <div class="uc">
+    <div class="uc-title">Rappers &amp; Spoken Word</div>
+    <div class="uc-body">Explore 2- and 3-syllable rhyme sets to craft complex internal and end-of-line rhymes.</div>
+  </div>
+  <div class="uc">
+    <div class="uc-title">Students &amp; Teachers</div>
+    <div class="uc-body">Teach rhyme patterns and phonics concepts, or find rhymes for classroom writing exercises.</div>
+  </div>
+  <div class="uc">
+    <div class="uc-title">Greeting Card Creators</div>
+    <div class="uc-body">Quickly find light, catchy rhymes for birthday, anniversary, and holiday card messages.</div>
+  </div>
+  <div class="uc">
+    <div class="uc-title">Word Game Enthusiasts</div>
+    <div class="uc-body">Use rhyme sets to discover unexpected word connections and expand your vocabulary.</div>
+  </div>
+</div>
+<!-- /SLOT:who -->
+
+<!-- SLOT:init -->
+<script src="/scripts/tool-engine.js"></script>
+<script>
+(function() {
+  var groups = null;
+  var wordIndex = {};
+  var activePos = 'all';
+  var lastWord = '';
+  var dmCache = {};
+  var fetchTimer = null;
+
+  var input = document.getElementById('rdInput');
+  var status = document.getElementById('rdStatus');
+  var results = document.getElementById('rdResults');
+  var prompt = document.getElementById('rdPrompt');
+  var empty = document.getElementById('rdEmpty');
+  var copyRow = document.getElementById('rdCopyRow');
+  var copyBtn = document.getElementById('rdCopyBtn');
+  var copyConfirm = document.getElementById('rdCopyConfirm');
+
+  var POS_LABELS = { n: 'noun', v: 'verb', adj: 'adj.', adv: 'adv.', x: '', pron: 'pron.', prep: 'prep.', conj: 'conj.', art: 'art.' };
+  var SYL_LABELS = { '1': '1 syllable', '2': '2 syllables', '3+': '3+ syllables' };
+
+  function loadSeed(cb) {
+    if (groups) { cb(); return; }
+    fetch('/data/rhymes.json?v=1')
+      .then(function(r){ return r.json(); })
+      .then(function(data) {
+        groups = data;
+        wordIndex = {};
+        groups.forEach(function(g) {
+          g.forEach(function(entry) {
+            var w = entry[0].toLowerCase();
+            if (!wordIndex[w]) wordIndex[w] = [];
+            wordIndex[w].push(g);
+          });
+        });
+        cb();
+      })
+      .catch(function(){});
+  }
+
+  function getSeedRhymes(word) {
+    var w = word.toLowerCase().trim();
+    var gs = wordIndex[w];
+    if (!gs) return [];
+    var seen = {};
+    var out = [];
+    gs.forEach(function(g) {
+      g.forEach(function(entry) {
+        var ew = entry[0];
+        if (ew === w || seen[ew]) return;
+        seen[ew] = true;
+        out.push({ w: ew, s: entry[2], p: entry[1] });
+      });
+    });
+    return out;
+  }
+
+  function parseDmEntry(entry) {
+    var syllables = 1;
+    var pos = 'x';
+    if (entry.tags) {
+      entry.tags.forEach(function(t) {
+        if (/^\d+$/.test(t)) syllables = parseInt(t);
+        else if (t === 'n' || t === 'v' || t === 'adj' || t === 'adv') pos = t;
+      });
+    }
+    return { w: entry.word, s: syllables, p: pos };
+  }
+
+  function fetchDatamuse(word, cb) {
+    var w = word.toLowerCase().trim();
+    if (dmCache[w]) { cb(dmCache[w]); return; }
+    var perfect = [], near = [], done = 0;
+    function finish() {
+      if (++done < 2) return;
+      // strip near-rhymes that are already perfect rhymes
+      var perfSet = {};
+      perfect.forEach(function(r){ perfSet[r.w] = true; });
+      near = near.filter(function(r){ return !perfSet[r.w]; });
+      dmCache[w] = { perfect: perfect, near: near };
+      cb(dmCache[w]);
+    }
+    fetch('https://api.datamuse.com/words?rel_rhy=' + encodeURIComponent(w) + '&md=ps&max=300')
+      .then(function(r){ return r.json(); })
+      .then(function(d){ perfect = d.map(parseDmEntry); finish(); })
+      .catch(finish);
+    fetch('https://api.datamuse.com/words?rel_nry=' + encodeURIComponent(w) + '&md=ps&max=150')
+      .then(function(r){ return r.json(); })
+      .then(function(d){ near = d.map(parseDmEntry); finish(); })
+      .catch(finish);
+  }
+
+  function buildSylGroups(entries) {
+    var byS = {};
+    entries.forEach(function(r) {
+      var k = r.s >= 3 ? '3+' : String(r.s);
+      if (!byS[k]) byS[k] = [];
+      byS[k].push(r);
+    });
+    return byS;
+  }
+
+  function renderChipGroup(entries, label, container) {
+    if (!entries.length) return;
+    var g = document.createElement('div');
+    g.className = 'rd-group';
+    var t = document.createElement('div');
+    t.className = 'rd-group-title';
+    t.textContent = label + ' (' + entries.length + ')';
+    g.appendChild(t);
+    var chips = document.createElement('div');
+    chips.className = 'rd-chips';
+    entries.sort(function(a,b){ return a.w < b.w ? -1 : 1; }).forEach(function(r) {
+      var chip = document.createElement('button');
+      chip.className = 'rd-chip';
+      chip.setAttribute('type', 'button');
+      var posLabel = POS_LABELS[r.p] !== undefined ? POS_LABELS[r.p] : r.p;
+      chip.innerHTML = r.w + (posLabel ? ' <span class="rd-pos">' + posLabel + '</span>' : '');
+      chip.addEventListener('click', function() {
+        input.value = r.w;
+        doSearch(true);
+      });
+      chips.appendChild(chip);
+    });
+    g.appendChild(chips);
+    container.appendChild(g);
+  }
+
+  function renderResults(word, perfect, near) {
+    var filtPerfect = activePos === 'all' ? perfect : perfect.filter(function(r){ return r.p === activePos; });
+    var filtNear = activePos === 'all' ? near : near.filter(function(r){ return r.p === activePos; });
+
+    prompt.style.display = 'none';
+    empty.style.display = 'none';
+    results.innerHTML = '';
+    copyRow.style.display = 'none';
+
+    if (!filtPerfect.length && !filtNear.length) {
+      if ((perfect.length || near.length) && activePos !== 'all') {
+        status.textContent = 'No ' + activePos + ' rhymes found — try "All" filter.';
+      } else {
+        status.textContent = '';
+        empty.style.display = 'block';
+      }
+      return;
+    }
+
+    // Perfect rhymes grouped by syllable count
+    if (filtPerfect.length) {
+      var byS = buildSylGroups(filtPerfect);
+      Object.keys(byS).sort(function(a,b){
+        return (a==='3+'?3:+a)-(b==='3+'?3:+b);
+      }).forEach(function(k) {
+        renderChipGroup(byS[k], SYL_LABELS[k] || k, results);
+      });
+    }
+
+    // Near rhymes in a visually distinct section
+    if (filtNear.length) {
+      var ns = document.createElement('div');
+      ns.className = 'rd-near-section';
+      var nh = document.createElement('div');
+      nh.className = 'rd-near-header';
+      nh.textContent = 'Near rhymes (slant rhymes)';
+      ns.appendChild(nh);
+      var nearByS = buildSylGroups(filtNear);
+      Object.keys(nearByS).sort(function(a,b){
+        return (a==='3+'?3:+a)-(b==='3+'?3:+b);
+      }).forEach(function(k) {
+        renderChipGroup(nearByS[k], SYL_LABELS[k] || k, ns);
+      });
+      results.appendChild(ns);
+    }
+
+    var parts = [];
+    if (filtPerfect.length) parts.push(filtPerfect.length + ' perfect rhyme' + (filtPerfect.length !== 1 ? 's' : ''));
+    if (filtNear.length) parts.push(filtNear.length + ' near rhyme' + (filtNear.length !== 1 ? 's' : ''));
+    status.textContent = parts.join(', ') + ' for “' + word + '”';
+    copyRow.style.display = 'flex';
+  }
+
+  function doSearch(immediate) {
+    var word = input.value.trim();
+    if (!word) {
+      prompt.style.display = 'block';
+      empty.style.display = 'none';
+      results.innerHTML = '';
+      copyRow.style.display = 'none';
+      status.textContent = '';
+      lastWord = '';
+      clearTimeout(fetchTimer);
+      return;
+    }
+    lastWord = word;
+    prompt.style.display = 'none';
+
+    // Show seed results immediately if available
+    if (groups) {
+      var seed = getSeedRhymes(word);
+      if (seed.length) renderResults(word, seed, []);
+    }
+
+    // Debounce Datamuse fetch to avoid flooding on fast typing
+    clearTimeout(fetchTimer);
+    fetchTimer = setTimeout(function() {
+      var searching = word;
+      if (!status.textContent || status.textContent.indexOf('rhyme') === -1) {
+        status.textContent = 'Loading…';
+      }
+      fetchDatamuse(searching, function(data) {
+        if (lastWord !== searching) return;
+        renderResults(searching, data.perfect, data.near);
+      });
+    }, immediate ? 0 : 320);
+  }
+
+  input.addEventListener('input', function(){ doSearch(false); });
+
+  document.querySelectorAll('.rd-filter-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.rd-filter-btn').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      activePos = btn.dataset.pos;
+      if (!lastWord) return;
+      var cached = dmCache[lastWord.toLowerCase()];
+      if (cached) renderResults(lastWord, cached.perfect, cached.near);
+      else if (groups) renderResults(lastWord, getSeedRhymes(lastWord), []);
+    });
+  });
+
+  document.getElementById('rdRandom').addEventListener('click', function() {
+    loadSeed(function() {
+      var allWords = Object.keys(wordIndex);
+      var word = allWords[Math.floor(Math.random() * allWords.length)];
+      input.value = word;
+      doSearch(true);
+    });
+  });
+
+  copyBtn.addEventListener('click', function() {
+    var w = lastWord.toLowerCase();
+    var cached = dmCache[w];
+    var all = [];
+    if (cached) {
+      var p = activePos === 'all' ? cached.perfect : cached.perfect.filter(function(r){ return r.p === activePos; });
+      var n = activePos === 'all' ? cached.near : cached.near.filter(function(r){ return r.p === activePos; });
+      all = p.concat(n);
+    } else if (groups) {
+      all = getSeedRhymes(lastWord);
+      if (activePos !== 'all') all = all.filter(function(r){ return r.p === activePos; });
+    }
+    var text = all.map(function(r){ return r.w; }).sort().join(', ');
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(text).then(function(){
+        copyConfirm.style.display = 'inline';
+        setTimeout(function(){ copyConfirm.style.display = 'none'; }, 2000);
+      });
+    } else {
+      var ta = document.createElement('textarea');
+      ta.value = text; document.body.appendChild(ta); ta.select();
+      document.execCommand('copy'); document.body.removeChild(ta);
+      copyConfirm.style.display = 'inline';
+      setTimeout(function(){ copyConfirm.style.display = 'none'; }, 2000);
+    }
+  });
+
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(function(){ loadSeed(function(){}); });
+  } else {
+    setTimeout(function(){ loadSeed(function(){}); }, 1500);
+  }
+
+})();
+</script>
+<!-- /SLOT:init -->

@@ -1,0 +1,295 @@
+<!-- CONFIG
+{
+  "url": "/text-repeater/",
+  "output": "text-repeater.html",
+  "type": "tool",
+  "more_tools_key": "more_text_tools",
+  "more_tools_title": "More text tools",
+  "more_tools_subtitle": "Transform and generate text in one click."
+}
+-->
+
+<!-- SLOT:meta -->
+<title>Text Repeater – Repeat Text Online | Wordineer</title>
+<meta name="description" content="Repeat any text or phrase N times with a custom separator. Choose newline, space, comma, or no separator. Free text repeater tool — no sign-up needed.">
+<link rel="canonical" href="https://wordineer.com/text-repeater/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wordineer">
+<meta property="og:title" content="Text Repeater – Repeat Text Online | Wordineer">
+<meta property="og:description" content="Duplicate any text or phrase up to 500 times with your choice of separator. Free, instant, no sign-up.">
+<meta property="og:url" content="https://wordineer.com/text-repeater/">
+<meta property="og:image" content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a text repeater?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A text repeater duplicates a word, phrase, or block of text a chosen number of times and joins the copies with a separator such as a newline, space, or comma." }
+    },
+    {
+      "@type": "Question",
+      "name": "How many times can I repeat text?",
+      "acceptedAnswer": { "@type": "Answer", "text": "You can repeat text up to 500 times in this tool. Enter any number from 1 to 500 in the repeat count field." }
+    },
+    {
+      "@type": "Question",
+      "name": "What separators are available?",
+      "acceptedAnswer": { "@type": "Answer", "text": "You can use a newline (each repetition on its own line), a space, a comma, or no separator at all. You can also type any custom separator into the separator field." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this tool to fill placeholder content?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Designers and developers often use a text repeater to generate filler content for mockups, wireframes, or test inputs quickly." }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Text Tools", "item": "https://wordineer.com/text-tools/" },
+    { "@type": "ListItem", "position": 3, "name": "Text Repeater", "item": "https://wordineer.com/text-repeater/" }
+  ]
+}
+</script>
+<!-- /SLOT:meta -->
+
+<!-- SLOT:style -->
+<style>
+.tr-inner{max-width:960px;margin:0 auto;padding:0 16px 40px}
+.tr-label { font-size: 0.85rem; font-weight: 600; color: #444; margin-bottom: 5px; display: block; }
+.tr-textarea {
+  width: 100%; box-sizing: border-box; border: 1.5px solid #ddd; border-radius: 8px;
+  padding: 10px 12px; font-size: 0.97rem; font-family: inherit; resize: vertical;
+  min-height: 90px; background: #fafafa; transition: border-color 0.15s;
+}
+.tr-textarea:focus { outline: none; border-color: #3C3489; background: #fff; }
+.tr-textarea[readonly] { background: #f4f3fb; cursor: default; }
+
+.tr-row { display: flex; gap: 14px; margin: 14px 0; flex-wrap: wrap; align-items: flex-end; }
+.tr-field { display: flex; flex-direction: column; }
+.tr-input {
+  border: 1.5px solid #ddd; border-radius: 8px; padding: 8px 10px;
+  font-size: 0.97rem; font-family: inherit; background: #fafafa;
+  transition: border-color 0.15s;
+}
+.tr-input:focus { outline: none; border-color: #3C3489; background: #fff; }
+.tr-count { width: 90px; }
+.tr-sep { width: 140px; }
+
+.tr-presets { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px; }
+.tr-preset {
+  padding: 5px 12px; border-radius: 7px; border: 1.5px solid #ddd;
+  background: #fff; font-size: 0.82rem; font-weight: 600; cursor: pointer;
+  color: #555; transition: border-color 0.13s, color 0.13s, background 0.13s;
+}
+.tr-preset:hover, .tr-preset.active { border-color: #3C3489; color: #3C3489; background: #f0effe; }
+
+.tr-btn {
+  background: #3C3489; color: #fff; border: none; border-radius: 10px;
+  font-size: 1rem; font-weight: 600; cursor: pointer; padding: 10px 28px;
+  transition: background 0.15s;
+}
+.tr-btn:hover { background: #2e2870; }
+
+.tr-btn-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; align-items: center; }
+.tr-copy {
+  background: #fff; color: #3C3489; border: 1.5px solid #3C3489; border-radius: 10px;
+  font-size: 0.93rem; font-weight: 600; cursor: pointer; padding: 9px 18px;
+  transition: background 0.13s, color 0.13s;
+}
+.tr-copy:hover { background: #3C3489; color: #fff; }
+.tr-copied { color: #1a8c4e; font-size: 0.85rem; display: none; }
+.tr-stats { font-size: 0.82rem; color: #888; margin-top: 8px; }
+</style>
+<!-- /SLOT:style -->
+
+<!-- SLOT:hero -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/text-tools/">Text Tools</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Text Repeater</span>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free · No sign-up · Instant
+  </div>
+  <h1>Text Repeater</h1>
+  <p>Repeat any word or phrase up to 500 times. Pick your separator and copy the result in one click.</p>
+  <p style="font-size:12px;color:var(--text-3);margin-top:8px">Built by Garrick Dee · Last verified August 2026</p>
+</div>
+<!-- /SLOT:hero -->
+
+<!-- SLOT:tool -->
+<div class="tool-wrap">
+  <div class="tool-card tr-inner">
+    <label class="tr-label" for="tr-input">Text to repeat</label>
+    <textarea class="tr-textarea" id="tr-input" placeholder="Type or paste text here…" rows="3"></textarea>
+
+    <div class="tr-row">
+      <div class="tr-field">
+        <label class="tr-label" for="tr-count">Repeat N times</label>
+        <input class="tr-input tr-count" type="number" id="tr-count" min="1" max="500" value="5">
+      </div>
+      <div class="tr-field">
+        <label class="tr-label" for="tr-sep">Separator</label>
+        <input class="tr-input tr-sep" type="text" id="tr-sep" placeholder="separator">
+      </div>
+    </div>
+
+    <div class="tr-presets">
+      <span class="tr-label" style="align-self:center;margin:0;">Presets:</span>
+      <button class="tr-preset active" data-sep="newline">New line</button>
+      <button class="tr-preset" data-sep="space">Space</button>
+      <button class="tr-preset" data-sep="comma">Comma</button>
+      <button class="tr-preset" data-sep="none">None</button>
+    </div>
+
+    <button class="tr-btn" id="tr-generate" onclick="trGenerate()">Generate</button>
+
+    <div style="margin-top:16px">
+      <label class="tr-label" for="tr-output">Output</label>
+      <textarea class="tr-textarea" id="tr-output" readonly rows="5"></textarea>
+      <div class="tr-stats" id="tr-stats"></div>
+    </div>
+
+    <div class="tr-btn-row">
+      <button class="tr-copy" onclick="trCopy()">Copy output</button>
+      <span class="tr-copied" id="tr-copied">Copied!</span>
+    </div>
+  </div>
+</div>
+<!-- /SLOT:tool -->
+
+<!-- SLOT:ad_b -->
+<!-- /SLOT:ad_b -->
+
+<!-- SLOT:explainer -->
+<div>
+  <h2 class="section-title">How it works</h2>
+  <div class="explainer-grid">
+    <div class="exp-step">
+      <div class="exp-num">1</div>
+      <div><strong>Type or paste what you want repeated</strong><p>The input can be a single character, a word, a sentence, or a multi-line block. Whatever you enter is treated as one unit and repeated exactly — spaces, punctuation, and line breaks included.</p></div>
+    </div>
+    <div class="exp-step">
+      <div class="exp-num">2</div>
+      <div><strong>Separator choice changes the output format completely</strong><p>New line puts each repetition on its own line — useful for lists. None runs everything together with no gap — useful for generating long test strings of a precise length. Comma and space produce inline sequences.</p></div>
+    </div>
+    <div class="exp-step">
+      <div class="exp-num">3</div>
+      <div><strong>High repeat counts can hit field limits</strong><p>The tool generates the full string, but many text inputs, social fields, and forms cap at a character limit. If the paste is silently truncated, try a plain text editor first to verify the full output length before submitting.</p></div>
+    </div>
+  </div>
+</div>
+<!-- /SLOT:explainer -->
+
+<!-- SLOT:faq -->
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">What is a text repeater?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>A text repeater duplicates a word, phrase, or block of text a chosen number of times and joins the copies with a separator such as a newline, space, or comma.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">How many times can I repeat text?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>You can repeat text up to 500 times. Enter any whole number from 1 to 500 in the repeat count field.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What separators are available?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>You can choose a newline (each repetition on its own line), a space, a comma, or no separator at all. You can also type any custom separator directly into the separator field.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I use this to fill placeholder content?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Yes. Designers and developers often use a text repeater to generate filler content for mockups, wireframes, or test inputs without installing any software.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Why does repeated text sometimes paste shorter than expected in certain apps?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Some form inputs apply a maxlength limit silently — they accept the paste but truncate the string without warning. Rich-text editors like Google Docs or Notion may also reformat long repeated blocks, collapsing whitespace or adding paragraph breaks. If the output looks shorter or different after pasting, try pasting into a plain text editor first (Notepad on Windows, TextEdit in plain-text mode on Mac) to verify the full string arrived intact before assuming the tool truncated it.</p></div>
+  </div>
+</div>
+<!-- /SLOT:faq -->
+
+<!-- SLOT:who -->
+<div>
+  <h2 class="section-title" style="margin-bottom:10px">How to use the text repeater</h2>
+  <p style="font-size:15px;line-height:1.75;color:var(--text-2)">Type or paste the text you want to repeat into the input field, then set the repeat count — up to 500. Choose a separator to go between each repetition: <strong>New line</strong> puts each copy on its own line, <strong>Comma</strong> or <strong>Space</strong> join them inline, and <strong>None</strong> runs them together with nothing in between. The output updates as you adjust any setting. Click Copy to grab the full repeated string. For very high counts the output can be long — paste into a plain text editor if your target field has a character limit.</p>
+</div>
+<!-- /SLOT:who -->
+
+<!-- SLOT:init -->
+<script>
+(function(){
+  var SEP_NEWLINE = '\n';
+  var currentSep = SEP_NEWLINE;
+
+  var presets = document.querySelectorAll('.tr-preset');
+  presets.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      presets.forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      var type = btn.getAttribute('data-sep');
+      var sepMap = { newline: '\n', space: ' ', comma: ', ', none: '' };
+      currentSep = sepMap[type] !== undefined ? sepMap[type] : '';
+      document.getElementById('tr-sep').value =
+        type === 'newline' ? '\\n' :
+        type === 'none' ? '' :
+        type === 'space' ? ' ' : ', ';
+    });
+  });
+
+  document.getElementById('tr-sep').addEventListener('input', function() {
+    presets.forEach(function(b){ b.classList.remove('active'); });
+    currentSep = this.value.replace(/\\n/g, '\n').replace(/\\t/g, '\t');
+  });
+
+  document.getElementById('tr-sep').value = '\\n';
+
+  document.getElementById('tr-count').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') trGenerate();
+  });
+
+  function trGenerate() {
+    var text = document.getElementById('tr-input').value;
+    var n = Math.min(500, Math.max(1, parseInt(document.getElementById('tr-count').value, 10) || 1));
+    document.getElementById('tr-count').value = n;
+
+    var sep = currentSep;
+    var parts = [];
+    for (var i = 0; i < n; i++) parts.push(text);
+    var result = parts.join(sep);
+
+    document.getElementById('tr-output').value = result;
+    var charCount = result.length;
+    document.getElementById('tr-stats').textContent =
+      n + ' repetition' + (n !== 1 ? 's' : '') + ' · ' + charCount.toLocaleString() + ' character' + (charCount !== 1 ? 's' : '');
+  }
+  window.trGenerate = trGenerate;
+
+  function trCopy() {
+    var val = document.getElementById('tr-output').value;
+    if (!val) return;
+    navigator.clipboard.writeText(val).catch(function() {
+      var ta = document.createElement('textarea');
+      ta.value = val; document.body.appendChild(ta); ta.select();
+      document.execCommand('copy'); document.body.removeChild(ta);
+    });
+    var el = document.getElementById('tr-copied');
+    el.style.display = 'inline';
+    setTimeout(function(){ el.style.display = 'none'; }, 1800);
+  }
+  window.trCopy = trCopy;
+})();
+</script>
+<!-- /SLOT:init -->

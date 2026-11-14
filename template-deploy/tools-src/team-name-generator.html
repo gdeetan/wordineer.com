@@ -1,0 +1,384 @@
+<!-- CONFIG
+{
+  "url": "/team-name-generator/",
+  "output": "team-name-generator.html",
+  "type": "tool"
+}
+-->
+
+<!-- SLOT:meta -->
+<title>Team Name Generator — Sports, Esports, Office & Trivia | Wordineer</title>
+<meta name="description" content="Generate team names for sports, esports, office leagues, and trivia nights. Filter by context and tone, with optional location prefix. Free, instant, no signup.">
+<link rel="canonical" href="https://wordineer.com/team-name-generator/">
+<meta property="og:type"        content="website">
+<meta property="og:site_name"   content="Wordineer">
+<meta property="og:title"       content="Team Name Generator | Wordineer">
+<meta property="og:description" content="Generate team names for any sport, office league, or trivia night. Filter by context and tone, add a location prefix. Free and instant.">
+<meta property="og:url"         content="https://wordineer.com/team-name-generator">
+<meta property="og:image"       content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Other Generators", "item": "https://wordineer.com/other-generators/" },
+    { "@type": "ListItem", "position": 3, "name": "Team Name Generator", "item": "https://wordineer.com/team-name-generator/" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "What makes a good team name?", "acceptedAnswer": { "@type": "Answer", "text": "A good team name is short enough to fit on a jersey, memorable enough to stick after one hearing, and tonally appropriate for the setting. For competitive leagues, intimidating or fierce names signal seriousness. For office or trivia contexts, something clever or pun-adjacent gets laughs without alienating half the team. The worst team names are either too generic (The Wolves) or too inside-jokey for anyone outside the team to appreciate." } },
+    { "@type": "Question", "name": "How does the location prefix work?", "acceptedAnswer": { "@type": "Answer", "text": "When 'Include Location' is on, the generator prepends a geographic descriptor like 'Northern,' 'Riverside,' or 'Metro' to the team name, giving you something like 'The Metro Stormbreakers' or 'Northern Foxes.' This mimics the structure of professional sports team names and works especially well for soccer, basketball, and fantasy sports leagues that want a franchise feel." } },
+    { "@type": "Question", "name": "What's the best team name for an office league?", "acceptedAnswer": { "@type": "Answer", "text": "Office leagues benefit from names that are self-aware without being too referential. Puns on common office tools (The Spreadsheeters, The Quarterly Projections) work well because everyone gets them. So do deliberately grandiose names that undercut themselves by existing in an office context (The Invincibles, The Untouchables). Avoid names that could read as HR-adjacent complaints." } },
+    { "@type": "Question", "name": "Can I use these names for real teams and leagues?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — all names in this generator are original and available for personal or recreational use. For commercial leagues with merchandise or broadcast rights, standard trademark checks apply regardless of where the name originated. But for a recreational sports league, fantasy sports team, trivia night squad, or esports crew, just pick one and go." } },
+    { "@type": "Question", "name": "Does this generator use AI?", "acceptedAnswer": { "@type": "Answer", "text": "No. Every team name is handpicked and assigned context, tone, and compatibility with the location prefix. No language model generates the output — each name was chosen because it actually works for that setting and tone, not because it was assembled from word fragments." } },
+    { "@type": "Question", "name": "Can I save team names?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — click the heart icon next to any name to save it. Saved names appear below the results and persist as long as the tab is open. Copy them before closing the page." } }
+  ]
+}
+</script>
+<!-- /SLOT:meta -->
+
+<!-- SLOT:style -->
+<style>
+.tool-wrap  { max-width:960px; margin:0 auto; padding:24px 24px 0; }
+.tool-card  { border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg); box-shadow:var(--shadow); }
+.tool-split { display:flex; }
+.ctrl        { width:220px; flex-shrink:0; padding:18px; border-right:1px solid var(--border-2); background:var(--bg-2); }
+.ctrl-row    { margin-bottom:14px; }
+.ctrl-label  { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; display:block; margin-bottom:5px; }
+.ctrl-select { width:100%; padding:7px 10px; border:1px solid var(--border); border-radius:7px; background:var(--bg); color:var(--text); font-size:13px; font-family:inherit; cursor:pointer; appearance:none; -webkit-appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23888' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 10px center; padding-right:28px; }
+.ctrl-select:focus { outline:2px solid var(--brand); outline-offset:1px; }
+.ctrl-toggle-row { margin-bottom:14px; display:flex; align-items:center; justify-content:space-between; }
+.ctrl-toggle-label { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; }
+.toggle-switch { position:relative; display:inline-block; width:34px; height:20px; }
+.toggle-switch input { opacity:0; width:0; height:0; }
+.toggle-slider { position:absolute; cursor:pointer; top:0;left:0;right:0;bottom:0; background:var(--border); border-radius:20px; transition:.2s; }
+.toggle-slider:before { position:absolute; content:""; height:14px; width:14px; left:3px; bottom:3px; background:white; border-radius:50%; transition:.2s; }
+.toggle-switch input:checked + .toggle-slider { background:var(--brand); }
+.toggle-switch input:checked + .toggle-slider:before { transform:translateX(14px); }
+.gen-btn    { width:100%; padding:10px 14px; background:var(--brand); color:white; border:none; border-radius:8px; font-size:14px; font-weight:600; font-family:inherit; cursor:pointer; transition:background .15s,transform .1s; letter-spacing:-.01em; margin-top:4px; }
+.gen-btn:hover  { background:var(--brand-dark); }
+.gen-btn:active { transform:scale(.98); }
+.kbd        { text-align:center; font-size:10px; color:var(--text-3); margin-top:6px; }
+.kbd kbd    { background:var(--bg-3); border:1px solid var(--border); border-radius:3px; padding:1px 5px; font-size:10px; font-family:inherit; }
+.words-panel { flex:1; display:flex; flex-direction:column; overflow:hidden; min-height:380px; }
+.words-top   { display:flex; align-items:center; justify-content:space-between; padding:10px 16px; border-bottom:1px solid var(--border-2); }
+.words-count { font-size:12px; color:var(--text-3); }
+.words-actions { display:flex; gap:6px; }
+.act-btn { font-size:11px; padding:4px 10px; border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; font-weight:500; transition:background .12s; }
+.act-btn:hover { background:var(--bg-2); }
+.word-list   { flex:1; list-style:none; padding:0; margin:0; }
+.bn-item     { display:flex; align-items:center; padding:9px 16px; border-bottom:1px solid var(--border-2); gap:8px; animation:bnFade .18s ease; }
+.bn-item:last-child { border-bottom:none; }
+@keyframes bnFade { from{opacity:0;transform:translateY(3px)} to{opacity:1;transform:none} }
+.bn-num      { font-size:11px; color:var(--text-3); min-width:18px; text-align:right; flex-shrink:0; }
+.bn-name-wrap { flex:1; display:flex; flex-direction:column; gap:2px; overflow:hidden; }
+.bn-name     { font-size:15px; font-weight:500; color:var(--text); letter-spacing:-.01em; }
+.bn-tag      { font-size:11px; color:var(--text-3); }
+.bn-btns     { display:flex; align-items:center; gap:4px; flex-shrink:0; }
+.icon-btn { width:28px; height:28px; display:flex; align-items:center; justify-content:center; background:transparent; border:none; cursor:pointer; border-radius:5px; color:var(--text-3); transition:background .12s, color .12s; }
+.icon-btn:hover { background:var(--bg-2); color:var(--text); }
+.icon-btn svg { width:14px; height:14px; }
+.icon-btn.saved { color:#E24B4A; }
+.icon-btn.saved svg path { fill:#E24B4A; }
+.saved-section { border-top:1px solid var(--border); padding:12px 14px; background:var(--bg); }
+.saved-top { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:8px; }
+.saved-label { font-size:12px; font-weight:700; color:var(--text); }
+.saved-copy { border:1px solid var(--border); background:var(--bg); color:var(--brand); border-radius:7px; padding:5px 9px; font-size:11px; font-weight:600; cursor:pointer; }
+.saved-tags { display:flex; gap:5px; flex-wrap:wrap; min-height:22px; }
+.saved-tag { display:inline-flex; align-items:center; gap:4px; background:#F0F2FF; color:var(--brand); border-radius:999px; padding:4px 8px; font-size:11px; font-weight:600; }
+.saved-tag-remove { cursor:pointer; opacity:.65; }
+.bn-toast { position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(10px); background:#1a1a1a; color:white; font-size:13px; font-weight:600; padding:10px 18px; border-radius:8px; opacity:0; transition:opacity .2s,transform .2s; pointer-events:none; z-index:999; }
+.bn-toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+.explainer h2 { font-size:20px; font-weight:700; margin:32px 0 10px; color:var(--text); }
+.explainer h3 { font-size:16px; font-weight:700; margin:20px 0 6px; color:var(--text); }
+.explainer p  { font-size:15px; line-height:1.75; color:var(--text-2); margin:0 0 14px; }
+</style>
+<!-- /SLOT:style -->
+
+<!-- SLOT:hero -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/other-generators/">Other Generators</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Team Name Generator</span>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free · No sign-up · Instant
+  </div>
+  <h1>Team Name Generator</h1>
+  <p>Generate team names for sports leagues, esports squads, office competitions, and trivia nights. Filter by context and tone, then toggle a location prefix on to get that full franchise feel.</p>
+</div>
+<!-- /SLOT:hero -->
+
+<!-- SLOT:tool -->
+<div class="tool-wrap">
+  <div class="tool-card">
+    <div class="tool-split">
+      <div class="ctrl">
+        <div class="ctrl-row">
+          <label class="ctrl-label" for="bn-context">Context</label>
+          <select class="ctrl-select" id="bn-context">
+            <option value="any">Any Context</option>
+            <option value="soccer">Soccer</option>
+            <option value="basketball">Basketball</option>
+            <option value="esports">Esports</option>
+            <option value="office">Office League</option>
+            <option value="trivia">Trivia Night</option>
+            <option value="fantasy">Fantasy Sports</option>
+          </select>
+        </div>
+        <div class="ctrl-row">
+          <label class="ctrl-label" for="bn-tone">Tone</label>
+          <select class="ctrl-select" id="bn-tone">
+            <option value="any">Any Tone</option>
+            <option value="fierce">Fierce</option>
+            <option value="fun">Fun</option>
+            <option value="professional">Professional</option>
+            <option value="intimidating">Intimidating</option>
+          </select>
+        </div>
+        <div class="ctrl-toggle-row">
+          <span class="ctrl-toggle-label">Include Location</span>
+          <label class="toggle-switch">
+            <input type="checkbox" id="bn-location">
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+        <button class="gen-btn" id="bn-gen-btn">Generate Team Names</button>
+        <p class="kbd">Press <kbd>Enter</kbd> to generate</p>
+      </div>
+      <div class="words-panel">
+        <div class="words-top">
+          <span class="words-count" id="bn-count">10 names</span>
+          <div class="words-actions">
+            <button class="act-btn" id="bn-copy-all-btn">Copy all</button>
+            <button class="act-btn" id="bn-regen-btn">Regenerate</button>
+          </div>
+        </div>
+        <ul class="word-list" id="bn-list" aria-label="Generated team names" aria-live="polite"></ul>
+      </div>
+    </div>
+    <div class="saved-section" id="bn-saved-section" style="display:none">
+      <div class="saved-top">
+        <span class="saved-label">Saved names <span id="bn-saved-count" style="font-weight:400;opacity:.7">(0)</span></span>
+        <span class="saved-copy" id="bn-saved-copy">Copy saved</span>
+      </div>
+      <div class="saved-tags" id="bn-saved-tags"></div>
+    </div>
+  </div>
+</div>
+<div class="bn-toast" id="bn-toast" role="status" aria-live="polite">Copied!</div>
+<!-- /SLOT:tool -->
+
+<!-- SLOT:ad_b --><!-- /SLOT:ad_b -->
+
+<!-- SLOT:explainer -->
+<div class="explainer">
+  <h2>How to Use This Generator</h2>
+  <p>Pick the context that matches your league or competition. The tone filter lets you steer between fierce names that signal competitive intent, fun names that signal you're here for a good time, professional names for workplace or formal leagues, and intimidating names designed to rattle opponents before the game starts. Leave both on "any" for the full range. The location toggle adds a geographic prefix — Northern, Metro, Riverside, Harbor, and others — in front of the team name, producing something that reads like a real franchise name.</p>
+
+  <h2>By Context</h2>
+  <h3>Soccer and basketball</h3>
+  <p>Traditional sports names tend to draw from animals, natural forces, and group identities — Wolves, Storm, Vanguard, Foxes. The fierce and intimidating tones lean into this. With the location toggle on, you get names that feel like professional franchises: The Metro Stormbreakers, Northern Foxes. These work for recreational leagues that want a serious structure, or for fantasy sports teams where the name is a mock-professional persona.</p>
+  <h3>Esports</h3>
+  <p>Esports names operate in a different register. They're often abstract, compound, and lean into mythology, tech, or aggression. Team Nexus, Void Protocol, The Fractured, Iron Apex. The intimidating and fierce tones produce the most esports-appropriate results. Location prefixes work less naturally here but can create an interesting contrast — Coastal Void Protocol has a deliberate weirdness that some teams lean into as a brand choice.</p>
+  <h3>Office leagues</h3>
+  <p>Office competition names have an extra constraint: they need to be work-appropriate and ideally self-aware about the stakes. Fun-toned names work best here — something that acknowledges the absurdity without being dismissive. The Quarterly Projections, The Pivot Tables, The Synergists. These work because they're in on the joke without requiring explanation.</p>
+  <h3>Trivia night</h3>
+  <p>Trivia team names are their own art form. The best ones are puns, references, or wordplay that feel clever in a bar setting. They don't need to be intimidating — they need to make the host read the name aloud with a grin. The fun tone gives you the most trivia-appropriate results. Wordplay on common trivia topics (Quiz Khalifa, Let's Get Quizzical, The Smarty Pints) are the structural model this generator's trivia names follow.</p>
+  <h3>Fantasy sports</h3>
+  <p>Fantasy sports team names sit between trivia names and professional franchise names. They can be puns on player names, pop culture references, or mock-professional names. The fun and fierce tones both work depending on whether your league leans comedic or competitive. For fantasy sports specifically, you can also try the <a href="/band-name-generator/">band name generator</a> — band names and fantasy sports names have more structural overlap than you'd expect.</p>
+</div>
+<!-- /SLOT:explainer -->
+
+<!-- SLOT:faq -->
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">What makes a good team name?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Short enough to fit on a jersey, memorable enough to stick after one hearing, and tonally appropriate for the setting. Intimidating names work for competitive leagues; clever puns work for office or trivia contexts. The worst team names are too generic or too inside-jokey for anyone outside the team to appreciate.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">How does the location prefix work?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">When 'Include Location' is toggled on, the generator prepends a geographic descriptor — Northern, Metro, Riverside, Harbor, and others — to give you something like "The Metro Stormbreakers" or "Northern Foxes." It mimics professional franchise naming and works especially well for soccer, basketball, and fantasy sports leagues.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What's the best team name for an office league?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Office leagues benefit from names that are self-aware without being referential to specific people. Puns on office tools work (The Spreadsheeters, The Quarterly Projections) because everyone gets them. So do deliberately grandiose names that undercut themselves by existing in an office context. Avoid anything that reads as an HR-adjacent complaint.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I use these names for real teams and leagues?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes — all names are original and available for personal or recreational use. For commercial leagues with merchandise or broadcast rights, standard trademark checks apply. For recreational sports, esports crews, or trivia teams, just pick one and go.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Does this generator use AI?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">No. Every team name is handpicked and assigned context, tone, and location prefix compatibility. No language model generates the output — each name was chosen because it actually works for that setting.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I save team names?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes — click the heart icon next to any name to save it. Saved names appear below the results and persist as long as the tab is open. Copy them before closing the page.</div>
+  </div>
+</div>
+<!-- /SLOT:faq -->
+
+<!-- SLOT:who -->
+<div>
+  <h2 class="section-title" style="margin-bottom:14px">Who uses a team name generator?</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">Recreational league organizers</div><div class="uc-body">People setting up adult soccer, basketball, or softball leagues who need to assign team names before anyone has played a single game together</div></div>
+    <div class="uc"><div class="uc-title">Office event planners</div><div class="uc-body">HR coordinators and team leads organizing company competitions or tournaments who want team names that feel fun without being divisive</div></div>
+    <div class="uc"><div class="uc-title">Esports crew founders</div><div class="uc-body">Friends forming a squad for ranked play or tournament registration who want a name that sounds intentional, not like it was chosen in the lobby queue at the last second</div></div>
+    <div class="uc"><div class="uc-title">Fantasy sports players</div><div class="uc-body">Draft-day participants who want a team name ready before their pick is on the clock, ideally one that makes other managers in the league slightly envious</div></div>
+  </div>
+</div>
+<!-- /SLOT:who -->
+
+<!-- SLOT:init -->
+<script>
+(function () {
+  var NAMES = [
+    { n:"Stormbreakers", context:"soccer", tone:"fierce", loc:true, tag:"fierce · forces a reaction before the game starts" },
+    { n:"The Wolves", context:"soccer", tone:"fierce", loc:true, tag:"fierce · pack mentality · plays like it too" },
+    { n:"Iron Foxes", context:"soccer", tone:"fierce", loc:true, tag:"fierce · fast, clever, relentless" },
+    { n:"The Vanguard", context:"soccer", tone:"professional", loc:true, tag:"professional · first in, last out" },
+    { n:"Crestfall FC", context:"soccer", tone:"professional", loc:false, tag:"professional · sounds like it has a crest already" },
+    { n:"Apex United", context:"soccer", tone:"professional", loc:true, tag:"professional · aspirational from day one" },
+    { n:"Red Surge", context:"soccer", tone:"intimidating", loc:true, tag:"intimidating · color + momentum" },
+    { n:"Thunderfoot", context:"soccer", tone:"intimidating", loc:false, tag:"intimidating · describes exactly one shot" },
+    { n:"The Relentless", context:"soccer", tone:"intimidating", loc:false, tag:"intimidating · wears opponents down before kickoff" },
+    { n:"The Casual Fouls", context:"soccer", tone:"fun", loc:false, tag:"fun · self-aware about the weekend league reality" },
+    { n:"Offsides Again", context:"soccer", tone:"fun", loc:false, tag:"fun · accountability through the team name" },
+    { n:"Hardwood Hawks", context:"basketball", tone:"fierce", loc:true, tag:"fierce · built for the hardwood" },
+    { n:"The Pistons", context:"basketball", tone:"fierce", loc:true, tag:"fierce · mechanical, relentless, industrial" },
+    { n:"Court Enforcers", context:"basketball", tone:"intimidating", loc:false, tag:"intimidating · the ref might actually worry" },
+    { n:"Skyline Ballers", context:"basketball", tone:"professional", loc:true, tag:"professional · city feel, franchise ready" },
+    { n:"The Collective", context:"basketball", tone:"professional", loc:false, tag:"professional · five players, one team" },
+    { n:"Elevation", context:"basketball", tone:"professional", loc:true, tag:"professional · always going up" },
+    { n:"The Dunk Aunts", context:"basketball", tone:"fun", loc:false, tag:"fun · unexpected and unforgettable" },
+    { n:"Flagrant Friends", context:"basketball", tone:"fun", loc:false, tag:"fun · they know what they did" },
+    { n:"Alley Whoops", context:"basketball", tone:"fun", loc:false, tag:"fun · the attempt is the tradition" },
+    { n:"Void Protocol", context:"esports", tone:"intimidating", loc:false, tag:"intimidating · sounds like a server shutdown command" },
+    { n:"Team Nexus", context:"esports", tone:"professional", loc:false, tag:"professional · clean, scalable, industry-ready" },
+    { n:"The Fractured", context:"esports", tone:"fierce", loc:false, tag:"fierce · unstable by design" },
+    { n:"Iron Apex", context:"esports", tone:"fierce", loc:false, tag:"fierce · top of the bracket, top of the metal" },
+    { n:"Neural Bloom", context:"esports", tone:"professional", loc:false, tag:"professional · intelligent aggression" },
+    { n:"Ghost Protocol", context:"esports", tone:"intimidating", loc:false, tag:"intimidating · there before you saw them" },
+    { n:"The Lag Lords", context:"esports", tone:"fun", loc:false, tag:"fun · blaming infrastructure, not skill" },
+    { n:"Ctrl Alt Delete", context:"esports", tone:"fun", loc:false, tag:"fun · a reset every round" },
+    { n:"No Ping No Problem", context:"esports", tone:"fun", loc:false, tag:"fun · coping mechanisms as branding" },
+    { n:"Respawn Required", context:"esports", tone:"fun", loc:false, tag:"fun · an accurate forecast" },
+    { n:"The Pivot Tables", context:"office", tone:"fun", loc:false, tag:"fun · terrifying to opponents who don't use Excel" },
+    { n:"The Synergists", context:"office", tone:"fun", loc:false, tag:"fun · they have the deck ready if you ask" },
+    { n:"Quarterly Champions", context:"office", tone:"fun", loc:false, tag:"fun · aspirational performance review energy" },
+    { n:"The Backlog", context:"office", tone:"fun", loc:false, tag:"fun · it grows no matter what" },
+    { n:"The Bandwidth", context:"office", tone:"fun", loc:false, tag:"fun · limited but optimized" },
+    { n:"The Deliverables", context:"office", tone:"professional", loc:false, tag:"professional · on time, on brand, on brief" },
+    { n:"Team Alignment", context:"office", tone:"professional", loc:false, tag:"professional · everyone's on the same page, allegedly" },
+    { n:"The OKR Squad", context:"office", tone:"professional", loc:false, tag:"professional · ambitious, measurable, slightly exhausting" },
+    { n:"Tactical Disruptors", context:"office", tone:"fierce", loc:false, tag:"fierce · they use this phrase unironically" },
+    { n:"The Visionaries", context:"office", tone:"intimidating", loc:false, tag:"intimidating · seen the roadmap, won't share it" },
+    { n:"Quiz Khalifa", context:"trivia", tone:"fun", loc:false, tag:"fun · the classic, for a reason" },
+    { n:"The Smarty Pints", context:"trivia", tone:"fun", loc:false, tag:"fun · glass raised, answers ready" },
+    { n:"Let's Get Quizzical", context:"trivia", tone:"fun", loc:false, tag:"fun · Olivia Newton-John would approve" },
+    { n:"I Am Smarticus", context:"trivia", tone:"fun", loc:false, tag:"fun · Spartacus with a round-seven lead" },
+    { n:"The Trivia Newtons", context:"trivia", tone:"fun", loc:false, tag:"fun · fig or physicist, your call" },
+    { n:"404 Not Found", context:"trivia", tone:"fun", loc:false, tag:"fun · the answer they're going to write" },
+    { n:"We Thought We Knew", context:"trivia", tone:"fun", loc:false, tag:"fun · devastating in retrospect" },
+    { n:"The Category Killers", context:"trivia", tone:"intimidating", loc:false, tag:"intimidating · there's always one category they own" },
+    { n:"Final Answer", context:"trivia", tone:"professional", loc:false, tag:"professional · decisive, locked in, Regis-approved" },
+    { n:"The Omniscients", context:"trivia", tone:"intimidating", loc:false, tag:"intimidating · checks out until round four" },
+    { n:"Touchdown Prophets", context:"fantasy", tone:"fierce", loc:false, tag:"fierce · they believe · they believe loudly" },
+    { n:"The Waiver Wire", context:"fantasy", tone:"fun", loc:false, tag:"fun · where the team actually lives" },
+    { n:"Questionable", context:"fantasy", tone:"fun", loc:false, tag:"fun · the injury report status applied to the team" },
+    { n:"RB2 Energy", context:"fantasy", tone:"fun", loc:false, tag:"fun · good enough to start, not enough to win" },
+    { n:"Sleeper Pick", context:"fantasy", tone:"professional", loc:false, tag:"professional · found the gem everyone else missed" },
+    { n:"High Floor High Ceiling", context:"fantasy", tone:"professional", loc:false, tag:"professional · the analytics team of fantasy leagues" },
+    { n:"The Injured Reserve", context:"fantasy", tone:"fun", loc:false, tag:"fun · Week 1 roster crisis. Week 12 crisis. All weeks." },
+    { n:"Boom or Bust", context:"fantasy", tone:"fierce", loc:false, tag:"fierce · variance is the strategy" },
+    { n:"The Consistents", context:"any", tone:"professional", loc:true, tag:"professional · no flash, just results" },
+    { n:"The Untouchables", context:"any", tone:"intimidating", loc:true, tag:"intimidating · history behind this claim" },
+    { n:"The Invincibles", context:"any", tone:"intimidating", loc:true, tag:"intimidating · the season tells whether they're right" },
+    { n:"Steel & Glory", context:"any", tone:"fierce", loc:true, tag:"fierce · two things, in that order" },
+    { n:"The Sovereign", context:"any", tone:"professional", loc:true, tag:"professional · authority without explanation" },
+    { n:"Rising Tide", context:"any", tone:"professional", loc:true, tag:"professional · lifts all boats, sinks opponents" },
+    { n:"The Standard", context:"any", tone:"professional", loc:true, tag:"professional · the benchmark. Allegedly." },
+    { n:"The Irregulars", context:"any", tone:"fun", loc:false, tag:"fun · gathered from different contexts, somehow winning" },
+    { n:"The Chaos Theory", context:"any", tone:"fun", loc:false, tag:"fun · unpredictable · occasionally a butterfly effect" },
+    { n:"The Good Enough Club", context:"any", tone:"fun", loc:false, tag:"fun · aspirationally correct" }
+  ];
+
+  var LOCATIONS = ['Northern','Eastern','Westside','Central','Harbor','Valley','Coastal','Riverside','Highland','Metro','Summit','Lakeside'];
+
+  function pick(arr) { return arr[Math.floor(Math.random()*arr.length)]; }
+  function shuffle(arr) { var a=arr.slice(); for (var i=a.length-1;i>0;i--) { var j=Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
+  function escH(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function showToast(msg) { var t=document.getElementById('bn-toast'); t.textContent=msg||'Copied!'; t.classList.add('show'); setTimeout(function(){ t.classList.remove('show'); },1800); }
+  function copyText(text) { if (navigator.clipboard&&navigator.clipboard.writeText) { navigator.clipboard.writeText(text).then(function(){ showToast(); }).catch(function(){ fallbackCopy(text); }); } else { fallbackCopy(text); } }
+  function fallbackCopy(text) { var ta=document.createElement('textarea'); ta.value=text; ta.style.cssText='position:fixed;opacity:0;pointer-events:none'; document.body.appendChild(ta); ta.focus(); ta.select(); try { document.execCommand('copy'); } catch(e) {} document.body.removeChild(ta); showToast(); }
+  var saved = {};
+  function renderSaved() { var section=document.getElementById('bn-saved-section'); var tags=document.getElementById('bn-saved-tags'); var countEl=document.getElementById('bn-saved-count'); var keys=Object.keys(saved); if (!keys.length) { section.style.display='none'; return; } section.style.display=''; if (countEl) countEl.textContent='('+keys.length+')'; tags.innerHTML=''; keys.forEach(function(name) { var span=document.createElement('span'); span.className='saved-tag'; span.innerHTML=escH(name)+'<span class="saved-tag-remove" data-remove="'+escH(name)+'" aria-label="Remove">×</span>'; tags.appendChild(span); }); }
+  function toggleSave(name, btn) { if (saved[name]) { delete saved[name]; btn.classList.remove('saved'); btn.title='Save'; } else { saved[name]=true; btn.classList.add('saved'); btn.title='Unsave'; } renderSaved(); }
+
+  function buildDisplayName(item, useLocation) {
+    if (!useLocation) return item.n;
+    var loc = pick(LOCATIONS);
+    var base = item.n.replace(/^The /, '');
+    return 'The ' + loc + ' ' + base;
+  }
+
+  var currentItems = [];
+
+  function pickItems() {
+    var context = document.getElementById('bn-context').value;
+    var tone = document.getElementById('bn-tone').value;
+    var pool = NAMES.filter(function(x) {
+      if (context !== 'any' && x.context !== context && x.context !== 'any') return false;
+      if (tone !== 'any' && x.tone !== tone) return false;
+      return true;
+    });
+    if (pool.length < 5) pool = NAMES.filter(function(x) { return (context==='any'||x.context===context||x.context==='any'); });
+    if (pool.length < 5) pool = NAMES;
+    currentItems = shuffle(pool).slice(0, 10);
+  }
+
+  function render() {
+    var useLocation = document.getElementById('bn-location').checked;
+    var list = document.getElementById('bn-list');
+    list.innerHTML='';
+    currentItems.forEach(function(item, i) {
+      var displayName = buildDisplayName(item, useLocation);
+      var isSaved=!!saved[item.n];
+      var li=document.createElement('li'); li.className='bn-item';
+      li.innerHTML='<span class="bn-num">'+(i+1)+'</span><span class="bn-name-wrap"><span class="bn-name">'+escH(displayName)+'</span><span class="bn-tag">'+escH(item.tag)+'</span></span><div class="bn-btns"><button class="icon-btn bn-save-btn'+(isSaved?' saved':'')+'" data-name="'+escH(item.n)+'" title="'+(isSaved?'Unsave':'Save')+'" aria-label="Save '+escH(displayName)+'"><svg viewBox="0 0 16 16" fill="none"><path d="M8 13.5S2 9.5 2 5.5A3 3 0 018 4a3 3 0 016 1.5c0 4-6 8-6 8z" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/></svg></button><button class="icon-btn bn-copy-btn" data-name="'+escH(displayName)+'" title="Copy" aria-label="Copy '+escH(displayName)+'"><svg viewBox="0 0 14 14" fill="none"><rect x="1" y="4" width="9" height="9.5" rx="1.5" stroke="currentColor" stroke-width="1.1"/><path d="M4.5 4V2.5A1.5 1.5 0 016 1h5.5A1.5 1.5 0 0113 2.5v7a1.5 1.5 0 01-1.5 1.5H10" stroke="currentColor" stroke-width="1.1"/></svg></button></div>';
+      list.appendChild(li);
+    });
+  }
+
+  function generateAndRender() { pickItems(); render(); }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    generateAndRender();
+    document.getElementById('bn-gen-btn').addEventListener('click', generateAndRender);
+    document.getElementById('bn-regen-btn').addEventListener('click', generateAndRender);
+    ['bn-context','bn-tone'].forEach(function(id) { document.getElementById(id).addEventListener('change', generateAndRender); });
+    document.getElementById('bn-location').addEventListener('change', render);
+    document.addEventListener('keydown', function(e) { if (e.target===document.body&&e.key==='Enter') { e.preventDefault(); render(); } });
+    document.getElementById('bn-list').addEventListener('click', function(e) { var c=e.target.closest('.bn-copy-btn'); if (c) { copyText(c.dataset.name); return; } var s=e.target.closest('.bn-save-btn'); if (s) { toggleSave(s.dataset.name, s); } });
+    document.getElementById('bn-saved-tags').addEventListener('click', function(e) { var r=e.target.closest('.saved-tag-remove'); if (!r) return; var name=r.dataset.remove; delete saved[name]; document.querySelectorAll('.bn-save-btn').forEach(function(btn) { if (btn.dataset.name===name) { btn.classList.remove('saved'); btn.title='Save'; } }); renderSaved(); });
+    document.getElementById('bn-copy-all-btn').addEventListener('click', function() { var names=[]; document.querySelectorAll('.bn-name').forEach(function(el) { names.push(el.textContent); }); if (names.length) { copyText(names.join('\n')); } });
+    document.getElementById('bn-saved-copy').addEventListener('click', function() { var names=Object.keys(saved); if (names.length) { copyText(names.join('\n')); } });
+  });
+}());
+</script>
+<!-- /SLOT:init -->

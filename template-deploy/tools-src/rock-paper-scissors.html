@@ -50,19 +50,6 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "Rock Paper Scissors",
-  "url": "https://wordineer.com/rock-paper-scissors",
-  "description": "Play Rock Paper Scissors against the computer. Tracks your score and win streak. Free, no sign-up, works on any device.",
-  "applicationCategory": "UtilityApplication",
-  "operatingSystem": "Web",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-  "publisher": { "@id": "https://wordineer.com/#organization" }
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
@@ -221,11 +208,35 @@
 <!-- SLOT:explainer -->
 <div class="explainer">
   <h2>How does Rock Paper Scissors work?</h2>
-  <p>Rock Paper Scissors is a simultaneous hand game where each of the three choices beats one and loses to one: Rock crushes Scissors, Scissors cuts Paper, Paper covers Rock. When both players choose the same thing, it's a tie. This creates a perfectly balanced three-way cycle — no single choice dominates the others, making the game a fair random tiebreaker when both players choose without knowing the other's pick.</p>
+  <p>Rock Paper Scissors is a quick and easy hand game to play with someone. You and the other player both pick a rock, paper, or scissors at the same time.</p>
+  <p>Here's how it shakes out:</p>
+  <ul>
+    <li>Rock smashes scissors</li>
+    <li>Scissors cut paper</li>
+    <li>Paper wraps rock</li>
+    <li>Same pick? Tie, go again.</li>
+  </ul>
+  <p>In other words, there's no option that's inherently better than another. Therefore, Rock Paper Scissors is a great way to see who gets the last slice of pizza, because it's virtually impossible to intentionally out-pick the other player.</p>
+
   <h2>Is there a winning strategy against the computer?</h2>
-  <p>In this tool, the computer picks Rock, Paper, or Scissors with equal 33.3% probability each round — it has no memory of previous rounds and uses no pattern. Against a truly random opponent, no strategy can improve your expected win rate above 33.3%. However, in real play against a human, psychology matters: people tend to repeat winning moves, throw the losing move less after a loss, and "Rock" is statistically the most common first throw. Against a human opponent, throw Paper more often to exploit Rock bias.</p>
+  <p>The tool is set up so the computer picks Rock, Paper, or Scissors totally at random for each round of play — 1 in 3 for each. The computer does not remember previous throws by you and does not attempt to find patterns in your play. So, no matter what approach or strategy you use to beat the computer in the long run, you'll win about a third of the time.</p>
+  <p>When playing against another human being, the only things that are generally true are:</p>
+  <ul>
+    <li>They repeat a move that just won</li>
+    <li>They avoid the move that just lost</li>
+    <li>Rock is the most popular opening throw</li>
+  </ul>
+  <p>Against human opponents we can increase our chances of winning by throwing Paper a little more often. This is because in Rock-Paper-Scissors matches against humans, Rock is the most frequent opening throw, so Paper is the best response.</p>
+
   <h2>Uses in classrooms and decisions</h2>
-  <p>Rock Paper Scissors is one of the most widely used decision-making tools in the world — from settling playground disputes to major business decisions (a 2005 Sotheby's auction between Christie's and Sotheby's was decided this way). Teachers use it to introduce probability concepts (equal 1/3 outcomes), game theory (Nash equilibrium — the optimal mixed strategy is random 1/3 each), and even evolutionary biology (lizard-lizard-rock cycles in nature).</p>
+  <p>You can find Rock Paper Scissors everywhere: kids play for picking first spots, adults use it to decide who has to take out the trash. Even huge amounts of real money changed hands playing Rock Paper Scissors: in 2005 two art collectors had Christie's and Sotheby's play Rock Paper Scissors to see who would get to auction off a $20 million piece of art.</p>
+  <p>Teachers can also teach probability, game theory, and biology using Rock Paper Scissors.</p>
+  <ul>
+    <li>Probability — three outcomes, each with a 1-in-3 shot</li>
+    <li>Game theory — the smartest long-run play is to pick randomly</li>
+    <li>Biology — In side-blotched lizards, a rock-paper-scissors cycle determines when individuals of different colors will mate; each color type will beat one type and lose to another.</li>
+  </ul>
+  <p>Not bad for a hand game.</p>
 </div>
 <!-- /SLOT:explainer -->
 
@@ -233,38 +244,29 @@
 <div class="faq">
   <h2 class="faq-title">Frequently asked questions</h2>
 
-  <details class="faq-item">
-    <summary class="faq-q">What are the rules of Rock Paper Scissors?</summary>
-    <div class="faq-a">Rock Paper Scissors is a three-choice hand game where each option beats one and loses to one: Rock crushes Scissors, Scissors cuts Paper, Paper covers Rock. When both players choose the same option, it's a tie. The three-way cycle means no single choice dominates the others, making the game perfectly balanced as a fair random tiebreaker.</div>
-  </details>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">What are the rules of Rock Paper Scissors?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Rock Paper Scissors is a simple game played with hands by two people. In the game there are three options or choices and each one beats the other two and loses to one. The choices are Rock which smashes Scissors, Scissors which cuts Paper, and Paper which covers Rock. If both people playing choose the same option then the result is a tie.</p></div>
+  </div>
 
-  <details class="faq-item">
-    <summary class="faq-q">What is the best strategy for Rock Paper Scissors?</summary>
-    <div class="faq-a">Against a truly random computer opponent, no strategy can improve your expected win rate above 33.3% — the Nash equilibrium is to also play randomly, one-third each. Against a human opponent, psychology and pattern recognition matter: people tend to repeat a winning move, avoid throwing the option they just lost with, and statistically throw Rock most often as their first move. Against humans, throwing Paper slightly more often exploits the Rock bias.</div>
-  </details>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What is the best strategy for Rock Paper Scissors?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Because the computer randomly selects from Rock, Paper or Scissors, no strategy can outsmart it and thus increase your winning chances greater than 33.3%. However, this is not the case when playing against human opponents who are not making their picks randomly. For such opponents, one can rely on a strategy that repeats the move that won in the previous round, does not play a move that lost in the previous round and selects Rock more often than the other two moves as the first move. To beat opponents who select Rock more often as their first move, one can play Paper more often.</p></div>
+  </div>
 
-  <details class="faq-item">
-    <summary class="faq-q">What is the probability of winning Rock Paper Scissors?</summary>
-    <div class="faq-a">When both players choose randomly, the probability is exactly 1/3 (33.3%) to win, 1/3 to lose, and 1/3 to tie each round. Over many rounds against a random opponent, your win, loss, and tie counts should converge toward equal thirds — this tool tracks your running session totals so you can observe this in practice.</div>
-  </details>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What is the probability of winning Rock Paper Scissors?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>By making random picks, in the long run you will have 1/3 of your picks result in a win, 1/3 of your picks result in a loss, and 1/3 of your picks result in a tie. This tool helps you to keep a running count of your picks.</p></div>
+  </div>
 
-  <details class="faq-item">
-    <summary class="faq-q">How is Rock Paper Scissors used to make decisions?</summary>
-    <div class="faq-a">Rock Paper Scissors is used worldwide as a neutral, fast tiebreaker that both parties accept as fair because neither side has an inherent advantage. Famous uses include a 2005 Christie's vs. Sotheby's auction decided this way, playground disputes, sports tie-breaking, and business decisions. International RPS championships are held annually, with strategy and psychology playing real roles in competitive play.</div>
-  </details>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">How is Rock Paper Scissors used to make decisions?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>The game is played all around the world to settle a disagreement or to make a decision in a very fair manner. It is used for playground fights, to flip a coin for a sports event, business dealings, and yes even to bid on artwork such as was the case for a 2005 Christie's/Sotheby's art auction. Rock Paper Scissors even has a World Championship held every year where the strategy of the game is put to test against other players in hopes of being the best.</p></div>
+  </div>
 </div>
 <!-- /SLOT:faq -->
 
 <!-- SLOT:who -->
-<div>
-  <h2 class="section-title" style="margin-bottom:14px">Who uses this tool</h2>
-  <div class="uc-grid">
-    <div class="uc"><div class="uc-title">Decision makers</div><div class="uc-body">Settle disputes and make quick binary choices with a neutral random tiebreaker that both parties accept as fair.</div></div>
-    <div class="uc"><div class="uc-title">Students</div><div class="uc-body">Practice probability concepts — track session results and observe that each choice really does win, lose, and tie about equally over many rounds.</div></div>
-    <div class="uc"><div class="uc-title">Teachers</div><div class="uc-body">Introduce game theory and Nash equilibria: the only optimal strategy against a random opponent is to also play randomly, which this tool demonstrates live.</div></div>
-    <div class="uc"><div class="uc-title">Game players</div><div class="uc-body">Warm up before tournaments or practice reading patterns in their own choices — most people aren't as random as they think.</div></div>
-  </div>
-</div>
 <!-- /SLOT:who -->
 
 <!-- SLOT:init -->
@@ -358,16 +360,6 @@ const WORDINEER_RPS = (() => {
 
     document.querySelectorAll('.rps-choice-btn').forEach(function(btn) {
       btn.addEventListener('click', function() { play(btn.dataset.choice); });
-    });
-
-    document.querySelectorAll('.faq-item summary').forEach(function(s) {
-      s.addEventListener('click', function(e) {
-        e.preventDefault();
-        var item = s.closest('.faq-item');
-        var wasOpen = item.hasAttribute('open');
-        document.querySelectorAll('.faq-item[open]').forEach(function(i) { i.removeAttribute('open'); });
-        if (!wasOpen) item.setAttribute('open', '');
-      });
     });
   }
 

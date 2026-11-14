@@ -22,19 +22,6 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "Random Number Generator 1 to 30",
-  "url": "https://wordineer.com/random-number-1-30",
-  "description": "Generate a random number between 1 and 30. Pool mode for classrooms of 30, distribution chart, blind pick.",
-  "applicationCategory": "UtilityApplication",
-  "operatingSystem": "Web",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-  "publisher": { "@id": "https://wordineer.com/#organization" }
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
@@ -147,7 +134,7 @@
     Free · No sign-up · Instant
   </div>
   <h1>Random number generator 1 to 30</h1>
-  <p>Pick a random number between 1 and 30 instantly. Perfect for a classroom of 30 students — pool mode calls on every student exactly once. Works on any device, no install needed.</p>
+  <p>A simple way to pick a number between 1 and 30. Random number generator works on any device and does not require a download. Pool mode ensures that all thirty students are called upon exactly once.</p>
 </div>
 <!-- /SLOT:hero -->
 
@@ -242,52 +229,39 @@
 <!-- SLOT:explainer -->
 <div class="explainer">
   <h2>What is a random number between 1 and 30?</h2>
-  <p>Thirty is one of the most common classroom and event sizes. Each of the 30 integers has exactly a 3.3% chance per generate. The 1–30 range covers class rosters, monthly calendar days, team assignments for groups of 30, and raffle draws with exactly 30 tickets. This tool uses JavaScript's <code>Math.random()</code> seeded from hardware entropy for unbiased results.</p>
+  <p>Thirty is a very common class size and event size. Each of the thirty integers represents a 3.3% chance of being selected with this tool. This function can generate numbers in the range of 1-30, i.e. class lists, a monthly calendar, group sizes of thirty, and a raffle with thirty tickets. This tool uses the unseeded, seeded and hardware entropy seeded versions of JavaScript's Math.random function.</p>
 
   <h2>Pool mode: the classroom tool</h2>
-  <p>Pool mode is the key feature for teachers with classes of 30. Activate it and the tool shuffles all 30 student numbers into a queue. Each generate draws the next number without replacement — guaranteeing every student is called on exactly once before the pool resets. The progress bar shows how many students remain. This eliminates the awkward "I keep calling the same students" problem.</p>
+  <p>For teachers with big classes (30+ students), the Pool mode is the most important feature. In this mode, the generator first shuffles the numbers of all students in the class. Then, for each generated number, the tool picks the next number from the (shrinking) pool of remaining student numbers, without replacement. The progress bar shows how many students are left in the pool. This avoids the worst problem for teachers with large classes: keeping calling the same students.</p>
 
   <h2>Distribution: buckets of three</h2>
-  <p>After 10 generates, the distribution chart groups results into 10 buckets of 3 numbers each (1–3, 4–6, …, 28–30). Over many generates, each bucket should fill at roughly the same rate, visually confirming the generator is not biased toward any part of the 1–30 range.</p>
+  <p>The distribution chart groups the results from each generated number into 10 groups of 3 numbers each (e.g., 1 to 3, 4 to 6, 7 to 9, 10 to 12, all the way to 28 to 30). Each bucket should fill roughly equally often after several number generations to confirm that the distribution is uniform and not biased to any part of the 1–30 range.</p>
 </div>
 <!-- /SLOT:explainer -->
 
 <!-- SLOT:faq -->
 <div class="faq">
   <h2 class="faq-title">Frequently asked questions</h2>
-
-  <details class="faq-item">
-    <summary class="faq-q">Is this truly random?</summary>
-    <div class="faq-a">Yes. Math.random() seeded from hardware entropy. Each of the 30 integers has a 3.3% (1-in-30) probability per generate — statistically uniform and unbiased.</div>
-  </details>
-
-  <details class="faq-item">
-    <summary class="faq-q">What is pool mode for 1–30?</summary>
-    <div class="faq-a">Pool mode draws all 30 numbers in shuffled order without replacement. Every number appears once before any repeat. Ideal for calling on a class of 30 students with guaranteed fairness — no student gets called twice before everyone has been called once.</div>
-  </details>
-
-  <details class="faq-item">
-    <summary class="faq-q">Can I exclude specific numbers?</summary>
-    <div class="faq-a">Yes. Click "Exclude numbers" and enter a comma-separated list. Excluded numbers are skipped in both normal and pool modes. Useful for classes smaller than 30 — exclude unused roster numbers.</div>
-  </details>
-
-  <details class="faq-item">
-    <summary class="faq-q">What does the distribution chart show?</summary>
-    <div class="faq-a">After 10 generates, the chart shows results grouped into 10 buckets of 3 (1–3, 4–6, …, 28–30). Over many generates, each bucket should fill equally — confirming no bias toward any portion of the range.</div>
-  </details>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">Is this truly random?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Yes. Math.random() is seeded from hardware entropy. Each of the 30 numbers has a 3.3% chance (or a 1 in 30 change) of being selected, so it is statistically uniform and unbiased.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What is pool mode for 1–30?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>This mode generates a pool of all 30 numbers in random order. Each number is called once before any number is called again. This mode is ideal for random selection from a class of 30 students where every student is called once before any student is called again.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I exclude specific numbers?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>You can also specify numbers to be excluded from drawing using a comma-delimited list in the “Exclude numbers” field. This can be particularly useful for classes with less than 30 students (i.e. with unused numbers in the roster).</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What does the distribution chart show?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>After 10 numbers are generated, the chart is grouped into 10 buckets of 3 numbers each (1–3, 4–6, 7–9, 10–12, 13–15, 16–18, 19–21, 22–24, 25–27, 28–30). As you use the generator, each bucket should ideally be filled equally, so there is no bias to any portion of the range.</p></div>
+  </div>
 </div>
 <!-- /SLOT:faq -->
 
 <!-- SLOT:who -->
-<div>
-  <h2 class="section-title" style="margin-bottom:14px">Who uses this tool</h2>
-  <div class="uc-grid">
-    <div class="uc"><div class="uc-title">Teachers</div><div class="uc-body">Call on students in a class of 30 with pool mode. Every student is called exactly once before the pool resets — fair for the whole class.</div></div>
-    <div class="uc"><div class="uc-title">Raffle organizers</div><div class="uc-body">Draw from pools of exactly 30 tickets. Pool mode guarantees unique winners with no repeats and a visible progress bar.</div></div>
-    <div class="uc"><div class="uc-title">Event planners</div><div class="uc-body">Assign seat numbers, table positions, or team slots for groups of 30. Pool mode ensures every slot is assigned once.</div></div>
-    <div class="uc"><div class="uc-title">Game players</div><div class="uc-body">Use for 30-space board games, monthly day picks, or any game requiring random selection within a 1–30 range.</div></div>
-  </div>
-</div>
 <!-- /SLOT:who -->
 
 <!-- SLOT:init -->
@@ -535,15 +509,6 @@ const WORDINEER_RN30 = (() => {
     document.addEventListener('keydown', function(e) {
       if (['INPUT','SELECT','TEXTAREA','BUTTON'].includes(e.target.tagName)) return;
       if (e.code === 'Space' || e.code === 'Enter') { e.preventDefault(); generate(); }
-    });
-    document.querySelectorAll('.faq-item summary').forEach(function(s) {
-      s.addEventListener('click', function(e) {
-        e.preventDefault();
-        const item = s.closest('.faq-item');
-        const wasOpen = item.hasAttribute('open');
-        document.querySelectorAll('.faq-item[open]').forEach(function(i) { i.removeAttribute('open'); });
-        if (!wasOpen) item.setAttribute('open', '');
-      });
     });
   }
 

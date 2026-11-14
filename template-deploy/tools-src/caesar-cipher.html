@@ -1,0 +1,325 @@
+<!-- CONFIG
+{
+  "url": "/caesar-cipher/",
+  "output": "caesar-cipher.html",
+  "type": "tool",
+  "more_tools_key": "more_text_tools",
+  "more_tools_title": "More text tools",
+  "more_tools_subtitle": "Encrypt, decode, and transform text instantly."
+}
+-->
+
+<!-- SLOT:meta -->
+<title>Caesar Cipher Encoder & Decoder | Wordineer</title>
+<meta name="description" content="Free Caesar cipher encoder and decoder. Shift letters by any amount (1–25), decode ROT13, and see a live letter mapping. No sign-up required.">
+<link rel="canonical" href="https://wordineer.com/caesar-cipher/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wordineer">
+<meta property="og:title" content="Caesar Cipher Encoder & Decoder | Wordineer">
+<meta property="og:description" content="Encode or decode text with a Caesar shift cipher. Supports all shifts 1–25, ROT13, and live letter mapping.">
+<meta property="og:url" content="https://wordineer.com/caesar-cipher/">
+<meta property="og:image" content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a Caesar cipher?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A Caesar cipher is one of the oldest encryption techniques. It shifts every letter in the alphabet by a fixed number of positions. For example, with a shift of 3, A becomes D and Z becomes C." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is ROT13?",
+      "acceptedAnswer": { "@type": "Answer", "text": "ROT13 is a Caesar cipher with a shift of 13. Because the English alphabet has 26 letters, applying ROT13 twice returns the original text, making it its own inverse." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this tool handle uppercase and lowercase letters?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Uppercase letters shift within the uppercase range and lowercase letters shift within the lowercase range. Numbers, spaces, and punctuation pass through unchanged." }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I decode a Caesar cipher?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Switch the tool to Decode mode, paste the ciphertext, and set the same shift number that was used to encode it. The original message will appear in the output box." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I chain encode operations?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Use the Swap button to move the output into the input field, change the shift, and encode again." }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Text Tools", "item": "https://wordineer.com/text-tools/" },
+    { "@type": "ListItem", "position": 3, "name": "Caesar Cipher", "item": "https://wordineer.com/caesar-cipher/" }
+  ]
+}
+</script>
+<!-- /SLOT:meta -->
+
+<!-- SLOT:style -->
+<style>
+.cc-inner{max-width:960px;margin:0 auto;padding:0 16px 40px}
+.cc-tabs { display: flex; gap: 8px; margin-bottom: 18px; }
+.cc-tab {
+  flex: 1; padding: 9px 0; border-radius: 8px; border: 2px solid #e0dff5;
+  background: #fff; font-size: 0.97rem; font-weight: 600; cursor: pointer;
+  color: #555; transition: background 0.13s, border-color 0.13s, color 0.13s;
+}
+.cc-tab.active { background: #3C3489; border-color: #3C3489; color: #fff; }
+.cc-tab:hover:not(.active) { border-color: #3C3489; color: #3C3489; }
+
+.cc-label { font-size: 0.85rem; font-weight: 600; color: #444; margin-bottom: 5px; display: block; }
+.cc-textarea {
+  width: 100%; box-sizing: border-box; border: 1.5px solid #ddd; border-radius: 8px;
+  padding: 10px 12px; font-size: 0.97rem; font-family: inherit; resize: vertical;
+  min-height: 100px; background: #fafafa; transition: border-color 0.15s;
+}
+.cc-textarea:focus { outline: none; border-color: #3C3489; background: #fff; }
+.cc-textarea[readonly] { background: #f4f3fb; cursor: default; }
+
+.cc-slider-row { display: flex; align-items: center; gap: 12px; margin: 14px 0 6px; }
+.cc-slider { flex: 1; accent-color: #3C3489; }
+.cc-shift-val {
+  min-width: 36px; text-align: center; font-weight: 700; font-size: 1.1rem;
+  color: #3C3489; background: #f0effe; border-radius: 6px; padding: 2px 6px;
+}
+.cc-rot-btn {
+  padding: 5px 13px; border-radius: 7px; border: 1.5px solid #3C3489;
+  background: #fff; color: #3C3489; font-size: 0.85rem; font-weight: 600;
+  cursor: pointer; transition: background 0.13s, color 0.13s; white-space: nowrap;
+}
+.cc-rot-btn:hover { background: #3C3489; color: #fff; }
+
+.cc-map {
+  font-size: 0.78rem; color: #666; background: #f4f3fb; border-radius: 7px;
+  padding: 7px 10px; font-family: monospace; letter-spacing: 0.03em;
+  margin-bottom: 14px; overflow: hidden; white-space: nowrap;
+}
+
+.cc-btn-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+.cc-primary {
+  background: #3C3489; color: #fff; border: none; border-radius: 10px;
+  font-size: 1rem; font-weight: 600; cursor: pointer; padding: 10px 28px;
+  transition: background 0.15s;
+}
+.cc-primary:hover { background: #2e2870; }
+.cc-secondary {
+  background: #fff; color: #3C3489; border: 1.5px solid #3C3489; border-radius: 10px;
+  font-size: 0.93rem; font-weight: 600; cursor: pointer; padding: 9px 18px;
+  transition: background 0.13s, color 0.13s;
+}
+.cc-secondary:hover { background: #3C3489; color: #fff; }
+.cc-copied { color: #1a8c4e; font-size: 0.85rem; align-self: center; display: none; }
+</style>
+<!-- /SLOT:style -->
+
+<!-- SLOT:hero -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/text-tools/">Text Tools</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Caesar Cipher</span>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free · No sign-up · Instant
+  </div>
+  <h1>Caesar Cipher Encoder &amp; Decoder</h1>
+  <p>Encode or decode text with a shift cipher. Adjust the shift (1–25), use ROT13, and see a live letter mapping.</p>
+  <p style="font-size:12px;color:var(--text-3);margin-top:8px">Built by Garrick Dee · Last verified August 2026</p>
+</div>
+<!-- /SLOT:hero -->
+
+<!-- SLOT:tool -->
+<div class="tool-wrap">
+  <div class="tool-card cc-inner">
+    <div class="cc-tabs">
+      <button class="cc-tab active" id="cc-encode-tab" onclick="ccSetMode('encode')">Encode</button>
+      <button class="cc-tab" id="cc-decode-tab" onclick="ccSetMode('decode')">Decode</button>
+    </div>
+
+    <label class="cc-label" for="cc-input">Input text</label>
+    <textarea class="cc-textarea" id="cc-input" placeholder="Type or paste text here…" rows="4"></textarea>
+
+    <div class="cc-slider-row">
+      <label class="cc-label" style="margin:0;white-space:nowrap">Shift</label>
+      <input class="cc-slider" type="range" id="cc-shift" min="1" max="25" value="3">
+      <span class="cc-shift-val" id="cc-shift-val">3</span>
+      <button class="cc-rot-btn" onclick="ccSetShift(13)">ROT13</button>
+    </div>
+
+    <div class="cc-map" id="cc-map"></div>
+
+    <label class="cc-label" for="cc-output">Output</label>
+    <textarea class="cc-textarea" id="cc-output" readonly rows="4"></textarea>
+
+    <div class="cc-btn-row">
+      <button class="cc-secondary" onclick="ccSwap()">⇅ Swap</button>
+      <button class="cc-secondary" onclick="ccCopy()">Copy output</button>
+      <span class="cc-copied" id="cc-copied">Copied!</span>
+      <button class="cc-secondary" onclick="ccClear()">Clear</button>
+    </div>
+  </div>
+</div>
+<!-- /SLOT:tool -->
+
+<!-- SLOT:ad_b -->
+<!-- /SLOT:ad_b -->
+
+<!-- SLOT:explainer -->
+<div>
+  <h2 class="section-title">How it works</h2>
+  <div class="explainer-grid">
+    <div class="exp-step">
+      <div class="exp-num">1</div>
+      <div><strong>Decide whether to encode or decode</strong><p>Pick Encode to scramble readable text into cipher, or Decode to reverse a message you've received. You can switch between them without re-entering your text.</p></div>
+    </div>
+    <div class="exp-step">
+      <div class="exp-num">2</div>
+      <div><strong>Pick your shift value</strong><p>Drag the slider anywhere from 1 to 25. The alphabet bar below it shows the complete substitution map — every original letter and its cipher equivalent — so you can verify the mapping at a glance before copying.</p></div>
+    </div>
+    <div class="exp-step">
+      <div class="exp-num">3</div>
+      <div><strong>Copy the output — or chain it</strong><p>Copy your result with one click. The Swap button feeds the output back into the input field, useful for applying a second shift on top of the first or quickly confirming a round-trip.</p></div>
+    </div>
+  </div>
+</div>
+<!-- /SLOT:explainer -->
+
+<!-- SLOT:faq -->
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">What is a Caesar cipher?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>A Caesar cipher is one of the oldest encryption techniques. It shifts every letter in the alphabet by a fixed number of positions. For example, with a shift of 3, A becomes D and Z wraps around to C.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What is ROT13 and how is it different?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>ROT13 is simply a Caesar cipher with a shift of 13. Because the English alphabet has 26 letters, encoding with ROT13 twice returns the original text — it is its own inverse. Click the ROT13 button to set the shift instantly.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Does the tool handle uppercase and lowercase letters?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Yes. Uppercase letters shift within A–Z and lowercase letters shift within a–z. Digits, spaces, and punctuation are passed through unchanged.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">How do I decode a Caesar cipher?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Switch to Decode mode, paste the ciphertext, and set the same shift number that was used when encoding. The original message will appear in the output box immediately.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I apply multiple shifts in a row?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Yes. After encoding, click Swap to move the output into the input field, change the shift, and encode again. You can chain as many operations as you like.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Why do numbers and punctuation pass through unchanged?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Caesar cipher was designed for the 26-letter Latin alphabet only. Numbers and punctuation marks have no natural "shifted" equivalent in a 26-position rotation, so this tool leaves them as-is — a period stays a period, "7" stays "7". This is standard behavior across Caesar cipher implementations. If you need digits shifted too, you'd need a different cipher scheme where the character set is explicitly extended beyond A–Z.</p></div>
+  </div>
+</div>
+<!-- /SLOT:faq -->
+
+<!-- SLOT:who -->
+<div>
+  <h2 class="section-title" style="margin-bottom:10px">How to use the Caesar cipher</h2>
+  <p style="font-size:15px;line-height:1.75;color:var(--text-2)">Set your shift value using the slider or type a number directly — the range is 1 to 25. Hit <strong>ROT13</strong> to jump straight to shift 13, the most common preset. Type your message in the top field and the encoded output appears below in real time. To decode an existing cipher, paste the encoded text into the top field and use <strong>Swap</strong> to move it to the output — then reverse the shift (e.g. if it was encoded at shift 7, set the slider to 7 and read the top field). Both fields update live as you adjust the shift.</p>
+</div>
+<!-- /SLOT:who -->
+
+<!-- SLOT:init -->
+<script>
+(function(){
+  var mode = 'encode';
+  var shift = 3;
+
+  function ccSetMode(m) {
+    mode = m;
+    document.getElementById('cc-encode-tab').classList.toggle('active', m === 'encode');
+    document.getElementById('cc-decode-tab').classList.toggle('active', m === 'decode');
+    ccRun();
+  }
+  window.ccSetMode = ccSetMode;
+
+  function ccSetShift(n) {
+    shift = n;
+    var sl = document.getElementById('cc-shift');
+    sl.value = n;
+    document.getElementById('cc-shift-val').textContent = n;
+    ccRun();
+  }
+  window.ccSetShift = ccSetShift;
+
+  function caesar(text, n, decode) {
+    var s = decode ? (26 - n) % 26 : n;
+    return text.replace(/[a-zA-Z]/g, function(c) {
+      var base = c >= 'a' ? 97 : 65;
+      return String.fromCharCode(((c.charCodeAt(0) - base + s) % 26) + base);
+    });
+  }
+
+  function buildMap(n, decode) {
+    var s = decode ? (26 - n) % 26 : n;
+    var out = '';
+    for (var i = 0; i < 10; i++) {
+      var from = String.fromCharCode(65 + i);
+      var to = String.fromCharCode(((i + s) % 26) + 65);
+      out += from + '→' + to + '  ';
+    }
+    return out.trim() + ' …';
+  }
+
+  function ccRun() {
+    var input = document.getElementById('cc-input').value;
+    document.getElementById('cc-output').value = caesar(input, shift, mode === 'decode');
+    document.getElementById('cc-map').textContent = buildMap(shift, mode === 'decode');
+  }
+
+  function ccSwap() {
+    var inp = document.getElementById('cc-input');
+    var out = document.getElementById('cc-output');
+    inp.value = out.value;
+    ccRun();
+  }
+  window.ccSwap = ccSwap;
+
+  function ccCopy() {
+    var val = document.getElementById('cc-output').value;
+    if (!val) return;
+    navigator.clipboard.writeText(val).catch(function() {
+      var ta = document.createElement('textarea');
+      ta.value = val; document.body.appendChild(ta); ta.select();
+      document.execCommand('copy'); document.body.removeChild(ta);
+    });
+    var el = document.getElementById('cc-copied');
+    el.style.display = 'inline';
+    setTimeout(function(){ el.style.display = 'none'; }, 1800);
+  }
+  window.ccCopy = ccCopy;
+
+  function ccClear() {
+    document.getElementById('cc-input').value = '';
+    document.getElementById('cc-output').value = '';
+  }
+  window.ccClear = ccClear;
+
+  document.getElementById('cc-input').addEventListener('input', ccRun);
+  document.getElementById('cc-shift').addEventListener('input', function() {
+    shift = parseInt(this.value, 10);
+    document.getElementById('cc-shift-val').textContent = shift;
+    ccRun();
+  });
+
+  ccRun();
+})();
+</script>
+<!-- /SLOT:init -->

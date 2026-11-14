@@ -1,0 +1,333 @@
+<!-- CONFIG
+{
+  "url": "/pirate-name-generator/",
+  "output": "pirate-name-generator.html",
+  "type": "tool"
+}
+-->
+
+<!-- SLOT:meta -->
+<title>Pirate Name Generator — Captains, Admirals & Swashbucklers | Wordineer</title>
+<meta name="description" content="Pirate names with title prefixes and optional backstory lore. Filter by gender, notoriety, and tone — from bumbling scallywags to legendary admirals.">
+<link rel="canonical" href="https://wordineer.com/pirate-name-generator/">
+<meta property="og:type"        content="website">
+<meta property="og:site_name"   content="Wordineer">
+<meta property="og:title"       content="Pirate Name Generator | Wordineer">
+<meta property="og:description" content="Generate pirate names from scallywags to legendary captains. Filter by gender, notoriety, and tone. Free, instant, no signup.">
+<meta property="og:url"         content="https://wordineer.com/pirate-name-generator">
+<meta property="og:image"       content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Other Generators", "item": "https://wordineer.com/other-generators/" },
+    { "@type": "ListItem", "position": 3, "name": "Pirate Name Generator", "item": "https://wordineer.com/pirate-name-generator/" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Can I use pirate names in my stories or games?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Names aren't copyrightable, so any generated name is free to use in fiction, tabletop games, video games, or any creative project. Most generated names are original combinations — just do a quick search if a name seems familiar." } },
+    { "@type": "Question", "name": "What's the difference between scallywag and captain notoriety?", "acceptedAnswer": { "@type": "Answer", "text": "Scallywags are low-level and often comic — they have nicknames rather than titles, and their crimes are more embarrassing than threatening. Captains command ships and have real power, but operate locally. Admirals control fleets and are institutional threats. Legendary pirates have names that operate like myths — their deeds are so large they've become more story than person." } },
+    { "@type": "Question", "name": "What makes a pirate name sound authentic vs. silly?", "acceptedAnswer": { "@type": "Answer", "text": "Authentic pirate names tend to be based on real descriptors — a physical trait, a method, a reputation — combined with a given name. 'Ironhand Mary' and 'Saltbeard' work because they describe something real. 'Professor Scurvy McPirate' announces it's a joke. The comedic tone filter leans into the silliness intentionally; the swashbuckler tone stays grounded." } },
+    { "@type": "Question", "name": "How do I build a complete pirate character from the name?", "acceptedAnswer": { "@type": "Answer", "text": "Start with the lore tag in the results — it's a short flavor hint that suggests a backstory angle. 'known for sinking 12 merchant ships' gives you a reputation. 'identity unknown · leaves a playing card at every crime' gives you a mystery. Use those hints as springboards, not scripts — they're there to spark ideas, not constrain them." } },
+    { "@type": "Question", "name": "Does this generator use AI?", "acceptedAnswer": { "@type": "Answer", "text": "No. The generator uses curated name pools filtered by gender, notoriety, and tone. Every name and lore tag is handpicked — no language model generates them. Results are purposeful and tonal rather than randomly assembled." } },
+    { "@type": "Question", "name": "Can I save pirate names?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — click the heart icon next to any name to save it to your Saved Names list below the results. Saved names persist as long as the tab is open. Copy them before closing." } }
+  ]
+}
+</script>
+<!-- /SLOT:meta -->
+
+<!-- SLOT:style -->
+<style>
+.tool-wrap  { max-width:960px; margin:0 auto; padding:24px 24px 0; }
+.tool-card  { border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg); box-shadow:var(--shadow); }
+.tool-split { display:flex; }
+.ctrl        { width:220px; flex-shrink:0; padding:18px; border-right:1px solid var(--border-2); background:var(--bg-2); }
+.ctrl-row    { margin-bottom:14px; }
+.ctrl-label  { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; display:block; margin-bottom:5px; }
+.ctrl-select { width:100%; padding:7px 10px; border:1px solid var(--border); border-radius:7px; background:var(--bg); color:var(--text); font-size:13px; font-family:inherit; cursor:pointer; appearance:none; -webkit-appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23888' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 10px center; padding-right:28px; }
+.ctrl-select:focus { outline:2px solid var(--brand); outline-offset:1px; }
+.gen-btn    { width:100%; padding:10px 14px; background:var(--brand); color:white; border:none; border-radius:8px; font-size:14px; font-weight:600; font-family:inherit; cursor:pointer; transition:background .15s,transform .1s; letter-spacing:-.01em; margin-top:4px; }
+.gen-btn:hover  { background:var(--brand-dark); }
+.gen-btn:active { transform:scale(.98); }
+.kbd        { text-align:center; font-size:10px; color:var(--text-3); margin-top:6px; }
+.kbd kbd    { background:var(--bg-3); border:1px solid var(--border); border-radius:3px; padding:1px 5px; font-size:10px; font-family:inherit; }
+.words-panel { flex:1; display:flex; flex-direction:column; overflow:hidden; min-height:380px; }
+.words-top   { display:flex; align-items:center; justify-content:space-between; padding:10px 16px; border-bottom:1px solid var(--border-2); }
+.words-count { font-size:12px; color:var(--text-3); }
+.words-actions { display:flex; gap:6px; }
+.act-btn { font-size:11px; padding:4px 10px; border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; font-weight:500; transition:background .12s; }
+.act-btn:hover { background:var(--bg-2); }
+.word-list   { flex:1; list-style:none; padding:0; margin:0; }
+.bn-item     { display:flex; align-items:center; padding:9px 16px; border-bottom:1px solid var(--border-2); gap:8px; animation:bnFade .18s ease; }
+.bn-item:last-child { border-bottom:none; }
+@keyframes bnFade { from{opacity:0;transform:translateY(3px)} to{opacity:1;transform:none} }
+.bn-num      { font-size:11px; color:var(--text-3); min-width:18px; text-align:right; flex-shrink:0; }
+.bn-name-wrap { flex:1; display:flex; flex-direction:column; gap:2px; overflow:hidden; }
+.bn-name     { font-size:15px; font-weight:500; color:var(--text); letter-spacing:-.01em; }
+.bn-tag      { font-size:11px; color:var(--text-3); }
+.bn-btns     { display:flex; align-items:center; gap:4px; flex-shrink:0; }
+.icon-btn { width:28px; height:28px; display:flex; align-items:center; justify-content:center; background:transparent; border:none; cursor:pointer; border-radius:5px; color:var(--text-3); transition:background .12s, color .12s; }
+.icon-btn:hover { background:var(--bg-2); color:var(--text); }
+.icon-btn svg { width:14px; height:14px; }
+.icon-btn.saved { color:#E24B4A; }
+.icon-btn.saved svg path { fill:#E24B4A; }
+.saved-section { border-top:1px solid var(--border); padding:12px 14px; background:var(--bg); }
+.saved-top { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:8px; }
+.saved-label { font-size:12px; font-weight:700; color:var(--text); }
+.saved-copy { border:1px solid var(--border); background:var(--bg); color:var(--brand); border-radius:7px; padding:5px 9px; font-size:11px; font-weight:600; cursor:pointer; }
+.saved-tags { display:flex; gap:5px; flex-wrap:wrap; min-height:22px; }
+.saved-tag { display:inline-flex; align-items:center; gap:4px; background:#F0F2FF; color:var(--brand); border-radius:999px; padding:4px 8px; font-size:11px; font-weight:600; }
+.saved-tag-remove { cursor:pointer; opacity:.65; }
+.bn-toast { position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(10px); background:#1a1a1a; color:white; font-size:13px; font-weight:600; padding:10px 18px; border-radius:8px; opacity:0; transition:opacity .2s,transform .2s; pointer-events:none; z-index:999; }
+.bn-toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+.explainer h2 { font-size:20px; font-weight:700; margin:32px 0 10px; color:var(--text); }
+.explainer h3 { font-size:16px; font-weight:700; margin:20px 0 6px; color:var(--text); }
+.explainer p  { font-size:15px; line-height:1.75; color:var(--text-2); margin:0 0 14px; }
+</style>
+<!-- /SLOT:style -->
+
+<!-- SLOT:hero -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/other-generators/">Other Generators</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Pirate Name Generator</span>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free · No sign-up · Instant
+  </div>
+  <h1>Pirate Name Generator</h1>
+  <p>Generate pirate names from bumbling scallywags to legendary admirals. Filter by gender, notoriety level, and tone — each result includes a lore blurb to spark backstory ideas for your story, game, or costume.</p>
+</div>
+<!-- /SLOT:hero -->
+
+<!-- SLOT:tool -->
+<div class="tool-wrap">
+  <div class="tool-card">
+    <div class="tool-split">
+      <div class="ctrl">
+        <div class="ctrl-row">
+          <label class="ctrl-label" for="bn-gender">Gender</label>
+          <select class="ctrl-select" id="bn-gender">
+            <option value="any">Any Gender</option>
+            <option value="m">Male</option>
+            <option value="f">Female</option>
+          </select>
+        </div>
+        <div class="ctrl-row">
+          <label class="ctrl-label" for="bn-notoriety">Notoriety</label>
+          <select class="ctrl-select" id="bn-notoriety">
+            <option value="any">Any Notoriety</option>
+            <option value="scallywag">Scallywag</option>
+            <option value="captain">Ship Captain</option>
+            <option value="admiral">Admiral / Commodore</option>
+            <option value="legend">Legendary Pirate</option>
+          </select>
+        </div>
+        <div class="ctrl-row">
+          <label class="ctrl-label" for="bn-tone">Tone</label>
+          <select class="ctrl-select" id="bn-tone">
+            <option value="any">Any Tone</option>
+            <option value="comedic">Comedic</option>
+            <option value="menacing">Menacing</option>
+            <option value="swashbuckler">Classic Swashbuckler</option>
+          </select>
+        </div>
+        <button class="gen-btn" id="bn-gen-btn">Generate Pirate Names</button>
+        <p class="kbd">Press <kbd>Enter</kbd> to generate</p>
+      </div>
+      <div class="words-panel">
+        <div class="words-top">
+          <span class="words-count" id="bn-count">10 names</span>
+          <div class="words-actions">
+            <button class="act-btn" id="bn-copy-all-btn">Copy all</button>
+            <button class="act-btn" id="bn-regen-btn">Regenerate</button>
+          </div>
+        </div>
+        <ul class="word-list" id="bn-list" aria-label="Generated pirate names" aria-live="polite"></ul>
+      </div>
+    </div>
+    <div class="saved-section" id="bn-saved-section" style="display:none">
+      <div class="saved-top">
+        <span class="saved-label">Saved names <span id="bn-saved-count" style="font-weight:400;opacity:.7">(0)</span></span>
+        <span class="saved-copy" id="bn-saved-copy">Copy saved</span>
+      </div>
+      <div class="saved-tags" id="bn-saved-tags"></div>
+    </div>
+  </div>
+</div>
+<div class="bn-toast" id="bn-toast" role="status" aria-live="polite">Copied!</div>
+<!-- /SLOT:tool -->
+
+<!-- SLOT:ad_b --><!-- /SLOT:ad_b -->
+
+<!-- SLOT:explainer -->
+<div class="explainer">
+  <h2>How to Use This Generator</h2>
+  <p>Pirate names work differently depending on what you need them for. A comedic pirate for a kids' book needs a name that's fun to say aloud — one that gets a smile, not a shudder. A menacing villain in an adventure novel needs something that implies a real body count. A legendary pirate for a tabletop campaign needs a name that sounds like it's been spoken around too many fires, passed down as warning. The three tone filters handle these different registers.</p>
+  <p>The notoriety filter matters for scale. Scallywags get nicknames — "Scallywag Pete", "Fumble Jack", "One-Tooth Murray" — because they haven't earned a title. Captains have real authority over a ship; their names can carry titles. Admirals command fleets and represent institutional pirate power. Legendary pirates operate at myth scale — their name is more famous than they are, and half of what's said about them is probably false.</p>
+  <p>Each result includes a lore tag — a short line that hints at a backstory element or reputation. These are starting points, not complete stories. "Known for sinking 12 merchant ships" is a reputation fact. "Identity unknown · leaves a playing card at every crime" is a mystery setup. Use whatever angle sparks something useful and discard the rest.</p>
+
+  <h2>What Makes a Good Pirate Name</h2>
+  <h3>It should sound like a title, not just a name</h3>
+  <p>Real historical pirates had names that functioned as reputations. "Blackbeard" wasn't Edward Teach's birth name — it was a brand, communicating the terror he intended to inspire before anyone had to prove it. The best pirate names work this way: they announce something about the person before the person says a word. "Ironhand Mary" tells you she's been through something. "The Laughing Corsair" tells you she finds this funny.</p>
+  <h3>Descriptors beat invented names</h3>
+  <p>Pirate names that stick tend to be built from real descriptors — physical traits, methods, reputations — combined with a given name. "Saltbeard", "Ironkeel", "The Black Widow of the Sea" — these all describe something observable. Generic invented names (Zaxvorn the Dread) read as less pirate and more generic fantasy villain.</p>
+  <h3>The comedic register has its own rules</h3>
+  <p>Comic pirate names work through a specific kind of deflation — the name signals incompetence, bad luck, or unearned confidence. "Fumble Jack" implies a track record. "One-Tooth Murray" implies a story. "Scallywag Pete" implies he's been called that since before he deserved even the title scallywag. These names are funnier when they're specific rather than generic.</p>
+
+  <h2>Pirate Names for D&D and Tabletop</h2>
+  <p>Pirate campaigns — Ghosts of Saltmarsh, homebrew sea adventures, swashbuckling one-shots — need names at every level: the comedic barkeep who has a ship for sale, the menacing captain who runs the local sea lanes, the legendary admiral whose flag makes entire navies rethink their route. The notoriety filter maps directly to these levels of NPCs. For characters who sit at the villain end of the spectrum, the <a href="/villain-name-generator/">villain name generator</a> handles names with darker organizational structures. For general fantasy character naming, the <a href="/character-name-generator/">character name generator</a> covers a wider range of settings and styles.</p>
+</div>
+<!-- /SLOT:explainer -->
+
+<!-- SLOT:faq -->
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">Can I use pirate names in my stories or games?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes. Names aren't copyrightable, so any generated name is free to use in fiction, tabletop games, video games, or any creative project. Most generated names are original — just search a name if it seems familiar.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What's the difference between scallywag and captain notoriety?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Scallywags are low-level and often comic — nicknames rather than titles. Captains command ships and have real power. Admirals control fleets and are institutional threats. Legendary pirates have names that operate like myths — their deeds are so large they've become more story than person.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What makes a pirate name sound authentic vs. silly?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Authentic pirate names tend to be built from real descriptors combined with a given name. "Ironhand Mary" and "Saltbeard" work because they describe something. The comedic tone filter leans into silliness intentionally; the swashbuckler tone stays grounded in historical-feeling names.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">How do I build a complete pirate character from the name?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Start with the lore tag — it's a short flavor hint that suggests a backstory angle. "Known for sinking 12 merchant ships" gives you a reputation. "Identity unknown · leaves a playing card at every crime" gives you a mystery. Use those hints as springboards, not scripts.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Does this generator use AI?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">No. The generator uses curated name pools filtered by gender, notoriety, and tone. Every name and lore tag is handpicked — no language model generates them.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I save pirate names?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes — click the heart icon next to any name to save it to your Saved Names list below the results. Saved names persist as long as the tab is open. Copy them before closing.</div>
+  </div>
+</div>
+<!-- /SLOT:faq -->
+
+<!-- SLOT:who -->
+<div>
+  <h2 class="section-title" style="margin-bottom:14px">Who uses a pirate name generator?</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">Fiction writers</div><div class="uc-body">Authors of pirate adventures, historical fiction, and fantasy who need names at every level from comic relief to main antagonist</div></div>
+    <div class="uc"><div class="uc-title">D&D / tabletop GMs</div><div class="uc-body">Dungeon Masters running sea campaigns who need NPC pirates from the friendly barkeep to the fleet admiral players will eventually have to fight</div></div>
+    <div class="uc"><div class="uc-title">Halloween & cosplay</div><div class="uc-body">People building a pirate costume or character who want a name to go with the look — especially useful when the costume has a specific vibe</div></div>
+    <div class="uc"><div class="uc-title">Game developers</div><div class="uc-body">Developers building pirate games, nautical RPGs, or adventures who need names that feel authentic across a range of character types</div></div>
+    <div class="uc"><div class="uc-title">Kids & school projects</div><div class="uc-body">Children writing pirate stories for school or play who need a fun name — the comedic filter is especially popular for this use case</div></div>
+  </div>
+</div>
+<!-- /SLOT:who -->
+
+<!-- SLOT:init -->
+<script>
+(function () {
+  var NAMES = [
+    { n:"Captain Blackthorn", g:"m", not:"captain", tone:"menacing", tag:"scourge of the Amber Sea · haunts the merchant routes" },
+    { n:"Admiral Ironbones", g:"m", not:"admiral", tone:"menacing", tag:"commands the Ironbones Fleet · no quarter given or requested" },
+    { n:"The Merciless Vane", g:"any", not:"legend", tone:"menacing", tag:"identity disputed · wanted in eleven ports" },
+    { n:"Captain Dreadmore", g:"m", not:"captain", tone:"menacing", tag:"the name alone empties harbors · reputation fully earned" },
+    { n:"Blackhearted Will", g:"m", not:"captain", tone:"menacing", tag:"has sunk more ships than most admirals will see" },
+    { n:"The Saltless", g:"any", not:"legend", tone:"menacing", tag:"never drinks · never sleeps · never tires · no one knows why" },
+    { n:"Admiral Scarlet Vane", g:"f", not:"admiral", tone:"swashbuckler", tag:"commands the Crimson Fleet · never loses a ship" },
+    { n:"Captain Elara Tideborn", g:"f", not:"captain", tone:"swashbuckler", tag:"fastest ship in the southern waters · always has a plan" },
+    { n:"Iron Mary", g:"f", not:"legend", tone:"menacing", tag:"survived three mutinies · caused two of them" },
+    { n:"Bloodtide Selene", g:"f", not:"captain", tone:"menacing", tag:"controls the straits · every merchant pays" },
+    { n:"The Black Corsair", g:"f", not:"legend", tone:"menacing", tag:"identity unknown · leaves a black coin on every ship she takes" },
+    { n:"Madam Ironquill", g:"f", not:"admiral", tone:"menacing", tag:"the Ironquill Compact · controls the charts, controls the sea" },
+    { n:"Scallywag Pete", g:"m", not:"scallywag", tone:"comedic", tag:"wanted in 3 ports · mostly for unpaid bar tabs" },
+    { n:"Fumble Jack", g:"m", not:"scallywag", tone:"comedic", tag:"has dropped his sword in battle at least four times" },
+    { n:"Barnacle Hob", g:"m", not:"scallywag", tone:"comedic", tag:"so slow to move the barnacles grow on him too" },
+    { n:"One-Tooth Murray", g:"m", not:"scallywag", tone:"comedic", tag:"used to have two · the story changes each time" },
+    { n:"Dizzy Cal", g:"m", not:"scallywag", tone:"comedic", tag:"sea legs · has none of them" },
+    { n:"Rusty Ned", g:"m", not:"scallywag", tone:"comedic", tag:"his sword is rusty · his reputation is worse" },
+    { n:"Captain Dashing", g:"m", not:"captain", tone:"swashbuckler", tag:"gave himself this title · has since grown into it" },
+    { n:"El Corsario", g:"m", not:"legend", tone:"swashbuckler", tag:"three navies have tried · he's still sailing" },
+    { n:"Silvertongue", g:"any", not:"captain", tone:"swashbuckler", tag:"has talked his way out of more situations than he's fought out of" },
+    { n:"The Duelist", g:"any", not:"legend", tone:"swashbuckler", tag:"never lost a one-on-one · everyone knows better than to try" },
+    { n:"Fortune's Favor", g:"any", not:"captain", tone:"swashbuckler", tag:"impossibly lucky · or very well-prepared · hard to say which" },
+    { n:"The Laughing Corsair", g:"any", not:"legend", tone:"comedic", tag:"identity unknown · leaves a playing card at every crime" },
+    { n:"Admiral Rum-and-Blood", g:"m", not:"admiral", tone:"comedic", tag:"the title is his actual name now · has embraced it" },
+    { n:"Saltbeard", g:"m", not:"captain", tone:"swashbuckler", tag:"the beard is real · the legend around it is at least half true" },
+    { n:"Ironkeel", g:"any", not:"legend", tone:"menacing", tag:"the ship is named after her · not the other way around" },
+    { n:"Lady Stormwreck", g:"f", not:"admiral", tone:"menacing", tag:"commands through weather no one else will sail in" },
+    { n:"The Bone Admiral", g:"any", not:"legend", tone:"menacing", tag:"flies no flag · needs none" },
+    { n:"Captain Mirela Crest", g:"f", not:"captain", tone:"swashbuckler", tag:"privateer · technically legal · mostly" },
+    { n:"Commodore Vex", g:"any", not:"admiral", tone:"menacing", tag:"controls the northern passages · prices are non-negotiable" },
+    { n:"Wandering Dot", g:"f", not:"scallywag", tone:"comedic", tag:"no fixed ship · borrows them · usually returns them" },
+    { n:"Maggot-Hat Bess", g:"f", not:"scallywag", tone:"comedic", tag:"the hat is real · the story behind it is worse" },
+    { n:"Captain Redflag", g:"m", not:"captain", tone:"menacing", tag:"the flag means what it says · he means what the flag says" },
+    { n:"The Undying Captain", g:"any", not:"legend", tone:"menacing", tag:"has been reported dead four times · keeps showing up" },
+    { n:"Ghostwave", g:"any", not:"legend", tone:"menacing", tag:"the ship appears in fog · never in clear water" },
+    { n:"The Jade Corsair", g:"f", not:"legend", tone:"swashbuckler", tag:"carries only jade · trades only jade · will not explain" },
+    { n:"Admiral Tempest", g:"f", not:"admiral", tone:"menacing", tag:"the Tempest Accord · weather follows her · people argue about why" }
+  ];
+
+  function shuffle(arr) { var a=arr.slice(); for (var i=a.length-1;i>0;i--) { var j=Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
+  function escH(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function showToast(msg) { var t=document.getElementById('bn-toast'); t.textContent=msg||'Copied!'; t.classList.add('show'); setTimeout(function(){ t.classList.remove('show'); },1800); }
+  function copyText(text) { if (navigator.clipboard&&navigator.clipboard.writeText) { navigator.clipboard.writeText(text).then(function(){ showToast(); }).catch(function(){ fallbackCopy(text); }); } else { fallbackCopy(text); } }
+  function fallbackCopy(text) { var ta=document.createElement('textarea'); ta.value=text; ta.style.cssText='position:fixed;opacity:0;pointer-events:none'; document.body.appendChild(ta); ta.focus(); ta.select(); try { document.execCommand('copy'); } catch(e) {} document.body.removeChild(ta); showToast(); }
+  var saved = {};
+  function renderSaved() { var section=document.getElementById('bn-saved-section'); var tags=document.getElementById('bn-saved-tags'); var countEl=document.getElementById('bn-saved-count'); var keys=Object.keys(saved); if (!keys.length) { section.style.display='none'; return; } section.style.display=''; if (countEl) countEl.textContent='('+keys.length+')'; tags.innerHTML=''; keys.forEach(function(name) { var span=document.createElement('span'); span.className='saved-tag'; span.innerHTML=escH(name)+'<span class="saved-tag-remove" data-remove="'+escH(name)+'" aria-label="Remove">×</span>'; tags.appendChild(span); }); }
+  function toggleSave(name, btn) { if (saved[name]) { delete saved[name]; btn.classList.remove('saved'); btn.title='Save'; } else { saved[name]=true; btn.classList.add('saved'); btn.title='Unsave'; } renderSaved(); }
+
+  function generate() {
+    var gender = document.getElementById('bn-gender').value;
+    var not    = document.getElementById('bn-notoriety').value;
+    var tone   = document.getElementById('bn-tone').value;
+    var pool = NAMES.filter(function(x) {
+      if (gender !== 'any' && x.g !== gender && x.g !== 'any') return false;
+      if (not    !== 'any' && x.not  !== not)   return false;
+      if (tone   !== 'any' && x.tone !== tone)   return false;
+      return true;
+    });
+    if (pool.length < 5) pool = NAMES.filter(function(x) { return (gender==='any'||x.g===gender||x.g==='any') && (not==='any'||x.not===not); });
+    if (pool.length < 5) pool = NAMES.filter(function(x) { return gender==='any'||x.g===gender||x.g==='any'; });
+    if (pool.length < 5) pool = NAMES;
+    return shuffle(pool).slice(0, 10);
+  }
+
+  function render() {
+    var items = generate();
+    var list = document.getElementById('bn-list');
+    list.innerHTML='';
+    items.forEach(function(item, i) {
+      var isSaved=!!saved[item.n];
+      var li=document.createElement('li'); li.className='bn-item';
+      li.innerHTML='<span class="bn-num">'+(i+1)+'</span><span class="bn-name-wrap"><span class="bn-name">'+escH(item.n)+'</span><span class="bn-tag">'+escH(item.tag)+'</span></span><div class="bn-btns"><button class="icon-btn bn-save-btn'+(isSaved?' saved':'')+'" data-name="'+escH(item.n)+'" title="'+(isSaved?'Unsave':'Save')+'" aria-label="Save '+escH(item.n)+'"><svg viewBox="0 0 16 16" fill="none"><path d="M8 13.5S2 9.5 2 5.5A3 3 0 018 4a3 3 0 016 1.5c0 4-6 8-6 8z" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/></svg></button><button class="icon-btn bn-copy-btn" data-name="'+escH(item.n)+'" title="Copy" aria-label="Copy '+escH(item.n)+'"><svg viewBox="0 0 14 14" fill="none"><rect x="1" y="4" width="9" height="9.5" rx="1.5" stroke="currentColor" stroke-width="1.1"/><path d="M4.5 4V2.5A1.5 1.5 0 016 1h5.5A1.5 1.5 0 0113 2.5v7a1.5 1.5 0 01-1.5 1.5H10" stroke="currentColor" stroke-width="1.1"/></svg></button></div>';
+      list.appendChild(li);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    render();
+    document.getElementById('bn-gen-btn').addEventListener('click', render);
+    document.getElementById('bn-regen-btn').addEventListener('click', render);
+    ['bn-gender','bn-notoriety','bn-tone'].forEach(function(id) { document.getElementById(id).addEventListener('change', render); });
+    document.addEventListener('keydown', function(e) { if (e.target===document.body&&e.key==='Enter') { e.preventDefault(); render(); } });
+    document.getElementById('bn-list').addEventListener('click', function(e) { var c=e.target.closest('.bn-copy-btn'); if (c) { copyText(c.dataset.name); return; } var s=e.target.closest('.bn-save-btn'); if (s) { toggleSave(s.dataset.name, s); } });
+    document.getElementById('bn-saved-tags').addEventListener('click', function(e) { var r=e.target.closest('.saved-tag-remove'); if (!r) return; var name=r.dataset.remove; delete saved[name]; document.querySelectorAll('.bn-save-btn').forEach(function(btn) { if (btn.dataset.name===name) { btn.classList.remove('saved'); btn.title='Save'; } }); renderSaved(); });
+    document.getElementById('bn-copy-all-btn').addEventListener('click', function() { var names=[]; document.querySelectorAll('.bn-name').forEach(function(el) { names.push(el.textContent); }); if (names.length) { copyText(names.join('\n')); } });
+    document.getElementById('bn-saved-copy').addEventListener('click', function() { var names=Object.keys(saved); if (names.length) { copyText(names.join('\n')); } });
+  });
+}());
+</script>
+<!-- /SLOT:init -->

@@ -1,0 +1,264 @@
+<!-- CONFIG
+{
+  "url": "/zalgo-text/",
+  "output": "zalgo-text.html",
+  "type": "tool",
+  "more_tools_key": "more_text_tools",
+  "more_tools_title": "More text tools",
+  "more_tools_subtitle": "Fun text converters and generators — all free"
+}
+-->
+
+<!-- SLOT:meta -->
+<title>Zalgo Text Generator — Glitch & Corrupted Text | Wordineer</title>
+<meta name="description" content="Convert any text into creepy Zalgo glitch art instantly. Adjust intensity from subtle to extreme. Free, no sign-up required.">
+<link rel="canonical" href="https://wordineer.com/zalgo-text/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wordineer">
+<meta property="og:title" content="Zalgo Text Generator — Glitch & Corrupted Text">
+<meta property="og:description" content="Convert any text into creepy Zalgo glitch art instantly. Adjust intensity from subtle to extreme. Free, no sign-up required.">
+<meta property="og:url" content="https://wordineer.com/zalgo-text/">
+<meta property="og:image" content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Zalgo text?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Zalgo text is regular text with Unicode combining diacritical marks stacked above and below each character, creating a glitchy, corrupted, or creepy appearance. It renders in any standard text field without special software."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I paste Zalgo text into Discord, Reddit, or Twitter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Zalgo text is made of standard Unicode characters and can be pasted anywhere that accepts text. Some platforms may strip or limit certain combining marks, so results can vary slightly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does the intensity slider do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The intensity slider controls how many combining marks are added to each character. At low intensity (1–3), only a few marks are added for a subtle glitch effect. At high intensity (8–10), dozens of marks stack up for an extreme, nearly unreadable corrupted look."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Zalgo text safe to use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Zalgo text is perfectly safe — it's just Unicode. Very high-intensity Zalgo in some older apps can cause minor display lag, so use extreme settings sparingly in professional contexts."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Text Tools", "item": "https://wordineer.com/text-tools/" },
+    { "@type": "ListItem", "position": 3, "name": "Zalgo Text Generator", "item": "https://wordineer.com/zalgo-text/" }
+  ]
+}
+</script>
+<!-- /SLOT:meta -->
+
+<!-- SLOT:style -->
+<style>
+.zalgo-wrap { max-width: 960px; margin: 0 auto; padding: 0 16px 40px; }
+.zalgo-card { background: #fff; border: 1.5px solid #e2e2ea; border-radius: 16px; padding: 24px; }
+.zalgo-label { font-size: 0.82rem; font-weight: 600; color: #555; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 6px; }
+.zalgo-textarea { width: 100%; box-sizing: border-box; border: 1.5px solid #d0d0d8; border-radius: 10px; padding: 12px 14px; font-size: 1rem; font-family: inherit; resize: vertical; min-height: 100px; outline: none; transition: border-color 0.15s; color: #1a1a2e; }
+.zalgo-textarea:focus { border-color: #3C3489; }
+.zalgo-textarea[readonly] { background: #f8f8fc; color: #1a1a2e; cursor: default; min-height: 120px; font-size: 0.95rem; line-height: 2; }
+.intensity-row { display: flex; align-items: center; gap: 12px; margin: 18px 0 20px; }
+.intensity-row label { font-size: 0.85rem; font-weight: 600; color: #555; white-space: nowrap; }
+.intensity-presets { display: flex; gap: 8px; }
+.preset-btn { background: #f4f4f6; color: #333; border: 1.5px solid #d0d0d8; border-radius: 8px; font-size: 0.85rem; font-weight: 500; cursor: pointer; padding: 6px 16px; transition: background 0.12s, border-color 0.12s; }
+.preset-btn.active { background: #3C3489; color: #fff; border-color: #3C3489; }
+.intensity-slider { flex: 1; accent-color: #3C3489; }
+.intensity-val { font-size: 0.85rem; font-weight: 700; color: #3C3489; min-width: 18px; text-align: center; }
+.zalgo-actions { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
+.btn-primary { background: #3C3489; color: #fff; border: none; border-radius: 10px; font-size: 1rem; font-weight: 600; cursor: pointer; padding: 10px 28px; transition: background 0.15s; }
+.btn-primary:hover { background: #2e2870; }
+.btn-secondary { background: #f4f4f6; color: #333; border: 1.5px solid #d0d0d8; border-radius: 8px; font-size: 0.9rem; font-weight: 500; cursor: pointer; padding: 7px 18px; transition: background 0.12s; }
+.btn-secondary:hover { background: #ebebf3; }
+.zalgo-sep { margin: 20px 0 14px; border: none; border-top: 1.5px solid #ebebf3; }
+</style>
+<!-- /SLOT:style -->
+
+<!-- SLOT:hero -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/text-tools/">Text Tools</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Zalgo Text Generator</span>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free · No sign-up · Instant
+  </div>
+  <h1>Zalgo Text Generator</h1>
+  <p>Turn any text into glitchy, corrupted Zalgo art. Paste it anywhere — Discord, Reddit, social media.</p>
+  <p style="font-size:12px;color:var(--text-3);margin-top:8px">Built by Garrick Dee · Last verified August 2026</p>
+</div>
+<!-- /SLOT:hero -->
+
+<!-- SLOT:tool -->
+<div class="tool-wrap">
+<div class="zalgo-wrap">
+  <div class="zalgo-card">
+    <div class="zalgo-label">Your text</div>
+    <textarea id="zalgo-input" class="zalgo-textarea" placeholder="Type or paste text here…" rows="4" spellcheck="false"></textarea>
+
+    <div class="intensity-row">
+      <label for="zalgo-slider">Intensity</label>
+      <div class="intensity-presets">
+        <button class="preset-btn" data-level="2">Low</button>
+        <button class="preset-btn active" data-level="5">Medium</button>
+        <button class="preset-btn" data-level="9">High</button>
+      </div>
+      <input type="range" id="zalgo-slider" class="intensity-slider" min="1" max="10" value="5">
+      <span id="zalgo-val" class="intensity-val">5</span>
+    </div>
+
+    <hr class="zalgo-sep">
+
+    <div class="zalgo-label">Zalgo output</div>
+    <textarea id="zalgo-output" class="zalgo-textarea" readonly placeholder="Ẕ̴̡̛̺̮̗̙̠̖̈́̓̀͘â̷̡͎̼̱̦̘̍͋͌l̸̨͔̲͖̭͙̊̒͊͐̓g̵̡̛̙̯͙̻͉̈́͗̎͘o̷̡͚̘̞̺͇͆̓͒̈́͘ will appear here…" rows="5" spellcheck="false"></textarea>
+
+    <div class="zalgo-actions">
+      <button id="zalgo-copy" class="btn-primary">Copy</button>
+      <button id="zalgo-clear" class="btn-secondary">Clear</button>
+    </div>
+  </div>
+</div>
+</div>
+<!-- /SLOT:tool -->
+
+<!-- SLOT:ad_b -->
+<!-- /SLOT:ad_b -->
+
+<!-- SLOT:explainer -->
+<div>
+  <h2 class="section-title">How it works</h2>
+  <div class="explainer-grid">
+    <div class="exp-step"><div class="exp-num">1</div><div><strong>Paste or write the text you want to corrupt</strong><p>The tool works on any Unicode input — letters, words, whole sentences. Even a single character produces Zalgo output once intensity is above zero.</p></div></div>
+    <div class="exp-step"><div class="exp-num">2</div><div><strong>Dial in the intensity</strong><p>Low adds two or three marks per character for a subtle, eerie effect. Medium is the classic Zalgo look most people recognize. High stacks the maximum number of marks and causes visible overflow into surrounding lines — deliberately chaotic.</p></div></div>
+    <div class="exp-step"><div class="exp-num">3</div><div><strong>Grab the output</strong><p>The corrupted text updates live. When the look is right, click Copy — the result pastes as plain Unicode into Discord, Reddit, Twitter, and any app that renders combining marks.</p></div></div>
+  </div>
+</div>
+<!-- /SLOT:explainer -->
+
+<!-- SLOT:faq -->
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">What is Zalgo text?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Zalgo text is regular text with Unicode combining diacritical marks stacked above and below each character, creating a glitchy or corrupted appearance. It works in any standard text field without special software.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I paste Zalgo text into Discord, Reddit, or Twitter?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Yes. Zalgo text is made of standard Unicode characters and pastes anywhere text is accepted. Some platforms may limit certain combining marks, so the result can vary slightly between apps.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What does the intensity slider do?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>The slider controls how many combining marks are added per character. Low (1–3) adds a few marks for a subtle glitch. High (8–10) stacks dozens of marks for an extreme, nearly unreadable corrupted look.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Is Zalgo text safe to use?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Zalgo text is perfectly safe — it's just Unicode. Very high-intensity Zalgo in older apps can cause minor display lag, so use extreme settings sparingly in professional contexts.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Why does high-intensity Zalgo text hit character limits faster than it looks?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Each combining mark is a real Unicode code point, so a five-letter word at maximum intensity can contain 50–100 extra characters stacked on those five base letters. Platforms that count code points toward their character limit — Twitter's 280, for example — count every mark separately. A heavily corrupted Zalgo string may hit the limit far sooner than its visible length suggests, even if it looks like only a few words on screen.</p></div>
+  </div>
+</div>
+<!-- /SLOT:faq -->
+
+<!-- SLOT:who -->
+<div>
+  <h2 class="section-title" style="margin-bottom:10px">How to use the Zalgo text generator</h2>
+  <p style="font-size:15px;line-height:1.75;color:var(--text-2)">Set the intensity first using the slider or the <strong>Low / Medium / High</strong> presets — low keeps marks subtle with the text still legible, high stacks enough combining characters that the output bleeds into surrounding lines. Type or paste your text and the corrupted version updates live. Click Copy to grab the result. Because the marks are real Unicode characters, the output pastes faithfully into Discord, Reddit, Twitter, and most modern text fields — though very high-intensity output may hit character limits in apps that count each combining mark separately.</p>
+</div>
+<!-- /SLOT:who -->
+
+<!-- SLOT:init -->
+<script>
+(function(){
+  var ABOVE=['̀','́','̂','̃','̄','̅','̆','̇','̈','̉','̊','̋','̌','̍','̎','̏','̐','̑','̒','̓','̔','̽','̾','̿','̀','́','͂','̓','̈́','͊','͋','͌','͐','͑','͒','͗','͛','ͣ','ͤ','ͥ','ͦ','ͧ','ͨ','ͩ','ͪ','ͫ','ͬ','ͭ','ͮ','ͯ'];
+  var BELOW=['̖','̗','̘','̙','̜','̝','̞','̟','̠','̤','̥','̦','̩','̪','̫','̬','̭','̮','̯','̰','̱','̲','̳','̹','̺','̻','̼','ͅ','͇','͈','͉','͍','͎','͓','͔','͕','͖','͙','͚','̣'];
+  var MID=['̕','̛','̡','̢','̧','̨','̴','̵','̶','̷','̸','̼','͘','͜','͝','͞','͟','͠','͡','͢'];
+
+  function rand(arr,n){
+    var out=[];
+    for(var i=0;i<n;i++) out.push(arr[Math.floor(Math.random()*arr.length)]);
+    return out.join('');
+  }
+
+  function zalgoify(text, intensity){
+    var above=Math.ceil(intensity*0.5);
+    var below=Math.ceil(intensity*0.4);
+    var mid=Math.ceil(intensity*0.15);
+    return text.split('').map(function(c){
+      if(c===' '||c==='\n') return c;
+      return c+rand(ABOVE,above)+rand(BELOW,below)+rand(MID,mid);
+    }).join('');
+  }
+
+  var input=document.getElementById('zalgo-input');
+  var output=document.getElementById('zalgo-output');
+  var slider=document.getElementById('zalgo-slider');
+  var valDisplay=document.getElementById('zalgo-val');
+  var copyBtn=document.getElementById('zalgo-copy');
+  var clearBtn=document.getElementById('zalgo-clear');
+  var presets=document.querySelectorAll('.preset-btn');
+
+  function update(){
+    var v=parseInt(slider.value,10);
+    valDisplay.textContent=v;
+    var txt=input.value;
+    output.value=txt?zalgoify(txt,v):'';
+    presets.forEach(function(b){
+      b.classList.toggle('active',parseInt(b.dataset.level,10)===v);
+    });
+  }
+
+  input.addEventListener('input',update);
+  slider.addEventListener('input',update);
+
+  presets.forEach(function(b){
+    b.addEventListener('click',function(){
+      slider.value=b.dataset.level;
+      update();
+    });
+  });
+
+  copyBtn.addEventListener('click',function(){
+    if(!output.value) return;
+    navigator.clipboard.writeText(output.value).then(function(){
+      copyBtn.textContent='Copied!';
+      setTimeout(function(){ copyBtn.textContent='Copy'; },1500);
+    });
+  });
+
+  clearBtn.addEventListener('click',function(){
+    input.value='';
+    output.value='';
+  });
+})();
+</script>
+<!-- /SLOT:init -->

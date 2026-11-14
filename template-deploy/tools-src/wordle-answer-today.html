@@ -1,0 +1,821 @@
+<!-- CONFIG { "url": "/wordle-answer-today/", "output": "wordle-answer-today.html" } -->
+
+<!-- SLOT:meta -->
+<title id="wt-meta-title">Wordle Answer Today — Hints + Solution | Wordineer</title>
+<meta name="description" content="Get spoiler-free Wordle hints for today, then reveal the answer when you're ready. Starting letter, category clue, and full solution with definition.">
+<link rel="canonical" href="https://wordineer.com/wordle-answer-today/">
+<meta property="og:type"        content="website">
+<meta property="og:site_name"   content="Wordineer">
+<meta property="og:title"       content="Wordle Answer Today — Hints + Solution | Wordineer">
+<meta property="og:description" content="Spoiler-free Wordle hints for today. Starting letter, theme clue, then full reveal when you're ready.">
+<meta property="og:url"         content="https://wordineer.com/wordle-answer-today">
+<meta property="og:image"       content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is today's Wordle answer?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Visit this page for today's Wordle hints and the full answer. We reveal the answer in three stages — starting letter, a theme clue, then the full word — so you can choose how much help to take." }
+    },
+    {
+      "@type": "Question",
+      "name": "How do the Wordle hints work?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Hints are gated in three levels. Hint 1 reveals the starting letter only. Hint 2 gives a category or theme clue without naming the word. The full reveal shows the answer word and its definition. Click each level in order to reveal progressively more information." }
+    },
+    {
+      "@type": "Question",
+      "name": "What time does today's Wordle reset?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The NYT Wordle resets at midnight in your local timezone. A new puzzle and a new answer become available every day at midnight. This page updates to show the new day's hints and answer as soon as we publish them each morning." }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I check if my guess is correct?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Use the Guess Checker below the hint cards. Type any 5-letter word and click Check — colored tiles show which letters are correct (green), present in a different position (yellow), or not in the word at all (gray), just like the real Wordle game." }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Word Tools", "item": "https://wordineer.com/word-tools/" },
+    { "@type": "ListItem", "position": 3, "name": "Wordle Answer Today", "item": "https://wordineer.com/wordle-answer-today/" }
+  ]
+}
+</script>
+<!-- /SLOT:meta -->
+
+<!-- SLOT:style -->
+<style>
+.wt-wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 24px 0;
+}
+
+/* ── Date bar ── */
+.wt-datebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 14px 20px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.wt-date-label {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  font-family: 'DM Serif Display', serif;
+}
+
+.wt-puzzle-num {
+  font-size: 12px;
+  color: var(--text-3);
+  background: var(--bg-3);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 3px 12px;
+}
+
+/* ── Hint cards ── */
+.wt-hints {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.wt-hint-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--bg);
+  box-shadow: var(--shadow);
+}
+
+.wt-hint-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  transition: background .12s;
+}
+
+.wt-hint-trigger:hover { background: var(--bg-2); }
+.wt-hint-trigger:disabled { cursor: default; opacity: .5; }
+.wt-hint-trigger:disabled:hover { background: none; }
+
+.wt-hint-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.wt-hint-badge {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.wt-hint-badge--1 { background: #E1F5EE; color: #1D9E75; }
+.wt-hint-badge--2 { background: #FFF3CD; color: #856404; }
+.wt-hint-badge--3 { background: #EEEDFE; color: #4A3FD4; }
+.wt-hint-badge--done { background: var(--bg-3); color: var(--text-3); }
+
+.wt-hint-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.wt-hint-subtitle {
+  font-size: 12px;
+  color: var(--text-3);
+  margin-top: 1px;
+}
+
+.wt-hint-icon {
+  color: var(--text-3);
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.wt-hint-body {
+  display: none;
+  padding: 0 20px 18px;
+}
+
+.wt-hint-body.open { display: block; }
+
+.wt-hint-text {
+  font-size: 15px;
+  color: var(--text-2);
+  line-height: 1.5;
+}
+
+/* Answer reveal specific */
+.wt-answer-word {
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: 8px;
+  font-family: 'DM Serif Display', serif;
+}
+
+.wt-answer-def {
+  font-size: 14px;
+  color: var(--text-2);
+  line-height: 1.5;
+}
+
+/* ── Guess checker ── */
+.wt-checker-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--bg);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.wt-checker-head {
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border-2);
+  background: var(--bg-2);
+}
+
+.wt-checker-head-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.wt-checker-head-sub {
+  font-size: 12px;
+  color: var(--text-3);
+  margin-top: 2px;
+}
+
+.wt-checker-body {
+  padding: 18px 20px;
+}
+
+.wt-guess-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.wt-guess-input {
+  width: 180px;
+  padding: 10px 14px;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: inherit;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text);
+  outline: none;
+  transition: border-color .15s;
+}
+
+.wt-guess-input:focus { border-color: var(--brand); }
+
+.wt-check-btn {
+  padding: 10px 20px;
+  background: var(--brand);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background .15s;
+}
+
+.wt-check-btn:hover { background: var(--brand-dark); }
+
+/* Wordle tiles */
+.wt-tiles {
+  display: flex;
+  gap: 6px;
+  min-height: 52px;
+  align-items: center;
+}
+
+.wt-tile {
+  width: 46px;
+  height: 46px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: white;
+  transition: background .2s;
+}
+
+.wt-tile--green  { background: #538d4e; }
+.wt-tile--yellow { background: #b59f3b; }
+.wt-tile--gray   { background: #787c7e; }
+.wt-tile--empty  { background: var(--bg-3); border: 1px solid var(--border); color: var(--text-3); }
+
+.wt-checker-note {
+  font-size: 12px;
+  color: var(--text-3);
+  margin-top: 10px;
+}
+
+/* ── No data state ── */
+.wt-no-data {
+  text-align: center;
+  padding: 32px 20px;
+  color: var(--text-3);
+}
+
+.wt-no-data-icon {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.wt-no-data-text {
+  font-size: 15px;
+  color: var(--text-2);
+  margin-bottom: 6px;
+}
+
+.wt-no-data-sub {
+  font-size: 13px;
+  color: var(--text-3);
+}
+
+/* ── Recent answers ── */
+.wt-recent {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--bg);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.wt-recent-head {
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--border-2);
+  background: var(--bg-2);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.wt-recent-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0;
+}
+
+.wt-recent-item {
+  padding: 12px 8px;
+  text-align: center;
+  border-right: 1px solid var(--border-2);
+  text-decoration: none;
+  transition: background .12s;
+}
+
+.wt-recent-item:last-child { border-right: none; }
+.wt-recent-item:hover { background: var(--bg-2); }
+
+.wt-recent-day {
+  font-size: 10px;
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  margin-bottom: 4px;
+}
+
+.wt-recent-word {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.wt-recent-item.today .wt-recent-word {
+  color: var(--brand);
+}
+
+/* ── Useful links ── */
+.wt-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.wt-link {
+  font-size: 13px;
+  color: var(--brand-dark);
+  background: var(--brand-light);
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 6px 14px;
+  text-decoration: none;
+  transition: border-color .12s;
+}
+
+.wt-link:hover { border-color: var(--brand); }
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .wt-recent-grid { grid-template-columns: repeat(4, 1fr); }
+  .wt-recent-item:nth-child(4) { border-right: none; }
+  .wt-recent-item:nth-child(n+5) { border-top: 1px solid var(--border-2); }
+  .wt-guess-input { width: 140px; }
+  .wt-tile { width: 40px; height: 40px; font-size: 17px; }
+  .wt-answer-word { font-size: 32px; }
+}
+</style>
+<!-- /SLOT:style -->
+
+<!-- SLOT:hero -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/word-games/">Word Games</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Wordle Answer Today</span>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-inner">
+    <h1 class="hero-title">Wordle Answer Today</h1>
+    <p class="hero-sub">Reveal today's Wordle hints one at a time — starting letter, theme clue, then the full answer with definition. No full spoilers until you're ready.</p>
+  </div>
+</div>
+<!-- /SLOT:hero -->
+
+<!-- SLOT:tool -->
+<div class="wt-wrap">
+
+  <!-- Date bar -->
+  <div class="wt-datebar">
+    <div class="wt-date-label" id="wt-date-label">Loading…</div>
+    <div class="wt-puzzle-num" id="wt-puzzle-num"></div>
+  </div>
+
+  <!-- Hint cards -->
+  <div class="wt-hints" id="wt-hints">
+
+    <!-- Hint 1 -->
+    <div class="wt-hint-card" id="wt-card-1">
+      <button class="wt-hint-trigger" id="wt-btn-1" disabled>
+        <div class="wt-hint-label">
+          <div class="wt-hint-badge wt-hint-badge--1">1</div>
+          <div>
+            <div class="wt-hint-title">Starting letter</div>
+            <div class="wt-hint-subtitle">Click to reveal the first letter</div>
+          </div>
+        </div>
+        <div class="wt-hint-icon">›</div>
+      </button>
+      <div class="wt-hint-body" id="wt-body-1">
+        <div class="wt-hint-text" id="wt-text-1"></div>
+      </div>
+    </div>
+
+    <!-- Hint 2 -->
+    <div class="wt-hint-card" id="wt-card-2">
+      <button class="wt-hint-trigger" id="wt-btn-2" disabled>
+        <div class="wt-hint-label">
+          <div class="wt-hint-badge wt-hint-badge--2">2</div>
+          <div>
+            <div class="wt-hint-title">Theme clue</div>
+            <div class="wt-hint-subtitle">Unlock after revealing Hint 1</div>
+          </div>
+        </div>
+        <div class="wt-hint-icon">›</div>
+      </button>
+      <div class="wt-hint-body" id="wt-body-2">
+        <div class="wt-hint-text" id="wt-text-2"></div>
+      </div>
+    </div>
+
+    <!-- Hint 3 — answer -->
+    <div class="wt-hint-card" id="wt-card-3">
+      <button class="wt-hint-trigger" id="wt-btn-3" disabled>
+        <div class="wt-hint-label">
+          <div class="wt-hint-badge wt-hint-badge--3">!</div>
+          <div>
+            <div class="wt-hint-title">Reveal the answer</div>
+            <div class="wt-hint-subtitle">Unlock after revealing Hint 2</div>
+          </div>
+        </div>
+        <div class="wt-hint-icon">›</div>
+      </button>
+      <div class="wt-hint-body" id="wt-body-3">
+        <div class="wt-answer-word" id="wt-answer-word"></div>
+        <div class="wt-answer-def" id="wt-answer-def"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Guess checker -->
+  <div class="wt-checker-card">
+    <div class="wt-checker-head">
+      <div class="wt-checker-head-title">Guess checker</div>
+      <div class="wt-checker-head-sub">Type a 5-letter word to see how it scores against today's answer</div>
+    </div>
+    <div class="wt-checker-body">
+      <div class="wt-guess-row">
+        <input class="wt-guess-input" id="wt-guess" type="text" maxlength="5" placeholder="CRANE" autocomplete="off" spellcheck="false" aria-label="Enter a 5-letter Wordle guess">
+        <button class="wt-check-btn" id="wt-check">Check</button>
+      </div>
+      <div class="wt-tiles" id="wt-tiles">
+        <div class="wt-tile wt-tile--empty">?</div>
+        <div class="wt-tile wt-tile--empty">?</div>
+        <div class="wt-tile wt-tile--empty">?</div>
+        <div class="wt-tile wt-tile--empty">?</div>
+        <div class="wt-tile wt-tile--empty">?</div>
+      </div>
+      <div class="wt-checker-note" id="wt-checker-note">Reveal today's answer first to use the checker.</div>
+    </div>
+  </div>
+
+  <!-- Recent answers -->
+  <div class="wt-recent" id="wt-recent" style="display:none">
+    <div class="wt-recent-head">Recent Wordle answers</div>
+    <div class="wt-recent-grid" id="wt-recent-grid"></div>
+  </div>
+
+  <!-- Useful links -->
+  <div class="wt-links">
+    <a class="wt-link" href="/wordle-answers/">Past answers archive</a>
+    <a class="wt-link" href="/wordle-helper/">Wordle Helper</a>
+    <a class="wt-link" href="/best-wordle-starting-words/">Best starting words</a>
+    <a class="wt-link" href="/random-wordle-generator/">Random 5-letter words</a>
+    <a class="wt-link" href="/word-unscramble/">Word Unscrambler</a>
+  </div>
+
+</div>
+<!-- /SLOT:tool -->
+
+<!-- SLOT:ad_b -->
+<!-- /SLOT:ad_b -->
+
+<!-- SLOT:explainer -->
+<div class="explainer">
+  <div class="explainer-inner">
+    <h2>How the hints work</h2>
+    <p>Each hint is gated so you can choose how much help to take. Click <strong>Hint 1</strong> for the starting letter only — often enough to jog your memory without spoiling the word. Click <strong>Hint 2</strong> for a category or theme clue that narrows down the word type without naming it. Click <strong>Reveal the answer</strong> only when you're ready for the full word plus its definition.</p>
+    <p>The <strong>Guess Checker</strong> lets you test any 5-letter word against today's answer using standard Wordle scoring: green for the right letter in the right position, yellow for a correct letter in the wrong position, and gray for letters not in the word at all. It works like having an offline Wordle board for testing ideas before you commit to a guess.</p>
+    <h2>Best strategy for hard Wordle puzzles</h2>
+    <p>When you're stuck, think about letter frequency before reaching for hints. The most common letters in 5-letter English words are <strong>E, A, R, O, T, I, S, N, L, C</strong> — in roughly that order. If your opening guess was CRANE or AROSE, you've already tested 9 of the top 10 most common letters. Work from the pattern you have rather than guessing randomly. Only use a hint if you're genuinely stuck after 3–4 guesses.</p>
+  </div>
+</div>
+<!-- /SLOT:explainer -->
+
+<!-- SLOT:faq -->
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">What is today's Wordle answer?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Use the hint cards above to get as much (or as little) help as you want — starting letter, a theme clue, or the full word with its definition. The answer updates daily and is available each morning.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What time does the Wordle reset?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>The NYT Wordle resets at midnight in your local timezone — a new puzzle becomes available every day at midnight. This hints page updates to reflect the new word each morning.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I see past Wordle answers?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Yes — the <a href="/wordle-answers/">Wordle Answer Archive</a> has every past answer searchable by date or word, going back to the original June 2021 puzzles. The Recent answers bar at the top of this page also shows the last several days at a glance.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What are the best Wordle starting words?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>High-information openers that test common letters in common positions include <strong>CRANE</strong>, <strong>TRACE</strong>, <strong>SLATE</strong>, and <strong>AROSE</strong>. See the full ranked analysis on the <a href="/best-wordle-starting-words/">Best Wordle Starting Words</a> page.</p></div>
+  </div>
+</div>
+<!-- /SLOT:faq -->
+
+<!-- SLOT:who -->
+<div class="who">
+  <div class="who-inner">
+    <h2>Who uses Wordle hints?</h2>
+    <div class="uc-grid">
+      <div class="uc">
+        <div class="uc-title">Stuck players</div>
+        <div class="uc-body">When you've burned 4 guesses and still can't see the word, a single starting-letter hint is often enough to unlock it. No full spoiler needed — just enough to get unstuck and still feel the solve.</div>
+      </div>
+      <div class="uc">
+        <div class="uc-title">Streak protectors</div>
+        <div class="uc-body">Long streaks are worth protecting. If today's word is genuinely obscure, a theme clue is a fair way to keep the streak alive without looking up the answer outright.</div>
+      </div>
+      <div class="uc">
+        <div class="uc-title">Teachers &amp; parents</div>
+        <div class="uc-body">Wordle is widely used as a classroom vocabulary exercise. Hints let younger students participate without being locked out by difficult words — use Hint 2 as a teaching prompt before revealing the answer.</div>
+      </div>
+      <div class="uc">
+        <div class="uc-title">Late finishers</div>
+        <div class="uc-body">Puzzle done for the day but curious what you missed? The full reveal with definition turns a loss into a vocabulary moment — especially useful when the answer is a word you recognize but wouldn't have guessed.</div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /SLOT:who -->
+
+<!-- SLOT:init -->
+<script>
+(function () {
+  var todayStr = new Date().toISOString().slice(0, 10);
+
+  /* Puzzle number from original start date June 19 2021 = #1 */
+  function wordleNum(dateStr) {
+    var start = new Date('2021-06-19T00:00:00');
+    var d     = new Date(dateStr + 'T00:00:00');
+    return Math.round((d - start) / 86400000) + 1;
+  }
+
+  /* Format date label */
+  function fmtDate(dateStr) {
+    var d = new Date(dateStr + 'T00:00:00');
+    return d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
+  }
+
+  /* Short day label for recent grid */
+  function fmtShort(dateStr) {
+    var d = new Date(dateStr + 'T00:00:00');
+    return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+  }
+
+  /* Set date bar */
+  document.getElementById('wt-date-label').textContent = fmtDate(todayStr);
+  document.getElementById('wt-puzzle-num').textContent  = 'Wordle #' + wordleNum(todayStr);
+
+  /* ── Hint state machine ── */
+  var revealedCount = 0;
+  var todayData     = null;
+
+  function unlockHint(n) {
+    if (n > 3) return;
+    var btn  = document.getElementById('wt-btn-' + n);
+    var body = document.getElementById('wt-body-' + n);
+
+    btn.disabled = false;
+    btn.addEventListener('click', function () {
+      body.classList.add('open');
+      btn.disabled = true;
+      revealedCount = n;
+      if (n < 3) {
+        unlockHint(n + 1);
+      } else {
+        /* Answer revealed — enable checker */
+        enableChecker();
+      }
+    }, { once: true });
+  }
+
+  function populateHints(data) {
+    todayData = data;
+    var word = data.word.toUpperCase();
+
+    document.getElementById('wt-text-1').textContent =
+      'The answer starts with the letter ' + word[0] + '.';
+
+    document.getElementById('wt-text-2').textContent =
+      data.hint || 'No theme clue available for today — try revealing the answer.';
+
+    document.getElementById('wt-answer-word').textContent = word;
+    document.getElementById('wt-answer-def').textContent  = data.def || '';
+
+    unlockHint(1);
+  }
+
+  function showNoData() {
+    document.getElementById('wt-hints').innerHTML =
+      '<div class="wt-hint-card"><div class="wt-no-data">' +
+      '<div class="wt-no-data-icon">📅</div>' +
+      '<div class="wt-no-data-text">Today\'s hints haven\'t been published yet.</div>' +
+      '<div class="wt-no-data-sub">Check back shortly — we update each morning.</div>' +
+      '</div></div>';
+  }
+
+  /* ── Guess checker ── */
+  function enableChecker() {
+    document.getElementById('wt-checker-note').textContent = 'Enter any 5-letter word to score it against today\'s answer.';
+    document.getElementById('wt-check').addEventListener('click', checkGuess);
+    document.getElementById('wt-guess').addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') checkGuess();
+    });
+  }
+
+  function checkGuess() {
+    if (!todayData) return;
+    var input  = document.getElementById('wt-guess');
+    var guess  = input.value.trim().toUpperCase();
+    if (guess.length !== 5) {
+      document.getElementById('wt-checker-note').textContent = 'Please enter exactly 5 letters.';
+      return;
+    }
+
+    var answer = todayData.word.toUpperCase();
+    var result = scoreGuess(guess, answer);
+    renderTiles(result, guess);
+    document.getElementById('wt-checker-note').textContent =
+      guess === answer ? '🎉 Correct! That\'s today\'s answer.' : 'Scored against today\'s answer.';
+  }
+
+  function scoreGuess(guess, answer) {
+    var result    = ['gray', 'gray', 'gray', 'gray', 'gray'];
+    var remaining = answer.split('');
+
+    /* Green pass */
+    for (var i = 0; i < 5; i++) {
+      if (guess[i] === answer[i]) {
+        result[i]    = 'green';
+        remaining[i] = null;
+      }
+    }
+    /* Yellow pass */
+    for (var j = 0; j < 5; j++) {
+      if (result[j] === 'green') continue;
+      var idx = remaining.indexOf(guess[j]);
+      if (idx > -1) {
+        result[j]      = 'yellow';
+        remaining[idx] = null;
+      }
+    }
+    return result;
+  }
+
+  function renderTiles(result, guess) {
+    var container = document.getElementById('wt-tiles');
+    container.innerHTML = '';
+    result.forEach(function (color, i) {
+      var tile = document.createElement('div');
+      tile.className = 'wt-tile wt-tile--' + color;
+      tile.textContent = guess[i];
+      container.appendChild(tile);
+    });
+  }
+
+  /* ── Recent answers ── */
+  function showRecent(dailyData, archiveData) {
+    /* Build date-keyed map from archive */
+    var map = {};
+    archiveData.forEach(function (e) { map[e.date] = e.word; });
+    Object.keys(dailyData).forEach(function (d) {
+      if (d !== '_note') map[d] = dailyData[d].word;
+    });
+
+    /* Get 7 most recent dates up to and including today */
+    var dates = [];
+    for (var i = 6; i >= 0; i--) {
+      var dt = new Date(todayStr + 'T00:00:00');
+      dt.setDate(dt.getDate() - i);
+      dates.push(dt.toISOString().slice(0, 10));
+    }
+
+    var grid = document.getElementById('wt-recent-grid');
+    var hasAny = false;
+    grid.innerHTML = '';
+
+    dates.forEach(function (d) {
+      if (!map[d]) return;
+      hasAny = true;
+      var item = document.createElement('div');
+      item.className = 'wt-recent-item' + (d === todayStr ? ' today' : '');
+      item.innerHTML =
+        '<div class="wt-recent-day">' + fmtShort(d) + '</div>' +
+        '<div class="wt-recent-word">' + map[d].toUpperCase() + '</div>';
+      grid.appendChild(item);
+    });
+
+    if (hasAny) {
+      document.getElementById('wt-recent').style.display = '';
+    }
+  }
+
+  /* ── Load data ── */
+  var dailyLoaded  = null;
+  var archiveLoaded = null;
+
+  function tryShowRecent() {
+    if (dailyLoaded && archiveLoaded) {
+      showRecent(dailyLoaded, archiveLoaded);
+    }
+  }
+
+  fetch('/data/wordle-daily.json?d=' + todayStr)
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      dailyLoaded = data;
+      var entry = data[todayStr];
+      if (entry && entry.word && entry.word !== 'REPLACE_WITH_ACTUAL_ANSWER') {
+        /* Merge definition from wordle-words.json if needed */
+        if (!entry.def) {
+          fetch('/data/wordle-words.json')
+            .then(function (r) { return r.json(); })
+            .then(function (words) {
+              var match = words.find(function (w) {
+                return w.w.toUpperCase() === entry.word.toUpperCase();
+              });
+              if (match) entry.def = match.d;
+              populateHints(entry);
+            })
+            .catch(function () { populateHints(entry); });
+        } else {
+          populateHints(entry);
+        }
+      } else {
+        showNoData();
+      }
+      tryShowRecent();
+    })
+    .catch(function () { showNoData(); });
+
+  fetch('/data/wordle-archive.json')
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      archiveLoaded = data;
+      tryShowRecent();
+    })
+    .catch(function () { archiveLoaded = []; tryShowRecent(); });
+
+})();
+</script>
+<!-- /SLOT:init -->

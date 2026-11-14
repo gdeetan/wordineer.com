@@ -1,8 +1,15 @@
 # Cloudflare Pages _headers — controls caching and compression
 
-# Embed routes: allow framing from any origin
+# Site-wide security headers
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  X-Frame-Options: SAMEORIGIN
+
+# Embed routes: allow framing from any origin (CSP overrides XFO; remove inherited XFO)
 /embed/*
-  X-Frame-Options:
+  ! X-Frame-Options
   Content-Security-Policy: frame-ancestors *
 
 # Fonts: cache for 1 year (content-hashed filenames never change); block indexing

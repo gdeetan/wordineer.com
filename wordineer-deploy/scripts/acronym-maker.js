@@ -28,32 +28,32 @@
   };
 
   const WORD_BANK = {
-    A: ['Adaptive', 'Aligned', 'Active', 'Agile', 'Authentic', 'Advanced', 'Accessible', 'Accelerated', 'Audience', 'Action'],
-    B: ['Bold', 'Brand', 'Bridge', 'Better', 'Business', 'Bright', 'Balanced', 'Build', 'Benefit', 'Blueprint'],
-    C: ['Clear', 'Creative', 'Connected', 'Community', 'Care', 'Catalyst', 'Core', 'Collective', 'Craft', 'Code'],
-    D: ['Driven', 'Digital', 'Dynamic', 'Direct', 'Design', 'Delivery', 'Development', 'Discovery', 'Data', 'Dependable'],
-    E: ['Effective', 'Elevated', 'Essential', 'Engine', 'Enterprise', 'Empower', 'Eco', 'Enable', 'Exchange', 'Everyday'],
-    F: ['Focused', 'Future', 'Friendly', 'Forward', 'Flexible', 'Flourish', 'Foundry', 'Framework', 'Fund', 'Force'],
-    G: ['Growth', 'Guided', 'Green', 'Global', 'Genuine', 'Grounded', 'Group', 'Generate', 'Goal', 'Gather'],
-    H: ['Human', 'Helpful', 'Healthy', 'Horizon', 'Hub', 'Harmony', 'Hands-on', 'High-Impact', 'Holistic', 'Hope'],
-    I: ['Impact', 'Insight', 'Inclusive', 'Innovation', 'Intelligent', 'Integrated', 'Initiative', 'Improve', 'Inspire', 'Integrity'],
-    J: ['Joint', 'Journey', 'Joyful', 'Just', 'Jumpstart', 'Junction', 'Junior', 'Justice', 'Jewel', 'Jolt'],
-    K: ['Key', 'Knowledge', 'Kind', 'Kinetic', 'Keep', 'Kernel', 'Kinship', 'Kickstart', 'Keystone', 'Knack'],
-    L: ['Leading', 'Local', 'Launch', 'Learning', 'Lift', 'Link', 'Logic', 'Lasting', 'Lively', 'Lab'],
-    M: ['Modern', 'Mission', 'Momentum', 'Market', 'Meaningful', 'Maker', 'Movement', 'Method', 'Member', 'Managed'],
-    N: ['Next', 'Network', 'Natural', 'New', 'Nimble', 'North', 'Nurture', 'Navigate', 'Noticeable', 'Nexus'],
-    O: ['Opportunity', 'Open', 'Outreach', 'Operational', 'Original', 'Orbit', 'Organized', 'Onward', 'Outcome', 'Optimize'],
-    P: ['Professional', 'Purpose', 'Product', 'Project', 'Positive', 'Powered', 'People', 'Practical', 'Progress', 'Path'],
-    Q: ['Quality', 'Quick', 'Quest', 'Quiet', 'Quantum', 'Qualified', 'Quorum', 'Quotable', 'Query', 'Quill'],
-    R: ['Reach', 'Results', 'Reliable', 'Responsive', 'Resource', 'Ready', 'Renew', 'Rise', 'Roadmap', 'Rooted'],
-    S: ['Strategic', 'Smart', 'Shared', 'Sustainable', 'Support', 'Studio', 'Scale', 'Signal', 'Service', 'Spark'],
-    T: ['Team', 'Trusted', 'Technical', 'Targeted', 'Together', 'Transform', 'Tool', 'Thrive', 'Track', 'Tactic'],
-    U: ['Unified', 'Useful', 'Urban', 'Upgrade', 'Uplift', 'Understand', 'Utility', 'Unite', 'Unique', 'User'],
-    V: ['Vision', 'Value', 'Vital', 'Venture', 'Voice', 'Visible', 'Verified', 'Velocity', 'Volunteer', 'Versatile'],
-    W: ['Works', 'Workshop', 'World', 'Wise', 'Workflow', 'Way', 'Wave', 'Wellness', 'Win', 'Wing'],
-    X: ['Xchange', 'Xcelerate', 'Xpert', 'Xplore', 'Xact', 'Xpand', 'Xenial', 'X-factor', 'Xperience', 'Xylem'],
-    Y: ['Yield', 'Youth', 'Your', 'Year-round', 'Yes', 'Yardstick', 'Yonder', 'Yoke', 'Yarn', 'Yielding'],
-    Z: ['Zenith', 'Zone', 'Zero-Waste', 'Zoom', 'Zest', 'Zonal', 'Zip', 'Zing', 'Zeal', 'Zestful']
+    A: ['Adaptive', 'Aligned', 'Active', 'Agile', 'Authentic', 'Advanced', 'Accessible', 'Accelerated', 'Audience', 'Action', 'Allied', 'Ambient', 'Anchor', 'Applied', 'Artisan', 'Ascent', 'Assist', 'Atlas', 'Aware', 'Axiom', 'Access', 'Admirable', 'Amplified', 'Approachable', 'Ample'],
+    B: ['Bold', 'Brand', 'Bridge', 'Better', 'Business', 'Bright', 'Balanced', 'Build', 'Benefit', 'Blueprint', 'Beacon', 'Backbone', 'Boost', 'Bespoke', 'Boundary', 'Boundless', 'Breakthrough', 'Buzz', 'Breeze', 'Base', 'Bloom', 'Branch', 'Beyond', 'Buildup', 'Blend'],
+    C: ['Clear', 'Creative', 'Connected', 'Community', 'Care', 'Catalyst', 'Core', 'Collective', 'Craft', 'Code', 'Clever', 'Confident', 'Capable', 'Candid', 'Classic', 'Compound', 'Common', 'Compass', 'Content', 'Current', 'Cycle', 'Collaborative', 'Crisp', 'Centered', 'Charter'],
+    D: ['Driven', 'Digital', 'Dynamic', 'Direct', 'Design', 'Delivery', 'Development', 'Discovery', 'Data', 'Dependable', 'Daily', 'Decisive', 'Dedicated', 'Diverse', 'Durable', 'Deep', 'Deliberate', 'Diamond', 'Distinct', 'Daring', 'Dialog', 'Drive', 'Dream', 'Dawn', 'Daybreak'],
+    E: ['Effective', 'Elevated', 'Essential', 'Engine', 'Enterprise', 'Empower', 'Eco', 'Enable', 'Exchange', 'Everyday', 'Equitable', 'Earnest', 'Earth', 'Easy', 'Edge', 'Education', 'Element', 'Elite', 'Energy', 'Engage', 'Equal', 'Evolve', 'Expand', 'Explore', 'Expert'],
+    F: ['Focused', 'Future', 'Friendly', 'Forward', 'Flexible', 'Flourish', 'Foundry', 'Framework', 'Fund', 'Force', 'Fast', 'Fearless', 'Fine', 'Finish', 'First', 'Fit', 'Flow', 'Fluent', 'Fresh', 'Full', 'Function', 'Fabric', 'Fair', 'Faithful', 'Family'],
+    G: ['Growth', 'Guided', 'Green', 'Global', 'Genuine', 'Grounded', 'Group', 'Generate', 'Goal', 'Gather', 'Gentle', 'Gift', 'Giving', 'Glad', 'Glow', 'Good', 'Grace', 'Grand', 'Grateful', 'Great', 'Grit', 'Guard', 'Guide', 'Gear', 'Golden'],
+    H: ['Human', 'Helpful', 'Healthy', 'Horizon', 'Hub', 'Harmony', 'Hands-on', 'High-Impact', 'Holistic', 'Hope', 'Habit', 'Handshake', 'Happy', 'Hardy', 'Harvest', 'Heart', 'Hearth', 'Heritage', 'Highland', 'Highlight', 'Home', 'Honest', 'Honor', 'Humble', 'Harmony'],
+    I: ['Impact', 'Insight', 'Inclusive', 'Innovation', 'Intelligent', 'Integrated', 'Initiative', 'Improve', 'Inspire', 'Integrity', 'Ideal', 'Idea', 'Imagine', 'Immediate', 'Impression', 'Independent', 'Index', 'Industry', 'Infinite', 'Informed', 'Ingenious', 'Inside', 'Instant', 'Intent', 'Invest'],
+    J: ['Joint', 'Journey', 'Joyful', 'Just', 'Jumpstart', 'Junction', 'Junior', 'Justice', 'Jewel', 'Jolt', 'Jovial', 'Judgment', 'Jet', 'Jigsaw', 'Jive', 'Jogger', 'Jot', 'Jubilant', 'Juice', 'Jury', 'Justified', 'Juxtapose', 'Jazz', 'Jet-set', 'Jamboree'],
+    K: ['Key', 'Knowledge', 'Kind', 'Kinetic', 'Keep', 'Kernel', 'Kinship', 'Kickstart', 'Keystone', 'Knack', 'Kaleidoscope', 'Karma', 'Keen', 'Keeper', 'Kindred', 'Kinetic', 'Kismet', 'Kit', 'Knight', 'Knitted', 'Knowing', 'Known', 'King', 'Kingdom', 'Krypton'],
+    L: ['Leading', 'Local', 'Launch', 'Learning', 'Lift', 'Link', 'Logic', 'Lasting', 'Lively', 'Lab', 'Ladder', 'Lamp', 'Lane', 'Large', 'Latitude', 'Lean', 'Legacy', 'Legend', 'Lens', 'Level', 'Liberal', 'Light', 'Linear', 'Living', 'Loft'],
+    M: ['Modern', 'Mission', 'Momentum', 'Market', 'Meaningful', 'Maker', 'Movement', 'Method', 'Member', 'Managed', 'Main', 'Major', 'Mantle', 'Map', 'Mark', 'Mature', 'Mentor', 'Merit', 'Mesh', 'Methodical', 'Milestone', 'Mindful', 'Model', 'Motion', 'Mutual'],
+    N: ['Next', 'Network', 'Natural', 'New', 'Nimble', 'North', 'Nurture', 'Navigate', 'Noticeable', 'Nexus', 'Namesake', 'Native', 'Needed', 'Neighbor', 'Nest', 'Niche', 'Noble', 'Nod', 'Norm', 'Notable', 'Notice', 'Novel', 'Nova', 'Nugget', 'Number'],
+    O: ['Opportunity', 'Open', 'Outreach', 'Operational', 'Original', 'Orbit', 'Organized', 'Onward', 'Outcome', 'Optimize', 'Objective', 'Observant', 'Offer', 'Office', 'Omega', 'One', 'Order', 'Organic', 'Origin', 'Outlook', 'Outlet', 'Output', 'Outside', 'Overall', 'Owner'],
+    P: ['Professional', 'Purpose', 'Product', 'Project', 'Positive', 'Powered', 'People', 'Practical', 'Progress', 'Path', 'Pace', 'Pack', 'Partner', 'Pathway', 'Patient', 'Peak', 'Peer', 'Pilot', 'Pioneer', 'Pledge', 'Plus', 'Point', 'Portal', 'Pride', 'Proven'],
+    Q: ['Quality', 'Quick', 'Quest', 'Quiet', 'Quantum', 'Qualified', 'Quorum', 'Quotable', 'Query', 'Quill', 'Quaint', 'Quantify', 'Quartz', 'Queen', 'Quench', 'Quintet', 'Quirky', 'Quiver', 'Quota', 'Quintessential', 'Quilt', 'Quip', 'Quorum', 'Quasar', 'Quintuple'],
+    R: ['Reach', 'Results', 'Reliable', 'Responsive', 'Resource', 'Ready', 'Renew', 'Rise', 'Roadmap', 'Rooted', 'Radiant', 'Rally', 'Rare', 'Raw', 'Real', 'Reason', 'Rebuild', 'Recognize', 'Record', 'Refined', 'Relay', 'Reliable', 'Remote', 'Reset', 'Rhythm'],
+    S: ['Strategic', 'Smart', 'Shared', 'Sustainable', 'Support', 'Studio', 'Scale', 'Signal', 'Service', 'Spark', 'Safe', 'Sage', 'Sanctuary', 'Sapient', 'Savvy', 'Seasoned', 'Seed', 'Sense', 'Serious', 'Shape', 'Shift', 'Shine', 'Simple', 'Skilled', 'Social'],
+    T: ['Team', 'Trusted', 'Technical', 'Targeted', 'Together', 'Transform', 'Tool', 'Thrive', 'Track', 'Tactic', 'Talent', 'Tandem', 'Teach', 'Tenor', 'Tested', 'Textile', 'Theory', 'Thoughtful', 'Thread', 'Tier', 'Tight', 'Timeless', 'Timely', 'Tone', 'Top'],
+    U: ['Unified', 'Useful', 'Urban', 'Upgrade', 'Uplift', 'Understand', 'Utility', 'Unite', 'Unique', 'User', 'Ultra', 'Umbrella', 'Unbiased', 'Underline', 'Underpin', 'Undo', 'Universal', 'Unknown', 'Unlimited', 'Unlock', 'Upbeat', 'Upfront', 'Upkeep', 'Upright', 'Upward'],
+    V: ['Vision', 'Value', 'Vital', 'Venture', 'Voice', 'Visible', 'Verified', 'Velocity', 'Volunteer', 'Versatile', 'Valid', 'Vanguard', 'Vast', 'Veteran', 'Viable', 'Vibrance', 'Victory', 'Vigor', 'Vigilant', 'Village', 'Virtual', 'Virtue', 'Vista', 'Visit', 'Vivid'],
+    W: ['Works', 'Workshop', 'World', 'Wise', 'Workflow', 'Way', 'Wave', 'Wellness', 'Win', 'Wing', 'Walk', 'Warmth', 'Watch', 'Water', 'Welcome', 'Whole', 'Wide', 'Wider', 'Wild', 'Willing', 'Window', 'Winning', 'Wisdom', 'Witness', 'Wonder'],
+    X: ['Xchange', 'Xcelerate', 'Xpert', 'Xplore', 'Xact', 'Xpand', 'Xenial', 'X-factor', 'Xperience', 'Xylem', 'Xtra', 'Xtreme', 'Xcept', 'Xcess', 'Xtend', 'Xplain', 'Xpert', 'Xpress', 'Xchange', 'Xplicit', 'Xport', 'Xample', 'Xcellent', 'Xpand', 'Xcite'],
+    Y: ['Yield', 'Youth', 'Your', 'Year-round', 'Yes', 'Yardstick', 'Yonder', 'Yoke', 'Yarn', 'Yielding', 'Yearly', 'Yen', 'Young', 'Yarnspin', 'Yeti', 'Yacht', 'Yielded', 'Yummy', 'Yacht', 'Yeast', 'Yield-plus', 'Yardage', 'Yeoman', 'Yearn', 'Year-one'],
+    Z: ['Zenith', 'Zone', 'Zero-Waste', 'Zoom', 'Zest', 'Zonal', 'Zip', 'Zing', 'Zeal', 'Zestful', 'Zephyr', 'Zebra', 'Zeroed', 'Zing-up', 'Zippy', 'Zodiac', 'Zoned', 'Zoomed', 'Zygote', 'Zinger', 'Zing', 'Zoomer', 'Zone-one', 'Zealous', 'Zero-day']
   };
 
   const WORD_TAGS = {
@@ -326,11 +326,26 @@
     friendly: ['Friendly', 'Community', 'Helpful', 'Together', 'Human', 'Wellness', 'Joyful', 'Uplift']
   };
 
+  const STOP_WORDS = new Set([
+    'a','an','the','and','or','but','so','of','for','to','with','in','on','at','by','is','are','be','am',
+    'our','your','my','their','his','her','its','we','us','they','them','i','me','you',
+    'that','this','these','those','will','can','may','might','should','would','could',
+    'from','as','into','onto','out','up','down','over','under','about','across',
+    'it','if','not','no','yes','very','just','also','than','then','there','here'
+  ]);
+
+  const CATEGORY_OPTIONS = ['brand','growth','team','product','tech','community','nonprofit','environment','health','education','finance','security','operations'];
+
   function normalizeAcronymTarget(input) {
     return String(input || '')
       .toUpperCase()
       .replace(/[^A-Z]/g, '')
       .slice(0, MAX_TARGET_LENGTH);
+  }
+
+  function normalizeCategory(input) {
+    const value = String(input || '').toLowerCase().trim();
+    return CATEGORY_OPTIONS.indexOf(value) !== -1 ? value : '';
   }
 
   function tokenizeKeywords(input) {
@@ -460,6 +475,8 @@
     const tokens = tokenizeKeywords(options && options.keywords);
     const tokenSet = new Set(tokens);
     const tagSet = detectTags(tokens);
+    const category = normalizeCategory(options && options.category);
+    if (category) tagSet.add(category);
     const rng = createRng(options && options.seed);
     const seen = new Set();
     const results = [];
@@ -498,6 +515,100 @@
     }
 
     return results.sort(function(a, b) { return b.score - a.score; }).slice(0, limit);
+  }
+
+  function titleCaseWord(word) {
+    if (!word) return '';
+    return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+  }
+
+  function extractSignificantWords(phrase) {
+    const raw = tokenizeKeywords(phrase);
+    const significant = raw.filter(function(t) { return t.length > 1 && !STOP_WORDS.has(t) && /[a-z]/.test(t); });
+    return significant.length ? significant : raw.filter(function(t) { return /[a-z]/.test(t); });
+  }
+
+  function shuffleArray(array, rng) {
+    const copy = array.slice();
+    for (let i = copy.length - 1; i > 0; i -= 1) {
+      const j = Math.floor(rng() * (i + 1));
+      const tmp = copy[i];
+      copy[i] = copy[j];
+      copy[j] = tmp;
+    }
+    return copy;
+  }
+
+  function scoreReverseAcronym(letters) {
+    const vowels = letters.split('').filter(function(l) { return VOWELS.has(l); }).length;
+    const unique = new Set(letters.split('')).size;
+    let score = unique;
+    if (vowels >= 1) score += 3;
+    if (vowels >= 2) score += 1;
+    if (letters.length >= 3 && letters.length <= 5) score += 2;
+    if (/^[AEIOUY]/.test(letters)) score -= 1;
+    return score;
+  }
+
+  function buildReverseBadges(letters, chosenWords, inOrder) {
+    const badges = [];
+    if (isPronounceableTarget(letters)) badges.push('Pronounceable');
+    if (new Set(letters.split('')).size === letters.length) badges.push('No repeats');
+    if (inOrder) badges.push('Reads in order');
+    if (chosenWords.every(function(w) { return w.length >= 3 && w.length <= 10; })) badges.push('Memorable');
+    return badges;
+  }
+
+  function generateReverseAcronyms(options) {
+    const phrase = String(options && options.phrase || '');
+    const requestedLength = parseInt(options && options.length, 10);
+    const length = Math.max(MIN_TARGET_LENGTH, Math.min(MAX_TARGET_LENGTH, Number.isFinite(requestedLength) ? requestedLength : 4));
+    const limit = Math.max(1, Math.min(12, parseInt(options && options.limit, 10) || DEFAULT_LIMIT));
+    const words = extractSignificantWords(phrase);
+    if (words.length < length) return [];
+
+    const rng = createRng(options && options.seed);
+    const results = [];
+    const seen = new Set();
+    const pronounceableOnly = !!(options && options.pronounceableOnly);
+
+    function pushCandidate(indices, inOrder) {
+      const sorted = inOrder ? indices.slice().sort(function(a, b) { return a - b; }) : indices;
+      const chosen = sorted.map(function(i) { return words[i]; });
+      const letters = chosen.map(function(w) { return w.charAt(0).toUpperCase(); }).join('');
+      if (pronounceableOnly && !isPronounceableTarget(letters)) return;
+      const key = letters + '|' + chosen.join(' ');
+      if (seen.has(key)) return;
+      seen.add(key);
+      results.push({
+        acronym: letters,
+        phrase: chosen.map(titleCaseWord).join(' '),
+        score: scoreReverseAcronym(letters) + (inOrder ? 1 : 0),
+        badges: buildReverseBadges(letters, chosen, inOrder),
+        why: inOrder
+          ? 'First letters of your words, kept in the order you wrote them.'
+          : 'First letters of your words, reordered for a smoother acronym.'
+      });
+    }
+
+    const inOrderCount = Math.min(limit, Math.max(3, words.length - length + 1));
+    for (let start = 0; start < inOrderCount && results.length < limit; start += 1) {
+      if (start + length > words.length) break;
+      const indices = [];
+      for (let k = 0; k < length; k += 1) indices.push(start + k);
+      pushCandidate(indices, true);
+    }
+
+    const totalPicks = Math.max(limit * 6, 24);
+    for (let attempt = 0; attempt < totalPicks && results.length < limit * 2; attempt += 1) {
+      const shuffled = shuffleArray(words.map(function(_, i) { return i; }), rng);
+      const indices = shuffled.slice(0, length);
+      pushCandidate(indices, false);
+    }
+
+    return results
+      .sort(function(a, b) { return b.score - a.score; })
+      .slice(0, limit);
   }
 
   function copyText(text) {
@@ -542,6 +653,9 @@
     const targetInput = document.getElementById('am-target');
     const keywordsInput = document.getElementById('am-keywords');
     const styleSelect = document.getElementById('am-style');
+    const categorySelect = document.getElementById('am-category');
+    const phraseInput = document.getElementById('am-phrase');
+    const lengthSelect = document.getElementById('am-length');
     const generateButton = document.getElementById('am-generate');
     const regenerateButton = document.getElementById('am-regenerate');
     const regeneratePanelButton = document.getElementById('am-regenerate-panel');
@@ -550,11 +664,114 @@
     const status = document.getElementById('am-status');
     const error = document.getElementById('am-error');
     const exampleButtons = Array.from(document.querySelectorAll('[data-am-example]'));
+    const tabButtons = Array.from(document.querySelectorAll('[data-am-tab]'));
+    const modePanels = Array.from(document.querySelectorAll('[data-am-mode]'));
+    const pronounceableCheck = document.getElementById('am-pronounceable');
+    const savedPanel = document.getElementById('am-saved');
+    const savedList = document.getElementById('am-saved-list');
+    const savedClear = document.getElementById('am-saved-clear');
 
     if (!targetInput || !keywordsInput || !styleSelect || !generateButton || !resultList) return;
 
+    const SAVED_KEY = 'wnr_am_saved_v1';
     let generationCount = 0;
     let lastResults = [];
+    let currentMode = 'forward';
+
+    function loadSaved() {
+      try {
+        const raw = localStorage.getItem(SAVED_KEY);
+        const parsed = raw ? JSON.parse(raw) : [];
+        return Array.isArray(parsed) ? parsed : [];
+      } catch (e) { return []; }
+    }
+    function persistSaved(list) {
+      try { localStorage.setItem(SAVED_KEY, JSON.stringify(list)); } catch (e) {}
+    }
+    let savedItems = loadSaved();
+
+    function savedKey(item) { return (item.mode || 'forward') + '|' + item.acronym + '|' + item.phrase; }
+    function isSaved(item) {
+      const k = savedKey(item);
+      return savedItems.some(function(s) { return savedKey(s) === k; });
+    }
+    function renderSaved() {
+      if (!savedPanel || !savedList) return;
+      if (!savedItems.length) { savedPanel.hidden = true; savedList.innerHTML = ''; return; }
+      savedPanel.hidden = false;
+      savedList.innerHTML = '';
+      savedItems.forEach(function(item, idx) {
+        const chip = document.createElement('span');
+        chip.className = 'am-saved-chip';
+        chip.title = item.phrase;
+        chip.innerHTML = '<span class="am-saved-chip-letters"></span><span class="am-saved-chip-phrase"></span><button type="button" class="am-saved-chip-remove" aria-label="Remove">×</button>';
+        chip.querySelector('.am-saved-chip-letters').textContent = item.acronym;
+        chip.querySelector('.am-saved-chip-phrase').textContent = item.phrase.length > 32 ? item.phrase.slice(0, 30) + '…' : item.phrase;
+        chip.addEventListener('click', function(ev) {
+          if (ev.target.classList.contains('am-saved-chip-remove')) return;
+          copyText(item.acronym + ': ' + item.phrase).catch(function(){});
+        });
+        chip.querySelector('.am-saved-chip-remove').addEventListener('click', function(ev) {
+          ev.stopPropagation();
+          savedItems.splice(idx, 1);
+          persistSaved(savedItems);
+          renderSaved();
+          refreshStars();
+        });
+        savedList.appendChild(chip);
+      });
+    }
+    function refreshStars() {
+      Array.from(resultList.querySelectorAll('[data-am-row]')).forEach(function(row) {
+        const idx = parseInt(row.getAttribute('data-am-row'), 10);
+        const result = lastResults[idx];
+        if (!result) return;
+        const star = row.querySelector('.am-star');
+        if (!star) return;
+        star.classList.toggle('is-saved', isSaved({ mode: result.mode, acronym: result.acronym, phrase: result.phrase }));
+      });
+    }
+
+    function updateUrlParams() {
+      if (typeof history === 'undefined' || !history.replaceState) return;
+      const params = new URLSearchParams();
+      params.set('mode', currentMode);
+      params.set('style', styleSelect.value);
+      if (categorySelect && categorySelect.value) params.set('cat', categorySelect.value);
+      if (currentMode === 'reverse') {
+        if (phraseInput && phraseInput.value) params.set('phrase', phraseInput.value);
+        if (lengthSelect) params.set('len', lengthSelect.value);
+        if (pronounceableCheck) params.set('pron', pronounceableCheck.checked ? '1' : '0');
+      } else {
+        if (targetInput.value) params.set('letters', targetInput.value);
+        if (keywordsInput.value) params.set('notes', keywordsInput.value);
+      }
+      try { history.replaceState({}, '', location.pathname + '?' + params.toString()); } catch (e) {}
+    }
+    function readUrlParams() {
+      if (typeof URLSearchParams === 'undefined') return;
+      const params = new URLSearchParams(location.search || '');
+      if (params.get('mode') === 'reverse') currentMode = 'reverse';
+      if (params.get('style') && styleSelect) styleSelect.value = params.get('style');
+      if (params.get('cat') && categorySelect) categorySelect.value = params.get('cat');
+      if (params.get('letters')) targetInput.value = params.get('letters');
+      if (params.get('notes')) keywordsInput.value = params.get('notes');
+      if (params.get('phrase') && phraseInput) phraseInput.value = params.get('phrase');
+      if (params.get('len') && lengthSelect) lengthSelect.value = params.get('len');
+      if (params.get('pron') != null && pronounceableCheck) pronounceableCheck.checked = params.get('pron') === '1';
+    }
+
+    function setMode(mode) {
+      currentMode = mode === 'reverse' ? 'reverse' : 'forward';
+      tabButtons.forEach(function(btn) {
+        const isActive = btn.getAttribute('data-am-tab') === currentMode;
+        btn.classList.toggle('is-active', isActive);
+        btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+      modePanels.forEach(function(panel) {
+        panel.hidden = panel.getAttribute('data-am-mode') !== currentMode;
+      });
+    }
 
     function setStatus(message) {
       if (status) status.textContent = message;
@@ -580,9 +797,10 @@
 
       const fragment = document.createDocumentFragment();
 
-      results.forEach(function(result) {
+      results.forEach(function(result, rowIndex) {
         const item = document.createElement('li');
         item.className = 'word-item';
+        item.setAttribute('data-am-row', String(rowIndex));
 
         const left = document.createElement('div');
         left.className = 'word-left';
@@ -616,6 +834,38 @@
         const right = document.createElement('div');
         right.className = 'word-right';
 
+        const starButton = document.createElement('button');
+        starButton.type = 'button';
+        starButton.className = 'am-star';
+        starButton.title = 'Save';
+        starButton.setAttribute('aria-label', 'Save');
+        starButton.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.3 6.6.8-4.8 4.5 1.3 6.5L12 17.3l-6 3.3 1.3-6.5L2.5 9.6l6.6-.8L12 2.5z"/></svg>';
+        if (isSaved({ mode: result.mode, acronym: result.acronym, phrase: result.phrase })) {
+          starButton.classList.add('is-saved');
+        }
+        starButton.addEventListener('click', function() {
+          const payload = { mode: result.mode, acronym: result.acronym, phrase: result.phrase };
+          const k = savedKey(payload);
+          const existingIdx = savedItems.findIndex(function(s) { return savedKey(s) === k; });
+          if (existingIdx >= 0) {
+            savedItems.splice(existingIdx, 1);
+            starButton.classList.remove('is-saved');
+          } else {
+            savedItems.push(payload);
+            starButton.classList.add('is-saved');
+          }
+          persistSaved(savedItems);
+          renderSaved();
+        });
+
+        const rerollButton = document.createElement('button');
+        rerollButton.type = 'button';
+        rerollButton.className = 'am-reroll';
+        rerollButton.title = 'Regenerate this row';
+        rerollButton.setAttribute('aria-label', 'Regenerate this row');
+        rerollButton.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15.5-6.3L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15.5 6.3L3 16"/><path d="M3 21v-5h5"/></svg>';
+        rerollButton.addEventListener('click', function() { rerollRow(rowIndex); });
+
         const copyButton = document.createElement('button');
         copyButton.type = 'button';
         copyButton.className = 'am-copy';
@@ -631,6 +881,8 @@
           });
         });
 
+        right.appendChild(starButton);
+        right.appendChild(rerollButton);
         right.appendChild(copyButton);
         item.appendChild(left);
         item.appendChild(right);
@@ -642,26 +894,95 @@
     }
 
     function runGeneration(useFreshSeed) {
+      generationCount += 1;
+      const seed = useFreshSeed ? Date.now() + generationCount : generationCount;
+      const categoryValue = categorySelect ? categorySelect.value : '';
+
+      if (currentMode === 'reverse') {
+        const phraseValue = phraseInput ? phraseInput.value : '';
+        if (!phraseValue || phraseValue.trim().length < 2) {
+          setError('Describe your topic in a few words.');
+          resultList.innerHTML = '';
+          setStatus('Enter a short topic to extract an acronym.');
+          updateUrlParams();
+          return;
+        }
+        const requestedLength = lengthSelect ? parseInt(lengthSelect.value, 10) : 4;
+        setError('');
+        lastResults = generateReverseAcronyms({
+          phrase: phraseValue + ' ' + (categoryValue || ''),
+          length: requestedLength,
+          limit: 10,
+          pronounceableOnly: pronounceableCheck ? pronounceableCheck.checked : false,
+          seed: seed
+        }).map(function(r) { r.mode = 'reverse'; return r; });
+        if (!lastResults.length) {
+          setError('Add a few more descriptive words so we can pick ' + (requestedLength) + ' letters.');
+        }
+        renderResults(lastResults);
+        updateUrlParams();
+        return;
+      }
+
       const target = normalizeAcronymTarget(targetInput.value);
       if (target.length < MIN_TARGET_LENGTH) {
         setError('Enter 2 to 8 letters only.');
         resultList.innerHTML = '';
         setStatus('Enter 2 to 8 letters.');
+        updateUrlParams();
         return;
       }
 
       setError('');
       targetInput.value = target;
-      generationCount += 1;
 
       lastResults = generateAcronymResults({
         target: target,
         keywords: keywordsInput.value,
         style: styleSelect.value,
+        category: categoryValue,
         limit: 10,
-        seed: useFreshSeed ? Date.now() + generationCount : generationCount
-      });
+        seed: seed
+      }).map(function(r) { r.mode = 'forward'; return r; });
 
+      renderResults(lastResults);
+      updateUrlParams();
+    }
+
+    function rerollRow(rowIndex) {
+      if (rowIndex < 0 || rowIndex >= lastResults.length) return;
+      const categoryValue = categorySelect ? categorySelect.value : '';
+      const existingKeys = new Set(lastResults.map(function(r, i) { return i === rowIndex ? null : r.acronym + '|' + r.phrase; }));
+      let replacement = null;
+      for (let attempt = 0; attempt < 20 && !replacement; attempt += 1) {
+        const batchSeed = Date.now() + attempt * 7919 + rowIndex;
+        let batch;
+        if (currentMode === 'reverse') {
+          batch = generateReverseAcronyms({
+            phrase: (phraseInput ? phraseInput.value : '') + ' ' + (categoryValue || ''),
+            length: lengthSelect ? parseInt(lengthSelect.value, 10) : 4,
+            limit: 10,
+            pronounceableOnly: pronounceableCheck ? pronounceableCheck.checked : false,
+            seed: batchSeed
+          });
+        } else {
+          batch = generateAcronymResults({
+            target: normalizeAcronymTarget(targetInput.value),
+            keywords: keywordsInput.value,
+            style: styleSelect.value,
+            category: categoryValue,
+            limit: 10,
+            seed: batchSeed
+          });
+        }
+        for (let i = 0; i < batch.length; i += 1) {
+          const key = batch[i].acronym + '|' + batch[i].phrase;
+          if (!existingKeys.has(key)) { replacement = batch[i]; break; }
+        }
+      }
+      if (!replacement) return;
+      replacement.mode = currentMode;
+      lastResults[rowIndex] = replacement;
       renderResults(lastResults);
     }
 
@@ -717,13 +1038,53 @@
       });
     });
 
-    bindFaqAccordion(document);
+    tabButtons.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        const mode = btn.getAttribute('data-am-tab');
+        setMode(mode);
+        setError('');
+      });
+    });
+
+    if (phraseInput) {
+      phraseInput.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter' && (event.metaKey || event.ctrlKey)) {
+          event.preventDefault();
+          runGeneration(false);
+        }
+      });
+    }
+    if (lengthSelect) {
+      lengthSelect.addEventListener('change', function() { runGeneration(false); });
+    }
+    if (categorySelect) {
+      categorySelect.addEventListener('change', function() { runGeneration(false); });
+    }
+    if (pronounceableCheck) {
+      pronounceableCheck.addEventListener('change', function() { runGeneration(false); });
+    }
+    if (styleSelect) {
+      styleSelect.addEventListener('change', function() { runGeneration(false); });
+    }
+    if (savedClear) {
+      savedClear.addEventListener('click', function() {
+        savedItems = [];
+        persistSaved(savedItems);
+        renderSaved();
+        refreshStars();
+      });
+    }
+
+    readUrlParams();
+    setMode(currentMode);
+    renderSaved();
     runGeneration(false);
   }
 
   return {
     bindFaqAccordion: bindFaqAccordion,
     generateAcronymResults: generateAcronymResults,
+    generateReverseAcronyms: generateReverseAcronyms,
     initAcronymMakerPage: initAcronymMakerPage,
     normalizeAcronymTarget: normalizeAcronymTarget
   };

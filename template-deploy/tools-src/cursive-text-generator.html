@@ -1,0 +1,252 @@
+<!-- CONFIG
+{
+  "url": "/cursive-text-generator/",
+  "output": "cursive-text-generator.html",
+  "type": "tool",
+  "more_tools_key": "more_text_tools",
+  "more_tools_title": "More text tools",
+  "more_tools_subtitle": "Fun text converters and generators — all free"
+}
+-->
+
+<!-- SLOT:meta -->
+<title>Cursive Text Generator — Unicode Script &amp; Bold Script | Wordineer</title>
+<meta name="description" content="Convert text to cursive Unicode in script or bold script style. Copy and paste into Instagram bios, TikTok, Discord, or anywhere that accepts Unicode.">
+<meta name="keywords" content="cursive text generator, cursive font generator, script text generator, fancy cursive text, cursive letters copy paste">
+<link rel="canonical" href="https://wordineer.com/cursive-text-generator/">
+<meta property="og:title" content="Cursive Text Generator — Script &amp; Bold Script Unicode">
+<meta property="og:description" content="Convert any text to cursive Unicode script or bold script instantly. Paste into Instagram, TikTok, Discord, and more. Free, no sign-up.">
+<meta property="og:url" content="https://wordineer.com/cursive-text-generator/">
+<meta property="og:type" content="website">
+<!-- /SLOT:meta -->
+
+<!-- SLOT:style -->
+<style>
+.cur-wrap { max-width: 960px; margin: 0 auto; padding: 0 16px 40px; }
+.cur-input-card { background: #fff; border: 1.5px solid #e2e2ea; border-radius: 16px; padding: 20px 24px; margin-bottom: 20px; }
+.cur-label { display: block; font-size: .8rem; font-weight: 600; color: #555; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 8px; }
+.cur-input { width: 100%; box-sizing: border-box; border: 1.5px solid #d0d0d8; border-radius: 10px; padding: 12px 14px; font-size: 1.1rem; font-family: inherit; outline: none; transition: border-color .15s; color: #1a1a2e; }
+.cur-input:focus { border-color: #3C3489; }
+.cur-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+@media (max-width: 540px) { .cur-grid { grid-template-columns: 1fr; } }
+.cur-card { background: #fff; border: 1.5px solid #e2e2ea; border-radius: 14px; padding: 20px 22px; display: flex; flex-direction: column; gap: 10px; }
+.cur-card-name { font-size: .78rem; font-weight: 700; color: #3C3489; text-transform: uppercase; letter-spacing: .05em; }
+.cur-card-desc { font-size: .78rem; line-height: 1.5; color: var(--text-2, #6b7280); margin: 0; }
+.cur-card-text { font-size: 1.4rem; line-height: 1.6; color: #1a1a2e; word-break: break-all; min-height: 2.4em; }
+.cur-card-text.placeholder { color: #b0b0c0; font-size: .9rem; }
+.cur-card-footer { display: flex; justify-content: flex-end; margin-top: auto; }
+.cur-copy-btn { background: #f4f4f6; color: #333; border: 1.5px solid #d0d0d8; border-radius: 8px; font-size: .85rem; font-weight: 500; cursor: pointer; padding: 6px 16px; transition: background .12s, color .12s, border-color .12s; white-space: nowrap; }
+.cur-copy-btn:hover { background: #ebebf3; }
+.cur-copy-btn.copied { background: #3C3489; color: #fff; border-color: #3C3489; }
+</style>
+<!-- /SLOT:style -->
+
+<!-- SLOT:hero -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/text-tools/">Text Tools</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Cursive Text Generator</span>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free · No sign-up · Instant
+  </div>
+  <h1>Cursive text generator</h1>
+  <p>Convert any text to Unicode cursive script or bold script instantly — copy and paste into Instagram, TikTok, Discord, Twitter, or anywhere text is accepted.</p>
+  <p style="font-size:12px;color:var(--text-3);margin-top:8px">Built by Garrick Dee · Last verified August 2026</p>
+</div>
+<!-- /SLOT:hero -->
+
+<!-- SLOT:tool -->
+<div class="tool-wrap">
+  <div class="cur-wrap">
+    <div class="cur-input-card">
+      <label class="cur-label" for="cur-input">Your text</label>
+      <input type="text" id="cur-input" class="cur-input" placeholder="Type something…" autocomplete="off" spellcheck="false">
+    </div>
+    <div class="cur-grid" id="cur-grid"></div>
+  </div>
+</div>
+<!-- /SLOT:tool -->
+
+<!-- SLOT:ad_b -->
+<div class="content-wrap" style="padding-top:0;padding-bottom:8px">
+  <h2 class="section-title" style="margin-bottom:10px">How to use the cursive text generator</h2>
+  <p style="font-size:15px;line-height:1.75;color:var(--text-2)">Type or paste your text into the input field — both style cards update in real time. <strong>Script</strong> produces a lighter cursive look drawn from the Unicode Mathematical Script block. <strong>Bold Script</strong> uses the same letterforms with a heavier weight, which reads better at small sizes and stands out more in headers. Click Copy on whichever card you want. A few letters (notably lowercase e, g, and o) use Unicode's precomposed script forms rather than the standard Mathematical Script range — the output is still recognisably cursive, but not identical to every platform's font rendering.</p>
+</div>
+<!-- /SLOT:ad_b -->
+
+<!-- SLOT:explainer -->
+<div>
+  <h2 class="section-title">How it works</h2>
+  <div class="explainer-grid">
+    <div class="exp-step">
+      <div class="exp-num">1</div>
+      <div>
+        <strong>Both cards render simultaneously</strong>
+        <p>Type anything and Script and Bold Script update at the same time — no Generate button. The two outputs let you compare weight side by side before deciding which to copy.</p>
+      </div>
+    </div>
+    <div class="exp-step">
+      <div class="exp-num">2</div>
+      <div>
+        <strong>These are Unicode characters, not a font</strong>
+        <p>The cursive appearance comes from the Unicode Mathematical Script block (U+1D49C–U+1D4B5 for script, U+1D4D0–U+1D4E9 for bold script). Because the styling is baked into the characters themselves, it survives copy-paste into any plain-text field — no special font needed on the receiving end.</p>
+      </div>
+    </div>
+    <div class="exp-step">
+      <div class="exp-num">3</div>
+      <div>
+        <strong>Digits and punctuation pass through unchanged</strong>
+        <p>The Mathematical Script block covers only the 26 Latin letters. Numbers, spaces, and punctuation have no cursive Unicode equivalents, so they appear in their standard form in the output. This is a Unicode limitation, not a tool limitation.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /SLOT:explainer -->
+
+<!-- SLOT:faq -->
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">What is a cursive text generator?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>A cursive text generator converts regular letters into Unicode Mathematical Script characters that look like cursive or calligraphic handwriting. Because they are real Unicode code points — not a font or CSS style — they paste into Instagram bios, TikTok display names, Discord usernames, and any other field that accepts plain text.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What is the difference between script and bold script?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Script (𝒞𝓊𝓇𝓈𝒾𝓋𝑒) draws from the Unicode Mathematical Script block and produces a lighter, elegant cursive look. Bold Script (𝓑𝓸𝓵𝓭 𝓢𝓬𝓻𝓲𝓹𝓽) uses the Mathematical Bold Script block — the same letterforms with a heavier stroke weight. Bold Script is easier to read at small sizes and more striking in display contexts like bio headers.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I paste cursive text into Instagram or TikTok?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Yes. Both styles are plain Unicode characters that paste directly into Instagram bios, TikTok display names, Twitter/X profiles, Discord usernames, and any platform that accepts text. The cursive appearance is carried by the characters themselves, so it won't be stripped on paste the way CSS styling would be.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Why do some letters look different from standard cursive?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>The Unicode Mathematical Script block was designed for mathematical notation, not calligraphy. A few letters — most notably lowercase e (ℯ) and g (ℊ) — use Unicode's precomposed forms rather than the standard script range. The output is still recognisably cursive but may not exactly match what every system font renders for those code points.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Do search engines read cursive Unicode as real words?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>No. Search engines treat Unicode Mathematical Script characters as their own code points — '𝒽𝑒𝓁𝓁ℴ' won't rank for the word 'hello.' The same applies to screen readers, which may announce each character by its Unicode name rather than reading it as a word. Use cursive Unicode for decorative copy only, not for content you need indexed or read aloud accessibly.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Is the cursive text generator free?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Yes, completely free. No account required and no data is sent to any server — all conversion runs in your browser.</p></div>
+  </div>
+</div>
+<!-- /SLOT:faq -->
+
+<!-- SLOT:who -->
+<!-- /SLOT:who -->
+
+<!-- SLOT:init -->
+<script>
+(function(){
+  var SCRIPT_MAP={
+    a:0x1D4B6, b:0x1D4B7, c:0x1D4B8, d:0x1D4B9, e:0x212F, f:0x1D4BB,
+    g:0x210A,  h:0x1D4BD, i:0x1D4BE, j:0x1D4BF, k:0x1D4C0, l:0x1D4C1,
+    m:0x1D4C2, n:0x1D4C3, o:0x2134,  p:0x1D4C5, q:0x1D4C6, r:0x1D4C7,
+    s:0x1D4C8, t:0x1D4C9, u:0x1D4CA, v:0x1D4CB, w:0x1D4CC, x:0x1D4CD,
+    y:0x1D4CE, z:0x1D4CF,
+    A:0x1D49C, B:0x212C,  C:0x1D49E, D:0x1D49F, E:0x2130,  F:0x2131,
+    G:0x1D4A2, H:0x210B,  I:0x2110,  J:0x1D4A5, K:0x1D4A6, L:0x2112,
+    M:0x2133,  N:0x1D4A9, O:0x1D4AA, P:0x1D4AB, Q:0x1D4AC, R:0x211B,
+    S:0x1D4AE, T:0x1D4AF, U:0x1D4B0, V:0x1D4B1, W:0x1D4B2, X:0x1D4B3,
+    Y:0x1D4B4, Z:0x1D4B5
+  };
+
+  function toScript(text) {
+    return text.split('').map(function(c) {
+      return SCRIPT_MAP[c] ? String.fromCodePoint(SCRIPT_MAP[c]) : c;
+    }).join('');
+  }
+
+  function toBoldScript(text) {
+    return text.split('').map(function(c) {
+      var code = c.charCodeAt(0);
+      if (code >= 65 && code <= 90) return String.fromCodePoint(0x1D4D0 + code - 65);
+      if (code >= 97 && code <= 122) return String.fromCodePoint(0x1D4EA + code - 97);
+      return c;
+    }).join('');
+  }
+
+  var STYLES = [
+    {
+      name: '𝒮𝒸𝓇𝒾𝓅𝓉',
+      desc: 'Unicode Mathematical Script — a light cursive with elegant, narrow letterforms. Drawn from the same block used in formal mathematical notation.',
+      fn: toScript
+    },
+    {
+      name: '𝓑𝓸𝓵𝓭 𝓢𝓬𝓻𝓲𝓹𝓽',
+      desc: 'Unicode Mathematical Bold Script — the same cursive letterforms with a heavier stroke weight. Stands out more at small sizes and in profile headers.',
+      fn: toBoldScript
+    }
+  ];
+
+  var grid = document.getElementById('cur-grid');
+  var input = document.getElementById('cur-input');
+  var cards = [];
+
+  STYLES.forEach(function(style) {
+    var card = document.createElement('div');
+    card.className = 'cur-card';
+
+    var nameEl = document.createElement('div');
+    nameEl.className = 'cur-card-name';
+    nameEl.textContent = style.name;
+
+    var descEl = document.createElement('p');
+    descEl.className = 'cur-card-desc';
+    descEl.textContent = style.desc;
+
+    var textEl = document.createElement('div');
+    textEl.className = 'cur-card-text placeholder';
+    textEl.textContent = 'Type above to preview';
+
+    var footer = document.createElement('div');
+    footer.className = 'cur-card-footer';
+
+    var btn = document.createElement('button');
+    btn.className = 'cur-copy-btn';
+    btn.textContent = 'Copy';
+    btn.addEventListener('click', function() {
+      var val = textEl.dataset.value || '';
+      if (!val) return;
+      navigator.clipboard.writeText(val).then(function() {
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(function() { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 1500);
+      });
+    });
+
+    footer.appendChild(btn);
+    card.appendChild(nameEl);
+    card.appendChild(descEl);
+    card.appendChild(textEl);
+    card.appendChild(footer);
+    grid.appendChild(card);
+    cards.push({ textEl: textEl, style: style });
+  });
+
+  input.addEventListener('input', function() {
+    var val = input.value;
+    cards.forEach(function(c) {
+      if (!val) {
+        c.textEl.textContent = 'Type above to preview';
+        c.textEl.className = 'cur-card-text placeholder';
+        c.textEl.dataset.value = '';
+      } else {
+        var converted = c.style.fn(val);
+        c.textEl.textContent = converted;
+        c.textEl.className = 'cur-card-text';
+        c.textEl.dataset.value = converted;
+      }
+    });
+  });
+})();
+</script>
+<!-- /SLOT:init -->

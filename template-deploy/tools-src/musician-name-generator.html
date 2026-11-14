@@ -1,0 +1,363 @@
+<!-- CONFIG
+{
+  "url": "/musician-name-generator/",
+  "output": "musician-name-generator.html",
+  "type": "tool"
+}
+-->
+
+<!-- SLOT:meta -->
+<title>Musician Name Generator — Solo Artist, Band & Stage Names | Wordineer</title>
+<meta name="description" content="Musician names for solo artists, bands, and stage personas. Filter by genre and style — from real-sounding names to bold, abstract stage names.">
+<link rel="canonical" href="https://wordineer.com/musician-name-generator/">
+<meta property="og:type"        content="website">
+<meta property="og:site_name"   content="Wordineer">
+<meta property="og:title"       content="Musician Name Generator | Wordineer">
+<meta property="og:description" content="Generate stage names, band names, and musician personas across any genre. Filter by type and style. Free, instant, no signup.">
+<meta property="og:url"         content="https://wordineer.com/musician-name-generator">
+<meta property="og:image"       content="https://wordineer.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Other Generators", "item": "https://wordineer.com/other-generators/" },
+    { "@type": "ListItem", "position": 3, "name": "Musician Name Generator", "item": "https://wordineer.com/musician-name-generator/" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "What's the difference between a real, stage, and abstract musician name?", "acceptedAnswer": { "@type": "Answer", "text": "A real-style name sounds like it could belong to an actual person — Ray Hollis, Vera Colton, Marcus Dane. These work for solo artists across most genres because they're legible and searchable. Stage names are constructed for impact — a persona rather than a person. Think of artists who've adopted names that signal something about their sound or brand: a single word, a title, a transformation. Abstract names are stranger and more conceptual — less about a person, more about a feeling or a statement. They work best for experimental, electronic, or post-genre artists." } },
+    { "@type": "Question", "name": "Should a solo artist use a stage name or their real name?", "acceptedAnswer": { "@type": "Answer", "text": "Both work, for different reasons. Real names feel personal and authentic — better for singer-songwriters and acoustic artists where the relationship between artist and listener is intimate. Stage names create distance and persona, which works for pop, electronic, and hip-hop artists who want their public identity to be a constructed thing rather than a biography. The practical consideration: searchability. A too-common real name (John Smith) gets buried. An unusual real name or a distinctive stage name stands out. The generator's 'real' style surfaces names that could plausibly be actual names but aren't common enough to conflict." } },
+    { "@type": "Question", "name": "What makes a good band name?", "acceptedAnswer": { "@type": "Answer", "text": "Band names that last tend to share a few properties: they're short enough to fit on a marquee, distinctive enough that searching for them returns only the band, and tonally consistent with the genre. The Strokes, Radiohead, Fleet Foxes — all of these work because they're visually memorable, have no obvious competition in search, and fit the genre's sonic identity. Names that are too clever or too inside-jokey often age poorly or make press coverage awkward. The fierce and abstract styles produce the most band-appropriate results." } },
+    { "@type": "Question", "name": "What musician name style works best for electronic music?", "acceptedAnswer": { "@type": "Answer", "text": "Electronic artists tend toward stage and abstract names because the genre itself is about constructed sound rather than personal expression in the singer-songwriter sense. Abstract names — single words, transformed phrases, compound concepts — fit the aesthetic. Aphex Twin, Four Tet, Burial, Bonobo: all abstract, all distinctive, all searchable. The electronic genre filter surfaces names in this register. The stage style gives you something bold and singular; the abstract style gives you something conceptual and harder to categorize." } },
+    { "@type": "Question", "name": "Does this generator use AI?", "acceptedAnswer": { "@type": "Answer", "text": "No. Every name is handpicked and assigned type, genre, and style. No language model generates the output — each name was chosen because it actually works as a musician name for that combination of type, genre, and style." } },
+    { "@type": "Question", "name": "Can I save musician names?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — click the heart icon next to any name to save it. Saved names appear below the results and persist as long as the tab is open. Copy them before closing the page." } }
+  ]
+}
+</script>
+<!-- /SLOT:meta -->
+
+<!-- SLOT:style -->
+<style>
+.tool-wrap  { max-width:960px; margin:0 auto; padding:24px 24px 0; }
+.tool-card  { border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg); box-shadow:var(--shadow); }
+.tool-split { display:flex; }
+.ctrl        { width:220px; flex-shrink:0; padding:18px; border-right:1px solid var(--border-2); background:var(--bg-2); }
+.ctrl-row    { margin-bottom:14px; }
+.ctrl-label  { font-size:10px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.06em; display:block; margin-bottom:5px; }
+.ctrl-select { width:100%; padding:7px 10px; border:1px solid var(--border); border-radius:7px; background:var(--bg); color:var(--text); font-size:13px; font-family:inherit; cursor:pointer; appearance:none; -webkit-appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23888' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 10px center; padding-right:28px; }
+.ctrl-select:focus { outline:2px solid var(--brand); outline-offset:1px; }
+.gen-btn    { width:100%; padding:10px 14px; background:var(--brand); color:white; border:none; border-radius:8px; font-size:14px; font-weight:600; font-family:inherit; cursor:pointer; transition:background .15s,transform .1s; letter-spacing:-.01em; margin-top:4px; }
+.gen-btn:hover  { background:var(--brand-dark); }
+.gen-btn:active { transform:scale(.98); }
+.kbd        { text-align:center; font-size:10px; color:var(--text-3); margin-top:6px; }
+.kbd kbd    { background:var(--bg-3); border:1px solid var(--border); border-radius:3px; padding:1px 5px; font-size:10px; font-family:inherit; }
+.words-panel { flex:1; display:flex; flex-direction:column; overflow:hidden; min-height:380px; }
+.words-top   { display:flex; align-items:center; justify-content:space-between; padding:10px 16px; border-bottom:1px solid var(--border-2); }
+.words-count { font-size:12px; color:var(--text-3); }
+.words-actions { display:flex; gap:6px; }
+.act-btn { font-size:11px; padding:4px 10px; border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text-2); cursor:pointer; font-family:inherit; font-weight:500; transition:background .12s; }
+.act-btn:hover { background:var(--bg-2); }
+.word-list   { flex:1; list-style:none; padding:0; margin:0; }
+.bn-item     { display:flex; align-items:center; padding:9px 16px; border-bottom:1px solid var(--border-2); gap:8px; animation:bnFade .18s ease; }
+.bn-item:last-child { border-bottom:none; }
+@keyframes bnFade { from{opacity:0;transform:translateY(3px)} to{opacity:1;transform:none} }
+.bn-num      { font-size:11px; color:var(--text-3); min-width:18px; text-align:right; flex-shrink:0; }
+.bn-name-wrap { flex:1; display:flex; flex-direction:column; gap:2px; overflow:hidden; }
+.bn-name     { font-size:15px; font-weight:500; color:var(--text); letter-spacing:-.01em; }
+.bn-tag      { font-size:11px; color:var(--text-3); }
+.bn-btns     { display:flex; align-items:center; gap:4px; flex-shrink:0; }
+.icon-btn { width:28px; height:28px; display:flex; align-items:center; justify-content:center; background:transparent; border:none; cursor:pointer; border-radius:5px; color:var(--text-3); transition:background .12s, color .12s; }
+.icon-btn:hover { background:var(--bg-2); color:var(--text); }
+.icon-btn svg { width:14px; height:14px; }
+.icon-btn.saved { color:#E24B4A; }
+.icon-btn.saved svg path { fill:#E24B4A; }
+.saved-section { border-top:1px solid var(--border); padding:12px 14px; background:var(--bg); }
+.saved-top { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:8px; }
+.saved-label { font-size:12px; font-weight:700; color:var(--text); }
+.saved-copy { border:1px solid var(--border); background:var(--bg); color:var(--brand); border-radius:7px; padding:5px 9px; font-size:11px; font-weight:600; cursor:pointer; }
+.saved-tags { display:flex; gap:5px; flex-wrap:wrap; min-height:22px; }
+.saved-tag { display:inline-flex; align-items:center; gap:4px; background:#F0F2FF; color:var(--brand); border-radius:999px; padding:4px 8px; font-size:11px; font-weight:600; }
+.saved-tag-remove { cursor:pointer; opacity:.65; }
+.bn-toast { position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(10px); background:#1a1a1a; color:white; font-size:13px; font-weight:600; padding:10px 18px; border-radius:8px; opacity:0; transition:opacity .2s,transform .2s; pointer-events:none; z-index:999; }
+.bn-toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+.explainer h2 { font-size:20px; font-weight:700; margin:32px 0 10px; color:var(--text); }
+.explainer h3 { font-size:16px; font-weight:700; margin:20px 0 6px; color:var(--text); }
+.explainer p  { font-size:15px; line-height:1.75; color:var(--text-2); margin:0 0 14px; }
+</style>
+<!-- /SLOT:style -->
+
+<!-- SLOT:hero -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/other-generators/">Other Generators</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Musician Name Generator</span>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free · No sign-up · Instant
+  </div>
+  <h1>Musician Name Generator</h1>
+  <p>Generate names for solo artists, bands, and stage personas across any genre. Filter by type, genre, and naming style — from real-sounding artist names to bold abstract identities.</p>
+</div>
+<!-- /SLOT:hero -->
+
+<!-- SLOT:tool -->
+<div class="tool-wrap">
+  <div class="tool-card">
+    <div class="tool-split">
+      <div class="ctrl">
+        <div class="ctrl-row">
+          <label class="ctrl-label" for="bn-type">Type</label>
+          <select class="ctrl-select" id="bn-type">
+            <option value="any">Solo or Band</option>
+            <option value="solo">Solo Artist</option>
+            <option value="band">Band</option>
+          </select>
+        </div>
+        <div class="ctrl-row">
+          <label class="ctrl-label" for="bn-genre">Genre</label>
+          <select class="ctrl-select" id="bn-genre">
+            <option value="any">Any Genre</option>
+            <option value="indie">Indie / Alternative</option>
+            <option value="electronic">Electronic</option>
+            <option value="folk">Folk / Acoustic</option>
+            <option value="hiphop">Hip-Hop / R&amp;B</option>
+            <option value="rock">Rock / Metal</option>
+            <option value="pop">Pop</option>
+          </select>
+        </div>
+        <div class="ctrl-row">
+          <label class="ctrl-label" for="bn-style">Style</label>
+          <select class="ctrl-select" id="bn-style">
+            <option value="any">Any Style</option>
+            <option value="real">Real (person-like)</option>
+            <option value="stage">Stage (bold persona)</option>
+            <option value="abstract">Abstract</option>
+          </select>
+        </div>
+        <button class="gen-btn" id="bn-gen-btn">Generate Musician Names</button>
+        <p class="kbd">Press <kbd>Enter</kbd> to generate</p>
+      </div>
+      <div class="words-panel">
+        <div class="words-top">
+          <span class="words-count" id="bn-count">10 names</span>
+          <div class="words-actions">
+            <button class="act-btn" id="bn-copy-all-btn">Copy all</button>
+            <button class="act-btn" id="bn-regen-btn">Regenerate</button>
+          </div>
+        </div>
+        <ul class="word-list" id="bn-list" aria-label="Generated musician names" aria-live="polite"></ul>
+      </div>
+    </div>
+    <div class="saved-section" id="bn-saved-section" style="display:none">
+      <div class="saved-top">
+        <span class="saved-label">Saved names <span id="bn-saved-count" style="font-weight:400;opacity:.7">(0)</span></span>
+        <span class="saved-copy" id="bn-saved-copy">Copy saved</span>
+      </div>
+      <div class="saved-tags" id="bn-saved-tags"></div>
+    </div>
+  </div>
+</div>
+<div class="bn-toast" id="bn-toast" role="status" aria-live="polite">Copied!</div>
+<!-- /SLOT:tool -->
+
+<!-- SLOT:ad_b --><!-- /SLOT:ad_b -->
+
+<!-- SLOT:explainer -->
+<div class="explainer">
+  <h2>How to Use This Generator</h2>
+  <p>Start with type — whether you're naming a solo artist or a band shapes everything else. Then pick the genre that fits your sound. The style filter is the most important choice: real names sound like a person, stage names are constructed personas, and abstract names are concepts rather than identities. All three work depending on what you're trying to communicate. Leave everything on "any" to see the full range across styles and genres.</p>
+
+  <h2>Solo Artist Names</h2>
+  <h3>Real style</h3>
+  <p>Real-style solo names sound like an actual person could own them without legally changing anything. Ray Hollis, Vera Colton, Marcus Dane. These work well for folk, acoustic, and singer-songwriter contexts where the listener is supposed to feel like they're relating to a real individual. They're also searchable — unusual-enough names don't conflict with existing public figures. The folk and indie genre filters with real style produce the most names in this register.</p>
+  <h3>Stage style</h3>
+  <p>Stage names are constructed for impact. They're what an artist chooses to become rather than what they already are. A single word, a title, a striking combination that creates a public-facing identity distinct from the private person. Pop and hip-hop artists use this most consistently — the stage name IS the brand, and the brand needs to be bold enough to put on a billboard. The pop and hip-hop genre filters with stage style produce the sharpest results.</p>
+  <h3>Abstract style</h3>
+  <p>Abstract solo names work best for artists who blur genres or whose sound is the concept. They resist easy categorization, which is sometimes exactly the point. Electronic artists particularly benefit from abstract names that signal they're not playing by genre rules. A name like this creates curiosity before anyone has heard a single track.</p>
+
+  <h2>Band Names</h2>
+  <h3>What makes a band name work</h3>
+  <p>Band names have a few additional constraints beyond solo artist names. They need to be short enough to fit on a marquee, distinctive enough that searching for them returns only the band (not a common phrase), and tonally consistent with the genre. The Strokes, Radiohead, Fleet Foxes — all short, all distinctive, all genre-appropriate. The abstract and stage styles for bands produce names with the most staying power. The real style works less well for bands because a name that sounds like a person creates confusion about who's in charge.</p>
+  <h3>By genre</h3>
+  <p>Rock and metal bands traditionally use strong, aggressive, or evocative compound words — names that create an image. Indie bands often use more unusual combinations or found-object aesthetics. Electronic acts tend toward singular, abstract words that feel like a frequency or a feeling. Folk bands often use landscape or collective imagery. The genre filter steers you toward names that fit these conventions without forcing you into cliché.</p>
+  <p>For names beyond the music world, the <a href="/band-name-generator/">band name generator</a> focuses specifically on band contexts and runs a different dataset. If you're building a full creative project, the <a href="/character-name-generator/">character name generator</a> can help name the people behind the personas.</p>
+</div>
+<!-- /SLOT:explainer -->
+
+<!-- SLOT:faq -->
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">What's the difference between a real, stage, and abstract musician name?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Real-style names sound like a person — Ray Hollis, Vera Colton. Stage names are constructed personas — bold, singular, designed for a billboard. Abstract names are concepts rather than identities, stranger and harder to categorize, and work best for electronic or experimental artists who want their name to be a statement rather than an introduction.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Should a solo artist use a stage name or their real name?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Real names feel personal and authentic — better for singer-songwriters where the relationship with listeners is intimate. Stage names create distance and persona, which works for pop, electronic, and hip-hop artists who want a constructed public identity. The practical consideration: searchability. A too-common real name gets buried. A distinctive name stands out.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What makes a good band name?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Short enough to fit on a marquee, distinctive enough that searching it returns only the band, and tonally consistent with the genre. Names that are too clever or too inside-jokey often age poorly or make press coverage awkward. The fierce and abstract styles produce the most band-appropriate results across genres.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What musician name style works best for electronic music?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Electronic artists tend toward stage and abstract names because the genre is about constructed sound rather than personal narrative. Abstract names — single words, transformed phrases, compound concepts — fit the aesthetic. The electronic genre filter surfaces names in this register. Stage style gives something bold and singular; abstract gives something conceptual and harder to categorize.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Does this generator use AI?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">No. Every name is handpicked and assigned type, genre, and style. No language model generates the output — each name was chosen because it actually works as a musician name for that combination.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I save musician names?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a">Yes — click the heart icon next to any name to save it. Saved names appear below the results and persist as long as the tab is open. Copy them before closing the page.</div>
+  </div>
+</div>
+<!-- /SLOT:faq -->
+
+<!-- SLOT:who -->
+<div>
+  <h2 class="section-title" style="margin-bottom:14px">Who uses a musician name generator?</h2>
+  <div class="uc-grid">
+    <div class="uc"><div class="uc-title">Emerging solo artists</div><div class="uc-body">Musicians starting to build an online presence who need a name before they can create profiles, register domains, or start booking shows — the name has to come before everything else</div></div>
+    <div class="uc"><div class="uc-title">New bands in formation</div><div class="uc-body">Groups in the early stages who've been rehearsing under "the band" for weeks and need to commit to something before their first show poster goes to print</div></div>
+    <div class="uc"><div class="uc-title">Writers and game designers</div><div class="uc-body">Fiction writers and game developers who need believable musician names for fictional artists, bands, or music-world characters that appear in their stories or worlds</div></div>
+    <div class="uc"><div class="uc-title">Music project re-brandings</div><div class="uc-body">Established artists pivoting sound or persona who want to explore what a new identity might look like before committing to a full rebrand across social platforms and streaming profiles</div></div>
+  </div>
+</div>
+<!-- /SLOT:who -->
+
+<!-- SLOT:init -->
+<script>
+(function () {
+  var NAMES = [
+    { n:"Ray Hollis", type:"solo", genre:"folk", style:"real", tag:"folk · real · warm and a little weathered" },
+    { n:"Vera Colton", type:"solo", genre:"folk", style:"real", tag:"folk · real · sounds like someone you'd trust" },
+    { n:"Elias Morrow", type:"solo", genre:"folk", style:"real", tag:"folk · real · a name from a letter, not a screen" },
+    { n:"June Arbor", type:"solo", genre:"folk", style:"real", tag:"folk · real · season and place in two syllables" },
+    { n:"Clem Dunne", type:"solo", genre:"folk", style:"real", tag:"folk · real · unhurried and unpretentious" },
+    { n:"Della Voss", type:"solo", genre:"folk", style:"real", tag:"folk · real · Southern Gothic, but the good parts" },
+    { n:"The Still Road", type:"band", genre:"folk", style:"stage", tag:"folk · band · the journey, not the destination" },
+    { n:"Pale Harbor", type:"band", genre:"folk", style:"abstract", tag:"folk · band · coastal, quiet, faintly melancholy" },
+    { n:"Birch & Ember", type:"band", genre:"folk", style:"stage", tag:"folk · band · acoustic duos want this name" },
+    { n:"The Wanderers", type:"band", genre:"folk", style:"stage", tag:"folk · band · no fixed address · great songs" },
+    { n:"Cedar Gospel", type:"band", genre:"folk", style:"abstract", tag:"folk · band · hymns for people who don't go to church" },
+    { n:"Marcus Dane", type:"solo", genre:"indie", style:"real", tag:"indie · real · could be on a Brooklyn playlist" },
+    { n:"Sable Reed", type:"solo", genre:"indie", style:"real", tag:"indie · real · distinct without trying too hard" },
+    { n:"Lena Thorne", type:"solo", genre:"indie", style:"real", tag:"indie · real · credible across multiple indie subgenres" },
+    { n:"The Low Tide", type:"band", genre:"indie", style:"stage", tag:"indie · band · melancholic in the right way" },
+    { n:"Paper Wolves", type:"band", genre:"indie", style:"stage", tag:"indie · band · fragile but threatening" },
+    { n:"Hollow Atlas", type:"band", genre:"indie", style:"abstract", tag:"indie · band · mapping something that isn't there" },
+    { n:"Coral Static", type:"band", genre:"indie", style:"abstract", tag:"indie · band · underwater noise pop energy" },
+    { n:"Soft Riot", type:"band", genre:"indie", style:"abstract", tag:"indie · band · a contradiction that resolves in the chorus" },
+    { n:"The Pale Collective", type:"band", genre:"indie", style:"stage", tag:"indie · band · sounds like they make zines" },
+    { n:"Grey Frequency", type:"solo", genre:"electronic", style:"abstract", tag:"electronic · solo · the signal between stations" },
+    { n:"Nocturn", type:"solo", genre:"electronic", style:"stage", tag:"electronic · solo · nocturnal by necessity" },
+    { n:"Void Index", type:"solo", genre:"electronic", style:"abstract", tag:"electronic · solo · cataloguing nothing in particular" },
+    { n:"Tessera", type:"solo", genre:"electronic", style:"abstract", tag:"electronic · solo · one piece of a larger mosaic" },
+    { n:"Subzero Bloom", type:"solo", genre:"electronic", style:"abstract", tag:"electronic · solo · growth in the wrong conditions" },
+    { n:"CLVR", type:"solo", genre:"electronic", style:"stage", tag:"electronic · solo · stripped vowels, full personality" },
+    { n:"Axiom", type:"band", genre:"electronic", style:"abstract", tag:"electronic · band · self-evident, if you listen" },
+    { n:"Dead Satellite", type:"band", genre:"electronic", style:"abstract", tag:"electronic · band · still orbiting, no longer transmitting" },
+    { n:"Phase Four", type:"band", genre:"electronic", style:"stage", tag:"electronic · band · an escalation implied" },
+    { n:"Flux Division", type:"band", genre:"electronic", style:"abstract", tag:"electronic · band · constantly in motion, always divided" },
+    { n:"Kai Solaris", type:"solo", genre:"pop", style:"stage", tag:"pop · solo · a name that belongs on a tour poster already" },
+    { n:"Maren Vale", type:"solo", genre:"pop", style:"real", tag:"pop · real · credible singer-songwriter to pop crossover" },
+    { n:"Stellia", type:"solo", genre:"pop", style:"stage", tag:"pop · solo · star-adjacent, single-name identity" },
+    { n:"Nova Ray", type:"solo", genre:"pop", style:"stage", tag:"pop · solo · bright, fast, brand-ready" },
+    { n:"Solene", type:"solo", genre:"pop", style:"stage", tag:"pop · solo · one name, distinct enough to own" },
+    { n:"Aura Quinn", type:"solo", genre:"pop", style:"stage", tag:"pop · solo · mystique and marketability in two words" },
+    { n:"The Phenomena", type:"band", genre:"pop", style:"stage", tag:"pop · band · aspirationally correct" },
+    { n:"Bronze Fox", type:"band", genre:"pop", style:"stage", tag:"pop · band · warm metallic — the sweet spot for radio" },
+    { n:"Vex Monroe", type:"solo", genre:"hiphop", style:"stage", tag:"hip-hop · solo · authority and edge in two syllables" },
+    { n:"Cassius Laine", type:"solo", genre:"hiphop", style:"real", tag:"hip-hop · real · lyricist energy" },
+    { n:"Prism Kel", type:"solo", genre:"hiphop", style:"stage", tag:"hip-hop · solo · refracts everything it touches" },
+    { n:"Sable Coast", type:"solo", genre:"hiphop", style:"stage", tag:"hip-hop · solo · dark and coastal · the mood is right" },
+    { n:"Onyx Carver", type:"solo", genre:"hiphop", style:"stage", tag:"hip-hop · solo · carving a lane, stone by stone" },
+    { n:"The Meridian", type:"band", genre:"hiphop", style:"abstract", tag:"hip-hop · collective · the line everyone wants to cross" },
+    { n:"Marcus Veil", type:"solo", genre:"hiphop", style:"stage", tag:"hip-hop · solo · concealed, deliberate, precise" },
+    { n:"Iron Callus", type:"band", genre:"rock", style:"stage", tag:"rock · band · earned, hardened, unbothered" },
+    { n:"The Severance", type:"band", genre:"rock", style:"abstract", tag:"rock · band · a clean break, loudly" },
+    { n:"Fault Line", type:"band", genre:"rock", style:"abstract", tag:"rock · band · pressure building in both directions" },
+    { n:"Black Meridian", type:"band", genre:"rock", style:"stage", tag:"rock · band · heavy, precise, unexplained" },
+    { n:"Threshold Collapse", type:"band", genre:"rock", style:"abstract", tag:"rock · band · metal territory, by design" },
+    { n:"Redline Signal", type:"band", genre:"rock", style:"abstract", tag:"rock · band · overdriven and intentional" },
+    { n:"The Ignition", type:"band", genre:"rock", style:"stage", tag:"rock · band · everything starts here" },
+    { n:"Ashen Pulpit", type:"band", genre:"rock", style:"abstract", tag:"rock · band · sermons from a burned stage" },
+    { n:"Volt Meridian", type:"band", genre:"rock", style:"abstract", tag:"rock · band · electric and slightly ominous" },
+    { n:"Kade Veron", type:"solo", genre:"rock", style:"real", tag:"rock · solo · sounds like a frontman who came from somewhere" },
+    { n:"Prism Static", type:"solo", genre:"any", style:"abstract", tag:"abstract · solo · color and interference, at once" },
+    { n:"The Undertow", type:"band", genre:"any", style:"abstract", tag:"abstract · band · pulling in one direction, always" },
+    { n:"Cascade Null", type:"solo", genre:"any", style:"abstract", tag:"abstract · solo · systems failing beautifully" },
+    { n:"Velvet Signal", type:"solo", genre:"any", style:"stage", tag:"stage · solo · soft and direct · cuts through" },
+    { n:"Ember Drift", type:"band", genre:"any", style:"abstract", tag:"abstract · band · warmth and displacement" },
+    { n:"The Isolate", type:"band", genre:"any", style:"abstract", tag:"abstract · band · singular, deliberate, unreachable" },
+    { n:"North Mirror", type:"band", genre:"any", style:"abstract", tag:"abstract · band · reflection from the coldest direction" },
+    { n:"Torn Latitude", type:"band", genre:"any", style:"abstract", tag:"abstract · band · coordinates for somewhere that no longer exists" },
+    { n:"Static Chapel", type:"band", genre:"any", style:"abstract", tag:"abstract · band · sacred noise" },
+    { n:"Fallow Season", type:"band", genre:"any", style:"abstract", tag:"abstract · band · the quiet year before everything grows" }
+  ];
+
+  function shuffle(arr) { var a=arr.slice(); for (var i=a.length-1;i>0;i--) { var j=Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
+  function escH(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function showToast(msg) { var t=document.getElementById('bn-toast'); t.textContent=msg||'Copied!'; t.classList.add('show'); setTimeout(function(){ t.classList.remove('show'); },1800); }
+  function copyText(text) { if (navigator.clipboard&&navigator.clipboard.writeText) { navigator.clipboard.writeText(text).then(function(){ showToast(); }).catch(function(){ fallbackCopy(text); }); } else { fallbackCopy(text); } }
+  function fallbackCopy(text) { var ta=document.createElement('textarea'); ta.value=text; ta.style.cssText='position:fixed;opacity:0;pointer-events:none'; document.body.appendChild(ta); ta.focus(); ta.select(); try { document.execCommand('copy'); } catch(e) {} document.body.removeChild(ta); showToast(); }
+  var saved = {};
+  function renderSaved() { var section=document.getElementById('bn-saved-section'); var tags=document.getElementById('bn-saved-tags'); var countEl=document.getElementById('bn-saved-count'); var keys=Object.keys(saved); if (!keys.length) { section.style.display='none'; return; } section.style.display=''; if (countEl) countEl.textContent='('+keys.length+')'; tags.innerHTML=''; keys.forEach(function(name) { var span=document.createElement('span'); span.className='saved-tag'; span.innerHTML=escH(name)+'<span class="saved-tag-remove" data-remove="'+escH(name)+'" aria-label="Remove">×</span>'; tags.appendChild(span); }); }
+  function toggleSave(name, btn) { if (saved[name]) { delete saved[name]; btn.classList.remove('saved'); btn.title='Save'; } else { saved[name]=true; btn.classList.add('saved'); btn.title='Unsave'; } renderSaved(); }
+
+  function generate() {
+    var type = document.getElementById('bn-type').value;
+    var genre = document.getElementById('bn-genre').value;
+    var style = document.getElementById('bn-style').value;
+    var pool = NAMES.filter(function(x) {
+      if (type !== 'any' && x.type !== type) return false;
+      if (genre !== 'any' && x.genre !== genre && x.genre !== 'any') return false;
+      if (style !== 'any' && x.style !== style) return false;
+      return true;
+    });
+    if (pool.length < 5) pool = NAMES.filter(function(x) { return (type==='any'||x.type===type) && (genre==='any'||x.genre===genre||x.genre==='any'); });
+    if (pool.length < 5) pool = NAMES.filter(function(x) { return type==='any'||x.type===type; });
+    if (pool.length < 5) pool = NAMES;
+    return shuffle(pool).slice(0, 10);
+  }
+
+  function render() {
+    var items = generate();
+    var list = document.getElementById('bn-list');
+    list.innerHTML='';
+    items.forEach(function(item, i) {
+      var isSaved=!!saved[item.n];
+      var li=document.createElement('li'); li.className='bn-item';
+      li.innerHTML='<span class="bn-num">'+(i+1)+'</span><span class="bn-name-wrap"><span class="bn-name">'+escH(item.n)+'</span><span class="bn-tag">'+escH(item.tag)+'</span></span><div class="bn-btns"><button class="icon-btn bn-save-btn'+(isSaved?' saved':'')+'" data-name="'+escH(item.n)+'" title="'+(isSaved?'Unsave':'Save')+'" aria-label="Save '+escH(item.n)+'"><svg viewBox="0 0 16 16" fill="none"><path d="M8 13.5S2 9.5 2 5.5A3 3 0 018 4a3 3 0 016 1.5c0 4-6 8-6 8z" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/></svg></button><button class="icon-btn bn-copy-btn" data-name="'+escH(item.n)+'" title="Copy" aria-label="Copy '+escH(item.n)+'"><svg viewBox="0 0 14 14" fill="none"><rect x="1" y="4" width="9" height="9.5" rx="1.5" stroke="currentColor" stroke-width="1.1"/><path d="M4.5 4V2.5A1.5 1.5 0 016 1h5.5A1.5 1.5 0 0113 2.5v7a1.5 1.5 0 01-1.5 1.5H10" stroke="currentColor" stroke-width="1.1"/></svg></button></div>';
+      list.appendChild(li);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    render();
+    document.getElementById('bn-gen-btn').addEventListener('click', render);
+    document.getElementById('bn-regen-btn').addEventListener('click', render);
+    ['bn-type','bn-genre','bn-style'].forEach(function(id) { document.getElementById(id).addEventListener('change', render); });
+    document.addEventListener('keydown', function(e) { if (e.target===document.body&&e.key==='Enter') { e.preventDefault(); render(); } });
+    document.getElementById('bn-list').addEventListener('click', function(e) { var c=e.target.closest('.bn-copy-btn'); if (c) { copyText(c.dataset.name); return; } var s=e.target.closest('.bn-save-btn'); if (s) { toggleSave(s.dataset.name, s); } });
+    document.getElementById('bn-saved-tags').addEventListener('click', function(e) { var r=e.target.closest('.saved-tag-remove'); if (!r) return; var name=r.dataset.remove; delete saved[name]; document.querySelectorAll('.bn-save-btn').forEach(function(btn) { if (btn.dataset.name===name) { btn.classList.remove('saved'); btn.title='Save'; } }); renderSaved(); });
+    document.getElementById('bn-copy-all-btn').addEventListener('click', function() { var names=[]; document.querySelectorAll('.bn-name').forEach(function(el) { names.push(el.textContent); }); if (names.length) { copyText(names.join('\n')); } });
+    document.getElementById('bn-saved-copy').addEventListener('click', function() { var names=Object.keys(saved); if (names.length) { copyText(names.join('\n')); } });
+  });
+}());
+</script>
+<!-- /SLOT:init -->

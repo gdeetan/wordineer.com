@@ -1,4 +1,4 @@
-<!-- build: 2026-09-07T06:36:31Z -->
+<!-- build: 2026-11-14T07:32:45Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -145,18 +145,6 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "Coin Flip",
-  "url": "https://wordineer.com/coin-flip",
-  "description": "Flip a virtual coin online — heads or tails, instantly. Flip history, statistics, and multi-flip mode included.",
-  "applicationCategory": "UtilityApplication",
-  "operatingSystem": "Web",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Wordineer", "item": "https://wordineer.com/" },
@@ -167,25 +155,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Coin Flip — Flip a Virtual Coin Online">
 <meta name="twitter:description" content="Flip a virtual coin instantly — heads or tails. Track your flip history and stats. Free, runs in your browser.">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "Coin Flip — Flip a Virtual Coin Online",
-  "url": "https://wordineer.com/coin-flip",
-  "applicationCategory": "GameApplication",
-  "operatingSystem": "Web",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD"
-  },
-  "publisher": {
-    "@id": "https://wordineer.com/#organization"
-  },
-  "description": "Flip a virtual coin online — heads or tails, instantly. Free coin flipper with flip history, statistics, and multi-flip mode. No sign-up required."
-}
-</script>
+
 <link rel="stylesheet" href="/styles/global.css?v=16">
 <style>
 /* ── Coin flip tool ───────────────────────────────────────── */
@@ -711,6 +681,7 @@
   </div>
 </div>
 <div class="content-wrap">
+<!-- SECTION:more_tools -->
   <div class="section">
     <h2 class="section-title">More random tools</h2>
     <p class="section-sub">Dice, spinners, coin flips, and more — all free</p>
@@ -732,6 +703,7 @@
       <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-cta-btn">Try Grammarly free <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l2.5 2.5L6 8" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></a>
     </div>
   </div>
+<!-- /SECTION:more_tools -->
 <div>
   <h2 class="section-title">How the coin flip works</h2>
   <div class="explainer-grid">
@@ -759,31 +731,52 @@
   </div>
 </div>
 
-<div class="faq">
-  <h2 class="faq-title">Frequently asked questions</h2>
-  <div class="faq-item open">
-    <div class="faq-q"><span class="faq-q-text">Is the coin flip truly random?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a"><p>Yes. This tool uses <code>crypto.getRandomValues()</code>, the browser's cryptographically secure random number generator, the same API used for TLS session keys. Each flip is a completely independent 50/50 event, with no bias toward heads or tails.</p></div>
-  </div>
-  <div class="faq-item">
-    <div class="faq-q"><span class="faq-q-text">What is the probability of getting heads or tails?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a"><p>Each flip has exactly a 50% chance of landing heads and a 50% chance of landing tails. These are independent events, the previous result never influences the next one. Even after ten heads in a row, the next flip is still 50/50.</p></div>
-  </div>
-  <div class="faq-item">
-    <div class="faq-q"><span class="faq-q-text">Can I flip multiple coins at once?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a"><p>Yes. Set the "Flips" input to any number from 1 to 100. In multi-flip mode, all results appear as labelled chips immediately and the stats update in bulk, useful for probability experiments or classroom demonstrations.</p></div>
-  </div>
-  <div class="faq-item">
-    <div class="faq-q"><span class="faq-q-text">What is the gambler's fallacy?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a"><p>The gambler's fallacy is the mistaken belief that a random event is more or less likely to occur because of previous outcomes. Thinking that tails is "due" after several heads in a row is the classic example. In reality, each flip is independent and past results have zero influence on the next.</p></div>
-  </div>
-  <div class="faq-item">
-    <div class="faq-q"><span class="faq-q-text">How do I use a coin flip to make a decision?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a"><p>Assign heads to one option and tails to the other before you flip. Accept the result. Interestingly, if you feel relieved or disappointed by the outcome, that reaction often reveals what you actually wanted, making the coin flip useful beyond just the result itself.</p></div>
-  </div>
-  <div class="faq-item">
-    <div class="faq-q"><span class="faq-q-text">Can I use this to settle a bet or game?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a"><p>Yes. The tool runs entirely in the browser with no server involvement, so no one controls the result. Use it to decide who goes first in a board game, settle a friendly debate, or run a sports coin-toss equivalent.</p></div>
+<div>
+  <h2 class="section-title">Frequently asked questions</h2>
+  <div class="faq-list">
+
+    <details class="faq-item">
+      <summary class="faq-q">Is the coin flip truly random?</summary>
+      <div class="faq-a">
+        <p>Yes. This tool uses <code>crypto.getRandomValues()</code>, the browser's cryptographically secure random number generator — the same API used for TLS session keys. Each flip is a completely independent 50/50 event, with no bias toward heads or tails.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">What is the probability of getting heads or tails?</summary>
+      <div class="faq-a">
+        <p>Each flip has exactly a 50% chance of landing heads and a 50% chance of landing tails. These are independent events — the previous result never influences the next one. Even after ten heads in a row, the next flip is still 50/50.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">Can I flip multiple coins at once?</summary>
+      <div class="faq-a">
+        <p>Yes. Set the "Flips" input to any number from 1 to 100. In multi-flip mode, all results appear as labelled chips immediately and the stats update in bulk — useful for probability experiments or classroom demonstrations.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">What is the gambler's fallacy?</summary>
+      <div class="faq-a">
+        <p>The gambler's fallacy is the mistaken belief that a random event is more or less likely to occur because of previous outcomes. Thinking that tails is "due" after several heads in a row is the classic example. In reality, each flip is independent and past results have zero influence on the next.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">How do I use a coin flip to make a decision?</summary>
+      <div class="faq-a">
+        <p>Assign heads to one option and tails to the other before you flip. Accept the result. Interestingly, if you feel relieved or disappointed by the outcome, that reaction often reveals what you actually wanted — making the coin flip useful beyond just the result itself.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">Can I use this to settle a bet or game?</summary>
+      <div class="faq-a">
+        <p>Yes. The tool runs entirely in the browser with no server involvement, so no one controls the result. Use it to decide who goes first in a board game, settle a friendly debate, or run a sports coin-toss equivalent.</p>
+      </div>
+    </details>
+
   </div>
 </div>
 
@@ -831,7 +824,7 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="/scripts/tool-engine.js?v=30"></script>
+<script src="/scripts/tool-engine.js?v=27"></script>
 <script>
 (function bindSharedWordineerMenu() {
   const mega = document.getElementById('mega');

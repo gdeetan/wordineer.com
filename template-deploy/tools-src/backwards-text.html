@@ -1,0 +1,224 @@
+<!-- CONFIG
+{
+  "url": "/backwards-text/",
+  "output": "backwards-text.html",
+  "type": "tool",
+  "more_tools_key": "more_text_tools",
+  "more_tools_title": "More text tools",
+  "more_tools_subtitle": "Fun text converters and generators — all free"
+}
+-->
+
+<!-- SLOT:meta -->
+<title>Backwards Text Generator — Reverse Text &amp; Mirror Text Online</title>
+<meta name="description" content="Reverse any text instantly with our free backwards text generator. Flip characters or entire words — copy and paste your reversed text anywhere.">
+<meta name="keywords" content="backwards text generator, reverse text, mirror text generator, reverse words online">
+<link rel="canonical" href="https://wordineer.com/backwards-text/">
+<meta property="og:title" content="Backwards Text Generator — Reverse Text Online">
+<meta property="og:description" content="Reverse any text character by character or word by word. Free online tool, no sign-up.">
+<meta property="og:url" content="https://wordineer.com/backwards-text/">
+<meta property="og:type" content="website">
+<!-- /SLOT:meta -->
+
+<!-- SLOT:style -->
+<style>
+.bkt-wrap{max-width:960px;margin:0 auto;padding:0 16px 40px}
+.bkt-label{display:block;font-size:.8rem;font-weight:600;color:#555;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px}
+.bkt-textarea{width:100%;box-sizing:border-box;border:1.5px solid #ddd;border-radius:10px;padding:14px;font-size:1rem;font-family:inherit;resize:vertical;min-height:110px;transition:border-color .2s;outline:none;color:#222;background:#fafafa}
+.bkt-textarea:focus{border-color:#3C3489;background:#fff}
+.bkt-output{background:#f4f3ff;border-color:#c7c3f0;color:#1a1a2e}
+.bkt-mode{display:flex;gap:0;margin-bottom:16px;border:1.5px solid #ddd;border-radius:8px;overflow:hidden;width:fit-content}
+.bkt-mode-btn{padding:8px 18px;border:none;background:#fff;font-size:.85rem;font-weight:600;color:#555;cursor:pointer;transition:background .15s,color .15s}
+.bkt-mode-btn.active{background:#3C3489;color:#fff}
+.bkt-mode-btn:first-child{border-right:1.5px solid #ddd}
+.bkt-arrow{text-align:center;color:#3C3489;font-size:1.4rem;margin:8px 0;line-height:1}
+.bkt-actions{display:flex;gap:10px;margin-top:10px;flex-wrap:wrap}
+.bkt-btn{padding:10px 22px;border:none;border-radius:8px;font-size:.9rem;font-weight:600;cursor:pointer;transition:background .15s,transform .1s}
+.bkt-btn:active{transform:scale(.97)}
+.bkt-btn-copy{background:#3C3489;color:#fff}
+.bkt-btn-copy:hover{background:#2e286b}
+.bkt-btn-clear{background:#ede9ff;color:#3C3489}
+.bkt-btn-clear:hover{background:#d9d3ff}
+.bkt-copied{font-size:.82rem;color:#3C3489;font-weight:600;align-self:center;opacity:0;transition:opacity .3s}
+.bkt-copied.show{opacity:1}
+.bkt-mode-label{font-size:.8rem;font-weight:600;color:#555;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
+</style>
+<!-- /SLOT:style -->
+
+<!-- SLOT:hero -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Wordineer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/text-tools/">Text Tools</a>
+    <span class="breadcrumb-sep">›</span>
+    <span aria-current="page">Backwards Text</span>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#3C3489" stroke-width="1"/><path d="M3.5 5.5l1.5 1.5L8 3.5" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Free · No sign-up · Instant
+  </div>
+  <h1>Backwards text generator</h1>
+  <p>Reverse any text instantly — flip every character or reverse the order of whole words. Copy and paste anywhere.</p>
+  <p style="font-size:12px;color:var(--text-3);margin-top:8px">Built by Garrick Dee · Last verified August 2026</p>
+</div>
+<!-- /SLOT:hero -->
+
+<!-- SLOT:tool -->
+<div class="tool-wrap">
+  <div class="tool-card bkt-wrap">
+    <div class="bkt-mode-label">Reverse mode</div>
+    <div class="bkt-mode" role="group" aria-label="Reverse mode">
+      <button class="bkt-mode-btn active" id="bkt-mode-chars" aria-pressed="true">Reverse characters</button>
+      <button class="bkt-mode-btn" id="bkt-mode-words" aria-pressed="false">Reverse words</button>
+    </div>
+
+    <label class="bkt-label" for="bkt-input">Your text</label>
+    <textarea class="bkt-textarea" id="bkt-input" placeholder="Type or paste text here…" rows="4" autocomplete="off" spellcheck="false"></textarea>
+
+    <div class="bkt-arrow">↔</div>
+
+    <label class="bkt-label" for="bkt-output">Reversed text</label>
+    <textarea class="bkt-textarea bkt-output" id="bkt-output" rows="4" readonly placeholder="Reversed text appears here…"></textarea>
+
+    <div class="bkt-actions">
+      <button class="bkt-btn bkt-btn-copy" id="bkt-copy">Copy</button>
+      <button class="bkt-btn bkt-btn-clear" id="bkt-clear">Clear</button>
+      <span class="bkt-copied" id="bkt-copied">Copied!</span>
+    </div>
+  </div>
+</div>
+<!-- /SLOT:tool -->
+
+<!-- SLOT:ad_b -->
+<!-- /SLOT:ad_b -->
+
+<!-- SLOT:explainer -->
+<div>
+  <h2 class="section-title">How it works</h2>
+  <div class="explainer-grid">
+    <div class="exp-step">
+      <div class="exp-num">1</div>
+      <div>
+        <strong>Pick a reversal mode</strong>
+        <p>Character mode flips the entire string so the last character becomes first — "hello" becomes "olleh". Word mode keeps each word intact and only swaps their order, so sentence structure reverses while individual words stay readable.</p>
+      </div>
+    </div>
+    <div class="exp-step">
+      <div class="exp-num">2</div>
+      <div>
+        <strong>Type or paste — the output is live</strong>
+        <p>The reversed output appears in the lower box immediately as you type. You can switch modes at any point and the output updates instantly without re-entering your text.</p>
+      </div>
+    </div>
+    <div class="exp-step">
+      <div class="exp-num">3</div>
+      <div>
+        <strong>Emoji reverse as single units</strong>
+        <p>Each emoji moves to its new position in the string as a whole — it won't split into broken byte sequences. Multi-character emoji with skin tone modifiers are also preserved intact.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /SLOT:explainer -->
+
+<!-- SLOT:faq -->
+<div class="faq">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <div class="faq-item open">
+    <div class="faq-q"><span class="faq-q-text">What is a backwards text generator?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>A backwards text generator reverses the order of characters or words in a string. "Hello world" becomes "dlrow olleH" in character mode, or "world Hello" in word-reverse mode.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">What is the difference between reverse characters and reverse words?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Reverse characters flips every character in the entire string. Reverse words keeps each word intact but swaps the order of the words — useful for reversing sentence structure while keeping words readable.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Can I paste reversed text into social media?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Yes. The output is plain Unicode text and works anywhere — Twitter, Instagram, Discord, WhatsApp, email, or any text field.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Is the backwards text generator free?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Yes, completely free. No account required and no data is sent to any server — all reversal happens in your browser.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-text">Does reversing text affect emoji in the string?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="faq-a"><p>Each emoji is treated as a single unit and moves as a whole during reversal — "Hi 👋" becomes "👋 iH" in character mode, not a broken byte sequence. Multi-character emoji (like those with skin tone modifiers) are also preserved intact, since the tool operates on JavaScript's string representation, which handles emoji sequences as paired surrogate characters rather than individual bytes.</p></div>
+  </div>
+</div>
+<!-- /SLOT:faq -->
+
+<!-- SLOT:who -->
+<div>
+  <h2 class="section-title" style="margin-bottom:10px">How to use the backwards text generator</h2>
+  <p style="font-size:15px;line-height:1.75;color:var(--text-2)">Pick a mode first: <strong>Reverse characters</strong> flips every character in the string ("hello" → "olleh"), while <strong>Reverse words</strong> keeps each word intact but swaps their order ("hello world" → "world hello"). Then type or paste your text — the reversed output appears immediately below. Click Copy to grab the result, or Clear to start over. You can switch modes at any time and the output updates instantly.</p>
+</div>
+<!-- /SLOT:who -->
+
+<!-- SLOT:init -->
+<script>
+(function(){
+  var mode='chars';
+  var input=document.getElementById('bkt-input');
+  var output=document.getElementById('bkt-output');
+  var copyBtn=document.getElementById('bkt-copy');
+  var clearBtn=document.getElementById('bkt-clear');
+  var copiedMsg=document.getElementById('bkt-copied');
+  var modeCharsBtn=document.getElementById('bkt-mode-chars');
+  var modeWordsBtn=document.getElementById('bkt-mode-words');
+  var copiedTimer=null;
+
+  function reverseChars(str){
+    return str.split('').reverse().join('');
+  }
+
+  function reverseWords(str){
+    return str.split(/(\s+)/).reverse().join('');
+  }
+
+  function convert(){
+    var val=input.value;
+    output.value=mode==='chars'?reverseChars(val):reverseWords(val);
+  }
+
+  function setMode(m){
+    mode=m;
+    if(m==='chars'){
+      modeCharsBtn.classList.add('active');
+      modeCharsBtn.setAttribute('aria-pressed','true');
+      modeWordsBtn.classList.remove('active');
+      modeWordsBtn.setAttribute('aria-pressed','false');
+    } else {
+      modeWordsBtn.classList.add('active');
+      modeWordsBtn.setAttribute('aria-pressed','true');
+      modeCharsBtn.classList.remove('active');
+      modeCharsBtn.setAttribute('aria-pressed','false');
+    }
+    convert();
+  }
+
+  input.addEventListener('input',convert);
+
+  modeCharsBtn.addEventListener('click',function(){setMode('chars');});
+  modeWordsBtn.addEventListener('click',function(){setMode('words');});
+
+  copyBtn.addEventListener('click',function(){
+    if(!output.value)return;
+    navigator.clipboard.writeText(output.value).then(function(){
+      clearTimeout(copiedTimer);
+      copiedMsg.classList.add('show');
+      copiedTimer=setTimeout(function(){copiedMsg.classList.remove('show');},2000);
+    });
+  });
+
+  clearBtn.addEventListener('click',function(){
+    input.value='';
+    output.value='';
+    copiedMsg.classList.remove('show');
+    input.focus();
+  });
+})();
+</script>
+<!-- /SLOT:init -->

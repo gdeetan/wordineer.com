@@ -615,7 +615,10 @@ def find_name_generator_label(data, active_url):
 
 
 def build_software_application_schema(cfg, slots):
-    """Auto-generate SoftwareApplication schema for tool pages."""
+    """Disabled: SoftwareApplication schema requires aggregateRating/review
+    per Google spec; fabricating ratings is a policy violation and Google
+    does not render rich results for free web utilities anyway."""
+    return ''
     if '"SoftwareApplication"' in slots.get('meta', ''):
         return ''  # page already has it (e.g. wordle-helper)
 
