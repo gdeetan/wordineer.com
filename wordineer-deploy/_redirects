@@ -760,3 +760,14 @@ https://www.wordineer.com/*    https://wordineer.com/:splat         301
 /word-search-maker/                     /word-search-maker.html             200
 /rhyming-dictionary.html                /rhyming-dictionary/                301
 /rhyming-dictionary/                    /rhyming-dictionary.html            200
+
+# Multi-letter-prefix word pages — trailing-slash canonical (fixes Ahrefs "canonical points to redirect" on ~702 URLs).
+# Explicit single-letter rules above take precedence; these placeholders only match 2+ letter prefixes.
+/3-letter-words-starting-with-:prefix.html    /3-letter-words-starting-with-:prefix/    301
+/3-letter-words-starting-with-:prefix/        /3-letter-words-starting-with-:prefix.html    200
+/4-letter-words-starting-with-:prefix.html    /4-letter-words-starting-with-:prefix/    301
+/4-letter-words-starting-with-:prefix/        /4-letter-words-starting-with-:prefix.html    200
+/5-letter-words-starting-with-:prefix.html    /5-letter-words-starting-with-:prefix/    301
+/5-letter-words-starting-with-:prefix/        /5-letter-words-starting-with-:prefix.html    200
+/6-letter-words-starting-with-:prefix.html    /6-letter-words-starting-with-:prefix/    301
+/6-letter-words-starting-with-:prefix/        /6-letter-words-starting-with-:prefix.html    200
