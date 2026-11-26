@@ -1,4 +1,4 @@
-<!-- build: 2026-11-26T03:58:46Z -->
+<!-- build: 2026-11-26T04:52:57Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -112,42 +112,42 @@
     {
       "@type": "Question",
       "name": "What is the most secure PIN length?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Eight digits is the strongest option most systems support. A random 8-digit PIN has 100 million possible combinations, compared to 10,000 for a 4-digit PIN. When a system only allows 4 digits, randomness matters most — avoid any pattern, birthday, or number with personal meaning." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Eight digits is probably the best choice, as this length is supported by most systems. A random 8-digit PIN has 100 million possible combinations, whereas a 4-digit PIN has 10,000 possible combinations. So when a system only allows 4 digits, make them as random as possible and avoid any patterns, birthdays, or other numbers that are of personal significance to yourself." }
     },
     {
       "@type": "Question",
       "name": "Is a 4-digit PIN actually safe?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Against real-world attacks, yes — provided the system enforces a lockout after a few wrong guesses. ATM cards and phone lock screens typically lock after 3 to 10 failed attempts. A random 4-digit PIN under those conditions is practically secure. The risk rises when a PIN is the only barrier with no lockout, such as a document password or an unprotected keypad." }
+      "acceptedAnswer": { "@type": "Answer", "text": "It can defend against most attacks as long as the system enforces a lockout after a few failed login attempts. Typical values for ATM cards and for unlocking phone lock screens are 3 to 10 attempts. A random 4-digit PIN is secure enough as long as the PIN is the primary form of protection and there is no lockout policy in place (e.g., for document passwords, for keypads left unlocked)." }
     },
     {
       "@type": "Question",
       "name": "Does this tool store or transmit my PINs?",
-      "acceptedAnswer": { "@type": "Answer", "text": "No. The PIN generation runs entirely inside your browser using JavaScript and the Web Cryptography API. Nothing is sent to any server. The history shown on the page lives only in browser memory and disappears when you close or reload the tab. There is no database, no log, and no analytics capturing what you generate." }
+      "acceptedAnswer": { "@type": "Answer", "text": "No. All generation happens right in your browser using JavaScript. The Web Cryptography API is used on your computer/phone/tablet. Nothing is sent to any servers. History of generation is only stored in the browser's memory and deleted when the browser window is closed, or the browser is reloaded. No database, no log files, no analytics of what you generated here." }
     },
     {
       "@type": "Question",
       "name": "What makes a PIN weak?",
-      "acceptedAnswer": { "@type": "Answer", "text": "The most common weak patterns are: repeated digits (1111, 2222, 0000), ascending or descending sequences (1234, 9876), mirror patterns (1221, 1001), years (1990, 2001), and birthdays formatted as MMDD or DDMM. Research on leaked PIN databases consistently shows these patterns dominate human-chosen PINs, making them the first guesses any attacker tries." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Examples of such weak patterns are: repeated numbers (1111, 2222, 0000), increasing or decreasing numbers (1234, 9876), symmetric numbers (1221, 1001), years (1990, 2001), and even birthdays in MMDD or DDMM format. Such patterns occur with overwhelming frequency in real-life PINs, and attackers typically use one of them in their first targeted attempts. A randomly generated PIN contains no such patterns." }
     },
     {
       "@type": "Question",
       "name": "Can I use letters in a PIN?",
-      "acceptedAnswer": { "@type": "Answer", "text": "By definition a PIN is numeric. If a system accepts letters and numbers, it is usually called a passcode — and combining both significantly increases the number of possible combinations. This tool generates pure numeric PINs, which is what the vast majority of ATMs, phones, safes, and door locks require." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Typically, when someone refers to a PIN, they mean a numeric value (as opposed to letters and numbers), and such a system is usually called a passcode. But generating pure numeric PINs for systems such as ATMs, mobile phones, safe combinations, etc. is what this tool is intended for." }
     },
     {
       "@type": "Question",
       "name": "What is the difference between a PIN and a password?",
-      "acceptedAnswer": { "@type": "Answer", "text": "PINs are short, numeric codes — typically 4 to 8 digits — designed for systems with physical lockout protection. Passwords are longer and can use letters, numbers, and symbols, giving them far more possible combinations. PINs work well for ATMs and phone lock screens because the hardware limits guessing attempts. For online accounts, always use a full password or passphrase instead of a PIN." }
+      "acceptedAnswer": { "@type": "Answer", "text": "PINs (Personal Identification Numbers) are very short, numeric-only codes, typically between 4 and 8 digits in length. Because PINs are used in systems where the hardware can limit the number of guesses an attacker can make, they are normally short enough to be easily memorized by a human. PINs are great for things like ATM logon and locking/unlocking phone handsets. For online access to accounts that allow a password, it is much better to use a full password rather than a short PIN-style code." }
     },
     {
       "@type": "Question",
       "name": "Does turning on no-repeat actually make a PIN more secure?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Slightly — it removes the obvious weak combinations like 1111 and removes some guessable patterns. More practically, it also prevents any individual digit from appearing twice, which rules out a portion of the most commonly guessed PINs. The improvement is modest but costs nothing. For most purposes, generating a truly random PIN (with or without no-repeat) is the significant improvement over picking one yourself." }
+      "acceptedAnswer": { "@type": "Answer", "text": "There is no meaningful increase in possible PINs, just removal of weak patterns. Really weak PIN patterns like 1111, 2222, and 0000 are typically in the top 10 of most guessed PINs. No-repeat eliminates all of these. However, the larger security benefit is that a PIN is randomly chosen in the first place. Such a PIN is typically not in the top 10 of most guessed PINs; there are only a finite number of compromised PINs in the top 10." }
     },
     {
       "@type": "Question",
       "name": "Can I use this for my bank card or ATM PIN?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. A randomly generated PIN is always a better choice than one you pick yourself. Bank cards are protected by a 3-attempt lockout before the card is blocked, so even a 4-digit random PIN provides strong real-world security. Generate one here, memorize it or store it in a password manager, and never write it on or near the card." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes, this is a good idea. Random numbers are generally better chosen than numbers chosen by a human. For bank cards, it's common to have a 3-attempt lockout before the card is blocked. Therefore, even a simple 4-digit PIN provides good protection in real life. Generate a PIN here, commit it to memory, or store it in your password manager. Don't write it on the back of the card, and try not to carry it in the same wallet as the card." }
     }
   ]
 }
@@ -468,35 +468,35 @@
   <h2 class="faq-title">Frequently asked questions</h2>
   <div class="faq-item open">
     <div class="faq-q"><span class="faq-q-text">What is the most secure PIN length?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Eight digits is the strongest option most systems support. A random 8-digit PIN has 100 million possible combinations, compared to 10,000 for a 4-digit PIN. When a system only allows 4 digits, randomness matters most — avoid any pattern, birthday, or number with personal meaning.</div>
+    <div class="faq-a">Eight digits is probably the best choice, as this length is supported by most systems. A random 8-digit PIN has 100 million possible combinations, whereas a 4-digit PIN has 10,000 possible combinations. So when a system only allows 4 digits, make them as <a href="/random-number-generator">random</a> as possible and avoid any patterns, birthdays, or other numbers that are of personal significance to yourself.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">Is a 4-digit PIN actually safe?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Against real-world attacks, yes — provided the system enforces a lockout after a few wrong guesses. ATM cards and phone lock screens typically lock after 3 to 10 failed attempts. A random 4-digit PIN under those conditions is practically secure. The risk rises when a PIN is the only barrier with no lockout policy, such as a document password or an unprotected keypad with no attempt limit.</div>
+    <div class="faq-a">It can defend against most attacks as long as the system enforces a lockout after a few failed login attempts. Typical values for ATM cards and for unlocking phone lock screens are 3 to 10 attempts. A random 4-digit PIN is secure enough as long as the PIN is the primary form of protection and there is no lockout policy in place (e.g., for <a href="/password-generator">document passwords</a>, for keypads left unlocked).</div>
   </div>
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">Does this tool store or transmit my PINs?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">No. The generation runs entirely inside your browser using JavaScript and the Web Cryptography API. Nothing is sent to any server. The history shown on the page lives only in browser memory and disappears when you close or reload the tab. There is no database, no log file, and no analytics capturing what you generate here.</div>
+    <div class="faq-a">No. All generation happens right in your browser using JavaScript. The Web Cryptography API is used on your computer/phone/tablet. Nothing is sent to any servers. History of generation is only stored in the browser's memory and deleted when the browser window is closed, or the browser is reloaded. No database, no log files, no analytics of what you generated here.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">What makes a PIN weak?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">The most common weak patterns: repeated digits (1111, 2222, 0000), ascending or descending sequences (1234, 9876), mirror patterns (1221, 1001), calendar years (1990, 2001), and birthdays formatted as MMDD or DDMM. Research on leaked PIN datasets shows these patterns dominate human-chosen PINs and are the first guesses any targeted attacker tries. A randomly generated PIN has none of these patterns by design.</div>
+    <div class="faq-a">Examples of such weak patterns are: repeated numbers (1111, 2222, 0000), increasing or decreasing numbers (1234, 9876), symmetric numbers (1221, 1001), years (1990, 2001), and even birthdays in MMDD or DDMM format. Such patterns occur with overwhelming frequency in real-life PINs, and attackers typically use one of them in their first targeted attempts. A <a href="/random-number-generator">randomly generated</a> PIN contains no such patterns.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">Can I use letters in a PIN?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">By definition a PIN is numeric. If a system accepts letters and numbers, it is usually called a passcode — and adding letters significantly increases the number of possible combinations, making it much harder to crack. This tool generates pure numeric PINs, which is what the vast majority of ATMs, phones, safes, and door locks require.</div>
+    <div class="faq-a">Typically, when someone refers to a PIN, they mean a numeric value (as opposed to letters and numbers), and such a system is usually called a <a href="/password-generator">passcode</a>. But generating pure numeric PINs for systems such as ATMs, mobile phones, safe combinations, etc. is what this tool is intended for.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">What is the difference between a PIN and a password?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">PINs are short, numeric codes — typically 4 to 8 digits — designed for systems where hardware enforces a limited number of guessing attempts. Passwords are longer and use letters, numbers, and symbols, which gives them far more possible combinations. PINs work well for ATMs and phone lock screens because the hardware compensates for their brevity by blocking brute-force. For online accounts that accept a full password, always use one instead of a short numeric code.</div>
+    <div class="faq-a">PINs (Personal Identification Numbers) are very short, numeric-only codes, typically between 4 and 8 digits in length. Because PINs are used in systems where the hardware can limit the number of guesses an attacker can make, they are normally short enough to be easily memorized by a human. PINs are great for things like ATM logon and locking/unlocking phone handsets. For online access to accounts that allow a password, it is much better to use a <a href="/password-generator">full password</a> rather than a short PIN-style code.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">Does turning on no-repeat actually make a PIN more secure?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Marginally in terms of raw combinations, but more meaningfully by eliminating obvious weak patterns. Combinations like 1111, 2222, and 0000 are among the most commonly guessed PINs. No-repeat removes all of them. The bigger security gain is simply using a randomly generated PIN at all — that alone removes your number from the top-10 guess lists that account for a disproportionate share of real-world PIN compromises.</div>
+    <div class="faq-a">There is no meaningful increase in possible PINs, just removal of weak patterns. Really weak PIN patterns like 1111, 2222, and 0000 are typically in the top 10 of most guessed PINs. No-repeat eliminates all of these. However, the larger security benefit is that a PIN is randomly chosen in the first place. Such a PIN is typically not in the top 10 of most guessed PINs; there are only a finite number of compromised PINs in the top 10.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q"><span class="faq-q-text">Can I use this for my bank card or ATM PIN?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-    <div class="faq-a">Yes, and it's a good idea. A randomly generated PIN is always better than one you choose yourself. Bank cards are protected by a 3-attempt lockout before the card is blocked, so a random 4-digit PIN provides strong real-world security. Generate one here, commit it to memory or store it in a password manager, and never write it on the card or keep it in the same wallet.</div>
+    <div class="faq-a">Yes, this is a good idea. <a href="/random-number-generator">Random numbers</a> are generally better chosen than numbers chosen by a human. For bank cards, it's common to have a 3-attempt lockout before the card is blocked. Therefore, even a simple 4-digit PIN provides good protection in real life. Generate a PIN here, commit it to memory, or store it in your password manager. Don't write it on the back of the card, and try not to carry it in the same wallet as the card.</div>
   </div>
 </div>
 
